@@ -1,0 +1,87 @@
+schema_version: 1
+base_study: configs/simulation/cropcraft_field_robustness_smoke_v10_r1.yaml
+release: cropcraft_field_robustness_pilot_v10_r1
+purpose: >-
+  bounded dryland Sorghum pilot with broad training randomization and
+  asset/seed-disjoint realistic synthetic validation and test stress roles
+frames_per_scene: 2
+
+splits:
+  train:
+    scenes: 24
+    quality_gates:
+      expected_pairs: 48
+      # One crop-negative view in 48 is useful hard-negative coverage; larger
+      # rates indicate camera/row placement drift and remain fail-closed.
+      max_crop_free_frame_fraction: 0.025
+      max_weed_free_frame_fraction: 0.25
+      max_exact_rgb_duplicates: 0
+      max_exact_mask_duplicates_across_scenes: 0
+      minimum_mean_crop_fraction: 0.0005
+      maximum_mean_crop_fraction: 0.35
+      minimum_mean_weed_fraction: 0.001
+      maximum_mean_weed_fraction: 0.30
+      minimum_used_crop_model_variants: 5
+      minimum_used_ground_families: 10
+      minimum_used_environment_families: 10
+      minimum_used_surface_profiles: 1
+      minimum_surface_parameter_spans:
+        environment_strength: 0.65
+        soil_moisture: 0.75
+        tillage_mode: 2.40
+        tillage_strength: 0.45
+        sun_energy: 1.00
+        sun_elevation_deg: 55.0
+        local_shadow_fraction: 0.40
+        artificial_light_energy: 120.0
+        artificial_light_warmth: 0.75
+
+  val:
+    scenes: 6
+    quality_gates:
+      expected_pairs: 12
+      max_crop_free_frame_fraction: 0.0
+      max_weed_free_frame_fraction: 0.50
+      max_exact_rgb_duplicates: 0
+      max_exact_mask_duplicates_across_scenes: 0
+      minimum_mean_crop_fraction: 0.0005
+      maximum_mean_crop_fraction: 0.35
+      minimum_mean_weed_fraction: 0.0001
+      maximum_mean_weed_fraction: 0.30
+      minimum_used_crop_model_variants: 4
+      minimum_used_ground_families: 2
+      minimum_used_environment_families: 2
+      minimum_used_surface_profiles: 1
+      minimum_surface_parameter_spans:
+        environment_strength: 0.30
+        soil_moisture: 0.35
+        tillage_mode: 1.50
+        sun_energy: 0.50
+        sun_elevation_deg: 28.0
+        local_shadow_fraction: 0.20
+        artificial_light_energy: 55.0
+
+  test:
+    scenes: 6
+    quality_gates:
+      expected_pairs: 12
+      max_crop_free_frame_fraction: 0.0
+      max_weed_free_frame_fraction: 0.50
+      max_exact_rgb_duplicates: 0
+      max_exact_mask_duplicates_across_scenes: 0
+      minimum_mean_crop_fraction: 0.0005
+      maximum_mean_crop_fraction: 0.35
+      minimum_mean_weed_fraction: 0.0001
+      maximum_mean_weed_fraction: 0.30
+      minimum_used_crop_model_variants: 4
+      minimum_used_ground_families: 2
+      minimum_used_environment_families: 2
+      minimum_used_surface_profiles: 1
+      minimum_surface_parameter_spans:
+        environment_strength: 0.30
+        soil_moisture: 0.35
+        tillage_mode: 1.00
+        sun_energy: 0.50
+        sun_elevation_deg: 28.0
+        local_shadow_fraction: 0.20
+        artificial_light_energy: 55.0

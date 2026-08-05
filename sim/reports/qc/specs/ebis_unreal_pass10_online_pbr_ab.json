@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "name": "unreal_concrete003_direct_pbr_cam10_cylinder",
+      "reference": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_9_dataset_2026_01_22_15_01_12_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-1_frame-00340.png",
+      "baseline": "unreal-ebis/output/realism_r65_irregular_pores_low_spec_release_60220/raw/images/ebis_camera_angled_060223.png",
+      "candidate": "reports/qc/verification/source_frames/pass10/ue_ambientcg_concrete003_60223.png",
+      "changed_factor": "Unreal concrete body shader only: procedural V29 versus direct pinned CC0 ambientCG Concrete003 colour/roughness/NormalDX at 2x UV tiling",
+      "matched_control": {
+        "engine": "Unreal Engine 5.8.1 SceneCapture",
+        "seed": 60223,
+        "camera": "camera_angled / cam-10",
+        "shape": "cylinder",
+        "resolution": "1280x720",
+        "geometry": "identical; outside-concrete mean absolute RGB difference <= 0.014/255",
+        "camera_model": "identical",
+        "sensor_response": "identical deterministic seed"
+      }
+    }
+  ]
+}

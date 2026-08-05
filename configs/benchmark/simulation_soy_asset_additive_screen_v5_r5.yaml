@@ -1,0 +1,66 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simulation_soy_asset_additive_screen_v5_r5
+data_license_scope: research_real_plus_cc0_and_procedural_soy_assets
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  - name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3600
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Equal-compute negative control: 90 extra draws/epoch are distributed over
+  # the accepted recipe rather than credited to soybean data.
+  - name: simab_v3_05_paddy05_compute3690_e8_v5
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3690
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Preserve the accepted 3,600-example recipe's absolute expected draw count
+  # for every existing source, then append 90 soybean-synthetic draws.
+  - name: simab_v3_05_paddy05_soyadd90_3690_e8_v5
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_soy_trainval_v5_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3690
+      dataset_weights:
+        phenobench: 0.158048780487805
+        acre: 0.158048780487805
+        weedsgalore: 0.043902439024390
+        we3ds: 0.237073170731707
+        rose: 0.193170731707317
+        sorghum_weed: 0.087804878048780
+        cropcraft_agri_robust_pilot_v3: 0.048780487804878
+        cropcraft_paddy_pilot_v4_r5: 0.048780487804878
+        cropcraft_soy_pilot_v5_r5: 0.024390243902439

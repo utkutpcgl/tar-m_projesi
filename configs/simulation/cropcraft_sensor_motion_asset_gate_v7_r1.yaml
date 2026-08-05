@@ -1,0 +1,162 @@
+schema_version: 1
+protocol_id: cropcraft_sensor_motion_asset_gate_v7_r1
+scope: research_semantic_crop_segmentation_sensor_robustness
+frozen_before_asset_build: true
+frozen_at: '2026-08-03T11:33:38+03:00'
+prebuild_preflight_amendment: >-
+  The first invocation stopped before creating any output because both source
+  manifests correctly preserve their original 80-train/20-val scene roles.
+  The builder's incorrect all-train assumption was replaced, before any asset
+  build, by an exact scene 0-19=train and 20-24=val assertion. No threshold,
+  kernel, source, output, or downstream acceptance rule changed.
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+hypothesis:
+  measured_gap: >-
+    The accepted model loses roughly 0.176 mIoU between matched sharp and
+    motion-blurred DeBlurWeedSeg development images. Existing training applies
+    occasional isotropic Gaussian blur but no directional exposure trajectory.
+  isolated_change: >-
+    Decode each accepted dryland/paddy synthetic RGB once, integrate it through
+    a normalized sub-pixel camera-shake PSF, and preserve the exact source mask.
+  why_not_new_botanical_mesh: >-
+    Dryland V3 and paddy R5 already passed multi-seed real-domain asset gates.
+    Soy morphology repeatedly improved its target domain but failed global
+    non-inferiority; another unmeasured mesh is not the smallest supported fix.
+  real_deblurweedseg_pixels_in_assets_or_training: 0
+  deblurweedseg_role_before_model_screen: >-
+    Prior diagnostic motivates the physical nuisance only. No kernel length,
+    angle, curvature, image, mask, cutout, or texture is fitted or copied from
+    DeBlurWeedSeg. Its fixed sharp/blur pairs may later be development-only
+    model-screen evidence, never an external-test claim.
+  forbidden_changes:
+    - botanical_geometry_change
+    - soil_or_hdri_change
+    - crop_or_weed_density_change
+    - source_mask_change
+    - real_image_pixels_in_synthetic_assets
+    - model_or_hyperparameter_change_during_asset_build
+    - external_or_final_test_use
+
+sources:
+  dryland:
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_agri_robust_pilot_v3.csv
+    sha256: bb3acd9dd9e43db19898e10ae990b366513dc2f3202f14d019918a6d0e228ec1
+    release_receipt: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/agri_robust_pilot_v3_r1/release_receipt.json
+    release_receipt_sha256: cb8d45c27bf45f65814843e3d14c62103968f31fe32ee9091c150e427b7a6e69
+    expected_samples: 100
+    expected_scenes: 25
+    target_crop_id: 4
+  paddy:
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_paddy_pilot_v4_r5.csv
+    sha256: 0fd1e18fa7a89011db9c680dbfd9484fe898f045288345fe60b1e5f4d345ca4f
+    release_receipt: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/paddy_pilot_v4_r5/release_receipt.json
+    release_receipt_sha256: 3d69df5b564d49974601ae67495b3619bb8cd015c9d787e1ff6c1f8fbf3715f5
+    expected_samples: 100
+    expected_scenes: 25
+    target_crop_id: 12
+
+split_protocol:
+  unit: source_scene
+  training_source_scenes: [0, 19]
+  external_calibration_source_scenes: [20, 24]
+  train_and_calibration_share_no_source_scene: true
+  generated_variants_per_source_image: 1
+  note: >-
+    Existing source manifests use train because they are training assets. The
+    sensor pilot restores their original 20-scene/5-scene release partition;
+    only the first 20 scenes of each source can enter the model challenger.
+
+kernel_bank:
+  seed: 73117
+  count: 32
+  size: 41
+  lengths_px:
+    - 5
+    - 7
+    - 9
+    - 11
+    - 13
+    - 15
+    - 17
+    - 19
+    - 21
+    - 23
+    - 25
+    - 7
+    - 11
+    - 15
+    - 19
+    - 23
+    - 5
+    - 7
+    - 9
+    - 11
+    - 13
+    - 15
+    - 17
+    - 19
+    - 21
+    - 23
+    - 25
+    - 9
+    - 13
+    - 17
+    - 21
+    - 25
+  first_half_trajectory: linear
+  second_half_trajectory: smooth_curved_camera_shake
+  angle_policy: uniform_0_to_180_with_seeded_plus_minus_2_degree_jitter
+  antialiasing: subpixel_bilinear_splat_plus_sigma_0.35_psf_raster_filter
+  convolution_border: reflect_101
+  rgb_storage: lossless_png_after_source_jpeg_decode
+
+quality_gate:
+  expected_samples: 200
+  expected_train_samples: 160
+  expected_calibration_samples: 40
+  expected_kernels: 32
+  minimum_length_families: 10
+  minimum_angle_bins: 8
+  maximum_kernel_centroid_error_px: 0.15
+  minimum_median_absolute_change: 0.005
+  maximum_median_absolute_change: 0.12
+  maximum_p95_channel_mean_shift: 0.02
+  minimum_median_gradient_ratio: 0.35
+  maximum_median_gradient_ratio: 0.95
+  require_every_rgb_to_change: true
+  require_no_generated_exact_rgb_duplicates: true
+  require_exact_source_mask_reuse: true
+  require_scene_disjoint_split: true
+  require_manual_sharp_blur_mask_overlay_review: true
+  require_cross_real_exact_and_dhash256_hamming2_audit: true
+
+capacity:
+  expected_output_bytes: 536870912
+  minimum_free_bytes_after: 21474836480
+
+outputs:
+  asset_pack: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/synthetic_assets/cropcraft_sensor_motion_v7_r1
+  release: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/sensor_motion_pilot_v7_r1
+  manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_sensor_motion_pilot_v7_r1.csv
+  audit: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_asset_quality_v7_r1.json
+  contact_sheet: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/qc/cropcraft_sensor_motion_review_v7_r1.png
+  contact_sheet_receipt: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_review_v7_r1.json
+
+locked_inputs:
+  builder_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/build_cropcraft_sensor_motion_assets.py
+    sha256: dcff5b3cb5609e30e7dc8978244d3388f6635a170bef6e2ce3ed136ac179268c
+  accepted_paddy_selection:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_paddy_asset_confirmation_selection_v4_r5.json
+    sha256: 3f4f62c79cd99afbc7bbc149f0d798cda0053c96a106f187d3a9514ce376f50b
+  deblur_diagnostic:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/deblurweedseg_motion_blur_diagnostic_v1.json
+    sha256: b4ca3c87410f1ad181cde1a01dae390228fc057b15cc9b83da20c38fcceb8c97
+  deblur_protocol:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/deblurweedseg_motion_blur_protocol_v1.yaml
+    sha256: 5544513734801fe19425b67fa0f1436a88427c4b83049eae6564e7f02b167e62
+
+external_test_used: false
+spray_deployment_eligible_from_this_gate: false

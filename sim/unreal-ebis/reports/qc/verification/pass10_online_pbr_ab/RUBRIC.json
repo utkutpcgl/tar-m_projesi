@@ -1,0 +1,51 @@
+{
+  "axes": [
+    "geometry_silhouette",
+    "material_brdf",
+    "lighting_shadow",
+    "surface_microstructure",
+    "camera_sensor",
+    "rfid_contact_occlusion",
+    "overall_plausibility"
+  ],
+  "cases": [
+    {
+      "confidence": "high",
+      "name": "unreal_concrete003_direct_pbr_cam10_cylinder",
+      "pixel_grounded_reason": "A has the real localized upper damage, mixed pore sizes and restrained cast skin. Among synthetic options, B preserves the smooth cast body and sparse void hierarchy; C turns the entire cylinder into repeated coarse stone relief.",
+      "scores": {
+        "A": {
+          "camera_sensor": 5,
+          "geometry_silhouette": 5,
+          "lighting_shadow": 5,
+          "material_brdf": 5,
+          "overall_plausibility": 5,
+          "rfid_contact_occlusion": 4,
+          "surface_microstructure": 5
+        },
+        "B": {
+          "camera_sensor": 3,
+          "geometry_silhouette": 4,
+          "lighting_shadow": 3,
+          "material_brdf": 3,
+          "overall_plausibility": 3,
+          "rfid_contact_occlusion": 4,
+          "surface_microstructure": 3
+        },
+        "C": {
+          "camera_sensor": 3,
+          "geometry_silhouette": 4,
+          "lighting_shadow": 3,
+          "material_brdf": 1,
+          "overall_plausibility": 2,
+          "rfid_contact_occlusion": 4,
+          "surface_microstructure": 1
+        }
+      },
+      "winner": "A",
+      "synthetic_decision": "B over C; reject direct ambientCG Concrete003 as Unreal body driver"
+    }
+  ],
+  "instructions": "Score A/B/C independently from 1 (implausible) to 5 (closest to a real EBIS capture). Do not open PRIVATE_MAPPING.json first. Add one short pixel-grounded reason for every winner.",
+  "schema_version": 1
+}

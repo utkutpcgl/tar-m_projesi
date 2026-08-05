@@ -1,0 +1,59 @@
+experiment: overfit20_real_final_stratified_v3
+seed: 17
+deterministic: true
+device: cuda
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/overfit20_real_final_stratified.csv
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs
+cache_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/cache
+commercial_only: false
+
+model:
+  architecture: convnext_tiny_fpn
+  pretrained: true
+  trainable: stage4
+  decoder_width: 128
+  head: factorized
+  num_crop_ids: 32
+  known_crop_ids: [0, 2, 3, 5, 6, 7, 8, 9]
+  conditioning_dropout: 0.0
+
+training:
+  train_split: train
+  val_split: train
+  epochs: 80
+  validate_every: 10
+  calibrate_unknown_crop: false
+  crop_size: 512
+  augment: false
+  eval_fixed_crop: true
+  batch_size: 4
+  eval_batch_size: 1
+  gradient_accumulation: 1
+  samples_per_epoch: 100
+  workers: 4
+  amp: true
+  learning_rate: 0.001
+  backbone_lr_multiplier: 0.1
+  weight_decay: 0.0001
+  warmup_steps: 25
+  gradient_clip: 1.0
+  max_crop_spray_risk: 1.0
+  max_per_image_crop_spray_risk_p99: 1.0
+  max_crop_spray_risk_violation_rate: 1.0
+  weed_thresholds: [0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.99]
+
+loss:
+  class_weights: [0.25, 1.5, 1.0]
+  dice_weight: 0.5
+  crop_safety_weight: 1.0
+  crop_safety_tail_fraction: 1.0
+
+safety:
+  weed_threshold: 0.50
+  crop_threshold: 0.99
+  min_confidence: 0.0
+  min_margin: 0.0
+  max_entropy: 1.0
+  crop_dilation_px: 0

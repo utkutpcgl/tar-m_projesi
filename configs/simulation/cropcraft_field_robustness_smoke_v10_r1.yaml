@@ -1,0 +1,248 @@
+schema_version: 1
+release: cropcraft_field_robustness_smoke_v10_r1
+purpose: >-
+  bounded visual and integrity gate for asset-disjoint soil, tillage, moisture,
+  natural/artificial lighting, local-shadow and residue randomization
+base_config: configs/simulation/cropcraft_agri_base_v2.yaml
+scene_patch: patches/cropcraft/0006-field-robustness-surface-lighting.patch
+asset_pack: data/raw/synthetic_assets/cropcraft_field_robustness_v10_r1
+asset_pack_id: cropcraft_field_robustness_v10_r1
+crop_bed_name: sorghum_rows
+crop_plant_type: sorghum_seedling_v2
+cycle_crop_asset_heights: true
+frames_per_scene: 1
+synthetic_evaluation_policy: diagnostic_only_real_score_weight_zero
+
+manifest_metadata:
+  target_crop_id: 4
+  crop_species: Sorghum bicolor
+  weed_species_optional: procedural mixed early weed families
+  growth_stage_prefix: procedural_early_stage_field_robustness_v10
+  platform: blender_4_5_cycles_field_robustness_v10
+  sensor: synthetic_robot_pinhole_rgb_with_optional_camera_light
+  annotation_exhaustive: true
+  license_status: generated-geometry-CC0-1.0;Poly-Haven-inputs-CC0-1.0
+  commercial_allowed: true
+
+weed_density_ranges:
+  cotyledon: cotyledon_density
+  broadleaf: broadleaf_density
+  grass: grass_density
+  rosette: rosette_density
+
+shared_ranges:
+  camera_height_m: [0.42, 1.10]
+  camera_height_crop_ratio: [3.4, 8.5]
+  camera_fov_deg: [46.0, 76.0]
+  camera_roll_deg: [-6.0, 6.0]
+  camera_pitch_deg: [-6.0, 6.0]
+  camera_yaw_deg: [-12.0, 12.0]
+  camera_y_jitter_m: [0.01, 0.13]
+  environment_rotation_deg: [0.0, 360.0]
+  crop_asset_heights_m: [0.06, 0.09, 0.13, 0.18, 0.24]
+  crop_height_scale: [0.94, 1.06]
+  crop_height_tolerance: [0.10, 0.22]
+  within_row_spacing_m: [0.15, 0.46]
+  between_row_spacing_m: [0.48, 0.98]
+  position_noise_m: [0.002, 0.055]
+  tilt_noise_rad: [0.005, 0.16]
+  scale_noise: [0.02, 0.24]
+  missing_crop_probability: [0.0, 0.24]
+  cotyledon_density: [5.0, 52.0]
+  broadleaf_density: [3.0, 32.0]
+  grass_density: [3.0, 32.0]
+  rosette_density: [2.0, 24.0]
+  stone_density: [2.0, 65.0]
+  water_coverage: [0.0, 0.0]
+  water_depth_m: [0.002, 0.006]
+  water_roughness: [0.18, 0.42]
+  wave_scale: [3.0, 12.0]
+
+surface_parameter_ranges: &surface_ranges
+  environment_strength: environment_strength
+  soil_moisture: soil_moisture
+  tillage_mode: tillage_mode
+  tillage_strength: tillage_strength
+  tillage_scale: tillage_scale
+  tillage_angle_deg: tillage_angle_deg
+  clod_strength: clod_strength
+  clod_scale: clod_scale
+  sun_energy: sun_energy
+  sun_elevation_deg: sun_elevation_deg
+  sun_azimuth_deg: sun_azimuth_deg
+  sun_angle_deg: sun_angle_deg
+  local_shadow_fraction: local_shadow_fraction
+  shadow_seed: shadow_seed
+  artificial_light_energy: artificial_light_energy
+  artificial_light_size_m: artificial_light_size_m
+  artificial_light_warmth: artificial_light_warmth
+  water_coverage: water_coverage
+  water_depth_m: water_depth_m
+  water_roughness: water_roughness
+  wave_scale: wave_scale
+
+splits:
+  train:
+    scenes: 4
+    base_seed: 310000
+    asset_profile:
+      ground_material_ids:
+        - dry_mud_field_001
+        - brown_mud
+        - cracked_red_ground
+        - aerial_mud_1
+        - brown_mud_03
+        - muddy_tracks
+        - raked_dirt
+        - brown_mud_02
+        - red_dirt_mud_01
+        - dirt_aerial_03
+      # The first duplicate makes the historical step-2 scheduler coprime
+      # with the list length; every unique HDRI remains contract-declared.
+      environment_files:
+        - farm_field_puresky_2k.hdr
+        - overcast_soil_puresky_2k.hdr
+        - citrus_orchard_puresky_2k.hdr
+        - pond_2k.hdr
+        - mud_road_puresky_2k.hdr
+        - cloudy_vondelpark_2k.hdr
+        - farmland_overcast_2k.hdr
+        - harvest_2k.hdr
+        - mealie_road_2k.hdr
+        - kloppenheim_01_puresky_2k.hdr
+        - farm_field_puresky_2k.hdr
+      surface_profile: field_robustness_v10
+      surface_parameter_ranges: *surface_ranges
+    ranges:
+      camera_height_m: [0.32, 1.25]
+      camera_height_crop_ratio: [3.0, 9.5]
+      camera_fov_deg: [40.0, 82.0]
+      camera_roll_deg: [-9.0, 9.0]
+      camera_pitch_deg: [-9.0, 9.0]
+      camera_yaw_deg: [-18.0, 18.0]
+      environment_strength: [0.25, 1.1]
+      soil_moisture: [0.0, 1.0]
+      tillage_mode: [0.0, 3.0]
+      tillage_strength: [0.0, 0.65]
+      tillage_scale: [3.0, 24.0]
+      tillage_angle_deg: [0.0, 180.0]
+      clod_strength: [0.0, 0.40]
+      clod_scale: [8.0, 65.0]
+      sun_energy: [0.0, 1.3]
+      sun_elevation_deg: [8.0, 82.0]
+      sun_azimuth_deg: [0.0, 360.0]
+      sun_angle_deg: [0.2, 12.0]
+      local_shadow_fraction: [0.0, 0.55]
+      shadow_seed: [310000.0, 319999.0]
+      artificial_light_energy: [0.0, 160.0]
+      artificial_light_size_m: [0.08, 1.2]
+      artificial_light_warmth: [0.0, 1.0]
+    quality_gates:
+      expected_pairs: 4
+      max_crop_free_frame_fraction: 0.0
+      max_weed_free_frame_fraction: 0.25
+      max_exact_rgb_duplicates: 0
+      max_exact_mask_duplicates_across_scenes: 0
+      minimum_mean_crop_fraction: 0.0005
+      maximum_mean_crop_fraction: 0.35
+      minimum_mean_weed_fraction: 0.001
+      maximum_mean_weed_fraction: 0.30
+      minimum_used_crop_model_variants: 2
+      minimum_used_ground_families: 4
+      minimum_used_environment_families: 4
+      minimum_used_surface_profiles: 1
+
+  val:
+    scenes: 1
+    base_seed: 410000
+    asset_profile:
+      ground_material_ids: [brown_mud_dry, dry_ground_01]
+      environment_files:
+        - dry_hay_field_2k.hdr
+        - approaching_storm_2k.hdr
+        - dry_hay_field_2k.hdr
+      surface_profile: field_robustness_v10
+      surface_parameter_ranges: *surface_ranges
+    ranges:
+      environment_strength: [0.45, 1.1]
+      soil_moisture: [0.08, 0.82]
+      tillage_mode: [0.0, 3.0]
+      tillage_strength: [0.05, 0.48]
+      tillage_scale: [5.0, 18.0]
+      tillage_angle_deg: [0.0, 180.0]
+      clod_strength: [0.03, 0.30]
+      clod_scale: [12.0, 48.0]
+      sun_energy: [0.10, 1.2]
+      sun_elevation_deg: [15.0, 72.0]
+      sun_azimuth_deg: [0.0, 360.0]
+      sun_angle_deg: [0.4, 8.0]
+      local_shadow_fraction: [0.0, 0.42]
+      shadow_seed: [410000.0, 419999.0]
+      artificial_light_energy: [0.0, 120.0]
+      artificial_light_size_m: [0.12, 0.9]
+      artificial_light_warmth: [0.05, 0.75]
+    quality_gates:
+      expected_pairs: 1
+      max_crop_free_frame_fraction: 0.0
+      max_weed_free_frame_fraction: 1.0
+      max_exact_rgb_duplicates: 0
+      max_exact_mask_duplicates_across_scenes: 0
+      minimum_mean_crop_fraction: 0.0005
+      maximum_mean_crop_fraction: 0.35
+      minimum_mean_weed_fraction: 0.0001
+      maximum_mean_weed_fraction: 0.30
+      minimum_used_crop_model_variants: 1
+      minimum_used_ground_families: 1
+      minimum_used_environment_families: 1
+      minimum_used_surface_profiles: 1
+
+  test:
+    scenes: 1
+    base_seed: 510000
+    asset_profile:
+      ground_material_ids: [red_mud_stones, dirt_aerial_02]
+      environment_files:
+        - rural_evening_road_2k.hdr
+        - sunflowers_puresky_2k.hdr
+        - rural_evening_road_2k.hdr
+      surface_profile: field_robustness_v10
+      surface_parameter_ranges: *surface_ranges
+    ranges:
+      environment_strength: [0.45, 1.1]
+      soil_moisture: [0.08, 0.82]
+      tillage_mode: [0.0, 3.0]
+      tillage_strength: [0.05, 0.48]
+      tillage_scale: [5.0, 18.0]
+      tillage_angle_deg: [0.0, 180.0]
+      clod_strength: [0.03, 0.30]
+      clod_scale: [12.0, 48.0]
+      sun_energy: [0.10, 1.2]
+      sun_elevation_deg: [15.0, 72.0]
+      sun_azimuth_deg: [0.0, 360.0]
+      sun_angle_deg: [0.4, 8.0]
+      local_shadow_fraction: [0.0, 0.42]
+      shadow_seed: [510000.0, 519999.0]
+      artificial_light_energy: [0.0, 120.0]
+      artificial_light_size_m: [0.12, 0.9]
+      artificial_light_warmth: [0.05, 0.75]
+    quality_gates:
+      expected_pairs: 1
+      max_crop_free_frame_fraction: 0.0
+      max_weed_free_frame_fraction: 1.0
+      max_exact_rgb_duplicates: 0
+      max_exact_mask_duplicates_across_scenes: 0
+      minimum_mean_crop_fraction: 0.0005
+      maximum_mean_crop_fraction: 0.35
+      minimum_mean_weed_fraction: 0.0001
+      maximum_mean_weed_fraction: 0.30
+      minimum_used_crop_model_variants: 1
+      minimum_used_ground_families: 1
+      minimum_used_environment_families: 1
+      minimum_used_surface_profiles: 1
+
+quality_contract:
+  train_distribution: deliberately broad domain randomization
+  val_test_distribution: realistic central ranges with distinct asset families
+  cross_role_asset_overlap_allowed: false
+  cross_role_seed_overlap_allowed: false
+  synthetic_roles_in_real_selection_score: false

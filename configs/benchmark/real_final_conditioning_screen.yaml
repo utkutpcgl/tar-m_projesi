@@ -1,0 +1,133 @@
+base_config: ../train/base_real_final.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/real_final_conditioning_screen_v2_tail
+data_license_scope: research_only_includes_nc_and_odbl_review_data
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 10
+  validate_every: 5
+  samples_per_epoch: 2800
+  warmup_steps: 175
+
+development_evaluations:
+  - name: cwfid
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+
+candidates:
+  - name: rf2_convnext_stage4_mean1_drop05
+    weight_license_status: review_imagenet_pretraining_terms
+    model: &stage4_drop05
+      architecture: convnext_tiny_fpn
+      trainable: stage4
+      head: factorized
+      conditioning_dropout: 0.50
+    training: &stage4_training
+      learning_rate: 0.0002
+      backbone_lr_multiplier: 0.1
+      batch_size: 6
+      gradient_accumulation: 2
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: rf2_convnext_stage4_nosafety_drop05
+    weight_license_status: review_imagenet_pretraining_terms
+    model: *stage4_drop05
+    training: *stage4_training
+    loss:
+      crop_safety_weight: 0.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: rf2_convnext_stage4_mean1_drop08
+    weight_license_status: review_imagenet_pretraining_terms
+    model: &stage4_drop08
+      architecture: convnext_tiny_fpn
+      trainable: stage4
+      head: factorized
+      conditioning_dropout: 0.80
+    training: *stage4_training
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: rf2_convnext_stage4_nosafety_drop08
+    weight_license_status: review_imagenet_pretraining_terms
+    model: *stage4_drop08
+    training: *stage4_training
+    loss:
+      crop_safety_weight: 0.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: rf2_convnext_frozen_mean1_drop05
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: convnext_tiny_fpn
+      trainable: frozen
+      head: factorized
+      conditioning_dropout: 0.50
+    training:
+      learning_rate: 0.0003
+      batch_size: 8
+      gradient_accumulation: 2
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: rf2_convnext_flat_stage4_mean1
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: convnext_tiny_fpn
+      trainable: stage4
+      head: flat
+    training: *stage4_training
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: rf2_convnext_flat_frozen_mean1
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: convnext_tiny_fpn
+      trainable: frozen
+      head: flat
+    training:
+      learning_rate: 0.0003
+      batch_size: 8
+      gradient_accumulation: 2
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: rf2_dinov2_small_frozen_mean1_drop05
+    weight_license_status: apache_2_0_model_card
+    model:
+      architecture: dinov2_small_fpn
+      trainable: frozen
+      head: factorized
+      conditioning_dropout: 0.50
+    training:
+      learning_rate: 0.0003
+      batch_size: 4
+      gradient_accumulation: 4
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: rf2_segformer_b2_mean1
+    weight_license_status: noncommercial_nvidia_source_code_license
+    model:
+      architecture: segformer_b2
+      trainable: all
+      head: flat
+    training:
+      learning_rate: 0.00006
+      batch_size: 4
+      gradient_accumulation: 4
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0

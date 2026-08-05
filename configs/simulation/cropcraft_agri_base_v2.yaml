@@ -1,0 +1,82 @@
+output_enabled: [description]
+output:
+  description:
+    type: field_description
+    format: json
+    filename: field_description.json
+
+render:
+  directory: render
+  frames: 4
+  samples: 16
+  cycles_device: GPU
+  resolution_x: 512
+  resolution_y: 512
+  env_rotation_deg: 0.0
+  camera:
+    height: 0.70
+    fov_deg: 62.0
+    roll_deg: 0.0
+    pitch_deg: 0.0
+    yaw_deg: 0.0
+    y_jitter: 0.04
+  label_colors:
+    crop: [0, 255, 0]
+    weed: [255, 0, 0]
+    background: [0, 0, 0]
+
+field:
+  random_seed: 270001
+  headland_width: 3.0
+  scattering_extra_width: 1.0
+  beds:
+    sorghum_rows:
+      plant_type: sorghum_seedling_v2
+      plant_height: 0.13
+      height_tolerance_coeff: 0.14
+      plant_distance: 0.28
+      bed_width: 1.60
+      row_distance: 0.72
+      rows_count: 1
+      plants_count: 24
+      beds_count: 1
+      orientation: random
+  noise:
+    position: 0.025
+    tilt: 0.05
+    scale: 0.10
+    missing: 0.12
+  weeds:
+    cotyledon:
+      plant_type: weed_cotyledon_v2
+      max_height: 0.05
+      density: 10.0
+      distance_min: 0.035
+      noise_scale: 0.30
+      noise_offset: 0.02
+    broadleaf:
+      plant_type: weed_broadleaf_v2
+      max_height: 0.08
+      density: 6.0
+      distance_min: 0.055
+      noise_scale: 0.38
+      noise_offset: 0.10
+    grass:
+      plant_type: weed_grass_v2
+      max_height: 0.08
+      density: 5.0
+      distance_min: 0.05
+      noise_scale: 0.34
+      noise_offset: 0.08
+    rosette:
+      plant_type: weed_rosette_v2
+      max_height: 0.06
+      density: 4.0
+      distance_min: 0.07
+      noise_scale: 0.40
+      noise_offset: 0.12
+  stones:
+    density: 30.0
+    distance_min: 0.025
+    noise_scale: 0.34
+    noise_offset: 0.08

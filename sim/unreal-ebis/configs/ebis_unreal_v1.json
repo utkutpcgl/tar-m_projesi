@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "domain": "ebis_press_led_unreal_v1",
+  "physical_revision": "front_hinged_door_blue_chamber_loaded_edge_fracture_pass11_2026-07-30",
+  "units": "centimeters",
+  "classes": [
+    {"id": 0, "name": "rfid_tag"},
+    {"id": 1, "name": "concrete_sample"}
+  ],
+  "evidence": {
+    "real_led_root_local": "../260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli",
+    "real_led_root_3090": "/home/ankaref/Documents/Projects/EBİS/ultralytics_classification/datasets/260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli",
+    "camera_intrinsics_status": "visual fit only; no checkerboard calibration supplied",
+    "physical_geometry_status": "user description is canonical; dimensions remain approximate until measured CAD or ruler-referenced captures are supplied",
+    "real_resolution_px": [1920, 1080],
+    "camera_mapping": {
+      "camera_angled": "cam-10 / Kamera 01",
+      "camera_door": "cam-11 / Kamera 02"
+    },
+    "real_concrete_bbox_medians_yolo": {
+      "camera_angled:cylinder": [0.502, 0.594, 0.255, 0.809],
+      "camera_angled:cube": [0.500, 0.574, 0.496, 0.852],
+      "camera_door:cylinder": [0.511, 0.573, 0.267, 0.854],
+      "camera_door:cube": [0.511, 0.575, 0.487, 0.849]
+    }
+  },
+  "machine": {
+    "chamber_width_cm": 62.0,
+    "chamber_depth_cm": 56.0,
+    "chamber_height_cm": 76.0,
+    "inner_wall_thickness_cm": 2.6,
+    "platen_center_y_cm": 5.2,
+    "lower_platen_top_z_cm": 23.55,
+    "lower_platen_radius_cm": 20.0,
+    "upper_platen_radius_cm": 20.0,
+    "lower_platen_thickness_cm": 4.0,
+    "upper_platen_thickness_cm": 5.0,
+    "lower_contact_face_geometry": "thin full-width used-steel top face; fresh LED and all-REF IR frames show circular/radial wear, concrete residue, debris and localized reflection rather than a clean white platen",
+    "lower_contact_face_thickness_cm": 0.08,
+    "lower_contact_face_diameter_scale": 0.985,
+    "lower_contact_face_surface_profile_weights": {
+      "dry_used": 0.46,
+      "dusty_used": 0.34,
+      "damp_residue": 0.2
+    },
+    "lower_contact_face_surface_status": "provisional bounded augmentation inferred from pass-5 fresh LED and all-REF IR pixels; measure real prevalence and BRDF before production",
+    "upper_contact_face_geometry": "thin dark brushed steel face inset into the upper platen underside; LED and IR evidence rejects a white luminous fascia",
+    "upper_contact_face_thickness_cm": 0.06,
+    "upper_contact_face_diameter_scale": 0.985,
+    "upper_contact_face_bottom_extension_cm": 0.01,
+    "upper_contact_face_material_profile": "bounded_used_steel_v13_dust_tempered_broad_highlight_pending_scan",
+    "platen_brdf_status": "matched-reference correction: upper and lower used-steel regions use predominantly metallic response tempered by dust/residue with broad 0.48-0.68 roughness bands; direct Metal038 texture use was rejected as visually negligible at a safe contribution and real cross-polarized BRDF capture is still required",
+    "platen_nominal_diameter_to_cube_edge_ratio": 2.22,
+    "interior_finish": "fixed blue pebbled powder-coated back/left/right chamber walls; the solid front door and its rounded access cover are grey sheet metal, the overhead shell is dark low-glare steel, and tray/platens are bare used metal",
+    "blue_wall_material_profile": "procedural_hammertone_v2",
+    "interior_panel_materials": {
+      "back": "machine_blue",
+      "left": "machine_blue",
+      "right": "machine_blue",
+      "ceiling": "ceiling_dark",
+      "tray": "machine_grey"
+    },
+    "fixed_camera_stack_count": 0,
+    "fixed_camera_stack_status": "camera bodies remain virtual because supplied frames do not expose them reliably; the rounded grey access cover is attached to the moving front door, not a fixed rear wall",
+    "workshop_backdrop_status": "low-saturation geometry-only depth cue through the front-door opening; unsupported red badges remain omitted",
+    "door_side": "right",
+    "door_leaf_width_cm": 60.6,
+    "door_leaf_height_cm": 73.0,
+    "door_leaf_thickness_cm": 2.6,
+    "door_service_cover_center_from_hinge_cm": 36.0,
+    "door_service_cover_center_z_cm": 43.0,
+    "door_service_cover_size_cm": [20.5, 20.5],
+    "door_open_angle_profiles": {
+      "near_closed": {
+        "weight": 0.3,
+        "range_deg": [4.0, 18.0]
+      },
+      "partially_open": {
+        "weight": 0.55,
+        "range_deg": [20.0, 55.0]
+      },
+      "wide_open": {
+        "weight": 0.15,
+        "range_deg": [60.0, 95.0]
+      }
+    },
+    "door_angle_status": "bounded right-hinged front-door augmentation inferred from time-diverse cam-10/cam-11 opening states; prevalence is not measured",
+    "led_back_length_cm": 57.0,
+    "led_left_length_cm": 46.0,
+    "led_right_length_cm": 46.0,
+    "led_diffuser_height_cm": 0.9,
+    "led_diffuser_depth_cm": 0.28,
+    "led_channel_height_cm": 2.4,
+    "led_channel_depth_cm": 1.35,
+    "led_center_offset_from_upper_platen_bottom_cm": 0.6,
+    "led_lumen_weights": {"back": 0.383, "left": 0.309, "right": 0.308},
+    "led_shadow_model_status": "the three emissive diffuser meshes remain physical geometry, but their SceneCapture rect-light proxies are shadowless because fresh matched V26/V27 pixels showed upper-platen-cut hard triangular Lumen bands absent from the broad time-diverse LED references; visibility and annotation occlusion geometry are unchanged",
+    "wall_dimple_spacing_cm": 4.7,
+    "wall_dimple_diameter_cm": 0.16,
+    "wall_dimple_depth_cm": 0.035,
+    "debris_count_range": [14, 34],
+    "debris_morphology_profile": "angular_fracture_mix_v2",
+    "open_door_angle_deg": 90.0
+  },
+  "sample": {
+    "cube_size_cm": [18.0, 18.0, 18.0],
+    "cylinder_diameter_cm": 12.6,
+    "cylinder_height_cm": 20.1,
+    "material_profile": "procedural_cast_concrete_v2",
+    "material_profile_status": "Unreal V29 candidate: only narrow fine-scale cast variation is connected and dry-body specular is reduced from 0.27 to 0.10; scale-bounded low-contrast variable-aspect pore marks, mostly embedded exposed aggregate, load-zone residue and local fracture geometry carry the accepted spatial detail. V24/r57 was rejected for all-over cellular albedo, V25 for marble-like 5-15 cm clouds, V26 for roughness cells, V27 for an over-smooth body, the concentric R62 pore core for a ring/fastener appearance and direct ambientCG Concrete003 in R67 for an over-rough stone-like/repeating surface",
+    "position_jitter_cm": [1.4, 1.0],
+    "yaw_jitter_deg": 6.0,
+    "damage_range": [0.16, 0.72],
+    "pore_count_range": [105, 170],
+    "pore_radius_cm": [0.035, 0.4],
+    "pore_radius_distribution_power": 2.3,
+    "pore_scale_status": "bounded visual augmentation from fresh time-diverse LED and REF IR review: dense biased-small 0.35-4.0 mm visible recess range with a sparse millimetre-scale tail, kept away from nominal edges so cube/cylinder vertical silhouettes remain straight; measure specimen pore distribution before production",
+    "pore_proxy_status": "R63 single-layer low-contrast variable-aspect flush marks are an annotation-safe SceneCapture proxy, not geometric cavities; R62 concentric dark cores were rejected after actual-pixel review because they resembled rings or fasteners. A scanned/decal normal atlas remains the production replacement",
+    "surface_regime_weights_by_shape": {
+      "cube": {
+        "clean_cast": 0.1,
+        "pitted": 0.28,
+        "edge_worn": 0.44,
+        "spalled": 0.18
+      },
+      "cylinder": {
+        "clean_cast": 0.24,
+        "pitted": 0.46,
+        "edge_worn": 0.23,
+        "spalled": 0.07
+      }
+    },
+    "edge_relief_count_range_by_regime": {
+      "clean_cast": [0, 1],
+      "pitted": [2, 5],
+      "edge_worn": [6, 10],
+      "spalled": [10, 16]
+    },
+    "edge_relief_size_cm": [0.07, 0.45],
+    "exposed_aggregate_count_range_by_regime": {
+      "clean_cast": [0, 2],
+      "pitted": [10, 18],
+      "edge_worn": [14, 24],
+      "spalled": [20, 32]
+    },
+    "exposed_aggregate_radius_cm": [0.07, 0.34],
+    "exposed_aggregate_status": "bounded mostly embedded angular inclusions transferred from the matched Blender/real pass-10 crop; count, colour split and 0.7-3.4 mm radius envelope remain augmentation hypotheses pending macro capture",
+    "top_load_weathering_patch_count_range_by_regime": {
+      "clean_cast": [5, 8],
+      "pitted": [9, 13],
+      "edge_worn": [12, 15],
+      "spalled": [14, 16]
+    },
+    "top_load_weathering_width_fraction_range": [0.015, 0.055],
+    "top_load_weathering_height_fraction_range": [0.01, 0.045],
+    "top_load_weathering_depth_below_top_fraction_range": [0.025, 0.16],
+    "top_load_weathering_half_thickness_cm": [0.015, 0.035],
+    "top_load_weathering_status": "bounded material-only augmentation inferred from fresh task-9..14 LED and every REF machine-camera pixel review; clustered ochre/dark residue stays mostly embedded below the upper platen, preserves the nominal specimen silhouette and is not a measured contamination prevalence or BRDF",
+    "additional_regime_pore_count": {
+      "clean_cast": 0,
+      "pitted": 30,
+      "edge_worn": 24,
+      "spalled": 38
+    },
+    "spalled_cube_notch_fraction_range": {
+      "x": [0.14, 0.26],
+      "y": [0.14, 0.28],
+      "z": [0.18, 0.30]
+    },
+    "spalled_cube_fracture_tooth_count_range": [14, 22],
+    "spalled_cube_notch_status": "pass-11 bounded upper-front loaded-edge loss inferred from broad task-9..14 LED pixels: an explicit three-piece union now spans 14-26% x, 14-28% y and 18-30% z so the loss remains visible below the platen; many small dark/aggregate pieces are inset into the retained fracture wall and floor instead of floating in the void. The multipart target preserves one concrete instance while avoiding unstable runtime booleans. This is augmentation, not measured fracture prevalence or mechanics",
+    "spalled_cylinder_patch_size_cm": [1.2, 3.2],
+    "spalled_cylinder_patch_status": "bounded 18-26-grain additive faceted upper-side proxy inferred from rare damaged cylinder frames; Unreal runtime subtraction is deliberately avoided, the straight nominal body remains authoritative, and this is not a fracture-mechanics simulation",
+    "surface_regime_status": "provisional bounded augmentation inferred from pass-4 fresh LED and IR pixels; measure full real prevalence before production"
+  },
+  "paper_label": {
+    "enabled": true,
+    "cube_occurrence_probability": 0.78,
+    "size_cm": [9.5, 0.025, 7.0],
+    "rotation_deg": [-9.0, 9.0],
+    "rfid_link_probability": 0.74,
+    "rfid_occlusion_weights": {
+      "partial_tip_visible": 0.78,
+      "fully_hidden": 0.22
+    },
+    "visible_tag_tip_fraction_range": [0.15, 0.50],
+    "print_row_count": 7,
+    "handwriting_stroke_range": [3, 6],
+    "tape_count_range": [2, 4],
+    "colour_profile_weights": {
+      "white_form": 0.52,
+      "aged_form": 0.32,
+      "orange_decoy": 0.16
+    },
+    "geometry_scope": "cube front faces only until a measured conformed cylinder-paper mesh exists",
+    "annotation_rule": "paper, ink and tape are non-target physical occluders; visible and amodal instance masks determine RFID labels"
+  },
+  "rfid_tag": {
+    "size_cm": [6.0, 0.012, 1.0],
+    "center_dome_diameter_cm": 0.45,
+    "instance_count_max": 6,
+    "states": [
+      "sample_front",
+      "sample_front",
+      "sample_front",
+      "sample_side",
+      "sample_side",
+      "plate_gap_top",
+      "plate_gap_bottom",
+      "loose_front"
+    ],
+    "state_distribution_status": "provisional bounded augmentation: attached-to-sample states 5/8, platen-gap 2/8, loose 1/8; measure the real corpus before production",
+    "in_plane_rotation_deg": [-34.0, 34.0],
+    "surface_standoff_cm": 0.055,
+    "plate_gap_tip_regimes": {
+      "micro_tip": {
+        "plate_gap_top_cm": [0.2, 0.7],
+        "plate_gap_bottom_cm": [0.2, 0.65]
+      },
+      "partial_exposed": {
+        "plate_gap_top_cm": [0.9, 1.8],
+        "plate_gap_bottom_cm": [0.9, 1.8]
+      },
+      "major_exposed": {
+        "plate_gap_top_cm": [2.0, 2.5],
+        "plate_gap_bottom_cm": [2.0, 2.4]
+      }
+    },
+    "plate_gap_tip_regime_seed_modulo": 4,
+    "plate_gap_tip_regime_by_remainder": {
+      "0": "major_exposed",
+      "1": "partial_exposed",
+      "2": "partial_exposed",
+      "3": "micro_tip"
+    },
+    "cylinder_conform_segments": 16,
+    "contact_profile": "shape_conformed_gap_regime_v4"
+  },
+  "cameras": {
+    "camera_door": {
+      "location_cm": [-19.0, 24.5, 37.0],
+      "target_cm": [6.0, -6.5, 35.5],
+      "horizontal_fov_deg": 100.0,
+      "source": "Kamera 02 / cam-11; rear-right internal view toward the right-hinged front door and variable left opening"
+    },
+    "camera_angled": {
+      "location_cm": [18.4, 24.5, 36.4],
+      "target_cm": [-7.0, -5.5, 35.5],
+      "horizontal_fov_deg": 100.0,
+      "source": "Kamera 01 / cam-10; rear-left internal near-direct view toward the front door"
+    }
+  },
+  "camera_randomization": {
+    "location_jitter_cm": [0.25, 0.25, 0.18],
+    "target_jitter_cm": [0.35, 0.35, 0.25],
+    "roll_jitter_deg": [-0.7, 0.7],
+    "fov_jitter_deg": [-1.2, 1.2],
+    "status": "bounded deterministic surveillance-camera installation tolerance; real intrinsics and pose survey remain required"
+  },
+  "camera_model": {
+    "enabled": true,
+    "profile": "bounded_radial_barrel_v1",
+    "calibration_status": "reduced bounded barrel fit that preserves wide FOV without bending regular specimen edges; not a checkerboard or ChArUco intrinsic calibration",
+    "mesh_step_px": 24,
+    "depth_policy": "reject_until_shared_exr_warp_is_implemented",
+    "cameras": {
+      "camera_angled": {"radial_strength": 0.04},
+      "camera_door": {"radial_strength": 0.04}
+    }
+  },
+  "lighting_profiles": {
+    "led_neutral": {"temperature_k": 5600, "led_lumens": 1380, "camera_fill_lumens": 930, "door_fill_lumens": 390, "contact_spill_lumens": 190},
+    "led_cool": {"temperature_k": 6500, "led_lumens": 1300, "camera_fill_lumens": 900, "door_fill_lumens": 360, "contact_spill_lumens": 170},
+    "door_daylight": {"temperature_k": 6000, "led_lumens": 1450, "camera_fill_lumens": 1080, "door_fill_lumens": 560, "contact_spill_lumens": 210},
+    "used_led_mixed": {"temperature_k": 5700, "led_lumens": 1270, "camera_fill_lumens": 960, "door_fill_lumens": 430, "contact_spill_lumens": 180}
+  },
+  "camera_post": {
+    "manual_exposure_bias": -9.1,
+    "rgb_warmup_frames": 24,
+    "bloom_intensity": 0.035,
+    "ambient_occlusion_intensity": 0.12,
+    "ambient_occlusion_radius_cm": 3.5,
+    "vignette_intensity": 0.08
+  },
+  "render": {
+    "resolution_px": [1920, 1080],
+    "pilot_resolution_px": [1280, 720],
+    "hero_resolution_px": [1920, 1080],
+    "rgb_capture_source": "SCS_FINAL_COLOR_LDR",
+    "mask_capture_source": "SCS_FINAL_COLOR_LDR with unlit black/white override materials and neutral exposure",
+    "anti_aliasing": "TSR",
+    "global_illumination": "Lumen hardware ray tracing",
+    "output_format": "PNG",
+    "depth_output": "32-bit EXR"
+  },
+  "annotation_policy": {
+    "model_input_px": 640,
+    "rfid_tag": {
+      "standard": {
+        "min_short_side_px": 4,
+        "min_long_side_px": 12,
+        "min_foreground_pixels": 40,
+        "min_visibility_fraction": 0.35,
+        "min_largest_component_fraction": 0.65,
+        "min_edge_margin_px": 2
+      },
+      "hard": {
+        "min_short_side_px": 3,
+        "min_long_side_px": 8,
+        "min_foreground_pixels": 20,
+        "min_visibility_fraction": 0.15,
+        "min_largest_component_fraction": 0.45,
+        "min_edge_margin_px": 0
+      }
+    },
+    "partition_rule": "standard iff every visible tag is standard; hard_occlusion iff no visible tag is below-hard and any tag is hard; exclude iff any visible tag is below-hard",
+    "fully_occluded_rule": "amodal pixels > 0 and visible pixels = 0: metadata only, no bbox",
+    "outside_frame_rule": "amodal pixels = 0: metadata only, no bbox",
+    "training_rule": "physically separate standard, hard_occlusion and exclude directories; never train on exclude"
+  },
+  "pilot": {
+    "start_seed": 58200,
+    "count": 16,
+    "hero_seeds": [58200, 58203],
+    "production_gate_count": 100
+  }
+}

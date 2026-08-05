@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "created_local_date": "2026-07-29",
+  "scope": "bounded representative pixel audit; not a population or camera-response calibration",
+  "method": {
+    "intensity": "Pillow RGB-to-L conversion",
+    "percentiles": [5, 50, 95],
+    "concrete_roi": "largest class-1 YOLO bbox in the paired label file",
+    "clipped_threshold": "L >= 251",
+    "crushed_threshold": "L <= 4"
+  },
+  "samples": {
+    "real_cam10": {
+      "image": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_10_dataset_2026_01_23_12_54_24_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-2_frame-00000.png",
+      "bbox_px_xyxy": [850, 208, 1341, 1079],
+      "full": {"p5_p50_p95": [39, 107, 242], "mean": 114.9, "clipped_pct": 3.80, "crushed_pct": 0.79},
+      "concrete_bbox": {"p5_p50_p95": [59, 144, 255], "mean": 144.8, "clipped_pct": 7.92, "crushed_pct": 0.20}
+    },
+    "real_cam11": {
+      "image": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_11_dataset_2026_01_23_07_32_53_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-6_frame-00000.png",
+      "bbox_px_xyxy": [486, 158, 1393, 1080],
+      "full": {"p5_p50_p95": [36, 121, 222], "mean": 120.1, "clipped_pct": 3.77, "crushed_pct": 1.07},
+      "concrete_bbox": {"p5_p50_p95": [65, 134, 254], "mean": 140.0, "clipped_pct": 5.61, "crushed_pct": 0.15}
+    },
+    "blender_cam10": {
+      "image": "ebis-blender/output/realism_v5_2_surface_p1d_54120/partitions/standard/images/ebis_camera_angled_054121.png",
+      "bbox_px_xyxy": [350, 99, 1011, 720],
+      "full": {"p5_p50_p95": [47, 143, 217], "mean": 137.3, "clipped_pct": 0.55, "crushed_pct": 0.05},
+      "concrete_bbox": {"p5_p50_p95": [56, 146, 182], "mean": 142.3, "clipped_pct": 0.05, "crushed_pct": 0.01}
+    },
+    "blender_cam11": {
+      "image": "ebis-blender/output/realism_v5_2_surface_p1d_54120/partitions/standard/images/ebis_camera_door_054122.png",
+      "bbox_px_xyxy": [253, 145, 921, 720],
+      "full": {"p5_p50_p95": [45, 145, 215], "mean": 135.4, "clipped_pct": 0.57, "crushed_pct": 0.71},
+      "concrete_bbox": {"p5_p50_p95": [95, 149, 182], "mean": 146.3, "clipped_pct": 0.05, "crushed_pct": 0.01}
+    },
+    "unreal_cam10": {
+      "image": "unreal-ebis/output/realism_r6_surface_p1f_58200/partitions/standard/images/ebis_camera_angled_058201.png",
+      "bbox_px_xyxy": [356, 119, 959, 720],
+      "full": {"p5_p50_p95": [5, 125, 229], "mean": 129.6, "clipped_pct": 0.00, "crushed_pct": 0.00},
+      "concrete_bbox": {"p5_p50_p95": [5, 170, 215], "mean": 140.4, "clipped_pct": 0.00, "crushed_pct": 0.00}
+    },
+    "unreal_cam11": {
+      "image": "unreal-ebis/output/realism_r6_surface_p1f_58200/partitions/standard/images/ebis_camera_door_058200.png",
+      "bbox_px_xyxy": [326, 127, 952, 720],
+      "full": {"p5_p50_p95": [5, 80, 225], "mean": 98.3, "clipped_pct": 0.00, "crushed_pct": 0.00},
+      "concrete_bbox": {"p5_p50_p95": [5, 112, 221], "mean": 123.3, "clipped_pct": 0.00, "crushed_pct": 0.00}
+    }
+  },
+  "interpretation": {
+    "blender": "Representative concrete means are close, but the real bright-tail, localized LED clipping, rough aggregate and damage are underrepresented. Cam-11 midtones are high.",
+    "unreal": "Cam-10 mean is close, but the concrete median is high and the upper contact boundary enters the ROI at L=5. Cam-11 remains too dark.",
+    "claim_boundary": "These six frames do not establish calibrated sensor response, photorealism, engine superiority, or YOLO benefit."
+  }
+}

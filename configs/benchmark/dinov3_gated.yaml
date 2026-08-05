@@ -1,0 +1,26 @@
+base_config: ../train/base_real.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/dinov3
+seeds: [17]
+
+candidates:
+  - name: dinov3_convnext_tiny_flat_frozen
+    model:
+      architecture: dinov3_convnext_tiny_fpn
+      trainable: frozen
+      head: flat
+
+  - name: dinov3_convnext_tiny_factorized_frozen
+    model:
+      architecture: dinov3_convnext_tiny_fpn
+      trainable: frozen
+      head: factorized
+
+  - name: dinov3_convnext_tiny_factorized_stage4
+    model:
+      architecture: dinov3_convnext_tiny_fpn
+      trainable: stage4
+      head: factorized
+    training:
+      learning_rate: 0.0002
+      backbone_lr_multiplier: 0.1
+

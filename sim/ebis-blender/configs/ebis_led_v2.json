@@ -1,0 +1,685 @@
+{
+  "schema_version": 1,
+  "domain": "ebis_press_led_v2",
+  "physical_revision": "front_hinged_door_blue_chamber_loaded_edge_fracture_pass11_2026-07-30",
+  "units": "meters",
+  "classes": [
+    {
+      "id": 0,
+      "name": "rfid_tag",
+      "object_index": 1
+    },
+    {
+      "id": 1,
+      "name": "concrete_sample",
+      "object_index": 2
+    }
+  ],
+  "evidence": {
+    "machine_reference": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli",
+    "tag_reference": "ebis.odt and LED RGB detection frames",
+    "camera_reference_root": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli",
+    "debris_reference_root": "kırım_makinesi_görselleri",
+    "camera_resolution_px": [
+      1920,
+      1080
+    ],
+    "camera_intrinsics_status": "separate visual fits for Kamera 01/cam-10 and Kamera 02/cam-11; checkerboard calibration not supplied",
+    "real_dataset_audit": {
+      "images": 2960,
+      "rfid_boxes": 15596,
+      "maximum_rfid_instances_in_one_image": 19,
+      "annotation_convention": "visible per-instance boxes, including sufficiently legible platen/sample-gap strips"
+    }
+  },
+  "machine": {
+    "chamber_width_m": 0.62,
+    "chamber_depth_m": 0.56,
+    "chamber_height_m": 0.76,
+    "blue_paint_rgb": [
+      0.015,
+      0.22,
+      0.43
+    ],
+    "blue_wall_material_profile": "procedural_hammertone_v2",
+    "grey_paint_rgb": [
+      0.255,
+      0.275,
+      0.29
+    ],
+    "machine_profile": "REF_FRONT_DOOR_BLUE_CHAMBER_TARGET",
+    "interior_finish": "fixed blue pebbled powder-coated back/left/right chamber walls; the front solid sheet-metal door and its rounded service cover are grey, the upper shell is dark low-glare steel, and the tray/platens are bare used metal",
+    "interior_panel_materials": {
+      "back": "blue",
+      "left": "blue",
+      "right": "blue",
+      "ceiling": "overhead_dark",
+      "tray": "grey"
+    },
+    "platen_geometry": "two 0.40 m diameter circular steel discs, about 2.22x the 0.18 m cube edge; measured CAD still required",
+    "platen_diameter_m": 0.4,
+    "lower_platen_thickness_m": 0.035,
+    "upper_platen_thickness_m": 0.05,
+    "lower_contact_face_geometry": "thin full-width used-steel top face; fresh LED and all-REF IR frames show circular/radial wear, concrete residue, debris and localized reflection rather than a clean white platen",
+    "lower_contact_face_thickness_m": 0.0008,
+    "lower_contact_face_diameter_scale": 0.985,
+    "lower_contact_face_surface_profile_weights": {
+      "dry_used": 0.46,
+      "dusty_used": 0.34,
+      "damp_residue": 0.2
+    },
+    "lower_contact_face_surface_status": "provisional bounded augmentation inferred from pass-5 fresh LED and all-REF IR pixels; measure real prevalence and BRDF before production",
+    "upper_contact_face_geometry": "thin dark brushed steel face inset into the upper platen underside; real LED and IR frames show a dark circular contact disc rather than a white luminous fascia",
+    "upper_contact_face_thickness_m": 0.0006,
+    "upper_contact_face_diameter_scale": 0.985,
+    "upper_contact_face_bottom_extension_m": 0.0001,
+    "upper_contact_face_material_profile": "used_press_steel_v11_broad_highlight_metal038_low_ratio_trial",
+    "platen_scan_strength": 1.0,
+    "platen_brdf_status": "bounded same-seed trial: used-steel metallic response, broad 0.3-0.6 roughness band and procedural machining are the accepted drivers; a weak CC0 Metal038 scratch/roughness contribution is retained but was visually negligible and is not evidence of a better match. Real cross-polarized BRDF capture is still required",
+    "fixed_camera_stack_count": 0,
+    "fixed_camera_stack_status": "camera bodies remain virtual because the supplied frames do not expose them reliably; the large rounded grey access cover belongs to the inner face of the front door, not a fixed rear wall",
+    "door_geometry": "solid grey sheet-metal leaf spans the front aperture, hinges on the right vertical edge and rotates outward; zero degrees closes the front plane and positive angles move the left latch edge toward the workshop",
+    "door_side": "right",
+    "door_leaf_width_m": 0.606,
+    "door_leaf_height_m": 0.73,
+    "door_leaf_thickness_m": 0.026,
+    "door_service_cover_center_from_hinge_m": 0.36,
+    "door_service_cover_center_z_m": 0.43,
+    "door_service_cover_size_m": [
+      0.205,
+      0.205
+    ],
+    "door_open_angle_profiles": {
+      "near_closed": {
+        "weight": 0.3,
+        "range_deg": [
+          4.0,
+          18.0
+        ]
+      },
+      "partially_open": {
+        "weight": 0.55,
+        "range_deg": [
+          20.0,
+          55.0
+        ]
+      },
+      "wide_open": {
+        "weight": 0.15,
+        "range_deg": [
+          60.0,
+          95.0
+        ]
+      }
+    },
+    "led_geometry": "thin recessed three-segment opal channel following the full back+left+right walls at the upper-platen bottom level; the platen physically hides most of it",
+    "led_channel_height_m": 0.024,
+    "led_diffuser_height_m": 0.009,
+    "led_vertical_offset_m": 0.006,
+    "led_front_clearance_m": 0.035,
+    "led_area_energy_w": 34.0,
+    "led_emission_strength": 5.2,
+    "debris_count_range": [
+      14,
+      34
+    ],
+    "debris_morphology_profile": "angular_fracture_mix_v2",
+    "workshop_backdrop": "low-saturation geometry-only depth cue through the front-door opening, strongest at the left latch edge of the right-hinged leaf; unsupported red badges are omitted"
+  },
+  "sample": {
+    "shape": "mixed",
+    "shape_weights": {
+      "cube": 0.42,
+      "cylinder": 0.58
+    },
+    "size_m": [
+      0.18,
+      0.18,
+      0.18
+    ],
+    "cube_size_m": [
+      0.18,
+      0.18,
+      0.18
+    ],
+    "cylinder_diameter_m": 0.126,
+    "cylinder_height_m": 0.201,
+    "material_profile": "ambientcg_concrete003_hybrid_v1",
+    "material_profile_status": "rights-cleared cast-concrete hybrid candidate: CC0 maps contribute bounded aggregate/roughness modulation while true casting voids, mostly embedded exposed aggregate, local faceted fracture and the straight nominal silhouette remain authoritative; direct texture-strength increase failed both the pass-9 blinded crop and the pass-11 same-seed 0.54/1.05-mm candidate (only 0.3115/255 concrete-region mean absolute RGB change and no material visual gain), so geometry carries the accepted change",
+    "material_detail_profile": {
+      "colour_mix": 0.46,
+      "roughness_mix": 0.5,
+      "bump_strength": 0.44,
+      "bump_distance_m": 0.0009
+    },
+    "size_status": "visually fitted to real concrete bbox medians (cube about 0.49w/0.85h, cylinder about 0.26w/0.83h); confirm physical specimen and platen dimensions before production",
+    "position_jitter_m": [
+      0.014,
+      0.01
+    ],
+    "yaw_jitter_deg": 6.0,
+    "yaw_offset_deg_by_shape": {
+      "cube": -7.5,
+      "cylinder": 0.0
+    },
+    "yaw_jitter_deg_by_shape": {
+      "cube": 27.5,
+      "cylinder": 6.0
+    },
+    "yaw_range_deg_by_camera_shape": {
+      "camera_angled": {
+        "cube": [
+          -42.0,
+          -28.0
+        ]
+      },
+      "camera_door": {
+        "cube": [
+          -35.0,
+          20.0
+        ]
+      }
+    },
+    "camera_conditioned_yaw_scope": "calibrated for independent detection stills only; use one shared physical yaw when generating synchronized multi-camera pairs",
+    "moisture_range": [
+      0.0,
+      0.34
+    ],
+    "damage_range": [
+      0.05,
+      0.64
+    ],
+    "damage_distribution_power": 1.55,
+    "pore_count_base": 120,
+    "pore_count_damage_gain": 160,
+    "pore_radius_m": [
+      0.0004,
+      0.0048
+    ],
+    "pore_radius_distribution_power": 2.2,
+    "pore_scale_status": "bounded visual augmentation from fresh time-diverse LED and REF IR review: dense biased-small 0.40-4.80 mm pre-damage radius range with recessed dark backings and a sparse millimetre-scale tail, kept away from nominal edges so cube/cylinder vertical silhouettes stay straight; measure specimen pore distribution before production",
+    "surface_regime_weights_by_shape": {
+      "cube": {
+        "clean_cast": 0.1,
+        "pitted": 0.28,
+        "edge_worn": 0.44,
+        "spalled": 0.18
+      },
+      "cylinder": {
+        "clean_cast": 0.24,
+        "pitted": 0.46,
+        "edge_worn": 0.23,
+        "spalled": 0.07
+      }
+    },
+    "edge_relief_count_range_by_regime": {
+      "clean_cast": [
+        0,
+        1
+      ],
+      "pitted": [
+        2,
+        5
+      ],
+      "edge_worn": [
+        6,
+        10
+      ],
+      "spalled": [
+        10,
+        16
+      ]
+    },
+    "edge_relief_size_m": [
+      0.0007,
+      0.0045
+    ],
+    "exposed_aggregate_count_range_by_regime": {
+      "clean_cast": [
+        0,
+        2
+      ],
+      "pitted": [
+        10,
+        18
+      ],
+      "edge_worn": [
+        14,
+        24
+      ],
+      "spalled": [
+        20,
+        32
+      ]
+    },
+    "exposed_aggregate_radius_m": [
+      0.0007,
+      0.0034
+    ],
+    "exposed_aggregate_status": "bounded mostly embedded faceted inclusions inferred from matched task-9..14 LED crops; count, colour split and 0.7-3.4 mm radius envelope are augmentation hypotheses pending macro photography and sieve/scan measurements",
+    "top_load_weathering_patch_count_range_by_regime": {
+      "clean_cast": [
+        5,
+        8
+      ],
+      "pitted": [
+        9,
+        13
+      ],
+      "edge_worn": [
+        12,
+        15
+      ],
+      "spalled": [
+        14,
+        16
+      ]
+    },
+    "top_load_weathering_width_fraction_range": [
+      0.015,
+      0.055
+    ],
+    "top_load_weathering_height_fraction_range": [
+      0.01,
+      0.045
+    ],
+    "top_load_weathering_depth_below_top_fraction_range": [
+      0.025,
+      0.16
+    ],
+    "top_load_weathering_half_thickness_m": [
+      0.00015,
+      0.00035
+    ],
+    "top_load_weathering_status": "bounded material-only augmentation inferred from fresh task-9..14 LED and every REF machine-camera pixel review; clustered ochre/dark residue stays mostly embedded below the upper platen, preserves the nominal specimen silhouette and is not a measured contamination prevalence or BRDF",
+    "spalled_cube_notch_fraction_range": {
+      "x": [
+        0.14,
+        0.26
+      ],
+      "y": [
+        0.14,
+        0.28
+      ],
+      "z": [
+        0.18,
+        0.3
+      ]
+    },
+    "spalled_cube_fracture_tooth_count_range": [
+      0,
+      0
+    ],
+    "spalled_cube_fracture_cavity_count_range": [
+      1,
+      1
+    ],
+    "spalled_cube_notch_status": "pass-11 bounded upper-front loaded-edge loss inferred from broad task-9..14 LED pixels: the one irregular convex-hull Boolean now spans 14-26% x, 14-28% y and 18-30% z; independent detection stills choose the camera-visible local-x side so the loss is not hidden behind the platen, while synchronized multi-camera generation must retain one shared physical side. 18-28 mostly embedded fracture grains break up the cavity facets. This is augmentation, not measured fracture prevalence or mechanics",
+    "spalled_cylinder_cavity_size_m": [
+      0.012,
+      0.032
+    ],
+    "spalled_cylinder_cavity_status": "bounded single faceted upper-side material loss with 18-26 embedded fracture grains, inferred from rare damaged cylinder frames; preserves the straight nominal sidewall outside one local 12-32 mm cavity and is not a fracture-mechanics simulation",
+    "surface_regime_status": "provisional bounded augmentation inferred from pass-4 fresh LED and IR pixels; measure full real prevalence before production"
+  },
+  "paper_label": {
+    "enabled": true,
+    "count_weights": {
+      "0": 0.32,
+      "1": 0.64,
+      "2": 0.04
+    },
+    "size_m": [
+      0.095,
+      0.07,
+      0.00016
+    ],
+    "rotation_deg": [
+      -9.0,
+      9.0
+    ],
+    "rfid_link_states": [
+      "sample_front",
+      "sample_side"
+    ],
+    "rfid_under_paper_probability": 0.58,
+    "rfid_occlusion_weights": {
+      "partial_tip_visible": 0.78,
+      "fully_hidden": 0.22
+    },
+    "visible_tag_tip_fraction_range": [
+      0.15,
+      0.5
+    ],
+    "handwriting_stroke_range": [
+      3,
+      6
+    ],
+    "colour_profile_weights": {
+      "white_form": 0.52,
+      "aged_form": 0.32,
+      "orange_decoy": 0.16
+    },
+    "colour_profile_status": "bounded non-target appearance augmentation from RGB examples; orange paper remains a physical occluder and is never labeled as RFID",
+    "surface_profile": "used stained paper with fibre micro-bump, broad wrinkle normal, printed rows, non-readable handwriting and two tape strips",
+    "geometry_scope": "cube faces only until a segmented/conformed cylinder-paper mesh is calibrated",
+    "annotation_rule": "paper is a non-target physical occluder; derive one tight visible instance bbox after z-order, omit fully hidden tags, partition disconnected/low-visibility masks via the existing policy"
+  },
+  "rfid_tag": {
+    "size_m": [
+      0.06,
+      0.01,
+      0.00009
+    ],
+    "size_status": "reference-backed approximate measurement",
+    "edge_shape": "sharp",
+    "surface_shape": "flat",
+    "front_srgb": "#A84B00",
+    "back_srgb": "#742800",
+    "center_dome_diameter_m": 0.0045,
+    "instance_pass_index_start": 10,
+    "instance_count_weights": {
+      "0": 0.04,
+      "1": 0.14,
+      "2": 0.23,
+      "3": 0.25,
+      "4": 0.19,
+      "5": 0.1,
+      "6": 0.05
+    },
+    "state_weights": {
+      "sample_front": 0.3,
+      "sample_side": 0.1,
+      "loose_front": 0.15,
+      "loose_back": 0.05,
+      "plate_gap_top": 0.25,
+      "plate_gap_bottom": 0.15
+    },
+    "placement_weights": {
+      "sample_front": 0.3,
+      "sample_side": 0.1,
+      "loose_front": 0.1,
+      "loose_back": 0.05,
+      "plate_gap_top": 0.3,
+      "plate_gap_bottom": 0.15
+    },
+    "in_plane_rotation_deg": [
+      -34.0,
+      34.0
+    ]
+  },
+  "cameras": {
+    "camera_door": {
+      "source_overlay": "Kamera 02 / cam-11; rear-right internal fisheye looking toward the right-hinged front door and its variable left opening",
+      "location_m": [
+        0.19,
+        0.245,
+        0.37
+      ],
+      "target_m": [
+        0.03,
+        -0.065,
+        0.355
+      ],
+      "lens_mm": 2.8,
+      "lens_mm_range": [
+        2.77,
+        2.83
+      ],
+      "sensor_width_mm": 5.8,
+      "location_jitter_m": [
+        0.003,
+        0.003,
+        0.002
+      ],
+      "target_jitter_m": [
+        0.0025,
+        0.001,
+        0.0025
+      ],
+      "roll_jitter_deg": [
+        -0.3,
+        0.3
+      ],
+      "fstop_range": [
+        5.0,
+        6.3
+      ],
+      "compositor_lens_distortion_range": [
+        -0.045,
+        -0.03
+      ],
+      "chromatic_dispersion_range": [
+        0.003,
+        0.005
+      ],
+      "vignette_strength_range": [
+        0.0,
+        0.0
+      ],
+      "exposure_offset_stops": -0.3,
+      "cube_distance_scale": 1.1,
+      "cylinder_distance_scale": 1.055,
+      "cube_target_z_offset_m": 0.003,
+      "cylinder_target_z_offset_m": 0.005,
+      "fov_status": "visually estimated wide-angle profile; not calibrated"
+    },
+    "camera_angled": {
+      "source_overlay": "Kamera 01 / cam-10; rear-left internal fisheye looking nearly directly toward the front door",
+      "location_m": [
+        -0.184,
+        0.245,
+        0.364
+      ],
+      "target_m": [
+        -0.04,
+        -0.055,
+        0.355
+      ],
+      "lens_mm": 2.8,
+      "lens_mm_range": [
+        2.77,
+        2.83
+      ],
+      "sensor_width_mm": 5.8,
+      "location_jitter_m": [
+        0.003,
+        0.003,
+        0.002
+      ],
+      "target_jitter_m": [
+        0.0025,
+        0.001,
+        0.0025
+      ],
+      "roll_jitter_deg": [
+        -0.3,
+        0.3
+      ],
+      "fstop_range": [
+        5.0,
+        6.3
+      ],
+      "compositor_lens_distortion_range": [
+        -0.04,
+        -0.025
+      ],
+      "chromatic_dispersion_range": [
+        0.0025,
+        0.0045
+      ],
+      "vignette_strength_range": [
+        0.0,
+        0.0
+      ],
+      "exposure_offset_stops": -0.06,
+      "cube_distance_scale": 1.055,
+      "cylinder_distance_scale": 1.075,
+      "cylinder_target_z_offset_m": 0.005,
+      "fov_status": "visually estimated wide-angle profile; not calibrated"
+    }
+  },
+  "camera_effects": {
+    "compositor_lens_distortion": -0.035,
+    "chromatic_dispersion": 0.003,
+    "vignette": {
+      "enabled": false,
+      "ellipse_width": 1.2,
+      "ellipse_height": 1.42,
+      "blur_fraction": 32.0
+    },
+    "sensor_sharpen": {
+      "enabled": false,
+      "factor": 0.055
+    },
+    "highlight_bloom": {
+      "enabled": false,
+      "threshold": 0.82,
+      "strength": 0.18,
+      "blur_fraction": 1.2
+    },
+    "lens_dust": {
+      "enabled": true,
+      "occurrence_probability": 0.32,
+      "spot_count_range": [
+        1,
+        5
+      ],
+      "radius_fraction_range": [
+        0.006,
+        0.022
+      ],
+      "opacity_range": [
+        0.008,
+        0.03
+      ],
+      "scope": "subtle deterministic RGB-only out-of-focus contamination; masks and metric depth remain unchanged"
+    },
+    "status": "visually estimated from LED frames; no checkerboard calibration",
+    "alignment": "RGB and semantic/instance masks share lens warp; bloom and lens dust apply only to RGB; raw depth remains unwarped"
+  },
+  "lighting_profiles": {
+    "led_neutral": {
+      "weight": 0.52,
+      "temperature_k": 5200,
+      "energy_scale": [
+        0.92,
+        1.1
+      ],
+      "door_fill": 0.48
+    },
+    "led_cool": {
+      "weight": 0.27,
+      "temperature_k": 6500,
+      "energy_scale": [
+        0.9,
+        1.08
+      ],
+      "door_fill": 0.42
+    },
+    "door_daylight": {
+      "weight": 0.16,
+      "temperature_k": 5700,
+      "energy_scale": [
+        0.94,
+        1.1
+      ],
+      "door_fill": 0.68
+    },
+    "warm_dirty": {
+      "weight": 0.05,
+      "temperature_k": 4300,
+      "energy_scale": [
+        0.88,
+        1.03
+      ],
+      "door_fill": 0.46
+    }
+  },
+  "render": {
+    "engine": "CYCLES",
+    "device_preference": [
+      "OPTIX",
+      "CUDA",
+      "CPU"
+    ],
+    "resolution_px": [
+      1920,
+      1080
+    ],
+    "resolution_percentage": 100,
+    "samples": 128,
+    "preview_samples": 64,
+    "hero_samples": 256,
+    "transparent": false,
+    "denoise": true,
+    "max_bounces": 7,
+    "color_management": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure_range": [
+      -0.8,
+      -0.58
+    ],
+    "exposure_limits": [
+      -1.3,
+      -0.42
+    ],
+    "exposure_led_compensation": 0.85,
+    "exposure_door_fill_compensation": 0.12,
+    "output_format": "PNG",
+    "output_color_depth": "8"
+  },
+  "outputs": {
+    "rgb": true,
+    "semantic_masks": true,
+    "depth_exr": true,
+    "yolo_bbox": true,
+    "metadata": true,
+    "min_visible_pixels": {
+      "rfid_tag": 40,
+      "concrete_sample": 500
+    },
+    "min_visible_size_px": {
+      "rfid_tag": [
+        5,
+        3
+      ],
+      "concrete_sample": [
+        64,
+        64
+      ]
+    },
+    "annotation_policy": {
+      "model_input_px": 640,
+      "rfid_tag": {
+        "standard": {
+          "min_short_side_px": 4,
+          "min_long_side_px": 12,
+          "min_foreground_pixels": 40,
+          "min_visibility_fraction_proxy": 0.35,
+          "min_largest_component_fraction": 0.65,
+          "min_edge_margin_px": 2
+        },
+        "hard": {
+          "min_short_side_px": 3,
+          "min_long_side_px": 8,
+          "min_foreground_pixels": 20,
+          "min_visibility_fraction_proxy": 0.15,
+          "min_largest_component_fraction": 0.45,
+          "min_edge_margin_px": 0
+        }
+      },
+      "partition_rule": "standard if every visible tag is standard; hard_occlusion if any tag is hard; exclude if any visible tag falls below hard thresholds",
+      "training_rule": "never mix exclude images into YOLO train; add hard_occlusion only as an explicit ablation"
+    }
+  },
+  "pilot": {
+    "start_seed": 53200,
+    "preview_count": 32,
+    "hero_seeds": [
+      53202,
+      53203
+    ],
+    "production_gate_count": 500
+  }
+}

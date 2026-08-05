@@ -1,0 +1,41 @@
+schema_version: 1
+scope: paired_three_seed_confirmation_of_frozen_paddy_screen_winner
+frozen_before_seed_29_or_43_training: true
+frozen_at: '2026-08-02T22:52:00+03:00'
+
+selected_screen_winner: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+control: realab_rice_control_e8_v1
+seeds: [17, 29, 43]
+fixed_epoch: 8
+checkpoint: last.pt
+source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+
+locked_inputs:
+  parent_protocol:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/simulation_paddy_asset_selection_protocol_v4_r5.yaml
+    sha256: 61f46cf2d546558e0f303e07c8ae9adedccefe4a2f1a4f30f0845ac915008bca
+  screen_selection_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_paddy_asset_screen_selection_v4_r5.json
+    sha256: 73b93106398d87482ba98857a285f0979684ee11583249ed18e4d8ee1611387f
+  screen_benchmark:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simulation_paddy_asset_screen_v4_r5/benchmark_results.json
+    sha256: 4acbc8ed583be6224c130774033147f7261d4bb421c6991a2a76fe8c16149d13
+  confirmation_matrix:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/simulation_paddy_asset_confirm_v4_r5.yaml
+    sha256: 070592d0ad3a3b7449ce8977b654f6acf8617cce29053e0db9ffbac296705cf7
+  seed17_control_checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/realab_rice_control_e8_v1/seed_17/last.pt
+    sha256: 13fc7e58b7a975aaa6df90038e0ba81f0e34da1d952aaf6632f62b438f69ab00
+  seed17_winner_checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/last.pt
+    sha256: 22f988e74057b27545eae6ace98141f713df3d0345c8bc6bab140d1b1ca55d57
+
+preflight_state:
+  seed17_runs_must_be_reused_byte_for_byte: true
+  seed29_and_seed43_run_directories_absent_at_freeze: true
+  total_new_runs: 4
+  real_rice_training_exposure: false
+  external_test_use: false
+
+acceptance_inherited_from_parent_protocol: true
+spray_deployment_eligible: false

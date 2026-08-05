@@ -1,0 +1,139 @@
+schema_version: 1
+frozen_at: "2026-08-03T16:25:00+03:00"
+
+accepted_control:
+  candidate: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+  checkpoint: data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+  checkpoint_sha256: b97618224621950e46bd47136bad43f51e417c11121674bc1849a9f7322b3d9f
+  source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+
+portfolio:
+  - id: dryland_v3_r3
+    asset_domain: dryland_sorghum_and_general_weeds
+    asset_quality:
+      path: data/processed/audits/cropcraft_asset_quality_v3_r3.json
+      sha256: bbed7a6850a582b6859db506add46c9db2f3cad0589db646605eec2317072cbb
+      checks:
+        custom.all_quality_gates_passed: true
+        custom.pack_id: cropcraft_agri_robust_v3_r3
+    model_gate:
+      path: data/runs/simulation_asset_quality_selection_v3.json
+      sha256: c3243831c7cfbf8c37b2c97388a67961731ba24b02c4bb3111f80bd095790b3f
+      checks:
+        challenger_acceptance.accepted: true
+        external_test_used_for_selection: false
+        selected_candidate: simab_real_sorghum_cropcraft_robust10_e8_v3
+    portfolio_status: accepted_component_superseded_by_paddy_mix
+
+  - id: paddy_v4_r5
+    asset_domain: paddy_rice_aquatic_weeds_wet_soil_shallow_water
+    asset_quality:
+      path: data/processed/audits/cropcraft_paddy_asset_quality_v4_r5.json
+      sha256: 949e0810ee5463ecf27ffe35da9508cdf39a13312cd755885f66f429b0cd9afe
+      checks:
+        custom.all_quality_gates_passed: true
+        custom.pack_id: cropcraft_paddy_robust_v4_r5
+    model_gate:
+      path: data/processed/audits/cropcraft_paddy_asset_confirmation_selection_v4_r5.json
+      sha256: 3f4f62c79cd99afbc7bbc149f0d798cda0053c96a106f187d3a9514ce376f50b
+      checks:
+        acceptance.simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8.accepted: true
+        external_test_used: false
+        selected_candidate: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+        stage: confirmation
+    portfolio_status: accepted_global_control
+
+  - id: soy_v5_r3_plus_stress_v6_r5
+    asset_domain: soybean_growth_phenotypes_and_high_weed_low_crop_stress
+    asset_quality:
+      path: data/processed/audits/cropcraft_soy_asset_quality_v5_r3.json
+      sha256: 21fc3174b39fb9f451bbffb0aa730ba22c0f23014e32ea14becf75aea36d1f88
+      checks:
+        custom.all_quality_gates_passed: true
+        custom.pack_id: cropcraft_soy_robust_v5_r3
+    supplemental_quality:
+      path: data/processed/audits/cropcraft_soy_stress_composition_v6_r5.json
+      sha256: d311e831c3c149dbc5838131254f20f27e9426250981cd7a5a7eaea8fe953ab5
+      checks:
+        passed: true
+    model_gate:
+      path: data/processed/audits/cropcraft_soy_mix_additive_screen_selection_v6_r5.json
+      sha256: 5ca6292a6cf2caf7b95624a3cb75f653de030105b4b5e1dff9d14e43799b2e2d
+      checks:
+        acceptance.accepted: false
+        external_test_used: false
+        selected_candidate: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    portfolio_status: asset_quality_pass_global_model_gate_fail_specialist_only
+
+  - id: sensor_motion_v7_r1
+    asset_domain: directional_linear_and_curved_camera_shake
+    asset_quality:
+      path: data/processed/audits/cropcraft_sensor_motion_asset_quality_v7_r1.json
+      sha256: aa871b90385cf82dfc8110c087daff6fabb90783e60104bc98483967cbf57056
+      checks:
+        all_automatic_quality_gates_passed: true
+        manual_visual_review_required: true
+        external_test_used: false
+    manual_quality:
+      path: data/processed/audits/cropcraft_sensor_motion_manual_visual_review_v7_r1.json
+      sha256: 0223ce156d06b6e5951a451924d8d6f89bf4be9f46d30e2c066308c30f74c176
+      checks:
+        passed: true
+    model_gate:
+      path: data/processed/audits/cropcraft_sensor_motion_additive_screen_selection_v7_r1.json
+      sha256: 8b78085b6ce6e4bc1a9bacc2d6437fc0c2ea859168421156b02e3502ab68c601
+      checks:
+        challenger_accepted: false
+        accepted_control_changed: false
+        external_test_used: false
+        selected_candidate: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    portfolio_status: asset_quality_pass_global_model_gate_fail_stress_or_specialist_only
+
+  - id: sensor_motion_uncertainty_v7_r2
+    asset_domain: directional_camera_shake_with_boundary_ignore
+    asset_quality:
+      path: data/processed/audits/cropcraft_sensor_motion_uncertainty_quality_v7_r2.json
+      sha256: 912d31263cf93092b14eddfcd06f1e4ec1c7dc36999063812e7d4fc957b32608
+      checks:
+        all_automatic_quality_gates_passed: true
+        manual_visual_review_required: true
+        external_test_used: false
+        r2_rgb_byte_identical_to_r1: true
+    manual_quality:
+      path: data/processed/audits/cropcraft_sensor_motion_uncertainty_manual_visual_review_v7_r2.json
+      sha256: 43f696eb505e0a5382a0bc6e8a067712c3b1aa3d7a0c769961e90b7d38794fd6
+      checks:
+        passed: true
+    model_gate:
+      path: data/processed/audits/cropcraft_sensor_motion_uncertainty_screen_selection_v7_r2.json
+      sha256: 5133b07c9e08d88a8f5e0099442030076824a08454aa43e11f318b4410b018a1
+      checks:
+        challenger_accepted: false
+        accepted_control_changed: false
+        external_test_used: false
+        selected_candidate: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    portfolio_status: asset_quality_pass_global_model_gate_fail_stress_or_specialist_only
+
+next_asset_gate:
+  generation_authorized_now: false
+  reason: >-
+    Botany, paddy physics, soybean stress, and directional motion have already
+    passed asset-level gates. The last three global challengers failed on
+    real-domain non-inferiority, so another unguided mesh/texture or blur
+    batch would tune to synthetic appearance rather than a measured missing
+    real stratum.
+  unlock_requires:
+    - verified RiceSEG acquisition and exact country/institution/capture-group roles
+    - frozen real RGB strata audit by country, growth stage, sensor, altitude, illumination, and scene condition
+    - one predeclared synthetic factor with a measurable under-covered real stratum
+    - static, smoke, mask, manual, duplicate, and real-domain-gap gates
+    - equal-draw seed-17 screen followed by seed-17/29/43 confirmation only if all guards pass
+  forbidden_before_unlock:
+    - large synthetic batch generation
+    - changing the accepted global sampler from an asset-only quality result
+    - using partial-label negatives as background
+    - external-test use or threshold tuning
+
+outputs:
+  audit: data/processed/audits/synthetic_asset_portfolio_v8.json
+  report: docs/SYNTHETIC_ASSET_OPTIMIZATION_STATUS_V8.md

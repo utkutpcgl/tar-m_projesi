@@ -1,0 +1,57 @@
+# Pipeline test only. Its result is not a benchmark and CWFID remains external-only.
+experiment: pipeline_smoke_cwfid_random_init
+seed: 17
+deterministic: true
+device: cuda
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs
+cache_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/cache
+commercial_only: false
+
+model:
+  architecture: convnext_tiny_fpn
+  pretrained: false
+  trainable: frozen
+  decoder_width: 32
+  head: factorized
+  num_crop_ids: 4
+  known_crop_ids: [1]
+  conditioning_dropout: 0.0
+
+training:
+  train_split: external_calibration
+  # Diagnostic only: both loader views come from the same calibration pool.
+  # This run is never interpreted as validation or benchmark evidence.
+  val_split: external_calibration
+  limit_train_samples: 4
+  limit_val_samples: 2
+  epochs: 1
+  validate_every: 1
+  crop_size: 128
+  augment: false
+  batch_size: 2
+  eval_batch_size: 1
+  gradient_accumulation: 1
+  samples_per_epoch: 4
+  workers: 0
+  amp: true
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  warmup_steps: 1
+  max_crop_spray_risk: 0.005
+  weed_thresholds: [0.5, 0.7, 0.9]
+
+loss:
+  class_weights: [0.25, 1.5, 1.0]
+  dice_weight: 0.5
+  crop_safety_weight: 1.0
+
+safety:
+  weed_threshold: 0.7
+  crop_threshold: 0.4
+  min_confidence: 0.55
+  min_margin: 0.15
+  max_entropy: 0.85
+  crop_dilation_px: 5

@@ -1,0 +1,13 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.8",
+  "Category": "Computer Vision Simulation",
+  "Description": "Deterministic Unreal Engine EBIS RGB and visible-instance detection dataset generator.",
+  "Plugins": [
+    { "Name": "ModelContextProtocol", "Enabled": true },
+    { "Name": "EditorToolset", "Enabled": true },
+    { "Name": "PythonScriptPlugin", "Enabled": true },
+    { "Name": "EditorScriptingUtilities", "Enabled": true },
+    { "Name": "MovieRenderPipeline", "Enabled": true }
+  ]
+}

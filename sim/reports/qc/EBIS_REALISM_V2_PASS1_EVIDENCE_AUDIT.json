@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-30",
+  "run": "multi-repeat-ebis-realism-v2-clean-assets-208d7e89e2f6",
+  "pass": 1,
+  "status": "PASS",
+  "canonical": {
+    "blender": "realism_v8_cast_pores_release_60100",
+    "unreal": "realism_r59_neutral_cast_brdf_release_60160"
+  },
+  "validators": {
+    "blender": {
+      "status": "PASS",
+      "frames": 12,
+      "binary_masks": 56,
+      "partitions": {
+        "standard": 8,
+        "hard_occlusion": 1,
+        "exclude": 3
+      },
+      "errors": []
+    },
+    "unreal": {
+      "ok": true,
+      "frames": 16,
+      "visible_masks": 70,
+      "amodal_masks": 70,
+      "partitions": {
+        "standard": 5,
+        "hard_occlusion": 2,
+        "exclude": 9
+      },
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "mcp": {
+    "blender": {
+      "status": "PASS",
+      "object_count_before_after": [
+        163,
+        163
+      ],
+      "endpoint": "127.0.0.1:9876",
+      "listener_after_stop": "absent"
+    },
+    "unreal": {
+      "status": "PASS",
+      "transcript_calls": 9,
+      "endpoint": "http://127.0.0.1:8000/mcp",
+      "listener_after_stop": "absent",
+      "editor_after_stop": "absent"
+    }
+  },
+  "current_samples": {
+    "blender_tracked_hashes": 29,
+    "blender_total_files": 30,
+    "unreal_tracked_hashes": 50,
+    "unreal_total_files": 51,
+    "manifest_self_hash_check": "PASS",
+    "local_remote_critical_and_current_sha_check": {
+      "files_checked": 122,
+      "mismatches": 0
+    }
+  },
+  "cleanup": {
+    "local": {
+      "targets": 11,
+      "files": 1102,
+      "bytes": 383390244,
+      "method": "gio-trash",
+      "recoverable": true,
+      "all_targets_absent": true
+    },
+    "remote_3090": {
+      "targets": 23,
+      "files": 1660,
+      "bytes": 579116686,
+      "method": "gio-trash",
+      "recoverable": true,
+      "all_targets_absent": true
+    },
+    "post_cleanup_allowlist_candidates_local": 0,
+    "post_cleanup_allowlist_candidates_remote": 0
+  },
+  "documentation": {
+    "primary_markdown_files_checked": 17,
+    "local_links_checked": 135,
+    "missing_links": 0
+  },
+  "claim_boundary": {
+    "photorealistic_digital_twin": "NOT_CLAIMED",
+    "engine_superiority": "NOT_CLAIMED",
+    "yolo_model_benefit": "NOT_MEASURED"
+  }
+}

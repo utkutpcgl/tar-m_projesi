@@ -1,0 +1,6 @@
+DerivedDataCache/
+Intermediate/
+Saved/
+**/__pycache__/
+*.pyc
+*.pyo

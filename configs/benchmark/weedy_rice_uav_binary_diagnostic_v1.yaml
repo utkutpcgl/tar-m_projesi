@@ -1,0 +1,125 @@
+schema_version: 1
+scope: accepted_control_zero_shot_weedy_rice_binary_development_diagnostic
+frozen_before_evaluation: true
+frozen_at: "2026-08-03T14:46:05+03:00"
+
+data_root: data
+external_test_used: false
+model_selection_allowed: false
+training_allowed: false
+external_threshold_sweep_allowed: false
+
+dataset:
+  dataset_id: weedy_rice_uav
+  role: external_calibration
+  location: Longxuyen_An_Giang_Vietnam
+  capture_date: "2025-01-15"
+  samples: 247
+  capture_groups: 1
+  target_crop_id: 12
+  crop_species: Oryza_sativa
+  growth_stage: 55_60_days_after_sowing
+  modality: UAV_RGB
+  manifest:
+    path: data/processed/manifests/weedy_rice_uav_binary_calibration_v1.csv
+    sha256: b0cdc8a65553c5bdb2ce33b15eecd31ac6348d667eefed335b4c5cec750a70a0
+  mask_tree_sha256: d16482128fb8019a6b3f46a209825dacbb34e8113c77ca45382bb5bea3c57ed6
+  image_tree_sha256: 01392de5562818ce4c6ec9b81aaf980ee668d6d2216e516744183d42c471c98b
+  probability_histogram_bins: 1024
+  binary_target: source_255_weedy_rice
+  binary_negative: source_0_not_annotated_as_weedy_rice
+  common_ontology_source_zero: ignore_255
+  annotation_exhaustive: false
+
+accepted_control:
+  name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+  run_root: data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+  fixed_epoch: 8
+  checkpoint: last.pt
+  source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+  training_manifest_sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  seeds: [17, 29, 43]
+  seed_locks:
+    "17":
+      checkpoint_sha256: 22f988e74057b27545eae6ace98141f713df3d0345c8bc6bab140d1b1ca55d57
+      summary_sha256: bdf20287f961f40adcd3df1e37145062b45d13e9e0ba361dc5a2ce05a2416ce0
+      config_sha256: 0e035c0cbc67bb298440d7cedb4ff9afbb6b537255625fcb86fd9fe167dbcf70
+      history_sha256: d840a16756513d893286c9092e7462e8bb65b2576da04dc7015a0a8e59f0a049
+    "29":
+      checkpoint_sha256: bf86530a5c0fc9defec3dbe0b28964f73414d22c83651fe8adf8640917a4bb73
+      summary_sha256: cf7a158c8ed14446485636c56870c66a23dc228a926e942bb3144a6f3b2712a5
+      config_sha256: d0c4bda0852a642156191e3d011a1ad90e7b21d8233f730cacff96bb5b40fa53
+      history_sha256: 98ef004d260e2876b3feca451ec52291e0b3552e195d08bfd3500ed9ed8cd82c
+    "43":
+      checkpoint_sha256: b97618224621950e46bd47136bad43f51e417c11121674bc1849a9f7322b3d9f
+      summary_sha256: 4132cbb4c8714a1833ab4a20b2afb0d4c48311968415dc37191761c41cecfebd
+      config_sha256: 4e4e8081ea0b67d6e936b200537e536cc69b8cf6805712d80ecb300e17472c41
+      history_sha256: c8133e4eeec540a5167af7b4479905515e748ddf01d2743c73116f12a4758aa2
+
+evaluation:
+  batch_size: 1
+  model_mode: eval
+  checkpoint_selection: fixed_last_pt_epoch_8
+  policy: source_validation_calibrated_frozen_thresholds
+  prediction_modes: [semantic_argmax, weed_candidate, safe_weed]
+  primary_binary_metrics: [iou, precision, recall, f1]
+  ranking_metrics: [approx_average_precision, approx_auroc]
+  coverage_stratified: true
+  external_threshold_sweep_performed: false
+
+interpretation_limits:
+  - The 247 images are one held-out location and one overlapping UAV flight, not 247 independent fields.
+  - Source zero is a valid binary not-weedy-rice target but is not common background or crop supervision.
+  - This diagnostic measures zero-shot domain coverage and cannot select or promote a checkpoint.
+  - The remaining 487 Thoaison images are not exposed to the accepted control or this diagnostic.
+
+forbidden_actions:
+  - use_thoaison_train_candidate_for_this_diagnostic
+  - use_publisher_random_train_val_test_roles
+  - map_source_zero_to_common_background_or_crop
+  - sweep_thresholds_on_longxuyen
+  - select_or_promote_a_checkpoint_from_this_diagnostic
+  - claim_independent_external_test_or_deployment_readiness
+
+locked_inputs:
+  acquisition_config:
+    path: configs/data/weedy_rice_uav_acquisition_v1.yaml
+    sha256: b3f7a013e1bfa9fa277aed989e4a221ffa3350618b1158687babe00e8a26aeed
+  acquisition_receipt:
+    path: data/processed/audits/weedy_rice_uav_acquisition_v1.json
+    sha256: 6d92436a2b2b79d7712f8f90cd351abaab1b54e3c5f4360aa3cd836723e71be2
+  real_gate:
+    path: configs/data/weedy_rice_uav_real_gate_v1.yaml
+    sha256: 82d03710deda6b8b32a326ef6294c7867228706dbf61c7c1a9a43344f1b68f5f
+  split_protocol:
+    path: configs/data/weedy_rice_uav_split_protocol_v1.yaml
+    sha256: df3b13accd3c795dda9fc5d9ef941fe28c6e61320f4279939009a13f6b44b3fa
+  converter:
+    path: scripts/convert_weedy_rice_uav.py
+    sha256: 43c58ed0857ac58af8a13d4d69d36bb1ed18198033e25b76e8e4f1f8ab96813b
+  conversion_receipt:
+    path: data/processed/manifests/weedy_rice_uav_conversion_v1.json
+    sha256: a8293025cf2e6853a04eb11456d8f9e965a7db4f098b28be591e8cda0927c910
+  content_audit:
+    path: data/processed/audits/weedy_rice_uav_content_quality_v1.json
+    sha256: c8d014aa0471a15d0fcc4198f383242913535cf25774046b8d7151ffd6e6aa07
+  duplicate_audit:
+    path: data/processed/audits/weedy_rice_uav_vs_all_real_duplicates_v1.json
+    sha256: f99602486620008c7ff9b8a3f906b8f90194912bc484ce88f06a20ee2fb985b2
+  contact_sheet:
+    path: data/processed/audits/qc/weedy_rice_uav_review_v1.png
+    sha256: 04de9f294d16b12d94bdfba18003c1e03ee2b8bc79ebea2e76a5ace6be1f0311
+  contact_sheet_receipt:
+    path: data/processed/audits/weedy_rice_uav_contact_sheet_v1.json
+    sha256: ffa1bf08e9997c22fd937cb83c21cc3492973791e6edf0d2275ea85ef1d39902
+  quality_audit:
+    path: data/processed/audits/weedy_rice_uav_quality_v1.json
+    sha256: f1591d82ac6f0d3878a682df4bb49b432a9498c22b6a3ac4d65edd06d4d33baf
+  evaluator:
+    path: scripts/evaluate_weedy_rice_binary_diagnostic.py
+    sha256: 2a5870e070d59df8c7e2044a6d68de339424cf60b9f88c836f55d863c88c4d71
+
+outputs:
+  receipt: data/processed/audits/weedy_rice_uav_binary_diagnostic_v1.json
+
+accepted_control_changes_after_diagnostic: false

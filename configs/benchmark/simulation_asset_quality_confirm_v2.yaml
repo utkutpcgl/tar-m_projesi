@@ -1,0 +1,28 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simulation_asset_quality_confirm_v2
+data_license_scope: research_real_plus_itemized_cc0_synthetic_assets
+seeds: [17, 29, 43]
+reuse_completed: true
+
+# Frozen equal-budget comparison against the completed stock-asset 10% branch.
+# Each seed sees 8 x 3,600 = 28,800 sampled examples; exactly 10% of sampler
+# exposure is the custom pilot. Validation occurs only at fixed epoch 8.
+training:
+  epochs: 8
+  validate_every: 8
+  samples_per_epoch: 3600
+
+candidates:
+  - name: simab_real_sorghum_cropcraft_agri10_e8_v2
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_agri_trainval_v2.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_early_pilot_v2: 0.100

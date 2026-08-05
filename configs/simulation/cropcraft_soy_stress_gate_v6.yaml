@@ -1,0 +1,76 @@
+schema_version: 1
+protocol_id: cropcraft_soy_sparse_crop_high_weed_stress_v6
+frozen_before_generation: true
+frozen_at: "2026-08-03T05:12:00+03:00"
+scope: research_semantic_crop_segmentation_complementary_synthetic_domain
+
+evidence:
+  asset_pack_id: cropcraft_soy_robust_v5_r3
+  asset_pack_manifest_sha256: d27df4d3c6fb7f8673deb87916af224a2ef890bdb4d3e8a71c316c95a80880c5
+  asset_static_audit_sha256: 21fc3174b39fb9f451bbffb0aa730ba22c0f23014e32ea14becf75aea36d1f88
+  v5_pilot_receipt_sha256: d8174750bc3d4d20559c06b22d1bf94dc00d0cf506acb753fbe7c439acc8ad95
+  replacement_screen_receipt_sha256: 3dcd39b31233e9eee7826be2bfa674d2ef2fcfde03a8107617f7f608612ba376
+  additive_screen_receipt: data/processed/audits/cropcraft_soy_asset_additive_screen_selection_v5_r5.json
+  additive_screen_receipt_sha256: cd92aa9138163961ee312a26d8bac26f63acabfe71f93b75f6ce077aab530235
+  r1_study_sha256: a95010c643a1959478a99920d8d132babdadb75c0729e6b27d672d56710ee4e1
+
+diagnosis:
+  v5_soy_mean_crop_fraction: 0.16032638549804687
+  v5_soy_mean_weed_fraction: 0.010373420715332031
+  growingsoy_mean_crop_fraction: 0.153674
+  growingsoy_mean_weed_fraction: 0.011782
+  cwfid_mean_crop_fraction: 0.016254
+  cwfid_mean_weed_fraction: 0.058022
+  observed_effect: >-
+    V5 soybean scenes repeatedly improved GrowingSoy by 0.087948 to 0.107940
+    mIoU, but the replay-preserving 90-draw additive candidate regressed CWFID
+    by 0.137710 and Rice by 0.039399. The asset geometry carries useful soy
+    signal; scene composition is too crop-dominant for the robust shared model.
+  isolated_change: sparse_crop_high_weed_scene_composition
+  explicitly_not_changed:
+    - asset_geometry
+    - asset_materials
+    - renderer_and_semantic_alpha_patch
+    - real_training_data
+    - model_or_hyperparameters
+
+release_gate:
+  expected_rgb_mask_pairs: 100
+  expected_independent_scenes: 25
+  train_scenes: 20
+  validation_scenes: 5
+  maximum_crop_free_frame_fraction: 0.0
+  maximum_weed_free_frame_fraction: 0.05
+  minimum_mean_crop_fraction: 0.015
+  maximum_mean_crop_fraction: 0.090
+  minimum_mean_weed_fraction: 0.030
+  maximum_mean_weed_fraction: 0.100
+  minimum_frames_with_weed_fraction_at_least_0_03: 60
+  minimum_frames_with_crop_fraction_between_0_005_and_0_12: 75
+  minimum_frames_with_weed_to_crop_ratio_at_least_0_75: 50
+  maximum_exact_rgb_duplicates: 0
+  maximum_exact_mask_duplicates_across_scenes: 0
+  minimum_used_crop_model_variants: 20
+  minimum_used_ground_families: 3
+  minimum_used_environment_families: 3
+  require_exact_semantic_palette: true
+  require_manual_rgb_mask_visual_review: true
+  require_full_resolution_rgb_mask_review: true
+  require_scene_disjoint_split: true
+
+combined_v5_plus_stress_hypothesis:
+  composition: equal_frame_count_v5_soy_domain_and_v6_stress_domain
+  expected_combined_mean_crop_fraction: [0.0875, 0.1252]
+  expected_combined_mean_weed_fraction: [0.0201, 0.0552]
+  role: complementary_scene_recipe_not_volume_scaling
+  downstream_gate_must_be_frozen_after_release_and_before_training: true
+
+forbidden_inputs:
+  - growingsoy_real_image_mask_crop_cutout_or_texture_in_rendering
+  - cwfid_real_image_mask_crop_cutout_or_texture_in_rendering
+  - rice_real_image_mask_crop_cutout_or_texture_in_rendering
+  - external_test_access
+  - large_batch_generation_before_pilot_gate
+  - claiming_better_mesh_quality_without_a_new_asset
+
+fallback_if_release_fails: retain_v5_assets_as_domain_specific_rejected_global_candidate

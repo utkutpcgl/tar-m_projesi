@@ -1,0 +1,196 @@
+schema_version: 2
+scope: research_semantic_crop_segmentation_riceseg_lowdose_followup
+stage: screen
+frozen_before_challenger_training: true
+frozen_at: "2026-08-03T21:28:36+03:00"
+
+accepted_control: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+matched_compute_control: realab_tobacco_compute_control_r5_e8_v1
+screen_candidate: realab_riceseg_add025_compute3780_r5_e8_v2
+screen_seed: 17
+confirmation_seeds: [17, 29, 43]
+fixed_epoch: 8
+checkpoint: last.pt
+source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+
+candidate_riceseg_exposure:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8: 0.0
+  realab_tobacco_compute_control_r5_e8_v1: 0.0
+  realab_riceseg_add025_compute3780_r5_e8_v2: 0.023809523809523808
+expected_riceseg_training_rows:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8: 0
+  realab_tobacco_compute_control_r5_e8_v1: 0
+  realab_riceseg_add025_compute3780_r5_e8_v2: 2473
+candidate_samples_per_epoch:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8: 3600
+  realab_tobacco_compute_control_r5_e8_v1: 3780
+  realab_riceseg_add025_compute3780_r5_e8_v2: 3780
+
+expected_data_evidence:
+  release_samples: 3078
+  eligible_samples: 3077
+  train: 2473
+  external_calibration: 604
+  train_groups: 16
+  external_calibration_groups: 2
+  quarantined: 1
+  combined_training_samples: 8376
+
+followup_rationale: >-
+  The frozen v1 4.7619% replay-preserving arm produced very large RiceSEG,
+  reproductive, early-rice, expanded-robust, and macro gains, but exceeded
+  the unchanged 0.01 per-domain limit on CWFID and Sorghum. This one permitted
+  follow-up halves RiceSEG exposure before training and retains the same
+  3,780-example compute control. No threshold is relaxed.
+compute_budget:
+  epochs: 8
+  accepted_control_sampled_examples: 28800
+  matched_compute_and_candidate_sampled_examples: 30240
+  candidate_expected_riceseg_draws_per_epoch: 90
+  candidate_expected_old_draws_per_epoch: 3690
+  matched_compute_expected_old_draws_per_epoch: 3780
+  note: >-
+    Unlike v1, this low-dose arm is not exact expected-draw replay of the
+    3,600-example accepted control; it adds 90 old and 90 RiceSEG draws. It
+    must therefore pass against both the accepted control and the byte-reused
+    equal-compute control. The causal effect of RiceSEG at fixed 3,780 compute
+    is the comparison with the latter.
+
+existing_domains:
+  - source
+  - cwfid
+  - sorghum_weed
+  - cropandweed
+  - early_rice
+  - growingsoy
+  - weedmap
+  - tobacco
+
+screen_acceptance_against_each_control:
+  riceseg_mean_iou_delta_must_be_at_least: 0.020
+  riceseg_reproductive_mean_iou_delta_must_be_at_least: 0.010
+  existing_robust_delta_must_be_at_least: 0.0
+  existing_macro_delta_must_be_at_least: 0.0
+  expanded_robust_delta_must_be_at_least: 0.010
+  expanded_macro_delta_must_be_at_least: 0.0
+  maximum_existing_domain_mean_iou_regression:
+    source: 0.010
+    cwfid: 0.010
+    sorghum_weed: 0.010
+    cropandweed: 0.010
+    early_rice: 0.010
+    growingsoy: 0.010
+    weedmap: 0.010
+    tobacco: 0.010
+
+confirmation_acceptance_against_each_control:
+  mean_expanded_robust_delta_must_be_greater_than: 0.0
+  minimum_expanded_robust_wins_out_of_3: 2
+  mean_riceseg_delta_must_be_at_least: 0.020
+  mean_riceseg_reproductive_delta_must_be_at_least: 0.010
+  mean_existing_macro_delta_must_be_at_least: 0.0
+  mean_expanded_macro_delta_must_be_at_least: 0.0
+  maximum_mean_existing_domain_mean_iou_regression:
+    source: 0.010
+    cwfid: 0.010
+    sorghum_weed: 0.010
+    cropandweed: 0.010
+    early_rice: 0.010
+    growingsoy: 0.010
+    weedmap: 0.010
+    tobacco: 0.010
+
+confirmation_matrix_policy: >-
+  Only an all-rule seed-17 pass against both controls unlocks a hash-frozen
+  paired 17/29/43 confirmation. Otherwise retain the accepted control and do
+  not train more RiceSEG seeds.
+
+forbidden_inputs:
+  - riceseg_external_calibration_in_training_manifest_or_weights
+  - riceseg_quarantined_sample_in_training
+  - riceseg_country_transfer_manifest_combined_with_coverage_protocol
+  - rice_seedling_weed_in_training_manifest_or_weights
+  - growingsoy_external_calibration_trajectory_in_training
+  - weedmap_external_calibration_map_003_in_training
+  - tobacco_external_calibration_campaigns_in_training
+  - deblurweedseg_in_training_or_model_selection
+  - any_external_test_or_final_test_split
+
+locked_inputs:
+  screen_matrix:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/real_data_riceseg_lowdose_screen_v2.yaml
+    sha256: b4b42fc360d6c847edf119c7950998da98bb2bd66463cb1c785a7ca2532f2aef
+  base_training_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/train/base_real_sorghum_ablation_v1.yaml
+    sha256: d2f8450bc8106d09798d873aee8add6f25640ceb303bfd9f25d2435edd1abafc
+  evaluator_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/evaluate_riceseg_additive_fixed_epoch_development.py
+    sha256: 0630ebd5dbead9537337e59262427b171f1fa6bc229a2e903f8097075d2539e5
+  selector_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/select_real_data_riceseg_additive.py
+    sha256: e70a92125098bf1aa2a445b6e91b682b0954d30ba59dfc7535c671f265b3dec8
+  prior_v1_selection:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/real_data_riceseg_additive_screen_selection_v1.json
+    sha256: 1bd0ea754e9a810bc65ab79dbf34336d5d0b8e57d72418d5df21f209cf106be0
+  riceseg_quality_gate:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/riceseg_quality_gate_v1.json
+    sha256: 1653ebfed22e9b8920b88ddbb3460a8648729b0934f63018077d78e2b8ed4904
+  riceseg_eligible_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_quality_v1.csv
+    sha256: f3bcfedf4d56da5ba43f7b79d06f511a17645a1e26ad33bac9656da34d52dc5c
+  riceseg_calibration_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_quality_calibration_v1.csv
+    sha256: 39fcce0ee2f886346ed36b93d4af2008a06bb9cc9628297926222ce5bd77d14b
+  riceseg_reproductive_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_reproductive_calibration_v1.csv
+    sha256: 39eeb15e3096f227b85a17d5ddbed89a75728a9e31ce76f279aa1676e49b633d
+  challenger_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_riceseg_trainval_v10_r1.csv
+    sha256: b2c6c2efaa2c925411d0853ce2606615f3316ec5ec43e247558d8a162045cf18
+  challenger_manifest_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/real_data_riceseg_ablation_manifest_v1.json
+    sha256: 3bca4f839023b28f97b8b4655aa5b77f4c205b48537bf2495d958f4ccecd03e0
+  challenger_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/real_data_riceseg_ablation_manifest_audit_v1.json
+    sha256: 813b04ed22e4330d03023807830348dcbaa8ff4adefe1b336d67d0bd2f2a0c93
+  accepted_control_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  accepted_control_checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/last.pt
+    sha256: 22f988e74057b27545eae6ace98141f713df3d0345c8bc6bab140d1b1ca55d57
+  matched_compute_checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/realab_tobacco_compute_control_r5_e8_v1/seed_17/last.pt
+    sha256: 8b7ef4fc6dc1c69584c105f572430513ca4c8bac7d01ef63ce1cfc06bdbedacb
+  cwfid_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    sha256: 8f2bcfe518b48df7673bcbda748ebf812273723e8438228e296213886c7ba450
+  sorghum_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    sha256: f28f5914090b8ee28cd26b9e742ec958105db61f68b743963a3729468d263540
+  cropandweed_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropandweed.csv
+    sha256: 63fead62f9cdd92e3c21129d6b8e6e09a2df672395661757a7e64b969f124399
+  early_rice_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/rice_seedling_weed.csv
+    sha256: 05d9eeff6f4874395ebcad9a718a2ec405eb17fef2abc2106a9e14dd981adac8
+  growingsoy_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/growingsoy.csv
+    sha256: 0ba8f02071c34478f81340386eae5ecf86202a16b2d5b6135c3313faef7aa4ac
+  weedmap_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap_calibration_v1.csv
+    sha256: da5311e80cf51534a1af51df1b3ffb3543a21d0426a0fd5fb74240cd778f6be9
+  tobacco_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_balanced_calibration_v1.csv
+    sha256: ee7f4c304ddb250794bb579b928d4f0ddbe8992382f9418d80634c104c4f7010
+  deblur_sharp_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_sharp_calibration_v1.csv
+    sha256: c426aa8efde5b3d4475222076d417293a33b69478830cf78dfeab72b91e0aad2
+  deblur_motion_blur_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_blur_calibration_v1.csv
+    sha256: 258ce622dff77476990968f7a86464f8ad6a106930dc65af02733a7280cd38e0
+
+fallback_if_acceptance_fails: retain_accepted_v3_05_paddy_r5_05_control
+external_test_used_for_selection: false
+safety_policy_used_for_selection: false
+spray_deployment_eligible_from_this_protocol: false

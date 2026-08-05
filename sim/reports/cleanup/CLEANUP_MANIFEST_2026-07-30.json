@@ -1,0 +1,2349 @@
+{
+  "all_targets_absent": true,
+  "allowlist": {
+    "ebis-blender": [
+      "current_samples",
+      "realism_v7_frontdoor_pbr_release_59300"
+    ],
+    "unreal-ebis": [
+      "current_samples",
+      "realism_r56_frontdoor_release_59400"
+    ]
+  },
+  "candidate_bytes": 3058244342,
+  "candidate_count": 290,
+  "candidate_files": 11190,
+  "completed_at_utc": "2026-07-30T09:26:26.775290+00:00",
+  "created_at_utc": "2026-07-30T09:26:24.497315+00:00",
+  "kept_qc_png": [
+    "ebis-blender/reports/qc/realism_v7_frontdoor_pbr_release_59300_contact_sheet.png",
+    "unreal-ebis/reports/qc/assets/real_blender_unreal_comparison.png",
+    "unreal-ebis/reports/qc/assets/realism_r56_frontdoor_release_59400_contact_sheet.png"
+  ],
+  "mode": "gio-trash",
+  "recoverable": true,
+  "repo": "/home/utkutopcuoglu/Documents/utku/stajyerler/simulation",
+  "schema_version": 1,
+  "targets": [
+    {
+      "bytes": 5216410,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 63,
+      "path": "ebis-blender/output/asset_trial_ambientcg_concrete003_59220",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 590151,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 11,
+      "path": "ebis-blender/output/asset_trial_polyhaven_blue_59020",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 4542140,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/hero_final",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 5660802,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 21,
+      "path": "ebis-blender/output/led_v2_hero_release",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 32434765,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 263,
+      "path": "ebis-blender/output/led_v2_pilot_release",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 4336482,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/mcp_realism_v3_2_53203",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 638596,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/output/mcp_scene_p6g_54313",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 183080450,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 171,
+      "path": "ebis-blender/output/pilot_final",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 9575496,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 70,
+      "path": "ebis-blender/output/realism_v3_2_pilot_53200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2774597,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 64,
+      "path": "ebis-blender/output/realism_v4_calibration2_low_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2701013,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 68,
+      "path": "ebis-blender/output/realism_v4_calibration3_low_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2690068,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 68,
+      "path": "ebis-blender/output/realism_v4_calibration4_low_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2774533,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 64,
+      "path": "ebis-blender/output/realism_v4_calibration_low_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 3035773,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 15,
+      "path": "ebis-blender/output/realism_v4_hero_cam10_54121",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 3160634,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 15,
+      "path": "ebis-blender/output/realism_v4_hero_cam11_54134",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 322520,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 11,
+      "path": "ebis-blender/output/realism_v4_metal_tune2_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 348967,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_metal_tune2_54121",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 679385,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 21,
+      "path": "ebis-blender/output/realism_v4_metal_tune_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 5393892,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 131,
+      "path": "ebis-blender/output/realism_v4_occlusion_calibration_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 294700,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_back_led",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 340277,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_black_upper_platen",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 294727,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_current_nobloom",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 364661,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_diffused_led",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 355790,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_flat_concrete",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 365338,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_matte_concrete",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 341040,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_matte_upper_platen",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 360155,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_back_led",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 349348,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_bounces",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 345219,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_camera_fx",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 356744,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_caustics",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 360654,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_concrete_specular",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 365564,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_lens",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 113298,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_light",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 349102,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_upper_bounce",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 356787,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_upper_contact",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 361121,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_no_upper_stack",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 351990,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_only_led",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 359220,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_rough_upper_contact",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 113293,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_world_only",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 145205,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_probe_world_only2",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 9546656,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 76,
+      "path": "ebis-blender/output/realism_v4_referencefit_pilot_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 354909,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v4_smoke2_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 356056,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v4_smoke3_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 355716,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v4_smoke3_nobloom_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 276963,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_smoke4_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 356549,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v4_smoke5_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 335625,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v4_smoke6_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 932584,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v4_smoke_54100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8893758,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 66,
+      "path": "ebis-blender/output/realism_v5_10b_low_glare_p6b_54240",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1111708,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v5_11_calm_concrete_diag_p6d_54241",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1118268,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_12_spall_diag_p6d_54310",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1120382,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_13_scalloped_spall_diag_p6e_54310",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1120112,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_14_scalloped_silhouette_diag_p6e_54310",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1116463,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_15_clustered_faceted_spall_diag_p6e_54310",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13993686,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 102,
+      "path": "ebis-blender/output/realism_v5_16_calm_clustered_spall_p6e_54304",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1112523,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_18_single_hull_spall_diag_p6f_54310",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13987249,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 103,
+      "path": "ebis-blender/output/realism_v5_19_single_hull_release_p6f_54304",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 10521965,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 264,
+      "path": "ebis-blender/output/realism_v5_1_bounded_yaw_calibration_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 10507912,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 264,
+      "path": "ebis-blender/output/realism_v5_1_camera_conditioned_calibration_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 325318,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v5_1_determinism_a_54121",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 325238,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v5_1_determinism_b_54121",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 10513238,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 264,
+      "path": "ebis-blender/output/realism_v5_1_distribution_gate_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2632956,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 68,
+      "path": "ebis-blender/output/realism_v5_1_fisheye_calibration_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2625676,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 68,
+      "path": "ebis-blender/output/realism_v5_1_framing_calibration_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2938670,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v5_1_hero_cam10_54121",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2992631,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 11,
+      "path": "ebis-blender/output/realism_v5_1_hero_cam11_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 3004440,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_1_hero_cam11_tag_54128",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8735279,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 68,
+      "path": "ebis-blender/output/realism_v5_1_referencefit_pilot_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2627878,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 68,
+      "path": "ebis-blender/output/realism_v5_1_yaw15_calibration_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2613333,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 68,
+      "path": "ebis-blender/output/realism_v5_1_yawm30_calibration_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1735144,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v5_20_load_zone_diag_p6g_54313",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1099960,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 11,
+      "path": "ebis-blender/output/realism_v5_21_load_zone_alpha_diag_p6g_54313",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1099877,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 11,
+      "path": "ebis-blender/output/realism_v5_22_load_zone_mottle_diag_p6g_54313",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1117035,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_23_load_zone_cube_diag_p6g_54310",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1099827,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 11,
+      "path": "ebis-blender/output/realism_v5_24_load_zone_cluster_cyl_p6g_54313",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1117234,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_25_load_zone_cluster_cube_p6g_54310",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13360870,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 101,
+      "path": "ebis-blender/output/realism_v5_26_load_zone_release_p6g_54304",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8847239,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 67,
+      "path": "ebis-blender/output/realism_v5_2_surface_p1_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8747736,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 67,
+      "path": "ebis-blender/output/realism_v5_2_surface_p1b_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8925890,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 67,
+      "path": "ebis-blender/output/realism_v5_2_surface_p1c_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 9012378,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 67,
+      "path": "ebis-blender/output/realism_v5_2_surface_p1d_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 9019105,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 67,
+      "path": "ebis-blender/output/realism_v5_3_paper_p2_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 9020108,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 67,
+      "path": "ebis-blender/output/realism_v5_3_paper_p2b_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8919713,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 66,
+      "path": "ebis-blender/output/realism_v5_4_platen_p3_54240",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1131116,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v5_4_platen_p3_diag_54121",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8948020,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 66,
+      "path": "ebis-blender/output/realism_v5_5_concrete_p4_54240",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1089542,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v5_5_surface_p4_diag_54244",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8934422,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 66,
+      "path": "ebis-blender/output/realism_v5_6_lower_platen_p5_54240",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1130089,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v5_6_lower_platen_p5_diag2_54241",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1131445,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v5_6_lower_platen_p5_diag_54241",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2221485,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 21,
+      "path": "ebis-blender/output/realism_v5_7_fixed_machine_p6_diag_54240",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8917144,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 66,
+      "path": "ebis-blender/output/realism_v5_8_fixed_machine_p6_54240",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2265654,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 22,
+      "path": "ebis-blender/output/realism_v5_9_low_glare_diag_54241",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2257838,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 22,
+      "path": "ebis-blender/output/realism_v5_9b_contact_face_diag_54241",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 316730,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 11,
+      "path": "ebis-blender/output/realism_v5_determinism_a_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 316809,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 11,
+      "path": "ebis-blender/output/realism_v5_determinism_b_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2921224,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_hero_cam10_54121",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2988318,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 12,
+      "path": "ebis-blender/output/realism_v5_hero_cam11_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 332700,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 13,
+      "path": "ebis-blender/output/realism_v5_material_diag_cam10_54121",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 337507,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 14,
+      "path": "ebis-blender/output/realism_v5_material_diag_cam11_54134",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 9416582,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 69,
+      "path": "ebis-blender/output/realism_v5_referencefit_pilot_54120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 5269530,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 62,
+      "path": "ebis-blender/output/realism_v6_frontdoor_diag2_59020",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 4848467,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 71,
+      "path": "ebis-blender/output/realism_v6_frontdoor_diag_59000",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 632929,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 11,
+      "path": "ebis-blender/output/realism_v6_hinge_diag_59020",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 5174139,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 63,
+      "path": "ebis-blender/output/realism_v7_frontdoor_diag_59220",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 4960142,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 5,
+      "path": "ebis-blender/output/rfid_final",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 53610392,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/hero_release",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 15066408,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 20,
+      "path": "unreal-ebis/output/mcp_hero",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 15148100,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 17,
+      "path": "unreal-ebis/output/mcp_load_zone_p6e_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 19920378,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 22,
+      "path": "unreal-ebis/output/mcp_realism_r5_58203",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 106407854,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 231,
+      "path": "unreal-ebis/output/pilot_release_v4",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 53662719,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 126,
+      "path": "unreal-ebis/output/realism_r10_concrete_tag_p4_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 7278456,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 24,
+      "path": "unreal-ebis/output/realism_r10_tag_contact_p4_diag2_58522",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 7286803,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 24,
+      "path": "unreal-ebis/output/realism_r10_tag_contact_p4_diag_58522",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 53667342,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 126,
+      "path": "unreal-ebis/output/realism_r13_concrete_tag_p4_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 6344477,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 20,
+      "path": "unreal-ebis/output/realism_r14_pore_disc_p4_diag2_58526",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 6342059,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 20,
+      "path": "unreal-ebis/output/realism_r14_pore_disc_p4_diag_58526",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 53669784,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 126,
+      "path": "unreal-ebis/output/realism_r15_concrete_tag_p4_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 54247306,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 126,
+      "path": "unreal-ebis/output/realism_r16_lower_platen_p5_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8135908,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 26,
+      "path": "unreal-ebis/output/realism_r16_lower_platen_p5_diag2_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8094173,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 26,
+      "path": "unreal-ebis/output/realism_r16_lower_platen_p5_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8860179,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 26,
+      "path": "unreal-ebis/output/realism_r17_fixed_machine_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13873133,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 36,
+      "path": "unreal-ebis/output/realism_r18_orientation_light_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13632408,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 36,
+      "path": "unreal-ebis/output/realism_r19_pbr_bounce_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13649345,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 36,
+      "path": "unreal-ebis/output/realism_r20_cover_steel_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13537567,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 36,
+      "path": "unreal-ebis/output/realism_r21_handed_machine_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13614846,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 36,
+      "path": "unreal-ebis/output/realism_r22_color_pbr_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13603656,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 36,
+      "path": "unreal-ebis/output/realism_r23_color_cover_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 33069334,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 99,
+      "path": "unreal-ebis/output/realism_r24_fisheye_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17162918,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r25_dark_platen_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17174568,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r26_dark_overhead_p6_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 101386944,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 299,
+      "path": "unreal-ebis/output/realism_r29_fixed_machine_fisheye_p6_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 123802809,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 231,
+      "path": "unreal-ebis/output/realism_r2_pilot_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17043153,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r30_low_glare_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17269755,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r31_concrete_frequency_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17131979,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r32_concrete_midband_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17132295,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r34_concrete_regime_pores_diag_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 101603903,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 299,
+      "path": "unreal-ebis/output/realism_r35_low_glare_concrete_p6b_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 7681372,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 26,
+      "path": "unreal-ebis/output/realism_r36_spall_notch_diag_58525",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 7687921,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 26,
+      "path": "unreal-ebis/output/realism_r36b_spall_fracture_diag_58525",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 7688312,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 26,
+      "path": "unreal-ebis/output/realism_r36c_spall_fracture_diag_58525",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 101616567,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 299,
+      "path": "unreal-ebis/output/realism_r37b_spall_fracture_p6c_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 7708930,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 26,
+      "path": "unreal-ebis/output/realism_r38_matte_upper_diag_58525",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 101289186,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 299,
+      "path": "unreal-ebis/output/realism_r39_matte_spall_p6d_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17105015,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r40_load_zone_diag_p6e_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17112185,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r41_load_zone_opaque_diag_p6e_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17103263,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r42_load_zone_disc_diag_p6e_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17098605,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r43_load_zone_cluster_diag_p6e_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 17097140,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 57,
+      "path": "unreal-ebis/output/realism_r44_load_zone_microcluster_diag_p6e_58523",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 101337383,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 299,
+      "path": "unreal-ebis/output/realism_r45_load_zone_release_p6e_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 36927831,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 191,
+      "path": "unreal-ebis/output/realism_r46_frontdoor_diag_59100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 39773473,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 191,
+      "path": "unreal-ebis/output/realism_r47_camera_fill_diag_59100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 40852712,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 191,
+      "path": "unreal-ebis/output/realism_r49_framing_steel_diag_59100",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 43740943,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 223,
+      "path": "unreal-ebis/output/realism_r50_tonal_framing_diag_59200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 43635024,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 223,
+      "path": "unreal-ebis/output/realism_r51_axis_steel_diag_59200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 21695033,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 107,
+      "path": "unreal-ebis/output/realism_r52_diffuser_energy_diag_59200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 21716224,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 107,
+      "path": "unreal-ebis/output/realism_r53d_ambientcg_concrete_diag_59200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 113399021,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 295,
+      "path": "unreal-ebis/output/realism_r54_frontdoor_release_59320",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 38146107,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 107,
+      "path": "unreal-ebis/output/realism_r55_shader_ready_diag_59320",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 21784580,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 53,
+      "path": "unreal-ebis/output/realism_r5_calibration_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 149874988,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 248,
+      "path": "unreal-ebis/output/realism_r5_full_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 26953469,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 58,
+      "path": "unreal-ebis/output/realism_r5_sensor_calibration_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 24014756,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 58,
+      "path": "unreal-ebis/output/realism_r6_surface_p1_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 26064919,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 58,
+      "path": "unreal-ebis/output/realism_r6_surface_p1b_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 26997971,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 58,
+      "path": "unreal-ebis/output/realism_r6_surface_p1c_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 25006310,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 58,
+      "path": "unreal-ebis/output/realism_r6_surface_p1d_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 24995004,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 58,
+      "path": "unreal-ebis/output/realism_r6_surface_p1e_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 24902795,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 58,
+      "path": "unreal-ebis/output/realism_r6_surface_p1f_58200",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 50439309,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 114,
+      "path": "unreal-ebis/output/realism_r7_paper_p2_58320",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 50416580,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 114,
+      "path": "unreal-ebis/output/realism_r7_paper_p2b_58320",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 51484724,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 116,
+      "path": "unreal-ebis/output/realism_r8_platen_p3_58440",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 5927260,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 18,
+      "path": "unreal-ebis/output/realism_r8_platen_p3_diag2_58321",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 5836992,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 18,
+      "path": "unreal-ebis/output/realism_r8_platen_p3_diag_58321",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 53649929,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 126,
+      "path": "unreal-ebis/output/realism_r9_concrete_p4_58520",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 7470526,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 24,
+      "path": "unreal-ebis/output/realism_r9_surface_p4_diag2_58444",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 7519867,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 24,
+      "path": "unreal-ebis/output/realism_r9_surface_p4_diag_58444",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 747749,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/asset_trial_ambientcg_concrete003_59220_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 105380,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/ebis_upper_plate_probe.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 105934,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/ebis_upper_plate_probe_correct.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 145382,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/hero_final_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 178263,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/led_v2_hero_release_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2684702,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/led_v2_pilot_release_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1600221,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/pilot_final_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 930322,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/real_vs_synthetic_camera01.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1115628,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/real_vs_v5_1_cam10_cube.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 809902,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/real_vs_v5_1_cam11_cube.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 867641,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v3_2_pilot_53200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 826788,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v4_calibration2_low_54100_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 793332,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v4_calibration3_low_54100_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 780991,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v4_calibration4_low_54100_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 826744,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v4_calibration_low_54100_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 213265,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v4_metal_tune_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1569950,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v4_occlusion_calibration_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 799983,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v4_referencefit_pilot_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 795642,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_10b_low_glare_p6b_54240_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1183350,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_16_calm_clustered_spall_p6e_54304_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1182732,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_19_single_hull_release_p6f_54304_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 3084506,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_1_bounded_yaw_calibration_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 3084172,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_1_camera_conditioned_calibration_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 3083875,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_1_distribution_gate_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 784188,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_1_fisheye_calibration_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 777087,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_1_framing_calibration_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 797331,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_1_referencefit_pilot_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1183214,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_26_load_zone_release_p6g_54304_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 802308,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_2_surface_p1_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 798190,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_2_surface_p1b_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 813548,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_2_surface_p1c_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 818163,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_2_surface_p1d_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 818011,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_3_paper_p2_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 818146,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_3_paper_p2b_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 808107,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_4_platen_p3_54240_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 811911,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_5_concrete_p4_54240_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 106680,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_5_surface_p4_diag_54244_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 806249,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_6_lower_platen_p5_54240_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 208871,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_7_fixed_machine_p6_diag_54240_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 799844,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_8_fixed_machine_p6_54240_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 211174,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_9_low_glare_diag_54241_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 210834,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_9b_contact_face_diag_54241_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 809052,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v5_referencefit_pilot_54120_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 734716,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v7_frontdoor_diag_59220_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 357294,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/hero_release_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 142567,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/mcp_realism_r5_58203_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1356766,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/pilot_release_v4_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 781792,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r10_concrete_tag_p4_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 121674,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r10_tag_contact_p4_diag2_58522_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 121839,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r10_tag_contact_p4_diag_58522_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 814290,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r13_concrete_tag_p4_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 122303,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r14_pore_disc_p4_diag2_58526_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 122049,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r14_pore_disc_p4_diag_58526_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 814589,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r15_concrete_tag_p4_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 839280,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r16_lower_platen_p5_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 129625,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r16_lower_platen_p5_diag2_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 128992,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r16_lower_platen_p5_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 144404,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r17_fixed_machine_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 262647,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r18_orientation_light_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 248281,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r19_pbr_bounce_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 244442,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r20_cover_steel_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 236596,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r21_handed_machine_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 240661,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r22_color_pbr_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 241107,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r23_color_cover_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 474587,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r24_fisheye_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 251955,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r25_dark_platen_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 253072,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r26_dark_overhead_p6_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1377571,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r29_fixed_machine_fisheye_p6_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1700049,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r2_pilot_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 249982,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r30_low_glare_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 247793,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r31_concrete_frequency_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 250324,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r32_concrete_midband_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 250499,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r34_concrete_regime_pores_diag_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1364552,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r35_low_glare_concrete_p6b_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 132465,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r36_spall_notch_diag_58525_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 133364,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r36b_spall_fracture_diag_58525_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 133450,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r36c_spall_fracture_diag_58525_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1364473,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r37b_spall_fracture_p6c_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 131812,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r38_matte_upper_diag_58525_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1345390,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r39_matte_spall_p6d_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 967895,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r3_pilot_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 249651,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r40_load_zone_diag_p6e_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 250134,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r41_load_zone_opaque_diag_p6e_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 249680,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r42_load_zone_disc_diag_p6e_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 249546,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r43_load_zone_cluster_diag_p6e_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 249500,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r44_load_zone_microcluster_diag_p6e_58523_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1346834,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r45_load_zone_release_p6e_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 907052,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r46_frontdoor_diag_59100_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1031914,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r47_camera_fill_diag_59100_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1055367,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r49_framing_steel_diag_59100_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 541680,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r4_calibration_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1092896,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r50_tonal_framing_diag_59200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1094879,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r51_axis_steel_diag_59200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 556283,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r52_diffuser_energy_diag_59200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 582485,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r53d_ambientcg_concrete_diag_59200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1562311,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r54_frontdoor_release_59320_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 521845,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r55_shader_ready_diag_59320_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 538071,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r5_calibration_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2089451,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r5_full_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 538022,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r5_sensor_calibration_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 437128,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r6_surface_p1_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 448385,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r6_surface_p1b_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 442827,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r6_surface_p1c_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 395240,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r6_surface_p1d_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 394770,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r6_surface_p1e_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 388946,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r6_surface_p1f_58200_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 765656,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r7_paper_p2_58320_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 763948,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r7_paper_p2b_58320_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 801535,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r8_platen_p3_58440_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 118357,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r8_platen_p3_diag2_58321_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 103109,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r8_platen_p3_diag_58321_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 803496,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r9_concrete_p4_58520_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 118728,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r9_surface_p4_diag2_58444_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 118334,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r9_surface_p4_diag_58444_contact_sheet.png",
+      "removal_method": "gio-trash"
+    }
+  ]
+}

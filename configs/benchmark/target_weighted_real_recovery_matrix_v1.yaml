@@ -1,0 +1,38 @@
+schema_version: 2
+runs:
+  - candidate: recovery_control_real_e2_v1
+    seed: 17
+    real_artifacts:
+      real_core_current: data/runs/recovery_control_real_e2_v1/seed_17/metrics.json
+      sugarbeets2016_holdout: data/runs/recovery_control_real_e2_v1/seed_17/development/sugarbeets2016_holdout.json
+      cwfid: data/runs/recovery_control_real_e2_v1/seed_17/development/cwfid.json
+      sorghum_weed: data/runs/recovery_control_real_e2_v1/seed_17/development/sorghum_weed.json
+      cropandweed: data/runs/recovery_control_real_e2_v1/seed_17/development/cropandweed.json
+      rice_seedling_weed: data/runs/recovery_control_real_e2_v1/seed_17/development/rice_seedling_weed.json
+      riceseg_country_transfer: data/runs/recovery_control_real_e2_v1/seed_17/development/riceseg_country_transfer.json
+      growingsoy: data/runs/recovery_control_real_e2_v1/seed_17/development/growingsoy.json
+      weedmap_uav: data/runs/recovery_control_real_e2_v1/seed_17/development/weedmap_uav.json
+      tobacco_uav: data/runs/recovery_control_real_e2_v1/seed_17/development/tobacco_uav.json
+      deblur_sharp: data/runs/recovery_control_real_e2_v1/seed_17/development/deblur_sharp.json
+      deblur_motion_blur: data/runs/recovery_control_real_e2_v1/seed_17/development/deblur_motion_blur.json
+    synthetic_artifacts:
+      v11_val: data/runs/recovery_control_real_e2_v1/seed_17/development/synthetic_v11_val.json
+      v11_test: data/runs/recovery_control_real_e2_v1/seed_17/development/synthetic_v11_test.json
+  - candidate: recovery_v10_diversity_real_e2_v1
+    seed: 17
+    real_artifacts:
+      real_core_current: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/metrics.json
+      sugarbeets2016_holdout: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/sugarbeets2016_holdout.json
+      cwfid: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/cwfid.json
+      sorghum_weed: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/sorghum_weed.json
+      cropandweed: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/cropandweed.json
+      rice_seedling_weed: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/rice_seedling_weed.json
+      riceseg_country_transfer: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/riceseg_country_transfer.json
+      growingsoy: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/growingsoy.json
+      weedmap_uav: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/weedmap_uav.json
+      tobacco_uav: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/tobacco_uav.json
+      deblur_sharp: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/deblur_sharp.json
+      deblur_motion_blur: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/deblur_motion_blur.json
+    synthetic_artifacts:
+      v11_val: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/synthetic_v11_val.json
+      v11_test: data/runs/recovery_v10_diversity_real_e2_v1/seed_17/development/synthetic_v11_test.json

@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "pass": "6/6-final",
+  "method": "fresh concrete-positive frames; LED three temporal quantiles per task-camera; IR one rotating temporal quantile per all REF machine-camera groups",
+  "led": [
+    {
+      "group": "task9-cam10",
+      "quantile": 0.13,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_9_dataset_2026_01_22_15_01_12_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-1_frame-00058.png",
+      "sha256": "60b6718b24909c4c0b120df752bb46f157dda336c41f1044853fa51a25adc625",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task9-cam10",
+      "quantile": 0.47,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_9_dataset_2026_01_22_15_01_12_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-1_frame-00209.png",
+      "sha256": "62d21bd130c2c700f5a78b9ffb7a8a86df3b8840b2c6ba2095b8a975f429d0b8",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task9-cam10",
+      "quantile": 0.81,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_9_dataset_2026_01_22_15_01_12_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-1_frame-00360.png",
+      "sha256": "b2cd3f58f54df8785c5a1d5329fd4a6470a4842ef29e084b8d4f11bdac417c45",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task10-cam10",
+      "quantile": 0.13,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_10_dataset_2026_01_23_12_54_24_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-2_frame-00053.png",
+      "sha256": "41d93dc2e06a106b4169e89f2758c303ee1240c7a9698844effec9c2a18d05d5",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task10-cam10",
+      "quantile": 0.47,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_10_dataset_2026_01_23_12_54_24_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-2_frame-00191.png",
+      "sha256": "3a7cd2d574ff26bafc8296af1a0cdaf4c8fff571889fc503a6442beff2b1a3e6",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task10-cam10",
+      "quantile": 0.81,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_10_dataset_2026_01_23_12_54_24_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-2_frame-00352.png",
+      "sha256": "1afeea2dd41d4c6f413bc585911dc033c07f5fb09e9d3089427fb3adfa61b7a6",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task11-cam11",
+      "quantile": 0.13,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_11_dataset_2026_01_23_07_32_53_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-6_frame-00058.png",
+      "sha256": "f8086ab70e465ea65c5914c92ab86e45daf38b6fc2576aa58121db190e4f8976",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task11-cam11",
+      "quantile": 0.47,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_11_dataset_2026_01_23_07_32_53_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-6_frame-00220.png",
+      "sha256": "bd153fa15bd066909693763ea6e597efffb971884eb88f81c6480b6572e28f30",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task11-cam11",
+      "quantile": 0.81,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_11_dataset_2026_01_23_07_32_53_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-6_frame-00375.png",
+      "sha256": "6087065ca23d063cea6c3082815d0282180e6c76431b173d02630d8ba0f668ab",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task12-cam11",
+      "quantile": 0.13,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_12_dataset_2026_01_23_08_53_31_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-4_frame-00059.png",
+      "sha256": "c9ef305632d0a976ed7acb62f2493091c06e9854e7d254c59b65bf89d868e1e1",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task12-cam11",
+      "quantile": 0.47,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_12_dataset_2026_01_23_08_53_31_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-4_frame-00213.png",
+      "sha256": "662a10c2925295018bdaa627ef971e83fd638904932c95af9affabb0adb286d9",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task12-cam11",
+      "quantile": 0.81,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_12_dataset_2026_01_23_08_53_31_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-4_frame-00368.png",
+      "sha256": "07ad67b5bb84183dba45b624077c06b0c7a6bb18a399996e7ae34c7de1858e6f",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task13-cam10",
+      "quantile": 0.13,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_13_dataset_2026_01_23_12_04_05_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-3_frame-00072.png",
+      "sha256": "c051850758f63ce9042bc5d06d9888c8e8e54bab425ef6111609ba81512b1dd5",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task13-cam10",
+      "quantile": 0.47,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/val/task_13_dataset_2026_01_23_12_04_05_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-3_frame-00224.png",
+      "sha256": "313eaf563be4c706b7b155ac55b727b33ed1a64813a2760fd49d2ac91fd9bc63",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task13-cam10",
+      "quantile": 0.81,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_13_dataset_2026_01_23_12_04_05_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-3_frame-00369.png",
+      "sha256": "a63bc4ebb2a9465dd7a9492f0c9fa5895bffa241d060b5c7425f641d77bffc47",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task14-cam11",
+      "quantile": 0.13,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/val/task_14_dataset_2026_01_23_14_19_44_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-5_frame-00065.png",
+      "sha256": "c2f1283e9ace35d6156ec62cb910ee2f01b0f3516e548fd1c8669b4eed8aa4a9",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task14-cam11",
+      "quantile": 0.47,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_14_dataset_2026_01_23_14_19_44_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-5_frame-00204.png",
+      "sha256": "248e99880c2cc51076c7f32bb32baa1f8bae2e56e7725f2af207b0cee8a840da",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "task14-cam11",
+      "quantile": 0.81,
+      "path": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_14_dataset_2026_01_23_14_19_44_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-5_frame-00361.png",
+      "sha256": "c5c9a4c7dfd73d6d2efd52952b0c6ca7ee4365fe24d42ecf99614ea578cf20c1",
+      "size_px": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "ir": [
+    {
+      "group": "REF-65080_CAM10",
+      "quantile": 0.23,
+      "path": "260312_EBIS_RFID_DATASET/REF-65080_CAM10/images/train/AYKAR_REF-65080_2025-01-27_cam-10_frame-004281.png",
+      "sha256": "dcb9975508e508f7fa5bea39a4ae3ceb2ac41b2943ea86b46cf70ed4011dadd4",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65080_CAM11",
+      "quantile": 0.52,
+      "path": "260312_EBIS_RFID_DATASET/REF-65080_CAM11/images/train/AYKAR_REF-65080_2025-01-28_cam-11_frame-007894.png",
+      "sha256": "2a86a9235149a64f382cae31a079847826cad4af2dd03ba82d47f48cf66fa0b1",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65166_CAM10",
+      "quantile": 0.79,
+      "path": "260312_EBIS_RFID_DATASET/REF-65166_CAM10/images/train/AYKAR_REF-65166_2025-01-25_cam-10_frame-020405.png",
+      "sha256": "e7ae78c7e3d1b1432b4f9683fd13bc2c8ac4d270be8a40d56b1bbe87454a93db",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65166_CAM11",
+      "quantile": 0.23,
+      "path": "260312_EBIS_RFID_DATASET/REF-65166_CAM11/images/train/AYKAR_REF-65166_2025-01-09_cam-11_frame-002778.png",
+      "sha256": "a2f8d20d6f828731f74acfd398d5ccbb696f38ac526f3d3abdd2a43adec57128",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65167_CAM11",
+      "quantile": 0.52,
+      "path": "260312_EBIS_RFID_DATASET/REF-65167_CAM11/images/val/ELİZ_REF-65167_2025-01-13_cam-11_frame-035259.png",
+      "sha256": "1124ffcd73ddf50f8fcf00f0aec61277451ce1ec95c2f096b439b723a06a2b54",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65171_CAM10",
+      "quantile": 0.79,
+      "path": "260312_EBIS_RFID_DATASET/REF-65171_CAM10/images/val/EBM_REF-65171_2025-01-22_cam-10_frame-029424.png",
+      "sha256": "d26d2fabfec8b7fc7f67491a87dd3436ef51a92cfbba101055194621a0ffd3b6",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65171_CAM11",
+      "quantile": 0.23,
+      "path": "260312_EBIS_RFID_DATASET/REF-65171_CAM11/images/train/EBM_REF-65171_2025-01-20_cam-11_frame-004814.png",
+      "sha256": "93a5fe6ce87f419a96ead42accff87a8a23b23aa999799b1dcb51c2bd33359bd",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65207_CAM11",
+      "quantile": 0.52,
+      "path": "260312_EBIS_RFID_DATASET/REF-65207_CAM11/images/train/ELİZ_REF-65207_2025-01-16_cam-11_frame-014266.png",
+      "sha256": "3a7f424371847a8c07227d25b89b1daf4fdbae86c83c85085377f48703b2781d",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65218_CAM10",
+      "quantile": 0.79,
+      "path": "260312_EBIS_RFID_DATASET/REF-65218_CAM10/images/train/TİMKO_REF-65218_2025-02-21_cam-10-000395.png",
+      "sha256": "20c7165cd7590d5ab7411ed16f5c7fb48991dc5268ea1dd3bd7e2e6d544d11a2",
+      "size_px": [
+        1280,
+        720
+      ]
+    },
+    {
+      "group": "REF-65218_CAM11",
+      "quantile": 0.23,
+      "path": "260312_EBIS_RFID_DATASET/REF-65218_CAM11/images/train/TİMKO_REF-65218_2025-02-21_cam-11-000324.png",
+      "sha256": "1e3a0edc6fbcfc1f8e9e267cdd6ca4e018795bd88f38ecf1bdeb46ea5bef4e76",
+      "size_px": [
+        1280,
+        720
+      ]
+    },
+    {
+      "group": "REF-65244_CAM11",
+      "quantile": 0.52,
+      "path": "260312_EBIS_RFID_DATASET/REF-65244_CAM11/images/train/YAPI-KONTROL_REF-65244_2025-01-06_cam-11_frame-005932.png",
+      "sha256": "e13205be2a88f8ea0de3ec6353f7110b3ef63cd973604a751c1201040f9437cd",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65250_CAM11",
+      "quantile": 0.79,
+      "path": "260312_EBIS_RFID_DATASET/REF-65250_CAM11/images/train/ELİZ_REF-65250_2024-12-08_cam-11_frame-005115.png",
+      "sha256": "de0e9efaf8bbc64099e649a2ed44d6240603bcff43c783620f289d774a46e9d6",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65256_CAM11",
+      "quantile": 0.23,
+      "path": "260312_EBIS_RFID_DATASET/REF-65256_CAM11/images/train/EBM_REF-65256_2025-01-22_cam-11_frame-004338.png",
+      "sha256": "0107293fc83cbd603ef5aeec023aba96899f323a2d8223cecdda7d57fd900560",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65260_CAM10",
+      "quantile": 0.52,
+      "path": "260312_EBIS_RFID_DATASET/REF-65260_CAM10/images/val/YAPI-KONTROL_REF-65260_2025-01-11_cam-10_frame-005555.png",
+      "sha256": "3cbe68d20d6519baba371aa179563fd88597846df071540fac0b52ff9b355ef9",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65260_CAM11",
+      "quantile": 0.79,
+      "path": "260312_EBIS_RFID_DATASET/REF-65260_CAM11/images/val/YAPI-KONTROL_REF-65260_2025-01-11_cam-11_frame-029461.png",
+      "sha256": "910c73c44bed70cdff8acbcc7afccc7cad5b2d8b11c28ccf722a48e84332ef3d",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65423_CAM10",
+      "quantile": 0.23,
+      "path": "260312_EBIS_RFID_DATASET/REF-65423_CAM10/images/val/BTN_REF-65423_2025-01-24_cam-10_frame-001467.png",
+      "sha256": "bed4830e5d927abdcccb24522ad8e0ecca185ea7428cfbff57e558afddddce92",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65423_CAM11",
+      "quantile": 0.52,
+      "path": "260312_EBIS_RFID_DATASET/REF-65423_CAM11/images/train/BTN_REF-65423_2025-01-18_cam-11_frame-013711.png",
+      "sha256": "f5f6735aa987c7cd8f27758a0feecda1ce8b12c1a77e4e335c033b7b95db7837",
+      "size_px": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "group": "REF-65553_CAM11",
+      "quantile": 0.79,
+      "path": "260312_EBIS_RFID_DATASET/REF-65553_CAM11/images/train/ASBET_REF-65553_2025-01-24_cam-11_frame-033531.png",
+      "sha256": "15e484d08f5041441a1d7120f14b5e352e4a1de5532d7886f97bc5097f64c183",
+      "size_px": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "sheets": [
+    {
+      "path": "reports/qc/multi_repeat_pass6final_led_fresh.png",
+      "sha256": "499072903ac1bb2daa4af4cd7a817f2301646e675ba47699f9fcb61a9b30d454"
+    },
+    {
+      "path": "reports/qc/multi_repeat_pass6final_ir_fresh.png",
+      "sha256": "5012588256817ea3c369c815cc8eb6b8c95911e1c4c51ad97740225495fa3dcf"
+    }
+  ]
+}

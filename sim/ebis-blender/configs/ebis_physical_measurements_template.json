@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "spec_revision": "2026-07-29-r2",
+  "status": "template_unmeasured",
+  "units": "millimeters",
+  "source_priority": [
+    "direct measurement with scale visible in photo",
+    "manufacturer CAD or drawing",
+    "checkerboard camera calibration",
+    "multi-view image estimate",
+    "single-view visual fit"
+  ],
+  "machine": {
+    "interior_width": {"value": null, "tolerance": null, "evidence": []},
+    "interior_depth": {"value": null, "tolerance": null, "evidence": []},
+    "interior_height": {"value": null, "tolerance": null, "evidence": []},
+    "door_opening_width": {"value": null, "tolerance": null, "evidence": []},
+    "door_opening_height": {"value": null, "tolerance": null, "evidence": []},
+    "door_leaf_thickness": {"value": null, "tolerance": null, "evidence": []},
+    "door_hinge_side_viewed_from_outside": {"value": null, "evidence": []},
+    "door_open_angle_degrees": {"value": null, "tolerance": null, "evidence": []},
+    "service_hatch_width": {"value": null, "tolerance": null, "evidence": []},
+    "service_hatch_height": {"value": null, "tolerance": null, "evidence": []},
+    "service_hatch_corner_radius": {"value": null, "tolerance": null, "evidence": []}
+  },
+  "platens": {
+    "upper_diameter": {"value": null, "tolerance": null, "evidence": []},
+    "upper_thickness": {"value": null, "tolerance": null, "evidence": []},
+    "lower_diameter": {"value": null, "tolerance": null, "evidence": []},
+    "lower_thickness": {"value": null, "tolerance": null, "evidence": []},
+    "lower_top_height_from_chamber_floor": {"value": null, "tolerance": null, "evidence": []},
+    "clear_gap_without_sample": {"value": null, "tolerance": null, "evidence": []}
+  },
+  "samples": {
+    "cube_edge": {"value": null, "tolerance": null, "evidence": []},
+    "cylinder_diameter": {"value": null, "tolerance": null, "evidence": []},
+    "cylinder_height": {"value": null, "tolerance": null, "evidence": []}
+  },
+  "led_diffuser": {
+    "path": "back + left + right walls; U-shaped, no segment across door opening",
+    "band_height": {"value": null, "tolerance": null, "evidence": []},
+    "channel_depth": {"value": null, "tolerance": null, "evidence": []},
+    "diffuser_thickness": {"value": null, "tolerance": null, "evidence": []},
+    "center_height_from_chamber_floor": {"value": null, "tolerance": null, "evidence": []},
+    "back_segment_length": {"value": null, "tolerance": null, "evidence": []},
+    "left_segment_length": {"value": null, "tolerance": null, "evidence": []},
+    "right_segment_length": {"value": null, "tolerance": null, "evidence": []},
+    "cct_kelvin": {"value": null, "tolerance": null, "evidence": []},
+    "cri": {"value": null, "tolerance": null, "evidence": []},
+    "lux_at_sample_center_led_only": {"value": null, "tolerance": null, "evidence": []}
+  },
+  "rfid": {
+    "film_length": {"value": null, "tolerance": null, "evidence": []},
+    "film_width": {"value": null, "tolerance": null, "evidence": []},
+    "film_thickness": {"value": null, "tolerance": null, "evidence": []},
+    "adhesive_edge_lift_range": {"value": null, "tolerance": null, "evidence": []}
+  },
+  "cameras": {
+    "cam_10_camera_angled": {
+      "make_model": null,
+      "lens_or_focal_length": null,
+      "native_resolution": [1920, 1080],
+      "calibration_image_glob": null,
+      "camera_to_chamber_landmark_measurements": [],
+      "exposure_gain_white_balance_if_available": null
+    },
+    "cam_11_camera_door": {
+      "make_model": null,
+      "lens_or_focal_length": null,
+      "native_resolution": [1920, 1080],
+      "calibration_image_glob": null,
+      "camera_to_chamber_landmark_measurements": [],
+      "exposure_gain_white_balance_if_available": null
+    }
+  },
+  "material_reference_sets": {
+    "interior_pebbled_sheet_metal": [],
+    "upper_platen_used_steel": [],
+    "lower_platen_used_steel": [],
+    "opal_led_diffuser_on_and_off": [],
+    "cube_mould_face_and_broken_edge": [],
+    "cylinder_mould_face_and_broken_end": [],
+    "rfid_front_back_and_edge": []
+  },
+  "current_fallback_assumptions_not_measurements": {
+    "chamber_width": 620,
+    "chamber_depth": 560,
+    "chamber_height": 760,
+    "cube_edge": 180,
+    "cylinder_diameter": 126,
+    "cylinder_height": 201,
+    "upper_platen_diameter": 400,
+    "lower_platen_diameter": 400,
+    "platen_to_cube_edge_ratio_target": [2.1, 2.3],
+    "led_band_height": 34
+  }
+}

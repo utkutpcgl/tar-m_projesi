@@ -1,0 +1,95 @@
+diff --git a/core/base.py b/core/base.py
+index a89ff47..2f44873 100644
+--- a/core/base.py
++++ b/core/base.py
+@@ -202,6 +202,7 @@ def render_animation(
+         scene.render.engine = 'CYCLES'
+         scene.cycles.device = render.cycles_device
+         scene.cycles.samples = render.samples
++        scene.cycles.use_denoising = True
+         scene.render.image_settings.quality = 100
+ 
+     scene.render.resolution_x = render.resolution_x
+diff --git a/core/ground.py b/core/ground.py
+index 1850cc3..2511d9b 100644
+--- a/core/ground.py
++++ b/core/ground.py
+@@ -107,6 +107,71 @@ class Ground:
+ 
+         collection = bpy.data.collections["generated"]
+         collection.objects.link(object)
++
++        if os.environ.get("CROPCRAFT_SURFACE_PROFILE") == "shallow_paddy_v4":
++            self.create_paddy_water(collection)
++
++    def create_paddy_water(self, collection):
++        water_depth = float(os.environ.get("CROPCRAFT_SURFACE_WATER_DEPTH_M", "0.003"))
++        water = create_plane_object(
++            "paddy_water",
++            self.beds.width,
++            self.beds.length,
++            self.field.headland_width,
++        )
++        water.location.z = water_depth
++        water.active_material = self.create_paddy_water_material()
++        collection.objects.link(water)
++
++    def create_paddy_water_material(self) -> bpy.types.Material:
++        coverage = min(
++            0.98,
++            max(0.05, float(os.environ.get("CROPCRAFT_SURFACE_WATER_COVERAGE", "0.80"))),
++        )
++        roughness = min(
++            0.45,
++            max(0.015, float(os.environ.get("CROPCRAFT_SURFACE_WATER_ROUGHNESS", "0.10"))),
++        )
++        wave_scale = min(
++            35.0,
++            max(0.5, float(os.environ.get("CROPCRAFT_SURFACE_WAVE_SCALE", "5.0"))),
++        )
++        material = bpy.data.materials.new("paddy_water")
++        material.use_nodes = True
++        nodes = material.node_tree.nodes
++        nodes.clear()
++        output = nodes.new("ShaderNodeOutputMaterial")
++        transparent = nodes.new("ShaderNodeBsdfTransparent")
++        water = nodes.new("ShaderNodeBsdfPrincipled")
++        water.inputs["Base Color"].default_value = (0.075, 0.135, 0.095, 1.0)
++        water.inputs["Roughness"].default_value = roughness
++        if water.inputs.get("IOR") is not None:
++            water.inputs["IOR"].default_value = 1.333
++        if water.inputs.get("Transmission Weight") is not None:
++            water.inputs["Transmission Weight"].default_value = 0.72
++        if water.inputs.get("Coat Weight") is not None:
++            water.inputs["Coat Weight"].default_value = 0.20
++        noise = nodes.new("ShaderNodeTexNoise")
++        noise.inputs["Scale"].default_value = wave_scale
++        noise.inputs["Detail"].default_value = 5.0
++        noise.inputs["Roughness"].default_value = 0.62
++        ramp = nodes.new("ShaderNodeValToRGB")
++        threshold = 1.0 - coverage
++        ramp.color_ramp.elements[0].position = max(0.0, threshold - 0.055)
++        ramp.color_ramp.elements[1].position = min(1.0, threshold + 0.055)
++        bump = nodes.new("ShaderNodeBump")
++        bump.inputs["Strength"].default_value = 0.14
++        bump.inputs["Distance"].default_value = 0.002
++        mix = nodes.new("ShaderNodeMixShader")
++        links = material.node_tree.links
++        links.new(noise.outputs["Fac"], ramp.inputs["Fac"])
++        links.new(noise.outputs["Fac"], bump.inputs["Height"])
++        links.new(bump.outputs["Normal"], water.inputs["Normal"])
++        links.new(ramp.outputs["Color"], mix.inputs[0])
++        links.new(transparent.outputs["BSDF"], mix.inputs[1])
++        links.new(water.outputs["BSDF"], mix.inputs[2])
++        links.new(mix.outputs["Shader"], output.inputs["Surface"])
++        return material
+ 
+     def create_weeds(self):
+         if self.field.weeds is None:
+@@ -224,3 +289,6 @@ class Ground:
+         _apply_emission_material(
+             [bpy.data.objects['ground']], bg_color
+         )
++        water = bpy.data.objects.get('paddy_water')
++        if water is not None:
++            _apply_emission_material([water], bg_color)

@@ -1,0 +1,96 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simulation_field_robustness_screen_v10_r2
+data_license_scope: research_real_plus_accepted_cc0_synthetic_field_robustness_v10
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+  samples_per_epoch: 3600
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  - name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Fixed 90% real / 10% synthetic budget. Only half of the accepted
+  # dryland V3 exposure is replaced by the V10 surface/light distribution.
+  - name: simab_v3_025_fieldrobust025_paddy05_e8_v10_r1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_v3_025_fieldrobust025_paddy05_trainval_v10_r1.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.025
+        cropcraft_field_robustness_pilot_v10_r1: 0.025
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+# Development-only real panels. No external/final test is opened. The newly
+# frozen BoniRob panel was acquired and released before any model evaluation;
+# its 283 correlated frames form exactly one field/session unit.
+development_evaluations:
+  - name: cwfid
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    split: external_calibration
+    workers: 4
+  - name: sugarbeets2016_holdout
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+    split: external_calibration
+    workers: 4
+  - name: sorghum_weed
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    split: external_calibration
+    workers: 4
+  - name: cropandweed
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropandweed.csv
+    split: external_calibration
+    workers: 4
+  - name: rice_seedling_weed
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/rice_seedling_weed.csv
+    split: train
+    workers: 4
+  - name: riceseg_country_transfer
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_country_transfer_v1.csv
+    split: external_calibration
+    workers: 4
+  - name: growingsoy
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/growingsoy.csv
+    split: external_calibration
+    workers: 4
+  - name: weedmap_uav
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap_calibration_v1.csv
+    split: external_calibration
+    workers: 4
+  - name: tobacco_uav
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_balanced_calibration_v1.csv
+    split: external_calibration
+    workers: 4
+  - name: deblur_sharp
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_sharp_calibration_v1.csv
+    split: external_calibration
+    workers: 4
+  - name: deblur_motion_blur
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_blur_calibration_v1.csv
+    split: external_calibration
+    workers: 4

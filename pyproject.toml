@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agri-seg"
+version = "0.1.0"
+description = "Reproducible crop/weed/soil segmentation benchmark"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<3",
+  "Pillow>=10,<12",
+  "libarchive-c>=5,<6",
+  "scipy>=1.11,<2",
+  "PyYAML>=6,<7",
+  "torch>=2.7",
+  "torchvision>=0.22",
+  "transformers>=4.56,<5",
+  "timm>=1.0,<2",
+]
+
+[project.optional-dependencies]
+export = ["onnx>=1.18,<2", "onnxruntime>=1.22,<2"]
+dev = ["pytest>=8,<9"]
+
+[project.scripts]
+agri-seg = "agri_seg.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["."]

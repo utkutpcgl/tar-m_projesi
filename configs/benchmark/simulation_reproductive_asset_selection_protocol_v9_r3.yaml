@@ -1,0 +1,162 @@
+schema_version: 1
+scope: research_semantic_crop_segmentation_late_reproductive_synthetic_gate
+frozen_before_challenger_training: true
+frozen_at: "2026-08-03T20:13:00+03:00"
+
+control: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+challenger: simab_v3_05_paddy025_reproductive025_e8_v9_r3
+screen_seed: 17
+confirmation_seeds: [17, 29, 43]
+fixed_epoch: 8
+checkpoint: last.pt
+source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+
+compute_budget:
+  epochs: 8
+  samples_per_epoch: 3600
+  sampled_examples_per_run: 28800
+  real_exposure: 0.90
+  total_synthetic_exposure: 0.10
+  control_synthetic: {dryland_v3: 0.05, early_paddy_r5: 0.05}
+  challenger_synthetic: {dryland_v3: 0.05, early_paddy_r5: 0.025, reproductive_r3: 0.025}
+  architecture_and_hyperparameters_identical: true
+
+evaluation_domains:
+  - source
+  - cwfid
+  - sorghum_weed
+  - cropandweed
+  - early_rice
+  - riceseg
+  - riceseg_reproductive
+
+real_rice_role: >-
+  Both real Rice datasets are evaluation-only in this isolated synthetic
+  factor gate. RiceSEG uses its frozen external_calibration role; the 100-image
+  reproductive subset is selected only from upstream growth-stage metadata.
+  No real Rice sample or sampling weight is permitted in either training arm.
+
+ranking:
+  primary: min_seven_domain_semantic_mean_iou
+  tie_breakers:
+    - riceseg_reproductive_semantic_mean_iou
+    - riceseg_semantic_mean_iou
+    - macro_seven_domain_semantic_mean_iou
+
+screen_acceptance_against_control:
+  robust_mean_iou_delta_must_be_at_least: 0.003
+  riceseg_mean_iou_delta_must_be_at_least: 0.005
+  riceseg_reproductive_mean_iou_delta_must_be_at_least: 0.010
+  macro_mean_iou_delta_must_be_at_least: 0.0
+  maximum_existing_domain_mean_iou_regression:
+    source: 0.010
+    cwfid: 0.010
+    sorghum_weed: 0.010
+    cropandweed: 0.010
+    early_rice: 0.010
+
+confirmation_acceptance_against_control:
+  mean_robust_delta_must_be_greater_than: 0.0
+  minimum_robust_wins_out_of_3: 2
+  mean_riceseg_delta_must_be_at_least: 0.005
+  mean_riceseg_reproductive_delta_must_be_at_least: 0.010
+  maximum_mean_existing_domain_mean_iou_regression:
+    source: 0.010
+    cwfid: 0.010
+    sorghum_weed: 0.010
+    cropandweed: 0.010
+    early_rice: 0.010
+
+confirmation_matrix_policy: >-
+  If and only if the seed-17 challenger passes every screen rule, create and
+  hash-freeze a paired seed 17/29/43 matrix before training seeds 29/43. Reuse
+  seed-17 artifacts byte-for-byte; otherwise retain the accepted control and
+  do not spend the confirmation budget.
+
+forbidden_inputs:
+  - rice_seedling_weed_in_training_manifest_or_weights
+  - riceseg_in_training_manifest_or_weights
+  - any_external_test_or_final_test_split
+  - real_core_final_test
+  - carrot_weed_external_test
+  - ewis1_external_test
+  - sorghum_weed_external_test
+
+locked_inputs:
+  screen_matrix:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/simulation_reproductive_asset_screen_v9_r3.yaml
+    sha256: cde25301b3627c31a75947c120ea14f9aea2ba27e9ec5ab5dcaef8573e68de37
+  base_training_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/train/base_real_sorghum_ablation_v1.yaml
+    sha256: d2f8450bc8106d09798d873aee8add6f25640ceb303bfd9f25d2435edd1abafc
+  evaluator_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/evaluate_reproductive_fixed_epoch_development.py
+    sha256: c9148b74177a16de5a4d4d45162ab3552c52199ed3f8dbe809fd82eff56db162
+  selector_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/select_reproductive_asset.py
+    sha256: 4fe5a174783cd3a46730ce8a20229b7a42412484b0dbb80d5e5605920c2709f8
+  final_asset_and_pilot_gate:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_reproductive_final_gate_v9_r3.json
+    sha256: 755931bf460dd5b50a254d8096ef6ea64a1ac858f2ef65b74c2c436fcdc9eec8
+  manifest_builder:
+    path: /home/ankaref/utku/tarım_projesi/scripts/build_reproductive_ab_manifests_v9.py
+    sha256: c0092b8031de12f2c59ac5f591393ca9ef4aaa24af5c5ca91209f133af9d5268
+  manifest_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/simulation_reproductive_manifest_v9_r3.yaml
+    sha256: 05c17a02bf90a2963c7cf946457fd00f74e3f45b53b21eed63ae633b3069c228
+  manifest_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/simulation_reproductive_manifest_v9_r3.json
+    sha256: f64c6c35854e7748a51acfbbd5c43edde3794019ff4a29ab23bb6554e399833c
+  challenger_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_v3_05_paddy025_reproductive025_trainval_v9_r3.csv
+    sha256: 3ff434f63df32d34fc705a1893ef79378f43301cf76d1b4ea6d16b3fe790ee0d
+  challenger_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/real_sorghum_cropcraft_v3_05_paddy025_reproductive025_manifest_audit_v9_r3.json
+    sha256: a12c95f1fa7950a441d1064754b2706bba5f0dc6ea51d2dbf10a0f2d4ecb9cfd
+  accepted_control_selection:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_paddy_asset_confirmation_selection_v4_r5.json
+    sha256: 3f4f62c79cd99afbc7bbc149f0d798cda0053c96a106f187d3a9514ce376f50b
+  control_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  control_seed17_checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/last.pt
+    sha256: 22f988e74057b27545eae6ace98141f713df3d0345c8bc6bab140d1b1ca55d57
+  control_seed17_summary:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/summary.json
+    sha256: bdf20287f961f40adcd3df1e37145062b45d13e9e0ba361dc5a2ce05a2416ce0
+  control_seed17_history:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/history.jsonl
+    sha256: d840a16756513d893286c9092e7462e8bb65b2576da04dc7015a0a8e59f0a049
+  control_seed17_resolved_config:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/config.resolved.json
+    sha256: 0e035c0cbc67bb298440d7cedb4ff9afbb6b537255625fcb86fd9fe167dbcf70
+  riceseg_quality_gate:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/riceseg_quality_gate_v1.json
+    sha256: 1653ebfed22e9b8920b88ddbb3460a8648729b0934f63018077d78e2b8ed4904
+  riceseg_calibration_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_quality_calibration_v1.csv
+    sha256: 39fcce0ee2f886346ed36b93d4af2008a06bb9cc9628297926222ce5bd77d14b
+  riceseg_reproductive_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_reproductive_calibration_v1.csv
+    sha256: 39eeb15e3096f227b85a17d5ddbed89a75728a9e31ce76f279aa1676e49b633d
+  cwfid_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    sha256: 8f2bcfe518b48df7673bcbda748ebf812273723e8438228e296213886c7ba450
+  sorghum_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    sha256: f28f5914090b8ee28cd26b9e742ec958105db61f68b743963a3729468d263540
+  cropandweed_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropandweed.csv
+    sha256: 63fead62f9cdd92e3c21129d6b8e6e09a2df672395661757a7e64b969f124399
+  early_rice_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/rice_seedling_weed.csv
+    sha256: 05d9eeff6f4874395ebcad9a718a2ec405eb17fef2abc2106a9e14dd981adac8
+
+fallback_if_acceptance_fails: retain_accepted_v3_05_paddy_r5_05_control
+external_test_used_for_selection: false
+safety_policy_used_for_selection: false
+spray_deployment_eligible_from_this_protocol: false
+selection_status: >-
+  The candidate can be selected for robustness research only. Passing the
+  screen unlocks three-seed confirmation; it is not deployment evidence.

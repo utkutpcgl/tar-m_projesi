@@ -1,0 +1,104 @@
+schema_version: 1
+frozen_at: "2026-08-04T14:38:00+03:00"
+purpose: matched_real_only_recovery_after_synthetic_diversity
+screen_seed: 17
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_trainval_v1.csv
+manifest_sha256: a28e67d1f7ff21f2e7674de9c13feab9dc70b11472283dc4a102aafce89b933d
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs
+
+training:
+  minimum_free_gpu_bytes: 7516192768
+  train_split: train
+  val_split: val
+  epochs: 2
+  samples_per_epoch: 3600
+  crop_size: 512
+  scale_min: 0.65
+  scale_max: 1.60
+  augment: true
+  batch_size: 4
+  eval_batch_size: 1
+  eval_tile_size: 1024
+  eval_tile_overlap: 128
+  eval_tile_trigger_pixels: 4000000
+  gradient_accumulation: 4
+  workers: 8
+  amp: true
+  learning_rate: 0.00003
+  backbone_lr_multiplier: 0.10
+  weight_decay: 0.05
+  warmup_steps: 25
+  gradient_clip: 1.0
+  calibrate_unknown_crop: true
+  max_crop_spray_risk: 0.005
+  max_per_image_crop_spray_risk_p99: 0.005
+  max_crop_spray_risk_violation_rate: 0.01
+  weed_thresholds: [0.50, 0.60, 0.70, 0.75, 0.80, 0.85, 0.90, 0.93, 0.95, 0.96, 0.97, 0.98, 0.985, 0.99, 0.995, 0.999]
+  dataset_weights:
+    phenobench: 0.18
+    acre: 0.18
+    weedsgalore: 0.05
+    we3ds: 0.27
+    rose: 0.22
+    sorghum_weed: 0.10
+
+candidates:
+  - name: recovery_control_real_e2_v1
+    role: matched_extra_real_compute_control
+    initial_checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/best.pt
+    initial_checkpoint_sha256: 0d3e314e787ed3d6999eba1de2f5c79bb8246e698d14e4edc6d5e833a6c19ec5
+  - name: recovery_v10_diversity_real_e2_v1
+    role: synthetic_diversity_then_real_recovery
+    initial_checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_v3_025_fieldrobust025_paddy05_e8_v10_r1/seed_17/best.pt
+    initial_checkpoint_sha256: 66ddb87f6eef9ee63888d533cc0d939af5cab0961e01b2bf801309284ccce3de
+
+excluded_candidate:
+  name: v11_r2q
+  reason: >-
+    V11-R2Q is Pareto-dominated by V10 at seed 17 on target-like, breadth,
+    lower-tail and combined real scores. Testing its recovery would add the
+    same compute without a distinct simple hypothesis.
+
+development_evaluations:
+  - {name: cwfid, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv, split: external_calibration}
+  - {name: sugarbeets2016_holdout, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv, split: external_calibration}
+  - {name: sorghum_weed, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv, split: external_calibration}
+  - {name: cropandweed, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropandweed.csv, split: external_calibration}
+  - {name: rice_seedling_weed, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/rice_seedling_weed.csv, split: train}
+  - {name: riceseg_country_transfer, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_country_transfer_v1.csv, split: external_calibration}
+  - {name: growingsoy, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/growingsoy.csv, split: external_calibration}
+  - {name: weedmap_uav, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap_calibration_v1.csv, split: external_calibration}
+  - {name: tobacco_uav, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_balanced_calibration_v1.csv, split: external_calibration}
+  - {name: deblur_sharp, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_sharp_calibration_v1.csv, split: external_calibration}
+  - {name: deblur_motion_blur, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_blur_calibration_v1.csv, split: external_calibration}
+  - {name: synthetic_v11_val, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_field_robustness_pilot_v11_r2q.csv, split: val, synthetic_diagnostic: true}
+  - {name: synthetic_v11_test, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_field_robustness_pilot_v11_r2q.csv, split: test, synthetic_diagnostic: true}
+
+selection:
+  target_base:
+    scorer_protocol: configs/benchmark/target_weighted_field_robustness_prescreen_v11_r2q.yaml
+    rule: existing_strict_target_weighted_paired_gate
+  generalist_base:
+    primary: 0.80_equal_real_domain_macro_plus_0.20_domain_balanced_field_tail
+    minimum_primary_gain: 0.002
+    maximum_target_like_macro_regression: 0.010
+    maximum_lower_tail_regression: 0.015
+    critical_target_domains: [cwfid, sugarbeets2016_holdout]
+    maximum_critical_domain_regression: 0.030
+    maximum_fraction_fields_regressing_more_than_0_025: 0.20
+    synthetic_weight_in_primary: 0.0
+    unlabeled_online_video_weight_in_primary: 0.0
+  screen_only:
+    seed_17_pass_only_authorizes_seed_29_43_confirmation: true
+    seed_17_does_not_replace_either_base: true
+
+fairness:
+  identical_real_manifest: true
+  identical_real_draws: true
+  identical_augmentation: true
+  identical_optimizer_and_schedule: true
+  fresh_optimizer_for_both_arms: true
+  no_synthetic_rows_during_recovery: true
+  existing_direct_mixture_results_are_read_only: true
+  external_or_final_test_used: false

@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "real": {
+    "root": "/home/utkutopcuoglu/Documents/utku/stajyerler/simulation/260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli",
+    "image_count": 2960,
+    "resolutions": {
+      "1920x1080": 2960
+    },
+    "split_counts": {
+      "train": 2665,
+      "val": 295
+    },
+    "camera_counts": {
+      "camera_angled": 1253,
+      "camera_door": 1324,
+      "unknown_legacy_camera": 383
+    },
+    "empty_label_files": 3,
+    "class_stats": {
+      "tag": {
+        "instances": 15596,
+        "images": 2897,
+        "image_fraction": 0.9787162162162162,
+        "short_side_px": {
+          "count": 15596,
+          "p01": 12.299094,
+          "p05": 16.559639999999998,
+          "median": 40.434659999999994,
+          "p95": 173.14011,
+          "maximum": 1080.0
+        },
+        "long_side_px": {
+          "count": 15596,
+          "p01": 25.41024,
+          "p05": 47.09718,
+          "median": 117.8208,
+          "p95": 315.2673,
+          "maximum": 1920.0
+        },
+        "bbox_area_fraction": {
+          "count": 15596,
+          "p01": 0.00023798302034999997,
+          "p05": 0.00047193241200000003,
+          "median": 0.0021522689749999997,
+          "p95": 0.023978293435500002,
+          "maximum": 1.0
+        },
+        "touches_image_edge_fraction": 0.0791869710182098
+      },
+      "concrete": {
+        "instances": 2945,
+        "images": 2944,
+        "image_fraction": 0.9945945945945946,
+        "short_side_px": {
+          "count": 2945,
+          "p01": 466.5360384,
+          "p05": 480.76224,
+          "median": 774.14976,
+          "p95": 950.7705599999999,
+          "maximum": 1015.2902399999999
+        },
+        "long_side_px": {
+          "count": 2945,
+          "p01": 495.8976384,
+          "p05": 865.0400399999999,
+          "median": 923.1094800000001,
+          "p95": 1039.6038959999998,
+          "maximum": 1087.10016
+        },
+        "bbox_area_fraction": {
+          "count": 2945,
+          "p01": 0.11318768803936,
+          "p05": 0.20238023383019998,
+          "median": 0.3415307745,
+          "p95": 0.4687591291055998,
+          "maximum": 0.524021
+        },
+        "touches_image_edge_fraction": 0.5517826825127334
+      },
+      "apriltag": {
+        "instances": 516,
+        "images": 516,
+        "image_fraction": 0.17432432432432432,
+        "short_side_px": {
+          "count": 516,
+          "p01": 14.164608,
+          "p05": 14.839680000000001,
+          "median": 158.95968,
+          "p95": 210.9408,
+          "maximum": 211.39968
+        },
+        "long_side_px": {
+          "count": 516,
+          "p01": 55.451628,
+          "p05": 81.15201,
+          "median": 182.82510000000002,
+          "p95": 244.93239,
+          "maximum": 245.45052
+        },
+        "bbox_area_fraction": {
+          "count": 516,
+          "p01": 0.0005465772731,
+          "p05": 0.00066956452325,
+          "median": 0.013963026756000002,
+          "p95": 0.0248906418595,
+          "maximum": 0.024989534151999997
+        },
+        "touches_image_edge_fraction": 0.0
+      },
+      "person": {
+        "instances": 2664,
+        "images": 2474,
+        "image_fraction": 0.8358108108108108,
+        "short_side_px": {
+          "count": 2664,
+          "p01": 42.5901144,
+          "p05": 132.64108800000002,
+          "median": 553.75008,
+          "p95": 1038.6335699999997,
+          "maximum": 1080.0
+        },
+        "long_side_px": {
+          "count": 2664,
+          "p01": 143.1725568,
+          "p05": 259.569522,
+          "median": 930.2947200000001,
+          "p95": 1476.406176,
+          "maximum": 1920.0
+        },
+        "bbox_area_fraction": {
+          "count": 2664,
+          "p01": 0.00322353153738,
+          "p05": 0.01800473852355,
+          "median": 0.256946597574,
+          "p95": 0.65861977455115,
+          "maximum": 0.99315987375
+        },
+        "touches_image_edge_fraction": 0.6921921921921922
+      }
+    },
+    "rfid_instances_per_image": {
+      "count": 2960,
+      "p01": 0.0,
+      "p05": 1.0,
+      "median": 5.0,
+      "p95": 14.0,
+      "maximum": 19.0
+    },
+    "concrete_bbox_medians": {
+      "camera_angled:cube": {
+        "count": 401,
+        "median_yolo": [
+          0.500003,
+          0.573926,
+          0.496359,
+          0.851954
+        ]
+      },
+      "camera_angled:cylinder": {
+        "count": 445,
+        "median_yolo": [
+          0.502328,
+          0.594042,
+          0.25513,
+          0.809352
+        ]
+      },
+      "camera_door:cube": {
+        "count": 451,
+        "median_yolo": [
+          0.511,
+          0.575296,
+          0.486583,
+          0.84875
+        ]
+      },
+      "camera_door:cylinder": {
+        "count": 455,
+        "median_yolo": [
+          0.511391,
+          0.572759,
+          0.267151,
+          0.854407
+        ]
+      }
+    },
+    "train_val_capture_group_overlap": [
+      "legacy:unknown_legacy_camera:legacy",
+      "task_10:camera_angled:batch-2",
+      "task_11:camera_door:batch-6",
+      "task_12:camera_door:batch-4",
+      "task_13:camera_angled:batch-3",
+      "task_14:camera_door:batch-5",
+      "task_9:camera_angled:batch-1"
+    ],
+    "leakage_warning": true
+  },
+  "synthetic": {
+    "root": "/home/utkutopcuoglu/Documents/utku/stajyerler/simulation/ebis-blender/output/realism_v5_1_yawm30_calibration_54120",
+    "image_count": 8,
+    "camera_counts": {
+      "camera_angled": 4,
+      "camera_door": 4
+    },
+    "sample_shape_counts": {
+      "cube": 4,
+      "cylinder": 4
+    },
+    "annotation_partition_counts": {
+      "hard_occlusion": 1,
+      "standard": 7
+    },
+    "rfid_label_status_counts": {
+      "hard_positive": 1,
+      "present_but_fully_occluded": 10,
+      "present_but_outside_frame": 1,
+      "standard_positive": 11
+    },
+    "rfid_instances_per_image": {
+      "count": 8,
+      "p01": 1.0,
+      "p05": 1.0,
+      "median": 3.0,
+      "p95": 5.299999999999999,
+      "maximum": 6.0
+    },
+    "concrete_bbox_comparison": {
+      "camera_angled:cylinder": {
+        "count": 2,
+        "real_target": [
+          0.502,
+          0.594,
+          0.255,
+          0.809
+        ],
+        "synthetic_median": [
+          0.50390625,
+          0.5777777777777777,
+          0.228125,
+          0.8222222222222222
+        ],
+        "absolute_delta": [
+          0.0019062499999999982,
+          0.01622222222222225,
+          0.02687500000000001,
+          0.013222222222222135
+        ],
+        "within_visual_gate_abs_0_03": true
+      },
+      "camera_angled:cube": {
+        "count": 2,
+        "real_target": [
+          0.5,
+          0.574,
+          0.496,
+          0.852
+        ],
+        "synthetic_median": [
+          0.523828125,
+          0.5909722222222222,
+          0.44453125,
+          0.8180555555555555
+        ],
+        "absolute_delta": [
+          0.023828124999999978,
+          0.016972222222222277,
+          0.05146875000000001,
+          0.033944444444444444
+        ],
+        "within_visual_gate_abs_0_03": false
+      },
+      "camera_door:cylinder": {
+        "count": 2,
+        "real_target": [
+          0.511,
+          0.573,
+          0.267,
+          0.854
+        ],
+        "synthetic_median": [
+          0.50390625,
+          0.5680555555555555,
+          0.259375,
+          0.8638888888888889
+        ],
+        "absolute_delta": [
+          0.00709375000000001,
+          0.004944444444444418,
+          0.007624999999999993,
+          0.009888888888888947
+        ],
+        "within_visual_gate_abs_0_03": true
+      },
+      "camera_door:cube": {
+        "count": 2,
+        "real_target": [
+          0.511,
+          0.575,
+          0.487,
+          0.849
+        ],
+        "synthetic_median": [
+          0.4828125,
+          0.6041666666666667,
+          0.5296875,
+          0.7916666666666666
+        ],
+        "absolute_delta": [
+          0.028187500000000032,
+          0.029166666666666785,
+          0.04268749999999999,
+          0.05733333333333335
+        ],
+        "within_visual_gate_abs_0_03": false
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "name": "blender_platen_scan_cam10_cylinder",
+      "reference": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_9_dataset_2026_01_22_15_01_12_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-1_frame-00340.png",
+      "baseline": "/tmp/ebis_pass9_ab_local/scan0/ebis_camera_angled_060101.png",
+      "candidate": "/tmp/ebis_pass9_ab_local/scan1/ebis_camera_angled_060101.png",
+      "changed_factor": "ambientCG Metal038 low-ratio platen scan contribution: 0.0 versus 1.0",
+      "matched_control": {
+        "engine": "Blender 4.5.12 Cycles OptiX",
+        "seed": 60101,
+        "camera": "camera_angled / cam-10",
+        "shape": "cylinder",
+        "resolution": "1280x720",
+        "samples": 64,
+        "lens_dust": false
+      }
+    },
+    {
+      "name": "blender_concrete_microdetail_cam10_cube",
+      "reference": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_13_dataset_2026_01_23_12_04_05_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-3_frame-00000.png",
+      "baseline": "/tmp/ebis_pass9_ab_local/concrete_low/ebis_camera_angled_060107.png",
+      "candidate": "/tmp/ebis_pass9_ab_local/concrete_high/ebis_camera_angled_060107.png",
+      "changed_factor": "Concrete003 colour/roughness/bump contribution: pass-8 versus stronger bounded pass-9 profile",
+      "matched_control": {
+        "engine": "Blender 4.5.12 Cycles OptiX",
+        "seed": 60107,
+        "camera": "camera_angled / cam-10",
+        "shape": "cube",
+        "resolution": "1280x720",
+        "samples": 64,
+        "lens_dust": false
+      }
+    },
+    {
+      "name": "blender_debris_morphology_cam10_cylinder",
+      "reference": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_9_dataset_2026_01_22_15_01_12_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-1_frame-00340.png",
+      "baseline": "/tmp/ebis_pass9_ab_local/debris_round/ebis_camera_angled_060101.png",
+      "candidate": "/tmp/ebis_pass9_ab_local/scan1/ebis_camera_angled_060101.png",
+      "changed_factor": "background debris shape: smooth rounded icospheres versus 80/20 angular-fracture mix",
+      "matched_control": {
+        "engine": "Blender 4.5.12 Cycles OptiX",
+        "seed": 60101,
+        "camera": "camera_angled / cam-10",
+        "shape": "cylinder",
+        "resolution": "1280x720",
+        "samples": 64,
+        "lens_dust": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "pass": "3/6",
+  "created_local_date": "2026-07-30",
+  "purpose": "Descriptive actual-pixel audit of the pass-3 upper-platen contact face and thin U-diffuser change. This is not a perceptual-quality score, an engine ranking, or a model-benefit measurement.",
+  "method": {
+    "roi_selection": "Manual approximate upper-platen bands selected after opening full-resolution reference and synthetic pixels. The real and synthetic views are not geometrically registered; the bands include some sample, LED boundary, wall and overlay pixels.",
+    "luminance": "Rec.709 coefficients on display-referred 8-bit RGB.",
+    "gradient": "Mean absolute horizontal and vertical one-pixel luminance difference.",
+    "controlled_comparison": "The before/after comparisons use identical engine, camera, seed, resolution and sensor/post-process settings. Only the pass-3 scene/material source changed.",
+    "interpretation_limit": "Use the values to expose gross brightness, clipping and local-detail gaps. Do not infer photorealism, engine superiority or YOLO accuracy."
+  },
+  "observations": [
+    "The time-diverse LED and IR pixels consistently show a broad circular upper press platen with a dark used-steel underside; illumination is concentrated at a thin three-wall boundary and contact region rather than a luminous white ceiling.",
+    "In the controlled Blender pair, the upper-band luminance mean fell from 0.49409 to 0.42690 and the dark fraction rose from 0.01503 to 0.17840 while the LED boundary remained visible.",
+    "In the controlled Unreal pair, the upper-band luminance mean fell from 0.52998 to 0.36515 and the highlight fraction fell from 0.01471 to 0.00059. This removes the largest white-fascia cue but does not fix Unreal's remaining coarse geometry, concrete surface, global lighting and sensor-noise gaps.",
+    "The release representatives remain seed-dependent. Their band statistics are evidence that the new bounded range is active, not that either renderer matches the unregistered real ROI.",
+    "The real ROI retains camera sharpening, compression, overlay, specular wear and higher-frequency concrete/paint structure that neither procedural scene reproduces."
+  ],
+  "samples": [
+    {
+      "id": "real_led_cam01_upper_platen",
+      "disposition": "reference",
+      "image": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/160126-ivedik-ledli-part-1/images/train/vlcsnap-2026-01-16-17h20m18s095.png",
+      "sha256": "1f94d49728dce27fc5a7be076d8564cf7d2b683d7b65a7dd7bbe46a3fe9f19a5",
+      "image_size_px": [
+        1920,
+        1080
+      ],
+      "manual_roi_xyxy": [
+        260,
+        0,
+        1660,
+        260
+      ],
+      "roi_pixels": 364000,
+      "rgb_mean": [
+        0.39317,
+        0.39622,
+        0.44116
+      ],
+      "luminance_mean": 0.39881,
+      "luminance_std": 0.21551,
+      "luminance_p05": 0.14973,
+      "luminance_p95": 0.7389,
+      "mean_saturation": 0.10066,
+      "mean_abs_luminance_gradient": 0.01241,
+      "dark_fraction_lte_0_10": 0.02194,
+      "highlight_fraction_gte_0_95": 0.02984
+    },
+    {
+      "id": "blender_p2_same_seed_before",
+      "disposition": "baseline",
+      "image": "ebis-blender/output/realism_v5_3_paper_p2b_54120/partitions/standard/images/ebis_camera_angled_054121.png",
+      "sha256": "33da8bbb70fa7ff0ec575a3a058b8e129e5e25a1312c0355dabbee1f6d6e3b9a",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_roi_xyxy": [
+        0,
+        0,
+        1280,
+        250
+      ],
+      "roi_pixels": 320000,
+      "rgb_mean": [
+        0.51875,
+        0.48969,
+        0.46505
+      ],
+      "luminance_mean": 0.49409,
+      "luminance_std": 0.23431,
+      "luminance_p05": 0.15935,
+      "luminance_p95": 0.90416,
+      "mean_saturation": 0.05425,
+      "mean_abs_luminance_gradient": 0.00648,
+      "dark_fraction_lte_0_10": 0.01503,
+      "highlight_fraction_gte_0_95": 0.03117
+    },
+    {
+      "id": "blender_p3_same_seed_after",
+      "disposition": "controlled_diagnostic",
+      "image": "ebis-blender/output/realism_v5_4_platen_p3_diag_54121/partitions/standard/images/ebis_camera_angled_054121.png",
+      "sha256": "afb94d77ea39a7c43b4ee04fe32a52e8aee62071071ba8e1fab551f55495a559",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_roi_xyxy": [
+        0,
+        0,
+        1280,
+        250
+      ],
+      "roi_pixels": 320000,
+      "rgb_mean": [
+        0.45101,
+        0.42252,
+        0.39927
+      ],
+      "luminance_mean": 0.4269,
+      "luminance_std": 0.25584,
+      "luminance_p05": 0.08345,
+      "luminance_p95": 0.87362,
+      "mean_saturation": 0.05229,
+      "mean_abs_luminance_gradient": 0.00646,
+      "dark_fraction_lte_0_10": 0.1784,
+      "highlight_fraction_gte_0_95": 0.02527
+    },
+    {
+      "id": "blender_p3_release_seed54241",
+      "disposition": "release",
+      "image": "ebis-blender/output/realism_v5_4_platen_p3_54240/partitions/hard_occlusion/images/ebis_camera_angled_054241.png",
+      "sha256": "1a0a83660f3fe8ee5619716bda60a15cdeaab59d45215d4a6bb2e03a5cab6678",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_roi_xyxy": [
+        0,
+        0,
+        1280,
+        250
+      ],
+      "roi_pixels": 320000,
+      "rgb_mean": [
+        0.51258,
+        0.47186,
+        0.44302
+      ],
+      "luminance_mean": 0.47843,
+      "luminance_std": 0.25098,
+      "luminance_p05": 0.10473,
+      "luminance_p95": 0.91676,
+      "mean_saturation": 0.07174,
+      "mean_abs_luminance_gradient": 0.00765,
+      "dark_fraction_lte_0_10": 0.03852,
+      "highlight_fraction_gte_0_95": 0.02949
+    },
+    {
+      "id": "unreal_p2_same_seed_before",
+      "disposition": "baseline",
+      "image": "unreal-ebis/output/realism_r7_paper_p2b_58320/raw/images/ebis_camera_angled_058321.png",
+      "sha256": "5f795bed13583d00869af7e627d82d45dcf8de5b332bced6e95531aaa93c6ea2",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_roi_xyxy": [
+        0,
+        0,
+        1280,
+        260
+      ],
+      "roi_pixels": 332800,
+      "rgb_mean": [
+        0.53371,
+        0.52828,
+        0.53596
+      ],
+      "luminance_mean": 0.52998,
+      "luminance_std": 0.32819,
+      "luminance_p05": 0.01961,
+      "luminance_p95": 0.93445,
+      "mean_saturation": 0.01337,
+      "mean_abs_luminance_gradient": 0.00875,
+      "dark_fraction_lte_0_10": 0.19838,
+      "highlight_fraction_gte_0_95": 0.01471
+    },
+    {
+      "id": "unreal_p3_same_seed_after",
+      "disposition": "controlled_diagnostic",
+      "image": "unreal-ebis/output/realism_r8_platen_p3_diag2_58321/raw/images/ebis_camera_angled_058321.png",
+      "sha256": "219c334e88aab1c19f95043e3dae971375f0b1bae93b0d5a12d41eb01cd57180",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_roi_xyxy": [
+        0,
+        0,
+        1280,
+        260
+      ],
+      "roi_pixels": 332800,
+      "rgb_mean": [
+        0.36623,
+        0.36361,
+        0.37721
+      ],
+      "luminance_mean": 0.36515,
+      "luminance_std": 0.31145,
+      "luminance_p05": 0.01961,
+      "luminance_p95": 0.85967,
+      "mean_saturation": 0.02268,
+      "mean_abs_luminance_gradient": 0.01252,
+      "dark_fraction_lte_0_10": 0.35234,
+      "highlight_fraction_gte_0_95": 0.00059
+    },
+    {
+      "id": "unreal_p3_release_seed58447",
+      "disposition": "release",
+      "image": "unreal-ebis/output/realism_r8_platen_p3_58440/raw/images/ebis_camera_angled_058447.png",
+      "sha256": "d77f2387e26ee42aa36e62c35f97e467509c8de809552ee4006e01570dd1d293",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_roi_xyxy": [
+        0,
+        0,
+        1280,
+        260
+      ],
+      "roi_pixels": 332800,
+      "rgb_mean": [
+        0.38691,
+        0.33722,
+        0.27451
+      ],
+      "luminance_mean": 0.34325,
+      "luminance_std": 0.30194,
+      "luminance_p05": 0.01961,
+      "luminance_p95": 0.84304,
+      "mean_saturation": 0.1124,
+      "mean_abs_luminance_gradient": 0.01477,
+      "dark_fraction_lte_0_10": 0.37366,
+      "highlight_fraction_gte_0_95": 0.00005
+    }
+  ],
+  "controlled_same_seed_differences": [
+    {
+      "engine": "Blender",
+      "roi_xyxy": [
+        0,
+        0,
+        1280,
+        250
+      ],
+      "mean_absolute_rgb_difference": 0.06696,
+      "p95_absolute_rgb_difference": 0.1268,
+      "changed_pixel_fraction_gt_2_levels": 0.66118
+    },
+    {
+      "engine": "Unreal",
+      "roi_xyxy": [
+        0,
+        0,
+        1280,
+        260
+      ],
+      "mean_absolute_rgb_difference": 0.22368,
+      "p95_absolute_rgb_difference": 0.44967,
+      "changed_pixel_fraction_gt_2_levels": 0.81253
+    }
+  ],
+  "evidence_sheets": [
+    {
+      "path": "reports/qc/multi_repeat_pass3_led_fresh.png",
+      "sha256": "296a440c6a3f2e881dc3392db7353990f06f4c0b2c2bd00f8d45cd1dc87e3afc"
+    },
+    {
+      "path": "reports/qc/multi_repeat_pass3_ir_fresh.png",
+      "sha256": "af04180f8a89cb79379f6371d543696e64d64f61c6929b30d5bbeffdede6c4dc"
+    },
+    {
+      "path": "reports/qc/multi_repeat_pass3_reference_blender_unreal.png",
+      "sha256": "1e94d92718ee074592a32c8f33c7656f3838626c9e79fbf357ecedffc6df904c"
+    }
+  ]
+}

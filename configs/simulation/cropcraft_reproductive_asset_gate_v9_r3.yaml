@@ -1,0 +1,160 @@
+schema_version: 1
+protocol_id: cropcraft_reproductive_asset_quality_v9_r3
+frozen_before_asset_pack_build: true
+frozen_at_utc: '2026-08-03T19:26:00+03:00'
+scope: r2_manual_failure_isolated_panicle_projection_refinement
+
+selection_evidence_lock:
+  report: data/processed/audits/riceseg_condition_asset_gap_v9.json
+  sha256: a603d4fd33901ba088d82ca12e087f4911d54682ffcc0a0963eab064d0949dfa
+  selected_factor: late_reproductive_rice
+  source_pixel_fraction: 0.058628413287470545
+  external_test_used: false
+
+refinement_control_lock:
+  pack_manifest:
+    path: data/raw/synthetic_assets/cropcraft_paddy_reproductive_v9_r2/PACK.json
+    sha256: 3ed0ecae66a1dc47af41883e823e4da11f94ec3d38d71b2de360e74bc79106c5
+  static_asset_receipt:
+    path: data/processed/audits/cropcraft_reproductive_asset_quality_v9_r2.json
+    sha256: 572cad5ff14d7bdf987f366848d52128c7a99e36ba10401148fcd04210b4900e
+  smoke_release_receipt:
+    path: data/synthetic/cropcraft/reproductive_smoke_v9_r2/release_receipt.json
+    sha256: 60e5d6f80f89faed25d990d55f974b5a8378961a2a2fa11497f64233a511d0d1
+  distribution_receipt:
+    path: data/processed/audits/cropcraft_reproductive_riceseg_distribution_v9_r2_smoke.json
+    sha256: 43f3bb90b74aefd3fa7eca13c4a75d82a40fcc8c085f591f07d33314513521e4
+  failed_manual_review:
+    path: data/processed/audits/cropcraft_reproductive_manual_visual_review_v9_r2.json
+    sha256: 36a488d943b0232f48a662940d813d0c6be9fc452c019548cfdf17161ab415ce
+    expected_passed: false
+  isolated_changes:
+    - alternating_herringbone_panicle_branches
+    - stronger_gravity_bend
+    - moderately_larger_projected_grain_width
+
+base_pack_lock:
+  path: data/raw/synthetic_assets/cropcraft_paddy_robust_v4_r5
+  pack_id: cropcraft_paddy_robust_v4_r5
+  pack_manifest_sha256: 95f4bdb04fcebab3ac3aed2b7db957ca3e91d4e2e5d6347bed84d7ee50368712
+  immutable_groups:
+    - generated_assets.crop
+    - generated_assets.weeds
+    - generated_assets.background_debris
+    - grounds
+    - environments
+    - surface_profiles
+
+builder_lock:
+  path: scripts/refine_cropcraft_reproductive_assets_v9_r3.py
+  sha256: 666e4dc4c7479bb6705399b8c02f84a1115213f8164dcf397c854f90c836abfc
+builder_dependency_locks:
+  reproductive_r1:
+    path: scripts/build_cropcraft_reproductive_assets_v9.py
+    sha256: 5ac380c80837e1814a13fe55771f630ae98c7b10653a1bcbb947e4abf22b8f83
+  reproductive_r2:
+    path: scripts/refine_cropcraft_reproductive_assets_v9_r2.py
+    sha256: 4d4933918de601c90b7f866915a42efa6a129289430d0e23b8fb6cabfd505c49
+
+source_texture_lock:
+  prompt_receipt:
+    path: assets/source_textures/rice_reproductive_v9/PROMPTS.json
+    sha256: 8f272feacb6a1d815f4539f3b4a5b4b03397d5bd45ece320fe569602dd480e7f
+  files:
+    heading_green:
+      path: assets/source_textures/rice_reproductive_v9/heading_green_imagegen.png
+      sha256: 7bb9e59a1b7fff7144583f48128db7b7f4d7a39a673a3c715279f64d24df2dcf
+      dimensions: [1254, 1254]
+    grain_fill_transition:
+      path: assets/source_textures/rice_reproductive_v9/grain_fill_transition_imagegen.png
+      sha256: 904a2b5d76c739989217398f8cf171b69d8d94b036e11d001ad789114d669c86
+      dimensions: [1254, 1254]
+    mature_senescent:
+      path: assets/source_textures/rice_reproductive_v9/mature_senescent_imagegen.png
+      sha256: 043f8d324d7501363e1348626bb41fd74a58669707fc550fa921edc5dcaecd2e
+      dimensions: [1254, 1254]
+  provenance_policy: {relabel_as_cc0: false, commercial_allowed_claim: false}
+
+asset_pack_gate:
+  pack_id: cropcraft_paddy_reproductive_v9_r3
+  plant_type: rice_reproductive_v9
+  crop_species: Oryza sativa
+  expected_models: 48
+  expected_unique_geometries: 24
+  expected_geometry_variants_per_stage: 6
+  expected_growth_stages: [heading, flowering, grain_fill, mature]
+  allowed_stage_phenotypes:
+    heading: [heading_green, grain_fill_transition]
+    flowering: [heading_green, grain_fill_transition]
+    grain_fill: [grain_fill_transition, mature_senescent]
+    mature: [grain_fill_transition, mature_senescent]
+  expected_target_heights_m: [0.72, 0.82, 0.92, 1.02]
+  minimum_faces_per_model: 10000
+  maximum_faces_per_model: 32000
+  maximum_degenerate_faces_per_model: 0
+  maximum_declared_height_relative_error: 0.005
+  minimum_tillers_per_geometry: 4
+  minimum_leaves_per_geometry: 20
+  minimum_panicles_per_geometry: 2
+  minimum_panicle_branches_per_geometry: 18
+  minimum_grains_per_geometry: 300
+  expected_texture_phenotypes: 3
+  processed_texture_dimensions: [1024, 1024]
+  maximum_texture_edge_abs_difference: 0
+  require_albedo_and_normal_maps_per_model: true
+  require_base_nonlicense_files_byte_exact: true
+  require_inventory_hash: true
+  require_capacity_check: true
+  require_external_asset_bytes_acquired: false
+  require_duckweed_added: false
+  commercial_allowed: false
+
+bounded_render_gate:
+  order: [static_asset, smoke_12, manual_visual, pilot_100, leakage, domain_statistics]
+  prohibit_large_batch_before_all_pass: true
+  smoke:
+    expected_pairs: 12
+    maximum_crop_free_frame_fraction: 0.0
+    maximum_weed_free_frame_fraction: 0.25
+    minimum_mean_crop_fraction: 0.12
+    maximum_mean_crop_fraction: 0.75
+    minimum_mean_weed_fraction: 0.005
+    maximum_mean_weed_fraction: 0.12
+    minimum_used_crop_model_variants: 10
+  pilot:
+    expected_pairs: 100
+    independent_scenes: 25
+    train_scenes: 20
+    validation_scenes: 5
+    maximum_crop_free_frame_fraction: 0.0
+    maximum_weed_free_frame_fraction: 0.10
+    maximum_exact_rgb_duplicates: 0
+    maximum_exact_mask_duplicates_across_scenes: 0
+    minimum_mean_crop_fraction: 0.12
+    maximum_mean_crop_fraction: 0.75
+    minimum_mean_weed_fraction: 0.005
+    maximum_mean_weed_fraction: 0.12
+    minimum_used_crop_model_variants: 24
+    require_scene_disjoint_split: true
+    require_manual_rgb_mask_visual_review: true
+  rice_seg_distribution_lock:
+    manifest: data/processed/manifests/riceseg_quality_v1.csv
+    manifest_sha256: f3bcfedf4d56da5ba43f7b79d06f511a17645a1e26ad33bac9656da34d52dc5c
+    required_synthetic_median_within_real_q05_q95:
+      - brightness_mean
+      - brightness_std
+      - crop_fraction
+      - laplacian_variance
+      - saturation_mean
+      - texture_abs_gradient
+  leakage:
+    maximum_exact_matches_to_real: 0
+    maximum_near_matches_to_real: 0
+    maximum_cross_split_exact_matches: 0
+
+downstream_equal_budget_gate:
+  run_only_after_bounded_render_gate_passes: true
+  screen_seed: 17
+  confirmation_seeds: [17, 29, 43]
+  fixed_total_synthetic_sampler_exposure: 0.10
+  external_test_used_for_selection: false

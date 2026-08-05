@@ -1,0 +1,150 @@
+{
+  "all_targets_absent": true,
+  "allowlist": {
+    "ebis-blender": [
+      "current_samples",
+      "realism_v7_frontdoor_pbr_release_59300"
+    ],
+    "unreal-ebis": [
+      "current_samples",
+      "realism_r56_frontdoor_release_59400"
+    ]
+  },
+  "candidate_bytes": 24219539,
+  "candidate_count": 14,
+  "candidate_files": 34,
+  "completed_at_utc": "2026-07-30T09:28:08.168073+00:00",
+  "created_at_utc": "2026-07-30T09:28:08.064028+00:00",
+  "kept_mcp_evidence_directories": {
+    "ebis-blender": [
+      "20260730-frontdoor-v7",
+      "current_frontdoor_v7_scene"
+    ],
+    "unreal-ebis": [
+      "current_frontdoor_roundtrip_artifacts"
+    ]
+  },
+  "kept_qc_png": [
+    "ebis-blender/reports/qc/realism_v7_frontdoor_pbr_release_59300_contact_sheet.png",
+    "unreal-ebis/reports/qc/assets/real_blender_unreal_comparison.png",
+    "unreal-ebis/reports/qc/assets/realism_r56_frontdoor_release_59400_contact_sheet.png"
+  ],
+  "mode": "gio-trash",
+  "recoverable": true,
+  "repo": "/home/utkutopcuoglu/Documents/utku/stajyerler/simulation",
+  "schema_version": 1,
+  "targets": [
+    {
+      "bytes": 731221,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/output/realism_v5_26_load_zone_release_p6g_54304_batch.log",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 217,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/output/realism_v5_26_load_zone_release_p6g_54304_validate.log",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 217,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/output/realism_v5_26_load_zone_release_p6g_54304_validate_final.log",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2139397,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260728T132900Z-9dd6f23b",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2311421,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260728T163502Z-e004c25a",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2955973,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260729T093942Z-d4702303",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2576250,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260729T164623Z-48c3c1a5",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2597027,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260729T171933Z-v173",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1380559,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260730-pass6-fixed-machine",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1420089,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260730-pass6b-low-glare",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2688184,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260730-pass6e-clustered-spall",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2681032,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260730-pass6f-single-hull",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2733925,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260730-pass6g-load-zone",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 4027,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/output/realism_r45_load_zone_release_p6e_58520_validate_final.log",
+      "removal_method": "gio-trash"
+    }
+  ]
+}

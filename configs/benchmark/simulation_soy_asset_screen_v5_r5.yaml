@@ -1,0 +1,63 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simulation_soy_asset_screen_v5_r5
+data_license_scope: research_real_plus_cc0_and_procedural_soy_assets
+seeds: [17]
+reuse_completed: true
+
+# Every arm receives exactly 28,800 sampled examples. Real-data exposure stays
+# fixed at 90%; only the composition of the 10% synthetic budget changes.
+training:
+  epochs: 8
+  validate_every: 8
+  samples_per_epoch: 3600
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  - name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  - name: simab_v3_050_paddy025_soy025_e8_v5
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_soy_trainval_v5_r5.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.025
+        cropcraft_soy_pilot_v5_r5: 0.025
+
+  - name: simab_v3_040_paddy030_soy030_e8_v5
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_soy_trainval_v5_r5.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.040
+        cropcraft_paddy_pilot_v4_r5: 0.030
+        cropcraft_soy_pilot_v5_r5: 0.030

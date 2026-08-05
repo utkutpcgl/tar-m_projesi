@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "pass": "2/6",
+  "created_local_date": "2026-07-29",
+  "purpose": "Descriptive actual-pixel audit of the pass-2 paper/form realism change; this is not a perceptual-quality score or a model-benefit measurement.",
+  "method": {
+    "roi_selection": "Manual approximate paper/form regions selected after opening the full-resolution pixels. Real and synthetic ROIs are not geometrically registered and include some adjacent concrete, ink and tape.",
+    "luminance": "Rec.709 coefficients on display-referred 8-bit RGB",
+    "gradient": "Mean absolute horizontal and vertical one-pixel luminance difference",
+    "interpretation_limit": "Use values only to expose brightness, chroma and local-detail gaps. Do not rank engines or infer YOLO accuracy from them."
+  },
+  "observations": [
+    "The real paper/concrete region has materially broader luminance variation and higher local gradients than either engine, consistent with torn edges, wrinkles, printed handwriting, aggregate damage and camera sharpening.",
+    "The Unreal V2 material reduced the tan cast and local high-frequency contrast relative to the rejected V1 diagnostic while preserving the seeded geometry and physical RFID occlusion case.",
+    "Blender now contains an irregular mesh, broad wrinkle normal, stained fibre, printed rows, handwriting and tape, but its paper region remains brighter and smoother than the real reference."
+  ],
+  "samples": [
+    {
+      "id": "real_cam10_task10_frame421_paper_region",
+      "image": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/val/task_10_dataset_2026_01_23_12_54_24_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-2_frame-00421.png",
+      "sha256": "5004b32ba7572a79ab8f84933cae93cd0e68a26ee2388473b4eec76db5c82835",
+      "manual_roi_xyxy": [
+        430,
+        400,
+        840,
+        960
+      ],
+      "roi_pixels": 229600,
+      "rgb_mean": [
+        0.63256,
+        0.63294,
+        0.66836
+      ],
+      "luminance_mean": 0.63541,
+      "luminance_std": 0.18228,
+      "luminance_p05": 0.30895,
+      "luminance_p95": 0.96725,
+      "mean_saturation": 0.08568,
+      "mean_abs_luminance_gradient": 0.03654
+    },
+    {
+      "id": "blender_p2b_seed54123_paper_region",
+      "image": "ebis-blender/output/realism_v5_3_paper_p2b_54120/partitions/exclude/images/ebis_camera_angled_054123.png",
+      "sha256": "693c0f059b59906363aba35a50564b673a3247bdc10734f12a81008dbae4ed8a",
+      "manual_roi_xyxy": [
+        510,
+        410,
+        850,
+        700
+      ],
+      "roi_pixels": 98600,
+      "rgb_mean": [
+        0.84554,
+        0.79139,
+        0.73671
+      ],
+      "luminance_mean": 0.79895,
+      "luminance_std": 0.13708,
+      "luminance_p05": 0.51582,
+      "luminance_p95": 0.8968,
+      "mean_saturation": 0.13341,
+      "mean_abs_luminance_gradient": 0.0094
+    },
+    {
+      "id": "unreal_p2_v1_seed58321_paper_region",
+      "disposition": "rejected_diagnostic",
+      "image": "unreal-ebis/output/realism_r7_paper_p2_58320/raw/images/ebis_camera_angled_058321.png",
+      "sha256": "c1af34fba99d3d439b557c65eb593213e0fa7c5f86b82b6dbfd8641544021bc1",
+      "manual_roi_xyxy": [
+        380,
+        390,
+        570,
+        720
+      ],
+      "roi_pixels": 62700,
+      "rgb_mean": [
+        0.80737,
+        0.77553,
+        0.73303
+      ],
+      "luminance_mean": 0.77923,
+      "luminance_std": 0.10033,
+      "luminance_p05": 0.59376,
+      "luminance_p95": 0.88509,
+      "mean_saturation": 0.09135,
+      "mean_abs_luminance_gradient": 0.01879
+    },
+    {
+      "id": "unreal_p2b_v2_seed58321_paper_region",
+      "image": "unreal-ebis/output/realism_r7_paper_p2b_58320/raw/images/ebis_camera_angled_058321.png",
+      "sha256": "5f795bed13583d00869af7e627d82d45dcf8de5b332bced6e95531aaa93c6ea2",
+      "manual_roi_xyxy": [
+        380,
+        390,
+        570,
+        720
+      ],
+      "roi_pixels": 62700,
+      "rgb_mean": [
+        0.81032,
+        0.78263,
+        0.74923
+      ],
+      "luminance_mean": 0.78611,
+      "luminance_std": 0.10231,
+      "luminance_p05": 0.59459,
+      "luminance_p95": 0.88874,
+      "mean_saturation": 0.0753,
+      "mean_abs_luminance_gradient": 0.01649
+    }
+  ],
+  "evidence_sheets": [
+    {
+      "path": "reports/qc/multi_repeat_pass2_led_fresh.png",
+      "sha256": "19100e78bbbe0e1b9ee94e5658d7e54a950a85705e68f06fa82e479da78b9e5a"
+    },
+    {
+      "path": "reports/qc/multi_repeat_pass2_ir_fresh.png",
+      "sha256": "9d4707a402d9e4b305fb85bd7ed2ce7171f56beb11ca4129a0e283406c8a0ed2"
+    },
+    {
+      "path": "reports/qc/multi_repeat_pass2_reference_blender_unreal.png",
+      "sha256": "dded5ccd4aa04f6c02d133371381c2f959be86db0777c83b5b81b6182eb5fcc3"
+    }
+  ]
+}

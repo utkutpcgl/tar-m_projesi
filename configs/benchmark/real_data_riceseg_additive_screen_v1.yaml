@@ -1,0 +1,65 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/real_data_riceseg_additive_screen_v1
+data_license_scope: research_real_riceseg_fail_closed_plus_accepted_synthetic
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  # Byte-for-byte reuse of the accepted 3,600-sample control.
+  - name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3600
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Byte-for-byte reuse of the prior equal-compute old-data control.
+  - name: realab_tobacco_compute_control_r5_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3780
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Old expected draws remain 3,600; quality-gated RiceSEG adds 180.
+  - name: realab_riceseg_add05_replay_r5_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_riceseg_trainval_v10_r1.csv
+    model: {}
+    training:
+      samples_per_epoch: 3780
+      dataset_weights:
+        phenobench: 0.15428571428571428
+        acre: 0.15428571428571428
+        weedsgalore: 0.04285714285714286
+        we3ds: 0.23142857142857143
+        rose: 0.18857142857142858
+        sorghum_weed: 0.08571428571428572
+        cropcraft_agri_robust_pilot_v3: 0.047619047619047616
+        cropcraft_paddy_pilot_v4_r5: 0.047619047619047616
+        riceseg: 0.047619047619047616

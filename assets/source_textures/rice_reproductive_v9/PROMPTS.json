@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "generator": "OpenAI built-in image generation tool",
+  "generated_in_thread": "019fb346-5ead-7600-8068-40b32b0daa06",
+  "license_note": "Project-generated texture sources. Preserve this provenance and do not relabel them CC0. Review applicable OpenAI output terms before a commercial-training claim.",
+  "assets": [
+    {
+      "file": "heading_green_imagegen.png",
+      "sha256": "7bb9e59a1b7fff7144583f48128db7b7f4d7a39a673a3c715279f64d24df2dcf",
+      "dimensions": [1254, 1254],
+      "prompt": "Use case: scientific-educational\nAsset type: square PBR albedo source texture for a close-range 3D Oryza sativa reproductive-stage plant mesh\nPrimary request: create a seamless, tileable, orthographic macro surface texture of healthy heading-stage rice leaf tissue\nSubject: only continuous rice leaf epidermis surface, no whole leaf silhouette and no background\nStyle/medium: photorealistic botanical macro material scan\nComposition/framing: perfectly flat front-facing square texture; uniform scale; must tile cleanly on all four edges\nLighting/mood: diffuse cross-polarized scan-like illumination with no directional shadow, no specular hotspot, no baked ambient occlusion\nColor palette: biologically plausible medium-to-deep rice green with a lighter longitudinal midrib, fine parallel veins, subtle field mottling and tiny natural chlorosis flecks\nMaterials/textures: high-frequency epidermal grain and longitudinal fibers, restrained variation, no depth illusion larger than a few millimeters\nConstraints: uniform texel density; edge-to-edge material; no objects, leaf outline, stems, panicles, grains, insects, disease lesions, water droplets, soil, sky, labels, text, borders, color chart, watermark, perspective, vignette, or lighting gradient\nAvoid: painterly look, plastic shine, dramatic contrast, repeated obvious motifs, broad blobs, artificial neon green"
+    },
+    {
+      "file": "grain_fill_transition_imagegen.png",
+      "sha256": "904a2b5d76c739989217398f8cf171b69d8d94b036e11d001ad789114d669c86",
+      "dimensions": [1254, 1254],
+      "prompt": "Use case: scientific-educational\nAsset type: square PBR albedo source texture for a reproductive Oryza sativa mesh\nInput image: edit target and structural reference; preserve its flat orthographic macro scale, continuous epidermal texture, fine longitudinal veins, central midrib, diffuse scan lighting, and edge-to-edge material\nPrimary request: change only the biological maturity coloration to realistic rice grain-fill transition tissue\nColor/material change: a heterogeneous but restrained mix of olive green, straw yellow, pale ochre longitudinal streaking, subtle tip-like chlorosis speckling, and a few narrow dry-brown fibers; retain some living green tissue\nConstraints: keep a seamless tileable material surface; no whole leaf outline, background, stems, panicles, grains, insects, disease lesions, droplets, soil, sky, labels, text, borders, watermark, perspective, shadows, hotspots, baked depth, vignette, or lighting gradient\nAvoid: orange cast, dead uniform brown, painterly look, plastic shine, dramatic contrast, broad blobs, repeated obvious motifs"
+    },
+    {
+      "file": "mature_senescent_imagegen.png",
+      "sha256": "043f8d324d7501363e1348626bb41fd74a58669707fc550fa921edc5dcaecd2e",
+      "dimensions": [1254, 1254],
+      "prompt": "Use case: scientific-educational\nAsset type: square PBR albedo source texture for a mature Oryza sativa mesh\nInput image: edit target and structural reference; preserve its flat orthographic macro scale, continuous epidermal texture, fine longitudinal veins, central midrib, diffuse scan lighting, and edge-to-edge material\nPrimary request: change only the maturity coloration to realistic late-season senescent rice leaf tissue\nColor/material change: predominantly warm straw yellow and muted pale gold, narrow olive-green residual fibers, subtle beige and light brown longitudinal drying, sparse tiny necrotic flecks, biologically plausible rather than decorative\nConstraints: keep a seamless tileable material surface; no whole leaf outline, background, stems, panicles, grains, insects, disease lesions, droplets, soil, sky, labels, text, borders, watermark, perspective, shadows, hotspots, baked depth, vignette, or lighting gradient\nAvoid: saturated orange, uniform flat tan, burned or black tissue, painterly look, plastic shine, dramatic contrast, broad blobs, repeated obvious motifs"
+    }
+  ]
+}

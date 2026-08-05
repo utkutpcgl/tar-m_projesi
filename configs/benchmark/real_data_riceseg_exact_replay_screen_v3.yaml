@@ -1,0 +1,63 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/real_data_riceseg_exact_replay_screen_v3
+data_license_scope: research_real_riceseg_fail_closed_plus_accepted_synthetic
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  - name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3600
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Fixed compute and fixed positions: exactly 90 of the accepted control's
+  # 3,600 legacy indices are replaced; the other 3,510 positions replay.
+  - name: realab_riceseg_exactreplay025_r5_e8_v3
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_riceseg_trainval_v10_r1.csv
+    model: {}
+    training:
+      samples_per_epoch: 3600
+      dataset_weights:
+        phenobench: 0.15795
+        acre: 0.15795
+        weedsgalore: 0.043875
+        we3ds: 0.236925
+        rose: 0.19305
+        sorghum_weed: 0.08775
+        cropcraft_agri_robust_pilot_v3: 0.04875
+        cropcraft_paddy_pilot_v4_r5: 0.04875
+        riceseg: 0.025
+      exact_replay_replacement:
+        enabled: true
+        target_dataset_id: riceseg
+        replacements_per_epoch: 90
+        target_seed_offset: 1000003
+        baseline_resolved_config: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/config.resolved.json
+        baseline_dataset_weights:
+          phenobench: 0.162
+          acre: 0.162
+          weedsgalore: 0.045
+          we3ds: 0.243
+          rose: 0.198
+          sorghum_weed: 0.090
+          cropcraft_agri_robust_pilot_v3: 0.050
+          cropcraft_paddy_pilot_v4_r5: 0.050

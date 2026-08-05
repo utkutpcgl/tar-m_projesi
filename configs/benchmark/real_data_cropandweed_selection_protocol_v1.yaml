@@ -1,0 +1,65 @@
+schema_version: 1
+scope: research_max_real_data_contribution
+frozen_before_challenger_training: true
+frozen_at_utc: '2026-08-02T17:05:00+03:00'
+
+control: simab_real_sorghum_cropcraft_robust10_e8_v3
+screen_candidates:
+  - realab_cropandweed10_e8_v1
+  - realab_cropandweed20_e8_v1
+screen_seed: 17
+confirmation_seeds: [17, 29, 43]
+fixed_epoch: 8
+checkpoint: best.pt
+
+equal_budget:
+  epochs: 8
+  samples_per_epoch: 3600
+  synthetic_exposure: 0.10
+  cropandweed_screen_exposures: [0.10, 0.20]
+  rule: >-
+    Keep total updates and the accepted synthetic exposure fixed. Allocate the
+    CropAndWeed share by proportionally reducing the six existing real-source
+    shares; do not add optimizer steps.
+
+development_inputs:
+  - source_real_validation
+  - cwfid_external_calibration
+  - sorghum_weed_external_calibration
+  - cropandweed_session_disjoint_external_calibration
+
+forbidden_inputs:
+  - real_core_final_test
+  - carrot_weed_external_test
+  - ewis1_external_test
+  - sorghum_weed_external_test
+
+screen_ranking:
+  primary_metric: min_domain_semantic_mean_iou
+  definition: >-
+    min(source_real_validation_mean_iou, cwfid_mean_iou,
+    sorghum_weed_mean_iou, cropandweed_mean_iou)
+  tie_breakers:
+    - macro_domain_semantic_mean_iou
+    - cropandweed_mean_iou
+    - lower_cropandweed_exposure
+
+screen_acceptance_against_control:
+  primary_delta_must_be_greater_than: 0.0
+  cropandweed_mean_iou_delta_must_be_at_least: 0.02
+  maximum_source_validation_mean_iou_regression: 0.01
+  maximum_cwfid_mean_iou_regression: 0.01
+  maximum_sorghum_validation_mean_iou_regression: 0.01
+
+confirmation_acceptance_against_control:
+  mean_paired_primary_delta_must_be_greater_than: 0.0
+  minimum_primary_wins_out_of_3: 2
+  maximum_mean_source_validation_mean_iou_regression: 0.01
+  maximum_mean_cwfid_mean_iou_regression: 0.01
+  maximum_mean_sorghum_validation_mean_iou_regression: 0.01
+
+fallback_if_acceptance_fails: retain_cropcraft_v3_control
+representative_checkpoint_rule: median_seed_by_primary_metric_with_seed_as_tie_breaker
+external_test_used_for_selection: false
+safety_policy_used_for_selection: false
+spray_deployment_eligible_from_this_protocol: false

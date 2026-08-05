@@ -1,0 +1,43 @@
+schema_version: 1
+release: cropcraft_stock_pilot_v1
+purpose: controlled_stock_3d_synthetic_ablation_only
+base_config: configs/simulation/cropcraft_smoke_v1.yaml
+base_seed: 171000
+scene_count: 25
+frames_per_scene: 4
+train_scenes: 20
+validation_scenes: 5
+
+# The ranges intentionally cover camera/spacing/nuisance variation. They do
+# not claim biological fidelity: stock CropCraft has one maize morphology and
+# a small low-poly weed library.
+ranges:
+  camera_height_m: [0.80, 1.60]
+  camera_fov_deg: [50.0, 76.0]
+  camera_roll_deg: [-5.0, 5.0]
+  camera_pitch_deg: [-5.0, 5.0]
+  camera_yaw_deg: [-10.0, 10.0]
+  camera_y_jitter_m: [0.02, 0.15]
+  environment_rotation_deg: [0.0, 360.0]
+  crop_asset_heights_m: [0.21, 0.35, 0.40, 0.45, 0.49]
+  crop_height_scale: [0.90, 1.10]
+  crop_height_tolerance: [0.12, 0.35]
+  within_row_spacing_m: [0.22, 0.38]
+  between_row_spacing_m: [0.60, 0.90]
+  position_noise_m: [0.005, 0.04]
+  tilt_noise_rad: [0.01, 0.10]
+  scale_noise: [0.04, 0.20]
+  missing_crop_probability: [0.00, 0.15]
+  portulaca_density: [4.0, 9.0]
+  polygonum_density: [3.0, 7.0]
+  taraxacum_density: [2.0, 5.0]
+  stone_density: [0.0, 16.0]
+
+quality_gates:
+  expected_pairs: 100
+  max_crop_free_frame_fraction: 0.0
+  max_weed_free_frame_fraction: 0.10
+  allowed_mask_colors:
+    - [0, 0, 0]
+    - [0, 255, 0]
+    - [255, 0, 0]

@@ -1,0 +1,74 @@
+schema_version: 1
+release: cropcraft_paddy_smoke_v4
+purpose: pre_pilot_paddy_water_material_and_botanical_smoke
+base_config: configs/simulation/cropcraft_paddy_base_v4.yaml
+scene_patch: patches/cropcraft/0002-paddy-water-profile.patch
+asset_pack: data/raw/synthetic_assets/cropcraft_paddy_robust_v4_r1
+asset_pack_id: cropcraft_paddy_robust_v4_r1
+crop_bed_name: rice_rows
+crop_plant_type: rice_seedling_v4
+cycle_crop_asset_heights: true
+base_seed: 284000
+scene_count: 3
+frames_per_scene: 4
+train_scenes: 2
+validation_scenes: 1
+
+asset_profile:
+  ground_material_ids: [aerial_mud_1, brown_mud_03, muddy_tracks]
+  environment_files: [pond_2k.hdr, mud_road_puresky_2k.hdr, cloudy_vondelpark_2k.hdr]
+  surface_profile: shallow_paddy_v4
+  surface_parameter_ranges:
+    water_coverage: water_coverage
+    water_depth_m: water_depth_m
+    water_roughness: water_roughness
+    wave_scale: wave_scale
+
+weed_density_ranges:
+  sagittaria: sagittaria_density
+  paddy_grass: paddy_grass_density
+  aquatic_broadleaf: aquatic_broadleaf_density
+
+ranges:
+  camera_height_m: [0.8, 1.2]
+  camera_fov_deg: [48.0, 70.0]
+  camera_roll_deg: [-3.0, 3.0]
+  camera_pitch_deg: [-3.0, 3.0]
+  camera_yaw_deg: [-6.0, 6.0]
+  camera_y_jitter_m: [0.01, 0.08]
+  environment_rotation_deg: [0.0, 360.0]
+  crop_asset_heights_m: [0.08, 0.14, 0.23]
+  crop_height_scale: [0.95, 1.05]
+  crop_height_tolerance: [0.07, 0.11]
+  within_row_spacing_m: [0.18, 0.30]
+  between_row_spacing_m: [0.22, 0.34]
+  position_noise_m: [0.008, 0.035]
+  tilt_noise_rad: [0.01, 0.10]
+  scale_noise: [0.04, 0.15]
+  missing_crop_probability: [0.0, 0.08]
+  sagittaria_density: [10.0, 25.0]
+  paddy_grass_density: [8.0, 22.0]
+  aquatic_broadleaf_density: [5.0, 15.0]
+  stone_density: [0.0, 7.0]
+  water_coverage: [0.45, 0.95]
+  water_depth_m: [0.002, 0.008]
+  water_roughness: [0.04, 0.24]
+  wave_scale: [2.5, 14.0]
+
+quality_gates:
+  expected_pairs: 12
+  max_crop_free_frame_fraction: 0.0
+  max_weed_free_frame_fraction: 0.10
+  max_exact_rgb_duplicates: 0
+  max_exact_mask_duplicates_across_scenes: 0
+  minimum_mean_crop_fraction: 0.02
+  maximum_mean_crop_fraction: 0.28
+  minimum_mean_weed_fraction: 0.008
+  maximum_mean_weed_fraction: 0.18
+  minimum_used_crop_model_variants: 6
+  minimum_used_ground_families: 3
+  minimum_used_environment_families: 3
+  minimum_used_surface_profiles: 1
+  minimum_surface_parameter_spans:
+    water_coverage: 0.10
+

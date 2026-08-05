@@ -1,0 +1,290 @@
+schema_version: 1
+scope: research_semantic_crop_segmentation_synthetic_sensor_motion_gate
+stage: screen
+frozen_before_challenger_training: true
+frozen_at: '2026-08-03T11:50:56+03:00'
+post_training_pre_evaluation_administrative_amendment:
+  amended_at: '2026-08-03T12:43:31+03:00'
+  trigger: >-
+    Two accepted-control reuse preflights stopped before producing a decision
+    receipt. The prior WeedMap artifact selected external_calibration from the
+    full manifest while the protocol locked its projection; the prior Tobacco
+    artifact used the projection while the protocol locked the full manifest.
+  equivalence_proof: >-
+    Selecting split=external_calibration from the 519-row weedmap.csv yields 95
+    SampleRecord objects in exactly the same order and with every field equal
+    to weedmap_calibration_v1.csv. Selecting the same role from the 960-row
+    tobacco_aerial_balanced_v1.csv likewise yields 240 records exactly equal
+    and in the same order as tobacco_aerial_balanced_calibration_v1.csv.
+  administrative_change: >-
+    Lock weedmap.csv (SHA-256 fd8d01...) so the previously computed artifact can
+    be reused byte-for-byte, and lock the Tobacco calibration-only projection
+    (SHA-256 ee7f4c...). No evaluated row, role, model, checkpoint, threshold,
+    acceptance rule, or training input changed. No fresh model-gate domain
+    metric had completed and no selection receipt existed when amended.
+
+accepted_control: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+matched_compute_control: simab_sensor_motion_compute_control_r5_e8_v7_r1
+screen_candidate: simab_sensor_motion_add024_replay_r5_e8_v7_r1
+candidate_sensor_motion_exposure:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8: 0.0
+  simab_sensor_motion_compute_control_r5_e8_v7_r1: 0.0
+  simab_sensor_motion_add024_replay_r5_e8_v7_r1: 0.024390243902439025
+candidate_samples_per_epoch:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8: 3600
+  simab_sensor_motion_compute_control_r5_e8_v7_r1: 3690
+  simab_sensor_motion_add024_replay_r5_e8_v7_r1: 3690
+screen_seed: 17
+confirmation_seeds: [17, 29, 43]
+fixed_epoch: 8
+checkpoint: last.pt
+source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+
+hypothesis:
+  measured_gap: >-
+    On the fixed matched DeBlurWeedSeg development pairs, the accepted seed-17
+    checkpoint loses 0.1777285 mean IoU from sharp to motion blur. Its training
+    transform includes occasional isotropic Gaussian blur but no directional
+    exposure trajectory.
+  isolated_change: >-
+    Add normalized linear/curved camera-shake PSF renders of accepted dryland
+    and paddy synthetic RGBs while reusing the exact latent scene masks. Do not
+    change model capacity, loss, optimizer, botanical geometry, soil, or HDRI.
+  causal_limit: >-
+    The real blur diagnostic is one field and development-only. It can screen a
+    concrete sensor hypothesis but cannot support a general field or deployment
+    claim. A matched-compute old-data arm controls the extra 90 draws per epoch.
+
+expected_data_evidence:
+  samples: 200
+  train: 160
+  external_calibration: 40
+  train_source_groups: 40
+  external_calibration_source_groups: 10
+  dryland_samples: 100
+  paddy_samples: 100
+  combined_training_manifest_samples: 6063
+
+compute_budget:
+  epochs: 8
+  accepted_control_samples_per_epoch: 3600
+  accepted_control_sampled_examples: 28800
+  matched_compute_and_candidate_samples_per_epoch: 3690
+  matched_compute_and_candidate_sampled_examples: 29520
+  accepted_synthetic_exposure: 0.10
+  matched_compute_synthetic_exposure: 0.10
+  candidate_total_synthetic_exposure: 0.12195121951219512
+  candidate_sensor_motion_exposure: 0.024390243902439025
+  candidate_expected_old_draws_per_epoch: 3600
+  candidate_expected_sensor_motion_draws_per_epoch: 90
+  matched_compute_expected_old_draws_per_epoch: 3690
+  architecture_loss_optimizer_and_hyperparameters_identical: true
+  note: >-
+    Scaling every old weight by 40/41 preserves 3,600 old draws only in
+    expectation; it does not replay the accepted arm's exact old-sample
+    sequence. Therefore the equal-compute old-data arm is required.
+
+existing_domains:
+  - source
+  - cwfid
+  - sorghum_weed
+  - cropandweed
+  - rice
+  - growingsoy
+  - weedmap
+  - tobacco
+sensor_asset_calibration_role: >-
+  Forty generated frames from source scenes 20-24 are used only for static
+  asset/QC review. They are excluded from all training arms and are not used to
+  accept, reject, or rank a model.
+deblurweedseg_role: >-
+  One fixed field of 100 sharp/motion-blur matched pairs is a development-only
+  nuisance diagnostic. No real DeBlurWeedSeg image, mask, kernel, cutout, or
+  fitted parameter enters the asset builder or training. The motion-blur half
+  is the screen target; its sharp half is a non-inferiority guard. Neither is an
+  untouched external test.
+other_real_domain_role: >-
+  CWFID, Sorghum, CropAndWeed, Rice, GrowingSoy, WeedMap, and Tobacco are fixed
+  unexposed development guards. No tile from these evaluation roles appears in
+  any arm's manifest or sampling weights.
+
+ranking:
+  primary: min_nine_domain_semantic_mean_iou_including_motion_blur
+  tie_breakers:
+    - deblur_motion_blur_semantic_mean_iou
+    - macro_nine_domain_semantic_mean_iou
+
+screen_acceptance_against_each_control:
+  motion_blur_mean_iou_delta_must_be_at_least: 0.01
+  maximum_deblur_sharp_mean_iou_regression: 0.01
+  existing_robust_delta_must_be_at_least: 0.0
+  expanded_robust_delta_must_be_at_least: 0.0
+  existing_macro_delta_must_be_at_least: 0.0
+  expanded_macro_delta_must_be_at_least: 0.0
+  maximum_existing_domain_mean_iou_regression:
+    source: 0.01
+    cwfid: 0.01
+    sorghum_weed: 0.01
+    cropandweed: 0.01
+    rice: 0.01
+    growingsoy: 0.01
+    weedmap: 0.01
+    tobacco: 0.01
+
+confirmation_acceptance_against_accepted_control:
+  mean_expanded_robust_delta_must_be_greater_than: 0.0
+  minimum_expanded_robust_wins_out_of_3: 2
+  mean_motion_blur_delta_must_be_at_least: 0.01
+  maximum_mean_deblur_sharp_regression: 0.01
+  mean_existing_macro_delta_must_be_at_least: 0.0
+  mean_expanded_macro_delta_must_be_at_least: 0.0
+  maximum_mean_existing_domain_mean_iou_regression:
+    source: 0.01
+    cwfid: 0.01
+    sorghum_weed: 0.01
+    cropandweed: 0.01
+    rice: 0.01
+    growingsoy: 0.01
+    weedmap: 0.01
+    tobacco: 0.01
+
+confirmation_matrix_policy: >-
+  If and only if the seed-17 challenger passes every rule against both
+  controls, stop and freeze a paired candidate/accepted matrix at seeds
+  17/29/43 before training seed 29 or 43. Reuse compatible accepted-control and
+  seed-17 artifacts byte-for-byte. The matched-compute control is causal
+  evidence only and is never selection eligible.
+
+forbidden_inputs:
+  - sensor_motion_external_calibration_in_training_or_model_selection
+  - deblurweedseg_pixels_masks_or_fitted_psf_in_assets_or_training
+  - deblurweedseg_publisher_train_or_val
+  - botanical_geometry_soil_hdri_or_density_change
+  - cwfid_development_in_training
+  - cropandweed_development_in_training
+  - rice_seedling_real_tiles_in_training
+  - growingsoy_external_calibration_in_training
+  - weedmap_external_calibration_in_training
+  - tobacco_external_calibration_in_training
+  - real_core_final_test
+  - carrot_weed_external_test
+  - ewis1_external_test
+  - sorghum_weed_external_test
+  - any_external_test_or_final_test_split
+
+locked_inputs:
+  screen_matrix:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/simulation_sensor_motion_additive_screen_v7_r1.yaml
+    sha256: 2390f1b94c356a53a58b58f3156d22a87505f1d86fb578f595508bd157f86708
+  base_training_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/train/base_real_sorghum_ablation_v1.yaml
+    sha256: d2f8450bc8106d09798d873aee8add6f25640ceb303bfd9f25d2435edd1abafc
+  evaluator_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/evaluate_sensor_motion_fixed_epoch_development.py
+    sha256: dc16698ad9a7d279c2f4200bfec3884f192242715851129d3a172ec755c31fd7
+  selector_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/select_sensor_motion_additive.py
+    sha256: 40796a3c4cd8f9f2cfda8df1c30c9798cf6b6ac6d234b6a4ac1d55fddcb04bb7
+  dataset_registry:
+    path: /home/ankaref/utku/tarım_projesi/configs/datasets.yaml
+    sha256: 58038bddad9e3fb2064e3c2a7c6228a285dfb0b7754bae8ff2cebe139fdf8079
+  asset_gate_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/simulation/cropcraft_sensor_motion_asset_gate_v7_r1.yaml
+    sha256: 05aada33bd5fafd9f152c4568a4f870b2976bf991a866856bebf68ee04592638
+  asset_builder:
+    path: /home/ankaref/utku/tarım_projesi/scripts/build_cropcraft_sensor_motion_assets.py
+    sha256: dcff5b3cb5609e30e7dc8978244d3388f6635a170bef6e2ce3ed136ac179268c
+  asset_quality_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_asset_quality_v7_r1.json
+    sha256: aa871b90385cf82dfc8110c087daff6fabb90783e60104bc98483967cbf57056
+  manual_visual_review:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_manual_visual_review_v7_r1.json
+    sha256: 0223ce156d06b6e5951a451924d8d6f89bf4be9f46d30e2c066308c30f74c176
+  sensor_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_sensor_motion_pilot_v7_r1.csv
+    sha256: 80f048e93797e9ae429a9a0691ef5c24aa3a7e9f34bc30328f8a99b86d0136a3
+  sensor_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_manifest_audit_v7_r1.json
+    sha256: b90168a495112d4feb625e2b26ba905a1d44f6e726d5db18a3aa7ab9e4313222
+  duplicate_auditor:
+    path: /home/ankaref/utku/tarım_projesi/scripts/audit_candidate_duplicates.py
+    sha256: 61cc051c4539ed9241fda0698884f07db610b63f1665063638bdad3e077b0d6e
+  sensor_vs_all_real_duplicate_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_vs_all_real_duplicates_v7_r1.json
+    sha256: 0237562a786e291329b8a187c987f8be7911eed887db5e8bf9d2133b088776c8
+  challenger_manifest_builder:
+    path: /home/ankaref/utku/tarım_projesi/scripts/build_sensor_motion_ablation_manifest.py
+    sha256: 399c1e376f74e50d326a3aa6ce925372089b8317fa18e972b14d86119d969448
+  challenger_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_v3_05_paddy_v4_05_sensor_motion_trainval_v7_r1.csv
+    sha256: 6a0dcc7ff571fcc3782780ae7bb693f7369fa02dadf008ac548ca7279fe2c05d
+  challenger_manifest_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_ablation_manifest_v7_r1.json
+    sha256: 12e689718ea02d378fce32672c58b7c9b4924dc622c96ca8b49cf680078b6d9f
+  challenger_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_ablation_manifest_audit_v7_r1.json
+    sha256: 1b044a83de746c643080b8106018a58b54ca9c038b325ea3d14b0bec68f6bdd4
+  accepted_control_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  accepted_control_selection_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_paddy_asset_confirmation_selection_v4_r5.json
+    sha256: 3f4f62c79cd99afbc7bbc149f0d798cda0053c96a106f187d3a9514ce376f50b
+  cwfid_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    sha256: 8f2bcfe518b48df7673bcbda748ebf812273723e8438228e296213886c7ba450
+  sorghum_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    sha256: f28f5914090b8ee28cd26b9e742ec958105db61f68b743963a3729468d263540
+  cropandweed_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropandweed.csv
+    sha256: 63fead62f9cdd92e3c21129d6b8e6e09a2df672395661757a7e64b969f124399
+  rice_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/rice_seedling_weed.csv
+    sha256: 05d9eeff6f4874395ebcad9a718a2ec405eb17fef2abc2106a9e14dd981adac8
+  growingsoy_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/growingsoy.csv
+    sha256: 0ba8f02071c34478f81340386eae5ecf86202a16b2d5b6135c3313faef7aa4ac
+  weedmap_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap.csv
+    sha256: fd8d01faa5284b52c6a7039ed0ccd001cc544c4f7d1ab75cbb87ec50b05e7005
+  tobacco_balanced_calibration_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_balanced_calibration_v1.csv
+    sha256: ee7f4c304ddb250794bb579b928d4f0ddbe8992382f9418d80634c104c4f7010
+  deblur_sharp_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_sharp_calibration_v1.csv
+    sha256: c426aa8efde5b3d4475222076d417293a33b69478830cf78dfeab72b91e0aad2
+  deblur_motion_blur_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_blur_calibration_v1.csv
+    sha256: 258ce622dff77476990968f7a86464f8ad6a106930dc65af02733a7280cd38e0
+  deblur_protocol:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/deblurweedseg_motion_blur_protocol_v1.yaml
+    sha256: 5544513734801fe19425b67fa0f1436a88427c4b83049eae6564e7f02b167e62
+  deblur_diagnostic:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/deblurweedseg_motion_blur_diagnostic_v1.json
+    sha256: b4ca3c87410f1ad181cde1a01dae390228fc057b15cc9b83da20c38fcceb8c97
+  control_seed17_checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/last.pt
+    sha256: 22f988e74057b27545eae6ace98141f713df3d0345c8bc6bab140d1b1ca55d57
+  control_seed17_summary:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/summary.json
+    sha256: bdf20287f961f40adcd3df1e37145062b45d13e9e0ba361dc5a2ce05a2416ce0
+  control_seed17_history:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/history.jsonl
+    sha256: d840a16756513d893286c9092e7462e8bb65b2576da04dc7015a0a8e59f0a049
+  control_seed17_resolved_config:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/config.resolved.json
+    sha256: 0e035c0cbc67bb298440d7cedb4ff9afbb6b537255625fcb86fd9fe167dbcf70
+  control_seed17_prior_evaluation_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/tobacco_development_fixed_epoch8_seeds_17.json
+    sha256: 03a7d16c1596e242fb823752a173068dd4a45497a4ee23b15f08795bd24be6c1
+
+fallback_if_acceptance_fails: retain_accepted_r5_control
+external_test_used_for_selection: false
+safety_policy_used_for_selection: false
+spray_deployment_eligible_from_this_protocol: false
+selection_status: >-
+  Research robustness selection only. The target blur evidence is a
+  single-field matched development diagnostic. Independent cameras, shutter
+  regimes, fields, seasons, and countries remain required before deployment or
+  a broad motion-robustness claim.

@@ -1,0 +1,65 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simulation_sensor_motion_additive_screen_v7_r1
+data_license_scope: research_real_plus_accepted_cc0_synthetic_plus_procedural_cc0_camera_psf
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  # Byte-for-byte reuse of the accepted 3,600-sample control.
+  - name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3600
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Equal-compute causal control: all 3,690 expected draws remain old data.
+  - name: simab_sensor_motion_compute_control_r5_e8_v7_r1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3690
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Preserve 3,600 old draws in expectation and add 90 motion-blurred draws.
+  - name: simab_sensor_motion_add024_replay_r5_e8_v7_r1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_v3_05_paddy_v4_05_sensor_motion_trainval_v7_r1.csv
+    model: {}
+    training:
+      samples_per_epoch: 3690
+      dataset_weights:
+        phenobench: 0.15804878048780488
+        acre: 0.15804878048780488
+        weedsgalore: 0.04390243902439024
+        we3ds: 0.2370731707317073
+        rose: 0.19317073170731708
+        sorghum_weed: 0.08780487804878048
+        cropcraft_agri_robust_pilot_v3: 0.04878048780487805
+        cropcraft_paddy_pilot_v4_r5: 0.04878048780487805
+        cropcraft_sensor_motion_pilot_v7_r1: 0.024390243902439025

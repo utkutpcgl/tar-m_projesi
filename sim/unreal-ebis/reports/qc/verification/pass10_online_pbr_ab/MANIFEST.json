@@ -1,0 +1,62 @@
+{
+  "case_count": 1,
+  "cases": [
+    {
+      "anonymous_options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "changed_factor": "Unreal concrete body shader only: procedural V29 versus direct pinned CC0 ambientCG Concrete003 colour/roughness/NormalDX at 2x UV tiling",
+      "crop_regions_normalized": {
+        "concrete": [
+          0.18,
+          0.1,
+          0.82,
+          0.92
+        ],
+        "lower_platen": [
+          0.04,
+          0.64,
+          0.96,
+          1.0
+        ],
+        "upper_platen": [
+          0.05,
+          0.0,
+          0.95,
+          0.34
+        ]
+      },
+      "matched_control": {
+        "camera": "camera_angled / cam-10",
+        "camera_model": "identical",
+        "engine": "Unreal Engine 5.8.1 SceneCapture",
+        "geometry": "identical; outside-concrete mean absolute RGB difference <= 0.014/255",
+        "resolution": "1280x720",
+        "seed": 60223,
+        "sensor_response": "identical deterministic seed",
+        "shape": "cylinder"
+      },
+      "name": "unreal_concrete003_direct_pbr_cam10_cylinder",
+      "source_hashes_private_mapping_required": true
+    }
+  ],
+  "method": {
+    "blind_order": "deterministic A/B/C shuffle; mapping held separately",
+    "claim_boundary": "visual ranking can select a renderer revision; only a frozen real holdout can support a YOLO-benefit claim",
+    "diagnostics": [
+      "fixed upper-platen/concrete/lower-platen crops",
+      "edge views",
+      "aligned baseline/candidate difference heatmap",
+      "descriptive pixel statistics"
+    ],
+    "single_factor_requirement": "baseline and candidate must share engine, seed, camera, shape, geometry and lighting except the declared changed_factor"
+  },
+  "schema_version": 1,
+  "script_sha256": "209f561d963fabf3859bc04e8514db1782610655b7e90d584efb0eaf50d9281d",
+  "seed": 26073010,
+  "spec": "ebis_unreal_pass10_online_pbr_ab.json",
+  "spec_sha256": "aae65ebcac13ab10d37f20cbbc132f4b8884950ea4a4e643a157ee085e9ca4f4",
+  "status": "PASS"
+}

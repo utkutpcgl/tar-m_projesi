@@ -1,0 +1,66 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simulation_soy_mix_additive_screen_v6_r5
+data_license_scope: research_real_plus_cc0_and_procedural_soy_assets
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  - name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3600
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  - name: simab_v3_05_paddy05_compute3690_e8_v5
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3690
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Preserve every accepted source's 3,600-example expected draw count and
+  # split the same 90-draw soybean budget equally over dense/all-stage V5 and
+  # sparse/high-weed/mid-stage V6. No failed render is included.
+  - name: simab_v3_05_paddy05_soymixadd90_3690_e8_v6
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_soy_mix_trainval_v6_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3690
+      dataset_weights:
+        phenobench: 0.158048780487805
+        acre: 0.158048780487805
+        weedsgalore: 0.043902439024390
+        we3ds: 0.237073170731707
+        rose: 0.193170731707317
+        sorghum_weed: 0.087804878048780
+        cropcraft_agri_robust_pilot_v3: 0.048780487804878
+        cropcraft_paddy_pilot_v4_r5: 0.048780487804878
+        cropcraft_soy_pilot_v5_r5: 0.0121951219512195
+        cropcraft_soy_stress_pilot_v6_r5: 0.0121951219512195

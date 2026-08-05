@@ -1,0 +1,120 @@
+{
+  "axes": [
+    "geometry_silhouette",
+    "material_brdf",
+    "lighting_shadow",
+    "surface_microstructure",
+    "camera_sensor",
+    "rfid_contact_occlusion",
+    "overall_plausibility"
+  ],
+  "cases": [
+    {
+      "confidence": null,
+      "name": "blender_platen_scan_cam10_cylinder",
+      "pixel_grounded_reason": null,
+      "scores": {
+        "A": {
+          "camera_sensor": null,
+          "geometry_silhouette": null,
+          "lighting_shadow": null,
+          "material_brdf": null,
+          "overall_plausibility": null,
+          "rfid_contact_occlusion": null,
+          "surface_microstructure": null
+        },
+        "B": {
+          "camera_sensor": null,
+          "geometry_silhouette": null,
+          "lighting_shadow": null,
+          "material_brdf": null,
+          "overall_plausibility": null,
+          "rfid_contact_occlusion": null,
+          "surface_microstructure": null
+        },
+        "C": {
+          "camera_sensor": null,
+          "geometry_silhouette": null,
+          "lighting_shadow": null,
+          "material_brdf": null,
+          "overall_plausibility": null,
+          "rfid_contact_occlusion": null,
+          "surface_microstructure": null
+        }
+      },
+      "winner": null
+    },
+    {
+      "confidence": null,
+      "name": "blender_concrete_microdetail_cam10_cube",
+      "pixel_grounded_reason": null,
+      "scores": {
+        "A": {
+          "camera_sensor": null,
+          "geometry_silhouette": null,
+          "lighting_shadow": null,
+          "material_brdf": null,
+          "overall_plausibility": null,
+          "rfid_contact_occlusion": null,
+          "surface_microstructure": null
+        },
+        "B": {
+          "camera_sensor": null,
+          "geometry_silhouette": null,
+          "lighting_shadow": null,
+          "material_brdf": null,
+          "overall_plausibility": null,
+          "rfid_contact_occlusion": null,
+          "surface_microstructure": null
+        },
+        "C": {
+          "camera_sensor": null,
+          "geometry_silhouette": null,
+          "lighting_shadow": null,
+          "material_brdf": null,
+          "overall_plausibility": null,
+          "rfid_contact_occlusion": null,
+          "surface_microstructure": null
+        }
+      },
+      "winner": null
+    },
+    {
+      "confidence": null,
+      "name": "blender_debris_morphology_cam10_cylinder",
+      "pixel_grounded_reason": null,
+      "scores": {
+        "A": {
+          "camera_sensor": null,
+          "geometry_silhouette": null,
+          "lighting_shadow": null,
+          "material_brdf": null,
+          "overall_plausibility": null,
+          "rfid_contact_occlusion": null,
+          "surface_microstructure": null
+        },
+        "B": {
+          "camera_sensor": null,
+          "geometry_silhouette": null,
+          "lighting_shadow": null,
+          "material_brdf": null,
+          "overall_plausibility": null,
+          "rfid_contact_occlusion": null,
+          "surface_microstructure": null
+        },
+        "C": {
+          "camera_sensor": null,
+          "geometry_silhouette": null,
+          "lighting_shadow": null,
+          "material_brdf": null,
+          "overall_plausibility": null,
+          "rfid_contact_occlusion": null,
+          "surface_microstructure": null
+        }
+      },
+      "winner": null
+    }
+  ],
+  "instructions": "Score A/B/C independently from 1 (implausible) to 5 (closest to a real EBIS capture). Do not open PRIVATE_MAPPING.json first. Add one short pixel-grounded reason for every winner.",
+  "schema_version": 1
+}

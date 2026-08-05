@@ -1,0 +1,292 @@
+schema_version: 1
+scope: research_semantic_crop_segmentation_tobacco_aerial_real_data_gate
+stage: screen
+frozen_before_challenger_training: true
+frozen_at: '2026-08-03T10:16:19+03:00'
+
+accepted_control: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+matched_compute_control: realab_tobacco_compute_control_r5_e8_v1
+screen_candidate: realab_tobacco_add05_replay_r5_e8_v1
+candidate_tobacco_exposure:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8: 0.0
+  realab_tobacco_compute_control_r5_e8_v1: 0.0
+  realab_tobacco_add05_replay_r5_e8_v1: 0.047619047619047616
+candidate_samples_per_epoch:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8: 3600
+  realab_tobacco_compute_control_r5_e8_v1: 3780
+  realab_tobacco_add05_replay_r5_e8_v1: 3780
+screen_seed: 17
+confirmation_seeds: [17, 29, 43]
+fixed_epoch: 8
+checkpoint: last.pt
+source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+
+expected_data_evidence:
+  samples: 2520
+  train: 1536
+  external_calibration: 984
+  fields: 8
+  parent_blocks: 210
+  balanced_samples: 960
+  balanced_train: 720
+  balanced_external_calibration: 240
+  combined_training_manifest_samples: 6623
+
+compute_budget:
+  epochs: 8
+  accepted_control_samples_per_epoch: 3600
+  accepted_control_sampled_examples: 28800
+  matched_compute_and_candidate_samples_per_epoch: 3780
+  matched_compute_and_candidate_sampled_examples: 30240
+  accepted_synthetic_exposure: 0.10
+  candidate_synthetic_exposure: 0.09523809523809523
+  candidate_tobacco_exposure: 0.047619047619047616
+  candidate_expected_old_draws_per_epoch: 3600
+  candidate_expected_tobacco_draws_per_epoch: 180
+  matched_compute_expected_old_draws_per_epoch: 3780
+  architecture_and_hyperparameters_identical: true
+  note: >-
+    Dataset sampling is deterministic but probabilistic. Scaling every old
+    weight by 20/21 preserves 3,600 old draws only in expectation; it does not
+    replay the accepted arm's exact per-step old-sample sequence. Therefore the
+    equal-compute old-data arm is required for the causal comparison.
+
+existing_domains:
+  - source
+  - cwfid
+  - sorghum_weed
+  - cropandweed
+  - rice
+  - growingsoy
+  - weedmap
+tobacco_role: >-
+  Campaigns 2, 3, 5, 6, 7, and 8 are training-only. Campaigns 1 and 4 are
+  fixed development-only external calibration and are never sampled by any
+  arm. The field/campaign split is group-disjoint, but this is not an untouched
+  external test. A content-independent balanced subset caps every campaign at
+  120 patches and retains complete 12-patch parent blocks.
+tobacco_release_anomaly: >-
+  Campaign 1's separately bundled 1080p images do not correspond to its patch
+  tree. Its Patch images/data and mask trees are authoritative because the two
+  nested releases are byte-identical and their consecutive 12-patch blocks are
+  spatially coherent. Campaign 1's 1080p files are quarantined from conversion,
+  supervision, and evaluation.
+real_rice_role: >-
+  Unexposed real-domain development diagnostic. Its upstream split is named
+  train, but no Rice tile is present in any arm's manifest or sampling weights.
+weedmap_role: >-
+  Unexposed development-only calibration diagnostic. No WeedMap tile is
+  present in any arm's manifest or sampling weights.
+deblurweedseg_role: >-
+  Single-field matched sharp/motion-blur development diagnostic. It is reported
+  for visibility only and cannot accept, reject, or rank a candidate.
+
+ranking:
+  primary: min_eight_domain_semantic_mean_iou
+  tie_breakers:
+    - tobacco_semantic_mean_iou
+    - macro_eight_domain_semantic_mean_iou
+
+screen_acceptance_against_each_control:
+  tobacco_mean_iou_delta_must_be_at_least: 0.01
+  existing_robust_delta_must_be_at_least: 0.0
+  expanded_robust_delta_must_be_at_least: 0.0
+  existing_macro_delta_must_be_at_least: 0.0
+  expanded_macro_delta_must_be_at_least: 0.0
+  maximum_existing_domain_mean_iou_regression:
+    source: 0.01
+    cwfid: 0.01
+    sorghum_weed: 0.01
+    cropandweed: 0.01
+    rice: 0.01
+    growingsoy: 0.01
+    weedmap: 0.01
+
+confirmation_acceptance_against_each_control:
+  mean_expanded_robust_delta_must_be_greater_than: 0.0
+  minimum_expanded_robust_wins_out_of_3: 2
+  mean_tobacco_delta_must_be_at_least: 0.01
+  mean_existing_macro_delta_must_be_at_least: 0.0
+  mean_expanded_macro_delta_must_be_at_least: 0.0
+  maximum_mean_existing_domain_mean_iou_regression:
+    source: 0.01
+    cwfid: 0.01
+    sorghum_weed: 0.01
+    cropandweed: 0.01
+    rice: 0.01
+    growingsoy: 0.01
+    weedmap: 0.01
+
+confirmation_matrix_policy: >-
+  If and only if the Tobacco challenger passes against both controls, stop and
+  freeze a paired matrix for the candidate and accepted control at seeds
+  17/29/43 before any seed 29/43 challenger training. Reuse the accepted
+  control, seed 17, and compatible evaluation artifacts byte-for-byte. The
+  matched-compute control is causal evidence only and is never selection
+  eligible.
+
+forbidden_inputs:
+  - tobacco_campaigns_1_or_4_in_training
+  - tobacco_campaign_1_1080p_release_tree
+  - tobacco_maskref_visualization_images_as_ground_truth
+  - tobacco_detected_vegetation_as_rgb
+  - growingsoy_external_calibration_trajectory_in_training
+  - weedmap_external_calibration_map_003_in_training
+  - real_rice_tiles_in_training_or_sampling_weights
+  - deblurweedseg_publisher_train_or_val
+  - deblurweedseg_in_training_or_model_selection
+  - real_core_final_test
+  - carrot_weed_external_test
+  - ewis1_external_test
+  - sorghum_weed_external_test
+  - any_external_test_or_final_test_split
+
+locked_inputs:
+  screen_matrix:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/real_data_tobacco_aerial_additive_screen_v1.yaml
+    sha256: 05d1f026fbd3de173e11d2e999edc4435e989cd0e9b1aa8c0d63bd34dfab93e0
+  base_training_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/train/base_real_sorghum_ablation_v1.yaml
+    sha256: d2f8450bc8106d09798d873aee8add6f25640ceb303bfd9f25d2435edd1abafc
+  evaluator_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/evaluate_tobacco_aerial_fixed_epoch_development.py
+    sha256: 906edf78f7d2d45d79c7c59dbbe2161d623f317ac3cd82c4677149ad46a30303
+  selector_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/select_real_data_tobacco_aerial.py
+    sha256: 8d06759b1f7220f70266bb561831534fc9f492a15ae2f1063cbf5b78d14e0c46
+  dataset_registry:
+    path: /home/ankaref/utku/tarım_projesi/configs/datasets.yaml
+    sha256: 58038bddad9e3fb2064e3c2a7c6228a285dfb0b7754bae8ff2cebe139fdf8079
+  tobacco_split_protocol:
+    path: /home/ankaref/utku/tarım_projesi/configs/data/tobacco_aerial_split_protocol_v1.yaml
+    sha256: 11b1bb08ada39a8f6f7ac462c842f643ed029a9e00f773d689da7c8d5c198742
+  tobacco_gate_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/data/tobacco_aerial_real_gate_v1.yaml
+    sha256: 222e9ae6846d141d404b7a790de06705af474a4aa986270080769445d104de5f
+  tobacco_converter:
+    path: /home/ankaref/utku/tarım_projesi/scripts/convert_tobacco_aerial.py
+    sha256: 59c6aeab811bc231f0c5504553e7f86e694bda2a2cf073327690db6997e32241
+  tobacco_contact_sheet_builder:
+    path: /home/ankaref/utku/tarım_projesi/scripts/build_tobacco_aerial_contact_sheet.py
+    sha256: 31fe0de93213715531ab40bee50a7148bc371cccad6974d82f387a3c36bc669e
+  duplicate_auditor:
+    path: /home/ankaref/utku/tarım_projesi/scripts/audit_candidate_duplicates.py
+    sha256: 61cc051c4539ed9241fda0698884f07db610b63f1665063638bdad3e077b0d6e
+  challenger_manifest_builder:
+    path: /home/ankaref/utku/tarım_projesi/scripts/build_real_data_ablation_manifest.py
+    sha256: 13f707f5cf0f4513bd6e92d5abb11d6203bf2991fff70f4b22b30643c792d785
+  tobacco_outer_archive:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/tobacco_aerial/archives/Tobacco_Aerial_Dataset_v2.zip
+    sha256: 1c5d5bd2baf4d1d751b738b55c741a3573169514a9dc9fb52408e889107a8176
+  tobacco_nested_v1_archive:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/tobacco_aerial/archives/nested/Tobacco Aerial Dataset V1.zip
+    sha256: 03672fc8a31ec2786de84586b2e1aba71988c694105e1c36371ce293966e70cd
+  tobacco_nested_v2_archive:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/tobacco_aerial/archives/nested/Tobacco Aerial Dataset V2.zip
+    sha256: 9caa75ddad073a43600614b50f270849e0b522a14d31a222bda025cb60eced8a
+  tobacco_conversion_report:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_conversion.json
+    sha256: 813322454792b9a92260a9bee091acaba6e5511bcf28e04018d9a1b1998f16f8
+  tobacco_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial.csv
+    sha256: 0f3cac3f760ff2a8b305bf40b9fe8fd7abc50a6e1180cbfcbf8e52a98176ab71
+  tobacco_train_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_train_v1.csv
+    sha256: 5a5ed7c707ae3bfea7791f844b1a8ffe1d79ea697d836d40cbe11d26c7d190d0
+  tobacco_calibration_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_calibration_v1.csv
+    sha256: fb602de6f3174d2c34da8646df05ef821e5b045cc9ad31432748b26cbd0c1d1c
+  tobacco_balanced_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_balanced_v1.csv
+    sha256: 02d529cb7cb1939949477171bdea0dfb3bed331570a330773daf97cb8559e4a3
+  tobacco_balanced_train_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_balanced_train_v1.csv
+    sha256: 773a471c25c3fd9a546ffed09ffd9391d15fbd77e41a1c059417958f9b0e8c48
+  tobacco_balanced_calibration_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/tobacco_aerial_balanced_calibration_v1.csv
+    sha256: ee7f4c304ddb250794bb579b928d4f0ddbe8992382f9418d80634c104c4f7010
+  tobacco_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/tobacco_aerial_manifest_audit_v1.json
+    sha256: 581bee3aea621c4d0e520425dcf9eb33b638ab3a6fede224203df9bb9894cb25
+  tobacco_balanced_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/tobacco_aerial_balanced_manifest_audit_v1.json
+    sha256: 8d0ec6709f1f521fd36e94acc372f514090b11d91c9b33b774adacaa74571353
+  tobacco_duplicate_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/tobacco_aerial_vs_all_real_duplicates_v1.json
+    sha256: 97b540c78467dd819af6442227639a40be599d7819e038d4dc5508937e402c88
+  tobacco_contact_sheet_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/tobacco_aerial_stratified_review_v1.json
+    sha256: 95eca3df6daa15db5e0d4c0e7181a7c5c5d8668ed248d25dcc76b96e3fb7ad81
+  tobacco_manual_visual_review:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/tobacco_aerial_manual_visual_review_v1.json
+    sha256: 87a05dbd77a12b557e83c063b9d77eedde7c5493d43ea83f66d9173401856abd
+  tobacco_contact_sheet:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/qc/tobacco_aerial_stratified_review_v1.png
+    sha256: a8063c6c245ad87c5ffa5ed86db06b1387ecd8a7208ccad79864574f0a739087
+  challenger_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_tobacco_trainval_v8_r1.csv
+    sha256: 8a866c53996783664e7eb997f2420e79c60138876d8f058d73e953741cc2bb91
+  challenger_manifest_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/real_data_tobacco_aerial_ablation_manifest_v1.json
+    sha256: 739217374207b20bf789aa775ffcd43c769be42b373d10683b637a907a318830
+  challenger_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/real_data_tobacco_aerial_ablation_manifest_audit_v1.json
+    sha256: 99c4bbf29ba0e6f2f7a1746faa32c42ad42eb25a89f4d52c49b8063f6ecb4bef
+  accepted_control_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  accepted_control_selection_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_paddy_asset_confirmation_selection_v4_r5.json
+    sha256: 3f4f62c79cd99afbc7bbc149f0d798cda0053c96a106f187d3a9514ce376f50b
+  cwfid_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    sha256: 8f2bcfe518b48df7673bcbda748ebf812273723e8438228e296213886c7ba450
+  sorghum_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    sha256: f28f5914090b8ee28cd26b9e742ec958105db61f68b743963a3729468d263540
+  cropandweed_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropandweed.csv
+    sha256: 63fead62f9cdd92e3c21129d6b8e6e09a2df672395661757a7e64b969f124399
+  rice_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/rice_seedling_weed.csv
+    sha256: 05d9eeff6f4874395ebcad9a718a2ec405eb17fef2abc2106a9e14dd981adac8
+  growingsoy_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/growingsoy.csv
+    sha256: 0ba8f02071c34478f81340386eae5ecf86202a16b2d5b6135c3313faef7aa4ac
+  weedmap_calibration_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap_calibration_v1.csv
+    sha256: da5311e80cf51534a1af51df1b3ffb3543a21d0426a0fd5fb74240cd778f6be9
+  deblur_sharp_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_sharp_calibration_v1.csv
+    sha256: c426aa8efde5b3d4475222076d417293a33b69478830cf78dfeab72b91e0aad2
+  deblur_motion_blur_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/deblurweedseg_blur_calibration_v1.csv
+    sha256: 258ce622dff77476990968f7a86464f8ad6a106930dc65af02733a7280cd38e0
+  deblur_protocol:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/deblurweedseg_motion_blur_protocol_v1.yaml
+    sha256: 5544513734801fe19425b67fa0f1436a88427c4b83049eae6564e7f02b167e62
+  deblur_diagnostic:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/deblurweedseg_motion_blur_diagnostic_v1.json
+    sha256: b4ca3c87410f1ad181cde1a01dae390228fc057b15cc9b83da20c38fcceb8c97
+  control_seed17_checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/last.pt
+    sha256: 22f988e74057b27545eae6ace98141f713df3d0345c8bc6bab140d1b1ca55d57
+  control_seed17_summary:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/summary.json
+    sha256: bdf20287f961f40adcd3df1e37145062b45d13e9e0ba361dc5a2ce05a2416ce0
+  control_seed17_history:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/history.jsonl
+    sha256: d840a16756513d893286c9092e7462e8bb65b2576da04dc7015a0a8e59f0a049
+  control_seed17_resolved_config:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_17/config.resolved.json
+    sha256: 0e035c0cbc67bb298440d7cedb4ff9afbb6b537255625fcb86fd9fe167dbcf70
+
+fallback_if_acceptance_fails: retain_accepted_r5_control
+external_test_used_for_selection: false
+safety_policy_used_for_selection: false
+spray_deployment_eligible_from_this_protocol: false
+selection_status: >-
+  Research robustness selection only. Tobacco calibration is field/campaign
+  disjoint from its training subset but is not an untouched external test.
+  Independent multi-country, multi-field, ground-camera, and aerial tests remain
+  required before deployment or a broad generalization claim.

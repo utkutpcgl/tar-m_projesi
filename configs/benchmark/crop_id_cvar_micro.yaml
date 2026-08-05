@@ -1,0 +1,54 @@
+base_config: ../train/base_real.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/crop_id_cvar_micro
+data_license_scope: research_only_includes_cc_by_nc_sa
+seeds: [17]
+reuse_completed: false
+
+training:
+  epochs: 10
+  validate_every: 5
+  samples_per_epoch: 2000
+  warmup_steps: 125
+  calibrate_unknown_crop: true
+  weed_thresholds: [0.50, 0.60, 0.70, 0.75, 0.80, 0.85, 0.90, 0.93, 0.95, 0.96, 0.97, 0.98, 0.985, 0.99, 0.995, 0.999]
+
+development_evaluations:
+  - name: cwfid
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+
+candidates:
+  - name: cropid_convnext_stage4_cvar0025
+    weight_license_status: review_imagenet_pretraining_terms
+    model: &stage4
+      architecture: convnext_tiny_fpn
+      trainable: stage4
+      head: factorized
+      conditioning_dropout: 0.50
+    training: &stage4_training
+      learning_rate: 0.0002
+      backbone_lr_multiplier: 0.1
+      batch_size: 6
+      gradient_accumulation: 2
+    loss:
+      crop_safety_weight: 0.025
+      crop_safety_tail_fraction: 0.05
+
+  - name: cropid_convnext_stage4_cvar005
+    weight_license_status: review_imagenet_pretraining_terms
+    model: *stage4
+    training: *stage4_training
+    loss:
+      crop_safety_weight: 0.05
+      crop_safety_tail_fraction: 0.05
+
+  - name: cropid_convnext_stage4_cvar01
+    weight_license_status: review_imagenet_pretraining_terms
+    model: *stage4
+    training: *stage4_training
+    loss:
+      crop_safety_weight: 0.10
+      crop_safety_tail_fraction: 0.05

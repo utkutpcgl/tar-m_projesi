@@ -1,0 +1,39 @@
+schema_version: 1
+scope: research_semantic_crop_segmentation_training_budget
+frozen_before_epoch15_runs: true
+
+paired_candidates:
+  control:
+    name: simab_real_sorghum_cropcraft10_e8_v1
+    fixed_epoch: 8
+  challenger:
+    name: simab_real_sorghum_cropcraft10_e15_v1
+    fixed_epoch: 15
+seeds: [17, 29, 43]
+checkpoint: last.pt
+
+development_inputs:
+  - source_real_validation
+  - cwfid_external_calibration
+  - sorghum_weed_external_calibration
+locked_external_test:
+  manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+  split: external_test
+  may_be_read_only_after_selection_receipt: true
+
+primary_metric:
+  name: per_seed_robust_semantic_mean_iou
+  definition: min(source_real_validation_mean_iou, cwfid_mean_iou, sorghum_weed_mean_iou)
+
+challenger_acceptance:
+  mean_paired_primary_delta_must_be_greater_than: 0.0
+  minimum_primary_wins_out_of_3: 2
+  maximum_allowed_mean_source_validation_miou_regression: 0.01
+  maximum_allowed_mean_sorghum_validation_miou_regression: 0.01
+
+fallback_if_acceptance_fails: control
+representative_checkpoint_rule: median_seed_by_primary_metric_with_seed_as_tie_breaker
+receipt_selection_status: locked_for_one_time_external_test
+external_test_used_for_selection: false
+safety_policy_used_for_selection: false
+spray_deployment_eligible_from_this_protocol: false

@@ -1,0 +1,47 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simulation_ablation_confirm_v1
+data_license_scope: research_only_real_plus_stock_cropcraft_assets_unreviewed
+seeds: [29, 43]
+reuse_completed: true
+
+# Confirmation is a paired-seed A/B: the real-only control and the seed-17
+# screen winner receive the same 28,800 sampled examples.  Validation happens
+# only at the frozen final epoch, so best.pt and last.pt both represent epoch 8.
+training:
+  epochs: 8
+  validate_every: 8
+  samples_per_epoch: 3600
+
+development_evaluations:
+  - name: cwfid
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+  - name: sorghum_weed
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+
+candidates:
+  - name: simab_real_sorghum_control_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_trainval_v1.csv
+    model: {}
+
+  - name: simab_real_sorghum_cropcraft10_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_trainval_v1.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_stock_pilot_v1: 0.100

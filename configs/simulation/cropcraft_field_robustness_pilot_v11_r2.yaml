@@ -1,0 +1,26 @@
+schema_version: 1
+base_study: configs/simulation/cropcraft_field_robustness_pilot_v11_r1.yaml
+release: cropcraft_field_robustness_pilot_v11_r2
+purpose: >-
+  pre-model gate repair of the single V11 hypothesis: increase crop visibility
+  without relaxing its frozen crop-fraction gate and guarantee deterministic
+  stratified coverage of every correlated profile range
+
+shared_ranges:
+  camera_height_crop_ratio: [3.8, 7.5]
+  within_row_spacing_m: [0.16, 0.36]
+
+splits:
+  train:
+    base_seed: 330000
+  val:
+    base_seed: 430000
+  test:
+    base_seed: 530000
+
+quality_contract:
+  r1_model_evaluation_performed: false
+  r1_gate_threshold_relaxed: false
+  crop_visibility_changed_causally: true
+  profile_coverage_changed_to_stratified_sampling: true
+  model_recipe_hypothesis_changed: false

@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "pass": "5/6",
+  "created_local_date": "2026-07-30",
+  "purpose": "Descriptive actual-pixel audit of the pass-5 used lower-platen contact-face correction. This is not a perceptual score, an engine ranking, or a model-benefit measurement.",
+  "method": {
+    "reference_scope": "Eighteen fresh LED RGB frames across task 9-14 and both cameras plus one fresh frame from every one of the 18 REF machine-camera groups were opened. Two full-resolution LED/IR frames were used for the numeric lower-platen audit.",
+    "roi_selection": "Manual lower-platen ROIs were chosen only after opening full-resolution pixels. The views are not registered and differ in camera, crop, exposure, sensor response, compression, lighting and contamination.",
+    "ir_limit": "IR/non-LED pixels are used only to confirm stable disc geometry, circular/radial wear, residue, debris and localized reflection. Their luminance is not an RGB material target.",
+    "luminance": "Pillow 8-bit display-referred grayscale.",
+    "gradient": "Mean of absolute one-pixel horizontal and vertical luminance differences.",
+    "highpass": "Mean absolute luminance difference from a 2 px Gaussian blur.",
+    "controlled_comparison": "Blender uses camera_angled seed 54241 before/after. Unreal uses camera_angled seed 58523 before/after. Camera, sample, RFID, light and sensor decisions remain fixed; only the pass-5 lower-contact implementation and Unreal debris-height/scale correction are intended changes.",
+    "interpretation_limit": "ROI values expose the former bright-disc error and possible over-texturing. They do not prove photorealism or establish that one engine is better."
+  },
+  "observations": [
+    "Fresh LED and every-REF IR review agree that the lower platen is a dark used-steel contact surface with circular/radial wear, concrete dust or damp residue, debris and local specular response; neither a uniformly white disc nor a flat black absorber is supported.",
+    "The controlled Blender lower-platen ROI moved from mean RGB [126.18,117.83,110.28] to [97.62,88.31,80.64], while the selected real LED dark-sector ROI is [70.34,70.22,81.51]. This closes the dominant white/clean cue but does not geometrically register the views.",
+    "The controlled Unreal ROI moved from [190.76,174.95,154.22] to [129.57,107.87,79.81]. Unreal's 2 px high-pass rose from 0.01973 to 0.03443, slightly above the selected real LED ROI's 0.02932; dense sensor/material speckle is therefore a residual over-texturing risk, not evidence of superior detail.",
+    "The inspected IR empty-chamber platen has a broad luminance distribution (median 0.38039, p90 0.89804) caused by a dark used surface plus strong localized reflection. The three bounded dry/dusty/damp regimes preserve this possibility without fitting RGB color to IR.",
+    "Unreal debris was previously generated at z=7.0-9.6 cm while the platen top is z=23.55 cm, leaving it physically below the visible contact surface. The same RNG draw is now remapped onto the platen top, with two rare larger chips and a millimetre-scale tail, so downstream sample/tag RNG decisions remain stable.",
+    "Both final contact sheets retain camera, cube/cylinder and lower-surface regime diversity. Blender remains cleaner and smoother than the real residue/wear field; Unreal remains sepia, noisy and geometrically coarse. The real upper platen, fisheye response and concrete pore/crack tail remain larger gaps than further arbitrary lower-platen darkening."
+  ],
+  "samples": [
+    {
+      "id": "real_led_cam10_lower_platen",
+      "disposition": "reference",
+      "image": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_9_dataset_2026_01_22_15_01_12_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-1_frame-00075.png",
+      "sha256": "3fb9bdb9c56473f05bd3cbc909f7be2161c99e16363942aca38d148d372354cc",
+      "image_size_px": [1920, 1080],
+      "manual_lower_platen_roi_xyxy": [260, 970, 660, 1060],
+      "roi_pixels": 36000,
+      "mean_rgb_8bit": [70.339, 70.2201, 81.5114],
+      "luminance_mean": 0.28091,
+      "luminance_std": 0.14151,
+      "luminance_p10": 0.18039,
+      "luminance_p50": 0.20392,
+      "luminance_p90": 0.47059,
+      "mean_abs_luminance_gradient": 0.02454,
+      "mean_abs_highpass_radius_2px": 0.02932
+    },
+    {
+      "id": "real_ir_cam11_lower_platen",
+      "disposition": "reference_structure_only",
+      "image": "260312_EBIS_RFID_DATASET/REF-65553_CAM11/images/train/ASBET_REF-65553_2025-01-24_cam-11_frame-038829.png",
+      "sha256": "f340528c3dacd3edbb2aaf75222434166ab21c5e827cdfbad9d1f93436f0261a",
+      "image_size_px": [1280, 720],
+      "manual_lower_platen_roi_xyxy": [220, 570, 1080, 700],
+      "roi_pixels": 111800,
+      "mean_rgb_8bit": [113.2487, 113.2487, 113.2487],
+      "luminance_mean": 0.44411,
+      "luminance_std": 0.25886,
+      "luminance_p10": 0.16078,
+      "luminance_p50": 0.38039,
+      "luminance_p90": 0.89804,
+      "mean_abs_luminance_gradient": 0.02643,
+      "mean_abs_highpass_radius_2px": 0.03396
+    },
+    {
+      "id": "blender_p4_seed54241",
+      "disposition": "baseline",
+      "image": "ebis-blender/output/realism_v5_5_concrete_p4_54240/partitions/hard_occlusion/images/ebis_camera_angled_054241.png",
+      "sha256": "50ef12698bb4a4c0b7df5579cb664cf678946c9dc82a6ed50f3c7439a571b101",
+      "image_size_px": [1280, 720],
+      "manual_lower_platen_roi_xyxy": [70, 590, 470, 690],
+      "roi_pixels": 40000,
+      "mean_rgb_8bit": [126.1849, 117.8271, 110.2827],
+      "luminance_mean": 0.46876,
+      "luminance_std": 0.10691,
+      "luminance_p10": 0.32549,
+      "luminance_p50": 0.4902,
+      "luminance_p90": 0.56471,
+      "mean_abs_luminance_gradient": 0.00652,
+      "mean_abs_highpass_radius_2px": 0.00723
+    },
+    {
+      "id": "blender_p5_seed54241",
+      "disposition": "release",
+      "image": "ebis-blender/output/realism_v5_6_lower_platen_p5_54240/partitions/hard_occlusion/images/ebis_camera_angled_054241.png",
+      "sha256": "c9a07e128619fdac73c8a0cd50e2634adbb0601c84cb2854391f9316373230c6",
+      "image_size_px": [1280, 720],
+      "manual_lower_platen_roi_xyxy": [70, 590, 470, 690],
+      "roi_pixels": 40000,
+      "mean_rgb_8bit": [97.6236, 88.3125, 80.6437],
+      "luminance_mean": 0.35375,
+      "luminance_std": 0.07938,
+      "luminance_p10": 0.2549,
+      "luminance_p50": 0.36471,
+      "luminance_p90": 0.45098,
+      "mean_abs_luminance_gradient": 0.00577,
+      "mean_abs_highpass_radius_2px": 0.00655
+    },
+    {
+      "id": "unreal_p4_seed58523",
+      "disposition": "baseline",
+      "image": "unreal-ebis/output/realism_r15_concrete_tag_p4_58520/raw/images/ebis_camera_angled_058523.png",
+      "sha256": "282ad1c7bea3dde9014ac40fbdde26413693bda5d7f82e1ecc7beb5505f1c628",
+      "image_size_px": [1280, 720],
+      "manual_lower_platen_roi_xyxy": [80, 580, 470, 700],
+      "roi_pixels": 46800,
+      "mean_rgb_8bit": [190.758, 174.9458, 154.2245],
+      "luminance_mean": 0.69558,
+      "luminance_std": 0.14541,
+      "luminance_p10": 0.48235,
+      "luminance_p50": 0.78039,
+      "luminance_p90": 0.82353,
+      "mean_abs_luminance_gradient": 0.02338,
+      "mean_abs_highpass_radius_2px": 0.01973
+    },
+    {
+      "id": "unreal_p5_seed58523",
+      "disposition": "release",
+      "image": "unreal-ebis/output/realism_r16_lower_platen_p5_58520/raw/images/ebis_camera_angled_058523.png",
+      "sha256": "66a4344f17d1398799cbf5358713e8b16e1b269482b49683d0b8015f04d60718",
+      "image_size_px": [1280, 720],
+      "manual_lower_platen_roi_xyxy": [80, 580, 470, 700],
+      "roi_pixels": 46800,
+      "mean_rgb_8bit": [129.5738, 107.8654, 79.8124],
+      "luminance_mean": 0.4359,
+      "luminance_std": 0.09432,
+      "luminance_p10": 0.32549,
+      "luminance_p50": 0.42745,
+      "luminance_p90": 0.53725,
+      "mean_abs_luminance_gradient": 0.04042,
+      "mean_abs_highpass_radius_2px": 0.03443
+    }
+  ],
+  "controlled_same_seed_differences": [
+    {
+      "engine": "Blender",
+      "before": "blender_p4_seed54241",
+      "after": "blender_p5_seed54241",
+      "mean_absolute_rgb_difference": 0.01994,
+      "changed_channel_fraction_gt_2_levels": 0.13399,
+      "p95_absolute_rgb_difference": 0.16863
+    },
+    {
+      "engine": "Unreal",
+      "before": "unreal_p4_seed58523",
+      "after": "unreal_p5_seed58523",
+      "mean_absolute_rgb_difference": 0.03845,
+      "changed_channel_fraction_gt_2_levels": 0.09237,
+      "p95_absolute_rgb_difference": 0.43137
+    }
+  ],
+  "evidence_sheets": [
+    {
+      "path": "reports/qc/multi_repeat_pass5_led_fresh.png",
+      "sha256": "bf3916450e8e21fe66f37cda1876172a8ab80c3314f26c7c0f961a3602ac38d4"
+    },
+    {
+      "path": "reports/qc/multi_repeat_pass5_ir_fresh.png",
+      "sha256": "f00d665c8b1dfb8aa3045f9e873fa64125dc96e6b8c6f9ba1551486b11de53ae"
+    },
+    {
+      "path": "reports/qc/multi_repeat_pass5_reference_blender_unreal.png",
+      "sha256": "547aae9848330373a9703a4b3d9129380d59b5f0fba50fa45a88a9def84e1bbe"
+    }
+  ]
+}

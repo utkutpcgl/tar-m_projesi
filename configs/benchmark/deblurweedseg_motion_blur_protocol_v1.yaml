@@ -1,0 +1,133 @@
+schema_version: 1
+scope: accepted_control_paired_motion_blur_development_diagnostic
+frozen_before_evaluation: true
+frozen_at: "2026-08-03T07:24:10+03:00"
+
+data_root: data
+external_test_used: false
+model_selection_or_promotion_allowed: false
+publisher_train_or_val_used: false
+publisher_model_used: false
+
+dataset:
+  dataset_id: deblurweedseg
+  role: external_calibration
+  publisher_split: test
+  samples_per_modality: 100
+  pairs: 100
+  capture_groups: 1
+  normalized_mask_tree_sha256: c3c82651cd55d68a3052c0ef4077f94208940aedc88b83aa64e19424c85de6ce
+  derived_image_tree_sha256: 321407751295767f323af7a5b258e51018ee29bf821c8fbb87c05d79ea4ab098
+  manifests:
+    sharp:
+      path: data/processed/manifests/deblurweedseg_sharp_calibration_v1.csv
+      sha256: c426aa8efde5b3d4475222076d417293a33b69478830cf78dfeab72b91e0aad2
+    motion_blur:
+      path: data/processed/manifests/deblurweedseg_blur_calibration_v1.csv
+      sha256: 258ce622dff77476990968f7a86464f8ad6a106930dc65af02733a7280cd38e0
+
+accepted_control:
+  run_root: data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+  fixed_epoch: 8
+  checkpoint: last.pt
+  source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+  training_manifest_sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  seeds: [17, 29, 43]
+  seed_locks:
+    "17":
+      checkpoint_sha256: 22f988e74057b27545eae6ace98141f713df3d0345c8bc6bab140d1b1ca55d57
+      summary_sha256: bdf20287f961f40adcd3df1e37145062b45d13e9e0ba361dc5a2ce05a2416ce0
+      config_sha256: 0e035c0cbc67bb298440d7cedb4ff9afbb6b537255625fcb86fd9fe167dbcf70
+      history_sha256: d840a16756513d893286c9092e7462e8bb65b2576da04dc7015a0a8e59f0a049
+    "29":
+      checkpoint_sha256: bf86530a5c0fc9defec3dbe0b28964f73414d22c83651fe8adf8640917a4bb73
+      summary_sha256: cf7a158c8ed14446485636c56870c66a23dc228a926e942bb3144a6f3b2712a5
+      config_sha256: d0c4bda0852a642156191e3d011a1ad90e7b21d8233f730cacff96bb5b40fa53
+      history_sha256: 98ef004d260e2876b3feca451ec52291e0b3552e195d08bfd3500ed9ed8cd82c
+    "43":
+      checkpoint_sha256: b97618224621950e46bd47136bad43f51e417c11121674bc1849a9f7322b3d9f
+      summary_sha256: 4132cbb4c8714a1833ab4a20b2afb0d4c48311968415dc37191761c41cecfebd
+      config_sha256: 4e4e8081ea0b67d6e936b200537e536cc69b8cf6805712d80ecb300e17472c41
+      history_sha256: c8133e4eeec540a5167af7b4479905515e748ddf01d2743c73116f12a4758aa2
+
+evaluation:
+  split: external_calibration
+  batch_size: 1
+  checkpoint_selection: fixed_last_pt_epoch_8
+  policy: source_validation_calibrated_frozen_thresholds
+  external_threshold_sweep_performed: false
+  compare: motion_blur_minus_sharp
+
+diagnostic_gate:
+  minimum_mean_iou_delta: -0.05
+  minimum_crop_iou_delta: -0.07
+  minimum_weed_iou_delta: -0.10
+  minimum_per_seed_mean_iou_delta: -0.05
+  minimum_passing_seeds: 2
+
+causal_limit: >-
+  Sharp and motion-blur panels are matched captures with separate images and
+  annotations, not pixel-identical counterfactuals. The paired delta is a
+  practical stress diagnostic, not a pure causal estimate of blur alone.
+field_limit: >-
+  The data comes from one experimental sorghum field and one acquisition
+  period. It cannot support an unseen-field, multi-field, or deployment claim.
+
+forbidden_actions:
+  - use_publisher_train_or_val_for_training_without_source_group_ids
+  - use_publisher_model
+  - use_external_test_data
+  - sweep_thresholds_on_deblurweedseg
+  - select_or_promote_a_checkpoint_from_this_single_field_diagnostic
+  - report_the_delta_as_a_pure_causal_blur_effect
+
+locked_inputs:
+  source_archive:
+    path: data/raw/deblurweedseg/archives/k4gvsjv4t3_v1.zip
+    sha256: f0fe9f4ef8daf74bbcc5e2f8ca8c6224aac68201cac3ca3ed35ca6d906acb77d
+  inner_data_archive:
+    path: data/raw/deblurweedseg/upstream/data.zip
+    sha256: e1a5c2cc9162bb8de20c236fdfe34e7854688edeac64ffdd0b828200958ae6c5
+  data_gate:
+    path: configs/data/deblurweedseg_real_gate_v1.yaml
+    sha256: 159a18515027a181af565e9722b02ce10bb0f82d975dd27521d45dffffa53529
+  converter:
+    path: scripts/convert_deblurweedseg.py
+    sha256: 721b2d84a5038e8588d9eeb2212e8402b3f0c413515b143d5b3093206e9248a1
+  conversion_receipt:
+    path: data/processed/manifests/deblurweedseg_conversion.json
+    sha256: c64247777d31d66525ccbdb4239402be2fa9bcc76d4e96344852745cd252fff4
+  combined_manifest:
+    path: data/processed/manifests/deblurweedseg.csv
+    sha256: f17e5f58a17b3fa36bcb01780df01539eef3aa1cbfc9009c19a530819b9cffe9
+  manifest_audit:
+    path: data/processed/audits/deblurweedseg_manifest_audit_v1.json
+    sha256: 146307072b16f021f01a189007d71a44640b4c2d0f627616acb4f4435f0d1b80
+  duplicate_audit:
+    path: data/processed/audits/deblurweedseg_vs_all_real_duplicates_v1.json
+    sha256: 2003d0c5bf4f7799d30deb7c663ce1f18013d444168160ea3adebc2293168b58
+  contact_sheet:
+    path: data/processed/qc/deblurweedseg_paired_review_v1.png
+    sha256: 49c6db0f701b0f48c25e1ff1197855449c6aa0e59eb97ef4ee91b6604f334c20
+  contact_sheet_receipt:
+    path: data/processed/qc/deblurweedseg_paired_review_v1.json
+    sha256: c02239a448f6e9a429e415e92401aa54b569e9cda17c4922a308533ae4d02d9a
+  manual_visual_review:
+    path: data/processed/audits/deblurweedseg_manual_visual_review_v1.json
+    sha256: 15bbdb47ba4de688714e1037b8483dac131b0fb3183aaa68727277f84f2bbe31
+  pair_signal_audit:
+    path: data/processed/audits/deblurweedseg_pair_signal_v1.json
+    sha256: 1cd41cbf792f9af5745982603d48abfcb46866ef08cec601e161146bad3dfec0
+  pair_signal_auditor:
+    path: scripts/audit_deblurweedseg_pair_signal.py
+    sha256: 308ffb70a84a89e5e96dcf6ec0f2bc9c32a80f6ff0fb82b080966645ca511983
+  evaluator:
+    path: scripts/evaluate_deblurweedseg_motion_blur.py
+    sha256: 5ae94174ca71333e0bbb8a7c2f1aca81c07ba50d9573e263191e40545d1ec4c6
+
+outputs:
+  run_root: data/runs/deblurweedseg_motion_blur_diagnostic_v1
+  receipt: data/processed/audits/deblurweedseg_motion_blur_diagnostic_v1.json
+
+fallback_if_gate_fails: retain_accepted_control_and_prioritize_real_motion_blur_training_data
+accepted_control_changes_if_gate_passes: false

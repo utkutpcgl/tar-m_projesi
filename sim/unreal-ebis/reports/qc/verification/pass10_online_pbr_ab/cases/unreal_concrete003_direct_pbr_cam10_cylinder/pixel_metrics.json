@@ -1,0 +1,56 @@
+{
+  "baseline": {
+    "clipped_bright_fraction": 9.7e-05,
+    "clipped_dark_fraction": 0.0,
+    "edge_density_threshold_32": 0.170785,
+    "interpretation": "descriptive pixels only; these values are not a realism score and are meaningful only beside blinded visual review",
+    "mean_luma_8bit": 115.7162,
+    "mean_rgb_8bit": [
+      109.5342,
+      116.4947,
+      128.0048
+    ],
+    "stddev_luma_8bit": 60.3653,
+    "stddev_rgb_8bit": [
+      58.8186,
+      61.5281,
+      68.9779
+    ]
+  },
+  "candidate": {
+    "clipped_bright_fraction": 9.7e-05,
+    "clipped_dark_fraction": 0.0,
+    "edge_density_threshold_32": 0.156035,
+    "interpretation": "descriptive pixels only; these values are not a realism score and are meaningful only beside blinded visual review",
+    "mean_luma_8bit": 112.8331,
+    "mean_rgb_8bit": [
+      106.9883,
+      113.4368,
+      125.1422
+    ],
+    "stddev_luma_8bit": 59.7571,
+    "stddev_rgb_8bit": [
+      57.7685,
+      60.9821,
+      69.3469
+    ]
+  },
+  "reference": {
+    "clipped_bright_fraction": 0.029876,
+    "clipped_dark_fraction": 0.0089,
+    "edge_density_threshold_32": 0.16649,
+    "interpretation": "descriptive pixels only; these values are not a realism score and are meaningful only beside blinded visual review",
+    "mean_luma_8bit": 117.848,
+    "mean_rgb_8bit": [
+      103.2427,
+      119.6357,
+      147.265
+    ],
+    "stddev_luma_8bit": 57.6376,
+    "stddev_rgb_8bit": [
+      67.7054,
+      58.2874,
+      55.4086
+    ]
+  }
+}

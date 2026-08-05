@@ -1,0 +1,99 @@
+schema_version: 2
+scope: provisional_real_only_target_weighted_field_robustness_seed17_screen_with_new_holdout
+frozen_before_challenger_training: true
+frozen_at: '2026-08-04T11:30:21+03:00'
+control: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+synthetic_weight_in_real_score: 0.0
+provisional_model_replacement_allowed: false
+
+locked_evidence:
+  - name: sugarbeets2016_multiclass_holdout_release
+    path: data/processed/audits/sugarbeets2016_multiclass_holdout_v1_manual_visual_review.json
+    sha256: 14838cedb0970560c0d5dc06f0d04761fd5f5bee5ae9aac231613e3140aef036
+    required_true: [all_release_gates_passed, holdout_release_accepted]
+
+# One dataset/domain receives one vote after its own field/session macro.
+real_domains:
+  real_core_current:
+    panel: target_like
+    role: current_source_validation_with_known_field_overlap
+  sugarbeets2016_holdout:
+    panel: target_like
+    role: newly_frozen_field_and_session_disjoint_close_nadir_bonirob_holdout
+  cwfid:
+    panel: target_like
+    role: close_nadir_carrot_field
+  sorghum_weed:
+    panel: target_like
+    role: close_nadir_row_crop
+  cropandweed:
+    panel: target_like
+    role: multi_condition_close_crop_views
+  rice_seedling_weed:
+    panel: target_like
+    role: close_nadir_early_paddy
+  riceseg_country_transfer:
+    panel: target_like
+    role: country_held_out_rice_for_models_with_zero_riceseg_training_exposure
+  growingsoy:
+    panel: target_like
+    role: longitudinal_close_soy_views
+  weedmap_uav:
+    panel: breadth
+    role: aerial_scale_shift
+  tobacco_uav:
+    panel: breadth
+    role: aerial_campaign_shift
+  deblur_sharp:
+    panel: breadth
+    role: matched_single_capture_sharp_diagnostic
+  deblur_motion_blur:
+    panel: breadth
+    role: matched_single_capture_motion_diagnostic
+
+ranking:
+  primary: provisional_real_target_weighted_domain_balanced_mean_iou
+  weights:
+    target_like_domain_macro: 0.60
+    breadth_domain_macro: 0.25
+    domain_balanced_field_tail: 0.15
+  tail_fraction: 0.25
+  dataset_image_count_weighting: forbidden
+  pixel_micro_weighting_across_datasets: forbidden
+
+acceptance:
+  minimum_mean_primary_gain: 0.002
+  minimum_mean_target_like_gain: 0.003
+  minimum_primary_wins: 1
+  maximum_primary_regression: 0.002
+  maximum_target_like_regression: 0.005
+  maximum_tail_regression: 0.010
+  maximum_any_field_mean_iou_regression: 0.025
+  maximum_domain_mean_iou_regression:
+    target_like: 0.010
+    breadth: 0.015
+
+required_confirmation:
+  screen_seed: 17
+  promotion_seeds: [17, 29, 43]
+  passing_seed17_only_authorizes_confirmation: true
+  passing_seed17_does_not_replace_model: true
+  strict_paired_selector_still_required: true
+
+data_eligibility:
+  real_development_only: true
+  external_or_final_test_used: false
+  online_unlabeled_video_used_for_numeric_accuracy: false
+  synthetic_used_in_real_score: false
+  current_real_core_field_overlap_known: true
+  new_sugarbeets_holdout_field_and_session_overlap_with_training: false
+  new_sugarbeets_holdout_training_use: false
+  new_sugarbeets_holdout_release_gates_passed: true
+  riceseg_training_exposure_in_both_arms: false
+
+known_limitations:
+  - current source validation has four of six fields overlapping training
+  - several target domains are already-consumed development/calibration sets
+  - the new Sugar Beets panel is one strongly correlated field/date/session unit
+  - passing this one-seed screen only authorizes paired confirmation
+  - neither this semantic screen nor the new holdout establishes spray safety

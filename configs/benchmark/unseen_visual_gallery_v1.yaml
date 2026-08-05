@@ -1,0 +1,69 @@
+schema_version: 1
+frozen_at: "2026-08-04T15:10:41+03:00"
+purpose: accepted_model_cross_distribution_visual_segmentation_gallery
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+checkpoint:
+  path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+  sha256: b97618224621950e46bd47136bad43f51e417c11121674bc1849a9f7322b3d9f
+  role: accepted_global_fallback_representative_seed43
+
+unlabeled_galleries:
+  - name: farmbot_soy_20day
+    selection: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/farmbot_soy_unseen_v4/gallery_selection_v1/selection_receipt.json
+    selection_sha256: ea2b8b8f8a22cfaa72894c75f0e20b1bfecd64fa746a36d991b469e900ae1e84
+    output: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/farmbot_soy_accepted_seed43
+    interpretation: known_soy_three_class_qualitative
+    training_exposure: false
+  - name: naio_oz_online_video
+    selection: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/online_unseen_naio_oz_v1/selection_v2/selection_receipt.json
+    selection_sha256: edd75e6895dbdf398c584793c41fb4ac0139949e547955623f5189b459afc41a
+    output: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/naio_oz_accepted_seed43
+    interpretation: unknown_crop_vegetation_union_only
+    training_exposure: false
+    redistribution_authorized: false
+  - name: sugarbeets2016_bonirob_sequence
+    existing_receipt: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/sugarbeets2016_bonirob_unseen_accepted_model_v1/unseen_sequence_evaluation.json
+    existing_contact_sheet: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/sugarbeets2016_bonirob_unseen_accepted_model_v1/accepted_model_contact_sheet.jpg
+    interpretation: known_sugarbeet_three_class_qualitative
+    training_exposure: false
+
+labeled_galleries:
+  - name: sugarbeets2016_holdout
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+    manifest_sha256: 91522974b604c4a33ebd4036c023a19a881899eac791662ebe97e97728342e1e
+    split: external_calibration
+    output: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/sugarbeets2016_holdout
+    role: close_robot_camera_field_session_disjoint_training_unseen_development_consumed
+  - name: riceseg_country_transfer
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_country_transfer_v1.csv
+    manifest_sha256: e0e7c09cf8d26664068057a43514b09c4f2072328d5c52d35dad31979c2bb17f
+    split: external_calibration
+    output: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/riceseg_country_transfer
+    role: country_held_out_rice_training_unseen_development_consumed
+  - name: weedmap_uav
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap_calibration_v1.csv
+    manifest_sha256: da5311e80cf51534a1af51df1b3ffb3543a21d0426a0fd5fb74240cd778f6be9
+    split: external_calibration
+    output: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/weedmap_uav
+    role: aerial_scale_shift_training_unseen_development_consumed
+  - name: synthetic_v11_val
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_field_robustness_pilot_v11_r2q.csv
+    manifest_sha256: 576bf35a4ed203534a89d836a5a3eb23c966c99ee43a6df98a848e39cedd0aa1
+    split: val
+    output: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/synthetic_v11_val
+    role: asset_seed_disjoint_synthetic_stress_diagnostic
+  - name: synthetic_v11_test
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_field_robustness_pilot_v11_r2q.csv
+    manifest_sha256: 576bf35a4ed203534a89d836a5a3eb23c966c99ee43a6df98a848e39cedd0aa1
+    split: test
+    output: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/synthetic_v11_test
+    role: asset_seed_disjoint_synthetic_stress_diagnostic
+
+policy:
+  galleries_change_model_selection: false
+  unlabeled_numeric_accuracy_authorized: false
+  synthetic_selection_weight: 0.0
+  online_video_selection_weight: 0.0
+  external_or_final_test_used: false
+  labeled_best_worst_selection_is_post_prediction_failure_discovery: true

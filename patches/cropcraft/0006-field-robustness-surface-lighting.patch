@@ -1,0 +1,353 @@
+--- a/core/base.py
++++ b/core/base.py
+@@ -110,6 +110,30 @@
+     if bg is None:
+         bg = nodes.new("ShaderNodeBackground")
+ 
++    if os.environ.get("CROPCRAFT_SURFACE_PROFILE") == "field_robustness_v10":
++        bg.inputs["Strength"].default_value = float(
++            os.environ.get("CROPCRAFT_SURFACE_ENVIRONMENT_STRENGTH", "1.4")
++        )
++        sun_data = bpy.data.lights.new("field_sun", type="SUN")
++        sun_data.energy = max(
++            0.0, float(os.environ.get("CROPCRAFT_SURFACE_SUN_ENERGY", "2.0"))
++        )
++        sun_data.angle = math.radians(
++            max(
++                0.05,
++                float(os.environ.get("CROPCRAFT_SURFACE_SUN_ANGLE_DEG", "2.0")),
++            )
++        )
++        sun = bpy.data.objects.new("field_sun", sun_data)
++        elevation = math.radians(
++            float(os.environ.get("CROPCRAFT_SURFACE_SUN_ELEVATION_DEG", "42.0"))
++        )
++        azimuth = math.radians(
++            float(os.environ.get("CROPCRAFT_SURFACE_SUN_AZIMUTH_DEG", "135.0"))
++        )
++        sun.rotation_euler = (math.pi / 2.0 - elevation, 0.0, azimuth)
++        bpy.data.collections["env"].objects.link(sun)
++
+     links.new(tex_coord.outputs["Generated"], mapping.inputs["Vector"])
+     links.new(mapping.outputs["Vector"], env_tex.inputs["Vector"])
+     links.new(env_tex.outputs["Color"], bg.inputs["Color"])
+@@ -131,6 +155,45 @@
+     bpy.data.collections['env'].objects.link(camera)
+     scene.camera = camera
+ 
++    if os.environ.get("CROPCRAFT_SURFACE_PROFILE") == "field_robustness_v10":
++        lamp_energy = max(
++            0.0,
++            float(
++                os.environ.get(
++                    "CROPCRAFT_SURFACE_ARTIFICIAL_LIGHT_ENERGY", "0.0"
++                )
++            ),
++        )
++        if lamp_energy > 0.0:
++            lamp_data = bpy.data.lights.new("robot_fill_light", type="AREA")
++            lamp_data.energy = lamp_energy
++            lamp_data.shape = "DISK"
++            lamp_data.size = max(
++                0.02,
++                float(
++                    os.environ.get(
++                        "CROPCRAFT_SURFACE_ARTIFICIAL_LIGHT_SIZE_M", "0.35"
++                    )
++                ),
++            )
++            warmth = min(
++                1.0,
++                max(
++                    0.0,
++                    float(
++                        os.environ.get(
++                            "CROPCRAFT_SURFACE_ARTIFICIAL_LIGHT_WARMTH", "0.25"
++                        )
++                    ),
++                ),
++            )
++            lamp_data.color = (1.0, 1.0 - 0.13 * warmth, 1.0 - 0.30 * warmth)
++            lamp = bpy.data.objects.new("robot_fill_light", lamp_data)
++            lamp.parent = camera
++            lamp.location = (0.0, 0.0, 0.03)
++            lamp.rotation_euler = (0.0, 0.0, 0.0)
++            bpy.data.collections['env'].objects.link(lamp)
++
+     curve_data = bpy.data.curves.new('BedPath', type='CURVE')
+     curve_data.dimensions = '3D'
+     curve_data.use_path = True
+--- a/core/ground.py
++++ b/core/ground.py
+@@ -13,6 +13,7 @@
+ import os
+ import bpy
+ import random
++import math
+ 
+ from . import config
+ from .beds import Beds, _apply_emission_material
+@@ -102,6 +103,127 @@
+         collection = bpy.data.collections["generated"]
+         collection.objects.link(object)
+ 
++        if os.environ.get("CROPCRAFT_SURFACE_PROFILE") == "field_robustness_v10":
++            self.create_local_shadow_casters(collection)
++            water_coverage = float(
++                os.environ.get("CROPCRAFT_SURFACE_WATER_COVERAGE", "0.0")
++            )
++            if water_coverage > 0.01:
++                self.create_surface_water(collection)
++
++    def create_local_shadow_casters(self, collection):
++        fraction = min(
++            0.60,
++            max(
++                0.0,
++                float(
++                    os.environ.get(
++                        "CROPCRAFT_SURFACE_LOCAL_SHADOW_FRACTION", "0.0"
++                    )
++                ),
++            ),
++        )
++        if fraction <= 0.0:
++            return
++        seed = int(float(os.environ.get("CROPCRAFT_SURFACE_SHADOW_SEED", "0")))
++        rng = random.Random(seed)
++        count = 1 + int(fraction >= 0.20) + int(fraction >= 0.40)
++        total_width = self.beds.length + 2.0 * self.field.headland_width
++        total_length = self.beds.width + 2.0 * self.field.headland_width
++        for index in range(count):
++            caster = create_plane_object(
++                f"local_shadow_caster_{index:02d}",
++                total_length * rng.uniform(0.18, 0.44),
++                total_width * max(0.08, fraction / count) * rng.uniform(0.7, 1.3),
++                0.0,
++            )
++            caster.location = (
++                rng.uniform(-0.25, 0.75) * total_width,
++                rng.uniform(-0.25, 0.75) * total_length,
++                2.5 + 0.25 * index,
++            )
++            caster.rotation_euler[2] = rng.uniform(0.0, math.tau)
++            material = bpy.data.materials.new(f"shadow_caster_{index:02d}")
++            material.diffuse_color = (0.06, 0.07, 0.05, 1.0)
++            caster.active_material = material
++            caster.visible_camera = False
++            collection.objects.link(caster)
++
++    def create_surface_water(self, collection):
++        depth = min(
++            0.012,
++            max(
++                0.001,
++                float(os.environ.get("CROPCRAFT_SURFACE_WATER_DEPTH_M", "0.003")),
++            ),
++        )
++        water = create_plane_object(
++            "field_surface_water",
++            self.beds.width,
++            self.beds.length,
++            self.field.headland_width,
++        )
++        water.location.z = depth
++        water.active_material = self.create_surface_water_material()
++        collection.objects.link(water)
++
++    def create_surface_water_material(self):
++        coverage = min(
++            0.96,
++            max(
++                0.0,
++                float(os.environ.get("CROPCRAFT_SURFACE_WATER_COVERAGE", "0.0")),
++            ),
++        )
++        roughness = min(
++            0.55,
++            max(
++                0.08,
++                float(os.environ.get("CROPCRAFT_SURFACE_WATER_ROUGHNESS", "0.30")),
++            ),
++        )
++        wave_scale = min(
++            40.0,
++            max(
++                0.5,
++                float(os.environ.get("CROPCRAFT_SURFACE_WAVE_SCALE", "7.0")),
++            ),
++        )
++        material = bpy.data.materials.new("field_surface_water")
++        material.use_nodes = True
++        nodes = material.node_tree.nodes
++        nodes.clear()
++        output = nodes.new("ShaderNodeOutputMaterial")
++        transparent = nodes.new("ShaderNodeBsdfTransparent")
++        water = nodes.new("ShaderNodeBsdfPrincipled")
++        water.inputs["Base Color"].default_value = (0.13, 0.14, 0.10, 1.0)
++        water.inputs["Roughness"].default_value = roughness
++        if water.inputs.get("IOR") is not None:
++            water.inputs["IOR"].default_value = 1.333
++        if water.inputs.get("Transmission Weight") is not None:
++            water.inputs["Transmission Weight"].default_value = 0.20
++        noise = nodes.new("ShaderNodeTexNoise")
++        noise.inputs["Scale"].default_value = wave_scale
++        noise.inputs["Detail"].default_value = 4.0
++        noise.inputs["Roughness"].default_value = 0.68
++        ramp = nodes.new("ShaderNodeValToRGB")
++        threshold = 1.0 - coverage
++        ramp.color_ramp.elements[0].position = max(0.0, threshold - 0.07)
++        ramp.color_ramp.elements[1].position = min(1.0, threshold + 0.07)
++        bump = nodes.new("ShaderNodeBump")
++        bump.inputs["Strength"].default_value = 0.12
++        bump.inputs["Distance"].default_value = 0.0015
++        mix = nodes.new("ShaderNodeMixShader")
++        links = material.node_tree.links
++        links.new(noise.outputs["Fac"], ramp.inputs["Fac"])
++        links.new(noise.outputs["Fac"], bump.inputs["Height"])
++        links.new(bump.outputs["Normal"], water.inputs["Normal"])
++        links.new(ramp.outputs["Color"], mix.inputs[0])
++        links.new(transparent.outputs["BSDF"], mix.inputs[1])
++        links.new(water.outputs["BSDF"], mix.inputs[2])
++        links.new(mix.outputs["Shader"], output.inputs["Surface"])
++        return material
++
+     def create_weeds(self):
+         if self.field.weeds is None:
+             return
+@@ -187,9 +309,125 @@
+         disp = nodes.new("ShaderNodeDisplacement")
+ 
+         links = mat.node_tree.links
+-        links.new(bsdf.inputs["Base Color"], diff_tex.outputs["Color"])
+-        links.new(bsdf.inputs["Roughness"], rough_tex.outputs["Color"])
+-        links.new(bsdf.inputs["Normal"], nor_map.outputs["Normal"])
++        profile = os.environ.get("CROPCRAFT_SURFACE_PROFILE")
++        if profile == "field_robustness_v10":
++            moisture = min(
++                1.0,
++                max(
++                    0.0,
++                    float(os.environ.get("CROPCRAFT_SURFACE_SOIL_MOISTURE", "0.2")),
++                ),
++            )
++            wet_color = nodes.new("ShaderNodeMixRGB")
++            wet_color.blend_type = "MULTIPLY"
++            wet_color.inputs[0].default_value = moisture
++            wet_color.inputs[2].default_value = (0.34, 0.29, 0.23, 1.0)
++            links.new(diff_tex.outputs["Color"], wet_color.inputs[1])
++            links.new(wet_color.outputs["Color"], bsdf.inputs["Base Color"])
++
++            rough_scale = nodes.new("ShaderNodeMath")
++            rough_scale.operation = "MULTIPLY"
++            rough_scale.inputs[1].default_value = 1.0 - 0.62 * moisture
++            links.new(rough_tex.outputs["Color"], rough_scale.inputs[0])
++            links.new(rough_scale.outputs[0], bsdf.inputs["Roughness"])
++
++            tillage_mode = int(
++                round(float(os.environ.get("CROPCRAFT_SURFACE_TILLAGE_MODE", "0")))
++            )
++            tillage_strength = min(
++                0.8,
++                max(
++                    0.0,
++                    float(
++                        os.environ.get(
++                            "CROPCRAFT_SURFACE_TILLAGE_STRENGTH", "0.15"
++                        )
++                    ),
++                ),
++            )
++            tillage_scale = min(
++                40.0,
++                max(
++                    1.0,
++                    float(os.environ.get("CROPCRAFT_SURFACE_TILLAGE_SCALE", "9.0")),
++                ),
++            )
++            tillage_angle = math.radians(
++                float(os.environ.get("CROPCRAFT_SURFACE_TILLAGE_ANGLE_DEG", "0"))
++            )
++            tex_coord = nodes.new("ShaderNodeTexCoord")
++            mapping_a = nodes.new("ShaderNodeMapping")
++            mapping_a.inputs["Rotation"].default_value[2] = tillage_angle
++            wave_a = nodes.new("ShaderNodeTexWave")
++            wave_a.wave_type = "BANDS"
++            wave_a.bands_direction = "X"
++            wave_a.inputs["Scale"].default_value = tillage_scale
++            wave_a.inputs["Distortion"].default_value = 2.2 if tillage_mode == 1 else 4.0
++            wave_a.inputs["Detail"].default_value = 3.0
++            links.new(tex_coord.outputs["Generated"], mapping_a.inputs["Vector"])
++            links.new(mapping_a.outputs["Vector"], wave_a.inputs["Vector"])
++
++            macro_height = wave_a.outputs["Color"]
++            if tillage_mode == 2:
++                mapping_b = nodes.new("ShaderNodeMapping")
++                mapping_b.inputs["Rotation"].default_value[2] = tillage_angle + math.pi / 2.0
++                wave_b = nodes.new("ShaderNodeTexWave")
++                wave_b.wave_type = "BANDS"
++                wave_b.bands_direction = "X"
++                wave_b.inputs["Scale"].default_value = tillage_scale * 1.35
++                wave_b.inputs["Distortion"].default_value = 3.0
++                combine_rows = nodes.new("ShaderNodeMixRGB")
++                combine_rows.blend_type = "MULTIPLY"
++                combine_rows.inputs[0].default_value = 1.0
++                links.new(tex_coord.outputs["Generated"], mapping_b.inputs["Vector"])
++                links.new(mapping_b.outputs["Vector"], wave_b.inputs["Vector"])
++                links.new(wave_a.outputs["Color"], combine_rows.inputs[1])
++                links.new(wave_b.outputs["Color"], combine_rows.inputs[2])
++                macro_height = combine_rows.outputs["Color"]
++            elif tillage_mode == 3:
++                track_ramp = nodes.new("ShaderNodeValToRGB")
++                track_ramp.color_ramp.elements[0].position = 0.30
++                track_ramp.color_ramp.elements[1].position = 0.70
++                links.new(wave_a.outputs["Color"], track_ramp.inputs["Fac"])
++                macro_height = track_ramp.outputs["Color"]
++
++            clod_noise = nodes.new("ShaderNodeTexNoise")
++            clod_noise.inputs["Scale"].default_value = min(
++                80.0,
++                max(
++                    2.0,
++                    float(os.environ.get("CROPCRAFT_SURFACE_CLOD_SCALE", "24.0")),
++                ),
++            )
++            clod_noise.inputs["Detail"].default_value = 5.0
++            clod_noise.inputs["Roughness"].default_value = 0.76
++            clod_strength = min(
++                0.6,
++                max(
++                    0.0,
++                    float(
++                        os.environ.get("CROPCRAFT_SURFACE_CLOD_STRENGTH", "0.12")
++                    ),
++                ),
++            )
++            clod_mix = nodes.new("ShaderNodeMixRGB")
++            clod_mix.blend_type = "ADD"
++            clod_mix.inputs[0].default_value = clod_strength
++            links.new(macro_height, clod_mix.inputs[1])
++            links.new(clod_noise.outputs["Fac"], clod_mix.inputs[2])
++            bump = nodes.new("ShaderNodeBump")
++            bump.inputs["Strength"].default_value = max(
++                clod_strength * 0.55,
++                0.0 if tillage_mode == 0 else tillage_strength,
++            )
++            bump.inputs["Distance"].default_value = 0.035
++            links.new(clod_mix.outputs["Color"], bump.inputs["Height"])
++            links.new(nor_map.outputs["Normal"], bump.inputs["Normal"])
++            links.new(bump.outputs["Normal"], bsdf.inputs["Normal"])
++        else:
++            links.new(diff_tex.outputs["Color"], bsdf.inputs["Base Color"])
++            links.new(rough_tex.outputs["Color"], bsdf.inputs["Roughness"])
++            links.new(nor_map.outputs["Normal"], bsdf.inputs["Normal"])
+         links.new(nor_map.inputs["Color"], nor_tex.outputs["Color"])
+         links.new(disp.inputs["Height"], disp_tex.outputs["Color"])
+         links.new(out.inputs["Displacement"], disp.outputs["Displacement"])
+@@ -223,3 +461,6 @@
+         _apply_emission_material(
+             [bpy.data.objects['ground']], bg_color
+         )
++        water = bpy.data.objects.get('field_surface_water')
++        if water is not None:
++            _apply_emission_material([water], bg_color)

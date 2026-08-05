@@ -1,0 +1,60 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/real_data_cropandweed_additive_screen_v1
+data_license_scope: research_only_cropandweed_plus_accepted_v3_stack
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+  samples_per_epoch: 4000
+development_evaluations:
+  - name: cwfid
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+  - name: sorghum_weed
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+  - name: cropandweed
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropandweed.csv
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+candidates:
+  - name: realab_compute4000_control_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_trainval_v3.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.100
+  - name: realab_cropandweed_add10_4000_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_cropandweed_trainval_v1.csv
+    model: {}
+    training:
+      # At 4,000 samples/epoch these reproduce the accepted 3,600-example
+      # control's absolute per-source counts, then add 400 CropAndWeed draws.
+      dataset_weights:
+        phenobench: 0.1458
+        acre: 0.1458
+        weedsgalore: 0.0405
+        we3ds: 0.2187
+        rose: 0.1782
+        sorghum_weed: 0.0810
+        cropcraft_agri_robust_pilot_v3: 0.0900
+        cropandweed: 0.1000

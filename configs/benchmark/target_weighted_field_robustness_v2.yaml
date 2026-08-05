@@ -1,0 +1,111 @@
+schema_version: 2
+scope: real_only_target_weighted_cross_field_crop_segmentation_selection
+frozen_before_challenger_training: true
+frozen_at: '2026-08-04T10:20:00+03:00'
+
+# Replace this alias in a concrete benchmark matrix; candidates are always
+# compared seed-for-seed against the frozen accepted recipe.
+control: accepted_global_recipe
+synthetic_weight_in_real_score: 0.0
+
+deployment_envelope:
+  viewpoint: close-range nadir or mildly oblique RGB from a ground robot
+  camera_height_m: [0.30, 1.30]
+  crops: mixed broadleaf, cereal and paddy crops
+  illumination: daylight, overcast, partial shadow, optional robot light
+  exclusions: [depth, multispectral-only inference, aerial-only deployment]
+
+# Every entry is one dataset-level vote regardless of image or pixel count.
+# Each dataset is first field/session-macro averaged by the scorer.
+real_domains:
+  real_core_target_fields:
+    panel: target_like
+    role: development_validation_only
+  cwfid:
+    panel: target_like
+    role: close_nadir_carrot_field
+  sorghum_weed:
+    panel: target_like
+    role: close_nadir_row_crop
+  cropandweed:
+    panel: target_like
+    role: multi_condition_close_crop_views
+  rice_seedling_weed:
+    panel: target_like
+    role: close_nadir_early_paddy
+  riceseg_country_transfer:
+    panel: target_like
+    role: >-
+      country-held-out rice coverage; eligible only for a model trained without
+      India, Tanzania or Philippines members
+  growingsoy:
+    panel: target_like
+    role: longitudinal_close_soy_views
+  weedmap_uav:
+    panel: breadth
+    role: aerial_scale_shift
+  tobacco_uav:
+    panel: breadth
+    role: aerial_campaign_shift
+  deblur_sharp:
+    panel: breadth
+    role: matched_single_capture_sharp_diagnostic
+  deblur_motion_blur:
+    panel: breadth
+    role: matched_single_capture_motion_diagnostic
+
+ranking:
+  primary: real_target_weighted_domain_balanced_mean_iou
+  weights:
+    target_like_domain_macro: 0.60
+    breadth_domain_macro: 0.25
+    domain_balanced_field_tail: 0.15
+  tail_fraction: 0.25
+  class_metrics_reported: [three_class_mean_iou, crop_iou, weed_iou]
+  dataset_image_count_weighting: forbidden
+  pixel_micro_weighting_across_datasets: forbidden
+  synthetic_tie_breaker: >-
+    allowed only after all real acceptance checks pass; never modifies the real
+    score or rescues a real-domain regression
+
+acceptance:
+  minimum_mean_primary_gain: 0.002
+  minimum_mean_target_like_gain: 0.003
+  minimum_primary_wins: 2
+  maximum_primary_regression: 0.002
+  maximum_target_like_regression: 0.005
+  maximum_tail_regression: 0.010
+  maximum_any_field_mean_iou_regression: 0.025
+  maximum_domain_mean_iou_regression:
+    target_like: 0.010
+    breadth: 0.015
+
+required_confirmation:
+  paired_seeds: [17, 29, 43]
+  same_epoch_or_step_budget: true
+  same_real_and_synthetic_draw_budget: true
+  same_evaluator_source_hash: true
+  candidate_and_control_field_units_must_match: true
+
+data_eligibility:
+  real_validation_only: true
+  no_image_or_near_duplicate_overlap_with_training: true
+  no_capture_session_overlap_with_training: true
+  field_overlap_with_training: forbidden_for_new_v2_target_holdouts
+  annotation_ontology: exhaustive_common_0_1_2_255
+  partial_label_sources: forbidden
+  external_test_or_final_test_used_for_selection: false
+  online_unlabeled_video_used_for_numeric_accuracy: false
+
+safety_reporting:
+  crop_spray_risk_and_safe_weed_recall: mandatory_diagnostic
+  semantic_winner_implies_spray_ready: false
+  separate_field_safety_gate_required: true
+
+known_limitations:
+  - current real_core validation is not fully field-disjoint and must be replaced
+    by the new v2 target holdout before a deployment claim
+  - riceseg country transfer is invalid for the existing full-RiceSEG specialist
+    and requires a country-restricted retrain
+  - BAWSeg remains pending licensed artifact access
+  - unseen online video requires frame annotation before mIoU can be reported

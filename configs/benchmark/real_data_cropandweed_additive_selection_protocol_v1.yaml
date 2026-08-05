@@ -1,0 +1,76 @@
+schema_version: 1
+scope: research_max_replay_preserving_cropandweed_followup
+frozen_before_training: true
+frozen_at_utc: '2026-08-02T17:54:18+03:00'
+
+original_control: simab_real_sorghum_cropcraft_robust10_e8_v3
+matched_compute_control: realab_compute4000_control_e8_v1
+additive_candidate: realab_cropandweed_add10_4000_e8_v1
+screen_seed: 17
+confirmation_seeds: [17, 29, 43]
+fixed_epoch: 8
+checkpoint: best.pt
+
+budgets:
+  original_samples_per_epoch: 3600
+  matched_samples_per_epoch: 4000
+  epochs: 8
+  additive_cropandweed_draws_per_epoch: 400
+  rule: >-
+    Preserve every accepted v3 source's expected absolute draws from the
+    3,600-example recipe, then add 400 CropAndWeed draws. Compare against a
+    4,000-example compute control so extra optimizer work cannot be credited
+    to the new data.
+
+development_inputs:
+  - source_real_validation
+  - cwfid_external_calibration
+  - sorghum_weed_external_calibration
+  - cropandweed_session_disjoint_external_calibration
+
+forbidden_inputs:
+  - real_core_final_test
+  - carrot_weed_external_test
+  - ewis1_external_test
+  - sorghum_weed_external_test
+
+ranking:
+  primary_metric: min_domain_semantic_mean_iou
+  tie_breakers:
+    - macro_domain_semantic_mean_iou
+    - cropandweed_mean_iou
+
+screen_acceptance_against_original:
+  primary_delta_must_be_greater_than: 0.0
+  maximum_source_validation_mean_iou_regression: 0.01
+  maximum_cwfid_mean_iou_regression: 0.01
+  maximum_sorghum_validation_mean_iou_regression: 0.01
+
+screen_additive_requirements:
+  cropandweed_mean_iou_delta_vs_original_must_be_at_least: 0.02
+  primary_delta_vs_matched_control_must_be_greater_than: 0.0
+  cropandweed_mean_iou_delta_vs_matched_control_must_be_at_least: 0.01
+  maximum_source_validation_regression_vs_matched_control: 0.01
+  maximum_cwfid_regression_vs_matched_control: 0.01
+  maximum_sorghum_regression_vs_matched_control: 0.01
+
+confirmation_acceptance_against_original:
+  mean_paired_primary_delta_must_be_greater_than: 0.0
+  minimum_primary_wins_out_of_3: 2
+  maximum_mean_source_validation_mean_iou_regression: 0.01
+  maximum_mean_cwfid_mean_iou_regression: 0.01
+  maximum_mean_sorghum_validation_mean_iou_regression: 0.01
+
+confirmation_additive_requirements:
+  mean_cropandweed_delta_vs_original_must_be_at_least: 0.02
+  mean_primary_delta_vs_matched_control_must_be_greater_than: 0.0
+  minimum_primary_wins_vs_matched_control_out_of_3: 2
+  mean_cropandweed_delta_vs_matched_control_must_be_at_least: 0.01
+  maximum_mean_source_regression_vs_matched_control: 0.01
+  maximum_mean_cwfid_regression_vs_matched_control: 0.01
+  maximum_mean_sorghum_regression_vs_matched_control: 0.01
+
+fallback_if_acceptance_fails: retain_original_control
+external_test_used_for_selection: false
+safety_policy_used_for_selection: false
+spray_deployment_eligible_from_this_protocol: false

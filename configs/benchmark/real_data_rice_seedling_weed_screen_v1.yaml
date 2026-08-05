@@ -1,0 +1,81 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/real_data_rice_seedling_weed_screen_v1
+data_license_scope: research_stack_plus_cc_by_4_rice_seedling_weed
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+  samples_per_epoch: 3600
+
+development_evaluations:
+  - name: cwfid
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+  - name: sorghum_weed
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+  - name: cropandweed
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropandweed.csv
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+
+# ID 12 is Oryza sativa. It is present only in the two challengers, but
+# declaring it for the control is numerically inert because the control never
+# receives ID 12 and keeps every other crop-ID mapping unchanged.
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  - name: realab_rice_control_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_trainval_v3.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.100
+
+  - name: realab_rice025_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_rice_trainval_v1.csv
+    model: {}
+    training:
+      # Keep the accepted synthetic-v3 exposure fixed and replace 2.5% of the
+      # older real-data draws proportionally (90 Rice draws per epoch).
+      dataset_weights:
+        phenobench: 0.15750
+        acre: 0.15750
+        weedsgalore: 0.04375
+        we3ds: 0.23625
+        rose: 0.19250
+        sorghum_weed: 0.08750
+        cropcraft_agri_robust_pilot_v3: 0.10000
+        rice_seedling_weed: 0.02500
+
+  - name: realab_rice050_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_rice_trainval_v1.csv
+    model: {}
+    training:
+      # Same fixed compute and synthetic-v3 exposure; 180 Rice draws/epoch.
+      dataset_weights:
+        phenobench: 0.1530
+        acre: 0.1530
+        weedsgalore: 0.0425
+        we3ds: 0.2295
+        rose: 0.1870
+        sorghum_weed: 0.0850
+        cropcraft_agri_robust_pilot_v3: 0.1000
+        rice_seedling_weed: 0.0500

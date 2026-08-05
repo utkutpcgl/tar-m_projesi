@@ -1,0 +1,83 @@
+schema_version: 1
+scope: select_one_missing_synthetic_asset_factor_from_quality_gated_riceseg
+frozen_at: "2026-08-03T21:40:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+project_root: /home/ankaref/utku/tarım_projesi
+
+locked_inputs:
+  riceseg_quality_receipt:
+    path: processed/audits/riceseg_quality_gate_v1.json
+    sha256: 1653ebfed22e9b8920b88ddbb3460a8648729b0934f63018077d78e2b8ed4904
+  riceseg_manifest:
+    path: processed/manifests/riceseg_quality_v1.csv
+    sha256: f3bcfedf4d56da5ba43f7b79d06f511a17645a1e26ad33bac9656da34d52dc5c
+  riceseg_release_gate:
+    root: project
+    path: configs/data/riceseg_release_gate_v1.yaml
+    sha256: 1d3608d328b87a79d29bb5ae7c59ff306b14e9f6c25ec9b580211ed9a58214ca
+  accepted_paddy_pack:
+    path: raw/synthetic_assets/cropcraft_paddy_robust_v4_r5/PACK.json
+    sha256: 95f4bdb04fcebab3ac3aed2b7db957ca3e91d4e2e5d6347bed84d7ee50368712
+  accepted_paddy_manifest:
+    path: processed/manifests/cropcraft_paddy_pilot_v4_r5.csv
+    sha256: 0fd1e18fa7a89011db9c680dbfd9484fe898f045288345fe60b1e5f4d345ca4f
+  accepted_paddy_quality:
+    path: processed/audits/cropcraft_paddy_asset_quality_v4_r5.json
+    sha256: 949e0810ee5463ecf27ffe35da9508cdf39a13312cd755885f66f429b0cd9afe
+  accepted_paddy_release:
+    path: synthetic/cropcraft/paddy_pilot_v4_r5/release_receipt.json
+    sha256: 3d69df5b564d49974601ae67495b3619bb8cd015c9d787e1ff6c1f8fbf3715f5
+
+factor_candidates:
+  early_green_rice:
+    source_classes: [1]
+    accepted_pack_explicitly_covered: true
+    evidence: 60 early-rice models; target age 15-25 days
+  generic_paddy_weed:
+    source_classes: [4]
+    accepted_pack_explicitly_covered: true
+    evidence: 36 Sagittaria, paddy-grass, and aquatic-broadleaf models
+  late_reproductive_rice:
+    source_classes: [2, 3]
+    accepted_pack_explicitly_covered: false
+    evidence: accepted pack has no senescent phenotype, panicle, grain, or late-season morphology
+  duckweed_carpet:
+    source_classes: [5]
+    accepted_pack_explicitly_covered: false
+    evidence: aquatic broadleaf plants exist, but no floating duckweed mat asset exists
+
+selection_rule:
+  primary: >-
+    Among semantically relevant factors with zero explicit coverage in the
+    accepted paddy pack, choose the factor with the largest eligible RiceSEG
+    source-pixel fraction.
+  tie_breaker: larger class-bearing sample count
+  selected_factor: late_reproductive_rice
+  selected_before_new_asset_build: true
+  model_results_used_for_factor_choice: false
+  deferred_factor: duckweed_carpet
+
+external_asset_candidates:
+  - source: Sketchfab
+    uid: c6715ec94cee4abfb6edbfaaa4390bea
+    title: CC0 Rice, Oryza sativa
+    license: CC0-1.0
+    triangles: 95700
+    status: metadata_verified_download_requires_authenticated_sketchfab_session
+  - source: Sketchfab
+    uid: 554d18dae9a846b2beb80b6301fe0c37
+    title: CC0 Rice, Oryza sativa, rice crop
+    license: CC0-1.0
+    triangles: 165800
+    status: metadata_verified_download_requires_authenticated_sketchfab_session
+
+output: processed/audits/riceseg_condition_asset_gap_v9.json
+
+forbidden_actions:
+  - select_more_than_one_new_asset_factor
+  - use_model_results_to_rewrite_factor_choice
+  - treat_five_early_height_bins_as_reproductive_growth_stages
+  - claim_authenticated_external_asset_bytes_were_acquired
+  - generate_large_synthetic_batch_before_asset_quality_gate
+  - read_external_or_final_test_splits

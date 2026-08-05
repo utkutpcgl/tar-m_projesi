@@ -1,0 +1,126 @@
+{
+  "all_targets_absent": true,
+  "allowlist": {
+    "ebis-blender": [
+      "current_samples",
+      "realism_v8_cast_pores_release_60100"
+    ],
+    "unreal-ebis": [
+      "current_samples",
+      "realism_r59_neutral_cast_brdf_release_60160"
+    ]
+  },
+  "candidate_bytes": 383390244,
+  "candidate_count": 11,
+  "candidate_files": 1102,
+  "completed_at_utc": "2026-07-30T10:46:11.542840+00:00",
+  "created_at_utc": "2026-07-30T10:46:11.458810+00:00",
+  "kept_mcp_evidence_directories": {
+    "ebis-blender": [
+      "20260730-cast-pores-v8",
+      "current_cast_pores_v8_scene"
+    ],
+    "unreal-ebis": [
+      "20260730-neutral-cast-r59-artifacts"
+    ]
+  },
+  "kept_qc_png": [
+    "ebis-blender/reports/qc/realism_v8_cast_pores_release_60100_contact_sheet.png",
+    "unreal-ebis/reports/qc/assets/real_blender_unreal_comparison.png",
+    "unreal-ebis/reports/qc/assets/realism_r59_neutral_cast_brdf_release_60160_contact_sheet.png"
+  ],
+  "mode": "gio-trash",
+  "recoverable": true,
+  "repo": "/home/utkutopcuoglu/Documents/utku/stajyerler/simulation",
+  "schema_version": 1,
+  "targets": [
+    {
+      "bytes": 5594142,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 33,
+      "path": "ebis-blender/output/current_samples_v7_obsolete",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 13669224,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 106,
+      "path": "ebis-blender/output/realism_v7_frontdoor_pbr_release_59300",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 2798423,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 3,
+      "path": "ebis-blender/evidence/mcp/20260730-frontdoor-v7",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 637501,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/evidence/mcp/current_frontdoor_v7_scene",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 8296310,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 55,
+      "path": "unreal-ebis/output/current_samples_r56_obsolete",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 115674545,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 307,
+      "path": "unreal-ebis/output/realism_r56_frontdoor_release_59400",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 113829100,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 291,
+      "path": "unreal-ebis/output/realism_r57_cast_pores_release_60120",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 108878832,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 295,
+      "path": "unreal-ebis/output/realism_r58_neutral_cast_pores_release_60140",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 11275520,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 9,
+      "path": "unreal-ebis/evidence/mcp/current_frontdoor_roundtrip_artifacts",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1188296,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "ebis-blender/reports/qc/realism_v7_frontdoor_pbr_release_59300_contact_sheet.png",
+      "removal_method": "gio-trash"
+    },
+    {
+      "bytes": 1548351,
+      "exists_after": false,
+      "exists_before": true,
+      "file_count": 1,
+      "path": "unreal-ebis/reports/qc/assets/realism_r56_frontdoor_release_59400_contact_sheet.png",
+      "removal_method": "gio-trash"
+    }
+  ]
+}

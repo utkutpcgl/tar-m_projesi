@@ -1,0 +1,167 @@
+schema_version: 1
+scope: research_semantic_crop_segmentation_paddy_synthetic_asset_gate
+frozen_before_challenger_training: true
+frozen_at: '2026-08-02T21:58:59+03:00'
+
+control: realab_rice_control_e8_v1
+control_recipe_alias: simab_real_sorghum_cropcraft_robust10_e8_v3
+screen_candidates:
+  - simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+  - simab_real_sorghum_cropcraft_paddy_v4_10_e8
+screen_seed: 17
+confirmation_seeds: [17, 29, 43]
+fixed_epoch: 8
+checkpoint: last.pt
+source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+
+compute_budget:
+  epochs: 8
+  samples_per_epoch: 3600
+  sampled_examples_per_run: 28800
+  synthetic_exposure: 0.10
+  real_exposure: 0.90
+  architecture_and_hyperparameters_identical: true
+
+evaluation_domains:
+  - source
+  - cwfid
+  - sorghum_weed
+  - cropandweed
+  - rice
+real_rice_role: >-
+  evaluation-only unexposed real-domain diagnostic for this synthetic asset
+  gate; its train split name reflects the upstream dataset packaging, not use
+  in model fitting
+
+ranking:
+  primary: min_five_domain_semantic_mean_iou
+  tie_breakers:
+    - rice_semantic_mean_iou
+    - macro_five_domain_semantic_mean_iou
+
+screen_acceptance_against_control:
+  robust_mean_iou_delta_must_be_at_least: 0.005
+  rice_mean_iou_delta_must_be_at_least: 0.01
+  macro_mean_iou_delta_must_be_at_least: 0.0
+  maximum_existing_domain_mean_iou_regression:
+    source: 0.01
+    cwfid: 0.01
+    sorghum_weed: 0.01
+    cropandweed: 0.01
+
+confirmation_acceptance_against_control:
+  mean_robust_delta_must_be_greater_than: 0.0
+  minimum_robust_wins_out_of_3: 2
+  mean_rice_delta_must_be_at_least: 0.01
+  maximum_mean_existing_domain_mean_iou_regression:
+    source: 0.01
+    cwfid: 0.01
+    sorghum_weed: 0.01
+    cropandweed: 0.01
+
+confirmation_matrix_policy: >-
+  If and only if a challenger passes the screen, freeze a paired matrix for
+  the screen winner and control at seeds 17/29/43 before training seeds 29/43;
+  seed 17 must be reused byte-for-byte.
+
+forbidden_inputs:
+  - real_rice_tiles_in_training_or_sampling_weights
+  - real_core_final_test
+  - carrot_weed_external_test
+  - ewis1_external_test
+  - sorghum_weed_external_test
+  - any_external_test_or_final_test_split
+
+locked_inputs:
+  screen_matrix:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/simulation_paddy_asset_screen_v4_r5.yaml
+    sha256: 0131111f2048b439719355c9f5a469b40f61e8532776145858e66353803e37f5
+  base_training_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/train/base_real_sorghum_ablation_v1.yaml
+    sha256: d2f8450bc8106d09798d873aee8add6f25640ceb303bfd9f25d2435edd1abafc
+  evaluator_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/evaluate_paddy_fixed_epoch_development.py
+    sha256: 460583ff66cdd139c31a8bcd905d017b58fdb043f0ed652349d75ce1f7dbdd82
+  selector_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/select_paddy_asset.py
+    sha256: b75577d7ad9e29e60e4625cde7556e3c220f352dcb9ae7fca57419830c93810b
+  asset_gate:
+    path: /home/ankaref/utku/tarım_projesi/configs/simulation/cropcraft_paddy_asset_gate_v4.yaml
+    sha256: f449a6d69e2757c4fca8747b30a8d554b98fe7875eee005691363c81fff93791
+  asset_builder:
+    path: /home/ankaref/utku/tarım_projesi/scripts/refine_cropcraft_paddy_assets_v4_r5.py
+    sha256: 20e83594c813cb22bacfc184be0c2ba0b99e081476c4770563e5ed087ecf9798
+  cropcraft_water_patch:
+    path: /home/ankaref/utku/tarım_projesi/patches/cropcraft/0003-paddy-water-profile-r2.patch
+    sha256: ec368de5ef3a6dbaa40ae1d2de3e7625eadf10c163709978954269a011cecc1d
+  asset_pack:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/synthetic_assets/cropcraft_paddy_robust_v4_r5/PACK.json
+    sha256: 95f4bdb04fcebab3ac3aed2b7db957ca3e91d4e2e5d6347bed84d7ee50368712
+  asset_static_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_paddy_asset_quality_v4_r5.json
+    sha256: 949e0810ee5463ecf27ffe35da9508cdf39a13312cd755885f66f429b0cd9afe
+  pilot_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/simulation/cropcraft_paddy_pilot_v4_r5.yaml
+    sha256: 0658775ec61fd6900b246a513d1c952f7ef0e7013b777fc3d705e61d97e7038a
+  pilot_release_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/paddy_pilot_v4_r5/release_receipt.json
+    sha256: 3d69df5b564d49974601ae67495b3619bb8cd015c9d787e1ff6c1f8fbf3715f5
+  pilot_visual_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/paddy_pilot_v4_r5/visual_review_receipt.json
+    sha256: 2091485e655493ea1486019970ee3b09477431201e1edbd2b1c46acf7d4f5bf2
+  paddy_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_paddy_pilot_v4_r5.csv
+    sha256: 0fd1e18fa7a89011db9c680dbfd9484fe898f045288345fe60b1e5f4d345ca4f
+  paddy_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_paddy_pilot_v4_r5_manifest_audit.json
+    sha256: 475c21c0f8de488eec4e7a41e93d0a5164604a5b686d6e838f591a926e9c3038
+  rice_domain_gap_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_paddy_pilot_rice_domain_gap_v4_r5.json
+    sha256: e4b6cde74bbefb240f50152fc4b73e8122536682f3fed8c76cb9a25b123285d0
+  duplicate_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/synthetic_v3_paddy_vs_allowed_real_duplicate_audit_v4_r5.json
+    sha256: 82a5dc9d1f85563e1cb8d2031785da5824922636d33e5b2429fe0e95822d1271
+  ripple_ablation:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_paddy_ripple_ablation_v4_r5.json
+    sha256: 1c54c3aec051b5990fcca9fae0a954d642bf9ac2a00f95ac8811f9dd508bda07
+  control_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_trainval_v3.csv
+    sha256: 1cff1814b5c667d3a3d2c51e9c5b1df347511effb90e4f97f67def34e5b6af3b
+  mixed_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  paddy_only_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_paddy_trainval_v4_r5.csv
+    sha256: b7614edb2a83f811fdeba289040e385e83ce5ac5c6955c76571934500877e4d5
+  cwfid_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    sha256: 8f2bcfe518b48df7673bcbda748ebf812273723e8438228e296213886c7ba450
+  sorghum_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    sha256: f28f5914090b8ee28cd26b9e742ec958105db61f68b743963a3729468d263540
+  cropandweed_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropandweed.csv
+    sha256: 63fead62f9cdd92e3c21129d6b8e6e09a2df672395661757a7e64b969f124399
+  rice_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/rice_seedling_weed.csv
+    sha256: 05d9eeff6f4874395ebcad9a718a2ec405eb17fef2abc2106a9e14dd981adac8
+  control_last_checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/realab_rice_control_e8_v1/seed_17/last.pt
+    sha256: 13fc7e58b7a975aaa6df90038e0ba81f0e34da1d952aaf6632f62b438f69ab00
+  control_summary:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/realab_rice_control_e8_v1/seed_17/summary.json
+    sha256: 330d7779c74fc74bca838eafa03d098b02ac076e3786481d9a40faac7bc9a59f
+  control_history:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/realab_rice_control_e8_v1/seed_17/history.jsonl
+    sha256: 0ea747b4382a2ac20ddcbe4b8310d93971d6306e01414302df546820fdf58f93
+  control_resolved_config:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/realab_rice_control_e8_v1/seed_17/config.resolved.json
+    sha256: 46361dd959c68e19759286aec35848692bdf91a01fd6ad4cd4685dd59ff590ef
+
+fallback_if_acceptance_fails: retain_v3_control
+external_test_used_for_selection: false
+safety_policy_used_for_selection: false
+spray_deployment_eligible_from_this_protocol: false
+selection_status: >-
+  synthetic asset recipe may be selected for robustness research only; a new
+  untouched multi-field test remains required before any deployment claim

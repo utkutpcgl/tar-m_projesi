@@ -1,0 +1,68 @@
+experiment: convnext_tiny_factorized_frozen_we3ds
+seed: 17
+deterministic: false
+device: cuda
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_core_we3ds.csv
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs
+cache_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/cache
+# Primary robustness track. Includes non-commercial PhenoBench and must be
+# reported as research-only; see base_commercial_data.yaml for the permissive
+# data-only comparison.
+commercial_only: false
+
+model:
+  architecture: convnext_tiny_fpn
+  pretrained: true
+  trainable: frozen
+  decoder_width: 128
+  head: factorized
+  num_crop_ids: 32
+  known_crop_ids: [0, 2, 3, 5, 6, 7, 8, 9]
+  conditioning_dropout: 0.2
+
+training:
+  train_split: train
+  val_split: val
+  epochs: 15
+  validate_every: 5
+  calibrate_unknown_crop: true
+  crop_size: 512
+  scale_min: 0.65
+  scale_max: 1.60
+  augment: true
+  batch_size: 8
+  eval_batch_size: 1
+  eval_tile_size: 1024
+  eval_tile_overlap: 128
+  eval_tile_trigger_pixels: 4000000
+  gradient_accumulation: 2
+  samples_per_epoch: 3600
+  dataset_weights:
+    phenobench: 0.25
+    acre: 0.25
+    weedsgalore: 0.10
+    we3ds: 0.40
+  workers: 8
+  amp: true
+  learning_rate: 0.0003
+  backbone_lr_multiplier: 0.1
+  weight_decay: 0.05
+  warmup_steps: 200
+  gradient_clip: 1.0
+  max_crop_spray_risk: 0.005
+  weed_thresholds: [0.50, 0.60, 0.70, 0.75, 0.80, 0.85, 0.90, 0.93, 0.95, 0.96, 0.97, 0.98, 0.985, 0.99, 0.995, 0.999]
+
+loss:
+  class_weights: [0.25, 1.5, 1.0]
+  dice_weight: 0.5
+  crop_safety_weight: 1.0
+
+safety:
+  weed_threshold: 0.70
+  crop_threshold: 0.40
+  min_confidence: 0.55
+  min_margin: 0.15
+  max_entropy: 0.85
+  crop_dilation_px: 5

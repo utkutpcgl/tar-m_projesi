@@ -1,0 +1,101 @@
+schema_version: 1
+scope: bounded_late_reproductive_rice_asset_and_pilot_gate
+frozen_at: "2026-08-03T20:07:00+03:00"
+
+project_root: /home/ankaref/utku/tarım_projesi
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+expected:
+  selected_factor: late_reproductive_rice
+  asset_pack_id: cropcraft_paddy_reproductive_v9_r3
+  asset_inventory_sha256: 7b7c5cac7fd74ac1c37698b6f94c7da4eafea412fab594b079a89f0a87be7e41
+  asset_inventory_files: 406
+  asset_models: 48
+  asset_unique_geometries: 24
+  smoke_frames: 12
+  pilot_samples: 100
+  pilot_scenes: 25
+  dataset_id: cropcraft_reproductive_pilot_v9_r3
+  split_counts: {train: 80, val: 20}
+  class_pixels: {background: 13238980, crop: 12250106, weed: 725314}
+  duplicate_reference_samples: 20765
+  distribution_metrics:
+    - brightness_mean
+    - brightness_std
+    - crop_fraction
+    - laplacian_variance
+    - saturation_mean
+    - texture_abs_gradient
+
+locked_inputs:
+  factor_selection:
+    root: data
+    path: processed/audits/riceseg_condition_asset_gap_v9.json
+    sha256: a603d4fd33901ba088d82ca12e087f4911d54682ffcc0a0963eab064d0949dfa
+  asset_pack_manifest:
+    root: data
+    path: raw/synthetic_assets/cropcraft_paddy_reproductive_v9_r3/PACK.json
+    sha256: 1fec1b71d048412a20ae4ab27172e6c319b403c75cb437061ae82ebaf0040251
+  static_asset_audit:
+    root: data
+    path: processed/audits/cropcraft_reproductive_asset_quality_v9_r3.json
+    sha256: e16208f20ca004fa8f3d3b6902b5b2f43911ebeae56b76de28a166bfdd062054
+  smoke_release_receipt:
+    root: data
+    path: synthetic/cropcraft/reproductive_smoke_v9_r3/release_receipt.json
+    sha256: d4698166a37b5249be63cc5f921a397370991d5cdf96088a160947ac177d9b5e
+  smoke_distribution_audit:
+    root: data
+    path: processed/audits/cropcraft_reproductive_riceseg_distribution_v9_r3_smoke.json
+    sha256: 507cdc34fb6ddbf8fc3eedfff318c8894ea949a6244bbb8e16a8f408d35c65f5
+  smoke_manual_review:
+    root: data
+    path: processed/audits/cropcraft_reproductive_manual_visual_review_v9_r3.json
+    sha256: 79726edbf4abc25dda3a8c308c059ab00899bdc4ae766d2c2082e819c6366133
+  pilot_release_receipt:
+    root: data
+    path: synthetic/cropcraft/reproductive_pilot_v9_r3/release_receipt.json
+    sha256: 1c44f101019cb0a0914e62394aa32d8918b7722cf4d3224e070a211d1b7bd1b4
+  pilot_distribution_audit:
+    root: data
+    path: processed/audits/cropcraft_reproductive_riceseg_distribution_v9_r3_pilot.json
+    sha256: e342c6035ffc80be0003fa34c8ee00cac6e80762870bf0b0122a81aaaf7739ce
+  pilot_manual_review:
+    root: data
+    path: processed/audits/cropcraft_reproductive_pilot_manual_visual_review_v9_r3.json
+    sha256: 20685bd0623ecc542009c2abb74c289970fb0cd8489650e9f77fba6b31a67a00
+  pilot_visual_receipt:
+    root: data
+    path: synthetic/cropcraft/reproductive_pilot_v9_r3/visual_review_receipt.json
+    sha256: 215f3cbb0d6d32be8391ed16bb6be04fe8e5e4d823f273000ccf1c73eab80aec
+  pilot_contact_sheet:
+    root: data
+    path: processed/qc/cropcraft_reproductive_pilot_review_v9_r3.png
+    sha256: a49851b0a1e02faaaffb67dd268ad50788632017bd1d3bd9bb0a70209d720cec
+  pilot_manifest:
+    root: data
+    path: processed/manifests/cropcraft_reproductive_pilot_v9_r3.csv
+    sha256: 756bb57561551455546dd4db67b72a46447b31ff845d8efed2ba3ba8ecd7880d
+  conversion_receipt:
+    root: data
+    path: processed/manifests/cropcraft_reproductive_pilot_v9_r3_conversion.json
+    sha256: 6a4e932855639daf5e4904d44fc448f6063ce9c8530985de889d8623976770fb
+  manifest_audit:
+    root: data
+    path: processed/audits/cropcraft_reproductive_pilot_v9_r3_manifest_audit.json
+    sha256: fab4458444f33c971994fd79732cd29f4807391ddd4dcdf1427a016869bfe9b1
+  duplicate_audit:
+    root: data
+    path: processed/audits/cropcraft_reproductive_duplicate_audit_v9_r3.json
+    sha256: 0ba4dba65734dd01cf51a6df36fce31a0c58efa87ad2e03d7777238b24039d02
+
+freeze:
+  model_results_used: false
+  external_test_used: false
+  large_synthetic_batch_generated: false
+
+output: processed/audits/cropcraft_reproductive_final_gate_v9_r3.json
+
+decision_policy: >-
+  A pass only unlocks a frozen equal-budget real-development A/B. It does not
+  establish model benefit and does not replace the accepted paddy R5 control.

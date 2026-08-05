@@ -1,0 +1,62 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Runtime data is kept on the dedicated data disk and linked here.
+data
+artifacts/
+runs/
+*.onnx
+*.pt
+*.pth
+*.ckpt
+
+# Local credentials and machine-specific settings.
+.env
+.hf/
+
+# Editor, backup and scratch files.
+*.orig
+*.bak
+*.cache
+*.log
+*.zip
+*.exr
+*~
+.~lock.*
+temp.md
+sim/temp.md
+
+# Large legacy datasets and hand-off archives from the earlier simulation work.
+sim/260312_EBIS_RFID_DATASET/
+sim/stajyer_teslim/
+
+# Generated simulation renders, diagnostics and downloaded texture libraries.
+sim/**/output/
+sim/**/evidence/
+sim/**/reports/**/*.png
+sim/**/reports/**/*.jpg
+sim/**/reports/**/*.jpeg
+sim/**/reports/**/PRIVATE_MAPPING.json
+sim/**/assets/external/
+sim/ebis-blender/assets/reference/raw/
+sim/unreal-ebis/assets/textures/
+
+# Previous Unreal project's Python/config/lessons are useful; compiled engine
+# map/material binaries are machine/engine-version-specific and are omitted.
+sim/unreal-ebis/Content/EBIS/
+
+# Unreal-generated build/cache folders.
+**/Binaries/
+**/DerivedDataCache/
+**/Intermediate/
+**/Saved/
+
+# This local helper points into the ignored data disk and is not portable.
+scripts/build_segmentation_visual_report_v2.py

@@ -1,0 +1,41 @@
+base_config: ../train/base_real_final.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/real_final_dinov2_stage4_multiseed_tail_v1
+data_license_scope: research_only_includes_nc_and_odbl_review_data
+seeds: [29, 43]
+reuse_completed: true
+
+# Continuation of real_final_dinov2_stage4_probe_v1. Seed 17 showed that the
+# fixed epoch-15 checkpoint improves source semantic mIoU and the previously
+# zero worst-domain weed IoU. Epoch 15 is now frozen for every remaining seed;
+# the benchmark's safety-first best.pt is retained separately. Final tests stay
+# locked until the three-seed semantic and development results are complete.
+training:
+  epochs: 15
+  validate_every: 5
+  samples_per_epoch: 3600
+  warmup_steps: 200
+
+development_evaluations:
+  - name: cwfid
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+
+candidates:
+  - name: rf4_dinov2_small_stage4_mean1_drop05_probe
+    weight_license_status: apache_2_0_model_card
+    model:
+      architecture: dinov2_small_fpn
+      trainable: stage4
+      head: factorized
+      conditioning_dropout: 0.50
+    training:
+      learning_rate: 0.0003
+      backbone_lr_multiplier: 0.10
+      batch_size: 4
+      gradient_accumulation: 4
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0

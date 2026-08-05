@@ -1,0 +1,44 @@
+schema_version: 1
+scope: single_predeclared_v11_followup_after_v10_seed17_rejection
+frozen_at: '2026-08-04T12:29:30+03:00'
+frozen_before_v11_generation: true
+v10_decision_receipt:
+  path: data/processed/audits/target_weighted_field_robustness_prescreen_v10_r2.json
+  sha256: c75dda65283d4dd255470efa8db4b57c3969e904f42bac43e6f9fa59c6f2a165
+v10_observed_failure:
+  primary_mean_iou_delta: 0.006884120788557713
+  target_like_mean_iou_delta: 0.0033310010696756542
+  breadth_mean_iou_delta: 0.014153181666887227
+  cwfid_mean_iou_delta: -0.048846
+  real_core_mean_iou_delta: -0.029437
+  worst_field_mean_iou_delta: -0.3111795973707262
+  accepted: false
+hypothesis:
+  - V10 soil/HDRI/surface coverage is useful because breadth, blur, rice and the new Sugar Beets panel improved.
+  - The simultaneous independent widening of camera, crop missingness, composition and illumination weakened close-view field units.
+  - Restore the accepted V3 plant/camera prior, require V3-like crop/weed coverage, and retain surface variation through balanced correlated light/weather profiles.
+intervention:
+  generation_config: configs/simulation/cropcraft_field_robustness_pilot_v11_r1.yaml
+  asset_pack_reused: data/raw/synthetic_assets/cropcraft_field_robustness_v10_r1
+  new_asset_download: false
+  reason_no_new_botanical_asset: >-
+    The official CC0 catalog search found no crop-specific early carrot,
+    sugar-beet or comparable seedling scan. Mature generic plants would add
+    polygon count but not valid target morphology.
+  training_budget_policy: fixed_90_percent_real_10_percent_synthetic
+  proposed_mix:
+    cropcraft_agri_robust_pilot_v3: 0.025
+    cropcraft_field_robustness_pilot_v11_r1: 0.025
+    cropcraft_paddy_pilot_v4_r5: 0.050
+iteration_control:
+  this_is_the_only_followup_recipe_informed_by_v10_results: true
+  no_parameter_tuning_against_sugarbeets2016_holdout_after_v11: true
+  v11_seed17_failure_stops_this_asset_line: true
+  seed29_43_allowed_only_if_seed17_passes_frozen_real_gate: true
+selection_policy:
+  real_only: true
+  synthetic_validation_test_weight: 0.0
+  field_session_then_dataset_macro: true
+  use_existing_target_weighted_acceptance_thresholds_unchanged: true
+  semantic_model_replacement_from_seed17: false
+  deployment_or_spray_claim: false

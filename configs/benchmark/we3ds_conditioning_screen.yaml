@@ -1,0 +1,64 @@
+base_config: ../train/base_real_we3ds.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/we3ds_conditioning_screen
+data_license_scope: research_only_includes_cc_by_nc_sa
+seeds: [17]
+reuse_completed: false
+
+training:
+  epochs: 10
+  validate_every: 5
+  samples_per_epoch: 2800
+  warmup_steps: 175
+
+development_evaluations:
+  - name: cwfid
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+
+candidates:
+  - name: we3ds_stage4_mean1_drop05
+    weight_license_status: review_imagenet_pretraining_terms
+    model: &stage4_drop05
+      architecture: convnext_tiny_fpn
+      trainable: stage4
+      head: factorized
+      conditioning_dropout: 0.50
+    training: &stage4_training
+      learning_rate: 0.0002
+      backbone_lr_multiplier: 0.1
+      batch_size: 6
+      gradient_accumulation: 2
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: we3ds_stage4_no_safety_drop05
+    weight_license_status: review_imagenet_pretraining_terms
+    model: *stage4_drop05
+    training: *stage4_training
+    loss:
+      crop_safety_weight: 0.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: we3ds_stage4_mean1_drop08
+    weight_license_status: review_imagenet_pretraining_terms
+    model: &stage4_drop08
+      architecture: convnext_tiny_fpn
+      trainable: stage4
+      head: factorized
+      conditioning_dropout: 0.80
+    training: *stage4_training
+    loss:
+      crop_safety_weight: 1.0
+      crop_safety_tail_fraction: 1.0
+
+  - name: we3ds_stage4_no_safety_drop08
+    weight_license_status: review_imagenet_pretraining_terms
+    model: *stage4_drop08
+    training: *stage4_training
+    loss:
+      crop_safety_weight: 0.0
+      crop_safety_tail_fraction: 1.0

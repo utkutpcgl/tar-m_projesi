@@ -1,0 +1,51 @@
+diff --git a/core/base.py b/core/base.py
+index 86e07b3..a89ff47 100644
+--- a/core/base.py
++++ b/core/base.py
+@@ -180,14 +180,19 @@ def _quantize_masks(masks_dir: str, label_colors: cfg_module.LabelColors):
+         Image.fromarray(nearest.astype(np.uint8)).save(path)
+ 
+ 
+-def render_animation(render: cfg_module.Render, labeled: bool):
++def render_animation(
++    render: cfg_module.Render, labeled: bool, output_dir: str = None
++):
+     scene = bpy.context.scene
+     sub_dir = 'masks' if labeled else 'images'
+-    scene.render.filepath = f'//{render.directory}/{sub_dir}/frame_'
++    base_dir = output_dir if output_dir is not None else bpy.path.abspath("//")
++    scene.render.filepath = os.path.join(
++        base_dir, render.directory, sub_dir, 'frame_'
++    )
+     scene.render.image_settings.file_format = 'PNG' if labeled else 'JPEG'
+ 
+     if labeled:
+-        scene.render.engine = 'BLENDER_EEVEE'
++        scene.render.engine = 'BLENDER_EEVEE_NEXT'
+         scene.render.filter_size = 0.0
+         scene.render.image_settings.color_mode = 'RGB'
+         world = scene.world
+@@ -208,5 +213,5 @@ def render_animation(render: cfg_module.Render, labeled: bool):
+     bpy.ops.render.render(animation=True)
+ 
+     if labeled:
+-        masks_dir = os.path.join(bpy.path.abspath("//"), render.directory, 'masks')
++        masks_dir = os.path.join(base_dir, render.directory, 'masks')
+         _quantize_masks(masks_dir, render.label_colors)
+diff --git a/core/blender_entrypoint.py b/core/blender_entrypoint.py
+index b8705e3..47f5f12 100644
+--- a/core/blender_entrypoint.py
++++ b/core/blender_entrypoint.py
+@@ -55,10 +55,10 @@ def main(argv: list):
+         output.export(output_dir, field)
+ 
+     if cfg.render is not None:
+         core.base.setup_camera_animation(cfg.render, beds.get_end_pos())
+-        core.base.render_animation(cfg.render, labeled=False)
++        core.base.render_animation(cfg.render, labeled=False, output_dir=output_dir)
+         beds.apply_label_materials(cfg.render.label_colors)
+         ground.apply_label_materials(cfg.render.label_colors)
+-        core.base.render_animation(cfg.render, labeled=True)
++        core.base.render_animation(cfg.render, labeled=True, output_dir=output_dir)
+ 
+     print(f'Generated seed: {field.seed}')

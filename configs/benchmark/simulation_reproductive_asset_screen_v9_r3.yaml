@@ -1,0 +1,48 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simulation_reproductive_asset_screen_v9_r3
+data_license_scope: research_real_plus_procedural_and_generated_texture_assets
+seeds: [17]
+reuse_completed: true
+
+# Every arm receives 28,800 examples. Real exposure remains 90% and total
+# synthetic exposure remains 10%; only half of the accepted paddy exposure is
+# replaced by the isolated late-reproductive candidate.
+training:
+  epochs: 8
+  validate_every: 8
+  samples_per_epoch: 3600
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  - name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  - name: simab_v3_05_paddy025_reproductive025_e8_v9_r3
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_v3_05_paddy025_reproductive025_trainval_v9_r3.csv
+    model: {}
+    training:
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.025
+        cropcraft_reproductive_pilot_v9_r3: 0.025

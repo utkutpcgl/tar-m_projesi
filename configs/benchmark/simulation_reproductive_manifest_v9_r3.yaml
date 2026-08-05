@@ -1,0 +1,32 @@
+schema_version: 1
+scope: frozen_equal_budget_reproductive_rice_ab_manifest_inputs
+frozen_at: "2026-08-03T20:12:00+03:00"
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+locked_inputs:
+  accepted_training_manifest:
+    path: processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  reproductive_pilot_manifest:
+    path: processed/manifests/cropcraft_reproductive_pilot_v9_r3.csv
+    sha256: 756bb57561551455546dd4db67b72a46447b31ff845d8efed2ba3ba8ecd7880d
+  riceseg_calibration_manifest:
+    path: processed/manifests/riceseg_quality_calibration_v1.csv
+    sha256: 39fcce0ee2f886346ed36b93d4af2008a06bb9cc9628297926222ce5bd77d14b
+
+expected:
+  control_samples: 5903
+  reproductive_samples: 100
+  combined_samples: 6003
+  late_calibration_samples: 100
+  late_calibration_fields: 1
+
+outputs:
+  combined_training_manifest: processed/manifests/real_sorghum_cropcraft_v3_05_paddy025_reproductive025_trainval_v9_r3.csv
+  late_calibration_manifest: processed/manifests/riceseg_reproductive_calibration_v1.csv
+  receipt: processed/audits/simulation_reproductive_manifest_v9_r3.json
+
+freeze:
+  model_results_used: false
+  external_test_used: false
+  riceseg_training_exposure: false

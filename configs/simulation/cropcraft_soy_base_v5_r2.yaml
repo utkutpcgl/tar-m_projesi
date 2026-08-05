@@ -1,0 +1,68 @@
+output_enabled: [description]
+output:
+  description:
+    type: field_description
+    format: json
+    filename: field_description.json
+
+render:
+  directory: render
+  frames: 4
+  samples: 32
+  cycles_device: GPU
+  resolution_x: 512
+  resolution_y: 512
+  env_rotation_deg: 0.0
+  camera:
+    height: 0.80
+    fov_deg: 56.0
+    roll_deg: 0.0
+    pitch_deg: 0.0
+    yaw_deg: 0.0
+    y_jitter: 0.04
+  label_colors:
+    crop: [0, 255, 0]
+    weed: [255, 0, 0]
+    background: [0, 0, 0]
+
+field:
+  random_seed: 292101
+  headland_width: 2.8
+  scattering_extra_width: 0.9
+  beds:
+    soybean_rows:
+      plant_type: soybean_early_v5
+      plant_height: 0.22
+      height_tolerance_coeff: 0.10
+      plant_distance: 0.16
+      bed_width: 1.80
+      row_distance: 0.43
+      rows_count: 4
+      plants_count: 40
+      beds_count: 1
+      orientation: random
+  noise:
+    position: 0.025
+    tilt: 0.05
+    scale: 0.10
+    missing: 0.03
+  weeds:
+    amaranthus:
+      plant_type: amaranthus_viridis_v5
+      max_height: 0.24
+      density: 12.0
+      distance_min: 0.055
+      noise_scale: 0.38
+      noise_offset: 0.08
+    cynodon:
+      plant_type: cynodon_dactylon_v5
+      max_height: 0.13
+      density: 14.0
+      distance_min: 0.045
+      noise_scale: 0.34
+      noise_offset: 0.06
+  stones:
+    density: 20.0
+    distance_min: 0.03
+    noise_scale: 0.34
+    noise_offset: 0.08

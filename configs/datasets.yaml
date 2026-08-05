@@ -1,0 +1,389 @@
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+datasets:
+  phenobench:
+    role: core_train
+    source: https://www.phenobench.org/data/PhenoBench-v110.zip
+    archive: raw/phenobench/PhenoBench-v110.zip
+    extracted: raw/phenobench/PhenoBench-v110
+    size_bytes: 7630658167
+    checksum:
+      algorithm: md5
+      value: 5168bba762053725890478432cdbdb1d
+    license: CC-BY-NC-SA-4.0
+    commercial_allowed: false
+    citation: Weyler et al., IEEE TPAMI 2024
+
+  cwfid:
+    role: research_development_calibration
+    source: https://github.com/cwfid/dataset.git
+    revision: 36290d0912a032f0bd1a5678ed55457ddafde217
+    extracted: raw/cwfid/repository
+    size_bytes: 182452224
+    license: non-commercial-research-only
+    commercial_allowed: false
+    citation: Haug and Ostermann, ECCV Workshops 2014
+
+  acre:
+    role: core_train
+    source: https://zenodo.org/api/records/8102217/files/The_ACRE_Crop-Weed_Dataset.zip/content
+    archive: raw/acre/The_ACRE_Crop-Weed_Dataset.zip
+    extracted: raw/acre/The_ACRE_Crop-Weed_Dataset
+    size_bytes: 1220608171
+    checksum:
+      algorithm: md5
+      value: f3b1b21534c6691a4be48922d7bf2740
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: Rizzo et al., The ACRE Crop-Weed Dataset, 2023
+
+  weedsgalore:
+    role: auxiliary_train
+    source: https://doidata.gfz.de/weedsgalore_e_celikkan_2024/weedsgalore-dataset.zip
+    archive: raw/weedsgalore/weedsgalore-dataset.zip
+    extracted: raw/weedsgalore/repository
+    size_bytes: 336989804
+    checksum:
+      algorithm: sha256
+      value: 5d8395c274d990cd8fbfa728445f65c398be2b5d777bd5145eb9ae5ca4d9b68c
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: Celikkan et al., WeedsGalore, 2024
+
+  rose:
+    role: core_train_research
+    source: https://data.mendeley.com/public-files/datasets/x8brgg2j28/files/caff7ca7-98f2-4ba0-bc98-11567ee3e7c7/file_downloaded
+    archive: raw/rose/Dataset.zip
+    extracted: raw/rose/repository
+    size_bytes: 4283326177
+    checksum:
+      algorithm: sha256
+      value: 1a70a1b133d4c5fd197d3cc2b86b0c84e989860340e2e5eaaa0fe52195d8d127
+    license: CC-BY-4.0-record; ODbL-1.0-embedded-content-review
+    commercial_allowed: false
+    citation: Bertoglio et al., ROSE domain-adaptation data, Mendeley Data v2
+
+  we3ds:
+    role: core_train
+    source: https://zenodo.org/api/records/7457983/files/WE3DS.zip/content
+    archive: raw/we3ds/WE3DS.zip
+    extracted: raw/we3ds/WE3DS
+    size_bytes: 10780359401
+    checksum:
+      algorithm: md5
+      value: 5cde8a1ea6839787732fa7fa3fa86761
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: Kitzler et al., Sensors 2023, doi:10.3390/s23052713
+
+  carrot_weed:
+    role: research_external_test
+    source: https://codeload.github.com/lameski/rgbweeddetection/zip/2220f89bcae92650090db8502c090740f72f241f
+    archive: raw/carrot_weed/rgbweeddetection-2220f89.zip
+    extracted: raw/carrot_weed/repository
+    size_bytes: 118366371
+    checksum:
+      algorithm: sha256
+      value: 6db8db9693eb555b7774e7f6f3a90809f9da543f5c7c886112e06294172d316c
+    license: non-commercial-research-only
+    commercial_allowed: false
+    citation: Lameski et al., RGB Weed Detection
+
+  ewis1_images:
+    role: external_test_component
+    source: https://data.mendeley.com/public-files/datasets/6j5pxgf437/files/73eefe1e-24ae-49c8-8a69-3b7d09df74c3/file_downloaded
+    archive: raw/ewis1/EWIS1_images.zip
+    extracted: raw/ewis1/images
+    size_bytes: 3518450227
+    checksum:
+      algorithm: sha256
+      value: b314658cf6f0790b1e4c22d0749653223042e79d574328e6823409ade8afadf6
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: Genze, Grieb, and Grimm, EWIS1, Mendeley Data v1, 2026
+
+  ewis1_masks:
+    role: external_test_component
+    source: https://data.mendeley.com/public-files/datasets/6j5pxgf437/files/567dcc34-5b87-4e7d-930b-2034f615665c/file_downloaded
+    archive: raw/ewis1/EWIS1_masks.zip
+    extracted: raw/ewis1/masks
+    size_bytes: 13862507
+    checksum:
+      algorithm: sha256
+      value: e7ed3d77f2221bef526de67d6876e21d58384c34847ef91c714022e18f75254b
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: Genze, Grieb, and Grimm, EWIS1, Mendeley Data v1, 2026
+
+  sorghum_weed:
+    role: synthetic_ablation_development_and_locked_external_test
+    source: https://data.mendeley.com/public-files/datasets/y9bmtf4xmr/files/42fb7b7b-0ac2-472c-8c5b-1ce8d665cdb6/file_downloaded
+    archive: raw/sorghum_weed/SorghumWeedDataset_Segmentation.zip
+    extracted: raw/sorghum_weed/repository
+    size_bytes: 3046997189
+    checksum:
+      algorithm: sha256
+      value: cfd40ddf99836efe4260f5dd0848aca422272de3e194dcddf01c6eeff98479ba
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: Michael and Thenmozhi, SorghumWeedDataset_Segmentation, Mendeley Data v1, 2023, doi:10.17632/y9bmtf4xmr.1
+
+  cropandweed_annotations:
+    role: research_train_component
+    source: https://vitro-testing.com/wp-content/uploads/2022/12/cropandweed_annotations.tar
+    archive: raw/cropandweed/archives/cropandweed_annotations.tar
+    extracted: raw/cropandweed/repository
+    size_bytes: 110620672
+    checksum:
+      algorithm: sha256
+      value: 52444898ff142e95051c40073121fd509f2dee9e7766eadd8608b52785584041
+    license: non-commercial-research-only; no-redistribution
+    commercial_allowed: false
+    citation: Steininger et al., WACV 2023
+
+  cropandweed_images1of4:
+    role: research_train_component
+    source: https://vitro-testing.com/wp-content/uploads/2022/12/cropandweed_images1of4.tar
+    archive: raw/cropandweed/archives/cropandweed_images1of4.tar
+    extracted: raw/cropandweed/repository
+    size_bytes: 2980931072
+    checksum:
+      algorithm: sha256
+      value: bd1f5823f48cbe3feefda5629f837df4dd6b0269a91c5a0142aa04e8bd1097d6
+    license: non-commercial-research-only; no-redistribution
+    commercial_allowed: false
+    citation: Steininger et al., WACV 2023
+
+  cropandweed_images2of4:
+    role: research_train_component
+    source: https://vitro-testing.com/wp-content/uploads/2022/12/cropandweed_images2of4.tar
+    archive: raw/cropandweed/archives/cropandweed_images2of4.tar
+    extracted: raw/cropandweed/repository
+    size_bytes: 2998541312
+    checksum:
+      algorithm: sha256
+      value: 5be67ba2cdf41051dd8461a0782da660556ce2bc7f980c1b4e5b632e431e84c2
+    license: non-commercial-research-only; no-redistribution
+    commercial_allowed: false
+    citation: Steininger et al., WACV 2023
+
+  cropandweed_images3of4:
+    role: research_train_component
+    source: https://vitro-testing.com/wp-content/uploads/2022/12/cropandweed_images3of4.tar
+    archive: raw/cropandweed/archives/cropandweed_images3of4.tar
+    extracted: raw/cropandweed/repository
+    size_bytes: 2579559424
+    checksum:
+      algorithm: sha256
+      value: 205bd1b157889be5c719836c5f32c67c2fc21028b18769a17baa5c6c3ce330bd
+    license: non-commercial-research-only; no-redistribution
+    commercial_allowed: false
+    citation: Steininger et al., WACV 2023
+
+  cropandweed_images4of4:
+    role: research_train_component
+    source: https://vitro-testing.com/wp-content/uploads/2022/12/cropandweed_images4of4.tar
+    archive: raw/cropandweed/archives/cropandweed_images4of4.tar
+    extracted: raw/cropandweed/repository
+    size_bytes: 2800501760
+    checksum:
+      algorithm: sha256
+      value: ff739514d73c34e0d27dfe0b918361057e623e18a80d245a722356146d5008d6
+    license: non-commercial-research-only; no-redistribution
+    commercial_allowed: false
+    citation: Steininger et al., WACV 2023
+
+  rice_seedling_weed:
+    role: research_train_candidate
+    source: https://ndownloader.figshare.com/files/14519387
+    archive: raw/rice_seedling_weed/archives/rice_seedling_and_weed_dataset.rar
+    extracted: raw/rice_seedling_weed/repository
+    size_bytes: 30093419
+    checksum:
+      algorithm: md5
+      value: 4460b4958eaebf6d326eb555e36ea8ab
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: Ma et al., Fully convolutional network for rice seedling and weed image segmentation at the seedling stage in paddy fields, Figshare v5, doi:10.6084/m9.figshare.7488830.v5
+
+  growingsoy:
+    role: research_train_candidate
+    source: https://github.com/raulsteinmetz/soy-segmentation-ds.git
+    revision: 0047fc2258c1cff54fe2c4ed325b12c9681d25be
+    extracted: raw/growingsoy/repository
+    size_bytes: 416026821
+    license: MIT
+    commercial_allowed: true
+    citation: Steinmetz et al., From Seedling to Harvest — The GrowingSoy Dataset, IEEE CIS-RAM 2024, doi:10.1109/CIS-RAM61939.2024.10673082
+
+  deblurweedseg:
+    role: research_motion_blur_development_diagnostic
+    source: https://data.mendeley.com/public-api/zip/k4gvsjv4t3/download/1
+    archive: raw/deblurweedseg/archives/k4gvsjv4t3_v1.zip
+    extracted: raw/deblurweedseg/repository/data
+    size_bytes: 199418959
+    checksum:
+      algorithm: sha256
+      value: f0fe9f4ef8daf74bbcc5e2f8ca8c6224aac68201cac3ca3ed35ca6d906acb77d
+    license: MIT
+    commercial_allowed: true
+    citation: Genze et al., DeBlurWeedSeg, Plant Methods 2023, doi:10.1186/s13007-023-01060-8; Mendeley Data doi:10.17632/k4gvsjv4t3.1
+    usage_limit: publisher-test-only development stress; one field; no unseen-field claim
+
+  weedmap:
+    role: research_train_candidate_and_map_disjoint_development
+    source: https://doi.org/10.3929/ethz-c-000788571
+    mirror: https://download.cncb.ac.cn//OPIA/WeedMap.zip
+    archive: raw/weedmap/archives/WeedMap_OPIA_2023.zip
+    size_bytes: 4480204702
+    checksum:
+      algorithm: sha256
+      value: 8247a5a2e690ee77a34eb7bdcb3a1729c7ce3c8f6ef3ef9ff93067f17e90c53b
+      status: locally-computed; upstream does not publish a cryptographic checksum
+    license: In Copyright - Non-Commercial Use Permitted
+    commercial_allowed: false
+    citation: Sa et al., WeedMap, Remote Sensing 2018, doi:10.3390/rs10091423; dataset doi:10.3929/ethz-c-000788571
+    usage_limit: >-
+      RedEdge-M RGB maps 000/001/002/004 are research training candidates;
+      publisher test map 003 is development-only external calibration. All
+      selected maps are spatially correlated tiles from one Rheinbach field
+      and one 2017-09-18 campaign; no unseen-site or external-test claim.
+
+  tobacco_aerial:
+    role: research_train_candidate_and_field_disjoint_development
+    source: https://data.mendeley.com/public-api/zip/5dpc5gbgpz/download/2
+    landing_page: https://data.mendeley.com/datasets/5dpc5gbgpz/2
+    archive: raw/tobacco_aerial/archives/Tobacco_Aerial_Dataset_v2.zip
+    size_bytes: 3194827845
+    checksum:
+      algorithm: sha256
+      value: 1c5d5bd2baf4d1d751b738b55c741a3573169514a9dc9fb52408e889107a8176
+      status: locally-computed; upstream does not publish a cryptographic checksum
+    nested_archives:
+      release_v1_sha256: 03672fc8a31ec2786de84586b2e1aba71988c694105e1c36371ce293966e70cd
+      release_v2_sha256: 9caa75ddad073a43600614b50f270849e0b522a14d31a222bda025cb60eced8a
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: Moazzam, Tobacco Aerial Dataset, Mendeley Data v2, 2023, doi:10.17632/5dpc5gbgpz.2
+    usage_limit: >-
+      Campaigns 2/3/5/6/7/8 are research training candidates; complete fields
+      1 and 4 are development-only external calibration. Campaign 1's released
+      patch tree does not align with its separately bundled 1080P folders, so
+      only the byte-redundant, spatially coherent Patch images/data and mask
+      pairs are accepted. No external-test or deployment claim.
+
+  weedy_rice_uav:
+    role: partial_label_train_candidate_and_flight_disjoint_binary_development
+    source: https://data.mendeley.com/public-api/zip/vt4s83pxx6/download/1
+    landing_page: https://data.mendeley.com/datasets/vt4s83pxx6/1
+    archive: raw/weedy_rice_uav/archives/vt4s83pxx6_v1.zip
+    size_bytes: 5288295277
+    checksum:
+      algorithm: sha256
+      value: 62c9a168122e3076c750bfc928906d3d76d27848ad0f2b03b23a9743aed6aff3
+      status: locally-computed; upstream does not publish a cryptographic checksum
+    nested_archive:
+      path: raw/weedy_rice_uav/archives/WeedyRice-RGBMS-DB.zip
+      size_bytes: 5287951115
+      sha256: e1cf031bc912da195ed61b7c0ea9016c8cffaf587ed82b5fd8b20ef06f386395
+    extracted: raw/weedy_rice_uav/repository
+    manifest: processed/manifests/weedy_rice_uav_binary_v1.csv
+    quality_audit: processed/audits/weedy_rice_uav_quality_v1.json
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: Nguyen et al., WeedyRice-RGBMS-DB, Mendeley Data v1, 2025, doi:10.17632/vt4s83pxx6.1
+    usage_limit: >-
+      Source 255 is a weedy-rice positive; source 0 mixes cultivated rice,
+      soil, water, and other negative content and is common IGNORE, never
+      common background or crop. Three complete Thoaison flights (487 RGB)
+      are partial-label train candidates but remain training-locked until a
+      separately frozen partial-label loss protocol. The complete Longxuyen
+      flight (247 RGB) is development-only binary external calibration. The
+      publisher 438/148/148 image split crosses all four 70%-overlap flights
+      and is forbidden. No external-test or deployment claim.
+
+  camelinaweed:
+    role: positive_only_partial_label_train_candidate_and_location_disjoint_development
+    source: https://zenodo.org/records/20148697
+    api_record: https://zenodo.org/api/records/20148697
+    version: 1.0.0
+    full_release_size_bytes: 69007560436
+    acquisition: sparse_range_fetch_of_annotated_jpg_and_coco_json_only
+    downloaded_network_bytes: 3365212169
+    last_archive_part:
+      path: raw/candidate_screening/camelinaweed_v1/CamelinaWeed.zip.part-ae
+      size_bytes: 288083700
+      md5: 6054b62052dc5dfe84a01b63e47cd706
+      sha256: 386c4e4bf063300b2d4118b2c867020d68cc7b0c6b7293cf51207dcac2f83443
+    extracted: raw/camelinaweed/annotated_v1
+    extracted_files: 1132
+    extracted_size_bytes: 3331550356
+    extracted_tree_sha256: 40ae938ffefef8577e14a427c8d3a6e0643861649821bb3755c97e579eb2f810
+    manifest: processed/manifests/camelinaweed_partial_v1.csv
+    quality_audit: processed/audits/camelinaweed_quality_v1.json
+    license: CC-BY-4.0
+    commercial_allowed: true
+    citation: CamelinaWeed, Zenodo v1.0.0, 2026, doi:10.5281/zenodo.20148697
+    usage_limit: >-
+      The exact released COCO subset contains 1,120 RGB images and expert
+      weed-instance polygons but no exhaustive Camelina crop/background
+      supervision. Thessaloniki contributes 999 positive-only partial-label
+      train candidates; geographically separate Chalkidiki contributes 98
+      development-only external-calibration images. All non-polygon pixels
+      are common IGNORE. Thirty-one category-k annotations and two empty
+      polygons are ignored. Common three-class and positive-only training
+      remain locked until a separately frozen partial-label objective is
+      implemented and validated. No external-test or deployment claim.
+
+  riceseg:
+    role: research_train_candidate_and_country_institution_disjoint_development
+    source: https://huggingface.co/datasets/PheniX-Lab/RiceSEG
+    revision: 1a891ced931d5b3ac2a907b045f53414f1a615b4
+    extracted: raw/riceseg/repository
+    size_bytes: 1564399537
+    files:
+      RiceSEG.zip:
+        size_bytes: 231552592
+        sha256: 0071d9f941508afd9a86aa5ef740433dee938e1c7a9508a191d3e46a2909be96
+      class_pixel_counts.xlsx:
+        size_bytes: 194007
+        sha256: 1abd56fd734e6183ccbd769d4bcc20a32d9511cf8578271be92c1cc12bc0682a
+      crop_mapping.xlsx:
+        size_bytes: 101954
+        sha256: 27186d18a06cbe5899915e1226602bbf42bedf855178868d5c38e189a6523eda
+      original.zip:
+        size_bytes: 1332546779
+        sha256: d3ff1de5111f8725885da671cac916e7d94cb127f48d01ddc6508c81fb0f4478
+    license: MIT-on-Hugging-Face-card; official-site-open-source-and-free-to-use
+    commercial_allowed: false
+    access: gated-auto; user conditions accepted; local Hugging Face authentication active; pinned release verified
+    release_gate: configs/data/riceseg_release_gate_v1.yaml
+    release_inspector: scripts/inspect_riceseg_release.py
+    citation: Zhou et al., Global Rice Multi-Class Segmentation Dataset (RiceSEG), 2025, arXiv:2504.02880
+    usage_limit: >-
+      Research-only while the repository-card/article license presentation is
+      kept fail-closed. The verified release contains 3,078 paired tiles; one
+      conflicting same-train near-duplicate is preserved upstream but
+      quarantined, leaving 2,473 train candidates and 604 whole-subdataset
+      external-calibration images. The alternative clean country-transfer
+      view is 1,823 China+Japan train versus 1,254
+      India+Tanzania+Philippines development images and must not be combined
+      with the coverage split. Do not treat frames from the same source group
+      as independent and do not claim an external test.
+
+  cropcraft:
+    role: synthetic_generator_source
+    source: https://github.com/Romea/cropcraft.git
+    revision: 7128cd2acade50cc4a5a1761210b55989ab62527
+    extracted: raw/cropcraft/repository
+    size_bytes: 40677376
+    license: Apache-2.0
+    commercial_allowed: true
+    citation: ROMEA, CropCraft procedural world generator
+
+  dinov3_convnext_tiny:
+    role: optional_gated_weights
+    source: facebook/dinov3-convnext-tiny-pretrain-lvd1689m
+    size_bytes: 116391936
+    license: DINOv3-License
+    access: gated; accept the model terms and provide HF_TOKEN

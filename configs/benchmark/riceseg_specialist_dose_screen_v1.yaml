@@ -1,0 +1,101 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/riceseg_specialist_dose_screen_v1
+data_license_scope: research_riceseg_specialist_plus_accepted_real_synthetic_base
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+candidates:
+  # Unchanged global fallback; byte-reused and never replaced by this screen.
+  - name: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      samples_per_epoch: 3600
+      dataset_weights:
+        phenobench: 0.162
+        acre: 0.162
+        weedsgalore: 0.045
+        we3ds: 0.243
+        rose: 0.198
+        sorghum_weed: 0.090
+        cropcraft_agri_robust_pilot_v3: 0.050
+        cropcraft_paddy_pilot_v4_r5: 0.050
+
+  # Byte-reused low-dose reference from the global screen. In this protocol
+  # it is evaluated only as a separately routed rice specialist.
+  - name: realab_riceseg_add025_compute3780_r5_e8_v2
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_riceseg_trainval_v10_r1.csv
+    model: {}
+    training:
+      samples_per_epoch: 3780
+      dataset_weights:
+        phenobench: 0.15814285714285714
+        acre: 0.15814285714285714
+        weedsgalore: 0.04392857142857143
+        we3ds: 0.2372142857142857
+        rose: 0.19328571428571428
+        sorghum_weed: 0.08785714285714286
+        cropcraft_agri_robust_pilot_v3: 0.04880952380952381
+        cropcraft_paddy_pilot_v4_r5: 0.04880952380952381
+        riceseg: 0.023809523809523808
+
+  # Equal 3,780-draw compute; higher target doses replace old-data draws.
+  - name: ricespec_riceseg_replace10_r5_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_riceseg_trainval_v10_r1.csv
+    model: {}
+    training:
+      samples_per_epoch: 3780
+      dataset_weights:
+        phenobench: 0.1458
+        acre: 0.1458
+        weedsgalore: 0.0405
+        we3ds: 0.2187
+        rose: 0.1782
+        sorghum_weed: 0.081
+        cropcraft_agri_robust_pilot_v3: 0.045
+        cropcraft_paddy_pilot_v4_r5: 0.045
+        riceseg: 0.10
+
+  - name: ricespec_riceseg_replace25_r5_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_riceseg_trainval_v10_r1.csv
+    model: {}
+    training:
+      samples_per_epoch: 3780
+      dataset_weights:
+        phenobench: 0.1215
+        acre: 0.1215
+        weedsgalore: 0.03375
+        we3ds: 0.18225
+        rose: 0.1485
+        sorghum_weed: 0.0675
+        cropcraft_agri_robust_pilot_v3: 0.0375
+        cropcraft_paddy_pilot_v4_r5: 0.0375
+        riceseg: 0.25
+
+  - name: ricespec_riceseg_replace50_r5_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_riceseg_trainval_v10_r1.csv
+    model: {}
+    training:
+      samples_per_epoch: 3780
+      dataset_weights:
+        phenobench: 0.081
+        acre: 0.081
+        weedsgalore: 0.0225
+        we3ds: 0.1215
+        rose: 0.099
+        sorghum_weed: 0.045
+        cropcraft_agri_robust_pilot_v3: 0.025
+        cropcraft_paddy_pilot_v4_r5: 0.025
+        riceseg: 0.50

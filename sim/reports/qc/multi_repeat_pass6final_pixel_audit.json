@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "pass": "6/6-final",
+  "purpose": "Same-seed before/after localization and annotation contract audit for bounded top-load weathering change.",
+  "interpretation_limits": [
+    "RGB differences are renderer/sensor-space diagnostics, not perceptual realism scores.",
+    "No YOLO gain is claimed; frozen-real-test ablation remains required.",
+    "Reference and synthetic images are not registered, so no cross-domain pixel distance is reported."
+  ],
+  "pairs": [
+    {
+      "engine": "blender",
+      "before": "realism_v5_19_single_hull_release_p6f_54304",
+      "after": "realism_v5_26_load_zone_release_p6g_54304",
+      "annotation_contract": {
+        "matched_label_files": 12,
+        "byte_identical_label_files": 12,
+        "matched_instance_mask_files": 60,
+        "byte_identical_instance_mask_files": 60,
+        "pixel_identical_instance_mask_files": 60,
+        "identical_mask_bboxes": 60,
+        "non_identical_mask_pixels_files": [],
+        "interpretation": "PNG byte identity is tracked for provenance; decoded pixel identity and mask-bbox identity are the annotation-relevant gates."
+      },
+      "samples": [
+        {
+          "stem": "ebis_camera_angled_054313",
+          "before_path": "ebis-blender/output/realism_v5_19_single_hull_release_p6f_54304/partitions/standard/images/ebis_camera_angled_054313.png",
+          "after_path": "ebis-blender/output/realism_v5_26_load_zone_release_p6g_54304/partitions/standard/images/ebis_camera_angled_054313.png",
+          "before_sha256": "d9c503fe4a41362cbe85b30eb638db34f2f1a62b7d7ef068b62bd03b874924b7",
+          "after_sha256": "0b23e20655346ef96090f3ab84266f2dd98ed53b332b0c3437fc154917604e15",
+          "label_sha256": "c4e719d8a1795a14a35cf5a975cd785c9d3551defe85f31d6299f69043833720",
+          "pixel_localization": {
+            "image_size_px": [
+              1280,
+              720
+            ],
+            "concrete_bbox_xyxy": [
+              485,
+              142,
+              766,
+              708
+            ],
+            "whole_frame_mean_abs_rgb_8bit": 0.006024,
+            "concrete_top_28pct_mean_abs_rgb_8bit": 0.109682,
+            "concrete_lower_55pct_mean_abs_rgb_8bit": 9.5e-05,
+            "top_to_lower_diff_ratio": 1153.926,
+            "outside_concrete_mean_abs_rgb_8bit": 0.000878,
+            "changed_pixels_any_channel_over_2_fraction": 0.00034722
+          }
+        },
+        {
+          "stem": "ebis_camera_door_054310",
+          "before_path": "ebis-blender/output/realism_v5_19_single_hull_release_p6f_54304/partitions/hard_occlusion/images/ebis_camera_door_054310.png",
+          "after_path": "ebis-blender/output/realism_v5_26_load_zone_release_p6g_54304/partitions/hard_occlusion/images/ebis_camera_door_054310.png",
+          "before_sha256": "8664df79082c52d89ee9cfa6dca8adfe959ff66a265c86c90a5f97ab877b11a4",
+          "after_sha256": "7464317972195acb0eea9b5e8c6aeb4455d87ffe121749794c24857465779137",
+          "label_sha256": "862ba4f40238cd43334cf78e184ecb883d643ec4e9a2527edaead93995b55b47",
+          "pixel_localization": {
+            "image_size_px": [
+              1280,
+              720
+            ],
+            "concrete_bbox_xyxy": [
+              358,
+              128,
+              918,
+              720
+            ],
+            "whole_frame_mean_abs_rgb_8bit": 0.006525,
+            "concrete_top_28pct_mean_abs_rgb_8bit": 0.058326,
+            "concrete_lower_55pct_mean_abs_rgb_8bit": 0.000121,
+            "top_to_lower_diff_ratio": 484.001,
+            "outside_concrete_mean_abs_rgb_8bit": 0.000996,
+            "changed_pixels_any_channel_over_2_fraction": 0.00028212
+          }
+        }
+      ]
+    },
+    {
+      "engine": "unreal",
+      "before": "realism_r39_matte_spall_p6d_58520",
+      "after": "realism_r45_load_zone_release_p6e_58520",
+      "annotation_contract": {
+        "matched_label_files": 12,
+        "byte_identical_label_files": 12,
+        "matched_instance_mask_files": 208,
+        "byte_identical_instance_mask_files": 103,
+        "pixel_identical_instance_mask_files": 204,
+        "identical_mask_bboxes": 208,
+        "non_identical_mask_pixels_files": [
+          "masks_amodal/ebis_camera_angled_058531__concrete_00.png",
+          "masks_amodal_pre_camera_model/ebis_camera_angled_058531__concrete_00.png",
+          "masks_visible/ebis_camera_angled_058531__concrete_00.png",
+          "masks_visible_pre_camera_model/ebis_camera_angled_058531__concrete_00.png"
+        ],
+        "interpretation": "PNG byte identity is tracked for provenance; decoded pixel identity and mask-bbox identity are the annotation-relevant gates."
+      },
+      "samples": [
+        {
+          "stem": "ebis_camera_angled_058523",
+          "before_path": "unreal-ebis/output/realism_r39_matte_spall_p6d_58520/partitions/exclude/images/ebis_camera_angled_058523.png",
+          "after_path": "unreal-ebis/output/realism_r45_load_zone_release_p6e_58520/partitions/exclude/images/ebis_camera_angled_058523.png",
+          "before_sha256": "83f02fc372c0ff7463fe916687d8262b21ce000b24805cf89bf34615865647ce",
+          "after_sha256": "89447328bb58add9aa16ca22e1fb29643d9ff2ccbe1bae89b59bbdcbff0a9e1e",
+          "label_sha256": "b122fc75ba192ae5a58171b788688e0660a8c35ab29914409c17cc27af3ab9e4",
+          "pixel_localization": {
+            "image_size_px": [
+              1280,
+              720
+            ],
+            "concrete_bbox_xyxy": [
+              512,
+              141,
+              817,
+              716
+            ],
+            "whole_frame_mean_abs_rgb_8bit": 0.032574,
+            "concrete_top_28pct_mean_abs_rgb_8bit": 0.608268,
+            "concrete_lower_55pct_mean_abs_rgb_8bit": 0.000148,
+            "top_to_lower_diff_ratio": 4103.051,
+            "outside_concrete_mean_abs_rgb_8bit": 0.000168,
+            "changed_pixels_any_channel_over_2_fraction": 0.00143989
+          }
+        },
+        {
+          "stem": "ebis_camera_door_058524",
+          "before_path": "unreal-ebis/output/realism_r39_matte_spall_p6d_58520/partitions/hard_occlusion/images/ebis_camera_door_058524.png",
+          "after_path": "unreal-ebis/output/realism_r45_load_zone_release_p6e_58520/partitions/hard_occlusion/images/ebis_camera_door_058524.png",
+          "before_sha256": "70ab0cc8bd33c2ba79527d3132207ace3f2654b249ba4e76eb3333bed66f9f57",
+          "after_sha256": "3ed1b8db5104894cd02c97d62c038bd55f2b5b0f61b6e0464db9d238adc00656",
+          "label_sha256": "6d927b4649de29c832dee7ad44f34adac701d60cb28c067c6382d4e6bba0695d",
+          "pixel_localization": {
+            "image_size_px": [
+              1280,
+              720
+            ],
+            "concrete_bbox_xyxy": [
+              322,
+              85,
+              961,
+              720
+            ],
+            "whole_frame_mean_abs_rgb_8bit": 0.009192,
+            "concrete_top_28pct_mean_abs_rgb_8bit": 0.074375,
+            "concrete_lower_55pct_mean_abs_rgb_8bit": 1e-05,
+            "top_to_lower_diff_ratio": 7128.814,
+            "outside_concrete_mean_abs_rgb_8bit": 9.6e-05,
+            "changed_pixels_any_channel_over_2_fraction": 0.00054688
+          }
+        }
+      ]
+    }
+  ]
+}

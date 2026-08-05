@@ -1,0 +1,116 @@
+schema_version: 1
+protocol_id: cropcraft_agri_asset_quality_v3
+frozen_before_asset_pack_build: true
+frozen_at_utc: '2026-08-02T14:45:00+03:00'
+scope: research_semantic_crop_segmentation
+
+control_lock:
+  pack_id: cropcraft_agri_early_v2_r3
+  pack_manifest_sha256: 8eaf624d666ff8adce877ff11aed1ed806aa93e0018631e84876e6503704d3af
+  pilot_release: cropcraft_agri_early_pilot_v2
+  pilot_release_receipt_sha256: aa3b82df6b428697f9220343c747a281c20ac4ef96677952bddea9e5ee3e75a1
+  pilot_study_sha256: 5de527bae27a63da89e31c5476cb1b8fb28b6541f65b4fa987487b1ca7c77a05
+
+locked_data_policy:
+  allowed_for_selection:
+    - source_real_validation
+    - cwfid_external_calibration
+    - sorghum_weed_external_calibration
+  forbidden_for_selection:
+    - sorghum_weed_external_test
+  external_test_used_for_asset_or_model_selection: false
+  note: >-
+    The historical Sorghum external_test is consumed and may never be read by
+    this protocol. A selected v3 recipe still requires a new untouched,
+    preferably multi-field final set.
+
+asset_hypothesis:
+  target_gap: >-
+    V2 uses credible soil PBR/HDRI but flat-color procedural crop and weed
+    surfaces. Add texture-backed CC0 botanical references and crop albedo
+    phenotypes without changing scene, sampler, model, or training budget.
+  isolated_change: asset_pack_only
+  rejected_as_out_of_scope:
+    - synthetic volume increase
+    - camera distribution change
+    - density distribution change
+    - weather or motion post-processing
+    - model or hyperparameter change
+
+approved_cc0_reference_models:
+  - asset_id: weed_plant_02
+    target_family: weed_broadleaf_v2
+  - asset_id: nettle_plant
+    target_family: weed_broadleaf_v2
+  - asset_id: shrub_sorrel_01
+    target_family: weed_broadleaf_v2
+  - asset_id: dandelion_01
+    target_family: weed_rosette_v2
+
+asset_pack_gate:
+  crop_plant_type: sorghum_seedling_v2
+  minimum_crop_models: 30
+  minimum_unique_crop_geometries: 15
+  minimum_crop_growth_stages: 5
+  minimum_crop_albedo_phenotypes: 3
+  minimum_faces_per_crop_model: 350
+  weed_plant_types:
+    - weed_cotyledon_v2
+    - weed_broadleaf_v2
+    - weed_grass_v2
+    - weed_rosette_v2
+  minimum_models_per_weed_type: 6
+  minimum_cc0_reference_model_sources: 4
+  minimum_texture_backed_weed_models: 12
+  required_reference_texture_roles: [diffuse, normal, arm]
+  minimum_background_debris_models: 12
+  maximum_degenerate_faces_per_model: 0
+  maximum_declared_height_relative_error: 0.02
+  required_ground_families: 3
+  required_environment_families: 3
+  accepted_third_party_asset_licenses: [CC0-1.0]
+  require_file_hashes_and_source_urls: true
+  require_capacity_check: true
+
+pilot_release_gate:
+  expected_rgb_mask_pairs: 100
+  expected_independent_scenes: 25
+  train_scenes: 20
+  validation_scenes: 5
+  maximum_crop_free_frame_fraction: 0.0
+  maximum_weed_free_frame_fraction: 0.10
+  maximum_exact_rgb_duplicates: 0
+  maximum_exact_mask_duplicates_across_scenes: 0
+  minimum_used_crop_model_variants: 15
+  minimum_used_ground_families: 3
+  minimum_used_environment_families: 3
+  minimum_mean_crop_fraction: 0.002
+  maximum_mean_crop_fraction: 0.30
+  minimum_mean_weed_fraction: 0.002
+  maximum_mean_weed_fraction: 0.20
+  require_scene_disjoint_split: true
+  require_exact_semantic_palette: true
+  require_manual_rgb_mask_visual_review: true
+
+downstream_equal_budget_gate:
+  control: simab_real_sorghum_cropcraft_agri10_e8_v2
+  challenger: simab_real_sorghum_cropcraft_robust10_e8_v3
+  seeds: [17, 29, 43]
+  fixed_epoch: 8
+  checkpoint: last.pt
+  samples_per_epoch: 3600
+  total_training_samples: 28800
+  synthetic_sampler_exposure: 0.10
+  primary_metric:
+    name: per_seed_robust_semantic_mean_iou
+    definition: >-
+      min(source_real_validation_mean_iou, cwfid_mean_iou,
+      sorghum_weed_mean_iou)
+  acceptance:
+    mean_paired_primary_delta_must_be_greater_than: 0.0
+    minimum_primary_wins_out_of_3: 2
+    maximum_allowed_mean_source_validation_miou_regression: 0.01
+    maximum_allowed_mean_sorghum_validation_miou_regression: 0.01
+  fallback_if_gate_fails: retain_v2_custom_asset_control
+  safety_policy_used_for_selection: false
+  spray_deployment_eligible_from_this_protocol: false

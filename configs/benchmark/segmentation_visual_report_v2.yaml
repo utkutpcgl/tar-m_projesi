@@ -1,0 +1,132 @@
+schema_version: 1
+frozen_at: "2026-08-04T18:30:00+03:00"
+purpose: self_contained_segmentation_visual_report
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output: processed/audits/segmentation_visual_report_v2
+minimum_free_bytes: 21474836480
+
+accepted_global_checkpoint:
+  path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+  sha256: b97618224621950e46bd47136bad43f51e417c11121674bc1849a9f7322b3d9f
+  role: accepted_global_fallback_representative_seed43
+  training_manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+
+seen_dataset_validation:
+  - slug: phenobench
+    title: PhenoBench — şeker pancarı
+    dataset_id: phenobench
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    split: val
+    target: "şeker pancarı (Beta vulgaris, crop_id=0)"
+    metric_source: checkpoint_validation_dataset_stratum
+  - slug: acre
+    title: ACRE — fasulye ve mısır
+    dataset_id: acre
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    split: val
+    target: "fasulye/mısır (crop_id=2/3; kareye göre değişir)"
+    metric_source: checkpoint_validation_dataset_stratum
+  - slug: rose
+    title: ROSE — fasulye ve mısır
+    dataset_id: rose
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    split: val
+    target: "fasulye/mısır (crop_id=2/3; kareye göre değişir)"
+    metric_source: checkpoint_validation_dataset_stratum
+  - slug: we3ds
+    title: WE3DS — çok mahsullü yakın plan
+    dataset_id: we3ds
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    split: val
+    target: "çok mahsullü; hedef ve crop_id her tekil görselde yazılıdır"
+    metric_source: checkpoint_validation_dataset_stratum
+  - slug: weedsgalore
+    title: WeedsGalore — mısır
+    dataset_id: weedsgalore
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    split: val
+    target: "mısır (Zea mays, crop_id=3)"
+    metric_source: checkpoint_validation_dataset_stratum
+  - slug: sorghum_weed
+    title: Sorghum Weed — gerçek sorgum holdout
+    dataset_id: sorghum_weed
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    split: external_calibration
+    target: "sorgum (Sorghum bicolor, crop_id=4)"
+    metric_source: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/development_fixed_epoch8_paddy/sorghum_weed.json
+
+seen_dataset_specialist:
+  slug: riceseg_specialist
+  title: RiceSEG country-transfer — kabul edilmiş rice specialist
+  source_index: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/riceseg_country_transfer_specialist_seed29/index.json
+  checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/realab_riceseg_add025_compute3780_r5_e8_v2/seed_29/last.pt
+  manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_country_transfer_v1.csv
+  target: "pirinç (Oryza sativa, crop_id=12)"
+  evidence_label: "SEEN-DATASET HELD-OUT • RiceSEG train görüntüleri görüldü; bu country-transfer kareleri görülmedi"
+
+unlabeled_real:
+  - slug: farmbot_soy
+    title: FarmBot Soy — 20 gün
+    receipt: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/farmbot_soy_accepted_seed43/unlabeled_gallery_evaluation.json
+    display_mode: three_class
+    target: "soya (Glycine max, crop_id=8)"
+    redistribution: CC-BY-4.0
+  - slug: naio_oz
+    title: Naïo Oz online video
+    receipt: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/naio_oz_accepted_seed43/unlabeled_gallery_evaluation.json
+    display_mode: vegetation_union_only
+    target: "karışık/bilinmiyor — crop/weed ayrımı yasaktır"
+    redistribution: local_only_no_redistribution
+  - slug: bonirob_unseen
+    title: BoniRob 11:36 unseen sekansı
+    receipt: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/sugarbeets2016_bonirob_unseen_accepted_model_v1/unseen_sequence_evaluation.json
+    display_mode: three_class
+    target: "şeker pancarı (Beta vulgaris, crop_id=0)"
+    redistribution: CC-BY-SA-4.0
+
+labeled_transfer:
+  - slug: sugarbeets_holdout
+    title: SugarBeets/BoniRob 10:37 — session ayrık transfer
+    source_index: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/sugarbeets2016_holdout/index.json
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+    target: "şeker pancarı (Beta vulgaris, crop_id=0)"
+    evidence_label: "ETİKETLİ TRANSFER • bu session eğitime girmedi"
+  - slug: riceseg_global
+    title: RiceSEG country-transfer — global fallback
+    source_index: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/riceseg_country_transfer/index.json
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/riceseg_country_transfer_v1.csv
+    target: "pirinç (Oryza sativa, crop_id=12); global yalnız sentetik rice gördü"
+    evidence_label: "ETİKETLİ TRANSFER • global fallback"
+  - slug: weedmap_uav
+    title: WeedMap — UAV ölçek transferi
+    source_index: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/weedmap_uav/index.json
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap_calibration_v1.csv
+    target: "şeker pancarı (Beta vulgaris, crop_id=0); WeedMap eğitime girmedi"
+    evidence_label: "ETİKETLİ TRANSFER • yeni dataset ve UAV ölçeği"
+
+synthetic_stress:
+  - slug: v11_val
+    title: CropCraft V11 — asset/seed ayrık sentetik val
+    source_index: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/synthetic_v11_val/index.json
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_field_robustness_pilot_v11_r2q.csv
+    target: "sorgum (Sorghum bicolor, crop_id=4)"
+    evidence_label: "SENTETİK STRES • V11 asset/seed ayrık val • gerçek-saha kanıtı değildir"
+  - slug: v11_test
+    title: CropCraft V11 — asset/seed ayrık sentetik test
+    source_index: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/unseen_visual_gallery_v1/synthetic_v11_test/index.json
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_field_robustness_pilot_v11_r2q.csv
+    target: "sorgum (Sorghum bicolor, crop_id=4)"
+    evidence_label: "SENTETİK STRES • V11 asset/seed ayrık test • gerçek-saha kanıtı değildir"
+
+policy:
+  contact_sheet_items_per_page: 6
+  model_selection_score_weight: 0.0
+  presentation_only_for_existing_galleries: true
+  no_external_threshold_tuning: true
+  package_redistribution: false

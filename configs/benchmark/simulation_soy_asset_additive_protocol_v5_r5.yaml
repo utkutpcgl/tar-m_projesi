@@ -1,0 +1,189 @@
+schema_version: 1
+scope: research_replay_preserving_soy_synthetic_additive_gate
+frozen_before_additive_training: true
+frozen_at: "2026-08-03T04:22:58+03:00"
+
+original_control: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+matched_compute_control: simab_v3_05_paddy05_compute3690_e8_v5
+additive_candidate: simab_v3_05_paddy05_soyadd90_3690_e8_v5
+screen_seed: 17
+confirmation_seeds: [17, 29, 43]
+fixed_epoch: 8
+checkpoint: last.pt
+source_tree_sha256: fda1a1c4b715601b6d66bfdaa28637db43154ccf2f01cc2f63669119dc3142eb
+challenger_manifest_samples: 6003
+soy_synthetic_dataset_id: cropcraft_soy_pilot_v5_r5
+synthetic_dataset_ids:
+  - cropcraft_agri_robust_pilot_v3
+  - cropcraft_paddy_pilot_v4_r5
+  - cropcraft_soy_pilot_v5_r5
+
+hypothesis:
+  observation: >-
+    Replacement-screen soybean candidates improved GrowingSoy by 0.087948 to
+    0.107940 mIoU but lost CWFID by 0.108078 to 0.115345 and Rice by 0.024580
+    to 0.037405 because accepted dryland/paddy replay was displaced.
+  isolated_change: append_90_soy_synthetic_draws_per_epoch
+  rationale: >-
+    Preserve every accepted 3,600-example source's absolute expected draw
+    count, append 90 soy draws, and compare with a 3,690-example compute
+    control so extra optimizer work cannot be credited to the asset.
+
+candidate_samples_per_epoch:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8: 3600
+  simab_v3_05_paddy05_compute3690_e8_v5: 3690
+  simab_v3_05_paddy05_soyadd90_3690_e8_v5: 3690
+
+candidate_training_manifests:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  simab_v3_05_paddy05_compute3690_e8_v5:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  simab_v3_05_paddy05_soyadd90_3690_e8_v5:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_soy_trainval_v5_r5.csv
+    sha256: f6a84f5b3f98fdc424d6c855818fb11f85e4571d4c6300fd78ce69ac28995928
+
+candidate_dataset_weights:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8:
+    phenobench: 0.162
+    acre: 0.162
+    weedsgalore: 0.045
+    we3ds: 0.243
+    rose: 0.198
+    sorghum_weed: 0.090
+    cropcraft_agri_robust_pilot_v3: 0.050
+    cropcraft_paddy_pilot_v4_r5: 0.050
+  simab_v3_05_paddy05_compute3690_e8_v5:
+    phenobench: 0.162
+    acre: 0.162
+    weedsgalore: 0.045
+    we3ds: 0.243
+    rose: 0.198
+    sorghum_weed: 0.090
+    cropcraft_agri_robust_pilot_v3: 0.050
+    cropcraft_paddy_pilot_v4_r5: 0.050
+  simab_v3_05_paddy05_soyadd90_3690_e8_v5:
+    phenobench: 0.158048780487805
+    acre: 0.158048780487805
+    weedsgalore: 0.043902439024390
+    we3ds: 0.237073170731707
+    rose: 0.193170731707317
+    sorghum_weed: 0.087804878048780
+    cropcraft_agri_robust_pilot_v3: 0.048780487804878
+    cropcraft_paddy_pilot_v4_r5: 0.048780487804878
+    cropcraft_soy_pilot_v5_r5: 0.024390243902439
+
+expected_draws_per_epoch:
+  simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8:
+    phenobench: 583.2
+    acre: 583.2
+    weedsgalore: 162.0
+    we3ds: 874.8
+    rose: 712.8
+    sorghum_weed: 324.0
+    cropcraft_agri_robust_pilot_v3: 180.0
+    cropcraft_paddy_pilot_v4_r5: 180.0
+  simab_v3_05_paddy05_compute3690_e8_v5:
+    phenobench: 597.78
+    acre: 597.78
+    weedsgalore: 166.05
+    we3ds: 896.67
+    rose: 730.62
+    sorghum_weed: 332.10
+    cropcraft_agri_robust_pilot_v3: 184.50
+    cropcraft_paddy_pilot_v4_r5: 184.50
+  simab_v3_05_paddy05_soyadd90_3690_e8_v5:
+    phenobench: 583.2
+    acre: 583.2
+    weedsgalore: 162.0
+    we3ds: 874.8
+    rose: 712.8
+    sorghum_weed: 324.0
+    cropcraft_agri_robust_pilot_v3: 180.0
+    cropcraft_paddy_pilot_v4_r5: 180.0
+    cropcraft_soy_pilot_v5_r5: 90.0
+
+screen_acceptance_against_original:
+  robust_delta_must_be_at_least: 0.0
+  growingsoy_delta_must_be_at_least: 0.01
+  macro_delta_must_be_at_least: 0.0
+  maximum_each_existing_domain_regression: 0.01
+screen_acceptance_against_matched_compute:
+  robust_delta_must_be_at_least: 0.0
+  growingsoy_delta_must_be_at_least: 0.01
+  macro_delta_must_be_at_least: 0.0
+  maximum_each_existing_domain_regression: 0.01
+
+confirmation_acceptance_against_original:
+  robust_delta_must_be_at_least: 0.0
+  growingsoy_delta_must_be_at_least: 0.01
+  macro_delta_must_be_at_least: 0.0
+  maximum_each_existing_domain_regression: 0.01
+confirmation_acceptance_against_matched_compute:
+  robust_delta_must_be_at_least: 0.0
+  growingsoy_delta_must_be_at_least: 0.01
+  macro_delta_must_be_at_least: 0.0
+  maximum_each_existing_domain_regression: 0.01
+confirmation_minimum_robust_wins_out_of_3: 2
+
+forbidden_inputs:
+  - growingsoy_real_images_or_masks_in_training_or_rendering
+  - rice_seedling_weed_real_images_or_masks_in_training
+  - external_test_split_for_selection
+  - best_checkpoint_selection
+  - reducing_any_accepted_source_expected_draw_count
+  - claiming_extra_compute_as_asset_gain
+
+locked_inputs:
+  replacement_protocol:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/simulation_soy_asset_selection_protocol_v5_r5.yaml
+    sha256: fc6852dbaf9371f91b3a816c555b7020d549ceee8074d1b677aa82e4afa19334
+  replacement_screen_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_soy_asset_screen_selection_v5_r5.json
+    sha256: 3dcd39b31233e9eee7826be2bfa674d2ef2fcfde03a8107617f7f608612ba376
+  screen_matrix:
+    path: /home/ankaref/utku/tarım_projesi/configs/benchmark/simulation_soy_asset_additive_screen_v5_r5.yaml
+    sha256: ab6398f8bef8bfa80d10358b15fc6dc9ef8d2b227889bdf4c091dd5bca3bc2da
+  selector_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/select_soy_synthetic_additive.py
+    sha256: 229b84c7ba8d56864c13637fc582c3b1890d3985975b09e7e80136e5ee02bdc5
+  evaluator_script:
+    path: /home/ankaref/utku/tarım_projesi/scripts/evaluate_growingsoy_fixed_epoch_development.py
+    sha256: 5c0e93fdf0db596b903c171ff55cd22b2f47056b029daa6c5ea1170a0ad80d3c
+  base_train_config:
+    path: /home/ankaref/utku/tarım_projesi/configs/train/base_real_sorghum_ablation_v1.yaml
+    sha256: d2f8450bc8106d09798d873aee8add6f25640ceb303bfd9f25d2435edd1abafc
+  asset_static_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_soy_asset_quality_v5_r3.json
+    sha256: 21fc3174b39fb9f451bbffb0aa730ba22c0f23014e32ea14becf75aea36d1f88
+  pilot_release_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/soy_pilot_v5_r5/release_receipt.json
+    sha256: d8174750bc3d4d20559c06b22d1bf94dc00d0cf506acb753fbe7c439acc8ad95
+  pilot_visual_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/soy_pilot_v5_r5/visual_review_receipt.json
+    sha256: 85aa6c8d0bd3d3ecfc101337299fad558f43db9ffdf902a3876fd34283938b99
+  soy_real_duplicate_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_soy_vs_all_real_duplicates_v5_r5.json
+    sha256: 05456a27ddf504933a11e30b214b9fbaef0e6e127148cc540d46c4c17f500475
+  soy_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_soy_pilot_manifest_v5_r5.json
+    sha256: 3df924b8db85ea40b64636e8710a8aacc354b1ae9992adc9a9e4ee6eab5bda3e
+  challenger_manifest_audit:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/real_sorghum_cropcraft_robust_v3_paddy_soy_trainval_v5_r5.json
+    sha256: 050aace6018218bdd4f5315b5a715e18e643fc04cb8ae350b3cf621b7c2ec114
+  control_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    sha256: 49747a1a614138dfe36faa105793ccbcca81d753b28702ffa07599fa78d10df2
+  additive_training_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_soy_trainval_v5_r5.csv
+    sha256: f6a84f5b3f98fdc424d6c855818fb11f85e4571d4c6300fd78ce69ac28995928
+  control_seed17_development_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/growingsoy_development_fixed_epoch8_seeds_17.json
+    sha256: c09733c6ca74ceed05fa43d91c884ffcf6ca0cac5b2a61f5b95cd944de8490a2
+
+fallback_if_gate_fails: retain_original_control
+external_test_used_for_selection: false
+safety_policy_used_for_selection: false
+spray_deployment_eligible_from_this_protocol: false

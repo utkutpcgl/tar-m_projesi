@@ -1,0 +1,37 @@
+schema_version: 1
+scope: pre_model_quality_gate_repair_within_single_v11_hypothesis
+frozen_at: '2026-08-04T12:39:00+03:00'
+frozen_before_v11_r2_generation: true
+rejected_r1:
+  role_receipt: data/synthetic/cropcraft/field_robustness_pilot_v11_r1/roles/train/release_receipt.json
+  role_receipt_sha256: dc0e05e7875c38d725fc35738381b0d04c1336d98662688292f824650d5ad8cc
+  model_training_or_evaluation_performed: false
+  observed:
+    mean_crop_fraction: 0.007547903060913086
+    frozen_minimum_mean_crop_fraction: 0.008
+    artificial_light_warmth_span: 0.61565
+    frozen_minimum_artificial_light_warmth_span: 0.70
+  rejection_preserved: true
+r2:
+  generation_config: configs/simulation/cropcraft_field_robustness_pilot_v11_r2.yaml
+  changes:
+    camera_height_crop_ratio: [3.8, 7.5]
+    within_row_spacing_m: [0.16, 0.36]
+    profile_parameter_sampling: deterministic_parameter_specific_stratified_endpoints
+    seeds:
+      train: 330000
+      val: 430000
+      test: 530000
+  unchanged:
+    crop_fraction_gate: 0.008
+    artificial_light_warmth_span_gate: 0.70
+    asset_pack: cropcraft_field_robustness_v10_r1
+    weather_light_profile_ranges: true
+    train_val_test_asset_disjointness: true
+    synthetic_weight_in_real_score: 0.0
+    downstream_model_mix_hypothesis: true
+iteration_control:
+  repair_is_before_any_v11_model_result: true
+  repair_does_not_count_as_a_second_model_informed_recipe: true
+  further_quality_gate_failure_stops_v11_generation: true
+  no_post_v11_model_tuning: true

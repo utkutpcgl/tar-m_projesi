@@ -1,0 +1,103 @@
+base_config: ../train/base_real.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/safety_ablation_research_max
+data_license_scope: research_only_includes_cc_by_nc_sa
+seeds: [17]
+reuse_completed: false
+
+training:
+  epochs: 10
+  validate_every: 5
+  samples_per_epoch: 2000
+  warmup_steps: 125
+  weed_thresholds: [0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.97, 0.98, 0.99, 0.995]
+
+development_evaluations:
+  - name: cwfid
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+    split: external_calibration
+    batch_size: 1
+    workers: 4
+
+candidates:
+  - name: safety_convnext_flat_frozen_cvar2
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: convnext_tiny_fpn
+      trainable: frozen
+      head: flat
+    loss:
+      crop_safety_weight: 2.0
+      crop_safety_tail_fraction: 0.05
+
+  - name: safety_convnext_factorized_frozen_cvar2
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: convnext_tiny_fpn
+      trainable: frozen
+      head: factorized
+      conditioning_dropout: 0.50
+    loss:
+      crop_safety_weight: 2.0
+      crop_safety_tail_fraction: 0.05
+
+  - name: safety_convnext_factorized_stage4_cvar2
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: convnext_tiny_fpn
+      trainable: stage4
+      head: factorized
+      conditioning_dropout: 0.50
+    training:
+      learning_rate: 0.0002
+      backbone_lr_multiplier: 0.1
+      batch_size: 6
+      gradient_accumulation: 2
+    loss:
+      crop_safety_weight: 2.0
+      crop_safety_tail_fraction: 0.05
+
+  - name: safety_convnext_factorized_stage4_cvar4
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: convnext_tiny_fpn
+      trainable: stage4
+      head: factorized
+      conditioning_dropout: 0.50
+    training:
+      learning_rate: 0.0002
+      backbone_lr_multiplier: 0.1
+      batch_size: 6
+      gradient_accumulation: 2
+    loss:
+      crop_safety_weight: 4.0
+      crop_safety_tail_fraction: 0.05
+
+  - name: safety_segformer_b2_cvar2
+    weight_license_status: noncommercial_nvidia_source_code_license
+    model:
+      architecture: segformer_b2
+      trainable: all
+      head: flat
+    training:
+      learning_rate: 0.00006
+      batch_size: 4
+      gradient_accumulation: 4
+    loss:
+      crop_safety_weight: 2.0
+      crop_safety_tail_fraction: 0.05
+
+  - name: safety_dinov2_factorized_frozen_cvar4
+    weight_license_status: apache_2_0_model_card
+    model:
+      architecture: dinov2_small_fpn
+      trainable: frozen
+      head: factorized
+      conditioning_dropout: 0.50
+    training:
+      learning_rate: 0.0003
+      batch_size: 4
+      gradient_accumulation: 4
+    loss:
+      crop_safety_weight: 4.0
+      crop_safety_tail_fraction: 0.05

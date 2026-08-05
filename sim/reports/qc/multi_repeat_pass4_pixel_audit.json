@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "pass": "4/6",
+  "created_local_date": "2026-07-30",
+  "purpose": "Descriptive actual-pixel audit of the pass-4 bounded concrete-surface and Unreal RFID-contact changes. This is not a perceptual-quality score, an engine ranking, or a model-benefit measurement.",
+  "method": {
+    "reference_scope": "Fresh, time-diverse LED RGB and IR/non-LED grayscale frames were opened at actual pixels. IR was used only for stable form, topology and edge evidence, never for color, exposure or roughness fitting.",
+    "roi_selection": "Manual interior surface ROIs were selected after opening the full-resolution images. The real and synthetic views are not geometrically registered and use different cameras, resolution, exposure, sharpening and compression.",
+    "luminance": "Pillow 8-bit grayscale conversion (approximately BT.601 display-referred luma).",
+    "gradient": "Mean absolute one-pixel horizontal and vertical grayscale difference. The edge fraction counts differences of at least 11/255, approximately 0.04.",
+    "highpass": "Mean absolute difference from a 2 px Gaussian-blurred grayscale crop.",
+    "controlled_comparison": "Blender p3/p4 uses camera_door seed 54244 and the same ROI. Unreal r13/r15 uses camera_door seed 58526 and the same ROI. The pass-4 surface/contact implementation is the intended source change; sensor/post-process settings remain fixed within each pair.",
+    "interpretation_limit": "Sensor noise and sharpening inflate gradients, especially in Unreal's post-sensor image. Values expose missing or excessive spatial detail; they do not establish photorealism, engine superiority or YOLO accuracy."
+  },
+  "observations": [
+    "The fresh real cylinder contains dense, irregular dark casting pores and a broad size tail; the real cube contains mold skin, cracks and damaged edges. Clean, pitted, edge-worn and spalled regimes are therefore categorical bounded augmentation, not measured prevalence.",
+    "The real cylinder ROI has mean gradient 0.01249, edge fraction 0.05528 and 2 px high-pass 0.01484. Unreal r15's representative cylinder ROI remains lower at 0.00750, 0.00465 and 0.00595 despite post-sensor noise. The geometry proxy does not close the real pore/aggregate gap.",
+    "The real cube ROI has edge fraction 0.02820 and 2 px high-pass 0.00776; Blender p4's controlled cube ROI remains 0.00055 and 0.00352. Blender's shader is coherent but still lacks the real sparse high-contrast pore, chip and crack tail.",
+    "Blender p3 to p4 changes are modest but widespread: mean absolute RGB difference 0.00995 and high-pass 0.00318 to 0.00352. This is a safe bounded texture increase, not a scan-quality match.",
+    "Unreal r13 to r15 changes affect only localized pore geometry: 0.849% of RGB channels changed by more than two levels. Replacing protruding spheres with thin tangent dark discs removed the bead-like cue in inspected pixels; the remaining circular proxy is not a true cavity.",
+    "The combined actual-pixel sheet makes the residual domain gap explicit: Unreal still has low-frequency cloudy concrete, coarse cabinet/press geometry and harsh global lighting; Blender remains too smooth and clean at concrete edges."
+  ],
+  "samples": [
+    {
+      "id": "real_led_cam10_cylinder",
+      "disposition": "reference",
+      "image": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_9_dataset_2026_01_22_15_01_12_yolo_1.1__İVEDİK_2026-01-21_cam-10_batch-1_frame-00000.png",
+      "sha256": "256c95ec31e1cb2c43f6c9c8245a317c55d41b97586cc641e594676f91f997fa",
+      "image_size_px": [
+        1920,
+        1080
+      ],
+      "manual_surface_roi_xyxy": [
+        760,
+        280,
+        1140,
+        950
+      ],
+      "roi_pixels": 254600,
+      "luminance_mean": 0.63477,
+      "luminance_std": 0.16128,
+      "luminance_p05": 0.39608,
+      "luminance_p95": 0.98039,
+      "mean_abs_luminance_gradient": 0.01249,
+      "edge_fraction_gradient_gte_approx_0_04": 0.05528,
+      "mean_abs_highpass_radius_2px": 0.01484
+    },
+    {
+      "id": "real_led_cam11_cube",
+      "disposition": "reference",
+      "image": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli/LED_RFIDTAG_230126/images/train/task_11_dataset_2026_01_23_07_32_53_yolo_1.1__İVEDİK_2026-01-21_cam-11_batch-6_frame-00000.png",
+      "sha256": "b0cc532ce3a51f2553fa45d47b93c5718d86659fcb9d1218360e0b33bed5a37d",
+      "image_size_px": [
+        1920,
+        1080
+      ],
+      "manual_surface_roi_xyxy": [
+        510,
+        390,
+        1030,
+        850
+      ],
+      "roi_pixels": 239200,
+      "luminance_mean": 0.51799,
+      "luminance_std": 0.08201,
+      "luminance_p05": 0.40784,
+      "luminance_p95": 0.6549,
+      "mean_abs_luminance_gradient": 0.00525,
+      "edge_fraction_gradient_gte_approx_0_04": 0.0282,
+      "mean_abs_highpass_radius_2px": 0.00776
+    },
+    {
+      "id": "blender_p3_seed54244_cube",
+      "disposition": "baseline",
+      "image": "ebis-blender/output/realism_v5_4_platen_p3_54240/partitions/standard/images/ebis_camera_door_054244.png",
+      "sha256": "1cccc8f9c153feae5b5ab16d85ba9e4590d35531f71ecbd4b0ef61238688391a",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_surface_roi_xyxy": [
+        660,
+        250,
+        850,
+        600
+      ],
+      "roi_pixels": 66500,
+      "luminance_mean": 0.69713,
+      "luminance_std": 0.04537,
+      "luminance_p05": 0.62353,
+      "luminance_p95": 0.76078,
+      "mean_abs_luminance_gradient": 0.00401,
+      "edge_fraction_gradient_gte_approx_0_04": 0.00057,
+      "mean_abs_highpass_radius_2px": 0.00318
+    },
+    {
+      "id": "blender_p4_seed54244_cube",
+      "disposition": "release",
+      "image": "ebis-blender/output/realism_v5_5_concrete_p4_54240/partitions/standard/images/ebis_camera_door_054244.png",
+      "sha256": "0d88c49a0e28be575d36b02b1e2c64675b9347591997f6d5d6a572c0f3c81273",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_surface_roi_xyxy": [
+        660,
+        250,
+        850,
+        600
+      ],
+      "roi_pixels": 66500,
+      "luminance_mean": 0.68791,
+      "luminance_std": 0.04538,
+      "luminance_p05": 0.61569,
+      "luminance_p95": 0.74902,
+      "mean_abs_luminance_gradient": 0.00432,
+      "edge_fraction_gradient_gte_approx_0_04": 0.00055,
+      "mean_abs_highpass_radius_2px": 0.00352
+    },
+    {
+      "id": "unreal_r13_seed58526_cylinder",
+      "disposition": "baseline",
+      "image": "unreal-ebis/output/realism_r13_concrete_tag_p4_58520/raw/images/ebis_camera_door_058526.png",
+      "sha256": "81ccf74415363e807634dbb6b09c4f43e11ee8d7e9f3e72f5bac2bb963f484bf",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_surface_roi_xyxy": [
+        560,
+        220,
+        780,
+        680
+      ],
+      "roi_pixels": 101200,
+      "luminance_mean": 0.67025,
+      "luminance_std": 0.13023,
+      "luminance_p05": 0.40784,
+      "luminance_p95": 0.82745,
+      "mean_abs_luminance_gradient": 0.00751,
+      "edge_fraction_gradient_gte_approx_0_04": 0.00571,
+      "mean_abs_highpass_radius_2px": 0.00562
+    },
+    {
+      "id": "unreal_r15_seed58526_cylinder",
+      "disposition": "release",
+      "image": "unreal-ebis/output/realism_r15_concrete_tag_p4_58520/raw/images/ebis_camera_door_058526.png",
+      "sha256": "94a49b24d3b4cde62691517d477321f24abd2acc435e0ee688114e4883f66b60",
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "manual_surface_roi_xyxy": [
+        560,
+        220,
+        780,
+        680
+      ],
+      "roi_pixels": 101200,
+      "luminance_mean": 0.6693,
+      "luminance_std": 0.13127,
+      "luminance_p05": 0.40784,
+      "luminance_p95": 0.82745,
+      "mean_abs_luminance_gradient": 0.0075,
+      "edge_fraction_gradient_gte_approx_0_04": 0.00465,
+      "mean_abs_highpass_radius_2px": 0.00595
+    }
+  ],
+  "controlled_same_seed_differences": [
+    {
+      "engine": "Blender",
+      "before": "blender_p3_seed54244_cube",
+      "after": "blender_p4_seed54244_cube",
+      "mean_absolute_rgb_difference": 0.00995,
+      "p95_absolute_rgb_difference": 0.01961,
+      "changed_channel_fraction_gt_2_levels": 0.46942
+    },
+    {
+      "engine": "Unreal",
+      "before": "unreal_r13_seed58526_cylinder",
+      "after": "unreal_r15_seed58526_cylinder",
+      "mean_absolute_rgb_difference": 0.00135,
+      "p95_absolute_rgb_difference": 0.0,
+      "changed_channel_fraction_gt_2_levels": 0.00849
+    }
+  ],
+  "evidence_sheets": [
+    {
+      "path": "reports/qc/multi_repeat_pass4_led_fresh.png",
+      "sha256": "7983fb1765b064e56cf24f005ee33e26366fcc9ad4ee7bffeca909b4f7650252"
+    },
+    {
+      "path": "reports/qc/multi_repeat_pass4_ir_fresh.png",
+      "sha256": "2598dbf3cc4b94b4992617682da59e97ccccf9e81178fb1eb4d8de714d7efe59"
+    },
+    {
+      "path": "reports/qc/multi_repeat_pass4_reference_blender_unreal.png",
+      "sha256": "a5139af8ab9e50e9d9a47b04b2a1285aa2f7f63cf5f92feb9d9f8b8729c7d291"
+    }
+  ]
+}

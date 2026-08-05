@@ -1,0 +1,336 @@
+schema_version: 1
+base_study: configs/simulation/cropcraft_field_robustness_pilot_v10_r1.yaml
+release: cropcraft_field_robustness_pilot_v11_r1
+purpose: >-
+  single bounded follow-up to V10: retain its asset-disjoint soil/tillage
+  coverage while restoring V3-like plant visibility and replacing independent
+  illumination extremes with balanced correlated weather/light profiles
+frames_per_scene: 2
+
+# The V10 model screen showed that simultaneously widening camera, crop
+# missingness, lighting and surface ranges weakened close-view field units.
+# V11 restores the accepted V3 composition prior. Surface diversity remains
+# broad, but physically related light variables are sampled together below.
+shared_ranges:
+  camera_height_m: [0.36, 1.15]
+  camera_height_crop_ratio: [4.0, 8.0]
+  camera_fov_deg: [46.0, 72.0]
+  camera_roll_deg: [-4.0, 4.0]
+  camera_pitch_deg: [-4.0, 4.0]
+  camera_yaw_deg: [-8.0, 8.0]
+  camera_y_jitter_m: [0.01, 0.12]
+  crop_asset_heights_m: [0.06, 0.09, 0.13, 0.18, 0.24]
+  crop_height_scale: [0.94, 1.06]
+  crop_height_tolerance: [0.08, 0.18]
+  within_row_spacing_m: [0.18, 0.42]
+  between_row_spacing_m: [0.55, 0.90]
+  position_noise_m: [0.005, 0.035]
+  tilt_noise_rad: [0.01, 0.12]
+  scale_noise: [0.03, 0.18]
+  missing_crop_probability: [0.0, 0.0]
+  cotyledon_density: [18.0, 45.0]
+  broadleaf_density: [9.0, 25.0]
+  grass_density: [9.0, 25.0]
+  rosette_density: [6.0, 20.0]
+  stone_density: [8.0, 55.0]
+
+splits:
+  train:
+    scenes: 40
+    base_seed: 320000
+    ranges:
+      environment_strength: [0.25, 1.05]
+      soil_moisture: [0.0, 0.85]
+      tillage_mode: [0.0, 3.0]
+      tillage_strength: [0.0, 0.58]
+      tillage_scale: [3.0, 24.0]
+      tillage_angle_deg: [0.0, 180.0]
+      clod_strength: [0.0, 0.34]
+      clod_scale: [9.0, 60.0]
+      sun_energy: [0.0, 1.25]
+      sun_elevation_deg: [8.0, 78.0]
+      sun_azimuth_deg: [0.0, 360.0]
+      sun_angle_deg: [0.2, 12.0]
+      local_shadow_fraction: [0.0, 0.48]
+      shadow_seed: [320000.0, 329999.0]
+      artificial_light_energy: [0.0, 155.0]
+      artificial_light_size_m: [0.12, 0.90]
+      artificial_light_warmth: [0.05, 0.95]
+    correlated_scene_profiles:
+      - name: clear_day
+        environment_files:
+          - farm_field_puresky_2k.hdr
+          - citrus_orchard_puresky_2k.hdr
+          - harvest_2k.hdr
+        surface_parameter_ranges:
+          environment_strength: [0.55, 0.90]
+          soil_moisture: [0.00, 0.40]
+          sun_energy: [0.75, 1.25]
+          sun_elevation_deg: [35.0, 78.0]
+          sun_angle_deg: [0.2, 2.0]
+          local_shadow_fraction: [0.05, 0.38]
+          artificial_light_energy: [0.0, 20.0]
+          artificial_light_size_m: [0.20, 0.80]
+          artificial_light_warmth: [0.35, 0.65]
+      - name: overcast_moist
+        environment_files:
+          - overcast_soil_puresky_2k.hdr
+          - cloudy_vondelpark_2k.hdr
+          - farmland_overcast_2k.hdr
+          - pond_2k.hdr
+        surface_parameter_ranges:
+          environment_strength: [0.70, 1.05]
+          soil_moisture: [0.30, 0.85]
+          sun_energy: [0.0, 0.18]
+          sun_elevation_deg: [15.0, 65.0]
+          sun_angle_deg: [6.0, 12.0]
+          local_shadow_fraction: [0.0, 0.12]
+          artificial_light_energy: [0.0, 12.0]
+          artificial_light_size_m: [0.35, 0.90]
+          artificial_light_warmth: [0.35, 0.65]
+      - name: low_sun
+        environment_files:
+          - mealie_road_2k.hdr
+          - kloppenheim_01_puresky_2k.hdr
+          - mud_road_puresky_2k.hdr
+        surface_parameter_ranges:
+          environment_strength: [0.40, 0.75]
+          soil_moisture: [0.05, 0.55]
+          sun_energy: [0.45, 1.00]
+          sun_elevation_deg: [8.0, 25.0]
+          sun_angle_deg: [1.0, 5.0]
+          local_shadow_fraction: [0.15, 0.48]
+          artificial_light_energy: [0.0, 25.0]
+          artificial_light_size_m: [0.18, 0.80]
+          artificial_light_warmth: [0.25, 0.75]
+      - name: robot_light_low_ambient
+        environment_files:
+          - pond_2k.hdr
+          - overcast_soil_puresky_2k.hdr
+          - cloudy_vondelpark_2k.hdr
+        surface_parameter_ranges:
+          environment_strength: [0.25, 0.55]
+          soil_moisture: [0.05, 0.75]
+          sun_energy: [0.0, 0.20]
+          sun_elevation_deg: [8.0, 50.0]
+          sun_angle_deg: [5.0, 12.0]
+          local_shadow_fraction: [0.05, 0.30]
+          artificial_light_energy: [75.0, 155.0]
+          artificial_light_size_m: [0.15, 0.75]
+          artificial_light_warmth: [0.05, 0.95]
+    quality_gates:
+      expected_pairs: 80
+      max_crop_free_frame_fraction: 0.0
+      max_weed_free_frame_fraction: 0.10
+      minimum_mean_crop_fraction: 0.008
+      maximum_mean_crop_fraction: 0.30
+      minimum_mean_weed_fraction: 0.012
+      maximum_mean_weed_fraction: 0.20
+      minimum_used_crop_model_variants: 30
+      minimum_used_ground_families: 10
+      minimum_used_environment_families: 10
+      minimum_used_surface_profiles: 1
+      minimum_surface_parameter_spans:
+        environment_strength: 0.65
+        soil_moisture: 0.65
+        tillage_mode: 2.40
+        tillage_strength: 0.45
+        sun_energy: 1.00
+        sun_elevation_deg: 55.0
+        local_shadow_fraction: 0.35
+        artificial_light_energy: 120.0
+        artificial_light_warmth: 0.70
+
+  val:
+    scenes: 8
+    base_seed: 420000
+    ranges:
+      environment_strength: [0.45, 1.0]
+      soil_moisture: [0.08, 0.78]
+      tillage_mode: [0.0, 3.0]
+      tillage_strength: [0.05, 0.46]
+      tillage_scale: [5.0, 18.0]
+      tillage_angle_deg: [0.0, 180.0]
+      clod_strength: [0.03, 0.28]
+      clod_scale: [12.0, 48.0]
+      sun_energy: [0.05, 1.10]
+      sun_elevation_deg: [12.0, 68.0]
+      sun_azimuth_deg: [0.0, 360.0]
+      sun_angle_deg: [0.5, 10.0]
+      local_shadow_fraction: [0.0, 0.36]
+      shadow_seed: [420000.0, 429999.0]
+      artificial_light_energy: [0.0, 120.0]
+      artificial_light_size_m: [0.15, 0.85]
+      artificial_light_warmth: [0.10, 0.85]
+    correlated_scene_profiles:
+      - name: clear_day
+        environment_files: [dry_hay_field_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.60, 0.85]
+          soil_moisture: [0.08, 0.35]
+          sun_energy: [0.75, 1.10]
+          sun_elevation_deg: [38.0, 68.0]
+          sun_angle_deg: [0.5, 2.0]
+          local_shadow_fraction: [0.08, 0.30]
+          artificial_light_energy: [0.0, 12.0]
+          artificial_light_size_m: [0.25, 0.70]
+          artificial_light_warmth: [0.35, 0.60]
+      - name: overcast_moist
+        environment_files: [approaching_storm_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.75, 1.0]
+          soil_moisture: [0.38, 0.78]
+          sun_energy: [0.05, 0.18]
+          sun_elevation_deg: [20.0, 58.0]
+          sun_angle_deg: [6.0, 10.0]
+          local_shadow_fraction: [0.0, 0.10]
+          artificial_light_energy: [0.0, 10.0]
+          artificial_light_size_m: [0.40, 0.85]
+          artificial_light_warmth: [0.35, 0.60]
+      - name: low_sun
+        environment_files: [dry_hay_field_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.45, 0.70]
+          soil_moisture: [0.12, 0.48]
+          sun_energy: [0.50, 0.90]
+          sun_elevation_deg: [12.0, 23.0]
+          sun_angle_deg: [1.2, 4.0]
+          local_shadow_fraction: [0.16, 0.36]
+          artificial_light_energy: [0.0, 18.0]
+          artificial_light_size_m: [0.22, 0.75]
+          artificial_light_warmth: [0.28, 0.70]
+      - name: robot_light_low_ambient
+        environment_files: [approaching_storm_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.30, 0.50]
+          soil_moisture: [0.15, 0.70]
+          sun_energy: [0.05, 0.16]
+          sun_elevation_deg: [15.0, 42.0]
+          sun_angle_deg: [6.0, 10.0]
+          local_shadow_fraction: [0.08, 0.26]
+          artificial_light_energy: [82.0, 120.0]
+          artificial_light_size_m: [0.20, 0.65]
+          artificial_light_warmth: [0.10, 0.85]
+    quality_gates:
+      expected_pairs: 16
+      max_crop_free_frame_fraction: 0.0
+      max_weed_free_frame_fraction: 0.25
+      minimum_mean_crop_fraction: 0.006
+      maximum_mean_crop_fraction: 0.30
+      minimum_mean_weed_fraction: 0.008
+      maximum_mean_weed_fraction: 0.20
+      minimum_used_crop_model_variants: 6
+      minimum_used_ground_families: 2
+      minimum_used_environment_families: 2
+      minimum_used_surface_profiles: 1
+      minimum_surface_parameter_spans:
+        environment_strength: 0.40
+        soil_moisture: 0.45
+        tillage_mode: 1.50
+        sun_energy: 0.75
+        sun_elevation_deg: 35.0
+        local_shadow_fraction: 0.20
+        artificial_light_energy: 75.0
+
+  test:
+    scenes: 8
+    base_seed: 520000
+    ranges:
+      environment_strength: [0.45, 1.0]
+      soil_moisture: [0.08, 0.78]
+      tillage_mode: [0.0, 3.0]
+      tillage_strength: [0.05, 0.46]
+      tillage_scale: [5.0, 18.0]
+      tillage_angle_deg: [0.0, 180.0]
+      clod_strength: [0.03, 0.28]
+      clod_scale: [12.0, 48.0]
+      sun_energy: [0.05, 1.10]
+      sun_elevation_deg: [10.0, 68.0]
+      sun_azimuth_deg: [0.0, 360.0]
+      sun_angle_deg: [0.5, 10.0]
+      local_shadow_fraction: [0.0, 0.36]
+      shadow_seed: [520000.0, 529999.0]
+      artificial_light_energy: [0.0, 120.0]
+      artificial_light_size_m: [0.15, 0.85]
+      artificial_light_warmth: [0.10, 0.85]
+    correlated_scene_profiles:
+      - name: clear_day
+        environment_files: [sunflowers_puresky_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.60, 0.85]
+          soil_moisture: [0.08, 0.35]
+          sun_energy: [0.75, 1.10]
+          sun_elevation_deg: [38.0, 68.0]
+          sun_angle_deg: [0.5, 2.0]
+          local_shadow_fraction: [0.08, 0.30]
+          artificial_light_energy: [0.0, 12.0]
+          artificial_light_size_m: [0.25, 0.70]
+          artificial_light_warmth: [0.35, 0.60]
+      - name: overcast_moist
+        environment_files: [rural_evening_road_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.75, 1.0]
+          soil_moisture: [0.38, 0.78]
+          sun_energy: [0.05, 0.18]
+          sun_elevation_deg: [20.0, 58.0]
+          sun_angle_deg: [6.0, 10.0]
+          local_shadow_fraction: [0.0, 0.10]
+          artificial_light_energy: [0.0, 10.0]
+          artificial_light_size_m: [0.40, 0.85]
+          artificial_light_warmth: [0.35, 0.60]
+      - name: low_sun
+        environment_files: [rural_evening_road_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.45, 0.70]
+          soil_moisture: [0.12, 0.48]
+          sun_energy: [0.50, 0.90]
+          sun_elevation_deg: [10.0, 22.0]
+          sun_angle_deg: [1.2, 4.0]
+          local_shadow_fraction: [0.16, 0.36]
+          artificial_light_energy: [0.0, 18.0]
+          artificial_light_size_m: [0.22, 0.75]
+          artificial_light_warmth: [0.28, 0.70]
+      - name: robot_light_low_ambient
+        environment_files: [rural_evening_road_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.30, 0.50]
+          soil_moisture: [0.15, 0.70]
+          sun_energy: [0.05, 0.16]
+          sun_elevation_deg: [14.0, 40.0]
+          sun_angle_deg: [6.0, 10.0]
+          local_shadow_fraction: [0.08, 0.26]
+          artificial_light_energy: [82.0, 120.0]
+          artificial_light_size_m: [0.20, 0.65]
+          artificial_light_warmth: [0.10, 0.85]
+    quality_gates:
+      expected_pairs: 16
+      max_crop_free_frame_fraction: 0.0
+      max_weed_free_frame_fraction: 0.25
+      minimum_mean_crop_fraction: 0.006
+      maximum_mean_crop_fraction: 0.30
+      minimum_mean_weed_fraction: 0.008
+      maximum_mean_weed_fraction: 0.20
+      minimum_used_crop_model_variants: 6
+      minimum_used_ground_families: 2
+      minimum_used_environment_families: 2
+      minimum_used_surface_profiles: 1
+      minimum_surface_parameter_spans:
+        environment_strength: 0.40
+        soil_moisture: 0.45
+        tillage_mode: 1.00
+        sun_energy: 0.75
+        sun_elevation_deg: 35.0
+        local_shadow_fraction: 0.20
+        artificial_light_energy: 75.0
+
+quality_contract:
+  train_distribution: >-
+    V3-anchored plant/camera composition plus broad soil/tillage and four
+    balanced correlated weather/light profiles
+  val_test_distribution: >-
+    the same plausible profile families with central ranges and asset-disjoint
+    soil/HDRI families
+  cross_role_asset_overlap_allowed: false
+  cross_role_seed_overlap_allowed: false
+  synthetic_roles_in_real_selection_score: false
+  one_followup_iteration_after_v10_failure: true

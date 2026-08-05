@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "domain": "ebis_press_v1",
+  "units": "meters",
+  "classes": [
+    {"id": 0, "name": "rfid_tag", "object_index": 1},
+    {"id": 1, "name": "concrete_sample", "object_index": 2}
+  ],
+  "evidence": {
+    "machine_reference": "ebis.odt",
+    "tag_reference": "ebis.odt",
+    "camera_reference_root": "260312_EBIS_RFID_DATASET/210126_EBIS_TAG/ledli",
+    "debris_reference_root": "kırım_makinesi_görselleri",
+    "camera_resolution_px": [1920, 1080],
+    "camera_intrinsics_status": "estimated_from_reference_images; calibration not supplied"
+  },
+  "machine": {
+    "chamber_width_m": 0.62,
+    "chamber_depth_m": 0.56,
+    "chamber_height_m": 0.76,
+    "blue_paint_rgb": [0.018, 0.255, 0.43],
+    "grey_paint_rgb": [0.32, 0.36, 0.39]
+  },
+  "sample": {
+    "shape": "cube",
+    "size_m": [0.15, 0.15, 0.15],
+    "size_status": "POC assumption; 150 mm cube is not a supplied CAD measurement",
+    "position_jitter_m": [0.018, 0.012],
+    "yaw_jitter_deg": 7.0,
+    "moisture_range": [0.02, 0.38],
+    "damage_range": [0.18, 0.62]
+  },
+  "rfid_tag": {
+    "size_m": [0.06, 0.01, 0.00012],
+    "size_status": "reference-backed approximate measurement",
+    "edge_shape": "sharp",
+    "surface_shape": "flat",
+    "front_srgb": "#9C4700",
+    "back_srgb": "#5E2500",
+    "center_dome_diameter_m": 0.0045,
+    "state_weights": {
+      "sample_front": 0.62,
+      "sample_side": 0.16,
+      "loose_front": 0.12,
+      "loose_back": 0.07,
+      "missing": 0.03
+    },
+    "in_plane_rotation_deg": [-32.0, 32.0]
+  },
+  "cameras": {
+    "camera_door": {
+      "source_overlay": "Kamera 02 / cam-11",
+      "location_m": [0.175, -0.13, 0.36],
+      "target_m": [0.0, 0.055, 0.335],
+      "lens_mm": 2.8,
+      "sensor_width_mm": 5.37,
+      "fov_status": "estimated Hikvision wide-angle profile"
+    },
+    "camera_angled": {
+      "source_overlay": "Kamera 01 / cam-10",
+      "location_m": [-0.175, -0.13, 0.36],
+      "target_m": [0.0, 0.055, 0.335],
+      "lens_mm": 2.8,
+      "sensor_width_mm": 5.37,
+      "fov_status": "estimated Hikvision wide-angle profile"
+    }
+  },
+  "camera_effects": {
+    "compositor_lens_distortion": -0.105,
+    "chromatic_dispersion": 0.0,
+    "status": "visually estimated from the supplied EBIS frames; not a calibrated intrinsics model",
+    "alignment": "RGB and semantic masks share the warp; raw metric depth is unwarped and an additional aligned depth is an explicitly approximate bilinear resample"
+  },
+  "lighting_profiles": {
+    "led_neutral": {"weight": 0.42, "temperature_k": 5000, "energy_scale": [0.86, 1.12], "door_fill": 0.12},
+    "led_cool": {"weight": 0.28, "temperature_k": 6400, "energy_scale": [0.78, 1.08], "door_fill": 0.08},
+    "door_daylight": {"weight": 0.2, "temperature_k": 5600, "energy_scale": [0.92, 1.2], "door_fill": 0.55},
+    "warm_dirty": {"weight": 0.1, "temperature_k": 4100, "energy_scale": [0.72, 0.98], "door_fill": 0.18}
+  },
+  "render": {
+    "engine": "CYCLES",
+    "device_preference": ["OPTIX", "CUDA", "CPU"],
+    "resolution_px": [1280, 720],
+    "resolution_percentage": 100,
+    "samples": 128,
+    "preview_samples": 64,
+    "hero_samples": 256,
+    "transparent": false,
+    "denoise": true,
+    "max_bounces": 7,
+    "color_management": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "output_format": "PNG",
+    "output_color_depth": "8"
+  },
+  "outputs": {
+    "rgb": true,
+    "semantic_masks": true,
+    "depth_exr": true,
+    "yolo_bbox": true,
+    "metadata": true,
+    "min_visible_pixels": {
+      "rfid_tag": 80,
+      "concrete_sample": 300
+    },
+    "min_visible_size_px": {
+      "rfid_tag": [8, 3],
+      "concrete_sample": [24, 24]
+    }
+  },
+  "pilot": {
+    "start_seed": 43102,
+    "preview_count": 24,
+    "hero_seeds": [43102, 43119],
+    "production_gate_count": 500
+  }
+}

@@ -1,0 +1,98 @@
+schema_version: 1
+release: cropcraft_soy_stress_pilot_v6_r4
+purpose: sparse_mid_growth_high_weed_counterbalance_for_robust_soy_synthetic_mix
+parent_gate: configs/simulation/cropcraft_soy_stress_gate_v6.yaml
+replaces_failed_study: configs/simulation/cropcraft_soy_stress_pilot_v6_r3.yaml
+failure_fix: remove_crop_invisible_stage_extremes_and_raise_visible_weed_coverage
+base_config: configs/simulation/cropcraft_soy_base_v5_r2.yaml
+scene_patch: patches/cropcraft/0005-alpha-preserving-label-materials.patch
+asset_pack: data/raw/synthetic_assets/cropcraft_soy_robust_v5_r3
+asset_pack_id: cropcraft_soy_robust_v5_r3
+crop_bed_name: soybean_rows
+crop_plant_type: soybean_early_v5
+cycle_crop_asset_heights: true
+base_seed: 296400
+scene_count: 25
+frames_per_scene: 4
+train_scenes: 20
+validation_scenes: 5
+
+stage_distribution_rationale: >-
+  The accepted V5 pilot retains all five soybean stages. This complementary
+  stress release concentrates on sparse middle-growth canopies, where R3
+  showed measurable crop pixels and the strongest weed coverage. The five-item
+  cycle yields 5 stage-2, 15 stage-3, and 5 stage-4 scenes without selecting
+  frames after rendering.
+
+manifest_metadata:
+  target_crop_id: 8
+  crop_species: Glycine max
+  weed_species_optional: Amaranthus viridis;Cynodon dactylon
+  growth_stage_prefix: procedural_sparse_mid_growth_high_weed_stress_v6_r4
+  platform: blender_4_5_cycles_cropcraft_soy_v5_r3_alpha_labels_v1
+  sensor: synthetic_pinhole_rgb_stage_scaled_0.70_to_2.24m
+  annotation_exhaustive: true
+  license_status: generated-geometry-and-textures-CC0-1.0;Poly-Haven-inputs-CC0-1.0
+  commercial_allowed: true
+
+asset_profile:
+  ground_material_ids: [dry_mud_field_001, brown_mud, cracked_red_ground]
+  environment_files:
+    - farm_field_puresky_2k.hdr
+    - overcast_soil_puresky_2k.hdr
+    - citrus_orchard_puresky_2k.hdr
+
+weed_density_ranges:
+  amaranthus: amaranthus_density
+  cynodon: cynodon_density
+weed_max_height_crop_ratios:
+  amaranthus: amaranthus_height_crop_ratio
+  cynodon: cynodon_height_crop_ratio
+weed_max_height_floors_m:
+  amaranthus: 0.08
+  cynodon: 0.06
+weed_max_height_caps_m:
+  amaranthus: 0.22
+  cynodon: 0.13
+
+ranges:
+  camera_height_m: [0.55, 2.30]
+  camera_height_crop_ratio: [5.0, 7.0]
+  camera_fov_deg: [56.0, 72.0]
+  camera_roll_deg: [-5.0, 5.0]
+  camera_pitch_deg: [-6.0, 6.0]
+  camera_yaw_deg: [-10.0, 10.0]
+  camera_y_jitter_m: [0.02, 0.18]
+  environment_rotation_deg: [0.0, 360.0]
+  crop_asset_heights_m: [0.14, 0.22, 0.22, 0.32, 0.22]
+  crop_height_scale: [0.96, 1.04]
+  crop_height_tolerance: [0.07, 0.13]
+  within_row_spacing_m: [0.30, 0.46]
+  between_row_spacing_m: [0.55, 0.85]
+  position_noise_m: [0.020, 0.070]
+  tilt_noise_rad: [0.03, 0.16]
+  scale_noise: [0.10, 0.22]
+  missing_crop_probability: [0.05, 0.18]
+  amaranthus_density: [150.0, 230.0]
+  cynodon_density: [170.0, 260.0]
+  amaranthus_height_crop_ratio: [0.90, 1.60]
+  cynodon_height_crop_ratio: [0.75, 1.25]
+  stone_density: [25.0, 70.0]
+
+quality_gates:
+  expected_pairs: 100
+  max_crop_free_frame_fraction: 0.0
+  max_weed_free_frame_fraction: 0.05
+  max_exact_rgb_duplicates: 0
+  max_exact_mask_duplicates_across_scenes: 0
+  minimum_mean_crop_fraction: 0.015
+  maximum_mean_crop_fraction: 0.090
+  minimum_mean_weed_fraction: 0.030
+  maximum_mean_weed_fraction: 0.100
+  minimum_used_crop_model_variants: 20
+  minimum_used_ground_families: 3
+  minimum_used_environment_families: 3
+  allowed_mask_colors:
+    - [0, 0, 0]
+    - [0, 255, 0]
+    - [255, 0, 0]

@@ -1,0 +1,59 @@
+base_config: ../train/base_commercial_data.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/screening_commercial_data
+data_license_scope: permissive_training_data_only
+seeds: [17]
+reuse_completed: false
+
+training:
+  epochs: 8
+  validate_every: 4
+  samples_per_epoch: 1600
+  warmup_steps: 100
+
+# CWFID is research-only and is intentionally excluded from architecture
+# selection in this dataset-permission track.
+development_evaluations: []
+
+candidates:
+  - name: commercial_data_deeplabv3_resnet50
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: deeplabv3_resnet50
+      trainable: all
+      head: flat
+    training:
+      learning_rate: 0.0001
+      batch_size: 6
+      gradient_accumulation: 2
+
+  - name: commercial_data_convnext_tiny_factorized_frozen
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: convnext_tiny_fpn
+      trainable: frozen
+      head: factorized
+    training:
+      learning_rate: 0.0003
+
+  - name: commercial_data_convnext_tiny_factorized_stage4
+    weight_license_status: review_imagenet_pretraining_terms
+    model:
+      architecture: convnext_tiny_fpn
+      trainable: stage4
+      head: factorized
+    training:
+      learning_rate: 0.0002
+      backbone_lr_multiplier: 0.1
+      batch_size: 6
+      gradient_accumulation: 2
+
+  - name: commercial_data_dinov2_small_factorized_frozen
+    weight_license_status: apache_2_0_model_card
+    model:
+      architecture: dinov2_small_fpn
+      trainable: frozen
+      head: factorized
+    training:
+      learning_rate: 0.0003
+      batch_size: 4
+      gradient_accumulation: 4

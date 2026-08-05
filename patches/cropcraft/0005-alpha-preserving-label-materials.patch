@@ -1,0 +1,92 @@
+diff --git a/core/beds.py b/core/beds.py
+index 35ed160..f2fdabc 100644
+--- a/core/beds.py
++++ b/core/beds.py
+@@ -21,19 +21,77 @@ from . import config
+ from .model_import import obj_import
+ 
+ 
++def _linked_alpha_texture(material):
++    if material is None or material.node_tree is None:
++        return None
++    for node in material.node_tree.nodes:
++        if node.type != 'BSDF_PRINCIPLED':
++            continue
++        alpha_input = node.inputs.get('Alpha')
++        if alpha_input is None or not alpha_input.is_linked:
++            continue
++        link = alpha_input.links[0]
++        if link.from_node.type != 'TEX_IMAGE' or link.from_node.image is None:
++            continue
++        return link.from_node, link.from_socket.name
++    return None
++
++
++def _copy_texture_settings(source, target):
++    for attribute in ('extension', 'interpolation', 'projection', 'projection_blend'):
++        if hasattr(source, attribute) and hasattr(target, attribute):
++            setattr(target, attribute, getattr(source, attribute))
++
++
++def _label_material(source_material, color: tuple):
++    alpha_source = _linked_alpha_texture(source_material)
++    mat = bpy.data.materials.new(name='label')
++    mat.use_nodes = True
++    mat.diffuse_color = color
++    nodes = mat.node_tree.nodes
++    nodes.clear()
++    emission = nodes.new(type='ShaderNodeEmission')
++    emission.inputs['Color'].default_value = color
++    emission.inputs['Strength'].default_value = 1.0
++    out = nodes.new(type='ShaderNodeOutputMaterial')
++    links = mat.node_tree.links
++
++    if alpha_source is None:
++        links.new(emission.outputs['Emission'], out.inputs['Surface'])
++        return mat
++
++    source_texture, source_socket_name = alpha_source
++    texture = nodes.new(type='ShaderNodeTexImage')
++    texture.image = source_texture.image
++    _copy_texture_settings(source_texture, texture)
++    alpha_socket = texture.outputs.get(source_socket_name)
++    if alpha_socket is None:
++        alpha_socket = texture.outputs['Alpha']
++
++    # Semantic labels use a hard visibility threshold.  This keeps texture-card
++    # background out of the mask while avoiding partially labeled edge pixels.
++    threshold = nodes.new(type='ShaderNodeMath')
++    threshold.operation = 'GREATER_THAN'
++    threshold.inputs[1].default_value = 0.5
++    transparent = nodes.new(type='ShaderNodeBsdfTransparent')
++    mix = nodes.new(type='ShaderNodeMixShader')
++    links.new(alpha_socket, threshold.inputs[0])
++    links.new(threshold.outputs[0], mix.inputs[0])
++    links.new(transparent.outputs[0], mix.inputs[1])
++    links.new(emission.outputs['Emission'], mix.inputs[2])
++    links.new(mix.outputs[0], out.inputs['Surface'])
++    mat.surface_render_method = 'DITHERED'
++    return mat
++
++
+ def _apply_emission_material(objects, color: tuple):
+     for obj in objects:
++        source_materials = list(obj.data.materials)
++        if not source_materials:
++            source_materials = [None]
+         obj.data.materials.clear()
+-        mat = bpy.data.materials.new(name='label')
+-        mat.use_nodes = True
+-        nodes = mat.node_tree.nodes
+-        nodes.clear()
+-        emission = nodes.new(type='ShaderNodeEmission')
+-        emission.inputs['Color'].default_value = color
+-        emission.inputs['Strength'].default_value = 1.0
+-        out = nodes.new(type='ShaderNodeOutputMaterial')
+-        mat.node_tree.links.new(emission.outputs['Emission'], out.inputs['Surface'])
+-        obj.data.materials.append(mat)
++        for source_material in source_materials:
++            obj.data.materials.append(_label_material(source_material, color))
+ 
+ 
+ class Beds:

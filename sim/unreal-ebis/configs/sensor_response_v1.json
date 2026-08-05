@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "ebis_cctv_sensor_response_v1",
+  "enabled": true,
+  "black_level_8bit": 5,
+  "white_level_8bit": 255,
+  "gamma": 0.95,
+  "lens_dust": {
+    "enabled": true,
+    "occurrence_probability": 0.32,
+    "spot_count_range": [
+      1,
+      5
+    ],
+    "radius_fraction_range": [
+      0.006,
+      0.022
+    ],
+    "opacity_8bit_range": [
+      2,
+      9
+    ],
+    "blur_radius_fraction_range": [
+      0.003,
+      0.009
+    ],
+    "status": "subtle deterministic RGB-only augmentation inferred from occasional dirty surveillance-lens frames; never applied to masks or depth and prevalence is provisional"
+  },
+  "input": "Unreal SCS_FINAL_COLOR_LDR sRGB PNG",
+  "scope": "RGB only; never masks or depth",
+  "status": "visual fallback until fixed-exposure grey-card and empty-chamber captures are supplied"
+}

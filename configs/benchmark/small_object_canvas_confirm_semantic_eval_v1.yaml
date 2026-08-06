@@ -1,0 +1,53 @@
+schema_version: 1
+protocol: paired_target_camera_specialist_confirmation_v1
+frozen_at: "2026-08-06T12:46:00+03:00"
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/small_object_canvas_confirm_v1
+workers: 4
+bootstrap_resamples: 2000
+bootstrap_seed: 1943
+baseline_candidate: smallobj_control_512_e8_seed43
+
+# This is a conditional target-camera specialist screen, not the global gate.
+# The seed-17 screen chose canvas768 for confirmation before seed-43 was run.
+selection:
+  weights:
+    source_validation: 0.10
+    cwfid_external_calibration: 0.05
+    sorghum_external_calibration: 0.10
+    sugarbeets_robot_holdout: 0.50
+    weedmap_uav_holdout: 0.25
+  minimum_delta_vs_baseline:
+    source_validation: -0.015
+    cwfid_external_calibration: -0.060
+    sorghum_external_calibration: -0.020
+    sugarbeets_robot_holdout: 0.050
+    weedmap_uav_holdout: -0.010
+  simplicity_tolerance: 0.005
+
+models:
+  - candidate: smallobj_control_512_e8_seed43
+    simplicity_rank: 0
+    run_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43
+  - candidate: smallobj_canvas768_confirm_e8_v1
+    simplicity_rank: 1
+    run_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/smallobj_canvas768_confirm_e8_v1/seed_43
+
+evaluations:
+  - name: cwfid_external_calibration
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    split: external_calibration
+  - name: sorghum_external_calibration
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    split: external_calibration
+  - name: sugarbeets_robot_holdout
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+    split: external_calibration
+  - name: weedmap_uav_holdout
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap.csv
+    split: external_calibration
+
+limitations:
+  - The candidate was selected on the seed-17 screen; seed-43 is paired confirmation, not a new search.
+  - Passing this screen does not override the global breadth gate because CWFID regression remains material.
+  - SugarBeets and WeedMap are each one capture group; multi-farm confirmation is still required.

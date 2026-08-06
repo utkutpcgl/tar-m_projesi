@@ -1,0 +1,42 @@
+schema_version: 1
+protocol: paired_domain_adaptation_confirmation_semantic_pixel_safety_v1
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/domain_adaptation_confirm_v1
+workers: 4
+bootstrap_resamples: 2000
+bootstrap_seed: 2901
+baseline_candidate: domainadapt_confirm_sorghum_n000_e8_v1
+
+# Exact frozen selection contract from the seed-17 screen.
+selection:
+  weights:
+    source_validation: 0.15
+    sorghum_external_calibration: 0.45
+    cwfid_external_calibration: 0.10
+    sugarbeets_robot_holdout: 0.20
+    weedmap_uav_holdout: 0.10
+  minimum_delta_vs_baseline:
+    source_validation: -0.025
+    sorghum_external_calibration: 0.000
+    cwfid_external_calibration: -0.025
+    sugarbeets_robot_holdout: -0.025
+    weedmap_uav_holdout: -0.025
+  simplicity_tolerance: 0.005
+
+models:
+  - {candidate: domainadapt_confirm_sorghum_n000_e8_v1, target_train_frames: 0, run_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/domainadapt_confirm_sorghum_n000_e8_v1/seed_29}
+  - {candidate: domainadapt_confirm_sorghum_n010_e8_v1, target_train_frames: 10, run_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/domainadapt_confirm_sorghum_n010_e8_v1/seed_29}
+
+evaluations:
+  - name: sorghum_external_calibration
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    split: external_calibration
+  - name: cwfid_external_calibration
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    split: external_calibration
+  - name: sugarbeets_robot_holdout
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+    split: external_calibration
+  - name: weedmap_uav_holdout
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap.csv
+    split: external_calibration

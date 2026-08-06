@@ -13,6 +13,74 @@ modeli seçmek ve ayrı, dondurulmuş A/B'lerle stock ve özel CropCraft
 pilotlarının gerçek-domain etkisini ölçmektir. Sentetik veri ana corpus veya
 gerçek testin yerine geçmez. Depth modeli bu faza bağlanmadı.
 
+## Kamera, domain adaptation ve küçük-ot kararı — 2026-08-06
+
+- [10 sayfalık kısa karar PDF'i](docs/results/BASLA_BURADAN_KAMERA_DOMAIN_KARARI.pdf)
+- [23 sayfalık açıklamalı detaylı PDF](docs/results/KAMERA_DOMAIN_VE_KUCUK_OT_DENEY_RAPORU.pdf)
+- [Aranabilir exact sonuçlar ve yöntem](docs/KAMERA_DOMAIN_VE_KUCUK_OT_DENEYLERI_V1.md)
+
+En büyük iki etken doğrulandı, fakat kamera ekseni ikiye ayrıldı: native
+optik/GSD–focus–motion kalitesi ve modelin işlediği raster/token bütçesi.
+Temiz sentetik holdout'ta 512→1024 dijital raster `+11,92` mIoU puanı verdi;
+aynı kör upscale gerçek SugarBeets holdout'ta mIoU'yu `0,5772 → 0,3621/0,4282`
+düşürüp crop riskini büyüttü. Bu nedenle interpolasyon reddedildi; gerçek
+sensör detayı, native tiling ve train–inference raster uyumu birlikte
+tasarlanmalıdır. `<14 px` weed proxy safe hit yalnız `%2,4` olduğundan yaklaşık
+`28 px` eşdeğer-çap hedefi gerçek kamera bench'i için başlangıç hipotezidir.
+
+Global generalist gate'i 512 kontrolü korudu. 768 px eğitim kolu ise iki seed
+ortalamasında SugarBeets'i `+0,13010`, WeedMap'i `+0,00708` yükseltirken source
+`-0,00546`, Sorghum `+0,00203`, CWFID `-0,04424` değiştirdi. Bu nedenle yalnız
+doğrulanmış hedef robot kamera profilinde route edilen koşullu specialist'tir;
+CWFID/UAV/genel kullanımda kontrol fallback kalır. SugarBeets müdahale
+tanısında 768 kolu crop riskini `%4,41 → %1,45`, safe spray recall'ı
+`%4,15 → %9,72` ve semantic-component hit'i `%4,92 → %15,28` yaptı; WeedMap
+safe recall gerilediği için routing şartı önemlidir.
+
+Hedef-benzer gerçek veri etkisi daha da büyüktür: strict-nested
+`0/10/25/50/100/202` eğrisinde 10 Sorghum karesi seçildi ve iki seed paired
+ortalamasında Sorghum `+0,17966` mIoU kazandı. Crop-row prior ana sınıflandırıcı
+değil, opsiyonel safety veto'dur; SugarBeets'te pratik guard crop riskini
+`%4,55 → %4,06` indirirken weed recall'ı `%7,83 → %6,60` düşürdü.
+
+Self-contained yerel paket:
+`/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/camera_domain_report_v1/`.
+
+## Bitki müdahalesi karar raporları — 2026-08-05
+
+mIoU'yu robotun gerçek müdahale ihtiyacına çeviren yeni değerlendirme:
+
+- [Anlaşılır detaylı PDF — önerilen ana rapor](ANLASILIR_DETAYLI_MUDAHALE_RAPORU.pdf)
+- [Kısa karar PDF'i](docs/results/BASLA_BURADAN_MUDAHALE_RAPORU.pdf)
+- [Aynı detaylı PDF'in sonuç klasörü kopyası](docs/results/DETAYLI_BITKI_MUDAHALE_RAPORU.pdf)
+- [Aranabilir teknik metin eki](docs/INTERVENTION_EVALUATION_V1.md)
+
+Önerilen ana PDF `48` sayfadır; her sayfa yalnız bir ana fikir veya bir saha
+örneği taşır. Onlu contact-sheet kullanılmaz. Ground truth–tahmin panelleri
+büyük gösterilir ve her örneğin altında “ne görüyoruz / hangi metrik önemli?”
+yorumu bulunur. ROSE, WE3DS, SugarBeets, WeedMap, RiceSEG, etiketsiz BoniRob
+video ve V11 sentetik unseen holdout örnekleri ayrı sayfalardadır. Sentetik
+holdout güçlü/zor örnekleri ile 16-kare toplu performans özeti de ayrıca
+verilir; gerçek saha kanıtı gibi yorumlanmaz.
+
+Rapor; spot spray için weed üstü action point, crop false action ve footprint
+hassasiyetini; mekanik/lazer için center/coverage proxy'lerini; küçük weed
+apparent-size binlerini ve kamera GSD/focus/exposure planını birlikte verir.
+Sonuç bir production/spray onayı değildir: root/crown/meristem, mm kalibrasyon
+ve gerçek aktüatör outcome'u henüz yoktur. RiceSEG 604-kare paneli training
+yollarıyla çakışmaz, fakat geçmiş specialist seçiminde kullanıldığı için
+development/calibration'dır; untouched final test değildir.
+
+Kısa özet: seen semantic weed-component hit `%66,4`, frozen safe-action hit
+`%27,5`; `<14 px` weed hit `%24,1` ve safe hit `%2,0`'dır. Hedefe yakın
+SugarBeets robot transferinde safe hit `%8,0`, crop-point hit `%18,2` olduğu
+için saha gate'i geçilmedi. RiceSEG calibration crop IoU `%80,2`, weed IoU
+`%22,2`, safe hit `%0,73`'tür. 2× software upscale küçük hit'i artırdı ancak
+crop-point hatası ve latency'yi kötüleştirdiği için reddedildi.
+
+Ham JSON, A/B makbuzları ve açıklamalı görsellerle self-contained yerel paket:
+`data/processed/audits/crop_intervention_report_v1/`.
+
 ## Self-contained görsel sonuç paketi
 
 Kabul edilmiş modelin validation, transfer, unseen gerçek video ve sentetik

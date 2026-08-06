@@ -1,0 +1,33 @@
+schema_version: 1
+protocol: intervention_resolution_ablation_v1
+frozen_at: "2026-08-05T00:00:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/intervention_resolution_ablation_v1
+workers: 4
+
+models:
+  rice_specialist:
+    checkpoint: data/runs/realab_riceseg_add025_compute3780_r5_e8_v2/seed_29/last.pt
+    evaluations:
+      - name: early_rice_scale100
+        role: native_baseline_for_software_patch_scale_ablation
+        manifest: data/processed/manifests/rice_seedling_weed.csv
+        split: train
+        inference_scale: 1.0
+      - name: early_rice_scale150
+        role: software_interpolation_patch_scale_ablation
+        manifest: data/processed/manifests/rice_seedling_weed.csv
+        split: train
+        inference_scale: 1.5
+      - name: early_rice_scale200
+        role: software_interpolation_patch_scale_ablation
+        manifest: data/processed/manifests/rice_seedling_weed.csv
+        split: train
+        inference_scale: 2.0
+
+limitations:
+  - Baseline 1.0x is re-run in the same process/timing protocol.
+  - Interpolation adds no optical information; it only changes apparent backbone patch scale.
+  - Predictions are resized back to the same native evaluation grid before all metrics.
+  - The A/B must be judged jointly on small-component recall, crop errors, and latency.

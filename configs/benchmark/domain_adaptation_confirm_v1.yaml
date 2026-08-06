@@ -1,0 +1,26 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/domain_adaptation_confirm_v1
+data_license_scope: research_real_equal_compute_target_domain_confirmation
+seeds: [29]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+  samples_per_epoch: 3600
+
+# Paired confirmation of the frozen seed-17 screen winner. No other curve
+# point is reopened and no final test split is used.
+candidates:
+  - name: domainadapt_confirm_sorghum_n000_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/domain_adaptation_sorghum_n0_v1.csv
+    model: {}
+    training:
+      dataset_weights: {phenobench: 0.20, acre: 0.20, weedsgalore: 0.05, we3ds: 0.30, rose: 0.25}
+  - name: domainadapt_confirm_sorghum_n010_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/domain_adaptation_sorghum_n10_v1.csv
+    model: {}
+    training:
+      dataset_weights: {phenobench: 0.18, acre: 0.18, weedsgalore: 0.05, we3ds: 0.27, rose: 0.22, sorghum_weed: 0.10}

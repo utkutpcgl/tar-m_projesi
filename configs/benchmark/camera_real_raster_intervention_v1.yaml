@@ -1,0 +1,24 @@
+schema_version: 1
+protocol: paired_real_holdout_inference_raster_ablation_v1
+frozen_at: "2026-08-06T11:37:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/camera_real_raster_intervention_v1
+workers: 4
+
+models:
+  global:
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+    evaluations:
+      - {name: sugarbeets_scale100, role: real_robot_native_raster_control, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv, split: external_calibration, inference_scale: 1.0}
+      - {name: sugarbeets_scale150, role: real_robot_software_raster_ablation, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv, split: external_calibration, inference_scale: 1.5}
+      - {name: sugarbeets_scale200, role: real_robot_software_raster_ablation, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv, split: external_calibration, inference_scale: 2.0}
+      - {name: weedmap_scale100, role: real_uav_native_raster_control, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap.csv, split: external_calibration, inference_scale: 1.0}
+      - {name: weedmap_scale150, role: real_uav_software_raster_ablation, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap.csv, split: external_calibration, inference_scale: 1.5}
+      - {name: weedmap_scale200, role: real_uav_software_raster_ablation, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap.csv, split: external_calibration, inference_scale: 2.0}
+
+limitations:
+  - Software interpolation adds no optical information; it only changes apparent model patch scale.
+  - Predictions are resized to the same native evaluation grid before metrics.
+  - The frozen source-selected safety policy is reused without target threshold tuning.
+  - Results must be judged jointly on mIoU, small-component hit, crop risk, and latency.

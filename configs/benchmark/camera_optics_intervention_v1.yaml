@@ -1,0 +1,29 @@
+schema_version: 1
+protocol: paired_synthetic_camera_optics_diagnostic_v1
+frozen_at: "2026-08-06T00:00:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/camera_optics_intervention_v1
+workers: 4
+
+models:
+  global:
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+    evaluations:
+      - {name: reference_512, role: paired_synthetic_reference, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_reference_512]}
+      - {name: resolution_256, role: paired_native_raster_resolution, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_resolution_256]}
+      - {name: resolution_384, role: paired_native_raster_resolution, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_resolution_384]}
+      - {name: resolution_768, role: paired_native_raster_resolution, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_resolution_768]}
+      - {name: resolution_1024, role: paired_native_raster_resolution, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_resolution_1024]}
+      - {name: zoom_1p33, role: paired_narrower_fov_zoom, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_zoom_1p33]}
+      - {name: zoom_1p67, role: paired_narrower_fov_zoom, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_zoom_1p67]}
+      - {name: dim_no_led, role: paired_low_ambient_light, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_dim_no_led]}
+      - {name: dim_led_energy30, role: paired_low_ambient_plus_camera_light_sweep, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_dim_led_energy30]}
+      - {name: dim_led_energy60, role: paired_low_ambient_plus_camera_light_sweep, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_dim_led_energy60]}
+      - {name: dim_led_energy120, role: paired_low_ambient_plus_camera_light, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_dim_led_energy120]}
+      - {name: defocus_sigma1p5, role: paired_deterministic_defocus_degradation, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_defocus_sigma1p5]}
+      - {name: defocus_sigma3p0, role: paired_deterministic_defocus_degradation, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_defocus_sigma3p0]}
+      - {name: motion_blur_7px, role: paired_deterministic_motion_degradation, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_motion_blur_7px]}
+      - {name: digital_input_256, role: paired_reference_capture_resized_to_256_network_raster, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_digital_input_256]}
+      - {name: detail_loss_256_up512, role: paired_reference_capture_downsampled_256_then_restored_512, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_detail_loss_256_up512]}
+      - {name: digital_upscale_1024, role: paired_reference_capture_upscaled_to_1024_network_raster, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/camera_optics_ablation_v1.csv, split: test, dataset_ids: [camera_optics_ablation_v1_digital_upscale_1024]}

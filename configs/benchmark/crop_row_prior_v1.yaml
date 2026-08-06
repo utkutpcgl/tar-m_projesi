@@ -1,0 +1,38 @@
+schema_version: 1
+protocol: parallel_crop_row_prior_diagnostic_v1
+frozen_at: "2026-08-06T00:00:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/crop_row_prior_v1
+checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+workers: 4
+
+# Both strengths were declared before looking at these results. The smaller
+# value tests a conservative cue; the larger value tests the user's strong-row
+# assumption and exposes the in-row-weed trade-off.
+prior_strengths: [0.35, 0.65]
+practical_crop_probability_threshold: 0.60
+action_guard_row_probability_threshold: 0.50
+row_fit:
+  angle_step_deg: 3
+  corridor_fraction_of_short_side: 0.03
+  minimum_seed_pixels: 96
+  maximum_sample_pixels: 100000
+
+evaluations:
+  - name: sorghum_external_calibration
+    role: target_like_same_dataset_calibration_partition_not_final_test
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    split: external_calibration
+    gallery_examples: 2
+  - name: sugarbeets_robot_holdout
+    role: unseen_dataset_ground_robot_calibration_partition
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+    split: external_calibration
+    gallery_examples: 2
+  - name: synthetic_v11_unseen_rows
+    role: unseen_synthetic_geometry_test_diagnostic
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cropcraft_field_robustness_pilot_v11_r2q.csv
+    split: test
+    dataset_ids: [cropcraft_field_robustness_pilot_v11_r2q]
+    gallery_examples: 2

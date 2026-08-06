@@ -1,0 +1,59 @@
+base_config: ../train/base_real_sorghum_ablation_v1.yaml
+work_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/small_object_training_ablation_v1
+data_license_scope: research_real_plus_accepted_synthetic_small_object_ablation
+seeds: [17]
+reuse_completed: true
+
+training:
+  epochs: 8
+  validate_every: 8
+  samples_per_epoch: 3600
+
+model:
+  known_crop_ids: [0, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+
+# External sets use the paired semantic/pixel-safety evaluator after training.
+# Full intervention component geometry is reserved for control + selected winner.
+
+candidates:
+  - name: smallobj_control_512_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training: &accepted_weights
+      dataset_weights: {phenobench: 0.162, acre: 0.162, weedsgalore: 0.045, we3ds: 0.243, rose: 0.198, sorghum_weed: 0.090, cropcraft_agri_robust_pilot_v3: 0.050, cropcraft_paddy_pilot_v4_r5: 0.050}
+
+  - name: smallobj_scaleup_512_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      dataset_weights: {phenobench: 0.162, acre: 0.162, weedsgalore: 0.045, we3ds: 0.243, rose: 0.198, sorghum_weed: 0.090, cropcraft_agri_robust_pilot_v3: 0.050, cropcraft_paddy_pilot_v4_r5: 0.050}
+      scale_min: 1.00
+      scale_max: 2.00
+
+  - name: smallobj_replay10_512_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_paddy_small_replay_v1.csv
+    model: {}
+    training: &replay_weights
+      dataset_weights: {phenobench: 0.1458, acre: 0.1458, weedsgalore: 0.0405, we3ds: 0.2187, rose: 0.1782, sorghum_weed: 0.0810, cropcraft_agri_robust_pilot_v3: 0.0450, cropcraft_paddy_pilot_v4_r5: 0.0450, small_weed_replay_v1: 0.1000}
+
+  - name: smallobj_replay10_scaleup_512_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_paddy_small_replay_v1.csv
+    model: {}
+    training:
+      dataset_weights: {phenobench: 0.1458, acre: 0.1458, weedsgalore: 0.0405, we3ds: 0.2187, rose: 0.1782, sorghum_weed: 0.0810, cropcraft_agri_robust_pilot_v3: 0.0450, cropcraft_paddy_pilot_v4_r5: 0.0450, small_weed_replay_v1: 0.1000}
+      scale_min: 1.00
+      scale_max: 2.00
+
+  - name: smallobj_canvas768_e8_v1
+    weight_license_status: apache_2_0_dinov2_weights
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+    model: {}
+    training:
+      dataset_weights: {phenobench: 0.162, acre: 0.162, weedsgalore: 0.045, we3ds: 0.243, rose: 0.198, sorghum_weed: 0.090, cropcraft_agri_robust_pilot_v3: 0.050, cropcraft_paddy_pilot_v4_r5: 0.050}
+      crop_size: 768
+      batch_size: 2
+      gradient_accumulation: 8

@@ -1,0 +1,46 @@
+schema_version: 1
+protocol: paired_small_object_training_semantic_pixel_safety_v1
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/small_object_training_ablation_v1
+workers: 4
+bootstrap_resamples: 2000
+bootstrap_seed: 1907
+baseline_candidate: smallobj_control_512_e8_v1
+
+# Frozen before model training/evaluation. Ground-robot small-object transfer
+# is weighted most; source and other real domains remain non-inferiority gates.
+selection:
+  weights:
+    source_validation: 0.20
+    cwfid_external_calibration: 0.15
+    sorghum_external_calibration: 0.15
+    sugarbeets_robot_holdout: 0.30
+    weedmap_uav_holdout: 0.20
+  minimum_delta_vs_baseline:
+    source_validation: -0.015
+    cwfid_external_calibration: -0.020
+    sorghum_external_calibration: -0.020
+    sugarbeets_robot_holdout: -0.010
+    weedmap_uav_holdout: -0.010
+  simplicity_tolerance: 0.005
+
+models:
+  - {candidate: smallobj_control_512_e8_v1, simplicity_rank: 0, run_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/smallobj_control_512_e8_v1/seed_17}
+  - {candidate: smallobj_scaleup_512_e8_v1, simplicity_rank: 1, run_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/smallobj_scaleup_512_e8_v1/seed_17}
+  - {candidate: smallobj_replay10_512_e8_v1, simplicity_rank: 1, run_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/smallobj_replay10_512_e8_v1/seed_17}
+  - {candidate: smallobj_replay10_scaleup_512_e8_v1, simplicity_rank: 2, run_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/smallobj_replay10_scaleup_512_e8_v1/seed_17}
+  - {candidate: smallobj_canvas768_e8_v1, simplicity_rank: 2, run_dir: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/smallobj_canvas768_e8_v1/seed_17}
+
+evaluations:
+  - name: cwfid_external_calibration
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/cwfid.csv
+    split: external_calibration
+  - name: sorghum_external_calibration
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sorghum_weed.csv
+    split: external_calibration
+  - name: sugarbeets_robot_holdout
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+    split: external_calibration
+  - name: weedmap_uav_holdout
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap.csv
+    split: external_calibration

@@ -1,0 +1,47 @@
+schema_version: 1
+protocol: intervention_semantic_component_proxy_v1
+frozen_at: "2026-08-05T00:00:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/intervention_metrics_v1
+workers: 4
+
+models:
+  global:
+    checkpoint: data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+    evaluations:
+      - name: source_validation
+        role: seen_source_validation_group_disjoint
+        manifest: data/processed/manifests/real_sorghum_cropcraft_robust_v3_paddy_trainval_v4_r5.csv
+        split: val
+      - name: sorghum_external_test
+        role: held_out_same_dataset_target_like
+        manifest: data/processed/manifests/sorghum_weed.csv
+        split: external_test
+      - name: sugarbeets_robot_holdout
+        role: unseen_dataset_ground_robot_transfer
+        manifest: data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+        split: external_calibration
+      - name: weedmap_uav_holdout
+        role: unseen_dataset_uav_transfer
+        manifest: data/processed/manifests/weedmap.csv
+        split: external_calibration
+
+  rice_specialist:
+    checkpoint: data/runs/realab_riceseg_add025_compute3780_r5_e8_v2/seed_29/last.pt
+    evaluations:
+      - name: riceseg_heldout
+        role: held_out_riceseg_groups_not_used_for_training
+        manifest: data/processed/manifests/riceseg_v1.csv
+        split: external_calibration
+      - name: early_rice_transfer
+        role: unseen_dataset_early_rice_top_down_transfer
+        manifest: data/processed/manifests/rice_seedling_weed.csv
+        split: train
+
+limitations:
+  - Semantic connected components are not botanical instances.
+  - Pixel distances are not millimetres without camera calibration and GSD.
+  - Crop collision at a radius is an image-plane footprint sensitivity, not a spray-deposition model.
+  - Root, crown, stem, and apical-meristem labels are unavailable.
+  - External datasets never tune thresholds; the checkpoint's source-selected policy is frozen.

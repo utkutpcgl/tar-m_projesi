@@ -1,14 +1,29 @@
 # Unseen ve dağılım-dışı görsel segmentasyon galerisi V1
 
+> **Erratum — 5 Ağustos 2026:** RiceSEG `country-transfer` manifesti,
+> coverage split'inin alternatifiymiş; ikisi birlikte bağımsız roller gibi
+> kullanılamaz. Kabul edilmiş rice specialist'in training manifestiyle
+> country panelinin RGB/mask path kesişimi `1.254/1.254`'tür. Dolayısıyla
+> specialist country galerisi model-unseen/held-out performans kanıtı değil,
+> **train-seen diagnostic** olarak okunmalıdır. Global fallback gerçek
+> RiceSEG ile eğitilmediğinden onun aynı karelerdeki görseli yine transfer
+> tanısıdır. Yeni specialist ana sonucu, training path kesişimi `0/604`
+> olan `riceseg_v1.csv / external_calibration` (Guangdong + Tokyo) panelinden
+> gelir. Bu 604 kare specialist eğitimine girmedi, ancak önceki doz/seed
+> seçiminde development metriği olarak kullanıldı; dolayısıyla
+> **training-held-out calibration**, untouched final test değildir. Makbuz:
+> `data/processed/audits/intervention_metrics_v1/riceseg_split_path_overlap_audit.json`.
+
 Bu çalışma üç farklı “unseen” düzeyini birbirine karıştırmadan raporlar:
 
 1. **Tam model-unseen, etiketsiz gerçek:** FarmBot Soy, Naïo Oz online video
    ve daha önce hazırlanmış BoniRob 11:36 sekansı. Bunlar yalnız görsel hata
    keşfidir; mIoU yoktur ve seçim ağırlığı `0,0`'dır.
 2. **Eğitim-unseen, etiketli fakat development'ta tüketilmiş gerçek:**
-   SugarBeets2016 10:37 holdout, RiceSEG country-transfer ve WeedMap UAV.
-   Ground-truth/prediction galerileri değerlendirilebilir fakat artık final
-   test veya deployment kanıtı değildir.
+   SugarBeets2016 10:37 holdout ve WeedMap UAV. RiceSEG country-transfer bu
+   kategoriye yalnız global fallback için girer; rice specialist için yukarıdaki
+   erratum geçerlidir. Ground-truth/prediction galerileri değerlendirilebilir
+   fakat artık final test veya deployment kanıtı değildir.
 3. **Asset/seed-ayrık sentetik stres:** V11-R2Q val/test. Gerçek seçim skoruna
    katılmaz; yalnız sentetik kapsam ve hata modu gösterir.
 

@@ -1,0 +1,26 @@
+schema_version: 1
+protocol: paired_global_control_vs_canvas768_target_specialist_intervention_v1
+frozen_at: "2026-08-06T12:49:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+output_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/small_object_selected_intervention_v1
+workers: 4
+
+models:
+  control:
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/smallobj_control_512_e8_v1/seed_17/last.pt
+    evaluations:
+      - {name: sugarbeets_robot_holdout, role: real_robot_global_control, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv, split: external_calibration}
+      - {name: weedmap_uav_holdout, role: real_uav_global_control, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap.csv, split: external_calibration}
+
+  selected:
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/smallobj_canvas768_e8_v1/seed_17/last.pt
+    evaluations:
+      - {name: sugarbeets_robot_holdout, role: real_robot_canvas768_target_specialist_diagnostic, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv, split: external_calibration}
+      - {name: weedmap_uav_holdout, role: real_uav_canvas768_target_specialist_diagnostic, manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/manifests/weedmap.csv, split: external_calibration}
+
+limitations:
+  - The canvas768 candidate failed the strict global CWFID breadth gate and is not a global replacement.
+  - Each model reuses its own source-validation-selected frozen safety policy; no target threshold tuning is performed.
+  - Connected semantic weed components are intervention proxies, not botanical plant instances.
+  - Root, crown, stem, meristem, depth, millimetre calibration, actuator timing, kill and crop-injury outcomes are not measured.

@@ -1,8 +1,46 @@
-# Segmentasyon sonucu
+# Segmentasyon ve bitki müdahalesi sonucu
 
-Kolay okunur rapor:
+## Kamera/domain/küçük-ot kararı — 2026-08-06
+
+- [Önce bunu açın — 10 sayfalık kısa karar](BASLA_BURADAN_KAMERA_DOMAIN_KARARI.pdf)
+- [23 sayfalık açıklamalı detaylı rapor](KAMERA_DOMAIN_VE_KUCUK_OT_DENEY_RAPORU.pdf)
+- [Aranabilir exact sonuçlar](../KAMERA_DOMAIN_VE_KUCUK_OT_DENEYLERI_V1.md)
+
+Kısa sonuç: global generalist 512 kontrol olarak kaldı. Canvas768 iki seedde
+hedef-SugarBeets specialist kapısını geçti (ortalama `+0,13010` mIoU), fakat
+CWFID ortalama `-0,04424` geriledi; bu nedenle yalnız doğrulanmış hedef robot
+kamera profilinde route edilir. Gerçek holdout'ta kör 1,5×/2× inference
+upscale reddedildi. 10 hedef-benzer gerçek karelik domain adaptation iki seed
+ortalamasında Sorghum'u `+0,17966` yükseltti. Crop-row bilgisi ana model değil,
+ölçülü risk–recall safety veto'sudur.
+
+Tam yerel kanıt paketi:
+`/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/camera_domain_report_v1/`.
+
+Yeni, removal-yöntemi odaklı raporlar:
+
+- [Kısa karar PDF'i](BASLA_BURADAN_MUDAHALE_RAPORU.pdf)
+- [Anlaşılır, örnekli ayrıntılı PDF — önerilen](DETAYLI_BITKI_MUDAHALE_RAPORU.pdf)
+- [Aranabilir teknik metin eki](../INTERVENTION_EVALUATION_V1.md)
+
+Detaylı PDF `48` sayfadır. Ana bölümde bir sayfa bir fikir taşır; görsel
+sayfalarda tek saha örneği ve iki büyük karşılaştırma paneli bulunur. Yoğun
+exact tablolar yalnız teknik ektedir. V11 sentetik asset/seed-ayrık holdout'un
+güçlü ve zor örnekleri ile 16-kare toplu sonucu da ayrı sayfalarda gösterilir.
+
+Önceki, yalnız segmentasyon-görseli odaklı rapor:
 
 - [BASLA_BURADAN_SEGMENTASYON_SONUCLARI.pdf](BASLA_BURADAN_SEGMENTASYON_SONUCLARI.pdf)
+
+Yeni rapor mIoU'nun yanında spot spray action-point/footprint, semantic
+component hit/coverage ve mekanik/lazer için center proxy metriklerini
+gösterir. Connected component true plant instance, canopy center ise
+root/crown/meristem değildir; bu sınırlar PDF'de açıkça işaretlidir.
+RiceSEG'in 604-kare paneli eğitime girmemiştir, ancak geçmiş specialist
+seçiminde kullanıldığı için final test değil development/calibration kanıtıdır.
+
+Tam yerel paket (iki PDF + Markdown + ham metrik/A-B + dokuz tekil görsel kanıt):
+`data/processed/audits/crop_intervention_report_v1/`.
 
 Kabul edilen modeller:
 
@@ -14,5 +52,5 @@ Kabul edilen modeller:
 Model ağırlıklarının her biri yaklaşık 143 MB olduğu için normal GitHub
 dosya sınırını aşar ve bu depoya eklenmemiştir. Ham datasetler, manifest
 çıktıları, run klasörleri ve ayrıntılı görsel galeriler de yerel veri diskinde
-tutulur. Repo; kaynak kodu, configleri, testleri, metodoloji dokümanlarını ve
-kısa sonuç PDF'ini içerir.
+tutulur. Repo; kaynak kodu, configleri, testleri, metodoloji dokümanlarını,
+kısa karar PDF'ini ve anlaşılır detaylı PDF'i içerir.

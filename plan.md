@@ -1830,7 +1830,9 @@ Bu segmentasyon fazında yanıtlananlar:
 
 Bu kullanıcı kapsamında bilinçli olarak sonraya bırakılanlar:
 
-1. 0/10/25/50-shot adaptasyon eğrisi ve SAM anotasyon-zamanı deneyi.
+1. SAM anotasyon-zamanı deneyi. `0/10/25/50/100/202` strict-nested
+   adaptasyon eğrisi ve seçilen 10-kare kolun ikinci-seed teyidi 2026-08-06'da
+   tamamlandı.
 2. RiceSEG specialist için otomatik görsel router, yanlış-metadata stress,
    iki-checkpoint latency/VRAM ve deployment paketi. Metadata-routed benchmark
    ve global fallback protokolü tamamlandı.
@@ -1904,3 +1906,278 @@ Blender offline segmentation rolü bu pilotla desteklendi; Unreal rolü henüz
 Temel prensip:
 
 > **Önce en küçük çalışan deneyi kur, gerçek holdout’ta ölç, yalnızca ölçülebilir katkı veren hattı büyüt.**
+
+---
+
+# 2026-08-05 — Müdahale-odaklı benchmark ve rapor tamamlandı
+
+Bu faz mIoU'yu removal başarısı diye yorumlamayı bıraktı ve kabul edilmiş iki
+checkpoint'i değiştirmeden method-specific proxy'lerle yeniden değerlendirdi:
+
+- global seed 43: `b97618224621950e46bd47136bad43f51e417c11121674bc1849a9f7322b3d9f`;
+- RiceSEG specialist seed 29: `ad42ac49d34a723e69f74b6b4f2b59241eb0d21c12b58540e0ae7ab340b671c7`.
+
+Toplam `2.868` etiketli görüntü native-resolution ve source-frozen safety
+policy ile işlendi; dış panellerde threshold/model retune yapılmadı:
+
+```text
+source validation       1.637
+Sorghum test                25
+SugarBeets robot           283
+WeedMap UAV                 95
+RiceSEG calibration        604
+early-rice development     224
+```
+
+Yeni metrikler semantic connected-component any-hit, coverage@10/50/90,
+apparent-size binleri, canopy-center proxy, component içi deepest action point,
+weed/crop/background point sonucu ve 0/5/10/20 px crop-footprint collision'dır.
+Connected component true plant instance; canopy center root/crown/meristem;
+px footprint fiziksel nozzle/tool/beam değildir.
+
+Ana sayısal sonuç:
+
+- seen mIoU `0,8049`; semantic weed-component hit `%66,42`;
+- frozen safe-action hit `%27,54`, point precision `%82,76`;
+- pooled crop-point hit `%0,48`, fakat worst seen WE3DS `%4,61`; safety
+  ortalamayla geçirilmedi;
+- `<14 px` semantic hit `%24,14`, tüm boyutlarda `%66,42`; küçük safe hit
+  yalnız `%2,00`;
+- hedefe yakın SugarBeets robot: safe hit `%8,02`, point precision `%67,00`,
+  crop-point `%18,18`;
+- WeedMap UAV: crop IoU `0,0001`, weed IoU `0,1251`, safe hit `%0,12`;
+- RiceSEG calibration: crop IoU `0,8015`, weed IoU `0,2224`, safe hit `%0,73`;
+- early-rice development: weed IoU `0,1315`, safe hit `%0,29`.
+
+Sonuç: semantic model araştırma için yararlı bir base'tir; hiçbir removal
+yöntemi production gate'ini geçmedi. En kısa doğrulanabilir MVP mikro/spot
+spray'dir. Birincil saha ölçüsü effective deposition/treatment ve crop
+injury'dir; offline action-point/footprint yalnız proxy'dir. Mekanik sökme
+için root/crown keypoint + depth + mm P50/P95 + removal outcome; lazer için
+meristem/stem keypoint + beam/energy + kill/collateral outcome zorunludur.
+Tam mask lazer için yalnız raster-treatment tasarımında birincildir.
+
+Küçük-weed software scale A/B, aynı 224 early-rice development karesinde:
+
+| Scale | Weed IoU | `<14 px` semantic hit | Crop-point hit | Perception ms/image |
+|---:|---:|---:|---:|---:|
+| `1,0×` | `0,1315` | `%19,58` | `%14,81` | `24,64` |
+| `1,5×` | `0,1857` | `%26,45` | `%22,46` | `59,27` |
+| `2,0×` | `0,2265` | `%29,38` | `%30,52` | `144,81` |
+
+Interpolation ölçek darboğazını doğruladı, ancak crop guard ve latency'yi
+kötüleştirdiği için kabul edilmedi. Native tiling zaten açıktır. Sıradaki
+basit deney optik GSD/focus/exposure tasarımı ve eş-hesap small-object
+oversampling + larger-crop/multi-scale training A/B'sidir.
+
+RiceSEG split erratum'u kapatıldı: eski 1.254-kare country-transfer specialist
+galerisi training coverage ile path düzeyinde `1.254/1.254` çakışır ve yalnız
+train-seen diagnostic'tir. Yeni 604-kare Guangdong+Tokyo panelinin training
+overlap'ı `0/604`'tür; fakat geçmiş specialist doz/seed seçiminde kullanıldığı
+için training-held-out development/calibration'dır, untouched final test
+değildir.
+
+Teslimler:
+
+- kısa PDF: `BASLA_BURADAN_MUDAHALE_RAPORU.pdf`;
+- detaylı PDF: `docs/results/DETAYLI_BITKI_MUDAHALE_RAPORU.pdf`;
+- aranabilir rapor: `docs/INTERVENTION_EVALUATION_V1.md`;
+- self-contained yerel paket:
+  `data/processed/audits/crop_intervention_report_v1/`;
+- ham evaluator ve A/B configleri:
+  `configs/benchmark/intervention_metrics_v1.yaml` ve
+  `configs/benchmark/intervention_resolution_ablation_v1.yaml`.
+
+Sıradaki P0/P1 işleri:
+
+1. Removal yöntemi/aktüatör, minimum öldürülebilir weed mm, footprint, hız ve
+   kabul edilebilir crop injury maliyetini dondur.
+2. Kamera intrinsics/extrinsics, çalışma düzlemi GSD, focus/depth-of-field,
+   motion blur ve perception-to-actuation latency'yi ölç.
+3. 3–4 bağımsız tarla ve küçük-weed strata içeren untouched final test ile
+   ayrı method/crop safety-calibration split'i topla.
+4. Spot spray seçilirse deposition paper/fluorescent dye ile action proxy'yi
+   gerçek effective treatment/crop injury sonucuna bağla.
+5. Mekanik/lazer seçilirse semantic maskeyi zorlamak yerine doğrudan
+   root/crown/meristem + depth + mm + kill/removal etiketi topla.
+
+---
+
+# 2026-08-05 — Okunabilir detaylı rapor revizyonu tamamlandı
+
+Önceki detaylı PDF teknik olarak tam olsa da sayfa başına fazla bilgi ve
+10'lu contact-sheet içerdiği için takip edilmesi zordu. Sonuçlar değiştirilmeden
+sunum baştan kuruldu:
+
+- `48` sayfa; ana bölümde her sayfa tek ana fikir taşır;
+- görsel sayfalarda yalnız bir örnek ve iki büyük panel kullanılır;
+- her örneğin altında sade bulgu ve ilgili efektif başarı metriği vardır;
+- mIoU, semantic hit, safe hit, action-point ve crop-footprint farkı görsel
+  akışla anlatılır;
+- spot spray, mekanik sökme ve lazer için gerekli gerçek saha metriği ayrı
+  şemalarla gösterilir;
+- exact dataset tabloları ve policy değerleri ana hikâyeden teknik eke taşınır.
+
+V11 asset/seed-ayrık sentetik unseen holdout da genişletildi:
+
+- güçlü ve zor örnek ayrı sayfalarda gösterilir;
+- 16 karenin 14'ünde GT weed vardır;
+- macro crop IoU `%41,8`, weed bulunan karelerde macro weed IoU `%56,1`;
+- micro safe-weed recall `%33,3`, safe pixel precision `%96,7`, crop-spray
+  pixel risk `%0,0`;
+- bu değerler açıkça sentetik-domain performansı olarak etiketlenir ve gerçek
+  saha kanıtı sayılmaz.
+
+Teslimler:
+
+- repo kökü: `ANLASILIR_DETAYLI_MUDAHALE_RAPORU.pdf`;
+- sonuç kopyası: `docs/results/DETAYLI_BITKI_MUDAHALE_RAPORU.pdf`;
+- self-contained paket: `data/processed/audits/crop_intervention_report_v1/`;
+- paketteki `QUALITATIVE/`, eski yoğun contact-sheet kopyaları yerine raporda
+  kullanılan dokuz tekil örneği içerir.
+
+Doğrulama:
+
+- PDF `48` sayfa, başlık metadata'sı doğru ve üç kopyanın SHA-256 değeri
+  aynıdır: `8a12ebca834d8c731f544ec49b1accc6cee5b14f79696176ebc70873ff4894a4`;
+- tüm sayfalar overview olarak, ana karar/görsel/teknik-ek sayfaları ayrıca
+  tam çözünürlükte görsel kontrolden geçirildi; taşma veya üst üste binme yok;
+- tam test paketi `192/192` geçti ve `git diff --check` temizdir.
+
+---
+
+# 2026-08-06 — Kamera, domain adaptation, küçük-ot ve crop-row deneyleri
+
+Bu faz iki ana hipotezi ayrı ölçtü:
+
+1. fiziksel acquisition ve model raster/token bütçesi küçük-weed başarısını
+   sınırlar;
+2. hedef koşula benzer az miktarda gerçek veri domain uyumunu belirgin artırır.
+
+## Kamera/optik tanı sonucu
+
+Sekiz asset/seed-ayrık V11 unseen geometri × iki karede model/eşik sabit
+tutuldu. Native çözünürlük eğrisi:
+
+| Raster | mIoU | Crop IoU | Weed IoU | Safe weed recall |
+|---:|---:|---:|---:|---:|
+| 256 | 0,5553 | 0,2525 | 0,4384 | 0,1936 |
+| 384 | 0,6338 | 0,3603 | 0,5600 | 0,2539 |
+| 512 | 0,6952 | 0,4660 | 0,6340 | 0,3334 |
+| 768 | 0,7753 | 0,6139 | 0,7218 | 0,4416 |
+| 1024 | 0,8250 | 0,7158 | 0,7662 | 0,4882 |
+
+512 capture'ı yalnız dijital olarak 1024'e büyütmek `+0,11920` mIoU verdi;
+native 1024 bunun üstüne yalnız `+0,01060` ekledi. Bu temiz sentetik panelde
+model raster/token darboğazı baskındır. Ancak gerçek holdout aynı sonucu
+tekrarlamadı:
+
+| Alan | Inference raster | mIoU | `<14 px` safe hit | Crop risk | Perception ms |
+|---|---:|---:|---:|---:|---:|
+| SugarBeets | 1,0× | 0,5772 | 0,00283 | 0,0410 | 34,05 |
+| SugarBeets | 1,5× | 0,3621 | 0,00727 | 0,6520 | 95,05 |
+| SugarBeets | 2,0× | 0,4282 | 0,01776 | 0,2960 | 210,21 |
+| WeedMap | 1,0× | 0,3495 | 0,00021 | 0,00145 | 8,97 |
+| WeedMap | 1,5× | 0,3505 | 0,00105 | 0,00315 | 11,54 |
+| WeedMap | 2,0× | 0,3492 | 0,00232 | 0,00272 | 16,11 |
+
+Kör inference interpolation reddedildi. Native sensör/GSD, native tiling ve
+train–inference raster uyumu birlikte tasarlanmalıdır. Defocus `σ=3`, aynı
+sahnede mIoU'yu `-0,0826`; 7 px motion blur `-0,0121` değiştirdi. Sabit düşük
+ışık sweep'inde E0–E120 mIoU yaklaşık düz kaldı; simülatör enerji değeri
+lux/watt değildir. Işık short-shutter/exposure/focus sistemi olarak gerçek
+bench'te kalibre edilmelidir.
+
+512 referansta `<14 px` bağlı weed proxy safe hit `%2,4`, 14–28 px `%67,9`,
+28 px üstü `%100` oldu. Üst iki grupta yalnız 26 proxy bulunduğundan yaklaşık
+28 px kesin eşik değil, GSD ön-tasarım hipotezidir. Başlangıç hesabı:
+`GSD_max = hedef minimum weed eşdeğer çapı (mm) / 28`.
+
+## Domain-adaptation eğrisi
+
+Sorghum resmî train karelerinden RGB-thumbnail çeşitlilik sırasıyla
+strict-nested `0/10/25/50/100/202` alt kümeleri kuruldu. Epoch, samples/epoch,
+optimizer ve sampler oranı eşitti. Seed17 dondurulmuş target-ağırlıklı,
+breadth-gated seçim 10 kareyi seçti; seed29 yalnız kontrol+10-kare paired
+teyidiydi.
+
+İki-seed ortalama 10-kare farkları:
+
+- source `-0,00926`;
+- Sorghum `+0,17966`;
+- CWFID `+0,02792`;
+- SugarBeets `+0,05957`;
+- WeedMap `-0,00308`.
+
+Her iki seed de dondurulmuş kapıyı geçti. Bu, hedef koşula benzer az miktarda
+etiketli gerçek verinin en güçlü basit kaldıraç olduğunu doğrular. Sorghum
+aynı dataset/tek saha olduğundan bu sonuç multi-farm deployment kanıtı değildir.
+
+## Küçük-ot eğitim A/B ve iki-model kararı
+
+Eşit 8×3.600 örnek bütçesinde kontrol, scale-up, `%10` küçük-component replay,
+replay+scale ve 768 canvas sınandı. Global kapı source/CWFID/Sorghum/
+SugarBeets/WeedMap non-inferiority istedi. Tüm challenger'lar CWFID kapısını
+aştığı için global 512 kontrol korundu.
+
+Canvas768 seed17'de SugarBeets'i `+0,14355`, WeedMap'i `+0,00736` artırırken
+source `-0,00427`, Sorghum `-0,00306`, CWFID `-0,04179` değiştirdi. Sonuç
+görülmeden seed43 hedef-specialist kapısı donduruldu: SugarBeets en az `+0,05`;
+source `≥-0,015`, Sorghum `≥-0,02`, WeedMap `≥-0,01`, CWFID `≥-0,06`.
+Seed43 farkları `-0,00665/-0,04668/+0,00712/+0,11665/+0,00680` oldu ve kapı
+geçti. İki-seed ortalama:
+
+- source `-0,00546`;
+- CWFID `-0,04424`;
+- Sorghum `+0,00203`;
+- SugarBeets `+0,13010`;
+- WeedMap `+0,00708`.
+
+Karar: `512 control` global generalist/fallback; `canvas768` yalnız doğrulanmış
+hedef robot kamera profiline route edilen conditional specialist. CWFID/UAV
+alanına otomatik genellenmez.
+
+Seed17 full intervention tanısında SugarBeets kontrol→canvas768:
+
+- mIoU `0,5574 → 0,7003`;
+- crop risk `%4,41 → %1,45`;
+- safe spray recall `%4,15 → %9,72`;
+- tüm semantic-component hit `%4,92 → %15,28`;
+- `<14 px` safe hit `%0,16 → %0,40`;
+- merkez ≤1 eşdeğer yarıçap `%3,37 → %9,66`.
+
+WeedMap'te mIoU hafif yükselirken safe recall `%6,29 → %3,24` ve `<14 px`
+hit `%0,38 → %0,04` düştü. Bu sonuç routing/fallback gereğini doğrudan
+doğrular. Connected component botanik instance; center kök/meristem değildir.
+
+## Crop-row prior
+
+Practical prior model crop olasılığından sıra fit eder; oracle yalnız sıra
+geometrisini GT'den aldığı için label-leaking teorik tavandır. `0,65` posterior
+prior reddedildi. Row guard yeni aksiyon yaratmaz, yalnız veto eder.
+SugarBeets'te pratik guard crop riskini `%4,55 → %4,06` indirirken safe weed
+recall `%7,83 → %6,60` düştü. In-row weed bulunduğundan `sıra içi=crop`
+mutlak kuralı güvenli değildir. RTK/planter çizgisi veya temporal fit daha
+değerli bir sonraki prior kaynağıdır.
+
+## Teslimler ve sonraki gerçek saha kapısı
+
+- kısa PDF: `docs/results/BASLA_BURADAN_KAMERA_DOMAIN_KARARI.pdf` (`10` sayfa);
+- detaylı PDF: `docs/results/KAMERA_DOMAIN_VE_KUCUK_OT_DENEY_RAPORU.pdf`
+  (`23` sayfa);
+- exact Markdown: `docs/KAMERA_DOMAIN_VE_KUCUK_OT_DENEYLERI_V1.md`;
+- self-contained yerel paket:
+  `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/camera_domain_report_v1/`.
+
+Sıradaki P0, daha fazla calibration-set deneyi değil gerçek kamera bench'idir:
+
+1. minimum öldürülebilir weed çapı, yatay kapsama, çalışma yüksekliği/FOV ve
+   target GSD dondur;
+2. native sensor/tile ile focus/DOF, short shutter, robot hızında blur ve
+   lux–mesafe–exposure sweep'i ölç;
+3. 3–4 yeni tarla/kamera oturumu ve küçük-weed strata içeren untouched final
+   test topla;
+4. generalist/specialist routing'i kamera metadata'sı ve OOD fail-closed guard
+   ile doğrula;
+5. removal yöntemine göre deposition/removal/kill ve crop-injury sonucunu mm
+   kalibre aktüatör testiyle ölç. Depth bundan sonra ele alınır.

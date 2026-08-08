@@ -1,0 +1,59 @@
+schema_version: 1
+protocol: weed_detection_stem_keypoint_highres_finetune_v1
+frozen_at: "2026-08-08T09:15:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_yaml: processed/wsd_pose_v1/weed_stem_detection_v1.yaml
+dataset_receipt: processed/audits/weed_stem_detection_v1_receipt.json
+dataset_receipt_sha256: acad408e19bbcf628823cc5af99a3eb4943c23751cdf4d0764487e5469aece3a
+
+model:
+  family: Ultralytics-YOLO26s-pose-1024-to-1536-finetune
+  package_version: 8.4.60
+  license_scope: AGPL-3.0-research-poc-only
+  pretrained_checkpoint: runs/wsd_pose_poc_v1/yolo26s_pose_1024_seed17/weights/best.pt
+  pretrained_checkpoint_sha256: 5c1afffae12ccc0d84f8188247e95d3579568925a3099cc8a85f213418d57e70
+
+training:
+  seed: 17
+  epochs: 30
+  patience: 12
+  image_size: 1536
+  batch: 4
+  workers: 4
+  device: 0
+  deterministic: true
+  amp: true
+  optimizer: AdamW
+  lr0: 0.0003
+  lrf: 0.05
+  momentum: 0.90
+  weight_decay: 0.0005
+  cos_lr: true
+  cache: false
+  degrees: 10.0
+  translate: 0.10
+  scale: 0.30
+  fliplr: 0.50
+  flipud: 0.0
+  mosaic: 0.25
+  close_mosaic: 8
+
+evaluation:
+  split: test
+  confidence: 0.001
+  iou: 0.70
+  image_size: 1536
+  batch: 1
+
+output:
+  project: runs/wsd_pose_poc_v1
+  name: yolo26s_pose_1536_finetune_seed17
+
+claims:
+  - This is a pragmatic high-resolution fine-tune from the frozen 1024 checkpoint, not an equal-compute model comparison.
+  - Train and validation remain capture-date disjoint; validation selects the checkpoint and action thresholds.
+  - The WSD test date has already been used for the 768/1024/1536/2048 inference-raster diagnostic, so it is a development holdout rather than an untouched final test.
+  - Built-in box/pose mAP is diagnostic; action-level point F1 is computed separately.
+  - No GSD or camera-tool calibration is available, so this is not laser kill validation.
+  - This Ultralytics baseline is research-only pending deployment-license resolution.

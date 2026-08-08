@@ -1,0 +1,67 @@
+schema_version: 1
+frozen_at: "2026-08-03T14:00:00+03:00"
+dataset_id: weedy_rice_uav_v1
+source_doi: 10.17632/vt4s83pxx6.1
+source_article_doi: 10.1016/j.dib.2025.112237
+
+freeze:
+  frozen_before_archive_content_inspection: true
+  frozen_before_mask_visual_review: true
+  frozen_before_model_evaluation: true
+  publisher_random_split_used: false
+  external_test_created: false
+
+capture_correlation:
+  reported_front_overlap: 0.70
+  reported_side_overlap: 0.70
+  grouping_unit: location_and_flight_date
+  rationale: >-
+    Adjacent UAV frames overlap heavily. Every flight event must remain in one
+    role; image-level random splits would leak near-identical field content.
+
+expected_capture_events:
+  - date: "2024-06-02"
+    location: Thoaison
+    selected_rgb: 115
+    role: train_candidate
+  - date: "2024-06-04"
+    location: Thoaison
+    selected_rgb: 331
+    role: train_candidate
+  - date: "2024-09-30"
+    location: Thoaison
+    selected_rgb: 41
+    role: train_candidate
+  - date: "2025-01-15"
+    location: Longxuyen
+    selected_rgb: 247
+    role: external_calibration
+
+expected_totals:
+  samples: 734
+  train_candidate: 487
+  external_calibration: 247
+  external_test: 0
+
+label_semantics:
+  source_mask_values:
+    0: not_annotated_as_weedy_rice
+    255: weedy_rice
+  common_positive_mapping:
+    255: 2
+  forbidden_mappings:
+    - source_0_to_common_background
+    - source_0_to_common_crop
+  reason: >-
+    Source zero combines cultivated rice, soil, water, and other non-weedy-rice
+    content. It is a valid negative for a weedy-rice-vs-rest diagnostic but is
+    not a valid dense crop/background label in the common 0/1/2/255 ontology.
+
+usage_policy:
+  initial_role: real_weedy_rice_binary_external_diagnostic
+  calibration_metric: binary_weedy_rice_iou_and_recall_vs_all_nonweed_pixels
+  common_model_training_allowed: false
+  training_unlock_requires: >-
+    A separately frozen positive-only or partial-label loss protocol, followed
+    by existing-domain non-inferiority gates. No source-zero pixel may be used
+    as common background or crop supervision.

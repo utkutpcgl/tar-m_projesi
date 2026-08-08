@@ -1,0 +1,158 @@
+schema_version: 1
+dataset_id: weedmap
+scope: real_rgb_uav_sugar_beet_research_development
+data_root: data
+
+source:
+  official_doi: https://doi.org/10.3929/ethz-c-000788571
+  official_landing_page: https://www.research-collection.ethz.ch/entities/researchdata/0a5dcd76-cc44-4fbe-9f48-d8a717c90a30
+  official_readme: https://www.research-collection.ethz.ch/bitstreams/deb4d587-278a-4aa4-bcc4-132234af185e/download
+  mirror_landing_page: https://ngdc.cncb.ac.cn/opia/dataset/datasets?dataId=30
+  mirror_download_url: https://download.cncb.ac.cn//OPIA/WeedMap.zip
+  archive_path: raw/weedmap/archives/WeedMap_OPIA_2023.zip
+  archive_size_bytes: 4480204702
+  archive_sha256: 8247a5a2e690ee77a34eb7bdcb3a1729c7ce3c8f6ef3ef9ff93067f17e90c53b
+  archive_checksum_status: >-
+    Locally computed acquisition identity. Neither the ETH record nor OPIA
+    publishes a cryptographic checksum for this mirror object.
+  archive_members: 18875
+  archive_files: 18746
+  archive_compressed_bytes: 4476313284
+  archive_uncompressed_bytes: 5362213286
+  require_full_crc_test: true
+
+publisher_structure:
+  sensor_subset: RedEdge-M true RGB only
+  excluded_sensor_subset: Sequoia CIR; no blue channel
+  tile_width: 480
+  tile_height: 360
+  validity_mask_values: [0, 255]
+  # The released archive is the reverse of the prose README: mask=0 exactly
+  # matches RGB non-black pixels, while mask=255 exactly matches black padding.
+  observed_valid_mask_value: 0
+  observed_invalid_mask_value: 255
+  # Fixed before model evaluation. Edge slivers below 5% contain too little
+  # supervised area for stable uniform image sampling and are quarantined.
+  minimum_valid_fraction: 0.05
+  # The release MATLAB stitcher and every color label establish that the
+  # anomalous raw value 10000 is crop in this archive.
+  raw_class_to_common:
+    0: 0
+    2: 2
+    10000: 1
+  observed_raw_class_to_color:
+    0: [0, 0, 0]
+    2: [255, 0, 0]
+    10000: [0, 255, 0]
+  rededge_maps:
+    "000":
+      total_tiles: 221
+      effective_tiles: 107
+      all_invalid_tiles: 104
+      below_minimum_valid_fraction_tiles: 10
+      publisher_reported_effective_tiles: 107
+      role: train
+    "001":
+      total_tiles: 176
+      effective_tiles: 90
+      all_invalid_tiles: 79
+      below_minimum_valid_fraction_tiles: 7
+      publisher_reported_effective_tiles: 90
+      role: train
+    "002":
+      total_tiles: 252
+      effective_tiles: 150
+      all_invalid_tiles: 93
+      below_minimum_valid_fraction_tiles: 9
+      publisher_reported_effective_tiles: 145
+      role: train
+    "003":
+      total_tiles: 204
+      effective_tiles: 95
+      all_invalid_tiles: 102
+      below_minimum_valid_fraction_tiles: 7
+      publisher_reported_effective_tiles: 94
+      role: external_calibration
+    "004":
+      total_tiles: 117
+      effective_tiles: 77
+      all_invalid_tiles: 35
+      below_minimum_valid_fraction_tiles: 5
+      publisher_reported_effective_tiles: 61
+      role: train
+
+resolved_release_anomalies:
+  indexed_crop_value:
+    readme_claim: raw 1 is crop and raw 10000 is non-class
+    observed_archive: raw values are exactly 0, 2, and 10000; raw 1 is absent
+    resolution: >-
+      The bundled MATLAB stitcher explicitly replaces 10000 with crop index 1,
+      and all 970 indexed/color label pairs map 10000 to green crop, 2 to red
+      weed, and 0 to black background. Therefore 10000 is crop for this object.
+  binary_mask_polarity:
+    readme_claim: white is valid and black is invalid
+    observed_archive: >-
+      Across all 167,616,000 RedEdge tile pixels, mask 0 exactly equals RGB
+      non-black and mask 255 exactly equals all-black padding.
+    resolution: use observed mask 0 as valid and mask 255 as ignore
+  effective_tile_counts:
+    publisher_total_rededge: 497
+    released_non_black_tiles: 557
+    released_tiles_after_fixed_five_percent_valid_floor: 519
+    resolution: >-
+      Use the observable archive footprint with a pre-model 5% supervision
+      floor, report every per-map delta, and make no claim of reproducing the
+      paper's undocumented effective-tile list.
+
+capture:
+  field_id: rheinbach_germany_sugar_beet_field_2017
+  capture_date: 2017-09-18
+  platform: DJI Inspire 2 UAV; 10 m altitude; 4.8 m/s
+  sensor: MicaSense RedEdge-M true RGB composite; approximately 1 cm GSD
+  target_crop_id: 0
+  crop_species: Beta vulgaris
+  weed_species: >-
+    Galinsoga spp.;Amaranthus retroflexus;Atriplex spp.;Polygonum spp.;
+    Gramineae including Echinochloa crus-galli;minor mixed weeds
+  growth_stage: approximately one month after sowing; crop size 15-20 cm
+
+license:
+  status: In Copyright - Non-Commercial Use Permitted
+  commercial_allowed: false
+  official_rights_statement: https://rightsstatements.org/page/InC-NC/1.0/
+  note: >-
+    Dataset use is restricted to the research/non-commercial track. The
+    bundled MATLAB scripts are LGPL-3.0-or-later, which does not override the
+    ETH dataset rights statement.
+
+role_policy:
+  publisher_map_split_preserved: true
+  train_maps: ["000", "001", "002", "004"]
+  external_calibration_maps: ["003"]
+  single_site_limit: >-
+    All selected RGB maps are from one Rheinbach field and one 2017-09-18
+    campaign. Orthomosaic IDs are correlated spatial groups, not independent
+    sites, and external_calibration is development-only.
+  external_test_claim: false
+
+quality_gate:
+  expected_source_rededge_tiles_audited: 970
+  expected_samples: 519
+  expected_train: 424
+  expected_external_calibration: 95
+  require_safe_archive_members: true
+  require_exact_archive_size_sha256_and_crc: true
+  require_exact_rgb_mask_and_label_dimensions: true
+  require_exact_indexed_to_color_correspondence: true
+  require_exact_observed_mask_rgb_footprint_correspondence: true
+  require_crop_and_weed_pixels: true
+  forbid_sequoia_cir: true
+  forbid_external_test_claim: true
+
+outputs:
+  images_root: processed/weedmap/images
+  masks_root: processed/weedmap/common_masks
+  manifest: processed/manifests/weedmap.csv
+  train_manifest: processed/manifests/weedmap_train_v1.csv
+  calibration_manifest: processed/manifests/weedmap_calibration_v1.csv
+  report: processed/manifests/weedmap_conversion.json

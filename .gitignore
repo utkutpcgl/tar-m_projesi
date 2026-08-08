@@ -9,7 +9,7 @@ __pycache__/
 htmlcov/
 
 # Runtime data is kept on the dedicated data disk and linked here.
-data
+/data
 artifacts/
 runs/
 *.onnx

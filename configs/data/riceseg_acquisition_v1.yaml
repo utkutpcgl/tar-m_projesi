@@ -1,0 +1,51 @@
+schema_version: 1
+frozen_at: "2026-08-03T13:43:14+03:00"
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+source:
+  repository_id: PheniX-Lab/RiceSEG
+  repository_type: dataset
+  revision: 1a891ced931d5b3ac2a907b045f53414f1a615b4
+  gated: auto
+  user_access_conditions_accepted: true
+  official_dataset_page: https://www.global-rice.com/
+  official_repository_page: https://huggingface.co/datasets/PheniX-Lab/RiceSEG
+  license_presentation: mit
+  license_note: >-
+    Hugging Face dataset card presents MIT; the official site describes the
+    dataset as open-source and free-to-use. Preserve both records and do not
+    infer a broader deployment grant from this acquisition receipt.
+
+expected_repository:
+  exact_files:
+    .gitattributes:
+      size_bytes: 2575
+    README.md:
+      size_bytes: 1630
+    RiceSEG.zip:
+      size_bytes: 231552592
+      sha256: 0071d9f941508afd9a86aa5ef740433dee938e1c7a9508a191d3e46a2909be96
+    class_pixel_counts.xlsx:
+      size_bytes: 194007
+      sha256: 1abd56fd734e6183ccbd769d4bcc20a32d9511cf8578271be92c1cc12bc0682a
+    crop_mapping.xlsx:
+      size_bytes: 101954
+      sha256: 27186d18a06cbe5899915e1226602bbf42bedf855178868d5c38e189a6523eda
+    original.zip:
+      size_bytes: 1332546779
+      sha256: d3ff1de5111f8725885da671cac916e7d94cb127f48d01ddc6508c81fb0f4478
+  total_file_bytes: 1564399537
+  sha256_source: official_huggingface_security_metadata_content_identifier
+
+quality_gate:
+  require_local_huggingface_token: true
+  require_exact_repository_file_set: true
+  require_pinned_remote_revision: true
+  require_archive_safe_paths: true
+  require_no_archive_symlinks: true
+  require_full_archive_crc: true
+  minimum_free_space_after_download_bytes: 53687091200
+
+outputs:
+  repository_dir: raw/riceseg/repository
+  acquisition_receipt: processed/audits/riceseg_acquisition_v1.json

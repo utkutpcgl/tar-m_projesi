@@ -1,0 +1,97 @@
+schema_version: 1
+dataset_id: sugarbeets2016_multiclass_holdout_v1
+frozen_before_any_model_evaluation: true
+frozen_at: '2026-08-04T11:14:24+03:00'
+
+source:
+  official_dataset_page: https://www.ipb.uni-bonn.de/data/sugarbeets2016/index.html
+  primary_article: https://doi.org/10.1177/0278364917720510
+  license: CC-BY-SA-4.0
+  commercial_allowed: true
+  sequence: bonirob_2016-05-23-10-37-10_0
+  annotations_dir: raw/sugarbeets2016_multiclass_annotations_v1/extracted/ijrr_annotations_160523
+  annotation_receipt: raw/sugarbeets2016_multiclass_annotations_v1/acquisition_receipt.json
+  annotation_receipt_sha256: a8a689e20070e18ecd2065be34b19762f08f7321d90b2e1907cd5e349a32a302
+  annotation_archive_sha256: b8729d1bb4c79e38d1b583e0b3488c1bce796d032e7bc07ea328ec1c2f9378e7
+  rgb_dir: raw/sugarbeets2016_annotated_holdout_160523_103710_v1/extracted_annotated_rgb
+  rgb_receipt: raw/sugarbeets2016_annotated_holdout_160523_103710_v1/acquisition_pairing_receipt.json
+  rgb_receipt_sha256: c64d47fe4b8f681b99e58e7dbc67e4cb2a93410f75658fd2e3261a48ab38bd60
+  rgb_archive_sha256: 1ec5786606a4fdf1f21363930913b852aa59ae8f82ae2ad0ee3b7ea9e7fb4cb3
+
+publisher_contract:
+  expected_frames: 283
+  first_frame_index: 23
+  last_frame_index: 305
+  expected_dimensions: [1296, 966]
+  expected_rgb_mode: RGB
+  # Primary article section 4.2.6: non-vegetation is black, sugar beet is red,
+  # and the remaining colours encode several weed species.
+  expected_palette_rgb:
+    - [0, 0, 0]
+    - [255, 0, 0]
+    - [0, 50, 255]
+    - [255, 50, 0]
+    - [255, 150, 0]
+    - [255, 200, 0]
+    - [180, 255, 0]
+    - [150, 150, 150]
+    - [255, 100, 0]
+    - [150, 255, 0]
+    - [220, 255, 0]
+    - [0, 250, 255]
+    - [120, 255, 0]
+    - [0, 0, 255]
+    - [0, 255, 150]
+    - [80, 255, 0]
+    - [0, 255, 200]
+    - [0, 150, 255]
+
+ontology:
+  common_ids:
+    background: 0
+    target_crop: 1
+    other_vegetation: 2
+    ignore: 255
+  source_black_rgb: [0, 0, 0]
+  source_sugar_beet_rgb: [255, 0, 0]
+  mapping: all_expected_non_black_non_red_colours_to_other_vegetation
+  crop_species: Beta vulgaris
+  target_crop_id: 0
+  weed_species: nine_publisher_weed_types_collapsed
+  annotation_exhaustive: true
+
+capture:
+  field_id: cka_sugarbeet_field_2016
+  session_id: bonirob_2016-05-23-10-37-10_0
+  capture_date: '2016-05-23'
+  platform: ground_robot_bonirob
+  sensor: JAI_AD-130GE_RGB
+  viewpoint: close_range_nadir
+  growth_stage: early_vegetative
+  illumination: robot_mounted_artificial_light_with_field_ambient
+
+role_policy:
+  output_split: external_calibration
+  real_panel: target_like
+  one_sequence_one_field_session_vote: true
+  image_or_pixel_count_weighting: forbidden
+  training_allowed: false
+  final_test_claim: false
+  model_selection_allowed_only_for_frozen_v2_comparison: true
+  limitation: one_field_one_date_one_session_with_strong_temporal_correlation
+
+quality_gate:
+  require_all_receipts_passed: true
+  require_exact_palette: true
+  require_all_three_common_classes_globally: true
+  require_rgb_mask_pair_count: 283
+  require_exact_and_dhash256_hamming2_no_training_overlap: true
+  require_manual_rgb_mask_pairs: 12
+
+outputs:
+  common_masks: processed/sugarbeets2016_multiclass_holdout_v1/common_masks
+  manifest: processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+  conversion_report: processed/audits/sugarbeets2016_multiclass_holdout_v1_conversion.json
+  contact_sheet: processed/audits/sugarbeets2016_multiclass_holdout_v1_contact_sheet.jpg
+  manual_visual_review: processed/audits/sugarbeets2016_multiclass_holdout_v1_manual_visual_review.json
+  duplicate_audit: processed/audits/sugarbeets2016_multiclass_holdout_v1_duplicates.json

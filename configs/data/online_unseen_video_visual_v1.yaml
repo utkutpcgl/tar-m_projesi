@@ -1,0 +1,52 @@
+schema_version: 1
+frozen_at: "2026-08-04T15:01:42+03:00"
+purpose: model_uninformed_online_video_qualitative_ood_gallery
+
+accepted_candidate:
+  name: naio_oz_9LdXvkvcSxM
+  url: https://www.youtube.com/watch?v=9LdXvkvcSxM
+  title: "#Oz - 2016 - Autonomous weeding robot"
+  uploader: Naïo Technologies
+  video_id: 9LdXvkvcSxM
+  source: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/unseen_video/online_candidates/naio_oz_9LdXvkvcSxM/source_1080p.mp4
+  source_sha256: a3b23e1a69167db0e35acc124c2f8e097be9a7d26f99199fbd03ef01dd1b5f53
+  expected_duration_seconds: 297.541
+  expected_resolution: [1920, 1080]
+  metadata: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/unseen_video/online_candidates/naio_oz_9LdXvkvcSxM/source.info.json
+  metadata_sha256: 56c6dbf9b2827c8ceb5bf12b8aaa2786de04d88a305c3cc49ad7eea0605febae
+  license_in_metadata: null
+  use_policy: local_qualitative_analysis_only_no_redistribution
+  selected_timestamps_seconds: [10, 20, 40, 60, 100, 130, 140, 200, 220, 240, 270, 280]
+  timestamp_selection_basis: >-
+    Model-uninformed visual review of a 10-second timeline sheet; selected for
+    crop/soil/tool/viewpoint diversity and excluded title/end cards.
+
+rejected_candidate:
+  name: farmdroid_jHd_ZQclc34
+  url: https://www.youtube.com/watch?v=jHd_ZQclc34
+  source_sha256: 5d28d31ec6a8d369abd8ee50aa189086f867e984f74c804e94efb7a814a84bc1
+  contact_sheet_sha256: 7f1e55aa73b919a566adc3f261ca16d02418152ddd21a8b044d51e6ed7b624c7
+  reason: mostly external machine/bare-soil cinematography with too little visible vegetation
+
+checkpoint_training_exposure_reference:
+  path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8/seed_43/last.pt
+  sha256: b97618224621950e46bd47136bad43f51e417c11121674bc1849a9f7322b3d9f
+
+output:
+  directory: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/online_unseen_naio_oz_v1/selection
+
+conditioning:
+  target_crop_id: 32
+  crop_species: mixed_unknown
+  class_interpretation: vegetation_union_only
+  rationale: >-
+    The edited video contains multiple crops and no frame-level crop identity.
+    Crop-vs-weed semantics would be misleading, so only the union of both
+    vegetation logits may be interpreted visually.
+
+policy:
+  training_authorized: false
+  numeric_segmentation_accuracy_authorized: false
+  model_selection_score_weight: 0.0
+  redistribution_authorized: false
+  online_video_is_not_final_test: true

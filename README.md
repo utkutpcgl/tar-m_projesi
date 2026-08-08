@@ -13,6 +13,26 @@ modeli seçmek ve ayrı, dondurulmuş A/B'lerle stock ve özel CropCraft
 pilotlarının gerçek-domain etkisini ölçmektir. Sentetik veri ana corpus veya
 gerçek testin yerine geçmez. Depth modeli bu faza bağlanmadı.
 
+## Noktasal müdahale PoC'si — 2026-08-08
+
+- [Önce bunu açın — tek ve açıklamalı PDF](docs/results/BASLA_BURADAN_NOKTASAL_MUDAHALE_POC.pdf)
+- [Aranabilir exact sonuçlar ve yöntem](docs/NOKTASAL_MUDAHALE_POC_V1.md)
+
+768 uzman için raporlanan `%9,72`, botanik bitki-müdahale recall'ı değil;
+`0,99` weed eşiği ve uncertainty/crop guard sonrası weed-pixel recall'ıydı.
+Gerçek robot görüntüsünde uzman etiketli weed saplarıyla yeni bir
+detection+keypoint PoC'si kuruldu. Mevcut en iyi 1536 fine-tune, ayrı çekim
+tarihinde 10% weed-box-diagonal toleransında precision/recall/F1
+`0,6335/0,7612/0,6915` verdi. `%95` offline perception kapısı geçilmedi;
+bu nedenle saha ilaç/lazer ateşlemesi onaylı değildir.
+
+Karar: segmentasyon crop safety/context ve spray footprint için korunur;
+noktasal aktüatör komutu instance detection + stem/root keypoint'ten gelir.
+Aynı-kare dedupe ve validation'da yeniden seçilen eşik, 1536 ham keypoint
+F1'ını `0,6001 → 0,6915` yaptı. Video katmanı için kalibre zemin
+koordinatında basit track, en az üç gözlem ve fire-once uygulaması eklendi;
+ID-etiketli hedef videoda sayısal tracking kazanımı henüz ölçülmedi.
+
 ## Kamera, domain adaptation ve küçük-ot kararı — 2026-08-06
 
 - [10 sayfalık kısa karar PDF'i](docs/results/BASLA_BURADAN_KAMERA_DOMAIN_KARARI.pdf)

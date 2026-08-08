@@ -1,0 +1,52 @@
+schema_version: 1
+frozen_at: "2026-08-03T13:53:00+03:00"
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+source:
+  dataset_id: weedy_rice_uav_v1
+  title: A Dataset of Aligned RGB and Multispectral UAV Imagery for Semantic Segmentation of Weedy Rice
+  doi: 10.17632/vt4s83pxx6.1
+  landing_page: https://data.mendeley.com/datasets/vt4s83pxx6/1
+  download_url: https://data.mendeley.com/public-api/zip/vt4s83pxx6/download/1
+  version: 1
+  published: "2025-07-21"
+  license: CC-BY-4.0
+  commercial_allowed: true
+  role: research_real_candidate_before_quality_gate
+  publisher_claims:
+    samples: 734
+    countries: [Vietnam]
+    region: Mekong Delta
+    cropping_seasons: 3
+    rgb_width: 1280
+    rgb_height: 960
+    mask_format: binary_png
+    positive_mask_value: 255
+    annotation_method: fine-tuned-SAM-followed-by-manual-verification
+
+outer_archive:
+  path: raw/weedy_rice_uav/archives/vt4s83pxx6_v1.zip
+  size_bytes: 5288295277
+  etag: 6ef3ae677c8ee413003177624f8f6109-101
+  last_modified: "2025-07-21T17:17:14Z"
+  members: 1
+  files: 1
+  compressed_bytes: 5288294913
+  uncompressed_bytes: 5287951115
+  exact_member: A Dataset of Aligned RGB and Multispectral UAV Ima/WeedyRice-RGBMS-DB.zip
+  exact_member_size_bytes: 5287951115
+
+quality_gate:
+  require_exact_outer_size: true
+  require_exact_outer_member_set: true
+  require_archive_safe_paths: true
+  require_no_archive_symlinks: true
+  require_full_outer_crc: true
+  require_full_nested_crc: true
+  minimum_free_space_after_archive_and_nested_bytes: 107374182400
+  external_test_used: false
+  model_selection_used: false
+
+outputs:
+  nested_archive: raw/weedy_rice_uav/archives/WeedyRice-RGBMS-DB.zip
+  acquisition_receipt: processed/audits/weedy_rice_uav_acquisition_v1.json

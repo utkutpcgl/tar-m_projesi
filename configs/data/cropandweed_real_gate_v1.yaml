@@ -1,0 +1,140 @@
+schema_version: 1
+dataset_id: cropandweed
+track: research_max
+upstream_repository: https://github.com/cropandweed/cropandweed-dataset
+upstream_revision: e471c47971af431f4fb8d7463f6b4c9e2b3b35fa
+annotation_archive_sha256: 52444898ff142e95051c40073121fd509f2dee9e7766eadd8608b52785584041
+
+licence_policy:
+  commercial_allowed: false
+  redistribution_allowed: false
+  trained_abstract_representations_allowed: true
+  status: non-commercial-research-only
+
+ontology_policy:
+  target_identity: exactly_one_official_crop_group_in_semantic_mask
+  no_target_crop: exclude
+  multiple_target_crops: exclude
+  raw_255_ambiguous_vegetation: ignore
+  unsupported_raw_species: ignore
+
+expected_counts:
+  source_images: 8034
+  included_samples: 4584
+  excluded_no_target_crop: 3341
+  excluded_multiple_target_crops: 109
+  bbox_semantic_labelset_mismatches: 66
+
+split_policy:
+  version: cropandweed_session_stratified_milp_v1
+  frozen_before_training: true
+  grouping_key: recording_session
+  train_role: train
+  holdout_role: external_calibration
+  holdout_images: 917
+  holdout_sessions: 87
+  total_eligible_sessions: 437
+  optimization: exact_20_percent_images_and_nearest_20_percent_sessions
+  stratification:
+    - application_or_experimental_set
+    - target_crop_species
+    - moisture
+    - soil_texture
+    - lighting
+    - crop_weed_separability
+    - crop_by_set
+    - crop_by_moisture
+    - crop_by_lighting
+  note: >-
+    The split was optimized from annotations only, before any model training or
+    evaluation. Rare soil=2 has only two eligible sessions, so one whole session
+    is held out and its image ratio cannot be 20 percent.
+
+external_calibration_sessions:
+  - ave-0045
+  - ave-0063
+  - ave-0072
+  - ave-0088
+  - ave-0092
+  - ave-0098
+  - ave-0103
+  - ave-0108
+  - ave-0110
+  - ave-0111
+  - ave-0112
+  - ave-0117
+  - ave-0126
+  - ave-0138
+  - ave-0140
+  - ave-0147
+  - ave-0157
+  - ave-0158
+  - ave-0201
+  - ave-0225
+  - ave-0230
+  - ave-0231
+  - ave-0249
+  - ave-0255
+  - ave-0265
+  - ave-0267
+  - ave-0308
+  - ave-0350
+  - ave-0351
+  - ave-0361
+  - ave-0362
+  - ave-0365
+  - ave-0367
+  - ave-0431
+  - ave-0464
+  - ave-0486
+  - ave-0487
+  - ave-0499
+  - ave-0502
+  - ave-0507
+  - ave-0512
+  - ave-0519
+  - ave-0527
+  - ave-0593
+  - vwg-0054
+  - vwg-0074
+  - vwg-0076
+  - vwg-0147
+  - vwg-0160
+  - vwg-0171
+  - vwg-0228
+  - vwg-0284
+  - vwg-0310
+  - vwg-0437
+  - vwg-0520
+  - vwg-0615
+  - vwg-0635
+  - vwg-0639
+  - vwg-0641
+  - vwg-0651
+  - vwg-0683
+  - vwg-0713
+  - vwg-0744
+  - vwg-0769
+  - vwg-0794
+  - vwg-0802
+  - vwg-0803
+  - vwg-0829
+  - vwg-0831
+  - vwg-0862
+  - vwg-0864
+  - vwg-0865
+  - vwg-0895
+  - vwg-0896
+  - vwg-0898
+  - vwg-0926
+  - vwg-0934
+  - vwg-0960
+  - vwg-0963
+  - vwg-1227
+  - vwg-1235
+  - vwg-1286
+  - vwg-1287
+  - vwg-1290
+  - vwg-1320
+  - vwg-1322
+  - vwg-1329

@@ -1,0 +1,79 @@
+schema_version: 4
+frozen_at: "2026-08-04T15:45:00+03:00"
+supersedes: configs/data/farmbot_soy_unseen_v3.yaml
+change_reason: >-
+  The v3 decode gate established that the distributed unannotated photographs
+  are 1600x1200, while the paper describes the acquisition camera/output as 4K.
+  This revision records that discrepancy and accepts only the 1600x1200
+  unannotated originals for qualitative OOD review. The 640x640 Roboflow
+  derivatives remain decoded for integrity but are ineligible for selection.
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+source:
+  dataset_name: FarmBot Soybean and Weed 2026
+  doi: 10.17632/78ms3sw487.1
+  landing_url: https://data.mendeley.com/datasets/78ms3sw487/1
+  download_url: https://data.mendeley.com/public-api/zip/78ms3sw487/download/1
+  version: 1
+  expected_archive_bytes: 816117805
+  license: CC-BY-4.0
+  published_camera: ELP USB4KHDR01-MFV / Sony IMX317
+  published_acquisition_resolution: [3840, 2160]
+  delivered_unannotated_resolution: [1600, 1200]
+  resolution_discrepancy_recorded: true
+  target_crop_id: 8
+  crop_species: Glycine max
+
+nested_archive:
+  outer_member: A soybean and weed image dataset collected using F/Soyaben-Weed Dataset.zip
+  expected_uncompressed_bytes: 817088774
+  expected_sha256: 93af5f275fba78cd6d604d477ec7525f95ece5d6951e32f09010e3328a5503ca
+  reuse_if_hash_matches: true
+
+metadata_quarantine:
+  path_prefixes: ["__MACOSX/"]
+  basenames: [".DS_Store"]
+  maximum_members: 2500
+  maximum_uncompressed_bytes: 2097152
+
+photo_gate:
+  required_relative_path_marker: /Unannotated Dataset/
+  minimum_width: 1600
+  minimum_height: 1200
+  minimum_photo_count: 600
+  annotated_640px_derivatives_eligible: false
+
+outputs:
+  archive: raw/unseen_video/farmbot_soy_2026/archives/farmbot_soy_2026_v1.zip
+  nested_archive: raw/unseen_video/farmbot_soy_2026/archives/farmbot_soy_2026_payload_v1.zip
+  extracted: raw/unseen_video/farmbot_soy_2026/repository
+  reuse_existing_extraction: true
+  audit: processed/audits/farmbot_soy_unseen_v4/acquisition_and_archive_audit.json
+
+gates:
+  minimum_free_bytes_after_download: 107374182400
+  minimum_free_bytes_after_extraction: 107374182400
+  maximum_uncompressed_bytes: 21474836480
+  maximum_members: 10000
+  allowed_file_suffixes:
+    - .jpg
+    - .jpeg
+    - .png
+    - .txt
+    - .json
+    - .csv
+    - .yaml
+    - .yml
+    - .xml
+    - .md
+
+policy:
+  training_authorized: false
+  numeric_segmentation_accuracy_authorized: false
+  model_selection_score_weight: 0.0
+  role: unseen_real_qualitative_failure_discovery
+  annotations_are_dense_semantic_masks: false
+  note: >-
+    Publisher annotations are bounding boxes, not exhaustive common-ontology
+    semantic masks. Images may be used for qualitative prediction galleries
+    and unlabeled traces only; no mIoU may be reported.

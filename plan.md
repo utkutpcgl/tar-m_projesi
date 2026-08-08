@@ -2181,3 +2181,91 @@ Sıradaki P0, daha fazla calibration-set deneyi değil gerçek kamera bench'idir
    ile doğrula;
 5. removal yöntemine göre deposition/removal/kill ve crop-injury sonucunu mm
    kalibre aktüatör testiyle ölç. Depth bundan sonra ele alınır.
+
+# Noktasal müdahale PoC sonucu — 2026-08-08
+
+## `%9,72` sonucunun düzeltilmiş yorumu
+
+Canvas768 SugarBeets tanısındaki `%9,72`, gerçek bitki-instance veya
+müdahale recall'ı değildir. `weed_threshold=0,99`, uncertainty ve crop guard
+sonrası kalan weed **piksellerinin** recall'ıdır. Aynı 283 robot karesinde:
+
+- mIoU `0,70033`;
+- weed-pixel precision/recall/F1 `0,52994/0,54555/0,53763`;
+- frozen safe-pixel precision/recall `0,65954/0,09718`.
+
+Connected component botanik instance, maske merkezi de sap/kök/meristem
+değildir. Bu nedenle lazer veya tek-nokta müdahale başarısı bu rakamdan
+çıkarılamaz.
+
+## Gerçek sap/keypoint PoC'si
+
+Weed Stem Detection arşivindeki 2048×2048 gerçek robot kareleri tarih
+ayrı `211/152/148` train/validation/test olarak hazırlandı. Testte `1.102`
+weed kutusu, `1.097` geçerli sap noktası vardı. Her tahmin ve GT sap en fazla
+bir kez eşleştirildi; threshold ve aynı-kare dedupe yarıçapı validation'da
+seçildi.
+
+1536 fine-tune + dedupe, 10% GT weed-box-diagonal toleransında:
+
+- TP/FP/FN `835/483/262`;
+- precision `0,63354`;
+- recall `0,76117`;
+- F1 `0,69151`;
+- crop-as-weed false fire `0/1.318` aksiyon. Bu, crop canopy/yaralanma
+  garantisi değil; yalnız GT crop kutusuyla IoU≥0,50 sınıf-hatası proxy'sidir.
+- aksiyon noktasının herhangi bir GT crop bounding rectangle içinde kalma
+  oranı `0,13657` oldu. Dikdörtgen canopy değildir; bu değer fiziksel crop
+  injury olarak yorumlanamaz ve lazer safety kapısını kapatmaz.
+
+Tolerans duyarlılığı: 5%/10%/20% kutu köşegeni F1
+`0,48447/0,69151/0,76356`; 5/10/20 px F1
+`0,66087/0,75694/0,77516`. Doğru pozitif nokta hatası p50 `2,35 px`, p95
+`5,10 px` oldu; GSD olmadığı için bunlar mm iddiası değildir.
+
+1024 taban + dedupe F1 `0,66164`; 1536 fine-tune yaklaşık `+0,030` F1
+kazandırdı. Kör 768/1536/2048 inference rasterları monotonik kazanç
+vermedi. Train–inference raster uyumu faydalı, fakat tek başına yeterli
+değildir ve fine-tune deneyi equal-compute değildir. Aynı test tarihi
+resolution/model kararında tekrar kullanıldığı için artık development
+holdout'tur; yeni untouched final test gereklidir.
+
+## Mimari karar
+
+- Segmentasyon korunur: vegetation boundary, crop safety halo, OOD/context ve
+  spray footprint.
+- Noktasal komut detection/instance + weed stem/root keypoint'ten gelir.
+- Bu WSD diliminde ham keypoint'in box-center'a farkı yalnız sıkı 5%
+  toleransta `+0,0130` F1; ana darboğaz weed detection/classification'dır.
+- Aynı-kare dedupe ve validation'da yeniden seçilen threshold, 1536 ham
+  keypoint F1'ını `0,60008 → 0,69151` yaptı.
+- Video için image-IoU yerine calibrated world-coordinate association,
+  en az 3 gözlem, crop veto, ortalama nokta ve fire-once uygulanır. ReID
+  ancak uzun occlusion/geri dönüş problemi ölçülürse eklenir.
+- Crop-row bilgisi soft score/safety prior'dır. SugarBeets tanısında pratik
+  guard crop riskini `%4,55 → %4,06`, weed recall'ı `%7,83 → %6,60`
+  yaptı; `sıra içi=crop` hard kuralı reddedildi.
+
+## `%95` kapısı ve sonraki P0
+
+Mevcut en iyi development F1 `%69,15`; `%95` perception kapısı geçilmedi.
+Bugün araştırma PoC'si `GO`, gerçek ilaç/lazer ateşlemesi `NO-GO`dur.
+
+1. Hedef kamera/GSD, minimum weed mm ve fiziksel isabet toleransını dondur.
+2. 3–4 yeni tarla/kamera oturumunda crop/weed instance + stem/root point ve
+   video track ID etiketle.
+3. Farm/session ayrı untouched testte track-level P/R/F1 `≥0,95`,
+   crop-as-weed ve duplicate-shot safety kapılarını birlikte ara.
+4. Sonra aktüatör bench'inde kill/removal `≥0,95` ve crop injury'yi ayrı
+   ölç. Perception F1 kill başarısı değildir.
+
+Teslimler:
+
+- `docs/results/BASLA_BURADAN_NOKTASAL_MUDAHALE_POC.pdf` (`14` sayfa);
+- `docs/NOKTASAL_MUDAHALE_POC_V1.md`;
+- exact yerel paket:
+  `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/point_intervention_poc_v1/`;
+- base checkpoint SHA-256
+  `5c1afffae12ccc0d84f8188247e95d3579568925a3099cc8a85f213418d57e70`;
+- 1536 checkpoint SHA-256
+  `569b7c71995c3dc75cb2cf6a6bd81d87861cb4911965d1143d95037011116945`.

@@ -1,0 +1,279 @@
+schema_version: 1
+dataset_id: tobacco_aerial
+scope: real_rgb_uav_tobacco_field_disjoint_research_development
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+source:
+  official_doi: https://doi.org/10.17632/5dpc5gbgpz.2
+  official_landing_page: https://data.mendeley.com/datasets/5dpc5gbgpz/2
+  official_download_url: https://data.mendeley.com/public-api/zip/5dpc5gbgpz/download/2
+  publisher: Mendeley Data
+  dataset_version: 2
+  archive_path: raw/tobacco_aerial/archives/Tobacco_Aerial_Dataset_v2.zip
+  archive_size_bytes: 3194827845
+  archive_sha256: 1c5d5bd2baf4d1d751b738b55c741a3573169514a9dc9fb52408e889107a8176
+  archive_checksum_status: >-
+    Locally computed acquisition identity; the publisher record does not
+    publish a cryptographic checksum for this download-all object.
+  archive_members: 2
+  archive_files: 2
+  archive_compressed_bytes: 3194827431
+  archive_uncompressed_bytes: 3213920173
+  require_full_crc_test: true
+
+nested_archives:
+  release_v1:
+    outer_member: Tobacco Aerial Dataset/Tobacco Aerial Dataset V1.zip
+    path: raw/tobacco_aerial/archives/nested/Tobacco Aerial Dataset V1.zip
+    size_bytes: 1802602114
+    sha256: 03672fc8a31ec2786de84586b2e1aba71988c694105e1c36371ce293966e70cd
+    members: 10402
+    files: 10402
+    compressed_bytes: 1800355528
+    uncompressed_bytes: 1800355528
+    require_full_crc_test: true
+    role: redundant_patch_release_cross_check_only
+  release_v2:
+    outer_member: Tobacco Aerial Dataset/Tobacco Aerial Dataset V2.zip
+    path: raw/tobacco_aerial/archives/nested/Tobacco Aerial Dataset V2.zip
+    size_bytes: 1411318059
+    sha256: 9caa75ddad073a43600614b50f270849e0b522a14d31a222bda025cb60eced8a
+    members: 8248
+    files: 8174
+    compressed_bytes: 1409632533
+    uncompressed_bytes: 1421716838
+    require_full_crc_test: true
+    role: canonical_source
+
+license:
+  status: CC-BY-4.0
+  commercial_allowed: true
+  attribution: Moazzam, Imran (2023), Tobacco Aerial Dataset, Mendeley Data, V2
+
+capture:
+  country: Pakistan
+  region: Mardan, Khyber Pakhtunkhwa
+  platform: DJI Mavic Mini UAV; approximately 4 m above ground
+  sensor: DJI Mavic Mini RGB camera; exact sensor model not reported
+  ground_sampling_distance_cm_per_pixel: 0.1
+  original_width: 1920
+  original_height: 1080
+  patch_width: 480
+  patch_height: 352
+  omitted_original_bottom_rows: 24
+  target_crop_id: 13
+  crop_species: Nicotiana tabacum
+  weed_species: mixed field weeds; publisher does not enumerate species
+  growth_stage: crop age 15-40 days across dataset; campaign-specific age unavailable
+  annotation_exhaustive: true
+  raw_class_to_common:
+    0: 0
+    1: 1
+    2: 2
+  maskref_visualization_mapping:
+    0: 0
+    1: 127
+    2: 255
+
+# Campaign roles are locked in the referenced protocol before archive visual or
+# model review. V1 group identifiers are publisher folder names and are used
+# only to prove that both released patch copies are byte-identical.
+campaigns:
+  '1':
+    v1_group: '147'
+    v2_patch_directory: Patch images
+    patches: 864
+    parent_blocks: 72
+    capture_date: '2021-04-09'
+    capture_time: '14:30'
+    soil_condition: after_irrigation
+    role: external_calibration
+    common_class_pixels: {background: 84821754, crop: 23641617, weed: 37518069}
+    masks_containing_class: {background: 864, crop: 861, weed: 864}
+    canonical_patch_tree_sha256: 69ef6dd0913a73da2ae5ee93e811cf897390fd2e18daa5e7ee928c429600aee1
+  '2':
+    v1_group: '119'
+    v2_patch_directory: Patch Images
+    patches: 936
+    parent_blocks: 78
+    capture_date: '2021-04-07'
+    capture_time: '15:30'
+    soil_condition: before_irrigation
+    role: train
+    common_class_pixels: {background: 104163282, crop: 22813874, weed: 31169404}
+    masks_containing_class: {background: 936, crop: 935, weed: 932}
+    canonical_patch_tree_sha256: f600f4ba1136ea722d2cc1668abb22a6207243122d9fd698300618a87d550500
+  '3':
+    v1_group: '120'
+    v2_patch_directory: Patch images
+    patches: 120
+    parent_blocks: 10
+    capture_date: '2021-04-07'
+    capture_time: '15:38'
+    soil_condition: after_irrigation
+    role: train
+    common_class_pixels: {background: 15283347, crop: 1110025, weed: 3881828}
+    masks_containing_class: {background: 120, crop: 116, weed: 120}
+    canonical_patch_tree_sha256: 57203d2fd709693095737d98400638472a797d94e91cc6816ce4ac0334f3c3c0
+  '4':
+    v1_group: '133'
+    v2_patch_directory: Patch images
+    patches: 120
+    parent_blocks: 10
+    capture_date: '2021-04-07'
+    capture_time: '17:52'
+    soil_condition: before_irrigation
+    role: external_calibration
+    common_class_pixels: {background: 15231243, crop: 1985999, weed: 3057958}
+    masks_containing_class: {background: 120, crop: 120, weed: 120}
+    canonical_patch_tree_sha256: 561d227b7824906862695e6221f8c721df49c789836042a2fd58f5fb29957d18
+  '5':
+    v1_group: '134'
+    v2_patch_directory: Patch images
+    patches: 120
+    parent_blocks: 10
+    capture_date: '2021-04-07'
+    capture_time: '18:33'
+    soil_condition: after_irrigation
+    role: train
+    common_class_pixels: {background: 14554329, crop: 2705686, weed: 3015185}
+    masks_containing_class: {background: 120, crop: 119, weed: 120}
+    canonical_patch_tree_sha256: b0eef471b8c45a2971c0bb56814bb979672b5c9b059d1144352a563d81ef4a95
+  '6':
+    v1_group: '154'
+    v2_patch_directory: Patch images
+    patches: 120
+    parent_blocks: 10
+    capture_date: '2021-04-09'
+    capture_time: '15:27'
+    soil_condition: after_irrigation
+    role: train
+    common_class_pixels: {background: 16127412, crop: 2809770, weed: 1338018}
+    masks_containing_class: {background: 120, crop: 120, weed: 120}
+    canonical_patch_tree_sha256: 58cbc43f500bb4914c3799050d67382b485cc770cd6805cd2ca216e2b07475e0
+  '7':
+    v1_group: '163'
+    v2_patch_directory: Patch images
+    patches: 120
+    parent_blocks: 10
+    capture_date: '2021-04-09'
+    capture_time: '15:43'
+    soil_condition: before_irrigation
+    role: train
+    common_class_pixels: {background: 15174533, crop: 2562821, weed: 2537846}
+    masks_containing_class: {background: 120, crop: 120, weed: 120}
+    canonical_patch_tree_sha256: 7791d3ac3238db49fb65d5aaa0117d11c29e0fc66cc38aa50a1cdc9f971ccc9e
+  '8':
+    v1_group: '171'
+    v2_patch_directory: Patch images
+    patches: 120
+    parent_blocks: 10
+    capture_date: '2021-04-09'
+    capture_time: '15:59'
+    soil_condition: after_irrigation
+    role: train
+    common_class_pixels: {background: 16118469, crop: 2560798, weed: 1595933}
+    masks_containing_class: {background: 120, crop: 120, weed: 120}
+    canonical_patch_tree_sha256: 346d36d09709bafc8f163728406c050c251c6ad82fe8741e88a8c6ba23550ec8
+
+canonical_member_policy:
+  source_archive: release_v2
+  image: Tobacco Aerial Dataset/Campaign no. {campaign}/{patch_directory}/data/{index}.png
+  mask: Tobacco Aerial Dataset/Campaign no. {campaign}/{patch_directory}/mask/{index}.png
+  maskref: Tobacco Aerial Dataset/Campaign no. {campaign}/{patch_directory}/maskref/{index}.png
+  forbid_as_rgb_input:
+    - Detected vegetation
+    - release_v1 test/RGB22
+  forbid_as_ground_truth:
+    - maskref
+    - Binary vegetation mask
+    - Labelled 1080P images
+  patch_tree_digest_algorithm: >-
+    SHA-256 over kind UTF-8, NUL, decimal index UTF-8, NUL, and the raw
+    SHA-256 digest of each payload; kinds ordered data, mask, maskref and
+    indices ordered numerically within each kind.
+
+parent_frame_policy:
+  patches_per_parent: 12
+  patch_order_within_parent: column_major; three rows per column and four columns
+  parent_block_formula: floor((one_based_patch_index - 1) / 12) + 1
+  source_evidence: >-
+    Campaigns 2-8 reconstruct every released 1920x1080 source frame exactly
+    over the retained top 1056 rows. Campaign 1 has a publisher release
+    mismatch between its 1080P folders and patch tree, but all 72 consecutive
+    12-patch blocks reconstruct spatially coherent 1920x1056 frames; median
+    seam/internal RGB mean-absolute-difference ratio is 1.049850 and maximum
+    is 1.186187. The same 864 patch triples are byte-identical in both nested
+    releases. Parent IDs therefore refer to patch blocks, not the mismatched
+    Campaign 1 original filenames.
+  campaign_1_maximum_seam_internal_mad_ratio: 1.186187
+
+resolved_release_anomalies:
+  campaign_1_1080p_mismatch:
+    observed: >-
+      None of Campaign 1's 864 released RGB patches or visualization masks is
+      an exact crop of the separately bundled 72 Original/Labelled 1080P
+      files. The other seven campaigns reconstruct all 138 parent frames
+      exactly from their patch blocks.
+    resolution: >-
+      Use only the publisher-designated Patch images/data and Patch
+      images/mask pairs. Their labels are exact 0/1/2 grayscale masks, their
+      blocks are spatially coherent, and their complete patch trees are
+      byte-identical across the V1 and V2 nested releases. Do not use or claim
+      alignment with Campaign 1's 1080P folders.
+  duplicated_detected_vegetation_views:
+    observed: >-
+      V1 contains RGB and RGB22 copies for Campaigns 3-8; RGB22 is a
+      background-removed visualization, not an independent field sample.
+    resolution: >-
+      Use only canonical V2 Patch images/data RGB patches and count each patch
+      once. Never sample RGB22 or detected-vegetation views.
+
+split_protocol:
+  path: /home/ankaref/utku/tarım_projesi/configs/data/tobacco_aerial_split_protocol_v1.yaml
+  sha256: 11b1bb08ada39a8f6f7ac462c842f643ed029a9e00f773d689da7c8d5c198742
+  train_campaigns: ['2', '3', '5', '6', '7', '8']
+  external_calibration_campaigns: ['1', '4']
+  external_test_claim: false
+
+balanced_selection:
+  campaign_patch_cap: 120
+  selected_parent_blocks_per_campaign: 10
+  method: >-
+    Select ten numeric parent-block positions including both endpoints with
+    index floor(i * (N - 1) / 9 + 0.5), for i=0..9 and N parent blocks. Keep
+    all twelve patches of every selected block. This is fixed and independent
+    of RGB, mask content, class balance, or model output.
+
+quality_gate:
+  expected_samples: 2520
+  expected_train: 1536
+  expected_external_calibration: 984
+  expected_fields: 8
+  expected_parent_blocks: 210
+  expected_balanced_samples: 960
+  expected_balanced_train: 720
+  expected_balanced_external_calibration: 240
+  require_safe_archive_members: true
+  require_exact_archive_size_sha256_and_crc: true
+  require_exact_nested_release_patch_correspondence: true
+  require_exact_rgb_mask_dimensions: true
+  require_rgb_png_mode: RGB
+  require_mask_png_mode: L
+  require_exact_mask_values: [0, 1, 2]
+  require_exact_maskref_mapping: true
+  require_crop_and_weed_pixels_per_campaign: true
+  require_complete_parent_blocks: true
+  forbid_external_test_claim: true
+  minimum_free_space_after_output_bytes: 21474836480
+
+outputs:
+  images_root: processed/tobacco_aerial/images
+  masks_root: processed/tobacco_aerial/common_masks
+  manifest: processed/manifests/tobacco_aerial.csv
+  train_manifest: processed/manifests/tobacco_aerial_train_v1.csv
+  calibration_manifest: processed/manifests/tobacco_aerial_calibration_v1.csv
+  balanced_manifest: processed/manifests/tobacco_aerial_balanced_v1.csv
+  balanced_train_manifest: processed/manifests/tobacco_aerial_balanced_train_v1.csv
+  balanced_calibration_manifest: processed/manifests/tobacco_aerial_balanced_calibration_v1.csv
+  report: processed/manifests/tobacco_aerial_conversion.json

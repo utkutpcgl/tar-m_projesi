@@ -1,0 +1,94 @@
+schema_version: 1
+dataset_id: growingsoy
+
+# Immutable upstream provenance. The dataset repository itself is the primary
+# publication endpoint linked by the paper authors.
+source_revision: 0047fc2258c1cff54fe2c4ed325b12c9681d25be
+labeled_git_tree: 1c46369b78f9b52c0d1bc8d0daff408a915de089
+source_image_tree_sha256: 16f51bb381e28bc1266942320265eb3315544683a415c1f26975b5d34fbe9649
+source_annotation_sha256:
+  train: 55319d3130622a55ac6d266e46372504bb45f56c31dfdae8fcb5ba377b156774
+  valid: ec0e9d6891f34d467654b3e16f6fb7cf19547955084ec920b67db7cd3b45e5aa
+  test: dd8f5ff99055236db08a292513332c0bc335ec7063f2a42d82c1b02de4537769
+
+expected:
+  image_width: 640
+  image_height: 640
+  source_images: 1000
+  source_annotations: 14829
+  source_image_bytes: 157960874
+  background_only_images: 1
+  publisher_splits:
+    train:
+      images: 658
+      annotations: 9759
+    valid:
+      images: 161
+      annotations: 2440
+    test:
+      images: 181
+      annotations: 2630
+  annotation_categories:
+    caruru_weed: 451
+    grassy_weed: 427
+    soy_plant: 13951
+  source_images_by_video:
+    20221216-GX010015: 46
+    20221216-GX010025: 71
+    20221221-GX010104: 126
+    20221221-GX010110: 160
+    20221227-GX010163: 60
+    20221227-GX010170: 65
+    20230103-GX010189: 73
+    20230103-GX010195: 82
+    20230110-GX010220: 71
+    20230110-GX010226: 79
+    20230114-GX010233: 83
+    20230114-GX010238: 84
+  final_splits:
+    train: 541
+    external_calibration: 459
+
+# The publisher's random train/valid/test split places adjacent frames from
+# every video in all three partitions. It is ignored. The paper and README say
+# that fixed plantation sections with different chemical treatments were
+# followed over time. The paired videos consistently form two longitudinal
+# trajectories; the weed-richer trajectory B is used for training and the
+# other complete trajectory is retained for calibration across the full cycle.
+longitudinal_trajectories:
+  trajectory_a:
+    role: external_calibration
+    videos:
+      - 20221216-GX010015
+      - 20221221-GX010104
+      - 20221227-GX010163
+      - 20230103-GX010189
+      - 20230110-GX010220
+      - 20230114-GX010233
+  trajectory_b:
+    role: train
+    videos:
+      - 20221216-GX010025
+      - 20221221-GX010110
+      - 20221227-GX010170
+      - 20230103-GX010195
+      - 20230110-GX010226
+      - 20230114-GX010238
+
+ontology:
+  background: 0
+  soy_plant: 1
+  caruru_weed: 2
+  grassy_weed: 2
+  crop_weed_polygon_overlap: 255
+
+quality_gate:
+  max_crop_weed_overlap_fraction: 0.005
+  require_train_weed_pixels: true
+  require_external_calibration_weed_pixels: true
+  reject_augmented_labeled_tree: true
+  publisher_split_policy: ignore_and_rebuild_by_longitudinal_trajectory
+  exact_target_crop_id: 8
+  exact_crop_species: Glycine max
+  license: MIT
+  commercial_allowed: true

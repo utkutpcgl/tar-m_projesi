@@ -1,0 +1,66 @@
+schema_version: 1
+dataset_id: weed_stem_detection_v1
+frozen_at: "2026-08-08T08:15:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+source:
+  dataset_page: https://modelscope.cn/datasets/JinzheAI/WeedStemDetection
+  dataset_revision: 6888975bd57675556a6d82c3d857d24546468da1
+  dataset_license: Apache-2.0
+  archive: raw/weed_stem_detection_v1/labelled.zip
+  archive_bytes: 5184174796
+  archive_sha256: 66a66c0169399067653db215fb74954997ed91241fb525fb9ab12bf74d0b925d
+  paper: https://doi.org/10.1609/aaai.v39i27.35040
+  paper_title: Towards Efficient and Intelligent Laser Weeding - Method and Dataset for Weed Stem Detection
+  reference_code: https://github.com/InternScience/WeedStemDetection
+  reference_code_revision: 18b2c328c24e8de297da483caea3c35f261ee4d3
+
+archive_layout:
+  image_prefix: labelled/images
+  box_label_prefix: labelled/labels
+  point_label_prefix: labelled/points_labels
+  class_names:
+    0: weed
+    1: maize
+    2: soybean
+  image_suffixes: [.bmp]
+
+split_policy:
+  strategy: capture_date_disjoint_v1
+  train_dates: ["20231130"]
+  val_dates: ["20231204"]
+  test_dates: ["20231206"]
+  rationale: Prevent adjacent frames from the same dated capture from crossing splits.
+
+normalization_policy:
+  # Fifteen source box rows contain two extra numbers. The separate point file
+  # remains authoritative; only the first five standard YOLO box fields are used.
+  accepted_box_field_counts: [5, 7]
+  stem_keypoint_class: 0
+  missing_point: [0.0, 0.0]
+  visible_keypoint_value: 2
+  missing_keypoint_value: 0
+  exclude_orphan_annotations: true
+
+outputs:
+  root: processed/wsd_pose_v1
+  receipt: processed/audits/weed_stem_detection_v1_receipt.json
+  manifest: processed/manifests/weed_stem_detection_v1.csv
+  contact_sheet: processed/audits/weed_stem_detection_v1_contact_sheet.jpg
+  ultralytics_yaml: processed/wsd_pose_v1/weed_stem_detection_v1.yaml
+
+release_policy:
+  role: research_only_detection_keypoint_poc
+  final_field_test: false
+  require_archive_hash: true
+  require_zip_integrity: true
+  require_safe_archive_paths: true
+  require_date_disjoint_splits: true
+  limitations:
+    - Downloadable archive has 511 images, while the paper reports 1556 annotated images.
+    - Downloadable archive has no mungbean class although the paper reports mungbean instances.
+    - One box-label file has no corresponding image or point-label file and is quarantined.
+    - Thirty-four weed boxes have no stem point and are excluded from keypoint loss and scoring.
+    - Reference repository at the locked revision omits its imported utils package, so the paper baseline is not directly reproducible.
+    - No physical GSD or millimetre calibration is supplied.

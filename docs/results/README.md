@@ -1,5 +1,17 @@
 # Segmentasyon ve bitki müdahalesi sonucu
 
+## Noktasal müdahale PoC'si — 2026-08-08
+
+- [Önce bunu açın — 14 sayfalık tek ve açıklamalı PDF](BASLA_BURADAN_NOKTASAL_MUDAHALE_POC.pdf)
+- [Aranabilir exact metrikler](../NOKTASAL_MUDAHALE_POC_V1.md)
+
+`%9,72` bitki-müdahale recall'ı değil, aşırı temkinli semantik
+policy'nin weed-pixel recall'ıydı. Gerçek sap/keypoint etiketi olan ayrı
+robot verisindeki mevcut en iyi tek-kare+düzeltme sonucu precision `%63,4`,
+recall `%76,1`, F1 `%69,2` oldu. `%95` kapısı geçilmedi. PDF; iki büyük
+gerçek saha örneği, tolerans tablosu, resolution A/B, row-prior sonucu ve
+tracking kararını bir fikir/sayfa düzeninde gösterir.
+
 ## Kamera/domain/küçük-ot kararı — 2026-08-06
 
 - [Önce bunu açın — 10 sayfalık kısa karar](BASLA_BURADAN_KAMERA_DOMAIN_KARARI.pdf)

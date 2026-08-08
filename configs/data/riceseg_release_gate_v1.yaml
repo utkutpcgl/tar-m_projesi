@@ -1,0 +1,356 @@
+schema_version: 1
+scope: riceseg_release_structure_condition_and_split_gate
+frozen_at: "2026-08-03T18:05:00+03:00"
+
+freeze:
+  split_revision: 2
+  frozen_before_archive_content_inspection: true
+  frozen_before_mask_visual_review: true
+  frozen_before_model_evaluation: true
+  publisher_random_split_used: false
+  external_test_created: false
+  split_revision_note: >-
+    Revision 1 held out JS_4 and TKO_2. Before conversion, visual review, or
+    model evaluation, the metadata correlation audit found that JS_3 and JS_4
+    share NJAU/Jiangsu/2023 and must not cross roles. Revision 2 keeps both in
+    train and replaces JS_4 with the independent CAS/Guangdong/2022 GD group.
+
+source:
+  dataset_id: riceseg
+  repository_id: PheniX-Lab/RiceSEG
+  revision: 1a891ced931d5b3ac2a907b045f53414f1a615b4
+  official_dataset_page: https://www.global-rice.com/
+  official_repository_page: https://huggingface.co/datasets/PheniX-Lab/RiceSEG
+  article_doi: 10.1016/j.plaphe.2025.100099
+  acquisition_config:
+    path: configs/data/riceseg_acquisition_v1.yaml
+    sha256: 036a5f431c743f2b29d10b0c18ff3e72f50d6029b50563a634c4ed63136d6e25
+  acquisition_script:
+    path: scripts/acquire_riceseg.py
+    sha256: 2a87aa058c81f36c1d8d6d5e5992d897df4ffad05fc8e77dcc0d0ae7baac34cb
+  acquisition_receipt: processed/audits/riceseg_acquisition_v1.json
+  repository_dir: raw/riceseg/repository
+  paired_archive: RiceSEG.zip
+  original_archive: original.zip
+  class_pixel_workbook: class_pixel_counts.xlsx
+  crop_mapping_workbook: crop_mapping.xlsx
+  license_status: MIT-on-Hugging-Face-card; official-article-CC-BY-4.0
+  commercial_allowed: false
+  license_decision: >-
+    Preserve both upstream presentations. Keep the release research-only in
+    this project until the downloaded repository terms and article license are
+    reconciled; do not silently infer commercial training rights.
+
+release_contract:
+  layout_observed_after_verified_acquisition_at: "2026-08-03T18:05:00+03:00"
+  expected_samples: 3078
+  expected_width: 512
+  expected_height: 512
+  paired_archive_root: global rice segmentation
+  rgb_directory: rgb
+  mask_directory: label
+  expected_paired_archive_files: 6156
+  expected_rgb_images: 3078
+  expected_masks: 3078
+  expected_original_images: 416
+  expected_original_directory_counts:
+    GD: 46
+    HUN: 25
+    IRRI_rice_2014: 149
+    JL: 15
+    LN: 15
+    United Republic of Tanzania: 16
+    indian_hyderabad_rice_SonyRX100: 150
+  expected_original_modes: {RGB: 416}
+  expected_original_formats: {JPEG: 357, MPO: 59}
+  expected_class_pixel_workbook_rows_including_header: 3079
+  expected_crop_mapping_workbook_rows_including_header: 3080
+  expected_crop_mapping_rows_with_crop: 3078
+  expected_crop_mapping_rows_without_crop: 1
+  require_all_rasters_decode: true
+  require_exact_rgb_mask_pairing: true
+  require_exact_subdataset_counts: true
+  require_source_mask_values_subset: [0, 1, 2, 3, 4, 5]
+  require_all_source_mask_values_globally: [0, 1, 2, 3, 4, 5]
+  published_global_class_percent:
+    0: 48.3
+    1: 43.4
+    2: 2.5
+    3: 3.4
+    4: 1.6
+    5: 0.8
+  published_percent_absolute_tolerance: 0.15
+
+ontology:
+  source_classes:
+    0: background
+    1: green_vegetation_rice
+    2: senescent_vegetation_rice
+    3: rice_panicle
+    4: weed
+    5: duckweed
+  common_mapping:
+    0: 0
+    1: 1
+    2: 1
+    3: 1
+    4: 2
+    5: 2
+  common_classes: {0: background, 1: crop, 2: weed}
+  target_crop_id: 12
+  crop_species: Oryza sativa
+  annotation_exhaustive: true
+  mapping_note: >-
+    Green vegetation, senescent rice tissue, and panicles are target-crop
+    pixels. Publisher weed and duckweed are non-crop vegetation and map to the
+    common weed class. The six-class source masks must also be preserved for
+    organ-level diagnostics; common conversion must never overwrite them.
+
+subdatasets:
+  JS_1:
+    aliases: [JS_1]
+    images: 100
+    country: China
+    institute: NJAU
+    site: Jiangsu
+    year: 2020
+    growth_stages: [vegetative, transition]
+    platform: handheld_rod
+    sensor: SONY_RX0_RGB
+    coverage_role: train
+  JS_2:
+    aliases: [JS_2]
+    images: 100
+    country: China
+    institute: NJAU
+    site: Jiangsu
+    year: 2021
+    growth_stages: [vegetative]
+    platform: handheld_rod
+    sensor: SONY_RX0_RGB
+    coverage_role: train
+  JS_3:
+    aliases: [JS_3]
+    images: 100
+    country: China
+    institute: NJAU
+    site: Jiangsu
+    year: 2023
+    growth_stages: [vegetative, transition]
+    platform: handheld_rod
+    sensor: SONY_RX0_RGB
+    coverage_role: train
+  JS_4:
+    aliases: [JS_4]
+    images: 80
+    country: China
+    institute: NJAU
+    site: Jiangsu
+    year: 2023
+    growth_stages: [reproductive]
+    platform: handheld_rod
+    sensor: SONY_RX0_RGB
+    coverage_role: train
+  HN:
+    aliases: [HN]
+    images: 100
+    country: China
+    institute: NJAU
+    site: Hainan
+    year: 2023
+    growth_stages: [vegetative, transition]
+    platform: handheld_rod
+    sensor: SONY_RX0_RGB
+    coverage_role: train
+  GX:
+    aliases: [GX]
+    images: 60
+    country: China
+    institute: HUST
+    site: Guangxi
+    year: 2012
+    growth_stages: [vegetative]
+    platform: fixed_rod
+    sensor: Canon_EOS_1100D_RGB
+    coverage_role: train
+  JX:
+    aliases: [JX]
+    images: 60
+    country: China
+    institute: HUST
+    site: Jiangxi
+    year: 2013
+    growth_stages: [vegetative]
+    platform: fixed_rod
+    sensor: OLYMPUS_E450_RGB
+    coverage_role: train
+  HB:
+    aliases: [HB]
+    images: 100
+    country: China
+    institute: HZAU
+    site: Hubei
+    year: 2016
+    growth_stages: [transition]
+    platform: tripod
+    sensor: NIKON_D7100_RGB
+    coverage_role: train
+  HLJ:
+    aliases: [HLJ]
+    images: 100
+    country: China
+    institute: CAAS
+    site: Harbin
+    year: 2016
+    growth_stages: [vegetative]
+    platform: handheld_rod
+    sensor: NIKON_D7100_RGB
+    coverage_role: train
+  GD:
+    aliases: [GD]
+    images: 100
+    country: China
+    institute: CAS
+    site: Guangdong
+    year: 2022
+    growth_stages: [reproductive]
+    platform: handheld_rod
+    sensor: iPhone11_RGB
+    coverage_role: external_calibration
+  LN:
+    aliases: [LN]
+    images: 60
+    country: China
+    institute: SYAU
+    site: Shenyang
+    year: 2024
+    growth_stages: [vegetative, transition]
+    platform: handheld_rod
+    sensor: SONY_RX0_RGB
+    coverage_role: train
+  HUN:
+    aliases: [HUN]
+    images: 100
+    country: China
+    institute: LPHT
+    site: Changsha
+    year: 2024
+    growth_stages: [transition]
+    platform: handheld_rod
+    sensor: SONY_RX0_RGB
+    coverage_role: train
+  JL:
+    aliases: [JL]
+    images: 60
+    country: China
+    institute: JAAS
+    site: Changchun
+    year: 2024
+    growth_stages: [reproductive]
+    platform: handheld_rod
+    sensor: SONY_RX0_RGB
+    coverage_role: train
+  TKO_1:
+    aliases: [TKO_1]
+    images: 100
+    country: Japan
+    institute: UTokyo
+    site: Tokyo
+    year: 2013
+    growth_stages: [vegetative]
+    platform: fixed_field_camera
+    sensor: Canon_EOS_Kiss_X5_RGB
+    coverage_role: train
+  TKO_2:
+    aliases: [TKO_2]
+    images: 504
+    country: Japan
+    institute: UTokyo
+    site: Tokyo
+    year: 2014
+    growth_stages: [vegetative, transition, reproductive]
+    platform: fixed_field_camera
+    sensor: Canon_EOS_Kiss_X5_RGB
+    coverage_role: external_calibration
+  TKO_3:
+    aliases: [TKO_3]
+    images: 100
+    country: Japan
+    institute: UTokyo
+    site: Tokyo
+    year: 2015
+    growth_stages: [transition]
+    platform: fixed_field_camera
+    sensor: Canon_EOS_Kiss_X5_RGB
+    coverage_role: train
+  TG:
+    aliases: [TG, India, indian_hyderabad_rice_SonyRX100]
+    images: 600
+    country: India
+    institute: IITH_PJTSAU
+    site: Telangana
+    year: 2018
+    growth_stages: [vegetative]
+    platform: handheld_rod
+    sensor: Sony_RX100_RGB
+    coverage_role: train
+  Kilimanjaro:
+    aliases: [Kilimanjaro, Kil, Tanzania, United Republic of Tanzania]
+    images: 54
+    country: Tanzania
+    institute: KATC
+    site: Kilimanjaro
+    year: 2019
+    growth_stages: [reproductive]
+    platform: handheld_rod
+    sensor: RICOH_WG4_RGB
+    coverage_role: train
+  Laguna:
+    aliases: [Laguna, Lag, Philippines, IRRI_rice_2014]
+    images: 600
+    country: Philippines
+    institute: IRRI
+    site: Laguna
+    year: 2014
+    growth_stages: [vegetative]
+    platform: handheld_rod
+    sensor: OLYMPUS_TG620_RGB
+    coverage_role: train
+
+split_protocols:
+  coverage_training:
+    purpose: all-country training coverage with whole-subdataset development holdouts
+    split_unit: subdataset_country_institute_site_year
+    expected_roles: {train: 2474, external_calibration: 604}
+    holdout_subdatasets: [GD, TKO_2]
+    external_test_claim: false
+    rationale: >-
+      Use all five countries in training while holding out complete source
+      groups. GD supplies an independent reproductive-stage smartphone/site
+      stress and TKO_2 supplies a large all-growth-stage fixed-camera year.
+      JS_3 and JS_4 stay together because both are NJAU/Jiangsu/2023. No
+      image-level random split and no untouched-test claim are permitted.
+  country_transfer_diagnostic:
+    purpose: zero-shot geographic transfer diagnostic before target-country exposure
+    source_countries: [China, Japan]
+    target_countries: [India, Tanzania, Philippines]
+    expected_source_images: 1824
+    expected_target_images: 1254
+    training_unlocks_target_countries: false
+    external_test_claim: false
+    contamination_rule: >-
+      This diagnostic is valid only before any model has trained on TG,
+      Kilimanjaro, or Laguna. Once those groups enter training, retain the old
+      receipt as historical evidence and never report a fresh zero-shot claim.
+
+forbidden_actions:
+  - publisher_random_image_split
+  - subdataset_across_multiple_roles
+  - model_result_based_split_selection
+  - source_organ_labels_overwritten
+  - external_or_final_test_claim
+  - commercial_training_claim_before_license_reconciliation
+
+outputs:
+  release_inspection_receipt: processed/audits/riceseg_release_inspection_v1.json
+  condition_strata_receipt: processed/audits/riceseg_condition_strata_v1.json

@@ -1,0 +1,80 @@
+schema_version: 1
+frozen_at: "2026-08-03T15:15:00+03:00"
+status: acquisition_screen_only
+
+dataset:
+  id: camelinaweed_v1
+  title: "CamelinaWeed: Annotated UAV Imagery Dataset for Camelina sativa"
+  doi: 10.5281/zenodo.20148697
+  zenodo_record_id: 20148697
+  landing_page: https://zenodo.org/records/20148697
+  api_record: https://zenodo.org/api/records/20148697
+  version: 1.0.0
+  license: CC-BY-4.0
+  commercial_allowed: true
+  record_updated_at: "2026-05-25T19:23:56.116085+00:00"
+
+reported_scope:
+  annotated_rgb_images: 3023
+  orthomosaic_source_images: 7890
+  countries: [Greece]
+  regions: [Thessaloniki, Chalkidiki]
+  capture_periods: [summer_2025, winter_2025_2026]
+  platforms: [DJI_Phantom_4_Pro, DJI_Mavic_3M]
+  modalities: [RGB, multispectral, GeoTIFF_orthomosaic]
+  annotation: expert_agronomist_weed_instance_polygons
+  labels: [broadleaf, narrowleaf, species_level_weeds]
+  crop_class_annotated: false
+
+parts:
+  - name: CamelinaWeed.zip.part-aa
+    size_bytes: 17179869184
+    md5: a62495c7968ee6074dd17b8f64abee4d
+    url: https://zenodo.org/api/records/20148697/files/CamelinaWeed.zip.part-aa/content
+  - name: CamelinaWeed.zip.part-ab
+    size_bytes: 17179869184
+    md5: 91f0a7545d83fd7b006a0262c2bae580
+    url: https://zenodo.org/api/records/20148697/files/CamelinaWeed.zip.part-ab/content
+  - name: CamelinaWeed.zip.part-ac
+    size_bytes: 17179869184
+    md5: b32019d03f85bf89b6517239edc0f1ef
+    url: https://zenodo.org/api/records/20148697/files/CamelinaWeed.zip.part-ac/content
+  - name: CamelinaWeed.zip.part-ad
+    size_bytes: 17179869184
+    md5: ab90c20b8bcae208794d0be525c56a58
+    url: https://zenodo.org/api/records/20148697/files/CamelinaWeed.zip.part-ad/content
+  - name: CamelinaWeed.zip.part-ae
+    size_bytes: 288083700
+    md5: 6054b62052dc5dfe84a01b63e47cd706
+    url: https://zenodo.org/api/records/20148697/files/CamelinaWeed.zip.part-ae/content
+
+combined_archive:
+  filename: CamelinaWeed.zip
+  size_bytes: 69007560436
+  sha256: null
+  upstream_cryptographic_checksum_available: false
+
+screen_protocol:
+  download_last_part_first_for_central_directory_only: true
+  inspect_file_index_before_large_payload_download: true
+  reconstruct_full_archive_before_extraction: false
+  download_full_payload_only_if_annotated_subset_can_be_isolated: true
+  minimum_free_bytes_after_planned_download: 53687091200
+  reject_publisher_image_random_split: true
+  group_by_location_season_flight_before_any_role_assignment: true
+  common_three_class_training_allowed: false
+  partial_label_training_allowed: false
+  external_test_claim_allowed: false
+  model_selection_allowed: false
+  reason: >-
+    The release annotates weed instances but does not report exhaustive Camelina
+    crop masks. It can become a partial-label/specialist candidate only after
+    archive indexing, exact capture-group recovery, visual mask QC, and a
+    separately frozen positive-only loss protocol. The 69 GB full payload must
+    not be downloaded blindly when raw imagery and orthomosaics may dominate it.
+
+local:
+  screening_dir: data/raw/candidate_screening/camelinaweed_v1
+  last_part: data/raw/candidate_screening/camelinaweed_v1/CamelinaWeed.zip.part-ae
+  sparse_index_view: data/raw/candidate_screening/camelinaweed_v1/CamelinaWeed.index.sparse.zip
+  audit_receipt: data/processed/audits/camelinaweed_acquisition_screen_v1.json

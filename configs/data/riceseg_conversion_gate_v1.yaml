@@ -1,0 +1,97 @@
+schema_version: 1
+scope: riceseg_lossless_extraction_common_ontology_and_manifest_gate
+frozen_at: "2026-08-03T20:35:00+03:00"
+
+freeze:
+  conversion_before_visual_review: true
+  conversion_before_duplicate_audit: true
+  conversion_before_model_evaluation: true
+  source_masks_must_be_preserved_byte_exact: true
+  publisher_random_split_used: false
+  external_test_created: false
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+locked_inputs:
+  release_gate:
+    path: configs/data/riceseg_release_gate_v1.yaml
+    sha256: 1d3608d328b87a79d29bb5ae7c59ff306b14e9f6c25ec9b580211ed9a58214ca
+  release_inspector:
+    path: scripts/inspect_riceseg_release.py
+    sha256: 2efe9b5c350fc558d05b86cb40438ba59cf6370a9524dd89d357f9f590e535f2
+  acquisition_receipt:
+    path: processed/audits/riceseg_acquisition_v1.json
+    sha256: 13e8ba4e0d34957475b9b8616de1bcfe953e37e554197cfc0c4a1fa02f527ebc
+  release_inspection_receipt:
+    path: processed/audits/riceseg_release_inspection_v1.json
+    sha256: 1cf8bc05a379bff77a3a82d2112df676ff1970e2d9569c54642763559a562564
+  condition_strata_receipt:
+    path: processed/audits/riceseg_condition_strata_v1.json
+    sha256: a8f19ae081443d948b05beea0dbda61498a65c2845074e121d47b51e2070deda
+  paired_archive:
+    path: raw/riceseg/repository/RiceSEG.zip
+    sha256: 0071d9f941508afd9a86aa5ef740433dee938e1c7a9508a191d3e46a2909be96
+
+contract:
+  samples: 3078
+  width: 512
+  height: 512
+  source_values: [0, 1, 2, 3, 4, 5]
+  source_class_pixels:
+    0: 389927763
+    1: 350329789
+    2: 20016352
+    3: 27274328
+    4: 12651133
+    5: 6679867
+  common_mapping:
+    0: 0
+    1: 1
+    2: 1
+    3: 1
+    4: 2
+    5: 2
+  common_class_pixels:
+    0: 389927763
+    1: 397620469
+    2: 19331000
+  coverage_roles: {train: 2474, external_calibration: 604}
+  coverage_holdout_subdatasets: [GD, TKO_2]
+  country_transfer:
+    source_countries: [China, Japan]
+    target_countries: [India, Tanzania, Philippines]
+    source_samples: 1824
+    target_samples: 1254
+  minimum_free_space_after_conversion_bytes: 53687091200
+
+manifest_metadata:
+  dataset_id: riceseg
+  country_transfer_dataset_id: riceseg_country_transfer_v1
+  target_crop_id: 12
+  crop_species: Oryza sativa
+  weed_species_optional: publisher generic weed;duckweed
+  annotation_exhaustive: true
+  license_status: MIT-card;article-CC-BY-4.0;research-only-pending-reconciliation
+  commercial_allowed: false
+  field_id_template: country_site_institute
+  session_id_template: site_institute_year
+
+outputs:
+  dataset_root: processed/riceseg
+  images: processed/riceseg/images
+  source_masks: processed/riceseg/source_masks
+  common_masks: processed/riceseg/common_masks
+  coverage_manifest: processed/manifests/riceseg_v1.csv
+  coverage_train_manifest: processed/manifests/riceseg_train_v1.csv
+  coverage_calibration_manifest: processed/manifests/riceseg_calibration_v1.csv
+  country_transfer_manifest: processed/manifests/riceseg_country_transfer_v1.csv
+  conversion_receipt: processed/audits/riceseg_conversion_v1.json
+
+forbidden_actions:
+  - rewrite_or_drop_six_class_source_masks
+  - decode_and_reencode_upstream_rgb
+  - image_level_random_split
+  - subdataset_across_coverage_roles
+  - combine_country_transfer_and_coverage_manifests
+  - external_or_final_test_claim
+  - model_result_based_conversion_or_split_change

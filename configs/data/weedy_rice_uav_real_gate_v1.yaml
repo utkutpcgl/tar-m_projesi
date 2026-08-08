@@ -1,0 +1,156 @@
+schema_version: 1
+frozen_at: "2026-08-03T14:26:00+03:00"
+freeze_provenance:
+  pre_archive_index_gate_sha256: aed48abbf2fab98e8e85a89cfdfd3cd9710e67e677a2ceaef18a3a2fd1e2dfe3
+  pre_pixel_content_gate_sha256: 82039e9e0720fc46f66f58303ed82aeab2a4c99146c1806cc2bb9eb4d93a7887
+  archive_index_and_text_metadata_inspected_before_this_revision: true
+  pixel_masks_or_rgb_content_inspected_before_this_revision: true
+  pixel_quality_thresholds_changed_after_pixel_inspection: false
+  post_pixel_revision_scope: exact_text_metadata_schema_counts_and_output_routing_only
+  model_outputs_inspected_before_this_revision: false
+  split_protocol_remained_frozen_before_archive_content_inspection: true
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_id: weedy_rice_uav_v1
+manifest_dataset_id: weedy_rice_uav
+
+license:
+  status: CC-BY-4.0
+  commercial_allowed: true
+
+capture:
+  country: Vietnam
+  region: An_Giang_Mekong_Delta
+  platform: uav_dji_mavic_3_multispectral
+  sensor: rgb_4_3_cmos
+  target_crop_id: 12
+  crop_species: Oryza_sativa
+  weed_species: weedy_rice_Oryza_sativa_complex
+  growth_stage: 55_60_days_after_sowing
+  reported_altitudes_m: [12, 20]
+  reported_flight_time_local: ["09:30", "15:30"]
+  reported_front_overlap: 0.70
+  reported_side_overlap: 0.70
+
+locked_inputs:
+  acquisition_config:
+    path: configs/data/weedy_rice_uav_acquisition_v1.yaml
+    sha256: b3f7a013e1bfa9fa277aed989e4a221ffa3350618b1158687babe00e8a26aeed
+  archive_auditor:
+    path: scripts/audit_weedy_rice_uav_archive.py
+    sha256: 176b92f4ca2a0fb6e62a77b239354a7486bc4b218db27ba0cf57969d7d1ed24d
+  split_protocol:
+    path: configs/data/weedy_rice_uav_split_protocol_v1.yaml
+    sha256: df3b13accd3c795dda9fc5d9ef941fe28c6e61320f4279939009a13f6b44b3fa
+  acquisition_receipt: data/processed/audits/weedy_rice_uav_acquisition_v1.json
+  nested_archive: data/raw/weedy_rice_uav/archives/WeedyRice-RGBMS-DB.zip
+
+expected_release:
+  total_files: 5145
+  rgb_images: 734
+  masks: 734
+  multispectral_images: 2936
+  overlays: 734
+  metadata_csv: 2
+  metadata_readme: 1
+  metadata_rows: 3670
+  filename_mapping_columns: [original_filename, standardized_filename]
+  image_metadata_columns:
+    - original_filename
+    - acquisition_date
+    - time
+    - latitude
+    - longitude
+    - altitude
+    - camera_model
+    - sensor_type
+    - band
+  sensor_counts: {RGB: 734, MS: 2936}
+  camera_counts: {FC6520: 734, MSX01: 2936}
+  multispectral_band_counts: {Green: 734, NIR: 734, Red: 734, RedEdge: 734}
+  root_readme: 1
+  publisher_split_lists:
+    train_list.txt: 438
+    val_list.txt: 148
+    test_list.txt: 148
+  publisher_split_capture_event_counts:
+    train_list.txt: {"2024-06-02": 62, "2024-06-04": 200, "2024-09-30": 23, "2025-01-15": 153}
+    val_list.txt: {"2024-06-02": 25, "2024-06-04": 63, "2024-09-30": 12, "2025-01-15": 48}
+    test_list.txt: {"2024-06-02": 28, "2024-06-04": 68, "2024-09-30": 6, "2025-01-15": 46}
+  rgb_size: [1280, 960]
+  mask_size: [1280, 960]
+  rgb_format: JPEG
+  mask_format: PNG
+  mask_mode: single_channel
+  mask_values: [0, 255]
+  required_metadata_files:
+    - filename_mapping.csv
+    - image_metadata.csv
+
+expected_capture_events:
+  "2024-06-02|Thoaison": 115
+  "2024-06-04|Thoaison": 331
+  "2024-09-30|Thoaison": 41
+  "2025-01-15|Longxuyen": 247
+
+expected_mask_coverage_bins:
+  gt_0_le_5_percent: 71
+  gt_5_le_10_percent: 88
+  gt_10_le_20_percent: 171
+  gt_20_le_30_percent: 79
+  gt_30_le_40_percent: 66
+  gt_40_le_60_percent: 151
+  gt_60_le_75_percent: 43
+  gt_75_lt_90_percent: 65
+  mean_percent_reference: 31.7
+  mean_percent_absolute_tolerance: 0.1
+
+quality_gate:
+  require_acquisition_receipt_status: verified
+  require_exact_file_counts: true
+  require_exact_rgb_mask_stem_pairing: true
+  require_rgb_mask_shape_match: true
+  require_mask_nonempty: true
+  require_mask_coverage_below: 0.90
+  require_metadata_for_every_rgb: true
+  require_capture_event_counts: true
+  require_publisher_split_lists_cover_all_rgb: true
+  require_publisher_split_capture_leakage_documented: true
+  require_publisher_split_lists_unused: true
+  require_train_calibration_group_overlap: 0
+  require_exact_duplicate_count: 0
+  require_near_duplicate_hamming_threshold: 2
+  require_cross_role_near_duplicate_count: 0
+  require_vs_existing_real_near_duplicate_count: 0
+  require_manual_contact_sheet_review: true
+  require_reference_samples: 15857
+  external_test_used: false
+  model_selection_used: false
+  common_model_training_allowed: false
+
+extraction:
+  include_directories: [RGB, Masks, Metadata]
+  include_root_files: [readme.md, train_list.txt, val_list.txt, test_list.txt]
+  exclude_directories: [Multispectral, Overlay]
+  preserve_source_bytes: true
+
+duplicate_reference_manifests:
+  - processed/manifests/all_roles_audit_v2_cropandweed.csv
+  - processed/manifests/rice_seedling_weed.csv
+  - processed/manifests/sorghum_weed.csv
+  - processed/manifests/growingsoy.csv
+  - processed/manifests/deblurweedseg.csv
+  - processed/manifests/weedmap.csv
+  - processed/manifests/tobacco_aerial.csv
+
+outputs:
+  repository_subset: raw/weedy_rice_uav/repository
+  normalized_partial_masks: processed/masks/weedy_rice_uav_partial_v1
+  binary_manifest: processed/manifests/weedy_rice_uav_binary_v1.csv
+  train_candidate_manifest: processed/manifests/weedy_rice_uav_binary_train_candidate_v1.csv
+  external_calibration_manifest: processed/manifests/weedy_rice_uav_binary_calibration_v1.csv
+  conversion_receipt: processed/manifests/weedy_rice_uav_conversion_v1.json
+  content_audit: processed/audits/weedy_rice_uav_content_quality_v1.json
+  quality_audit: processed/audits/weedy_rice_uav_quality_v1.json
+  duplicate_audit: processed/audits/weedy_rice_uav_vs_all_real_duplicates_v1.json
+  contact_sheet: processed/audits/qc/weedy_rice_uav_review_v1.png
+  contact_sheet_receipt: processed/audits/weedy_rice_uav_contact_sheet_v1.json

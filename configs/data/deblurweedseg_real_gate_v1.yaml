@@ -1,0 +1,103 @@
+schema_version: 1
+dataset_id: deblurweedseg
+scope: real_motion_blur_development_stress_domain
+
+source:
+  landing_page: https://data.mendeley.com/datasets/k4gvsjv4t3/1
+  doi: 10.17632/k4gvsjv4t3.1
+  archive_url: https://data.mendeley.com/public-api/zip/k4gvsjv4t3/download/1
+  archive_path: raw/deblurweedseg/archives/k4gvsjv4t3_v1.zip
+  archive_size_bytes: 199418959
+  archive_sha256: f0fe9f4ef8daf74bbcc5e2f8ca8c6224aac68201cac3ca3ed35ca6d906acb77d
+  inner_data_archive_path: raw/deblurweedseg/upstream/data.zip
+  inner_data_archive_size_bytes: 78543109
+  inner_data_archive_sha256: e1a5c2cc9162bb8de20c236fdfe34e7854688edeac64ffdd0b828200958ae6c5
+  extracted_root: raw/deblurweedseg/repository/data
+  license: MIT
+  commercial_allowed: true
+  citation: >-
+    Genze et al., Improved weed segmentation in UAV imagery of sorghum
+    fields with a combined deblurring segmentation model, Plant Methods
+    19:87, 2023, doi:10.1186/s13007-023-01060-8
+
+publisher_structure:
+  composite_pairs: 1300
+  composite_width: 268
+  composite_height: 268
+  publisher_split_counts:
+    train: 900
+    val: 300
+    test: 100
+  split_csv_sha256:
+    train: 3dcbeeac494c799bf07dd4e889621692f057d343a5b96435745279a089672f5c
+    val: 2595c01368b30e2ab742c6cf2732ec7f78ffd5c39a26db16f976d822961dd24c
+    test: 95a813a2780ce2ce6e191bda160adc9e897475d46bf7b7666c8577d83f77ea63
+  split_id_sequence_sha256:
+    train: 98f08a1725e5b263ee491c5b4da5ad382f3b5e90faf3a9c463dd843f0f71c963
+    val: 6d7b989879affd5241615f53cb4564ebeace2cfdb944144a6139d30a764bf952
+    test: fc019fe2ca1ce525b3c85eaeacbd37b1921e2112ce7151885b973d593adaefde
+  crop_boxes_xyxy:
+    sharp_rgb: [4, 4, 132, 132]
+    blur_rgb: [136, 4, 264, 132]
+    sharp_mask: [4, 136, 132, 264]
+    blur_mask: [136, 136, 264, 264]
+  panel_width: 128
+  panel_height: 128
+  source_palette_rgb_to_common:
+    "199,199,199": 0
+    "31,119,180": 1
+    "255,127,14": 2
+
+ontology:
+  background_soil: 0
+  sorghum_bicolor_target_crop: 1
+  chenopodium_album_and_cirsium_arvense: 2
+  ignore: 255
+  target_crop_id: 4
+  crop_species: Sorghum bicolor
+  weed_species: Chenopodium album;Cirsium arvense
+  annotation_exhaustive: true
+
+role_policy:
+  included_publisher_split: test
+  output_role: external_calibration
+  modalities: [sharp, motion_blur]
+  paired_modalities_must_share_role: true
+  publisher_train_and_val_pairs_quarantined: 1200
+  rationale: >-
+    The source does not publish original-frame, flight-run, or spatial group
+    identifiers. Only the publisher's 100-pair holdout is exposed as a new
+    development stress domain. The other 1,200 pairs are not training data in
+    this phase, preventing hidden source-frame leakage into the evaluation.
+  independence_limit: >-
+    This is one experimental field and one acquisition period. It is not an
+    unseen-field test and must never be presented as multi-field evidence.
+
+capture:
+  field_id: southern_germany_experimental_sorghum_field_2020
+  session_id: publisher_test_single_field_uav_mission_2020_09
+  capture_date: 2020-09
+  platform: DJI Mavic 2 Pro UAV at 5 m
+  sensor: Hasselblad L1D-20c RGB 20MP; publisher 128x128 paired crops
+  growth_stage: BBCH 13
+
+quality_gate:
+  require_exact_archive_size_and_sha256: true
+  require_safe_archive_members: true
+  require_exact_split_partition: true
+  require_exact_composite_dimensions: true
+  require_fully_opaque_alpha: true
+  require_exact_mask_palette: true
+  require_all_common_classes_per_modality: true
+  require_paired_output_count: 100
+  forbid_publisher_train_or_val_output: true
+  forbid_pretrained_publisher_model: true
+  forbid_external_test_claim: true
+
+outputs:
+  manifest: processed/manifests/deblurweedseg.csv
+  sharp_manifest: processed/manifests/deblurweedseg_sharp_calibration_v1.csv
+  blur_manifest: processed/manifests/deblurweedseg_blur_calibration_v1.csv
+  conversion_report: processed/manifests/deblurweedseg_conversion.json
+  images_root: processed/deblurweedseg/images
+  masks_root: processed/deblurweedseg/common_masks

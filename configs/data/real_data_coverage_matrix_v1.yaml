@@ -1,0 +1,146 @@
+schema_version: 1
+frozen_at: "2026-08-03T20:40:00+03:00"
+data_root: data
+
+source_manifests:
+  - path: data/processed/manifests/all_roles_audit_v2_cropandweed.csv
+    sha256: 19ff8a1877c0a60457dd421f00fa4b044656becb38d2d2afe1fbf97c1fbc20f7
+  - path: data/processed/manifests/rice_seedling_weed.csv
+    sha256: 05d9eeff6f4874395ebcad9a718a2ec405eb17fef2abc2106a9e14dd981adac8
+  - path: data/processed/manifests/sorghum_weed.csv
+    sha256: f28f5914090b8ee28cd26b9e742ec958105db61f68b743963a3729468d263540
+  - path: data/processed/manifests/growingsoy.csv
+    sha256: 0ba8f02071c34478f81340386eae5ecf86202a16b2d5b6135c3313faef7aa4ac
+  - path: data/processed/manifests/deblurweedseg.csv
+    sha256: f17e5f58a17b3fa36bcb01780df01539eef3aa1cbfc9009c19a530819b9cffe9
+  - path: data/processed/manifests/weedmap.csv
+    sha256: fd8d01faa5284b52c6a7039ed0ccd001cc544c4f7d1ab75cbb87ec50b05e7005
+  - path: data/processed/manifests/tobacco_aerial.csv
+    sha256: 0f3cac3f760ff2a8b305bf40b9fe8fd7abc50a6e1180cbfcbf8e52a98176ab71
+  - path: data/processed/manifests/weedy_rice_uav_binary_v1.csv
+    sha256: 5debc6b8330026445ed850e2508d8eaca17f1ef32a9fa12ef0ad93e94a35c889
+  - path: data/processed/manifests/camelinaweed_partial_v1.csv
+    sha256: dc7bac610d2a3ffa472dc6a2c937032f1e8ca4f7ad2161aa4bd64820a1594b68
+  - path: data/processed/manifests/riceseg_quality_v1.csv
+    sha256: f3bcfedf4d56da5ba43f7b79d06f511a17645a1e26ad33bac9656da34d52dc5c
+
+expected:
+  records: 20765
+  datasets: 18
+  dataset_counts:
+    acre: 1000
+    camelinaweed: 1097
+    carrot_weed: 39
+    cropandweed: 4584
+    cwfid: 60
+    deblurweedseg: 200
+    ewis1: 88
+    growingsoy: 1000
+    phenobench: 2179
+    rice_seedling_weed: 224
+    riceseg: 3077
+    rose: 1235
+    sorghum_weed: 252
+    tobacco_aerial: 2520
+    we3ds: 1801
+    weedmap: 519
+    weedsgalore: 156
+    weedy_rice_uav: 734
+  partial_training_locked_records: 2055
+  common_semantic_compatible_records: 18710
+
+dataset_policy:
+  acre:
+    supervision_track: common_semantic
+    current_use: core_train_validation_and_historical_test
+    strength: ground-robot maize and bean with exhaustive dense labels
+    limitation: ten capture groups; only two crop species
+  camelinaweed:
+    supervision_track: positive_only_partial
+    current_use: training_locked_train_candidate_and_location_disjoint_external_calibration
+    strength: Greece UAV, two regions, two seasons, two platforms and expert weed polygons
+    limitation: Camelina/background are not exhaustive; category k is unresolved
+  carrot_weed:
+    supervision_track: common_semantic
+    current_use: consumed_external_test_only
+    strength: early carrot ground-view stress
+    limitation: 39 images from one sequence; non-commercial
+  cropandweed:
+    supervision_track: common_semantic_fail_closed
+    current_use: train_candidate_and_session_disjoint_external_calibration
+    strength: 4,584 top-down images across nine accepted crop IDs and 437 groups
+    limitation: unresolved commercial sites, mixed annotation exhaustiveness and research-only terms
+  cwfid:
+    supervision_track: common_semantic_fail_closed
+    current_use: external_calibration_only
+    strength: canonical early-carrot field domain
+    limitation: 60 frames from one 2014 field and non-commercial terms
+  deblurweedseg:
+    supervision_track: common_semantic
+    current_use: paired_sharp_motion_external_calibration_only
+    strength: real paired motion-blur stress
+    limitation: 200 small crops from one sorghum field; no independent test claim
+  ewis1:
+    supervision_track: common_semantic
+    current_use: consumed_external_test_only
+    strength: UAV maize/sorghum across many named fields
+    limitation: only 88 evaluation images
+  growingsoy:
+    supervision_track: common_semantic_fail_closed
+    current_use: trajectory_disjoint_train_candidate_and_external_calibration
+    strength: six longitudinal soybean stages and two trajectories
+    limitation: one research field; publisher frames are temporally correlated
+  phenobench:
+    supervision_track: common_semantic
+    current_use: core_train_validation
+    strength: high-resolution UAV sugar beet with dense labels and dates
+    limitation: one research site and non-commercial share-alike terms
+  rice_seedling_weed:
+    supervision_track: partial_three_class
+    current_use: training_locked_single_session_candidate
+    strength: real early transplanted rice paddy crop/background/weed positives
+    limitation: 224 tiles derive from only 28 photos; raw class zero remains ignore
+  riceseg:
+    supervision_track: common_semantic_fail_closed
+    current_use: quality_gated_train_candidate_and_subdataset_disjoint_external_calibration
+    strength: 3,077 eligible paddy tiles across 19 subdatasets, multiple countries, stages, sensors and acquisition heights
+    limitation: one conflicting same-train near-duplicate is quarantined; license reconciliation remains research-only and the alternative country-transfer split must not be combined with the coverage split
+  rose:
+    supervision_track: common_semantic
+    current_use: research_train_validation_and_historical_test
+    strength: multiple field robots, years, maize and bean
+    limitation: embedded-content licensing remains research-only in this benchmark
+  sorghum_weed:
+    supervision_track: common_semantic
+    current_use: train_external_calibration_and_consumed_external_test
+    strength: dense sorghum/weed labels with publisher field split
+    limitation: one named farm; external test is not unseen-field evidence
+  tobacco_aerial:
+    supervision_track: common_semantic
+    current_use: campaign_disjoint_train_candidate_and_external_calibration
+    strength: 2,520 UAV patches across eight field campaigns
+    limitation: one regional tobacco collection and correlated parent blocks
+  we3ds:
+    supervision_track: common_semantic
+    current_use: core_train_validation_and_historical_test
+    strength: seven crops, stereo RGB and 19 capture groups
+    limitation: one Austrian research location
+  weedmap:
+    supervision_track: common_semantic_fail_closed
+    current_use: map_disjoint_train_candidate_and_external_calibration
+    strength: UAV sugar-beet orthomosaic tiles with crop/weed/background labels
+    limitation: one field/one campaign; non-commercial; map tiles are spatially correlated
+  weedsgalore:
+    supervision_track: common_semantic
+    current_use: core_train_validation_and_historical_test
+    strength: multispectral maize dates and spatial partitions
+    limitation: 156 accepted samples and a single experimental domain
+  weedy_rice_uav:
+    supervision_track: positive_only_partial
+    current_use: training_locked_train_candidate_and_flight_disjoint_external_calibration
+    strength: 734 mature-rice UAV images across four flights, dates and two locations
+    limitation: source negatives mix cultivated rice, soil, water and other content
+
+outputs:
+  audit: data/processed/audits/real_data_coverage_matrix_v1.json
+  report: docs/REAL_DATA_COVERAGE_MATRIX_V1.md

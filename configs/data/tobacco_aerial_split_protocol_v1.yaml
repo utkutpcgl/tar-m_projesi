@@ -1,0 +1,72 @@
+schema_version: 1
+scope: tobacco_aerial_field_disjoint_research_data_gate
+frozen_before_archive_visual_review: true
+frozen_before_model_evaluation: true
+frozen_at: '2026-08-03T09:38:00+03:00'
+
+source:
+  dataset_id: tobacco_aerial
+  doi: https://doi.org/10.17632/5dpc5gbgpz.2
+  version: 2
+  publisher: Mendeley Data
+  license: CC-BY-4.0
+  crop_species: Nicotiana tabacum
+  target_crop_id: 13
+  country: Pakistan
+  region: Mardan, Khyber Pakhtunkhwa
+  platform: Mavic Mini UAV
+  image_resolution: [1920, 1080]
+  patch_resolution: [480, 352]
+  average_altitude_m: 4
+  ground_sampling_distance_cm_per_pixel: 0.1
+  growth_age_days: [15, 40]
+  raw_to_common:
+    0: 0
+    1: 1
+    2: 2
+
+publisher_campaigns:
+  '1': {published_patches: 864, capture_date: '2021-04-09', capture_time: '14:30', soil_condition: after_irrigation}
+  '2': {published_patches: 936, capture_date: '2021-04-07', capture_time: '15:30', soil_condition: before_irrigation}
+  '3': {published_patches: 120, capture_date: '2021-04-07', capture_time: '15:38', soil_condition: after_irrigation}
+  '4': {published_patches: 120, capture_date: '2021-04-07', capture_time: '17:52', soil_condition: before_irrigation}
+  '5': {published_patches: 120, capture_date: '2021-04-07', capture_time: '18:33', soil_condition: after_irrigation}
+  '6': {published_patches: 120, capture_date: '2021-04-09', capture_time: '15:27', soil_condition: after_irrigation}
+  '7': {published_patches: 120, capture_date: '2021-04-09', capture_time: '15:43', soil_condition: before_irrigation}
+  '8': {published_patches: 120, capture_date: '2021-04-09', capture_time: '15:59', soil_condition: after_irrigation}
+
+role_policy:
+  split_unit: publisher_campaign_as_field
+  train_campaigns: ['2', '3', '5', '6', '7', '8']
+  external_calibration_campaigns: ['1', '4']
+  external_test_claim: false
+  rationale: >-
+    Hold out two complete fields before any archive visual review or model
+    evaluation. Campaigns 1 and 4 cover different dates/times and
+    after/before-irrigation conditions. The remaining six fields retain both
+    dates and both soil conditions for training.
+
+balanced_selection:
+  enabled: true
+  campaign_patch_cap: 120
+  preserve_complete_parent_frames: true
+  parent_frame_inference_must_be_unambiguous: true
+  method: >-
+    Sort parent-frame identifiers within each campaign. Retain complete parent
+    groups at approximately uniform quantile positions until adding another
+    complete group would exceed 120 patches. Never choose by RGB appearance,
+    mask content, class ratio, or model result.
+  expected_if_publisher_counts_and_twelve_patch_groups_hold:
+    train_fields: 6
+    train_patches: 720
+    external_calibration_fields: 2
+    external_calibration_patches: 240
+
+forbidden_actions:
+  - random_patch_split
+  - parent_frame_across_multiple_roles
+  - campaign_across_multiple_roles
+  - class_content_based_selection
+  - model_result_based_selection
+  - publisher_visualization_mask_as_ground_truth
+  - external_or_final_test_claim

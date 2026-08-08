@@ -1,0 +1,70 @@
+schema_version: 1
+scope: riceseg_training_eligibility_after_visual_and_duplicate_quality_gates
+frozen_at: "2026-08-03T21:15:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+locked_inputs:
+  conversion_receipt:
+    path: processed/audits/riceseg_conversion_v1.json
+    sha256: 23fd67404ae6abcc0162fdbb1a0f50e154f5b8474be727f6e3810cec93d8489e
+  duplicate_audit:
+    path: processed/audits/riceseg_duplicate_audit_v1.json
+    sha256: b7e773ac961db79c0b99755d4078185b38d78b88eefb8d42d3aa65d781d56e78
+  visual_review:
+    path: processed/audits/riceseg_visual_review_v1.json
+    sha256: 3930c4dc67ec7196791b8d8cb6e343db16a43620c3748111ab28a4dff026066d
+  duplicate_review_image:
+    path: processed/audits/riceseg_same_train_duplicate_review_v1.png
+    sha256: cf38091463d752a9dad6a32e7479709007b5aff6ffdd7250424a9cc2d36b27a2
+  coverage_manifest:
+    path: processed/manifests/riceseg_v1.csv
+    sha256: 1180f660cbf3d4ee354f4a60a698eb9e1ec638be98920024578bf4300f2e927b
+  country_transfer_manifest:
+    path: processed/manifests/riceseg_country_transfer_v1.csv
+    sha256: e0e7c09cf8d26664068057a43514b09c4f2072328d5c52d35dad31979c2bb17f
+
+quality_contract:
+  release_samples_preserved: 3078
+  visual_subdatasets: 19
+  visual_reviewed_cells: 95
+  reference_samples: 17688
+  candidate_to_reference_matches: 0
+  cross_split_matches: 0
+  allowed_same_split_matches: 1
+  allowed_same_split_pair:
+    keep_sample: riceseg:JS_1:20js1_subset_overlap_0_0
+    quarantine_sample: riceseg:JS_2:21js2_subset_overlap_0_0
+    expected_dhash_hamming: 0
+    maximum_decoded_rgb_mae: 1.0
+    maximum_decoded_rgb_max_abs: 15
+    require_common_mask_conflict: true
+    deterministic_rule: >-
+      Preserve both upstream files, but retain only the lexicographically first
+      same-role near-duplicate in training. This avoids duplicate weighting and
+      conflicting supervision without choosing from model results.
+  eligible_samples: 3077
+  eligible_roles: {train: 2473, external_calibration: 604}
+  quarantine_samples: 1
+  country_transfer_roles: {train: 1823, external_calibration: 1254}
+
+outputs:
+  eligible_manifest: processed/manifests/riceseg_quality_v1.csv
+  train_manifest: processed/manifests/riceseg_quality_train_v1.csv
+  calibration_manifest: processed/manifests/riceseg_quality_calibration_v1.csv
+  quarantine_manifest: processed/manifests/riceseg_quarantine_v1.csv
+  country_transfer_manifest: processed/manifests/riceseg_country_transfer_quality_v1.csv
+  quality_receipt: processed/audits/riceseg_quality_gate_v1.json
+
+freeze:
+  source_files_deleted: false
+  split_changed_from_metadata_gate: false
+  model_results_used: false
+  external_test_created: false
+
+forbidden_actions:
+  - delete_or_modify_quarantined_upstream_files
+  - silently_train_on_full_release_manifest
+  - move_any_subdataset_across_roles
+  - combine_coverage_and_country_transfer_protocols
+  - external_or_final_test_claim

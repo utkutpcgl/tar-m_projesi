@@ -1,0 +1,49 @@
+schema_version: 1
+frozen_at: "2026-08-04T14:35:00+03:00"
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+source:
+  dataset_name: FarmBot Soybean and Weed 2026
+  doi: 10.17632/78ms3sw487.1
+  landing_url: https://data.mendeley.com/datasets/78ms3sw487/1
+  download_url: https://data.mendeley.com/public-api/zip/78ms3sw487/download/1
+  version: 1
+  expected_archive_bytes: 816117805
+  license: CC-BY-4.0
+  camera: ELP USB4KHDR01-MFV / Sony IMX317
+  published_resolution: [3840, 2160]
+  target_crop_id: 8
+  crop_species: Glycine max
+
+outputs:
+  archive: raw/unseen_video/farmbot_soy_2026/archives/farmbot_soy_2026_v1.zip
+  extracted: raw/unseen_video/farmbot_soy_2026/repository
+  audit: processed/audits/farmbot_soy_unseen_v1/acquisition_and_archive_audit.json
+
+gates:
+  minimum_free_bytes_after_download: 107374182400
+  minimum_free_bytes_after_extraction: 107374182400
+  maximum_uncompressed_bytes: 21474836480
+  maximum_members: 10000
+  allowed_file_suffixes:
+    - .jpg
+    - .jpeg
+    - .png
+    - .txt
+    - .json
+    - .csv
+    - .yaml
+    - .yml
+    - .xml
+    - .md
+
+policy:
+  training_authorized: false
+  numeric_segmentation_accuracy_authorized: false
+  model_selection_score_weight: 0.0
+  role: unseen_real_qualitative_failure_discovery
+  annotations_are_dense_semantic_masks: false
+  note: >-
+    Publisher annotations are bounding boxes, not exhaustive common-ontology
+    semantic masks. Images may be used for qualitative prediction galleries
+    and unlabeled traces only; no mIoU may be reported.

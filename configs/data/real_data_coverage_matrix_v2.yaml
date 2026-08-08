@@ -1,0 +1,29 @@
+schema_version: 2
+frozen_at: '2026-08-04T11:40:00+03:00'
+base_audit:
+  path: data/processed/audits/real_data_coverage_matrix_v1.json
+  sha256: 43ad9f0c10a32a3a1d7a001b4fcac09ee6a2c512016ce379f1e3b77b97d500d8
+additional_manifest:
+  path: data/processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+  sha256: 91522974b604c4a33ebd4036c023a19a881899eac791662ebe97e97728342e1e
+release_evidence:
+  path: data/processed/audits/sugarbeets2016_multiclass_holdout_v1_manual_visual_review.json
+  sha256: 14838cedb0970560c0d5dc06f0d04761fd5f5bee5ae9aac231613e3140aef036
+  required_true: [all_release_gates_passed, holdout_release_accepted]
+dataset_policy:
+  supervision_track: common_semantic
+  current_use: frozen_field_session_disjoint_target_like_external_calibration
+  strength: 283 close-nadir BoniRob RGB frames with official exhaustive multiclass pixel labels
+  limitation: one field, date, and strongly temporally correlated robot session
+expected_scope:
+  records: 21048
+  datasets: 19
+  capture_groups: 576
+  fields: 58
+  external_calibration: 3972
+  common_semantic_compatible_records: 18993
+  partial_training_locked_records: 2055
+  commercial_allowed_records: 9355
+  research_only_records: 11693
+outputs:
+  audit: data/processed/audits/real_data_coverage_matrix_v2.json

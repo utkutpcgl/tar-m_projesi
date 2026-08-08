@@ -1,0 +1,54 @@
+schema_version: 1
+protocol: weed_detection_stem_keypoint_date_transfer_poc_v1
+frozen_at: "2026-08-08T08:45:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_yaml: processed/wsd_pose_v1/weed_stem_detection_v1.yaml
+dataset_receipt: processed/audits/weed_stem_detection_v1_receipt.json
+dataset_receipt_sha256: acad408e19bbcf628823cc5af99a3eb4943c23751cdf4d0764487e5469aece3a
+
+model:
+  family: Ultralytics-YOLO26s-pose
+  package_version: 8.4.60
+  license_scope: AGPL-3.0-research-poc-only
+  pretrained_checkpoint: models/ultralytics_yolo26/yolo26s-pose.pt
+  pretrained_checkpoint_sha256: a083adb42303728ae14c4bd6bd56d80da46f82fb2564dbd6f31dcc92ea321646
+
+training:
+  seed: 17
+  epochs: 100
+  patience: 30
+  image_size: 1024
+  batch: 8
+  workers: 4
+  device: 0
+  deterministic: true
+  amp: true
+  optimizer: auto
+  cos_lr: true
+  cache: false
+  degrees: 10.0
+  translate: 0.10
+  scale: 0.40
+  fliplr: 0.50
+  flipud: 0.0
+  mosaic: 0.50
+  close_mosaic: 15
+
+evaluation:
+  split: test
+  confidence: 0.001
+  iou: 0.70
+  image_size: 1024
+  batch: 8
+
+output:
+  project: runs/wsd_pose_poc_v1
+  name: yolo26s_pose_1024_seed17
+
+claims:
+  - Train, validation, and test use different capture dates.
+  - The test date never tunes confidence or checkpoint selection.
+  - Built-in box/pose mAP is diagnostic; action-level point F1 is computed separately.
+  - WSD has no GSD or millimetre calibration, so pixel/keypoint accuracy is not laser kill validation.
+  - This Ultralytics baseline is research-only pending deployment-license resolution.

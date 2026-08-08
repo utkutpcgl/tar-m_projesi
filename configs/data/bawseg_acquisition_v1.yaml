@@ -1,0 +1,78 @@
+schema_version: 1
+frozen_at: "2026-08-03T22:45:00+03:00"
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+source:
+  dataset_name: BAWSeg
+  doi: 10.21227/f8e1-5934
+  landing_url: https://ieee-dataport.org/documents/multispectral-remote-sensing-weed-detection-west-australian-agricultural-lands
+  provider: IEEE DataPort
+  content_id: "101935"
+  dataset_id: "14627"
+  access: subscription_authenticated
+  official_paper: https://doi.org/10.3390/rs18060915
+  archive_display_name: Multispectral Image Benchmark Dataset.zip
+  archive_display_size: 7.5 GB
+  license_status_before_download: unresolved_inside_archive
+  license_note: >-
+    The public landing page states that LICENSE.txt is inside the package but
+    does not expose its terms anonymously. Keep commercial_allowed=false and
+    prohibit training until the downloaded license is reviewed explicitly.
+
+public_page_gate:
+  required_snippets:
+    - 10.21227/f8e1-5934
+    - "Multispectral Image Benchmark Dataset.zip (Size: 7.5 GB)"
+    - Subscription Required
+    - README_DATASET.txt
+    - LICENSE.txt
+    - checksums_sha256.txt
+    - patches_256/
+    - cross_year_2020_2022_to_2023_split.csv
+  reported_total_data_volume: exceeds 500 GB
+  reported_archive_display_size: 7.5 GB
+  note: >-
+    These two public claims are inconsistent enough that extraction capacity
+    must be decided from the downloaded ZIP central directory, never from the
+    display label alone.
+
+archive_gate:
+  maximum_download_bytes: 12884901888
+  minimum_free_space_after_download_bytes: 107374182400
+  minimum_free_space_after_extraction_bytes: 53687091200
+  required_control_files:
+    - README_DATASET.txt
+    - LICENSE.txt
+    - manifest.csv
+    - checksums_sha256.txt
+  manifest_required_columns:
+    - relative_path
+    - bytes
+    - sha256
+    - year
+    - field
+    - product_type
+  allowed_label_values: [0, 1, 2, 255]
+  source_to_common_label_map:
+    0: 1
+    1: 2
+    2: 0
+    255: 255
+  require_safe_paths: true
+  require_no_symlinks: true
+  require_full_crc_for_verified_status: true
+  require_internal_sha256_for_verified_status: true
+  max_control_file_bytes: 33554432
+
+outputs:
+  archive: raw/bawseg/archives/Multispectral_Image_Benchmark_Dataset.zip
+  remote_preflight_receipt: processed/audits/bawseg_remote_preflight_v1.json
+  archive_inspection_receipt: processed/audits/bawseg_archive_inspection_v1.json
+  acquisition_receipt: processed/audits/bawseg_acquisition_v1.json
+
+policy:
+  download_does_not_authorize_extraction: true
+  extraction_requires_central_directory_space_gate: true
+  training_requires_license_review: true
+  external_test_used: false
+  model_selection_used: false

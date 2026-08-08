@@ -1,0 +1,167 @@
+schema_version: 1
+frozen_at: "2026-08-03T15:17:19+03:00"
+data_root: data
+freeze_provenance:
+  archive_central_directory_inspected: true
+  coco_json_metadata_inspected: true
+  rgb_pixels_inspected: false
+  model_outputs_inspected: false
+  quality_thresholds_changed_after_rgb_inspection: false
+
+dataset_id: camelinaweed
+target_crop_id: 14
+crop_species: Camelina_sativa
+country: Greece
+license: CC-BY-4.0
+commercial_allowed: true
+annotation_exhaustive: false
+
+locked_inputs:
+  acquisition_config:
+    path: configs/data/camelinaweed_acquisition_screen_v1.yaml
+    sha256: a05283a72bc461e3786cb3b42e9be03fbecb2da784ef6cc36ad637fe05aca78d
+  range_fetcher:
+    path: scripts/fetch_camelinaweed_sparse_ranges.py
+    sha256: 7087f9702286a598deb5895ae28070da17d4d545ac78b3a0e05c8ba8a569a6da
+  metadata_receipt:
+    path: data/processed/audits/camelinaweed_metadata_ranges_v1.json
+    sha256: 2796eb2dedc34e7b749b70cbe4ce753de9188975e409acafb4c22ff07ec33ce6
+  annotated_range_receipt:
+    path: data/processed/audits/camelinaweed_annotated_ranges_v1.json
+    sha256: 9e4a89a9959707291cfadc3b53575e59f8ded9456b5ac1f6925416feb8062d1f
+  sparse_archive: data/raw/candidate_screening/camelinaweed_v1/CamelinaWeed.index.sparse.zip
+
+canonical_groups:
+  - id: summer_2025_thessaloniki_phantom_10m
+    location: Thessaloniki
+    season: summer_2025
+    platform: DJI_Phantom_4_Pro
+    altitude_m: 10
+    role: train
+    coco: CamelinaWeed/Summer 2025/Thessaloniki/Phantom Flight at 10 m Altitude/Annotated/_annotations.coco.json
+    images: 297
+    annotations: 1912
+    accepted_images: 297
+  - id: summer_2025_thessaloniki_phantom_5m
+    location: Thessaloniki
+    season: summer_2025
+    platform: DJI_Phantom_4_Pro
+    altitude_m: 5
+    role: train
+    coco: CamelinaWeed/Summer 2025/Thessaloniki/Phantom Flight at 5 m Altitude/Annotated/_annotations.coco_merged.json
+    images: 34
+    annotations: 83
+    accepted_images: 33
+  - id: winter_2025_2026_thessaloniki_mavic_2m_flight1
+    location: Thessaloniki
+    season: winter_2025_2026
+    platform: DJI_Mavic_3M
+    altitude_m: 2
+    role: train
+    coco: CamelinaWeed/Winter 2025-2026/Thessaloniki/Mavic 3M Flight_1 at 2 m Altitude/Annotated/_annotations.coco.json
+    images: 627
+    annotations: 1891
+    accepted_images: 605
+  - id: winter_2025_2026_thessaloniki_mavic_2m_flight2
+    location: Thessaloniki
+    season: winter_2025_2026
+    platform: DJI_Mavic_3M
+    altitude_m: 2
+    role: train
+    coco: CamelinaWeed/Winter 2025-2026/Thessaloniki/Mavic 3M Flight_2 at 2 m Altitude/Annotated/_annotations.coco.json
+    images: 47
+    annotations: 104
+    accepted_images: 47
+  - id: winter_2025_2026_thessaloniki_phantom_3m
+    location: Thessaloniki
+    season: winter_2025_2026
+    platform: DJI_Phantom_4_Pro
+    altitude_m: 3
+    role: train
+    coco: CamelinaWeed/Winter 2025-2026/Thessaloniki/Phantom Flight at 3 m Altitude/Annotated/_annotations.coco.json
+    images: 17
+    annotations: 41
+    accepted_images: 17
+  - id: winter_2025_2026_chalkidiki_phantom_3m
+    location: Chalkidiki
+    season: winter_2025_2026
+    platform: DJI_Phantom_4_Pro
+    altitude_m: 3
+    role: external_calibration
+    coco: CamelinaWeed/Winter 2025-2026/Chalkidiki/Phantom Flight at 3 m Altitude/Annotated/_annotations.coco.json
+    images: 43
+    annotations: 229
+    accepted_images: 43
+  - id: winter_2025_2026_chalkidiki_phantom_5m
+    location: Chalkidiki
+    season: winter_2025_2026
+    platform: DJI_Phantom_4_Pro
+    altitude_m: 5
+    role: external_calibration
+    coco: CamelinaWeed/Winter 2025-2026/Chalkidiki/Phantom Flight at 5 m Altitude/Annotated/_annotations.coco_merged.json
+    images: 55
+    annotations: 214
+    accepted_images: 55
+
+expected_release:
+  archive_entries: 10983
+  archive_files: 10944
+  annotated_jpg: 1120
+  all_coco_json: 12
+  canonical_coco_json: 7
+  canonical_images: 1120
+  canonical_annotations: 4474
+  empty_segmentation_annotations_to_ignore: 2
+  ambiguous_category_k_annotations_to_ignore: 31
+  accepted_positive_annotations: 4441
+  images_without_accepted_positive_to_exclude: 23
+  accepted_images: 1097
+  train_images: 999
+  external_calibration_images: 98
+  train_calibration_location_overlap: 0
+  image_shapes:
+    DJI_Phantom_4_Pro: [5472, 3078]
+    DJI_Mavic_3M: [1920, 1080]
+
+ontology:
+  recognized_weed_polygon_to_common: 2
+  ambiguous_category_k_to_common: 255
+  empty_or_invalid_polygon_to_common: 255
+  all_non_polygon_pixels_to_common: 255
+  crop_pixels_supervised: false
+  background_pixels_supervised: false
+  common_three_class_training_allowed: false
+  positive_only_partial_label_training_allowed: false
+
+quality_gate:
+  require_exact_coco_image_jpg_match: true
+  require_image_shape_match_metadata: true
+  require_jpeg_decode: true
+  require_polygon_numeric_even_coordinates: true
+  require_polygon_min_points: 3
+  require_polygon_inside_image: true
+  ignore_empty_segmentation_count: 2
+  ignore_ambiguous_k_annotation_count: 31
+  require_accepted_positive_per_manifest_image: true
+  require_manual_group_by_coverage_review: true
+  manual_sample_quantiles: [0.10, 0.50, 0.90]
+  require_exact_duplicate_count: 0
+  require_near_duplicate_hamming_threshold: 2
+  require_cross_role_near_duplicate_count: 0
+  require_vs_existing_real_near_duplicate_count: 0
+  existing_real_reference_count: 16591
+  external_test_used: false
+  model_selection_used: false
+
+outputs:
+  annotated_release: data/raw/camelinaweed/annotated_v1
+  normalized_partial_masks: data/processed/masks/camelinaweed_partial_v1
+  manifest: data/processed/manifests/camelinaweed_partial_v1.csv
+  train_manifest: data/processed/manifests/camelinaweed_partial_train_candidate_v1.csv
+  calibration_manifest: data/processed/manifests/camelinaweed_partial_calibration_v1.csv
+  conversion_receipt: data/processed/manifests/camelinaweed_partial_conversion_v1.json
+  content_audit: data/processed/audits/camelinaweed_content_quality_v1.json
+  duplicate_audit: data/processed/audits/camelinaweed_vs_all_real_duplicates_v1.json
+  contact_sheet: data/processed/audits/qc/camelinaweed_review_v1.png
+  contact_sheet_receipt: data/processed/audits/camelinaweed_contact_sheet_v1.json
+  final_quality_receipt: data/processed/audits/camelinaweed_quality_v1.json

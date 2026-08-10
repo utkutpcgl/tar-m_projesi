@@ -1,0 +1,45 @@
+schema_version: 1
+protocol: phenobench_yolo26s_detect_vs_instance_segment_fair_v1
+frozen_at: "2026-08-10T14:10:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+source_manifest: processed/manifests/phenobench.csv
+source_root: raw/phenobench/PhenoBench-v110/PhenoBench
+output: processed/phenobench_detect_segment_fair_v1
+
+# Official train remains untouched for training.  The official spatially
+# separate val region is split by P-plot groups; every date is represented in
+# both calibration and test, and no image is shared.
+calibration_groups:
+  - P0030686
+  - P0030792
+  - P0030953
+  - P0034282
+  - P0037822
+  - P0038051
+test_groups:
+  - P0030695
+  - P0030859
+  - P0030943
+  - P0034016
+  - P0034121
+  - P0037991
+
+labels:
+  minimum_full_instance_area_px: 16
+  polygon_approximation_epsilon_px: 0.5
+  semantics:
+    crop: 1
+    weed: 2
+    partial_crop_ignore: 3
+    partial_weed_ignore: 4
+  yolo_classes:
+    weed: 0
+    crop: 1
+
+claims:
+  - Both arms receive exactly the same RGB frames, logical splits, eligible plant instances, 1024 native raster, and class mapping.
+  - Detection boxes and segmentation polygons are derived from the same publisher plant-instance masks.
+  - Partial plants with less than 50 percent visibility are ignored in action scoring; only full crop and weed pixels supervise eligible instances.
+  - The source is a PhenoBench UAV sugar-beet field and is a clean architecture/task control, not final robot-camera deployment evidence.
+  - PhenoBench is CC-BY-NC-SA-4.0 and this derived research benchmark is non-commercial.

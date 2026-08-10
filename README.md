@@ -13,7 +13,32 @@ modeli seçmek ve ayrı, dondurulmuş A/B'lerle stock ve özel CropCraft
 pilotlarının gerçek-domain etkisini ölçmektir. Sentetik veri ana corpus veya
 gerçek testin yerine geçmez. Depth modeli bu faza bağlanmadı.
 
-## Sprey model kararı v2 — 2026-08-10
+## Adil detection vs segmentation kararı — 2026-08-10
+
+- [Önce bunu açın — 11 sayfalık sade ve görselli PDF](docs/results/FAIR_DETECTION_SEGMENTATION_KARARI_V1.pdf)
+- [Exact metrikler ve deney sözleşmesi](docs/FAIR_DETECTION_SEGMENTATION_KARARI_V1.md)
+
+Önceki WSD kıyası target-trained detector ile zero-shot segmenteri
+karşılaştırdığı için mimari seçimde kullanılmadı. Yeni A/B'de iki kol da aynı
+`1.407` gerçek PhenoBench train görüntüsünü, aynı bitki instance'larını, aynı
+`1024 px / 50 epoch / seed 17` protokolünü gördü; confidence eşikleri yalnız
+validation'da seçilip untouched testten önce kilitlendi.
+
+Exact weed dokusuna tek-bitki/tek-atış metriğinde detection kutu-merkezi
+precision/recall/F1 `%69,0/%60,9/%64,7`; segmentasyon maskesinin güvenli iç
+noktası `%86,0/%64,9/%74,0` verdi. Eşleştirilmiş 403-kare bootstrap F1 farkı
+`+9,3` puan, `%95 GA [+7,02, +11,56]`; segmentasyonun daha yüksek olma
+olasılığı `1,00` oldu. Segmenter kutu-merkezi kontrolünün F1'ı `%62,1`
+olduğundan kazanç yalnız farklı bir detector kutusundan değil, maskenin aksiyon
+noktasını gerçek bitki dokusu içine taşımasından geliyor.
+
+Bu nedenle genişletilebilir temel olarak **instance segmentation** seçildi.
+Yine de test recall `%64,9`, `<14 px` recall `%26,4` ve yalnız tek training
+seed'i vardır; UAV şeker pancarı sonucu nihai robot-kamera saha onayı değildir.
+Deploy-benzeri session-ayrı test, tracking ve fiziksel nozul/kill/crop-injury
+kapıları geçilmeden ilaç ateşleme yoktur.
+
+## Tarihsel WSD sprey analizi — 2026-08-10
 
 - [Önce bunu açın — 10 sayfalık sade PDF](docs/results/SPOT_SPRAY_MODEL_KARARI_V2.pdf)
 - [Exact metrik, etiket kaynağı ve veri toplama kararı](docs/SPOT_SPRAY_MODEL_KARARI_V2.md)

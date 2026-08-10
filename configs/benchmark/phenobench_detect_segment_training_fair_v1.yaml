@@ -1,0 +1,85 @@
+schema_version: 1
+protocol: phenobench_yolo26s_detect_vs_instance_segment_training_fair_v1
+frozen_at: "2026-08-10T14:45:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+
+arms:
+  detect:
+    task: detect
+    dataset_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_detect_fair_v1.yaml
+    dataset_yaml_sha256: 5098de006b37403530909b90c501b249a3d3b8da2c0e11f57d6d2f78f2bb14fc
+    pretrained_checkpoint: models/ultralytics_yolo26/yolo26s.pt
+    pretrained_checkpoint_sha256: 646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b
+    run_name: yolo26s_detect_1024_seed17_e50
+  segment:
+    task: segment
+    dataset_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_segment_fair_v1.yaml
+    dataset_yaml_sha256: 1f4039135c62d3886eb8ec04103ceff8e279451120e280ceaa1f08e1a5e9485d
+    pretrained_checkpoint: models/ultralytics_yolo26/yolo26s-seg.pt
+    pretrained_checkpoint_sha256: 3da1d83e31caec96f9300eb4064f4f62882c133c7c264d63dfe61a7c197837a4
+    run_name: yolo26s_segment_1024_seed17_e50
+
+model_family:
+  name: YOLO26s
+  package: ultralytics
+  package_version: 8.4.60
+  license_scope: AGPL-3.0-or-enterprise
+  initialization: task-matched official COCO pretrained checkpoints
+
+# Identical optimization and image transforms are applied to both arms.  The
+# mask controls are accepted by detection as no-ops and used by segmentation.
+training:
+  epochs: 50
+  patience: 0
+  image_size: 1024
+  batch: 8
+  workers: 8
+  device: 0
+  seed: 17
+  deterministic: true
+  amp: true
+  optimizer: AdamW
+  lr0: 0.001
+  lrf: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 3.0
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  cos_lr: true
+  cache: disk
+  hsv_h: 0.015
+  hsv_s: 0.5
+  hsv_v: 0.3
+  degrees: 15.0
+  translate: 0.1
+  scale: 0.3
+  shear: 0.0
+  perspective: 0.0
+  fliplr: 0.5
+  flipud: 0.5
+  mosaic: 0.0
+  mixup: 0.0
+  copy_paste: 0.0
+  close_mosaic: 0
+  mask_ratio: 2
+  overlap_mask: true
+
+selection:
+  checkpoint: last.pt
+  reason: fixed final epoch avoids task-specific validation checkpoint selection
+  validation_role: confidence-policy calibration only
+  test_role: one-time locked comparison only
+
+output:
+  project: runs/phenobench_detect_segment_fair_v1
+
+claims:
+  - Both arms are target-trained on the same real RGB frames and eligible publisher plant instances.
+  - Both arms use the same YOLO26s family, native 1024 raster, optimization budget, seed, and image augmentation.
+  - Detection boxes and segmentation masks originate from the same publisher instance masks.
+  - The locked test split is never used for training, checkpoint selection, or confidence calibration.
+  - This isolates task-head and action-point behavior on PhenoBench; it is not deployment-domain proof.

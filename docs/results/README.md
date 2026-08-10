@@ -1,5 +1,25 @@
 # Segmentasyon ve bitki müdahalesi sonucu
 
+## Adil target-trained detection vs segmentation A/B — 2026-08-10
+
+- [Önce bunu açın — 11 sayfalık sade ve görselli PDF](FAIR_DETECTION_SEGMENTATION_KARARI_V1.pdf)
+- [Aranabilir exact metrikler ve deney sözleşmesi](../FAIR_DETECTION_SEGMENTATION_KARARI_V1.md)
+- [Altı açıklamalı untouched-test örneği](fair_detection_segmentation_gallery_v1/README.md)
+
+İki model de aynı `1.407` gerçek PhenoBench train görüntüsünü ve aynı bitki
+instance'larını gördü; ikisi de YOLO26s ailesinde `1024 px`, `50 epoch`,
+`seed 17` ile eğitildi. Validation'da kilitlenen eşiklerle untouched testte
+detection kutu-merkezi precision/recall/F1 `%69,0/%60,9/%64,7`, segmentasyon
+güvenli-iç-noktası `%86,0/%64,9/%74,0` verdi. Paired bootstrap F1 avantajı
+`+9,3` puan, `%95 GA [+7,02, +11,56]` oldu.
+
+Sonuç: gelecekte footprint, crop no-go maskesi ve lazer/keypoint koluna daha
+rahat genişlemek için instance segmentation temeli tercih edilir. Bu bir saha
+GO kararı değildir: PhenoBench UAV domainidir, tek seed kullanılmıştır ve
+balanced test recall yalnız `%64,9`dur. Önceki target-trained detector vs
+zero-shot segmenter WSD sonucu mimari gate olarak geçersizdir; yalnız gerçek
+hedef-domain veri görmenin etkisini gösterir.
+
 ## Detection-only spot-spray A/B — 2026-08-10
 
 - [Önce bunu açın — 10 sayfalık basit PDF](DETECTION_SPOT_SPRAY_BENCHMARK_V1.pdf)

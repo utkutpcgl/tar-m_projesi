@@ -1,0 +1,62 @@
+schema_version: 1
+protocol: phenobench_yolo26s_detect_vs_instance_segment_action_evaluation_fair_v1
+frozen_at: "2026-08-10T16:15:00+03:00"
+revised_before_test_at: "2026-08-10T16:20:00+03:00"
+revision_reason: validation-only retained-predictor OOM; explicitly release CUDA state between arms and use the same conservative batch-2 setting
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+ultralytics_version: 8.4.60
+dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+
+arms:
+  detect:
+    training_receipt: runs/phenobench_detect_segment_fair_v1/yolo26s_detect_1024_seed17_e50/run_receipt.json
+    training_receipt_sha256: 781d0f07f898f7feb46978a16c6a5a345ce974916633f8a39a38a9f3775e69d3
+    fixed_final_checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_detect_1024_seed17_e50/weights/last.pt
+    fixed_final_checkpoint_sha256: 5b84327a22e7e05645d98133ac046bc54a318b073116e9c7a037be7ba2c1be87
+    dataset_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_detect_fair_v1.yaml
+    dataset_yaml_sha256: 5098de006b37403530909b90c501b249a3d3b8da2c0e11f57d6d2f78f2bb14fc
+  segment:
+    training_receipt: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/run_receipt.json
+    training_receipt_sha256: 60ce88f8d33baee338caeed8bcd797a65c879abe249a4aa223cbd07a3c7b4bb6
+    fixed_final_checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+    fixed_final_checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+    dataset_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_segment_fair_v1.yaml
+    dataset_yaml_sha256: 1f4039135c62d3886eb8ec04103ceff8e279451120e280ceaa1f08e1a5e9485d
+
+inference:
+  image_size: 1024
+  batch: 2
+  chunk_size: 32
+  workers: 8
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+
+thresholds:
+  start: 0.01
+  stop: 0.99
+  step: 0.01
+
+bootstrap:
+  iterations: 2000
+  seed: 20260810
+
+# Prefer the richer foundation when its current spray action is practically
+# non-inferior and its compute/safety costs remain bounded.
+segmentation_preference_gate:
+  maximum_f1_drop: 0.02
+  maximum_recall_drop: 0.02
+  maximum_crop_collision_rate_increase: 0.01
+  maximum_latency_ratio: 2.0
+
+output: runs/phenobench_detect_segment_fair_v1/fair_evaluation_v1
+
+claims:
+  - Confidence thresholds are calibrated on validation and serialized before any test inference.
+  - Detection acts at the predicted weed-box centre; segmentation acts at the deepest interior pixel of the predicted weed mask.
+  - A true positive requires exact contact with eligible publisher weed tissue and is one-to-one per plant instance.
+  - Partial and unsupervised below-16-pixel plants are ignored for both arms.
+  - The comparison is target-trained and paired, but remains PhenoBench-domain research evidence rather than robot deployment proof.

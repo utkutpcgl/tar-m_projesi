@@ -1,0 +1,821 @@
+{
+  "calibration": {
+    "detect_box_center": {
+      "selection": {
+        "balanced_max_f1": {
+          "attempted_actions": 1856,
+          "crop_collision": 49,
+          "crop_collision_rate_per_attempt": 0.026400862068965518,
+          "duplicate_action": 19,
+          "f1": 0.6357007831487982,
+          "fn": 670,
+          "fp": 679,
+          "ignored_action": 28,
+          "precision": 0.6341594827586207,
+          "recall": 0.6372495939361126,
+          "recall_by_sqrt_gt_box_area_px": {
+            "14_to_lt28": {
+              "matched": 296,
+              "recall": 0.6141078838174274,
+              "total": 482
+            },
+            "28_to_lt56": {
+              "matched": 520,
+              "recall": 0.6411837237977805,
+              "total": 811
+            },
+            "ge56": {
+              "matched": 345,
+              "recall": 0.7202505219206681,
+              "total": 479
+            },
+            "lt14": {
+              "matched": 16,
+              "recall": 0.21333333333333335,
+              "total": 75
+            }
+          },
+          "soil_action": 611,
+          "soil_action_rate_per_attempt": 0.3292025862068966,
+          "threshold": 0.48000000000000004,
+          "tp": 1177
+        },
+        "recall_95": {
+          "attainable_on_validation": false,
+          "selection": {
+            "attempted_actions": 8859,
+            "crop_collision": 542,
+            "crop_collision_rate_per_attempt": 0.06118072017157693,
+            "duplicate_action": 1200,
+            "f1": 0.2875023351391743,
+            "fn": 308,
+            "fp": 7320,
+            "ignored_action": 429,
+            "precision": 0.17372163901117507,
+            "recall": 0.8332430969139144,
+            "recall_by_sqrt_gt_box_area_px": {
+              "14_to_lt28": {
+                "matched": 407,
+                "recall": 0.8443983402489627,
+                "total": 482
+              },
+              "28_to_lt56": {
+                "matched": 671,
+                "recall": 0.8273736128236745,
+                "total": 811
+              },
+              "ge56": {
+                "matched": 397,
+                "recall": 0.8288100208768268,
+                "total": 479
+              },
+              "lt14": {
+                "matched": 64,
+                "recall": 0.8533333333333334,
+                "total": 75
+              }
+            },
+            "soil_action": 5578,
+            "soil_action_rate_per_attempt": 0.6296421718026866,
+            "threshold": 0.01,
+            "tp": 1539
+          }
+        }
+      },
+      "threshold_grid": {
+        "start": 0.01,
+        "step": 0.01,
+        "stop": 0.99
+      }
+    },
+    "segment_box_center": {
+      "selection": {
+        "balanced_max_f1": {
+          "attempted_actions": 1697,
+          "crop_collision": 48,
+          "crop_collision_rate_per_attempt": 0.02828520919269299,
+          "duplicate_action": 19,
+          "f1": 0.6151241534988713,
+          "fn": 757,
+          "fp": 607,
+          "ignored_action": 35,
+          "precision": 0.6423099587507366,
+          "recall": 0.5901461829994585,
+          "recall_by_sqrt_gt_box_area_px": {
+            "14_to_lt28": {
+              "matched": 250,
+              "recall": 0.5186721991701245,
+              "total": 482
+            },
+            "28_to_lt56": {
+              "matched": 506,
+              "recall": 0.623921085080148,
+              "total": 811
+            },
+            "ge56": {
+              "matched": 319,
+              "recall": 0.6659707724425887,
+              "total": 479
+            },
+            "lt14": {
+              "matched": 15,
+              "recall": 0.2,
+              "total": 75
+            }
+          },
+          "soil_action": 540,
+          "soil_action_rate_per_attempt": 0.3182086034177961,
+          "threshold": 0.49,
+          "tp": 1090
+        },
+        "recall_95": {
+          "attainable_on_validation": false,
+          "selection": {
+            "attempted_actions": 10659,
+            "crop_collision": 879,
+            "crop_collision_rate_per_attempt": 0.08246552209400507,
+            "duplicate_action": 1807,
+            "f1": 0.25299856069086835,
+            "fn": 265,
+            "fp": 9077,
+            "ignored_action": 461,
+            "precision": 0.14841917628295337,
+            "recall": 0.8565240931239848,
+            "recall_by_sqrt_gt_box_area_px": {
+              "14_to_lt28": {
+                "matched": 413,
+                "recall": 0.8568464730290456,
+                "total": 482
+              },
+              "28_to_lt56": {
+                "matched": 687,
+                "recall": 0.8471023427866831,
+                "total": 811
+              },
+              "ge56": {
+                "matched": 420,
+                "recall": 0.8768267223382046,
+                "total": 479
+              },
+              "lt14": {
+                "matched": 62,
+                "recall": 0.8266666666666667,
+                "total": 75
+              }
+            },
+            "soil_action": 6391,
+            "soil_action_rate_per_attempt": 0.5995872033023736,
+            "threshold": 0.01,
+            "tp": 1582
+          }
+        }
+      },
+      "threshold_grid": {
+        "start": 0.01,
+        "step": 0.01,
+        "stop": 0.99
+      }
+    },
+    "segment_deepest_interior": {
+      "selection": {
+        "balanced_max_f1": {
+          "attempted_actions": 1666,
+          "crop_collision": 50,
+          "crop_collision_rate_per_attempt": 0.030012004801920768,
+          "duplicate_action": 27,
+          "f1": 0.7543410190720183,
+          "fn": 522,
+          "fp": 341,
+          "ignored_action": 66,
+          "precision": 0.7953181272509003,
+          "recall": 0.7173795343800758,
+          "recall_by_sqrt_gt_box_area_px": {
+            "14_to_lt28": {
+              "matched": 304,
+              "recall": 0.6307053941908713,
+              "total": 482
+            },
+            "28_to_lt56": {
+              "matched": 618,
+              "recall": 0.7620221948212084,
+              "total": 811
+            },
+            "ge56": {
+              "matched": 383,
+              "recall": 0.7995824634655533,
+              "total": 479
+            },
+            "lt14": {
+              "matched": 20,
+              "recall": 0.26666666666666666,
+              "total": 75
+            }
+          },
+          "soil_action": 264,
+          "soil_action_rate_per_attempt": 0.15846338535414164,
+          "threshold": 0.49,
+          "tp": 1325
+        },
+        "recall_95": {
+          "attainable_on_validation": false,
+          "selection": {
+            "attempted_actions": 10423,
+            "crop_collision": 1041,
+            "crop_collision_rate_per_attempt": 0.09987527583229397,
+            "duplicate_action": 2619,
+            "f1": 0.28475957620211906,
+            "fn": 100,
+            "fp": 8676,
+            "ignored_action": 697,
+            "precision": 0.16761009306341745,
+            "recall": 0.9458581483486735,
+            "recall_by_sqrt_gt_box_area_px": {
+              "14_to_lt28": {
+                "matched": 461,
+                "recall": 0.9564315352697096,
+                "total": 482
+              },
+              "28_to_lt56": {
+                "matched": 768,
+                "recall": 0.9469790382244143,
+                "total": 811
+              },
+              "ge56": {
+                "matched": 449,
+                "recall": 0.9373695198329853,
+                "total": 479
+              },
+              "lt14": {
+                "matched": 69,
+                "recall": 0.92,
+                "total": 75
+              }
+            },
+            "soil_action": 5016,
+            "soil_action_rate_per_attempt": 0.4812434040103617,
+            "threshold": 0.01,
+            "tp": 1747
+          }
+        }
+      },
+      "threshold_grid": {
+        "start": 0.01,
+        "step": 0.01,
+        "stop": 0.99
+      }
+    }
+  },
+  "config": "/home/ankaref/utku/tar\u0131m_projesi/configs/benchmark/phenobench_detect_segment_evaluation_fair_v1.yaml",
+  "config_sha256": "d1fe245aa7530f4d63de2e39146d840475cdb0c9a6cfcd27c0f2683b27052740",
+  "dataset_receipt": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/phenobench_detect_segment_fair_v1/dataset_receipt.json",
+  "dataset_receipt_sha256": "12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5",
+  "gallery": [
+    "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/fair_evaluation_v1/gallery/01_phenobench:val:06-05_00096_P0037991.jpg",
+    "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/fair_evaluation_v1/gallery/02_phenobench:val:05-15_00053_P0030943.jpg",
+    "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/fair_evaluation_v1/gallery/03_phenobench:val:05-15_00053_P0030859.jpg",
+    "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/fair_evaluation_v1/gallery/04_phenobench:val:05-15_00054_P0030859.jpg",
+    "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/fair_evaluation_v1/gallery/05_phenobench:val:05-26_00183_P0034016.jpg",
+    "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/fair_evaluation_v1/gallery/06_phenobench:val:05-15_00055_P0030943.jpg"
+  ],
+  "limitations": [
+    "PhenoBench is UAV sugar-beet imagery rather than the final robot camera distribution.",
+    "The split controls spatial plot groups but train and test share three capture dates.",
+    "One training seed estimates direction, not full training variance.",
+    "The same source instances are used, but mask supervision is richer and more expensive to annotate than boxes; this is a task-pipeline A/B, not an equal annotation-minutes study.",
+    "Tissue contact is a software proxy; nozzle footprint, calibration, motion, tracking, and kill rate are not measured.",
+    "PhenoBench is CC BY-NC-SA 4.0 and the Ultralytics baseline is AGPL-3.0-or-enterprise; these research weights are not a commercial deployment artifact."
+  ],
+  "locked_arms": {
+    "detect": {
+      "dataset_yaml": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/phenobench_detect_segment_fair_v1/phenobench_detect_fair_v1.yaml",
+      "dataset_yaml_sha256": "5098de006b37403530909b90c501b249a3d3b8da2c0e11f57d6d2f78f2bb14fc",
+      "fixed_final_checkpoint": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/yolo26s_detect_1024_seed17_e50/weights/last.pt",
+      "fixed_final_checkpoint_sha256": "5b84327a22e7e05645d98133ac046bc54a318b073116e9c7a037be7ba2c1be87",
+      "pretrained_parameter_count": 10009784,
+      "trained_parameter_count": 9949412,
+      "training_elapsed_seconds": 1433.9262323286384,
+      "training_receipt": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/yolo26s_detect_1024_seed17_e50/run_receipt.json",
+      "training_receipt_sha256": "781d0f07f898f7feb46978a16c6a5a345ce974916633f8a39a38a9f3775e69d3"
+    },
+    "segment": {
+      "dataset_yaml": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/phenobench_detect_segment_fair_v1/phenobench_segment_fair_v1.yaml",
+      "dataset_yaml_sha256": "1f4039135c62d3886eb8ec04103ceff8e279451120e280ceaa1f08e1a5e9485d",
+      "fixed_final_checkpoint": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt",
+      "fixed_final_checkpoint_sha256": "0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8",
+      "pretrained_parameter_count": 11505800,
+      "trained_parameter_count": 11435366,
+      "training_elapsed_seconds": 3556.156124824658,
+      "training_receipt": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/run_receipt.json",
+      "training_receipt_sha256": "60ce88f8d33baee338caeed8bcd797a65c879abe249a4aa223cbd07a3c7b4bb6"
+    }
+  },
+  "locked_calibration": {
+    "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/fair_evaluation_v1/locked_validation_calibration.json",
+    "sha256": "f3c052e9b6541c1accfa86a5e9bf9777a88f7fafd040c5a2ffc1291c8674b5c2",
+    "written_before_test_inference": true
+  },
+  "metric_contract": {
+    "crop_collision": "predicted weed action point landing on exact eligible publisher crop tissue",
+    "detection_action": "centre of a predicted weed bounding box",
+    "false_positive": "duplicate weed action or action on crop/background",
+    "ignored": "action landing on publisher partial plant or an ineligible less-than-16-pixel full plant",
+    "segmentation_action": "deepest interior pixel of a predicted weed instance mask",
+    "size": "sqrt of the exact ground-truth instance bounding-box area at native/model 1024 raster",
+    "true_positive": "first action point landing on exact eligible publisher full-weed tissue"
+  },
+  "paired_bootstrap": {
+    "ci95": [
+      0.07019134162013782,
+      0.11562970458599187
+    ],
+    "definition": "segment_deepest_interior F1 minus detect_box_center F1; paired image bootstrap",
+    "iterations": 2000,
+    "median_difference": 0.09242182363454021,
+    "probability_segment_higher": 1.0,
+    "seed": 20260810
+  },
+  "protocol": "phenobench_yolo26s_detect_vs_instance_segment_action_evaluation_fair_v1",
+  "raw_action_hashes": {
+    "test_detect_box_center.jsonl": "3e342f6db28d4993bc688bd132733e36609ab8eaeb9a85201e6ac27b169119e9",
+    "test_segment_box_center.jsonl": "e2e76a385a61cb13e0d2678bf534e6979d9f5f579c54eb0d655db4c9544dfec0",
+    "test_segment_deepest_interior.jsonl": "1507dc107278bd948f8e389ee0168d46201b40aa8b6daff2d2a7dfd5c655fb42",
+    "validation_detect_box_center.jsonl": "469dfb864a072397181a75691db25ef489bde163001ae707249794f8ab98c1cf",
+    "validation_segment_box_center.jsonl": "f23fe8aa54681c2074ffd11ab5bbbbe10ea0b8afdbffdb59c8dacaedbcc8db90",
+    "validation_segment_deepest_interior.jsonl": "1b56d71483d63bceada1695312767f3d3a97b926f7b3b8a58923ae673467fb61"
+  },
+  "schema_version": 1,
+  "segment_test_tissue_metrics": {
+    "crop": {
+      "dice": 0.9641758991486677,
+      "fn_pixels": 720868,
+      "fp_pixels": 1480920,
+      "iou": 0.9308297599527009,
+      "precision": 0.9523981674779505,
+      "recall": 0.9762485743652126,
+      "tp_pixels": 29629647
+    },
+    "macro_iou": 0.8206134027958014,
+    "threshold": 0.49,
+    "weed": {
+      "dice": 0.8306808614411985,
+      "fn_pixels": 356109,
+      "fp_pixels": 322228,
+      "iou": 0.7103970456389019,
+      "precision": 0.8377658543412995,
+      "recall": 0.8237146992780455,
+      "tp_pixels": 1663963
+    }
+  },
+  "segmentation_preference_gate": {
+    "checks": {
+      "crop_collision_within_allowed_increase": true,
+      "f1_within_allowed_drop": true,
+      "latency_ratio_allowed": true,
+      "recall_within_allowed_drop": true
+    },
+    "decision_if_failed": "prefer detection for current spot-spray PoC; retain segmentation as future-intervention branch",
+    "decision_if_passed": "prefer segmentation as extensible foundation",
+    "latency_ratio_segment_over_detect": 1.796995552904912,
+    "passed": true
+  },
+  "standard_test_metrics": {
+    "detect": {
+      "results": {
+        "fitness": 0.7120268676329423,
+        "metrics/mAP50(B)": 0.8993441287692873,
+        "metrics/mAP50-95(B)": 0.7120268676329423,
+        "metrics/precision(B)": 0.8717959399781583,
+        "metrics/recall(B)": 0.8403664780426071
+      },
+      "speed_ms_per_image": {
+        "inference": 6.266180321888504,
+        "loss": 0.0017267552484057974,
+        "postprocess": 0.08679223397085743,
+        "preprocess": 0.8771884470031812
+      }
+    },
+    "segment": {
+      "results": {
+        "fitness": 1.2245737181546599,
+        "metrics/mAP50(B)": 0.8929773950444049,
+        "metrics/mAP50(M)": 0.8417910725281181,
+        "metrics/mAP50-95(B)": 0.705746725975859,
+        "metrics/mAP50-95(M)": 0.5188269921788009,
+        "metrics/precision(B)": 0.8478337822390033,
+        "metrics/precision(M)": 0.8237693794405531,
+        "metrics/recall(B)": 0.8536342743787264,
+        "metrics/recall(M)": 0.8031830464530716
+      },
+      "speed_ms_per_image": {
+        "inference": 8.129672930753852,
+        "loss": 0.0018999696924136234,
+        "postprocess": 0.5840120106824574,
+        "preprocess": 0.9915861428227674
+      }
+    }
+  },
+  "status": "fair_target_trained_ab_complete_not_deployment_proof",
+  "test": {
+    "detect_box_center": {
+      "attempted_actions": 1549,
+      "crop_collision": 24,
+      "crop_collision_rate_per_attempt": 0.015493867010974823,
+      "duplicate_action": 28,
+      "f1": 0.6472903421132304,
+      "fn": 685,
+      "fp": 480,
+      "ignored_action": 19,
+      "precision": 0.6901226597805036,
+      "recall": 0.6094640820980616,
+      "recall_by_sqrt_gt_box_area_px": {
+        "14_to_lt28": {
+          "matched": 305,
+          "recall": 0.6087824351297405,
+          "total": 501
+        },
+        "28_to_lt56": {
+          "matched": 367,
+          "recall": 0.6427320490367776,
+          "total": 571
+        },
+        "ge56": {
+          "matched": 315,
+          "recall": 0.7701711491442543,
+          "total": 409
+        },
+        "lt14": {
+          "matched": 82,
+          "recall": 0.30036630036630035,
+          "total": 273
+        }
+      },
+      "soil_action": 428,
+      "soil_action_rate_per_attempt": 0.276307295029051,
+      "threshold": 0.48000000000000004,
+      "tp": 1069
+    },
+    "segment_box_center": {
+      "attempted_actions": 1343,
+      "crop_collision": 19,
+      "crop_collision_rate_per_attempt": 0.014147431124348473,
+      "duplicate_action": 12,
+      "f1": 0.6212463674523732,
+      "fn": 792,
+      "fp": 381,
+      "ignored_action": 28,
+      "precision": 0.7163067758749069,
+      "recall": 0.548460661345496,
+      "recall_by_sqrt_gt_box_area_px": {
+        "14_to_lt28": {
+          "matched": 244,
+          "recall": 0.4870259481037924,
+          "total": 501
+        },
+        "28_to_lt56": {
+          "matched": 350,
+          "recall": 0.6129597197898424,
+          "total": 571
+        },
+        "ge56": {
+          "matched": 299,
+          "recall": 0.7310513447432763,
+          "total": 409
+        },
+        "lt14": {
+          "matched": 69,
+          "recall": 0.25274725274725274,
+          "total": 273
+        }
+      },
+      "soil_action": 350,
+      "soil_action_rate_per_attempt": 0.2606105733432614,
+      "threshold": 0.49,
+      "tp": 962
+    },
+    "segment_deepest_interior": {
+      "attempted_actions": 1325,
+      "crop_collision": 31,
+      "crop_collision_rate_per_attempt": 0.02339622641509434,
+      "duplicate_action": 14,
+      "f1": 0.73985060084443,
+      "fn": 615,
+      "fp": 186,
+      "ignored_action": 46,
+      "precision": 0.859622641509434,
+      "recall": 0.6493728620296465,
+      "recall_by_sqrt_gt_box_area_px": {
+        "14_to_lt28": {
+          "matched": 274,
+          "recall": 0.5469061876247505,
+          "total": 501
+        },
+        "28_to_lt56": {
+          "matched": 448,
+          "recall": 0.7845884413309983,
+          "total": 571
+        },
+        "ge56": {
+          "matched": 345,
+          "recall": 0.843520782396088,
+          "total": 409
+        },
+        "lt14": {
+          "matched": 72,
+          "recall": 0.26373626373626374,
+          "total": 273
+        }
+      },
+      "soil_action": 141,
+      "soil_action_rate_per_attempt": 0.10641509433962264,
+      "threshold": 0.49,
+      "tp": 1139
+    }
+  },
+  "test_recall_95_policy": {
+    "detect_box_center": {
+      "metrics": {
+        "attempted_actions": 7437,
+        "crop_collision": 430,
+        "crop_collision_rate_per_attempt": 0.05781901304289364,
+        "duplicate_action": 1189,
+        "f1": 0.3200957458383201,
+        "fn": 283,
+        "fp": 5966,
+        "ignored_action": 317,
+        "precision": 0.19779480973510824,
+        "recall": 0.838654503990878,
+        "recall_by_sqrt_gt_box_area_px": {
+          "14_to_lt28": {
+            "matched": 432,
+            "recall": 0.8622754491017964,
+            "total": 501
+          },
+          "28_to_lt56": {
+            "matched": 433,
+            "recall": 0.7583187390542907,
+            "total": 571
+          },
+          "ge56": {
+            "matched": 349,
+            "recall": 0.8533007334963325,
+            "total": 409
+          },
+          "lt14": {
+            "matched": 257,
+            "recall": 0.9413919413919414,
+            "total": 273
+          }
+        },
+        "soil_action": 4347,
+        "soil_action_rate_per_attempt": 0.5845098830173457,
+        "threshold": 0.01,
+        "tp": 1471
+      },
+      "validation_target_attainable": false
+    },
+    "segment_box_center": {
+      "metrics": {
+        "attempted_actions": 8915,
+        "crop_collision": 600,
+        "crop_collision_rate_per_attempt": 0.06730229949523275,
+        "duplicate_action": 1775,
+        "f1": 0.28849939075827163,
+        "fn": 215,
+        "fp": 7376,
+        "ignored_action": 426,
+        "precision": 0.172630398205272,
+        "recall": 0.8774230330672748,
+        "recall_by_sqrt_gt_box_area_px": {
+          "14_to_lt28": {
+            "matched": 447,
+            "recall": 0.8922155688622755,
+            "total": 501
+          },
+          "28_to_lt56": {
+            "matched": 473,
+            "recall": 0.8283712784588442,
+            "total": 571
+          },
+          "ge56": {
+            "matched": 358,
+            "recall": 0.8753056234718827,
+            "total": 409
+          },
+          "lt14": {
+            "matched": 261,
+            "recall": 0.9560439560439561,
+            "total": 273
+          }
+        },
+        "soil_action": 5001,
+        "soil_action_rate_per_attempt": 0.560964666292765,
+        "threshold": 0.01,
+        "tp": 1539
+      },
+      "validation_target_attainable": false
+    },
+    "segment_deepest_interior": {
+      "metrics": {
+        "attempted_actions": 8742,
+        "crop_collision": 658,
+        "crop_collision_rate_per_attempt": 0.07526881720430108,
+        "duplicate_action": 2384,
+        "f1": 0.3203125,
+        "fn": 73,
+        "fp": 7061,
+        "ignored_action": 599,
+        "precision": 0.19229009380004575,
+        "recall": 0.9583808437856328,
+        "recall_by_sqrt_gt_box_area_px": {
+          "14_to_lt28": {
+            "matched": 477,
+            "recall": 0.9520958083832335,
+            "total": 501
+          },
+          "28_to_lt56": {
+            "matched": 543,
+            "recall": 0.9509632224168126,
+            "total": 571
+          },
+          "ge56": {
+            "matched": 394,
+            "recall": 0.9633251833740831,
+            "total": 409
+          },
+          "lt14": {
+            "matched": 267,
+            "recall": 0.978021978021978,
+            "total": 273
+          }
+        },
+        "soil_action": 4019,
+        "soil_action_rate_per_attempt": 0.45973461450469,
+        "threshold": 0.01,
+        "tp": 1681
+      },
+      "validation_target_attainable": false
+    }
+  },
+  "timing": {
+    "test": {
+      "detect": {
+        "action_postprocess_ms_per_image_mean": 0.2586787945542383,
+        "batch": 2,
+        "chunk_size": 32,
+        "framework_postprocess_ms_per_image_mean": 0.07764564794730903,
+        "images": 403,
+        "model_inference_ms_per_image_mean": 4.851612317891186,
+        "model_preprocess_ms_per_image_mean": 1.7998214977476792,
+        "weed_predictions_at_confidence_floor": 7754
+      },
+      "segment": {
+        "action_postprocess_ms_per_image_mean": 2.1456909728774956,
+        "batch": 2,
+        "chunk_size": 32,
+        "framework_postprocess_ms_per_image_mean": 2.007126972245667,
+        "images": 403,
+        "model_inference_ms_per_image_mean": 6.583574174836315,
+        "model_preprocess_ms_per_image_mean": 1.8205783946934173,
+        "weed_predictions_at_confidence_floor": 9341
+      }
+    },
+    "validation": {
+      "detect": {
+        "action_postprocess_ms_per_image_mean": 0.25397635047351763,
+        "batch": 2,
+        "chunk_size": 32,
+        "framework_postprocess_ms_per_image_mean": 0.09839365960459723,
+        "images": 369,
+        "model_inference_ms_per_image_mean": 4.806418678544078,
+        "model_preprocess_ms_per_image_mean": 2.1180530989840425,
+        "weed_predictions_at_confidence_floor": 9288
+      },
+      "segment": {
+        "action_postprocess_ms_per_image_mean": 2.7131132786553405,
+        "batch": 2,
+        "chunk_size": 32,
+        "framework_postprocess_ms_per_image_mean": 2.3533249157796385,
+        "images": 369,
+        "model_inference_ms_per_image_mean": 6.563861420261989,
+        "model_preprocess_ms_per_image_mean": 1.843333211512908,
+        "weed_predictions_at_confidence_floor": 11120
+      }
+    }
+  },
+  "validation": {
+    "detect_box_center": {
+      "attempted_actions": 1856,
+      "crop_collision": 49,
+      "crop_collision_rate_per_attempt": 0.026400862068965518,
+      "duplicate_action": 19,
+      "f1": 0.6357007831487982,
+      "fn": 670,
+      "fp": 679,
+      "ignored_action": 28,
+      "precision": 0.6341594827586207,
+      "recall": 0.6372495939361126,
+      "recall_by_sqrt_gt_box_area_px": {
+        "14_to_lt28": {
+          "matched": 296,
+          "recall": 0.6141078838174274,
+          "total": 482
+        },
+        "28_to_lt56": {
+          "matched": 520,
+          "recall": 0.6411837237977805,
+          "total": 811
+        },
+        "ge56": {
+          "matched": 345,
+          "recall": 0.7202505219206681,
+          "total": 479
+        },
+        "lt14": {
+          "matched": 16,
+          "recall": 0.21333333333333335,
+          "total": 75
+        }
+      },
+      "soil_action": 611,
+      "soil_action_rate_per_attempt": 0.3292025862068966,
+      "threshold": 0.48000000000000004,
+      "tp": 1177
+    },
+    "segment_box_center": {
+      "attempted_actions": 1697,
+      "crop_collision": 48,
+      "crop_collision_rate_per_attempt": 0.02828520919269299,
+      "duplicate_action": 19,
+      "f1": 0.6151241534988713,
+      "fn": 757,
+      "fp": 607,
+      "ignored_action": 35,
+      "precision": 0.6423099587507366,
+      "recall": 0.5901461829994585,
+      "recall_by_sqrt_gt_box_area_px": {
+        "14_to_lt28": {
+          "matched": 250,
+          "recall": 0.5186721991701245,
+          "total": 482
+        },
+        "28_to_lt56": {
+          "matched": 506,
+          "recall": 0.623921085080148,
+          "total": 811
+        },
+        "ge56": {
+          "matched": 319,
+          "recall": 0.6659707724425887,
+          "total": 479
+        },
+        "lt14": {
+          "matched": 15,
+          "recall": 0.2,
+          "total": 75
+        }
+      },
+      "soil_action": 540,
+      "soil_action_rate_per_attempt": 0.3182086034177961,
+      "threshold": 0.49,
+      "tp": 1090
+    },
+    "segment_deepest_interior": {
+      "attempted_actions": 1666,
+      "crop_collision": 50,
+      "crop_collision_rate_per_attempt": 0.030012004801920768,
+      "duplicate_action": 27,
+      "f1": 0.7543410190720183,
+      "fn": 522,
+      "fp": 341,
+      "ignored_action": 66,
+      "precision": 0.7953181272509003,
+      "recall": 0.7173795343800758,
+      "recall_by_sqrt_gt_box_area_px": {
+        "14_to_lt28": {
+          "matched": 304,
+          "recall": 0.6307053941908713,
+          "total": 482
+        },
+        "28_to_lt56": {
+          "matched": 618,
+          "recall": 0.7620221948212084,
+          "total": 811
+        },
+        "ge56": {
+          "matched": 383,
+          "recall": 0.7995824634655533,
+          "total": 479
+        },
+        "lt14": {
+          "matched": 20,
+          "recall": 0.26666666666666666,
+          "total": 75
+        }
+      },
+      "soil_action": 264,
+      "soil_action_rate_per_attempt": 0.15846338535414164,
+      "threshold": 0.49,
+      "tp": 1325
+    }
+  }
+}

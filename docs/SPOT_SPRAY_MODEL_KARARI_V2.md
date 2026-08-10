@@ -1,5 +1,14 @@
 # Spot spray model kararı v2
 
+> **Bu dokümandaki detection–segmentation mimari sonucu güncellenmiştir.**
+> Buradaki detector hedef WSD verisini görürken segmenter zero-shot olduğu için
+> kıyas adil değildi. Aynı gerçek train instance'larıyla eğitilen yeni eşlenmiş
+> A/B, segmentasyon güvenli-iç-noktasını F1 `%74,0`, detection kutu-merkezini
+> `%64,7` ölçtü. Güncel karar için
+> [adil A/B raporunu](FAIR_DETECTION_SEGMENTATION_KARARI_V1.md) ve
+> [11 sayfalık PDF'i](results/FAIR_DETECTION_SEGMENTATION_KARARI_V1.pdf) kullanın.
+> Bu eski çalışma yalnız hedef-domain gerçek veri görmenin etkisi için korunur.
+
 ## Kısa cevap
 
 Bugün için en mantıklı kimyasal spot-spray PoC hattı:

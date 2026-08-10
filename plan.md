@@ -1,5 +1,25 @@
 # Tarım Vision Projesi — AI PoC ve Sentetik Veri Yol Haritası
 
+> **2026-08-10 adil detection–segmentation kararı:** Önceki WSD karşılaştırması
+> target-trained detector ile zero-shot segmenteri eşlediği için saf mimari
+> kararı olarak iptal edildi. PhenoBench'te detection ve instance-segmentation
+> kolları aynı 1.407 gerçek train karesini, aynı publisher instance'larını,
+> aynı YOLO26s/1024/50-epoch/seed-17 protokolünü gördü. Resmî validation
+> parselleri model çıktısından önce 369 calibration ve parsel-ayrı 403 untouched
+> test karesine bölündü; eşikler yalnız calibration'da seçilip JSON'a
+> kilitlendikten sonra test açıldı. Exact weed-dokusu tek-bitki/tek-atış test
+> F1'ı detection kutu-merkezinde `0,6473`, segmentasyon güvenli-iç-noktasında
+> `0,7399` oldu; paired-image bootstrap farkı `+0,0924`, %95 GA
+> `[+0,0702,+0,1156]` ve segmentasyonun üstün olma olasılığı `1,0`dır.
+> Segmenter-kutu-merkezi kontrolü `0,6212` olduğundan maskenin aksiyon
+> temsilinin ek değeri ayrıştırıldı. Instance segmentation genişletilebilir
+> temel olarak seçildi; fakat recall `0,6494`, `<14 px` recall `0,2637`, tek
+> training seed ve UAV domaini nedeniyle saha GO verilmedi. Sıradaki kapı kendi
+> robot kamera/FOV/focus dağılımımızda session-ayrı instance-maskeli test,
+> ardından tracking ve fiziksel nozzle/deposition/kill/crop-injury ölçümüdür.
+> Okunabilir rapor:
+> `docs/results/FAIR_DETECTION_SEGMENTATION_KARARI_V1.pdf`.
+
 > **2026-08-02 segmentasyon fazı sonucu:** Gerçek-veri benchmark'ına resmi
 > SorghumWeed train split'i ve %10 sampler exposure'lı, 100 karelik kontrollü
 > CropCraft pilotu eklendi. Üç-seed robust semantik kazanan DINOv2-Small FPN

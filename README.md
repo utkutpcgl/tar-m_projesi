@@ -13,6 +13,27 @@ modeli seçmek ve ayrı, dondurulmuş A/B'lerle stock ve özel CropCraft
 pilotlarının gerçek-domain etkisini ölçmektir. Sentetik veri ana corpus veya
 gerçek testin yerine geçmez. Depth modeli bu faza bağlanmadı.
 
+## Sprey model kararı v2 — 2026-08-10
+
+- [Önce bunu açın — 10 sayfalık sade PDF](docs/results/SPOT_SPRAY_MODEL_KARARI_V2.pdf)
+- [Exact metrik, etiket kaynağı ve veri toplama kararı](docs/SPOT_SPRAY_MODEL_KARARI_V2.md)
+
+Aynı WSD testinde hedef-domain kutularıyla eğitilmiş detection-only kutu
+merkezi spot F1 `0,7655`; WSD'yi hiç görmemiş global segmentasyon 1024'te
+`0,1928`, native 2048 tile'da `0,2455` verdi. Bu saf mimari A/B değil;
+hedef-domain anotasyonu + task/model etkisidir. Pratik bulgu nettir: deploy
+kamerasına benzer gerçek veri toplamak değerlidir.
+
+WSD keypoint'leri uydurulmadı; yayıncı `points_labels` dosyalarından geldi.
+Aynı pose modelinde kutu merkezi→keypoint spot F1 `0,7502→0,7493`, sıkı
+stem F1 `0,6559→0,6591` oldu. Bu nedenle ilk kimyasal PoC'de etiket önceliği
+weed/crop kutusu-instance'dır; keypoint lazer/mekanik fazına ertelenir.
+
+`28–56 px` hedef recall'ı `0,8827` ile daha iyidir, fakat `≥28 px` hedeflere
+koşullu test F1 yalnız `0,5714` kaldı. Sonuç: 28 px güçlü bir kamera alt-sınır
+hipotezi, tek başına başarı garantisi değildir. P0; hedef-domain kutusu,
+native high-resolution train/inference ve sonrasında basit video onayıdır.
+
 ## Detection-only spot-spray benchmark'ı — 2026-08-10
 
 - [Önce bunu açın — 10 sayfalık basit PDF](docs/results/DETECTION_SPOT_SPRAY_BENCHMARK_V1.pdf)

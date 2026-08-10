@@ -2332,3 +2332,64 @@ Teslimler:
 - `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/wsd_detection_spot_spray_benchmark_v1/`;
 - detection checkpoint SHA-256
   `c101548c235aa064af691b79aa15353166ad1285d6c65e0ea12f6075e6484177`.
+
+# Segmentasyon – detection – keypoint sprey kararı v2 — 2026-08-10
+
+## Tamamlanan işler
+
+- [x] Keypoint provenance doğrulandı: WSD yayıncısının
+      `labelled/points_labels` etiketleri box satırlarıyla eşlendi; proje
+      sentetik keypoint üretmedi. Train/val/test görünür nokta sayıları
+      `1.435/1.549/1.097`; noktası eksik 34 weed sıkı metrikten dışlandı.
+- [x] Kabul edilmiş global semantik segmenter, aynı WSD val/test karelerinde
+      `1024` tam-kare ve native `2048`/1024-tile/128-overlap koşullarında
+      değerlendirildi. Checkpoint'in eğitim kaynak snapshot'ı `a9abcfc8b679`
+      ve source-tree hash'i `fda1a1c4...3142eb` birebir eşleştirildi.
+- [x] Segmentasyon weed maskesinden connected-component deepest-interior ve
+      distance-peak aksiyon adayları üretildi; minimum alan/skor/eşik yalnız
+      validation'da tarandı ve testte donduruldu.
+- [x] 28 px analizi GT-boyutuna koşullu hale getirildi: küçük weed'e doğru
+      isabetler FP sayılmadı; arka plan/crop/duplicate aksiyonlar FP kaldı.
+- [x] 10 sayfalık sade PDF, exact Markdown, self-contained yerel paket,
+      provenance receipt'leri ve açıklamalı görseller üretildi.
+
+## Sonuç
+
+| Yaklaşım | Spot P | Spot R | Spot F1 | Sıkı stem F1 |
+|---|---:|---:|---:|---:|
+| Global segmentasyon, WSD zero-shot, 1024 | 0,2299 | 0,1661 | 0,1928 | 0,0205 |
+| Global segmentasyon, WSD zero-shot, native 2048 tile | 0,2799 | 0,2187 | 0,2455 | 0,0398 |
+| **Detection-only, kutu merkezi, 1024** | **0,7496** | 0,7822 | **0,7655** | **0,6604** |
+| Pose, kutu merkezi | 0,7011 | **0,8067** | 0,7502 | 0,6559 |
+| Pose, yayıncı keypoint | 0,6994 | **0,8067** | 0,7493 | 0,6591 |
+
+- Bu saf mimari A/B değildir: detector 211 WSD train karesi/1.437 weed
+  kutusu gördü, global segmenter WSD'den sıfır kare gördü. WSD semantik maske
+  içermediği için eşit target-trained segmentasyon kolu yoktur. Sonuç pratik
+  hedef-domain anotasyonu + task/model etkisini ölçer.
+- Pose kutu merkezi→keypoint sıkı stem F1 farkı yalnız `+0,0032` oldu.
+  Kimyasal spreyde önce kutu/instance; lazer/mekanikte keypoint kararı verildi.
+- `28–56 px` detection recall'ı `0,8827`; `≥28 px` n=163 hedefe koşullu
+  P/R/F1 `0,4415/0,8098/0,5714` oldu. 28 px gerekli kamera hipotezidir ama
+  FP'leri ve domain açığını tek başına çözmez.
+- Kimyasal PoC baseline'ı **detection/instance + kutu merkezi + segmentasyon
+  crop-safety + basit video onayı**dır. `%95` offline ve fiziksel saha kapıları
+  geçilmedi; saha ateşlemesi `NO-GO`.
+
+## Sonraki P0
+
+1. En az 3–4 deploy-benzeri tarla/session'da weed/crop kutusu-instance ve ham
+   video/kamera metadata'sı topla; session-ayrı untouched test koru.
+2. Segmentasyonun saf marjı ve crop safety için 50–100 stratified maskelik
+   audit alt-kümesi ekle; tam keypoint kampanyasını lazer fazına ertele.
+3. Detection'ı native high-resolution train/inference uyumuyla yeniden ölç;
+   dijital upscale kullanma.
+4. Kalibre zeminde `≥3` kare onay + fire-once A/B'sini ID-GT videoda ölç.
+
+Teslimler:
+
+- `docs/results/SPOT_SPRAY_MODEL_KARARI_V2.pdf`;
+- `docs/SPOT_SPRAY_MODEL_KARARI_V2.md`;
+- `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/spot_spray_model_decision_v2/`;
+- `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/wsd_segmentation_spot_spray_v1/segmentation_vs_detection_metrics.json`;
+- `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/wsd_spot_success_conditions_v1/detection_gt_size_conditioned.json`.

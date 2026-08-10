@@ -1,5 +1,10 @@
 # Detection-only spot-spray benchmark v1
 
+> **Yeni segmentasyon kıyası:** Global segmentasyonun aynı WSD testindeki
+> 1024/native-2048 sonucu, keypoint etiket kaynağı ve düzeltilmiş 28 px analizi
+> [Spot spray model kararı v2](SPOT_SPRAY_MODEL_KARARI_V2.md) içinde. Kolay
+> okunan PDF: [SPOT_SPRAY_MODEL_KARARI_V2.pdf](results/SPOT_SPRAY_MODEL_KARARI_V2.pdf).
+
 ## Kısa karar
 
 **Detection-only, ilk kimyasal spot-spray PoC'si için mantıklı ve daha basit

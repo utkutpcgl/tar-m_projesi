@@ -1,5 +1,20 @@
 # Segmentasyon ve bitki müdahalesi sonucu
 
+## Detection-only spot-spray A/B — 2026-08-10
+
+- [Önce bunu açın — 10 sayfalık basit PDF](DETECTION_SPOT_SPRAY_BENCHMARK_V1.pdf)
+- [Aranabilir exact sonuçlar ve kamera hesabı](../DETECTION_SPOT_SPRAY_BENCHMARK_V1.md)
+
+Detection-only kutu merkezi, eşit 1024 WSD A/B'sinde iyimser spot-spray
+precision/recall/F1 `0,7496/0,7822/0,7655`; sıkı stem F1 `0,6604` verdi.
+Pose keypoint'in karşılıkları F1 `0,7493/0,6591` oldu. Sonuç: ilk kimyasal
+spray PoC'sinde detection-only yeterli ve daha basit baseline; lazer/mekanik
+için keypoint gerekir. `%95` saha kapısı geçilmedi.
+
+`28–56 px` weed recall'ı `%88,3`, `<14 px` recall'ı `%53,8` oldu. 1024
+girişte test weed'lerinin yalnız `%14,8`i 28 px üstündedir. Kör 1536 resize
+F1'ı düşürdü; gerçek sensör detayı/FOV ve o çözünürlükte eğitim gereklidir.
+
 ## Noktasal müdahale PoC'si — 2026-08-08
 
 - [Önce bunu açın — 14 sayfalık tek ve açıklamalı PDF](BASLA_BURADAN_NOKTASAL_MUDAHALE_POC.pdf)

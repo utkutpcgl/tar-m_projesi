@@ -1,12 +1,26 @@
 # Noktasal bitki müdahalesi PoC v1
 
+> **10 Ağustos 2026 güncellemesi:** Eşit koşullu detection-only A/B
+> tamamlandı. Kimyasal spot spray için detection-only kutu merkezi spot F1
+> `0,7655`, pose keypoint `0,7493`; sıkı stem F1'ları `0,6604/0,6591` oldu.
+> Keypoint ana weed proposal/classification darboğazını çözmedi. Bu nedenle
+> spray araştırma baseline'ı detection-only + segmentasyon safety, lazer ve
+> mekanik kol ise detection + stem/root keypoint olarak ayrıldı. Ayrıntı ve
+> 28 px kamera hesabı:
+> [Detection-only spot-spray benchmark v1](DETECTION_SPOT_SPRAY_BENCHMARK_V1.md).
+
 ## Kısa karar
 
 `%9,72`, gerçek bitki-müdahale recall'ı değildi. 768 uzman modelin `weed_threshold=0.99` ve uncertainty/crop guard sonrasında kalan weed **piksellerini** yakalama oranıydı. Aynı 283 gerçek SugarBeets robot karesinde semantik sonuç mIoU `0.7003`, weed-pixel P/R/F1 `0.5299/0.5456/0.5376` idi.
 
 Gerçek sap etiketi olan WSD robot verisiyle kurulan detection+keypoint PoC'sinde mevcut en iyi 1536 fine-tune, ayrı test tarihinde 10% GT weed-box diagonal toleransında P/R/F1 `0.6335/0.7612/0.6915` verdi. TP/FP/FN `835/483/262`; `1097` geçerli weed sapı vardı. %95 F1 kapısı **geçilmedi**.
 
-Bugün için doğru mimari: segmentasyon safety/context olarak kalır; noktasal aktüatör komutu crop/weed instance detection + weed stem/root keypoint'ten gelir. Video katmanı kalibre zemin koordinatında track, ≥3-kare onay ve fire-once mantığı kullanır. ReID ancak ölçülmüş uzun occlusion/geri dönüş sorunu varsa eklenir.
+Bugün için doğru mimari müdahaleye göre ayrılır: segmentasyon safety/context
+olarak kalır; kimyasal spot-spray araştırma komutu crop/weed detection kutu
+merkezinden başlayabilir. Lazer/mekanik noktasal aktüatör komutu crop/weed
+instance detection + weed stem/root keypoint'ten gelir. Video katmanı kalibre
+zemin koordinatında track, ≥3-kare onay ve fire-once mantığı kullanır. ReID
+ancak ölçülmüş uzun occlusion/geri dönüş sorunu varsa eklenir.
 
 Literatür de bu işi otomatik olarak %95'e çözmüş değil: WSD çalışması kendi simüle weeding deneyinde detection kontrolü için %75,37, detection+stem regression için %80,42 weeding accuracy raporlar. Bu metrik bizim one-to-one F1'imizle aynı değildir; yalnızca hedefin zorluğunu kalibre eder.
 

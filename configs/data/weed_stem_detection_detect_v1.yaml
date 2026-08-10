@@ -1,0 +1,30 @@
+schema_version: 1
+dataset_id: weed_stem_detection_detect_v1
+frozen_at: "2026-08-10T12:00:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+source_pose_root: processed/wsd_pose_v1
+source_receipt: processed/audits/weed_stem_detection_v1_receipt.json
+source_receipt_sha256: acad408e19bbcf628823cc5af99a3eb4943c23751cdf4d0764487e5469aece3a
+
+outputs:
+  root: processed/wsd_detect_v1
+  receipt: processed/audits/weed_stem_detection_detect_v1_receipt.json
+  ultralytics_yaml: processed/wsd_detect_v1/weed_stem_detection_detect_v1.yaml
+
+derivation:
+  label_fields: first_five_pose_label_fields
+  image_storage: hardlink_when_possible_otherwise_symlink
+  split_policy: preserve_source_capture_date_disjoint_splits
+  class_names:
+    0: weed
+    1: maize
+    2: soybean
+
+release_policy:
+  role: research_only_detection_spot_spray_benchmark
+  production_release: false
+  limitations:
+    - Bounding boxes do not prove that their geometric centres lie on weed tissue.
+    - The downloadable WSD archive is smaller than the inventory reported by the paper.
+    - WSD supplies no ground-sampling distance or physical spray-footprint calibration.

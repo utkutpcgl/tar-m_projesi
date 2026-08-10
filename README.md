@@ -13,6 +13,27 @@ modeli seçmek ve ayrı, dondurulmuş A/B'lerle stock ve özel CropCraft
 pilotlarının gerçek-domain etkisini ölçmektir. Sentetik veri ana corpus veya
 gerçek testin yerine geçmez. Depth modeli bu faza bağlanmadı.
 
+## Detection-only spot-spray benchmark'ı — 2026-08-10
+
+- [Önce bunu açın — 10 sayfalık basit PDF](docs/results/DETECTION_SPOT_SPRAY_BENCHMARK_V1.pdf)
+- [Aranabilir exact sonuçlar ve kamera hesabı](docs/DETECTION_SPOT_SPRAY_BENCHMARK_V1.md)
+
+Aynı WSD kareleri, tarih-ayrı split, 1024 px ve seed 17 ile eğitilen
+detection-only modelin weed-kutusu merkez aksiyonu; iyimser spot-spray
+proxy'sinde precision/recall/F1 `0,7496/0,7822/0,7655`, etiketli gövdeye
+`≤%10` kutu diyagonali uzaklıktaki sıkı aksiyonda
+`0,6452/0,6764/0,6604` verdi. Pose-keypoint kontrolünün F1'ları
+`0,7493/0,6591` oldu. Detection-only ilk kimyasal spray PoC'si için daha basit
+baseline seçildi; keypoint ana weed detection/classification darboğazını
+çözmedi. Lazer/mekanik kol için stem/root/meristem keypoint yine gerekir.
+
+`<14 / 14–28 / 28–56 px` detection-only spot recall'ları sırasıyla
+`0,5385/0,7826/0,8827` oldu. Test weed kutularının 1024 girişte yalnız
+`%14,8`i 28 px üstündedir. Kör 1536 inference, bu geometrik oranı `%79,0`a
+çıkarırken spot F1'ı `0,7655→0,7179` düşürdü; bu nedenle dijital upscale
+reddedildi. Native kamera GSD/FOV + focus/blur + eşleşen yüksek çözünürlüklü
+eğitim birlikte test edilecek. `%95` F1 ve fiziksel spray kapıları geçilmedi.
+
 ## Noktasal müdahale PoC'si — 2026-08-08
 
 - [Önce bunu açın — tek ve açıklamalı PDF](docs/results/BASLA_BURADAN_NOKTASAL_MUDAHALE_POC.pdf)
@@ -26,8 +47,11 @@ tarihinde 10% weed-box-diagonal toleransında precision/recall/F1
 `0,6335/0,7612/0,6915` verdi. `%95` offline perception kapısı geçilmedi;
 bu nedenle saha ilaç/lazer ateşlemesi onaylı değildir.
 
-Karar: segmentasyon crop safety/context ve spray footprint için korunur;
-noktasal aktüatör komutu instance detection + stem/root keypoint'ten gelir.
+Bu tarihsel keypoint PoC'sinin ardından 10 Ağustos'taki eşit koşullu A/B,
+kimyasal spot spray için detection-only kutu-merkezinin yeterli araştırma
+baseline'ı olduğunu gösterdi. Segmentasyon crop safety/context ve spray
+footprint için korunur; lazer/mekanik noktasal aktüatör komutu ise instance
+detection + stem/root keypoint'ten gelir.
 Aynı-kare dedupe ve validation'da yeniden seçilen eşik, 1536 ham keypoint
 F1'ını `0,6001 → 0,6915` yaptı. Video katmanı için kalibre zemin
 koordinatında basit track, en az üç gözlem ve fire-once uygulaması eklendi;

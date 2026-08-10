@@ -2269,3 +2269,66 @@ Teslimler:
   `5c1afffae12ccc0d84f8188247e95d3579568925a3099cc8a85f213418d57e70`;
 - 1536 checkpoint SHA-256
   `569b7c71995c3dc75cb2cf6a6bd81d87861cb4911965d1143d95037011116945`.
+
+# Detection-only spot-spray A/B sonucu — 2026-08-10
+
+## Tamamlanan işler
+
+- [x] WSD pose etiketlerinin ilk beş alanından sıfır-kopya hard-link görüntülü
+      detection-only türev üretildi; `211/152/148` tarih-ayrı üyelik korundu.
+- [x] YOLO26s-detect, 1024 px, seed 17, pose baseline ile aynı veri ve
+      augmentasyon kontratında eğitildi. 100 epoch isteği, önceden tanımlı
+      patience 30 ile epoch 67'de tamamlandı.
+- [x] Validation-only confidence/dedupe seçimi ve one-to-one test eşleşmesiyle
+      weed-kutusu spot proxy'si ile `%10` kutu-diyagonali stem proxy'si ayrıldı.
+- [x] Detection-only kutu merkezi, pose kutu merkezi ve pose keypoint aynı
+      148-kare development holdout'ta karşılaştırıldı.
+- [x] `<14 / 14–28 / 28–56 / ≥56 px` boyut stratification'ı ve 1024/1536
+      inference kontrolü tamamlandı.
+- [x] 10 sayfalık basit PDF, exact Markdown, self-contained yerel paket,
+      karşılaştırma galerisi ve testler üretildi.
+
+## Sonuç ve mimari karar
+
+| Strateji | Spot P | Spot R | Spot F1 | Sıkı stem F1 |
+|---|---:|---:|---:|---:|
+| **Detection-only → kutu merkezi** | **0,7496** | 0,7822 | **0,7655** | **0,6604** |
+| Pose → kutu merkezi | 0,7011 | **0,8067** | 0,7502 | 0,6559 |
+| Pose → keypoint | 0,6994 | **0,8067** | 0,7493 | 0,6591 |
+
+- İlk kimyasal spot-spray araştırma baseline'ı **detection-only +
+  segmentasyon crop-safety/footprint** olacaktır. GT weed kutusu isabeti
+  toprak içeren iyimser proxy'dir; field/spray-ready iddiası yoktur.
+- Lazer ve mekanik nokta için detection + stem/root/meristem keypoint gerekir.
+  Bu A/B'de keypoint ana weed proposal/classification darboğazını çözmedi.
+- Recall-95 politikası test recall'ını `0,9428`e çıkardı; precision `0,3582`,
+  F1 `0,5191` ve FP `1.862` oldu. `%95` F1 kapısı geçilmedi.
+- Dengeli detection-only spot recall `<14 / 14–28 / 28–56 px` için
+  `0,5385 / 0,7826 / 0,8827` oldu. `≥56 px` grubunda yalnız bir örnek vardı;
+  sonuç genellenemez.
+- 1024 girişte test weed kutularının yalnız `%14,8`i 28 px üstündedir.
+  Geometrik 1536 görünümü bu oranı `%79,0`a çıkarsa da kör inference F1'ı
+  `0,7655→0,7179` düşürdü. Native sensör detayı/FOV ve eşleşen eğitim gerekir.
+- Önceki sentetik `≥28 px = %100`, yalnız 26 connected semantic component'te
+  en az bir safe piksel örtüşmesiydi; gerçek müdahale başarısı değildi.
+
+## Sonraki P0
+
+1. Minimum müdahale weed çapı, gerçek nozul footprint'i, FOV/GSD ve
+   focus–motion kamera bench'ini dondur.
+2. 3–4 deploy-benzeri tarla/session'da weed/crop instance + stem + track ID
+   etiketi topla; final session'ları tamamen untouched tut.
+3. Detection-only'yi native tile/high-resolution train–inference uyumuyla
+   test et; segmentasyon crop veto etkisini ayrı A/B yap.
+4. World-coordinate association + ≥3 kare onay + fire-once ile track-level
+   P/R/F1 ölç; ReID yalnız ölçülmüş uzun occlusion sorunu varsa ekle.
+5. Track F1 `≥0,95` sonrasında fiziksel deposition/kill `≥0,95` ve crop injury
+   kapılarını aktüatör bench'inde ayrı ölç.
+
+Teslimler:
+
+- `docs/results/DETECTION_SPOT_SPRAY_BENCHMARK_V1.pdf`;
+- `docs/DETECTION_SPOT_SPRAY_BENCHMARK_V1.md`;
+- `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/wsd_detection_spot_spray_benchmark_v1/`;
+- detection checkpoint SHA-256
+  `c101548c235aa064af691b79aa15353166ad1285d6c65e0ea12f6075e6484177`.

@@ -100,7 +100,7 @@ def run(
             f"Expected ultralytics {expected_version}, got {ultralytics_version}"
         )
     if not torch.cuda.is_available():
-        raise RuntimeError("CUDA is required for the WSD pose pilot")
+        raise RuntimeError("CUDA is required for the WSD pilot")
     if not 0.0 < fraction <= 1.0:
         raise ValueError("fraction must be in (0,1]")
 

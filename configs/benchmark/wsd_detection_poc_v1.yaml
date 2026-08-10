@@ -1,0 +1,55 @@
+schema_version: 1
+protocol: weed_detection_only_date_transfer_spot_spray_poc_v1
+frozen_at: "2026-08-10T12:15:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_yaml: processed/wsd_detect_v1/weed_stem_detection_detect_v1.yaml
+dataset_receipt: processed/audits/weed_stem_detection_detect_v1_receipt.json
+dataset_receipt_sha256: 9711d6f7383395971cb4e42afa84e0a88fa361049762c5cacd1e9f52be20efa3
+
+model:
+  family: Ultralytics-YOLO26s-detect
+  package_version: 8.4.60
+  license_scope: AGPL-3.0-research-poc-only
+  pretrained_checkpoint: models/ultralytics_yolo26/yolo26s.pt
+  pretrained_checkpoint_sha256: 646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b
+
+training:
+  seed: 17
+  epochs: 100
+  patience: 30
+  image_size: 1024
+  batch: 8
+  workers: 4
+  device: 0
+  deterministic: true
+  amp: true
+  optimizer: auto
+  cos_lr: true
+  cache: false
+  degrees: 10.0
+  translate: 0.10
+  scale: 0.40
+  fliplr: 0.50
+  flipud: 0.0
+  mosaic: 0.50
+  close_mosaic: 15
+
+evaluation:
+  split: test
+  confidence: 0.001
+  iou: 0.70
+  image_size: 1024
+  batch: 8
+
+output:
+  project: runs/wsd_detection_poc_v1
+  name: yolo26s_detect_1024_seed17
+
+claims:
+  - Detection-only and pose baselines use the same date-disjoint source frames and 1024-pixel training size.
+  - The detection-only action point is the predicted weed bounding-box centre.
+  - Validation chooses thresholds; the test capture date does not tune them.
+  - A box-centre hit is only an optimistic spot-spray proxy, not proof of weed-tissue or stem contact.
+  - WSD has no GSD or spray-footprint calibration, so no physical kill-rate claim is made.
+  - This Ultralytics baseline is research-only pending deployment-license resolution.

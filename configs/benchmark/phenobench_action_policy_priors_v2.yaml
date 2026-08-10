@@ -1,0 +1,51 @@
+schema_version: 2
+protocol: phenobench_segment_action_policy_priors_with_row_v2
+frozen_at: "2026-08-10T23:10:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+source_evaluation_config: configs/benchmark/phenobench_detect_segment_evaluation_fair_v1.yaml
+source_evaluation_config_sha256: d1fe245aa7530f4d63de2e39146d840475cdb0c9a6cfcd27c0f2683b27052740
+dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+
+minimum_actionable_gt_size_px: 42
+methods:
+  - segment_deepest_interior
+  - segment_crop_safe_excess_green
+  - segment_row_safe_excess_green_w21
+  - segment_row_safe_excess_green_w42
+  - segment_row_safe_excess_green_w63
+  - segment_row_safe_excess_green_w84
+
+inference:
+  image_size: 1024
+  batch: 2
+  chunk_size: 32
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+  crop_safety_confidence: 0.25
+  crop_safety_dilation_px: 14
+  crop_row_cluster_gap_px: 96
+  crop_row_half_widths_px: [21, 42, 63, 84]
+
+confidence_threshold:
+  start: 0.01
+  stop: 0.99
+  step: 0.01
+
+safety_policy:
+  maximum_crop_collision_rate_per_attempt: 0.005
+
+output: runs/phenobench_action_policy_priors_v2
+
+claims:
+  - The final locked base segmenter is unchanged; only deployable RGB, crop-mask, and camera-aligned crop-row action policies differ.
+  - The row prior clusters high-confidence predicted crop box centres along image x and abstains within predeclared vertical bands; no publisher label is used at inference.
+  - Vertical rows assume the robot camera is mechanically aligned with travel and planting direction, as the PhenoBench patches are.
+  - Confidence and every row width are predeclared; policies are selected on validation and serialized before test inference.
+  - The test was already opened before this experiment, so this remains post-hoc diagnostic evidence, not untouched deployment proof.
+  - Pixel widths are not physical spray-footprint guarantees and must be converted from millimetres using calibrated GSD.

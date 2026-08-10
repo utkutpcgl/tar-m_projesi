@@ -1,0 +1,39 @@
+schema_version: 1
+protocol: phenobench_segment_actionable_size_diagnostic_v1
+frozen_at: "2026-08-10T20:10:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+evaluation_config: configs/benchmark/phenobench_detect_segment_evaluation_fair_v1.yaml
+source_metrics: runs/phenobench_detect_segment_fair_v1/fair_evaluation_v1/fair_ab_metrics.json
+source_metrics_sha256: 92403c5176ed56aa0328f040bb5e74bb739aeb57477a0b78ba32847bf72335eb
+
+# These cuts are diagnostics in sqrt(exact GT instance-box area) pixels at
+# native/model 1024.  They are not a physical millimetre contract and the
+# already-opened PhenoBench test cannot become untouched again.
+ground_truth_minimum_size_px: [0, 14, 28, 42, 56]
+predicted_mask_minimum_size_px: [0, 7, 14, 21, 28, 35, 42, 49, 56, 70, 84, 112]
+confidence_threshold:
+  start: 0.01
+  stop: 0.99
+  step: 0.01
+
+inference:
+  image_size: 1024
+  batch: 2
+  chunk_size: 32
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+
+original_policy:
+  confidence_threshold: 0.49
+  predicted_mask_minimum_size_px: 0
+
+output: runs/phenobench_detect_segment_fair_v1/actionable_size_diagnostic_v1
+
+claims:
+  - The predicted-size gate uses only the predicted weed mask and is deployable.
+  - Ground-truth size defines the predeclared physically actionable denominator; actions on smaller publisher weeds are ignored.
+  - Every policy is selected on validation and then evaluated on test, but this is post-hoc diagnosis because the PhenoBench test was already opened by the primary A/B.
+  - No threshold from this diagnostic may be promoted to a field gate; a new robot-camera session-separated test is required.

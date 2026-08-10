@@ -10,7 +10,9 @@ from scripts.evaluate_phenobench_detect_segment_fair_v1 import (
     GroundTruth,
     _mask_interior_from_box_crop,
     classify_point,
+    cluster_vertical_crop_rows,
     deepest_interior_point,
+    maximum_excess_green_point,
     evaluate_actions,
     paired_bootstrap_f1_difference,
     select_threshold,
@@ -35,6 +37,24 @@ def test_deepest_interior_point_is_inside_and_central() -> None:
     assert point is not None
     assert mask[point[1], point[0]]
     assert point[1] == 4
+
+
+def test_maximum_excess_green_point_stays_in_mask_and_uses_rgb_prior() -> None:
+    mask = np.zeros((5, 6), dtype=bool)
+    mask[1:4, 1:5] = True
+    rgb = np.full((5, 6, 3), 80, dtype=np.uint8)
+    rgb[3, 4] = (10, 240, 20)
+    point = maximum_excess_green_point(mask, rgb)
+    assert point == (4, 3)
+    assert mask[point[1], point[0]]
+
+
+def test_vertical_crop_row_centres_are_clustered_by_gap() -> None:
+    assert cluster_vertical_crop_rows([502, 101, 98, 510, 900], 20) == (
+        99.5,
+        506.0,
+        900.0,
+    )
 
 
 def test_point_classification_respects_eligible_and_ignore_contract() -> None:

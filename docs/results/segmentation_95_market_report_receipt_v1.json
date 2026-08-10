@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "readable_posthoc_development_report_not_field_go",
+  "pdf": {
+    "path": "docs/results/SEGMENTASYON_95_VE_RAKIP_CEILING_RAPORU_V1.pdf",
+    "pages": 15,
+    "bytes": 3269930,
+    "sha256": "c275a5e493ca81217962b95a8bb54b8e58efcb89a8ba4e64c019ef59d174b860"
+  },
+  "evidence_summary": {
+    "path": "docs/results/phenobench_95_evidence_summary_v1.json",
+    "sha256": "d61b0de6022cf1feea3d1b33d8d3427ef5d73c56a0dffd4cfabd8bbdbf5a75b1"
+  },
+  "detailed_markdown": {
+    "path": "docs/SEGMENTASYON_95_SAHA_KANIT_PLANI_V1.md",
+    "sha256": "4659e1282aff0927fcd31dc1bd60a98cda6d4691144c53085f341aca6bab7c5e"
+  },
+  "builder": {
+    "path": "scripts/build_segmentation_95_market_report_v1.py",
+    "sha256": "ade7a1007ee353fe3761825906c69fad0fd38d4e45e6af01bdf912c94292a64f"
+  },
+  "visual_audit": {
+    "all_pages_rendered": true,
+    "contact_sheet_reviewed": true,
+    "page_10_title_overflow_corrected": true,
+    "two_digit_page_labels_corrected": true
+  }
+}

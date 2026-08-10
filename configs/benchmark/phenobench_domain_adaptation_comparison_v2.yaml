@@ -1,0 +1,53 @@
+schema_version: 1
+protocol: phenobench_source_target_replay_adaptation_v2
+frozen_at: "2026-08-11T01:35:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+
+calibration_plot_groups: [P0030792, P0030953, P0038051]
+test_plot_groups: [P0030695, P0030859, P0030943, P0034016, P0034121, P0037991]
+minimum_actionable_gt_size_px: 42
+primary_method: segment_crop_safe_excess_green
+methods: [segment_deepest_interior, segment_crop_safe_excess_green]
+
+models:
+  base:
+    checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+    checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+    role: frozen 1407-source-image baseline
+  source126:
+    checkpoint: runs/phenobench_segment_overfit_gate_v1/yolo26s_segment_1024_mask1_seed23_e120/weights/last.pt
+    checkpoint_sha256: 3ececc050f91bb42ae55107eea248835afc86aa2f8d173872cf96b3bf9aa35b2
+    role: base plus 126 source-plot images, 120 epochs, full masks, no augmentation
+  target126:
+    checkpoint: runs/phenobench_segment_target_adapt_gate_v1/yolo26s_segment_target126_1024_mask1_seed23_e120/weights/last.pt
+    checkpoint_sha256: a76cf22c42d08472441419ddf5b21cfbcb52e4f23a4b63c16e407461b9bf6baa
+    role: base plus 126 target-like plot images, 120 epochs, full masks, no augmentation
+  target_source_replay252:
+    checkpoint: runs/phenobench_target_replay_finetune_v1/yolo26s_segment_target126_source126_replay_1024_mask1_seed23_e30/weights/last.pt
+    checkpoint_sha256: 0429ccb7b785da361d44fc1273c205c2ba140c51af41a52ad618689035eb4013
+    role: base plus equal 126 target-like and 126 source replay, 30 epochs, augmentation, full masks, low learning rate
+
+inference:
+  image_size: 1024
+  batch: 2
+  chunk_size: 32
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+  crop_safety_confidence: 0.25
+  crop_safety_dilation_px: 14
+
+confidence_threshold: {start: 0.01, stop: 0.99, step: 0.01}
+safety_policy: {maximum_crop_collision_rate_per_attempt: 0.005}
+output: runs/phenobench_domain_adaptation_comparison_v2
+
+claims:
+  - Every model is calibrated on exactly the same three training-free spatial plots and evaluated on the same six training-free test plots.
+  - The target images cover three dates and overlap neither the common calibration plots nor common test plots.
+  - The replay challenger changes several practical training factors together and is therefore an engineering challenger, not a one-variable causal experiment.
+  - Microbatch differs across earlier arms because of shared GPU reservation; Ultralytics nominal nbs remains 64, so source126 versus target126 is directional evidence.
+  - The common test was opened in earlier work and the camera is UAV rather than the final robot camera; no untouched deployment claim follows.

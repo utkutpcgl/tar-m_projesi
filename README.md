@@ -15,8 +15,10 @@ gerçek testin yerine geçmez. Depth modeli bu faza bağlanmadı.
 
 ## Adil detection vs segmentation kararı — 2026-08-10
 
+- [Yeni — 15 sayfalık `%95` kanıtı ve rakip ceiling PDF'i](docs/results/SEGMENTASYON_95_VE_RAKIP_CEILING_RAPORU_V1.pdf)
 - [Önce bunu açın — 11 sayfalık sade ve görselli PDF](docs/results/FAIR_DETECTION_SEGMENTATION_KARARI_V1.pdf)
 - [Exact metrikler ve deney sözleşmesi](docs/FAIR_DETECTION_SEGMENTATION_KARARI_V1.md)
+- [%95+ saha başarısı, kamera/ışık/tracking ve rakip kanıt planı](docs/SEGMENTASYON_95_SAHA_KANIT_PLANI_V1.md)
 
 Önceki WSD kıyası target-trained detector ile zero-shot segmenteri
 karşılaştırdığı için mimari seçimde kullanılmadı. Yeni A/B'de iki kol da aynı
@@ -37,6 +39,32 @@ Yine de test recall `%64,9`, `<14 px` recall `%26,4` ve yalnız tek training
 seed'i vardır; UAV şeker pancarı sonucu nihai robot-kamera saha onayı değildir.
 Deploy-benzeri session-ayrı test, tracking ve fiziksel nozul/kill/crop-injury
 kapıları geçilmeden ilaç ateşleme yoktur.
+
+Post-hoc actionable-size tanısında predicted mask boyutu validation'da
+kalibre edildi. En iyi kesit `≥42 px` GT weed grubunda precision/recall/F1
+`%88,5/%80,2/%84,1` oldu. Bu, küçük hedef sınırının yararlı ama yetersiz
+olduğunu gösterir: yalnız boyut kapısıyla `%95`e ulaşılamaz. Sıradaki P0;
+global-shutter/native yüksek çözünürlük, senkron kontrollü ışık, hedef-domain
+instance-mask verisi ve track-level temporal A/B'dir. Bu teşhis aynı testin
+yeniden kullanımıdır; yeni untouched saha kanıtı değildir.
+
+Yeni kapasite testi önemli bir ayrım yaptı: hedef-benzeri 126 kareye bilinçli
+overfit edilen aynı segmenter, `≥42 px` weed aksiyonunda
+precision/recall/F1 `%99,68/%99,68/%99,68` ve sıfır crop hit verdi. Yani model
+ve aksiyon hattı `%95+` kapasiteye sahip. Fakat ortak farklı-parsel testinde
+dondurulmuş base `%92,02/%77,44/%84,10`; hedef-only `%88,41/%79,36/%83,64`;
+hedef+kaynak replay `%81,40/%85,44/%83,37` verdi. Replay recall'ı `+8,0`
+puan artırıp precision ve crop güvenliğini bozduğu için reddedildi. Sonuç:
+darboğaz kapasite değil, yeni session'da genelleyen crop/weed ayrımıdır.
+
+Rakip taramasında kamuya açık ceiling tek bir standart metrik değildir:
+Greeneye vendor trial recall `%95,7`; Ecorobotix ARA vendor minimum recognition
+`≥2 mm` fakat spray footprint `6×6 cm`; Bilberry `≥5 cm` weed için `>%90`
+hit; Verdant atışların `%99`unu hedefin `2 mm` içine yerleştirme; Carbon
+sub-mm hedefleme ve hakemli çoklu-geçişte `≥%97` daha az weed biomass
+açıklıyor. Hiçbiri minimum boyut + recognition P/R + crop hit + kill-rate'i
+aynı testte yayımlamıyor. Exact yeni özet:
+[phenobench_95_evidence_summary_v1.json](docs/results/phenobench_95_evidence_summary_v1.json).
 
 ## Tarihsel WSD sprey analizi — 2026-08-10
 

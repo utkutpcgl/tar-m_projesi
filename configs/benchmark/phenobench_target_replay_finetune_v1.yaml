@@ -1,0 +1,74 @@
+schema_version: 1
+protocol: phenobench_target126_source126_replay_finetune_v1
+frozen_at: "2026-08-11T01:05:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+source_segment_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_segment_fair_v1.yaml
+source_segment_yaml_sha256: 1f4039135c62d3886eb8ec04103ceff8e279451120e280ceaa1f08e1a5e9485d
+initial_checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+initial_checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+
+input_lists:
+  source126:
+    path: runs/phenobench_segment_overfit_gate_v1/protocol/train_images.txt
+    sha256: 2439f7b8ce3f80be079f90d431be1141dc70be265d475749475b60a5f5ac6c10
+  target126:
+    path: runs/phenobench_segment_target_adapt_gate_v1/protocol/train_images.txt
+    sha256: 5e930a4547687dc6b309a0c668532e862b10945c3bf51af44b034b5cd6806dea
+
+model_family:
+  name: YOLO26s-seg
+  package: ultralytics
+  package_version: 8.4.60
+
+training:
+  epochs: 30
+  patience: 0
+  image_size: 1024
+  batch: 3
+  workers: 8
+  device: 0
+  seed: 23
+  deterministic: true
+  amp: true
+  optimizer: AdamW
+  lr0: 0.0002
+  lrf: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 1.0
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  cos_lr: true
+  cache: ram
+  hsv_h: 0.015
+  hsv_s: 0.5
+  hsv_v: 0.3
+  degrees: 15.0
+  translate: 0.1
+  scale: 0.3
+  shear: 0.0
+  perspective: 0.0
+  fliplr: 0.5
+  flipud: 0.5
+  mosaic: 0.0
+  mixup: 0.0
+  copy_paste: 0.0
+  close_mosaic: 0
+  mask_ratio: 1
+  overlap_mask: true
+  val: false
+  plots: false
+
+output:
+  project: runs/phenobench_target_replay_finetune_v1
+  run_name: yolo26s_segment_target126_source126_replay_1024_mask1_seed23_e30
+
+claims:
+  - The 252-image list contains equal deterministic source and target-plot replay with no image overlap.
+  - This is a practical regularized adaptation challenger, not a pure one-variable A/B: it changes data mixture, augmentation, mask ratio, learning rate, and exposure from the base training.
+  - Target plots remain disjoint from the common three-plot calibration and six-plot test used by the adaptation comparison.
+  - Microbatch three is used because of persistent shared VLLM GPU reservation; Ultralytics nominal nbs remains 64.
+  - Test is not used in training or checkpoint selection, but it was opened in earlier work and cannot yield a new untouched claim.

@@ -1,0 +1,98 @@
+schema_version: 1
+protocol: phenobench_segment_small_set_capacity_gate_v1
+frozen_at: "2026-08-10T21:30:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+membership: processed/phenobench_detect_segment_fair_v1/membership.jsonl
+membership_sha256: fd9e0beeb0a7c56014220bb301afa3bf9a10c0263374b5a07db692f1299ce69f
+source_segment_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_segment_fair_v1.yaml
+source_segment_yaml_sha256: 1f4039135c62d3886eb8ec04103ceff8e279451120e280ceaa1f08e1a5e9485d
+
+# Start from the locked target-trained segmenter.  This is a capacity/debug
+# experiment, not a fair generalisation benchmark.
+initial_checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+initial_checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+
+subset:
+  logical_split: train
+  images: 126
+  minimum_actionable_gt_size_px: 42
+  seed: 23
+  selection: deterministic_round_robin_across_plot_groups
+
+model_family:
+  name: YOLO26s-seg
+  package: ultralytics
+  package_version: 8.4.60
+
+training:
+  epochs: 120
+  patience: 0
+  image_size: 1024
+  batch: 4
+  workers: 8
+  device: 0
+  seed: 23
+  deterministic: true
+  amp: true
+  optimizer: AdamW
+  lr0: 0.0005
+  lrf: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 1.0
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  cos_lr: true
+  cache: ram
+  hsv_h: 0.0
+  hsv_s: 0.0
+  hsv_v: 0.0
+  degrees: 0.0
+  translate: 0.0
+  scale: 0.0
+  shear: 0.0
+  perspective: 0.0
+  fliplr: 0.0
+  flipud: 0.0
+  mosaic: 0.0
+  mixup: 0.0
+  copy_paste: 0.0
+  close_mosaic: 0
+  mask_ratio: 1
+  overlap_mask: true
+  val: false
+  plots: false
+
+evaluation:
+  image_size: 1024
+  batch: 2
+  chunk_size: 32
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+  crop_safety_confidence: 0.25
+  crop_safety_dilation_px: 14
+  confidence_start: 0.01
+  confidence_stop: 0.99
+  confidence_step: 0.01
+
+gate:
+  method: segment_crop_safe_excess_green
+  minimum_precision: 0.98
+  minimum_recall: 0.98
+  minimum_f1: 0.98
+  maximum_crop_collision_rate_per_attempt: 0.005
+
+output:
+  project: runs/phenobench_segment_overfit_gate_v1
+  run_name: yolo26s_segment_1024_mask1_seed23_e120
+
+claims:
+  - Training and evaluation use the same 126 images intentionally; passing proves fit capacity only, never field generalisation.
+  - The subset is deterministically balanced across all 21 PhenoBench training plot groups and contains at least one 42-pixel-or-larger weed per image.
+  - Augmentation is disabled and mask_ratio is one so representation and annotation plumbing can be stress-tested without a generalisation objective.
+  - The actionable denominator is frozen before training at sqrt ground-truth weed-box area of at least 42 pixels.

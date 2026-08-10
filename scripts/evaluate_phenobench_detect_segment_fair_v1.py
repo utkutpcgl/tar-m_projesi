@@ -103,6 +103,41 @@ def deepest_interior_point(mask: np.ndarray) -> tuple[int, int] | None:
     return int(x) + x0 - 1, int(y) + y0 - 1
 
 
+def maximum_excess_green_point(
+    mask: np.ndarray, rgb: np.ndarray
+) -> tuple[int, int] | None:
+    """Choose the greenest pixel inside a predicted mask without using labels."""
+    binary = np.asarray(mask, dtype=bool)
+    image = np.asarray(rgb)
+    if binary.ndim != 2 or image.shape[:2] != binary.shape or not binary.any():
+        return None
+    red = image[..., 0].astype(np.int16)
+    green = image[..., 1].astype(np.int16)
+    blue = image[..., 2].astype(np.int16)
+    excess_green = 2 * green - red - blue
+    scores = np.where(binary, excess_green, np.iinfo(np.int16).min)
+    y, x = np.unravel_index(int(np.argmax(scores)), scores.shape)
+    return int(x), int(y)
+
+
+def cluster_vertical_crop_rows(
+    x_centers: Sequence[float], maximum_within_row_gap_px: float
+) -> tuple[float, ...]:
+    """Cluster predicted crop centres into camera-aligned vertical rows."""
+    if maximum_within_row_gap_px < 0:
+        raise ValueError("maximum_within_row_gap_px must be non-negative")
+    ordered = sorted(float(value) for value in x_centers)
+    if not ordered:
+        return ()
+    groups: list[list[float]] = [[ordered[0]]]
+    for value in ordered[1:]:
+        if value - groups[-1][-1] <= maximum_within_row_gap_px:
+            groups[-1].append(value)
+        else:
+            groups.append([value])
+    return tuple(float(np.median(group)) for group in groups)
+
+
 def _eligible_ids(
     semantics: np.ndarray,
     instances: np.ndarray,
@@ -216,6 +251,39 @@ def _mask_interior_from_box_crop(
     return None if local is None else (local[0] + x0, local[1] + y0)
 
 
+def _mask_excess_green_from_box_crop(
+    mask: torch.Tensor,
+    box: Sequence[float],
+    target_shape: tuple[int, int],
+    rgb: np.ndarray,
+) -> tuple[int, int] | None:
+    height, width = target_shape
+    mask_height, mask_width = (int(value) for value in mask.shape)
+    if (mask_height, mask_width) != target_shape:
+        full = mask.ge(0.5).to(torch.uint8).cpu().numpy()
+        resized = cv2.resize(full, (width, height), interpolation=cv2.INTER_NEAREST)
+        return maximum_excess_green_point(resized, rgb)
+    x0 = max(0, int(math.floor(float(box[0]))) - 1)
+    y0 = max(0, int(math.floor(float(box[1]))) - 1)
+    x1 = min(width, int(math.ceil(float(box[2]))) + 1)
+    y1 = min(height, int(math.ceil(float(box[3]))) + 1)
+    if x1 <= x0 or y1 <= y0:
+        return None
+    binary = mask[y0:y1, x0:x1].ge(0.5).to(torch.uint8).cpu().numpy()
+    local = maximum_excess_green_point(binary, rgb[y0:y1, x0:x1])
+    return None if local is None else (local[0] + x0, local[1] + y0)
+
+
+def _mask_at_target(
+    mask: torch.Tensor, target_shape: tuple[int, int]
+) -> np.ndarray:
+    height, width = target_shape
+    binary = mask.ge(0.5).to(torch.uint8).cpu().numpy()
+    if binary.shape != target_shape:
+        binary = cv2.resize(binary, (width, height), interpolation=cv2.INTER_NEAREST)
+    return binary.astype(bool, copy=False)
+
+
 def _action(
     truth: GroundTruth,
     confidence: float,
@@ -242,10 +310,23 @@ def infer_actions(
     records: Sequence[GroundTruth],
     inference: Mapping[str, Any],
 ) -> tuple[dict[str, dict[str, list[Action]]], dict[str, Any]]:
+    row_half_widths = tuple(
+        int(value) for value in inference.get("crop_row_half_widths_px", ())
+    )
+    if any(value < 0 for value in row_half_widths):
+        raise ValueError("crop_row_half_widths_px cannot be negative")
     methods = (
         ("detect_box_center",)
         if arm_name == "detect"
-        else ("segment_deepest_interior", "segment_box_center")
+        else (
+            "segment_deepest_interior",
+            "segment_max_excess_green",
+            "segment_crop_safe_excess_green",
+            "segment_box_center",
+        )
+        + tuple(
+            f"segment_row_safe_excess_green_w{width}" for width in row_half_widths
+        )
     )
     output = {method: {} for method in methods}
     inference_ms: list[float] = []
@@ -258,6 +339,7 @@ def infer_actions(
     def consume(truth: GroundTruth, result: Any) -> None:
         nonlocal prediction_count
         seen.add(truth.sample_id)
+        rgb = np.asarray(Image.open(truth.image_path).convert("RGB"), dtype=np.uint8)
         semantics = np.asarray(Image.open(truth.semantics_path), dtype=np.uint16)
         instances = np.asarray(Image.open(truth.instances_path), dtype=np.uint16)
         for method in methods:
@@ -279,6 +361,38 @@ def infer_actions(
             result.masks.data
             if arm_name == "segment" and result.masks is not None
             else None
+        )
+        crop_safety_mask = np.zeros(semantics.shape, dtype=bool)
+        crop_row_x_centers: list[float] = []
+        if mask_tensor is not None:
+            crop_safety_confidence = float(inference.get("crop_safety_confidence", 0.25))
+            for crop_index, (crop_confidence, crop_class_id) in enumerate(
+                zip(confidences, classes, strict=True)
+            ):
+                if (
+                    int(crop_class_id) == 1
+                    and float(crop_confidence) >= crop_safety_confidence
+                    and crop_index < len(mask_tensor)
+                ):
+                    crop_safety_mask |= _mask_at_target(
+                        mask_tensor[crop_index], semantics.shape
+                    )
+                    crop_box = xyxy[crop_index]
+                    crop_row_x_centers.append(
+                        (float(crop_box[0]) + float(crop_box[2])) / 2.0
+                    )
+            crop_safety_dilation = int(inference.get("crop_safety_dilation_px", 0))
+            if crop_safety_dilation > 0 and crop_safety_mask.any():
+                diameter = 2 * crop_safety_dilation + 1
+                kernel = cv2.getStructuringElement(
+                    cv2.MORPH_ELLIPSE, (diameter, diameter)
+                )
+                crop_safety_mask = cv2.dilate(
+                    crop_safety_mask.astype(np.uint8), kernel
+                ).astype(bool)
+        crop_row_centers = cluster_vertical_crop_rows(
+            crop_row_x_centers,
+            float(inference.get("crop_row_cluster_gap_px", 96)),
         )
         for index, (box, confidence, class_id) in enumerate(
             zip(xyxy, confidences, classes, strict=True)
@@ -309,6 +423,61 @@ def infer_actions(
                     instances,
                 )
             )
+            greenest = (
+                _mask_excess_green_from_box_crop(
+                    mask_tensor[index], box, semantics.shape, rgb
+                )
+                if mask_tensor is not None and index < len(mask_tensor)
+                else None
+            )
+            output["segment_max_excess_green"][truth.sample_id].append(
+                _action(
+                    truth,
+                    float(confidence),
+                    greenest if greenest is not None else center,
+                    semantics,
+                    instances,
+                )
+            )
+            safe_mask = (
+                np.logical_and(
+                    _mask_at_target(mask_tensor[index], semantics.shape),
+                    ~crop_safety_mask,
+                )
+                if mask_tensor is not None and index < len(mask_tensor)
+                else None
+            )
+            safe_greenest = (
+                maximum_excess_green_point(safe_mask, rgb)
+                if safe_mask is not None
+                else None
+            )
+            if safe_greenest is not None:
+                output["segment_crop_safe_excess_green"][truth.sample_id].append(
+                    _action(
+                        truth,
+                        float(confidence),
+                        safe_greenest,
+                        semantics,
+                        instances,
+                    )
+                )
+                for row_half_width in row_half_widths:
+                    if all(
+                        abs(float(safe_greenest[0]) - row_center) > row_half_width
+                        for row_center in crop_row_centers
+                    ):
+                        output[
+                            f"segment_row_safe_excess_green_w{row_half_width}"
+                        ][truth.sample_id].append(
+                            _action(
+                                truth,
+                                float(confidence),
+                                safe_greenest,
+                                semantics,
+                                instances,
+                            )
+                        )
         postprocess_ms.append((time.perf_counter() - started) * 1000.0)
         preprocess_ms.append(float(result.speed.get("preprocess", math.nan)))
         inference_ms.append(float(result.speed.get("inference", math.nan)))

@@ -1,0 +1,49 @@
+schema_version: 1
+protocol: phenobench_source_vs_target_plot_adaptation_v1
+frozen_at: "2026-08-11T00:30:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+
+calibration_plot_groups: [P0030792, P0030953, P0038051]
+test_plot_groups: [P0030695, P0030859, P0030943, P0034016, P0034121, P0037991]
+minimum_actionable_gt_size_px: 42
+primary_method: segment_crop_safe_excess_green
+methods: [segment_deepest_interior, segment_crop_safe_excess_green]
+
+models:
+  base:
+    checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+    checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+    role: frozen 1407-source-image baseline
+  source126:
+    checkpoint: runs/phenobench_segment_overfit_gate_v1/yolo26s_segment_1024_mask1_seed23_e120/weights/last.pt
+    checkpoint_sha256: 3ececc050f91bb42ae55107eea248835afc86aa2f8d173872cf96b3bf9aa35b2
+    role: base plus 126 source-plot images, 120 epochs, full masks, no augmentation
+  target126:
+    checkpoint: runs/phenobench_segment_target_adapt_gate_v1/yolo26s_segment_target126_1024_mask1_seed23_e120/weights/last.pt
+    checkpoint_sha256: a76cf22c42d08472441419ddf5b21cfbcb52e4f23a4b63c16e407461b9bf6baa
+    role: base plus 126 held-out-like plot images across three dates, 120 epochs, full masks, no augmentation
+
+inference:
+  image_size: 1024
+  batch: 2
+  chunk_size: 32
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+  crop_safety_confidence: 0.25
+  crop_safety_dilation_px: 14
+
+confidence_threshold: {start: 0.01, stop: 0.99, step: 0.01}
+safety_policy: {maximum_crop_collision_rate_per_attempt: 0.005}
+output: runs/phenobench_domain_adaptation_comparison_v1
+
+claims:
+  - Every model is calibrated on exactly the same three training-free spatial plots and evaluated on the same six training-free test plots.
+  - The target126 arm trained on three formerly-validation plots covering all three dates; none overlaps calibration or test.
+  - Source126 used microbatch four and target126 microbatch three because of shared GPU reservation; both use Ultralytics nominal nbs 64, but BatchNorm/microbatch effects make this directional rather than perfectly controlled evidence.
+  - Base and source126 use 1407 source images before their extra stage; target126 additionally sees a closer plot distribution, so the experiment measures practical target adaptation rather than pure architecture.
+  - The PhenoBench test was opened by earlier experiments, and the camera is UAV rather than the final robot camera; no deployment claim follows.

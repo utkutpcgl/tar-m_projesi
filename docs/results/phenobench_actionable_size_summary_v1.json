@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "posthoc_size_diagnostic_not_untouched_not_deployment_proof",
+  "source_metrics_sha256": "92403c5176ed56aa0328f040bb5e74bb739aeb57477a0b78ba32847bf72335eb",
+  "exact_local_metrics_sha256": "6957fbe67668931bd378c7e205b3fc3da29a87312ae40b53e1d68d01807f3f45",
+  "size_definition": "sqrt of exact or predicted mask bounding-box area at native/model 1024",
+  "train_fit_diagnostic_at_validation_locked_threshold": {
+    "images": 1407,
+    "eligible_gt_weeds": 7506,
+    "confidence_threshold": 0.49,
+    "precision": 0.9093916559455982,
+    "recall": 0.6592059685584866,
+    "f1": 0.7643469529620762,
+    "crop_collision_rate_per_attempt": 0.005881271825032163,
+    "recall_lt14": 0.23943661971830985,
+    "recall_14_to_lt28": 0.5487750556792873,
+    "recall_28_to_lt56": 0.8255675029868578,
+    "recall_ge56": 0.8494423791821561
+  },
+  "rows": [
+    {
+      "minimum_gt_size_px": 0,
+      "eligible_gt_weeds": 1754,
+      "original_test_f1": 0.73985060084443,
+      "validation_selected_confidence": 0.4,
+      "validation_selected_minimum_prediction_size_px": 14,
+      "test_precision": 0.8322197475872308,
+      "test_recall": 0.6391106043329533,
+      "test_f1": 0.7229925830377298
+    },
+    {
+      "minimum_gt_size_px": 14,
+      "eligible_gt_weeds": 1481,
+      "original_test_f1": 0.7805413313825896,
+      "validation_selected_confidence": 0.4,
+      "validation_selected_minimum_prediction_size_px": 14,
+      "test_precision": 0.8309648466716529,
+      "test_recall": 0.75016880486158,
+      "test_f1": 0.7885024840312278
+    },
+    {
+      "minimum_gt_size_px": 28,
+      "eligible_gt_weeds": 980,
+      "original_test_f1": 0.8104241185487993,
+      "validation_selected_confidence": 0.31,
+      "validation_selected_minimum_prediction_size_px": 28,
+      "test_precision": 0.829938900203666,
+      "test_recall": 0.8316326530612245,
+      "test_f1": 0.8307849133537207
+    },
+    {
+      "minimum_gt_size_px": 42,
+      "eligible_gt_weeds": 625,
+      "original_test_f1": 0.7970260223048328,
+      "validation_selected_confidence": 0.56,
+      "validation_selected_minimum_prediction_size_px": 35,
+      "test_tp": 501,
+      "test_fp": 65,
+      "test_fn": 124,
+      "test_crop_collision": 10,
+      "test_soil_action": 48,
+      "test_duplicate_action": 7,
+      "test_precision": 0.8851590106007067,
+      "test_recall": 0.8016,
+      "test_f1": 0.8413098236775819,
+      "test_crop_collision_rate_per_attempt": 0.0176678445229682
+    },
+    {
+      "minimum_gt_size_px": 56,
+      "eligible_gt_weeds": 409,
+      "original_test_f1": 0.7379679144385026,
+      "validation_selected_confidence": 0.33,
+      "validation_selected_minimum_prediction_size_px": 56,
+      "test_precision": 0.9048991354466859,
+      "test_recall": 0.7677261613691931,
+      "test_f1": 0.8306878306878307
+    }
+  ],
+  "limitations": [
+    "The PhenoBench test was already opened by the primary architecture A/B and is reused only for diagnosis.",
+    "Ground-truth pixel size is not a deployable physical millimetre contract.",
+    "A new robot-camera field/session-separated test is required for any success claim."
+  ]
+}

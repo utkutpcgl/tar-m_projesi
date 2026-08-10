@@ -2,9 +2,11 @@
 
 ## Adil target-trained detection vs segmentation A/B — 2026-08-10
 
+- [Yeni — `%95` kapasite/genelleme, kamera kontratı ve rakip ceiling raporu](SEGMENTASYON_95_VE_RAKIP_CEILING_RAPORU_V1.pdf)
 - [Önce bunu açın — 11 sayfalık sade ve görselli PDF](FAIR_DETECTION_SEGMENTATION_KARARI_V1.pdf)
 - [Aranabilir exact metrikler ve deney sözleşmesi](../FAIR_DETECTION_SEGMENTATION_KARARI_V1.md)
 - [Altı açıklamalı untouched-test örneği](fair_detection_segmentation_gallery_v1/README.md)
+- [%95+ saha kanıtı ve rakip sistem planı](../SEGMENTASYON_95_SAHA_KANIT_PLANI_V1.md)
 
 İki model de aynı `1.407` gerçek PhenoBench train görüntüsünü ve aynı bitki
 instance'larını gördü; ikisi de YOLO26s ailesinde `1024 px`, `50 epoch`,
@@ -19,6 +21,21 @@ GO kararı değildir: PhenoBench UAV domainidir, tek seed kullanılmıştır ve
 balanced test recall yalnız `%64,9`dur. Önceki target-trained detector vs
 zero-shot segmenter WSD sonucu mimari gate olarak geçersizdir; yalnız gerçek
 hedef-domain veri görmenin etkisini gösterir.
+
+Actionable-size post-hoc tanısı, predicted-mask size gate ile en iyi sonucu
+`≥42 px` grubunda verdi: precision/recall/F1 `%88,5/%80,2/%84,1`. Özet JSON
+[buradadır](phenobench_actionable_size_summary_v1.json). Test daha önce
+açıldığı için bu yalnız teşhistir; saha gate'i değildir.
+
+Kapasite/genelleme ayrımı da tamamlandı. Aynı hedef-benzeri 126 karede
+crop-safe aksiyon F1 `%99,68` ile `%98` kasıtlı-overfit kapısını geçti; ortak
+farklı-parsel testinde en iyi base F1 `%84,10` kaldı. Hedef+kaynak replay
+recall'ı `%77,44→%85,44` yükseltti fakat precision'ı
+`%92,02→%81,40`, crop hit'i `%2,85→%5,64` bozduğu için reddedildi.
+[Exact yeni kanıt özeti](phenobench_95_evidence_summary_v1.json) ve
+[okunabilir `%95`/rakip planı](../SEGMENTASYON_95_SAHA_KANIT_PLANI_V1.md)
+birlikte okunmalıdır. PDF/hash makbuzu
+[buradadır](segmentation_95_market_report_receipt_v1.json).
 
 ## Detection-only spot-spray A/B — 2026-08-10
 

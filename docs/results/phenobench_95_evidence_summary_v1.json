@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "status": "posthoc_development_evidence_only_not_field_go",
+  "decision": "instance_segmentation_remains_foundation_but_95_percent_field_generalization_is_not_proven",
+  "metric_contract": {
+    "minimum_actionable_gt_size_px": 42,
+    "size_definition": "sqrt exact GT instance box area in the native/model 1024 raster",
+    "primary_action": "segment_crop_safe_excess_green",
+    "primary_goal": {
+      "precision_minimum": 0.97,
+      "recall_minimum": 0.95,
+      "f1_minimum": 0.96,
+      "crop_collision_rate_per_attempt_maximum": 0.005
+    },
+    "limitation": "PhenoBench test was opened in earlier work and is UAV imagery rather than the final robot camera"
+  },
+  "actionable_size_diagnostic": {
+    "policy_selected_on_validation": {
+      "confidence_threshold": 0.56,
+      "minimum_prediction_size_px": 35
+    },
+    "test_images": 403,
+    "eligible_weeds": 625,
+    "precision": 0.8851590106007067,
+    "recall": 0.8016,
+    "f1": 0.8413098236775819,
+    "tp": 501,
+    "fp": 65,
+    "fn": 124,
+    "crop_collision": 10,
+    "crop_collision_rate_per_attempt": 0.0176678445229682,
+    "interpretation": "42 px is a useful camera and eligibility hypothesis but does not by itself produce 95 percent action F1"
+  },
+  "action_point_ablation_on_common_test": {
+    "test_images": 403,
+    "eligible_weeds": 625,
+    "deepest_interior": {
+      "precision": 0.8621323529411765,
+      "recall": 0.7504,
+      "f1": 0.8023952095808383,
+      "crop_collision_rate_per_attempt": 0.03125
+    },
+    "crop_safe_excess_green": {
+      "precision": 0.9201520912547528,
+      "recall": 0.7744,
+      "f1": 0.841007819287576,
+      "tp": 484,
+      "fp": 42,
+      "fn": 141,
+      "crop_collision": 15,
+      "attempted_actions": 526,
+      "crop_collision_rate_per_attempt": 0.028517110266159697,
+      "f1_delta_vs_deepest_interior": 0.03861260970673776
+    },
+    "confidence_only_crop_safe_policy": {
+      "confidence_threshold": 0.93,
+      "precision": 1.0,
+      "recall": 0.272,
+      "f1": 0.4276729559748428,
+      "crop_collision_rate_per_attempt": 0.0
+    },
+    "interpretation": "a simple crop-safe RGB point improves F1, but confidence thresholding cannot retain high recall while eliminating crop risk"
+  },
+  "predicted_crop_row_safety_ablation": {
+    "row_half_width_21": {
+      "precision": 0.9397849462365592,
+      "recall": 0.6992,
+      "f1": 0.8018348623853212,
+      "crop_collision_rate_per_attempt": 0.008602150537634409
+    },
+    "row_half_width_42": {
+      "precision": 0.9465116279069767,
+      "recall": 0.6512,
+      "f1": 0.771563981042654,
+      "crop_collision_rate_per_attempt": 0.0069767441860465115
+    },
+    "row_half_width_63": {
+      "precision": 0.9484536082474226,
+      "recall": 0.5888,
+      "f1": 0.7265547877591313,
+      "crop_collision_rate_per_attempt": 0.002577319587628866
+    },
+    "row_half_width_84": {
+      "precision": 0.9668674698795181,
+      "recall": 0.5136,
+      "f1": 0.670846394984326,
+      "crop_collision_rate_per_attempt": 0.0
+    },
+    "interpretation": "predicted rows are a safety veto only; wider bands reduce crop hits by discarding too many true in-row weeds"
+  },
+  "intentional_same_set_capacity": {
+    "source126": {
+      "images": 126,
+      "plots": 21,
+      "eligible_weeds": 314,
+      "precision": 0.9715189873417721,
+      "recall": 0.9777070063694268,
+      "f1": 0.9746031746031746,
+      "crop_collision_rate_per_attempt": 0.0,
+      "strict_98_gate_passed": false
+    },
+    "target_like126": {
+      "images": 126,
+      "plots": 3,
+      "eligible_weeds": 317,
+      "precision": 0.9968454258675079,
+      "recall": 0.9968454258675079,
+      "f1": 0.9968454258675079,
+      "tp": 316,
+      "fp": 1,
+      "fn": 1,
+      "crop_collision_rate_per_attempt": 0.0,
+      "strict_98_gate_passed": true
+    },
+    "interpretation": "the model and action pipeline have more than 95 percent capacity on a learned target-like distribution; this is not a generalization result"
+  },
+  "common_plot_domain_adaptation": {
+    "calibration_images": 172,
+    "test_images": 403,
+    "eligible_weeds": 625,
+    "base": {
+      "precision": 0.9201520912547528,
+      "recall": 0.7744,
+      "f1": 0.841007819287576,
+      "crop_collision_rate_per_attempt": 0.028517110266159697
+    },
+    "source126_aggressive": {
+      "precision": 0.7485549132947977,
+      "recall": 0.8288,
+      "f1": 0.7866362946089598,
+      "crop_collision_rate_per_attempt": 0.049132947976878616,
+      "f1_delta_vs_base": -0.05437152467861617
+    },
+    "target126_aggressive": {
+      "precision": 0.8841354723707665,
+      "recall": 0.7936,
+      "f1": 0.836424957841484,
+      "crop_collision_rate_per_attempt": 0.053475935828877004,
+      "f1_delta_vs_base": -0.00458286144609199
+    },
+    "target126_source126_replay": {
+      "precision": 0.8140243902439024,
+      "recall": 0.8544,
+      "f1": 0.8337236533957846,
+      "crop_collision_rate_per_attempt": 0.056402439024390245,
+      "f1_delta_vs_base": -0.007284165891791372,
+      "precision_delta_vs_base": -0.10612770101085045,
+      "recall_delta_vs_base": 0.08000000000000007
+    },
+    "replay_crop_safe_policy": {
+      "confidence_threshold": 0.92,
+      "precision": 0.988950276243094,
+      "recall": 0.2864,
+      "f1": 0.4441687344913151,
+      "crop_collision_rate_per_attempt": 0.0
+    },
+    "decision": "reject_source_target_aggressive_and_simple_replay_challengers",
+    "interpretation": "target exposure raises recall but currently creates high-confidence crop and soil false actions; more epochs or confidence thresholding is not the solution"
+  },
+  "locked_artifacts": {
+    "base_checkpoint_sha256": "0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8",
+    "source_capacity_metrics_sha256": "7c347a16e4121889f4d1f6c51533d15e26329d889104bbc79a96e5898b9344ce",
+    "target_capacity_metrics_sha256": "1a54b1f55923efa6b8ac9d85e66eaf1c96138c50061c21994d9c383afe285850",
+    "actionable_size_metrics_sha256": "6957fbe67668931bd378c7e205b3fc3da29a87312ae40b53e1d68d01807f3f45",
+    "action_policy_priors_v2_metrics_sha256": "edba42066e7cf2a13a3d236b76a97b87a9f0f5c4068c26b624addbcf96ee22d7",
+    "action_policy_priors_v2_selection_sha256": "2e672f9f4fe5eaee111715c2ad990d7dd550a31024b0ccef7272eae0292731ff",
+    "replay_checkpoint_sha256": "0429ccb7b785da361d44fc1273c205c2ba140c51af41a52ad618689035eb4013",
+    "replay_receipt_sha256": "80969c6d801a4ed07a96a982116e247576ad0effe4410ea113fb13cfa9c2f46e",
+    "common_adaptation_v2_selection_sha256": "470af8ef53671cdb7b0327758790e5e3f3608f5d15870a1f7de6d202bce49dd6",
+    "common_adaptation_v2_metrics_sha256": "95e4f035bbefdbddee73087ab36c24f0e7f7e0ae07fbf7e2e40ed2deacea7c8f"
+  },
+  "next_proof": [
+    "freeze a physical 20 mm primary and 10-20 mm stretch eligibility contract after nozzle footprint measurement",
+    "run paired current-rig versus global-shutter high-resolution synchronized-LED capture on the same marked plants",
+    "collect session-separated target instance masks with crop-near hard negatives and track IDs",
+    "compare native tiled training and inference without digital upscaling",
+    "measure single-frame versus three-to-five-view temporal fusion on ID-labelled video",
+    "open the final untouched multi-field test once and then run water or UV deposition and crop-injury trials"
+  ]
+}

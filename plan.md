@@ -1,5 +1,39 @@
 # Tarım Vision Projesi — AI PoC ve Sentetik Veri Yol Haritası
 
+> **2026-08-10 segmentasyon `%95+` saha kanıt planı:** Instance segmentation
+> ana hat olarak kilitlendi. Başarı mask mIoU ile değil, session/tarla-ayrı
+> videoda track-level weed action precision/recall/F1, crop collision,
+> nozzle-footprint safe hit ve fiziksel knockdown ile ölçülecek. Minimum GO
+> hedefleri sırasıyla `P≥0,97`, `R≥0,95`, `F1≥0,96`, crop action `≤0,005`,
+> footprint safe hit `≥0,95` ve fiziksel knockdown `≥0,90`; güçlü hedef F1
+> `≥0,97`dir. Minimum müdahale boyutu model sonucundan önce fiziksel mm,
+> visible fraction ve safety mesafesiyle dondurulacak. PhenoBench post-hoc
+> predicted-size tanısında en iyi `GT≥42 px` policy'si
+> `P/R/F1 0,8852/0,8016/0,8413` verdi; yalnız küçükleri dışlamak `%95`e
+> yetmedi. Küçük-set kapasite deneyi ise hedef-benzeri 126 aynı karede
+> crop-safe action `P/R/F1 0,9968/0,9968/0,9968` ve sıfır crop hit ile `%98`
+> kapısını geçti: kapasite var, yeni session genellemesi yok. Ortak farklı-parsel
+> testinde base `0,9202/0,7744/0,8410`; agresif hedef-only
+> `0,8841/0,7936/0,8364`; hedef+kaynak replay `0,8140/0,8544/0,8337` verdi.
+> Replay recall'ı `+0,08` artırıp precision ve crop hit'i bozduğu için
+> reddedildi. Basit excess-green crop-safe nokta, deepest-interior'a göre F1'ı
+> `+0,0386` artırdı; confidence ve sıra prior'ları crop riskini recall'ı aşırı
+> düşürmeden çözemedi. P0 sıra: geçici ana `d_min=20 mm`, stretch
+> `10–20 mm` kontratı ve nozul footprint'i; aynı bitkide paired
+> global-shutter/GSD + ambient-vs-LED/strobe + motion deneyi; session-dengeli
+> crop-yakın hard-negative target fine-tune; native 4K tile
+> 1024/1536/2048; ID-GT videoda single-frame-vs-tracking; sonra gerekirse bir
+> büyük aynı-aile ve bir alternatif segmenter. Untouched saha testinde en
+> az 2.000 uygun weed track ve crop-risk `%0,1` iddiası için en az 3.000
+> crop-yakın fırsat hedeflenecek. Rakip taraması, Deere/Greeneye/ARA/Verdant/
+> Carbon yanında ONE SMART SPRAY/Bilberry/WEED-IT'i de kapsıyor. Kamuya açık
+> ceiling parçaları Greeneye recall `%95,7`, ARA minimum recognition `≥2 mm`
+> fakat `6×6 cm` spray, Bilberry `≥5 cm` weed için `>%90` hit, Verdant `%99`
+> atışın `2 mm` içinde ve Carbon hakemli `≥%97` weed-biomass azalmasıdır.
+> Hiçbiri minimum boyut + P/R + crop hit + kill-rate sözleşmesinin tamamını
+> aynı testte kamuya açık vermiyor.
+> Ayrıntı: `docs/SEGMENTASYON_95_SAHA_KANIT_PLANI_V1.md`.
+
 > **2026-08-10 adil detection–segmentation kararı:** Önceki WSD karşılaştırması
 > target-trained detector ile zero-shot segmenteri eşlediği için saf mimari
 > kararı olarak iptal edildi. PhenoBench'te detection ve instance-segmentation
@@ -2413,3 +2447,60 @@ Teslimler:
 - `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/spot_spray_model_decision_v2/`;
 - `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/wsd_segmentation_spot_spray_v1/segmentation_vs_detection_metrics.json`;
 - `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/wsd_spot_success_conditions_v1/detection_gt_size_conditioned.json`.
+
+# Segmentasyon `%95+` kapasite ve genelleme kanıtı — 2026-08-10
+
+## Tamamlanan deneyler
+
+- [x] PhenoBench final segmenter için train/val/test ve `<14/14–28/28–56/≥56`
+      apparent-size tanısı tamamlandı.
+- [x] Validation'da prediction-size policy seçilip post-hoc `≥42 px` test
+      sonucu donduruldu: `P/R/F1 0,8852/0,8016/0,8413`.
+- [x] 126-kare source ve 126-kare target-like intentional-overfit kolları,
+      `mask_ratio=1`, 120 epoch ve crop-safe action ile çalıştırıldı.
+- [x] Maskede excess-green aksiyon noktası, predicted crop-mask safety halesi
+      ve dört predicted crop-row bandı ortak val/testte ölçüldü.
+- [x] Base/source126/target126 modelleri ortak 172-kare calibration ve
+      403-kare testte karşılaştırıldı.
+- [x] Eşit 126 target + 126 source replay, augmentation, düşük LR ve 30
+      epoch challenger'ı eğitilip aynı ortak protokolde değerlendirildi.
+- [x] Deere, Greeneye, Ecorobotix, ONE SMART SPRAY, Bilberry, WEED-IT,
+      Verdant ve Carbon için recognition/placement/outcome iddiaları ayrıldı.
+
+## Net sonuç
+
+| Kanıt | Precision | Recall | F1 | Crop hit |
+|---|---:|---:|---:|---:|
+| Target-like 126, aynı-kare kapasite | `0,9968` | `0,9968` | `0,9968` | `0` |
+| Ortak test base | `0,9202` | `0,7744` | **`0,8410`** | `0,0285` |
+| Ortak test target-only agresif | `0,8841` | `0,7936` | `0,8364` | `0,0535` |
+| Ortak test target+source replay | `0,8140` | **`0,8544`** | `0,8337` | `0,0564` |
+
+Model aynı hedef dağılımda `%95+` yapabilir; farklı parselde yapamıyor.
+Basit replay recall'ı `+8` puan artırdı ama precision/crop safety'yi bozdu;
+reddedildi. Confidence-only güvenli replay policy'si
+`P/R/F1 0,9890/0,2864/0,4442` oldu. Row prior `84 px` bantta crop hit'i
+sıfırlarken recall'ı `0,5136`ya düşürdü; yalnız safety veto'dur.
+
+Yazılım tarafında sıradaki tek basit challenger; crop-yakın hard-negative,
+session-dengeli replay ve erken validation seçimidir. Asıl P0 fiziksel paired
+kamera bench'i ve ID-etiketli videodur. Geçici ana PoC eligibility'si
+`d_min=20 mm`, stretch `10–20 mm`; her uygun weed model girdisinde `≥42 px`
+olmalıdır. 4K kare tam olarak 1024'e küçültülmez, native tile işlenir.
+
+## Dondurulmuş kanıt
+
+- okunabilir detay:
+  `docs/SEGMENTASYON_95_SAHA_KANIT_PLANI_V1.md`;
+- 15 sayfalık görsel karar raporu:
+  `docs/results/SEGMENTASYON_95_VE_RAKIP_CEILING_RAPORU_V1.pdf`;
+- repo özet JSON:
+  `docs/results/phenobench_95_evidence_summary_v1.json`;
+- target-capacity metric SHA-256:
+  `1a54b1f55923efa6b8ac9d85e66eaf1c96138c50061c21994d9c383afe285850`;
+- replay final checkpoint SHA-256:
+  `0429ccb7b785da361d44fc1273c205c2ba140c51af41a52ad618689035eb4013`;
+- ortak adaptation-v2 metric SHA-256:
+  `95e4f035bbefdbddee73087ab36c24f0e7f7e0ae07fbf7e2e40ed2deacea7c8f`;
+- yerel ortak metrik:
+  `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_domain_adaptation_comparison_v2/domain_adaptation_metrics.json`.

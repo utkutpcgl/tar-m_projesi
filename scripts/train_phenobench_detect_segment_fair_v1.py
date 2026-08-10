@@ -172,8 +172,8 @@ def run(
         overlap_mask=bool(training["overlap_mask"]),
         fraction=float(fraction),
         pretrained=True,
-        val=True,
-        plots=True,
+        val=bool(training.get("val", True)),
+        plots=bool(training.get("plots", True)),
         verbose=True,
     )
     elapsed = time.monotonic() - started

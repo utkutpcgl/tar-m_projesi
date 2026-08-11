@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "controlled_spot_spray_poc_report_package_complete",
+  "output": "/home/ankaref/utku/tarım_projesi/docs/results/kontrollu_spot_spray_poc_v1",
+  "files": {
+    "BASLA_BURADAN_KONTROLLU_SPOT_SPRAY_POC_V1.pdf": {
+      "bytes": 1129821,
+      "sha256": "328349847daa6f1d9d212833aeb40fef0172f5d4fba87c2fabbef8cecc38e777"
+    },
+    "DETAYLI_KONTROLLU_SPOT_SPRAY_POC_V1.pdf": {
+      "bytes": 3487871,
+      "sha256": "7e541ce844f3562c06e20f113d6c97818a7fdad8cad3cd286e0acb888076562d"
+    },
+    "DETAYLI_RAPOR.md": {
+      "bytes": 11744,
+      "sha256": "5d417263d076ae64e24d47f51987cb7242422bb88b5eba88183b59cbbcec9d03"
+    },
+    "README.md": {
+      "bytes": 1047,
+      "sha256": "4f5668eb6d031e83b85d74a484c7b8278576c0756a14082d2d2edb4ac15e8a7f"
+    },
+    "figures/README.md": {
+      "bytes": 569,
+      "sha256": "3427b2783d61f22ee6bfa636ed125a435a20807f2079e33fdb24196438c8ac67"
+    },
+    "figures/bonirob_000.jpg": {
+      "bytes": 308325,
+      "sha256": "db8581e58993db323d8228e589915295c86ae33fea347ebf24fdcb323ca9af94"
+    },
+    "figures/bonirob_150.jpg": {
+      "bytes": 244688,
+      "sha256": "bf4e2578fe47b6769baa78992d7315c89db33a233ed1b113e0210b9ea102f0cd"
+    },
+    "figures/synthetic_test_00.jpg": {
+      "bytes": 348245,
+      "sha256": "80721bd95e60468fe490d08686b40873e43fc84d0a3829aa7147201e3910e953"
+    },
+    "figures/synthetic_test_10.jpg": {
+      "bytes": 251054,
+      "sha256": "7d5d723b51a648400a29133e86a672d53a628e5837a640730aa742be95c68bf2"
+    },
+    "metrics_summary.json": {
+      "bytes": 25657,
+      "sha256": "5be0debc195f718658545a299124efb1dd1d60eb519ca1e0551bfa57fb628844"
+    }
+  }
+}

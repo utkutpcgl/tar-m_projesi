@@ -279,6 +279,39 @@
 
 ## 0. Güncel icra durumu
 
+- [x] Spot-spray PoC için instance segmentation temeli ve gerçek saha aksiyon
+      kapıları kilitlendi: track P/R/F1 `≥0,98/0,95/0,965`, crop-hit
+      `≤0,005`, duplicate `≤0,01`; sentetik GO ağırlığı `0`.
+- [x] Aynı `1.407` gerçek train karesi ve eşit `1.487 örnek/epoch` bütçesiyle
+      gerçek-replay / gerçek+V12 sentetik A/B tamamlandı. PhenoBench `≥82 px`
+      F1 `0,7042→0,7258`; `%95` bootstrap aralığı sıfırı kestiği için sonuç
+      olumlu fakat kesin olmayan yön sinyalidir. Aynı sabit eşiklerle BoniRob
+      F1 `0,0536`: ana açık target-camera domain uyumudur.
+- [x] Dondurulmuş capture baseline V2 tamamlandı: bir Basler
+      `a2A2464-77ucPRO`, C23 8 mm lens, native `2048²`, `474–484 mm` FOV,
+      GSD `0,231–0,236 mm/px`, `170 µs`, `15 Hz`, kapalı `600×600 mm` hood,
+      dört-zone diffuse strobe ve dış `64 px` no-fire. RTX 3090 p95 kanıtı
+      tek kamera/15 Hz'i taşır; 20 Hz ve ikinci kamera geçmez. A–F optik,
+      ışık, transport, hareket, registration ve nozzle kapıları fiziksel
+      kabulden önce zorunludur.
+- [x] Sade 6 sayfa + açıklamalı 19 sayfa kontrollü spot-spray rapor paketi,
+      exact V2 donanım/BOM sayfaları ve self-sufficient gerçek/sentetik
+      görsellerle yeniden üretildi. Yeni ROSE sonucu entegre edilen exact
+      fingerprint `0b4503f339d9232553547217c7f83af2c9234b2deb8e031e0469e2586fde4f17`,
+      aynı reviewer kimliğinde cycle 4 ile `Verdict: OLDU, TAMAM` aldı.
+- [x] Matched native-detail ROSE challenger aynı koşuda batch 3 ile 8/8 epoch
+      tamamlandı. Seçilen `last.pt` SHA-256
+      `3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100`.
+      Önceki V12-destekli adaya göre PhenoBench `≥82 px` F1
+      `0,7258→0,7540`, BoniRob sabit eşik F1 `0,0536→0,0896`; Pheno %95
+      eşleştirilmiş fark aralığı `[-0,0136; 0,0710]` ile sıfırı kesiyor.
+      V12 sentetik holdout sabit eşik F1'ı `0,6341→0,0000` olduğundan
+      sentetik karar ağırlığı sıfır ve `field_fire_go=false` korunuyor.
+- [x] Kapanış: güncel rapor fingerprint'inde reviewer `Verdict: OLDU, TAMAM`;
+      322 test, V2 reproducibility, receipt/hash ve görsel PDF kontrolleri
+      geçti. Haricî vLLM servisi çalışma boyunca durdurulmadı ve kapanışta
+      çalışır durumda doğrulandı; exact obsolete çıktılar temizlenip intentional
+      repo paketi kontrollü olarak commit/push edildi.
 - [x] Registry, disk kontrolü, sabit URL/boyut/checksum ve lisans rolleri.
 - [x] PhenoBench, ACRE, WeedsGalore, WE3DS ve ROSE dönüşümü.
 - [x] CWFID development; Carrot-Weed ve EWIS1 kilitli test dönüşümü.

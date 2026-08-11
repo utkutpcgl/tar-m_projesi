@@ -1,0 +1,259 @@
+schema_version: 1
+base_study: configs/simulation/cropcraft_field_robustness_pilot_v11_r2.yaml
+release: cropcraft_deploy_constrained_pilot_v12
+purpose: >-
+  deployment-matched high-resolution supplement for a hooded, strobed RGB
+  spot-spray module; retain V11 soil, tillage, plant and split-asset diversity
+  while constraining capture geometry and illumination to the proposed PoC
+
+deploy_imaging_contract:
+  module_raw_resolution_px: 2048
+  module_ground_width_m: 0.50
+  tile_resolution_px: 1024
+  tile_ground_width_m: 0.25
+  camera_height_m: [0.55, 0.65]
+  camera_roll_deg: [-1.0, 1.0]
+  camera_pitch_deg: [-1.0, 1.0]
+  camera_yaw_deg: [-4.0, 4.0]
+  camera_y_jitter_m: [0.01, 0.10]
+  shutter: global
+  illumination: hooded_strobed_broad_spectrum_rgb_proxy
+  target_ground_gsd_mm_per_px: 0.244140625
+
+deploy_visual_gates:
+  minimum_frame_mean_brightness: 40.0
+  maximum_frame_mean_brightness: 205.0
+  maximum_fully_clipped_white_fraction_per_frame: 0.002
+  maximum_fully_clipped_black_fraction_per_frame: 0.001
+  minimum_actionable_weed_component_bbox_px: 41
+  roles:
+    train:
+      # Keep up to 15% true negative frames so false-spray precision is trained
+      # without diluting the actionable-weed coverage gate below.
+      minimum_frames_with_any_weed_fraction: 0.85
+      minimum_frames_with_actionable_weed_fraction: 0.75
+      minimum_actionable_weed_components: 60
+    val:
+      minimum_frames_with_any_weed_fraction: 0.75
+      minimum_frames_with_actionable_weed_fraction: 0.60
+      minimum_actionable_weed_components: 10
+    test:
+      minimum_frames_with_any_weed_fraction: 0.75
+      minimum_frames_with_actionable_weed_fraction: 0.60
+      minimum_actionable_weed_components: 10
+
+manifest_metadata:
+  growth_stage_prefix: procedural_early_stage_deploy_constrained_v12
+  platform: blender_4_5_cycles_controlled_spot_spray_proxy_v12
+  sensor: synthetic_global_shutter_rgb_2048_module_as_native_1024_tiles
+
+shared_ranges:
+  camera_height_m: [0.55, 0.65]
+  camera_fov_deg: [21.8, 25.6]
+  camera_roll_deg: [-1.0, 1.0]
+  camera_pitch_deg: [-1.0, 1.0]
+  camera_yaw_deg: [-4.0, 4.0]
+  camera_y_jitter_m: [0.01, 0.10]
+  position_noise_m: [0.005, 0.035]
+  tilt_noise_rad: [0.01, 0.10]
+  scale_noise: [0.03, 0.18]
+  missing_crop_probability: [0.0, 0.0]
+  cotyledon_density: [55.0, 135.0]
+  broadleaf_density: [27.0, 75.0]
+  grass_density: [27.0, 75.0]
+  rosette_density: [18.0, 60.0]
+
+splits:
+  train:
+    base_seed: 340000
+    ranges:
+      environment_strength: [0.02, 0.12]
+      sun_energy: [0.0, 0.08]
+      sun_elevation_deg: [8.0, 78.0]
+      sun_angle_deg: [5.0, 12.0]
+      local_shadow_fraction: [0.0, 0.12]
+      shadow_seed: [340000.0, 349999.0]
+      artificial_light_energy: [25.0, 65.0]
+      artificial_light_size_m: [0.45, 0.90]
+      artificial_light_warmth: [0.25, 0.75]
+    correlated_scene_profiles:
+      - name: hood_dry_nominal
+        environment_files:
+          - farm_field_puresky_2k.hdr
+          - citrus_orchard_puresky_2k.hdr
+          - harvest_2k.hdr
+          - mealie_road_2k.hdr
+          - kloppenheim_01_puresky_2k.hdr
+        surface_parameter_ranges:
+          environment_strength: [0.02, 0.08]
+          soil_moisture: [0.00, 0.38]
+          sun_energy: [0.00, 0.04]
+          sun_elevation_deg: [20.0, 78.0]
+          sun_angle_deg: [7.0, 12.0]
+          local_shadow_fraction: [0.00, 0.06]
+          artificial_light_energy: [25.0, 50.0]
+          artificial_light_size_m: [0.45, 0.75]
+          artificial_light_warmth: [0.25, 0.55]
+      - name: hood_moist_glare_challenge
+        environment_files:
+          - overcast_soil_puresky_2k.hdr
+          - pond_2k.hdr
+          - mud_road_puresky_2k.hdr
+          - cloudy_vondelpark_2k.hdr
+          - farmland_overcast_2k.hdr
+        surface_parameter_ranges:
+          environment_strength: [0.04, 0.12]
+          soil_moisture: [0.35, 0.85]
+          sun_energy: [0.02, 0.08]
+          sun_elevation_deg: [8.0, 60.0]
+          sun_angle_deg: [5.0, 12.0]
+          local_shadow_fraction: [0.02, 0.12]
+          artificial_light_energy: [35.0, 65.0]
+          artificial_light_size_m: [0.55, 0.90]
+          artificial_light_warmth: [0.35, 0.75]
+    quality_gates:
+      expected_pairs: 80
+      max_crop_free_frame_fraction: 0.02
+      max_weed_free_frame_fraction: 0.15
+      minimum_mean_crop_fraction: 0.015
+      maximum_mean_crop_fraction: 0.60
+      minimum_mean_weed_fraction: 0.015
+      maximum_mean_weed_fraction: 0.50
+      minimum_used_crop_model_variants: 30
+      minimum_used_ground_families: 10
+      minimum_used_environment_families: 10
+      minimum_used_surface_profiles: 1
+      minimum_surface_parameter_spans:
+        environment_strength: 0.08
+        soil_moisture: 0.70
+        tillage_mode: 2.40
+        tillage_strength: 0.45
+        sun_energy: 0.06
+        local_shadow_fraction: 0.08
+        artificial_light_energy: 30.0
+        artificial_light_warmth: 0.35
+
+  val:
+    base_seed: 440000
+    ranges:
+      environment_strength: [0.03, 0.09]
+      sun_energy: [0.0, 0.05]
+      local_shadow_fraction: [0.0, 0.08]
+      shadow_seed: [440000.0, 449999.0]
+      artificial_light_energy: [30.0, 60.0]
+      artificial_light_size_m: [0.50, 0.80]
+      artificial_light_warmth: [0.30, 0.70]
+    correlated_scene_profiles:
+      - name: hood_dry_nominal
+        environment_files: [dry_hay_field_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.03, 0.07]
+          soil_moisture: [0.08, 0.35]
+          sun_energy: [0.00, 0.03]
+          sun_elevation_deg: [30.0, 68.0]
+          sun_angle_deg: [8.0, 12.0]
+          local_shadow_fraction: [0.00, 0.04]
+          artificial_light_energy: [35.0, 55.0]
+          artificial_light_size_m: [0.50, 0.72]
+          artificial_light_warmth: [0.30, 0.52]
+      - name: hood_moist_glare_challenge
+        environment_files: [approaching_storm_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.05, 0.09]
+          soil_moisture: [0.38, 0.78]
+          sun_energy: [0.02, 0.05]
+          sun_elevation_deg: [15.0, 55.0]
+          sun_angle_deg: [7.0, 12.0]
+          local_shadow_fraction: [0.02, 0.08]
+          # This bright HDRI/ground pair exceeded the frozen mean-luma gate at
+          # 50--60 renderer-energy units despite zero clipped-white pixels.
+          artificial_light_energy: [30.0, 48.0]
+          artificial_light_size_m: [0.58, 0.80]
+          artificial_light_warmth: [0.40, 0.70]
+    quality_gates:
+      expected_pairs: 16
+      max_crop_free_frame_fraction: 0.05
+      max_weed_free_frame_fraction: 0.25
+      minimum_mean_crop_fraction: 0.010
+      maximum_mean_crop_fraction: 0.60
+      minimum_mean_weed_fraction: 0.010
+      maximum_mean_weed_fraction: 0.50
+      minimum_used_crop_model_variants: 6
+      minimum_used_ground_families: 2
+      minimum_used_environment_families: 2
+      minimum_used_surface_profiles: 1
+      minimum_surface_parameter_spans:
+        environment_strength: 0.05
+        soil_moisture: 0.55
+        # The frozen eight-scene design spans 1.078 across its two profiles.
+        tillage_mode: 1.00
+        sun_energy: 0.04
+        local_shadow_fraction: 0.06
+        artificial_light_energy: 20.0
+
+  test:
+    base_seed: 540000
+    ranges:
+      environment_strength: [0.03, 0.09]
+      sun_energy: [0.0, 0.05]
+      local_shadow_fraction: [0.0, 0.08]
+      shadow_seed: [540000.0, 549999.0]
+      artificial_light_energy: [30.0, 60.0]
+      artificial_light_size_m: [0.50, 0.80]
+      artificial_light_warmth: [0.30, 0.70]
+    correlated_scene_profiles:
+      - name: hood_dry_nominal
+        environment_files: [sunflowers_puresky_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.03, 0.07]
+          soil_moisture: [0.08, 0.35]
+          sun_energy: [0.00, 0.03]
+          sun_elevation_deg: [30.0, 68.0]
+          sun_angle_deg: [8.0, 12.0]
+          local_shadow_fraction: [0.00, 0.04]
+          artificial_light_energy: [35.0, 55.0]
+          artificial_light_size_m: [0.50, 0.72]
+          artificial_light_warmth: [0.30, 0.52]
+      - name: hood_moist_glare_challenge
+        environment_files: [rural_evening_road_2k.hdr]
+        surface_parameter_ranges:
+          environment_strength: [0.05, 0.09]
+          soil_moisture: [0.38, 0.78]
+          sun_energy: [0.02, 0.05]
+          sun_elevation_deg: [15.0, 55.0]
+          sun_angle_deg: [7.0, 12.0]
+          local_shadow_fraction: [0.02, 0.08]
+          artificial_light_energy: [30.0, 60.0]
+          artificial_light_size_m: [0.58, 0.80]
+          artificial_light_warmth: [0.40, 0.70]
+    quality_gates:
+      expected_pairs: 16
+      max_crop_free_frame_fraction: 0.05
+      max_weed_free_frame_fraction: 0.25
+      minimum_mean_crop_fraction: 0.010
+      maximum_mean_crop_fraction: 0.60
+      minimum_mean_weed_fraction: 0.010
+      maximum_mean_weed_fraction: 0.50
+      minimum_used_crop_model_variants: 6
+      minimum_used_ground_families: 2
+      minimum_used_environment_families: 2
+      minimum_used_surface_profiles: 1
+      minimum_surface_parameter_spans:
+        environment_strength: 0.05
+        soil_moisture: 0.55
+        tillage_mode: 1.00
+        sun_energy: 0.04
+        local_shadow_fraction: 0.06
+        artificial_light_energy: 20.0
+
+quality_contract:
+  train_distribution: >-
+    broad V11 soil, tillage, morphology and asset coverage under bounded hooded
+    high-resolution capture, including a wet/glare lighting challenge
+  val_test_distribution: >-
+    asset-disjoint but deploy-matched central camera/light ranges; synthetic
+    diagnostics only, never a replacement for real deployment validation
+  cross_role_asset_overlap_allowed: false
+  cross_role_seed_overlap_allowed: false
+  synthetic_roles_in_real_selection_score: false
+  physical_light_values_calibrated: false

@@ -1,5 +1,25 @@
 # Segmentasyon ve bitki müdahalesi sonucu
 
+## Güncel kontrollü spot-spray PoC — 2026-08-11
+
+- [Buradan başlayın — 6 sayfalık sade PDF](kontrollu_spot_spray_poc_v1/BASLA_BURADAN_KONTROLLU_SPOT_SPRAY_POC_V1.pdf)
+- [Okunabilir detaylı PDF](kontrollu_spot_spray_poc_v1/DETAYLI_KONTROLLU_SPOT_SPRAY_POC_V1.pdf)
+- [Aranabilir rapor, exact JSON ve self-sufficient görseller](kontrollu_spot_spray_poc_v1/README.md)
+- [Exact kamera/lens/ışık/hız/BOM baseline'ı](../CONTROLLED_CAPTURE_OPTIMIZATION_V2.md)
+
+Henüz gerçek target-rig performansı ölçülmedi. Eşit bütçeli pre-real
+karşılaştırmada V12 sentetik ek maruziyeti yerine ROSE native-detail robot
+görünümü kullanan aday seçildi. Tüketilmiş PhenoBench UAV geliştirme
+panelindeki `≥82 px` frame-action F1 `%72,6→%75,4`, aynı kilitli Pheno
+eşiğiyle tüketilmiş tek-session BoniRob dış robot-view panelindeki F1
+`%5,4→%9,0` oldu. Pheno %95 fark aralığı sıfırı kesiyor ve yeni aday V12
+sentetik holdout'ta sabit eşikte `%0,0` F1 veriyor; dolayısıyla bu yalnız
+yönsel pre-real model seçimi, sentetik karar ağırlığı yine `0`. Karar:
+instance segmentation devam, mevcut modelle saha ateşlemesi NO-GO; öncelik
+kontrollü rig ve aynı rig'den session-ayrı gerçek track verisi. Dondurulan
+başlangıç tek Basler PRO kamera, native 2048² ROI, 474–484 mm FOV, 170 µs ve
+15 Hz'dir; 20 Hz/ikinci kamera ayrı E2E benchmark geçmeden açılmaz.
+
 ## Adil target-trained detection vs segmentation A/B — 2026-08-10
 
 - [Yeni — `%95` kapasite/genelleme, kamera kontratı ve rakip ceiling raporu](SEGMENTASYON_95_VE_RAKIP_CEILING_RAPORU_V1.pdf)

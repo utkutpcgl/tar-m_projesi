@@ -1,0 +1,150 @@
+schema_version: 1
+contract: controlled_rgb_segmentation_spot_spray_poc_v1
+status: pre-hardware design contract
+
+task:
+  output_classes: [crop, weed, abstain_partial_unknown]
+  primary_intervention: chemical_spot_spray
+  model_foundation: instance_segmentation
+  action_point: deepest_interior_point_of_weed_mask
+  primary_eligible_weed:
+    minimum_visible_canopy_mm: 20.0
+    minimum_visible_fraction: 0.70
+  stretch_eligible_weed:
+    minimum_visible_canopy_mm: 10.0
+    maximum_visible_canopy_mm: 20.0
+  below_10_mm_policy: report_opportunity_count_without_claiming_treatment
+
+capture_module:
+  module_ground_width_mm: 500.0
+  module_ground_height_mm: 500.0
+  raw_resolution_px: [2048, 2048]
+  ground_sampling_distance_mm_px: 0.244140625
+  minimum_10_mm_weed_span_px: 40.96
+  primary_20_mm_weed_span_px: 81.92
+  working_distance_mm: [550, 650]
+  optical_axis: nadir
+  shutter: global
+  color: Bayer_RGB_with_IR_cut
+  raw_bit_depth_preferred: [10, 12]
+  initial_poc_acquisition_rate_hz: 15
+  target_acquisition_rate_hz: 20
+  hard_minimum_acquisition_rate_hz: 12
+  external_hardware_trigger_required: true
+  encoder_timestamp_required: true
+  fixed_controls:
+    - exposure
+    - analog_gain
+    - white_balance
+    - focus
+    - aperture
+  forbidden:
+    - rolling_shutter
+    - autofocus_during_operation
+    - auto_exposure_during_operation
+    - digital_upscale_as_optical_evidence
+
+reference_camera_candidate:
+  role: procurement_reference_not_mandatory
+  model: Basler ace acA2040-90uc
+  resolution_px: [2048, 2048]
+  frame_rate_hz: 90
+  sensor: ams_CMOSIS_CMV4000_color
+  sensor_size_mm: [11.26, 11.26]
+  pixel_pitch_um: 5.5
+  interface: USB_3_0
+  lens_mount: C_mount
+  shutter: global
+  source: https://www.baslerweb.com/en/shop/aca2040-90uc/
+  caveat: final_purchase_requires_short_exposure_SNR_and_strobe_bench
+
+optics:
+  lens_requirement: 1_inch_or_larger_low_distortion_C_mount
+  nominal_focal_length_mm: [12.5, 16.0]
+  selection_rule: measured_FOV_and_MTF_override_thin_lens_estimate
+  target_ground_width_mm: [450, 500]
+  minimum_depth_of_field_mm: 100
+  calibration_positions: 9
+
+motion:
+  nominal_speed_m_s: 0.5
+  maximum_poc_speed_m_s: 1.0
+  maximum_motion_blur_px: 0.75
+  maximum_exposure_us:
+    at_0_5_m_s: 366.2109375
+    at_1_0_m_s: 183.10546875
+
+illumination:
+  enclosure: matte_black_hood_with_flexible_skirt_and_labyrinth_baffles
+  source: symmetric_multi_angle_diffuse_broad_spectrum_white_LED
+  mode: camera_triggered_strobe
+  pulse_duration: no_longer_than_camera_exposure
+  ambient_off_on_luma_ratio_maximum: 0.10
+  cross_polarization: optional_only_after_wet_glare_paired_bench
+  multispectral: deferred_unless_controlled_RGB_fails
+
+inference:
+  accelerator: NVIDIA_RTX_3090
+  native_tile_core_px: 1024
+  tile_grid: [2, 2]
+  seam_policy: native_halo_then_clip_to_core_and_world_space_merge
+  minimum_halo_px_to_benchmark: 64
+  forbidden: full_frame_downscale_to_1024
+  current_1024_compute_evidence:
+    batch_4_mean_ms: 33.86967843398452
+    batch_4_p95_ms: 34.339105943217874
+    estimated_module_fps: 29.52493339873606
+    scope: preloaded_pixels_through_mask_result_transfer
+  current_64px_halo_compute_evidence:
+    model_input_px: 1152
+    batch_4_mean_ms: 46.06308924655119
+    batch_4_p95_ms: 52.67959251068532
+    estimated_module_fps: 21.709355936757355
+    scope: reflect_padded_compute_proxy_not_production_adjacent_pixels
+  initial_rate_decision: 15_FPS_until_end_to_end_camera_tracking_actuation_latency_passes
+
+temporal_policy:
+  projection: calibrated_ground_plane_world_coordinates
+  association: world_distance_plus_mask_IoU
+  minimum_confirmations: 3
+  preferred_window: 5
+  decision: calibrated_k_of_n_then_crop_safety_veto
+  duplicate_control: fire_once_per_confirmed_track
+
+physical_safety:
+  no_fire_distance_mm: spray_footprint_radius_plus_p95_total_registration_error
+  crop_veto: required
+  partial_border_instance: abstain_until_complete_or_cross_tile_track_merged
+  emergency_stop: required
+  actuator_values_status: blocked_until_nozzle_deposition_bench
+
+offline_go_gates:
+  denominator: eligible_weed_tracks_fixed_before_model_evaluation
+  primary_track_precision_minimum: 0.98
+  primary_track_recall_minimum: 0.95
+  primary_track_f1_minimum: 0.965
+  crop_hit_rate_maximum: 0.005
+  crop_hit_upper_confidence_bound_required: true
+  duplicate_shot_rate_maximum: 0.01
+  per_field_and_worst_field_reporting_required: true
+  synthetic_score_weight_in_real_go_decision: 0.0
+
+data_collection_gate:
+  deploy_hardware_and_controls_frozen: true
+  sessions: at_least_4
+  fields: at_least_3
+  split_unit: field_session_video_track
+  adjacent_frames_across_splits_forbidden: true
+  required_metadata:
+    - timestamp
+    - encoder_pose_or_distance
+    - exposure_us
+    - gain_db
+    - strobe_settings
+    - working_distance_mm
+    - crop_species_and_growth_stage
+    - measured_weed_canopy_mm
+  labels:
+    primary: crop_and_weed_instance_masks_with_track_ID
+    secondary: partial_unknown_and_occlusion_flags
+    deferred: stem_root_meristem_keypoint_for_laser_or_mechanical_phase

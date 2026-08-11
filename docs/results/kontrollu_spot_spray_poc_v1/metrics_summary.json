@@ -1,0 +1,723 @@
+{
+  "schema_version": 4,
+  "generated_at_utc": "2026-08-11T18:05:55.245077+00:00",
+  "decision": {
+    "foundation": "instance_segmentation",
+    "primary_intervention": "chemical_spot_spray",
+    "selected_development_model": "challenger_real_robot_native",
+    "selected_development_model_label": "Aday: gerçek + ROSE native",
+    "field_fire_status": "NO-GO",
+    "reason": "Directional public-panel gain, but every field gate fails and no independent own-rig test exists."
+  },
+  "field_gate": {
+    "track_precision_minimum": 0.98,
+    "track_recall_minimum": 0.95,
+    "track_f1_minimum": 0.965,
+    "crop_hit_maximum": 0.005,
+    "duplicate_shot_maximum": 0.01
+  },
+  "fair_ab": {
+    "shared_unique_real_train_frames": 1407,
+    "samples_per_epoch_per_arm": 1487,
+    "control_extra": "80 deterministic real replays",
+    "challenger_extra": "80 V12 synthetic train tiles",
+    "epochs": 8,
+    "input_size_px": 1024,
+    "seed": 41,
+    "one_seed_directional_only": true
+  },
+  "pre_real_ceiling": {
+    "role": "directional model selection before own-rig data; not deployment evidence",
+    "selected_model": "challenger_real_robot_native",
+    "selected_model_label": "Aday: gerçek + ROSE native",
+    "checkpoint_sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100",
+    "matched_difference": "80 native-detail ROSE robot crops replace 80 V12 synthetic tiles; checkpoint, exposure, optimizer, augmentation, raster and seed remain matched.",
+    "training": {
+      "train_images_per_epoch": 1487,
+      "epochs": 8,
+      "batch": 3,
+      "seed": 41,
+      "image_size": 1024
+    },
+    "phenobench": {
+      "current_best": {
+        "fixed_threshold": 0.77,
+        "precision": 0.8238993710691824,
+        "recall": 0.6485148514851485,
+        "f1": 0.7257617728531857,
+        "crop_hit": 18,
+        "attempted_actions": 159,
+        "crop_hit_rate": 0.11320754716981132,
+        "crop_hit_wilson_upper_95": 0.1718447965055472
+      },
+      "challenger": {
+        "fixed_threshold": 0.76,
+        "precision": 0.8197674418604651,
+        "recall": 0.698019801980198,
+        "f1": 0.7540106951871658,
+        "crop_hit": 18,
+        "attempted_actions": 172,
+        "crop_hit_rate": 0.10465116279069768,
+        "crop_hit_wilson_upper_95": 0.15934845159352834
+      },
+      "challenger_minus_current": {
+        "precision": -0.0041319292087173,
+        "recall": 0.04950495049504944,
+        "f1": 0.02824892233398013,
+        "crop_hit_rate": -0.008556384379113643
+      }
+    },
+    "bonirob": {
+      "current_best": {
+        "fixed_threshold": 0.77,
+        "precision": 0.13756613756613756,
+        "recall": 0.03329065300896287,
+        "f1": 0.053608247422680416,
+        "crop_hit": 23,
+        "attempted_actions": 189,
+        "crop_hit_rate": 0.12169312169312169,
+        "crop_hit_wilson_upper_95": 0.17598325109650198
+      },
+      "challenger": {
+        "fixed_threshold": 0.76,
+        "precision": 0.20179372197309417,
+        "recall": 0.05761843790012804,
+        "f1": 0.08964143426294822,
+        "crop_hit": 23,
+        "attempted_actions": 223,
+        "crop_hit_rate": 0.1031390134529148,
+        "crop_hit_wilson_upper_95": 0.15000486985585196
+      },
+      "challenger_minus_current": {
+        "precision": 0.06422758440695661,
+        "recall": 0.024327784891165175,
+        "f1": 0.03603318684026781,
+        "crop_hit_rate": -0.018554108240206882
+      }
+    },
+    "synthetic_fixed_pheno_threshold": {
+      "current_best": {
+        "fixed_threshold": 0.77,
+        "precision": 1.0,
+        "recall": 0.4642857142857143,
+        "f1": 0.6341463414634146,
+        "crop_hit_rate": 0.0
+      },
+      "challenger": {
+        "fixed_threshold": 0.76,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "attempted_actions": 0,
+        "crop_hit_rate": 0.0,
+        "crop_hit_wilson_upper_95": null
+      },
+      "real_model_selection_score_weight": 0.0,
+      "legacy_current_best_synthetic_calibrated_f1": 0.7575757575757577
+    },
+    "paired_bootstrap_phenobench": {
+      "definition": "challenger F1 minus current-best F1",
+      "paired_samples": 403,
+      "iterations": 2000,
+      "seed": 20260811,
+      "median_difference": 0.028120717188675592,
+      "ci95": [
+        -0.013571998420127018,
+        0.07096349006627682
+      ],
+      "probability_challenger_higher": 0.8985
+    },
+    "decision_checks": {
+      "phenobench_f1_noninferior": true,
+      "phenobench_crop_hit_not_materially_worse": true,
+      "bonirob_f1_material_gain": true,
+      "bonirob_crop_hit_not_worse": true,
+      "all_field_gate_checks": false,
+      "independent_own_rig_field_test": false
+    },
+    "field_fire_go": false,
+    "limitations": "The candidate is not a deployment model. The PhenoBench paired CI includes zero, BoniRob is a consumed correlated session, the native ROSE supplement is bean rather than sugar beet, synthetic transfer collapsed at the fixed real threshold, and no independent own-rig safety evidence exists.",
+    "gallery": {
+      "claims": [
+        "The gallery uses the selected directional pre-real checkpoint and its PhenoBench-validation threshold unchanged on BoniRob.",
+        "Frame indices match the previously published comparison examples; BoniRob pixels do not tune the model or threshold.",
+        "This consumed one-session development panel is not target-rig or deployment proof."
+      ],
+      "config": "/home/ankaref/utku/tarım_projesi/configs/benchmark/pre_real_data_ceiling_gallery_v1.yaml",
+      "config_sha256": "a45011801498170775333908a379567d5eded66ab0f18775249b3a101634e692",
+      "frames": [
+        {
+          "frame_index": 0,
+          "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_gallery_v1/bonirob_000.jpg",
+          "sample_id": "sugarbeets2016_multiclass:bonirob_2016-05-23-10-37-10_0:frame00023",
+          "sha256": "db8581e58993db323d8228e589915295c86ae33fea347ebf24fdcb323ca9af94"
+        },
+        {
+          "frame_index": 150,
+          "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_gallery_v1/bonirob_150.jpg",
+          "sample_id": "sugarbeets2016_multiclass:bonirob_2016-05-23-10-37-10_0:frame00173",
+          "sha256": "bf4e2578fe47b6769baa78992d7315c89db33a233ed1b113e0210b9ea102f0cd"
+        }
+      ],
+      "model": {
+        "checkpoint": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt",
+        "name": "challenger_real_robot_native",
+        "sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100"
+      },
+      "panel": {
+        "membership": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/sugarbeets2016_yolo_segment_external_v1/membership.jsonl",
+        "membership_sha256": "8aa4b666a160886ed43ff0e5588715d998f479ca27a49577b336a24483676c79",
+        "receipt": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/sugarbeets2016_yolo_segment_external_v1/external_action_metrics.json",
+        "receipt_sha256": "cff40ee9961d8962c9cc795e9d938c8d6d4f145cdc3f53dba8a5ba64d2bf2d60"
+      },
+      "protocol": "pre_real_data_ceiling_selected_model_gallery_v1",
+      "schema_version": 1,
+      "status": "selected_pre_real_gallery_complete_not_deployment_proof",
+      "threshold": {
+        "minimum_sqrt_gt_box_area_px": 82.0,
+        "source": "same model PhenoBench validation; no BoniRob tuning",
+        "value": 0.76
+      }
+    }
+  },
+  "phenobench": {
+    "role": "consumed real source/development panel; UAV; not target-rig or field proof",
+    "eligibility": "sqrt exact GT weed box area at native 1024; not physical mm",
+    "primary_size_px": 82,
+    "primary_by_model": {
+      "base_e50": {
+        "tp": 123,
+        "fp": 21,
+        "fn": 79,
+        "precision": 0.8541666666666666,
+        "recall": 0.6089108910891089,
+        "f1": 0.7109826589595376,
+        "attempted_actions": 144,
+        "crop_collision": 13,
+        "crop_collision_rate_per_attempt": 0.09027777777777778,
+        "soil_action": 7,
+        "soil_action_rate_per_attempt": 0.04861111111111111,
+        "duplicate_action": 1
+      },
+      "control_real_replay": {
+        "tp": 125,
+        "fp": 28,
+        "fn": 77,
+        "precision": 0.8169934640522876,
+        "recall": 0.6188118811881188,
+        "f1": 0.7042253521126761,
+        "attempted_actions": 153,
+        "crop_collision": 22,
+        "crop_collision_rate_per_attempt": 0.1437908496732026,
+        "soil_action": 6,
+        "soil_action_rate_per_attempt": 0.0392156862745098,
+        "duplicate_action": 0
+      },
+      "challenger_real_synthetic": {
+        "tp": 131,
+        "fp": 28,
+        "fn": 71,
+        "precision": 0.8238993710691824,
+        "recall": 0.6485148514851485,
+        "f1": 0.7257617728531857,
+        "attempted_actions": 159,
+        "crop_collision": 18,
+        "crop_collision_rate_per_attempt": 0.11320754716981132,
+        "soil_action": 10,
+        "soil_action_rate_per_attempt": 0.06289308176100629,
+        "duplicate_action": 0
+      }
+    },
+    "challenger_by_size_px": {
+      "0": {
+        "tp": 1296,
+        "fp": 274,
+        "fn": 458,
+        "precision": 0.8254777070063695,
+        "recall": 0.7388825541619156,
+        "f1": 0.7797833935018051,
+        "attempted_actions": 1570,
+        "crop_collision": 59,
+        "crop_collision_rate_per_attempt": 0.0375796178343949,
+        "soil_action": 143,
+        "soil_action_rate_per_attempt": 0.0910828025477707,
+        "duplicate_action": 72
+      },
+      "28": {
+        "tp": 832,
+        "fp": 220,
+        "fn": 148,
+        "precision": 0.7908745247148289,
+        "recall": 0.8489795918367347,
+        "f1": 0.8188976377952755,
+        "attempted_actions": 1052,
+        "crop_collision": 54,
+        "crop_collision_rate_per_attempt": 0.051330798479087454,
+        "soil_action": 121,
+        "soil_action_rate_per_attempt": 0.1150190114068441,
+        "duplicate_action": 45
+      },
+      "42": {
+        "tp": 484,
+        "fp": 78,
+        "fn": 141,
+        "precision": 0.8612099644128114,
+        "recall": 0.7744,
+        "f1": 0.8155012636899747,
+        "attempted_actions": 562,
+        "crop_collision": 35,
+        "crop_collision_rate_per_attempt": 0.06227758007117438,
+        "soil_action": 42,
+        "soil_action_rate_per_attempt": 0.07473309608540925,
+        "duplicate_action": 1
+      },
+      "56": {
+        "tp": 291,
+        "fp": 28,
+        "fn": 118,
+        "precision": 0.9122257053291536,
+        "recall": 0.7114914425427873,
+        "f1": 0.7994505494505494,
+        "attempted_actions": 319,
+        "crop_collision": 18,
+        "crop_collision_rate_per_attempt": 0.05642633228840126,
+        "soil_action": 10,
+        "soil_action_rate_per_attempt": 0.03134796238244514,
+        "duplicate_action": 0
+      },
+      "82": {
+        "tp": 131,
+        "fp": 28,
+        "fn": 71,
+        "precision": 0.8238993710691824,
+        "recall": 0.6485148514851485,
+        "f1": 0.7257617728531857,
+        "attempted_actions": 159,
+        "crop_collision": 18,
+        "crop_collision_rate_per_attempt": 0.11320754716981132,
+        "soil_action": 10,
+        "soil_action_rate_per_attempt": 0.06289308176100629,
+        "duplicate_action": 0
+      }
+    },
+    "selected": {
+      "tp": 141,
+      "fp": 31,
+      "fn": 61,
+      "precision": 0.8197674418604651,
+      "recall": 0.698019801980198,
+      "f1": 0.7540106951871658,
+      "attempted_actions": 172,
+      "crop_collision": 18,
+      "crop_collision_rate_per_attempt": 0.10465116279069768,
+      "soil_action": 12,
+      "soil_action_rate_per_attempt": 0.06976744186046512,
+      "duplicate_action": 1
+    },
+    "selected_by_size_px": {
+      "0": {
+        "tp": 1242,
+        "fp": 200,
+        "fn": 512,
+        "precision": 0.8613037447988904,
+        "recall": 0.7080957810718358,
+        "f1": 0.7772215269086357,
+        "attempted_actions": 1442,
+        "crop_collision": 49,
+        "crop_collision_rate_per_attempt": 0.03398058252427184,
+        "soil_action": 120,
+        "soil_action_rate_per_attempt": 0.08321775312066575,
+        "duplicate_action": 31
+      },
+      "28": {
+        "tp": 770,
+        "fp": 115,
+        "fn": 210,
+        "precision": 0.8700564971751412,
+        "recall": 0.7857142857142857,
+        "f1": 0.8257372654155495,
+        "attempted_actions": 885,
+        "crop_collision": 40,
+        "crop_collision_rate_per_attempt": 0.04519774011299435,
+        "soil_action": 66,
+        "soil_action_rate_per_attempt": 0.07457627118644068,
+        "duplicate_action": 9
+      },
+      "42": {
+        "tp": 473,
+        "fp": 63,
+        "fn": 152,
+        "precision": 0.8824626865671642,
+        "recall": 0.7568,
+        "f1": 0.8148148148148149,
+        "attempted_actions": 536,
+        "crop_collision": 26,
+        "crop_collision_rate_per_attempt": 0.048507462686567165,
+        "soil_action": 32,
+        "soil_action_rate_per_attempt": 0.05970149253731343,
+        "duplicate_action": 5
+      },
+      "56": {
+        "tp": 302,
+        "fp": 31,
+        "fn": 107,
+        "precision": 0.9069069069069069,
+        "recall": 0.7383863080684596,
+        "f1": 0.8140161725067385,
+        "attempted_actions": 333,
+        "crop_collision": 18,
+        "crop_collision_rate_per_attempt": 0.05405405405405406,
+        "soil_action": 12,
+        "soil_action_rate_per_attempt": 0.036036036036036036,
+        "duplicate_action": 1
+      },
+      "82": {
+        "tp": 141,
+        "fp": 31,
+        "fn": 61,
+        "precision": 0.8197674418604651,
+        "recall": 0.698019801980198,
+        "f1": 0.7540106951871658,
+        "attempted_actions": 172,
+        "crop_collision": 18,
+        "crop_collision_rate_per_attempt": 0.10465116279069768,
+        "soil_action": 12,
+        "soil_action_rate_per_attempt": 0.06976744186046512,
+        "duplicate_action": 1
+      }
+    },
+    "challenger_minus_control_f1": 0.021536420740509543,
+    "paired_bootstrap": {
+      "ci95": [
+        -0.02020493028029616,
+        0.0642199651381067
+      ],
+      "definition": "challenger_real_synthetic F1 minus control_real_replay F1",
+      "iterations": 2000,
+      "median_difference": 0.02149034651372078,
+      "minimum_sqrt_gt_box_area_px": 82.0,
+      "primary_method": "segment_crop_safe_excess_green",
+      "probability_challenger_higher": 0.854,
+      "seed": 20260811
+    }
+  },
+  "bonirob": {
+    "role": "fixed-threshold external robot-view development panel; one previously consumed field/session; not deployment proof",
+    "frames": 283,
+    "weed_region_proxies": 5166,
+    "primary_size_px": 82,
+    "primary_by_model": {
+      "base_e50": {
+        "tp": 50,
+        "fp": 172,
+        "fn": 731,
+        "precision": 0.22522522522522523,
+        "recall": 0.06402048655569782,
+        "f1": 0.09970089730807577,
+        "attempted_actions": 222,
+        "crop_collision": 12,
+        "crop_collision_rate_per_attempt": 0.05405405405405406,
+        "soil_action": 160,
+        "soil_action_rate_per_attempt": 0.7207207207207207,
+        "duplicate_action": 0
+      },
+      "control_real_replay": {
+        "tp": 38,
+        "fp": 203,
+        "fn": 743,
+        "precision": 0.15767634854771784,
+        "recall": 0.04865556978233035,
+        "f1": 0.07436399217221136,
+        "attempted_actions": 241,
+        "crop_collision": 16,
+        "crop_collision_rate_per_attempt": 0.06639004149377593,
+        "soil_action": 187,
+        "soil_action_rate_per_attempt": 0.7759336099585062,
+        "duplicate_action": 0
+      },
+      "challenger_real_synthetic": {
+        "tp": 26,
+        "fp": 163,
+        "fn": 755,
+        "precision": 0.13756613756613756,
+        "recall": 0.03329065300896287,
+        "f1": 0.053608247422680416,
+        "attempted_actions": 189,
+        "crop_collision": 23,
+        "crop_collision_rate_per_attempt": 0.12169312169312169,
+        "soil_action": 140,
+        "soil_action_rate_per_attempt": 0.7407407407407407,
+        "duplicate_action": 0
+      }
+    },
+    "selected": {
+      "tp": 45,
+      "fp": 178,
+      "fn": 736,
+      "precision": 0.20179372197309417,
+      "recall": 0.05761843790012804,
+      "f1": 0.08964143426294822,
+      "attempted_actions": 223,
+      "crop_collision": 23,
+      "crop_collision_rate_per_attempt": 0.1031390134529148,
+      "soil_action": 155,
+      "soil_action_rate_per_attempt": 0.695067264573991,
+      "duplicate_action": 0
+    },
+    "selected_tissue": {
+      "crop": {
+        "dice": 0.7791909045346022,
+        "fn_pixels": 4859834,
+        "fp_pixels": 672798,
+        "iou": 0.6382577811951494,
+        "precision": 0.9355222174443013,
+        "recall": 0.6676265474786732,
+        "tp_pixels": 9761773
+      },
+      "macro_iou": 0.3604736009357824,
+      "threshold": 0.76,
+      "weed": {
+        "dice": 0.15274818262240855,
+        "fn_pixels": 4914176,
+        "fp_pixels": 813026,
+        "iou": 0.08268942067641541,
+        "precision": 0.38837805001899506,
+        "recall": 0.09506937276779343,
+        "tp_pixels": 516269
+      }
+    }
+  },
+  "synthetic": {
+    "role": "diagnostic only; real model-selection weight is zero",
+    "train_tiles": 80,
+    "val_tiles": 16,
+    "test_tiles": 16,
+    "primary_size_px": 82,
+    "selected_by_inference_size_px": {
+      "512": {
+        "tp": 22,
+        "fp": 9,
+        "fn": 6,
+        "precision": 0.7096774193548387,
+        "recall": 0.7857142857142857,
+        "f1": 0.7457627118644068,
+        "attempted_actions": 31,
+        "crop_collision": 3,
+        "crop_collision_rate_per_attempt": 0.0967741935483871,
+        "soil_action": 1,
+        "soil_action_rate_per_attempt": 0.03225806451612903,
+        "duplicate_action": 5
+      },
+      "768": {
+        "tp": 28,
+        "fp": 18,
+        "fn": 0,
+        "precision": 0.6086956521739131,
+        "recall": 1.0,
+        "f1": 0.7567567567567568,
+        "attempted_actions": 46,
+        "crop_collision": 6,
+        "crop_collision_rate_per_attempt": 0.13043478260869565,
+        "soil_action": 1,
+        "soil_action_rate_per_attempt": 0.021739130434782608,
+        "duplicate_action": 11
+      },
+      "1024": {
+        "tp": 25,
+        "fp": 13,
+        "fn": 3,
+        "precision": 0.6578947368421053,
+        "recall": 0.8928571428571429,
+        "f1": 0.7575757575757577,
+        "attempted_actions": 38,
+        "crop_collision": 2,
+        "crop_collision_rate_per_attempt": 0.05263157894736842,
+        "soil_action": 0,
+        "soil_action_rate_per_attempt": 0.0,
+        "duplicate_action": 11
+      },
+      "1152": {
+        "tp": 24,
+        "fp": 9,
+        "fn": 4,
+        "precision": 0.7272727272727273,
+        "recall": 0.8571428571428571,
+        "f1": 0.7868852459016394,
+        "attempted_actions": 33,
+        "crop_collision": 4,
+        "crop_collision_rate_per_attempt": 0.12121212121212122,
+        "soil_action": 0,
+        "soil_action_rate_per_attempt": 0.0,
+        "duplicate_action": 5
+      }
+    },
+    "control_1024": {
+      "tp": 6,
+      "fp": 3,
+      "fn": 22,
+      "precision": 0.6666666666666666,
+      "recall": 0.21428571428571427,
+      "f1": 0.3243243243243243,
+      "attempted_actions": 9,
+      "crop_collision": 0,
+      "crop_collision_rate_per_attempt": 0.0,
+      "soil_action": 0,
+      "soil_action_rate_per_attempt": 0.0,
+      "duplicate_action": 3
+    },
+    "selected_fixed_pheno_threshold": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 28,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "attempted_actions": 0,
+      "crop_collision": 0,
+      "crop_collision_rate_per_attempt": 0.0,
+      "soil_action": 0,
+      "soil_action_rate_per_attempt": 0.0,
+      "duplicate_action": 0
+    },
+    "all_raw_gates_passed": true,
+    "all_processed_gates_passed": true,
+    "polygon_reconstruction_iou_p05": 0.9727705774777184,
+    "green_dominant_fraction": {
+      "crop": 0.9619637428841274,
+      "weed": 0.7957704943256126
+    },
+    "limitations": [
+      "Connected regions are not botanical instances and may merge touching plants or split occluded plants.",
+      "Synthetic val/test are diagnostic stress sets and have zero weight in real model selection.",
+      "Illumination is a renderer proxy and is not calibrated to physical radiometry.",
+      "Plant HSV calibration is derived from PhenoBench train and is a conservative appearance bridge, not evidence of botanical realism."
+    ]
+  },
+  "capture_contract": {
+    "source_contract": "controlled_spot_spray_capture_optimization_v2",
+    "baseline_camera": "a2A2464-77ucPRO",
+    "baseline_lens": "C23-0824-5M-P",
+    "raster_px": [
+      2048,
+      2048
+    ],
+    "roi_offset_px": [
+      200,
+      0
+    ],
+    "ground_fov_range_mm": [
+      474.0,
+      484.0
+    ],
+    "gsd_range_mm_per_px": [
+      0.2314453125,
+      0.236328125
+    ],
+    "worst_case_10_mm_span_px": 42.31404958677686,
+    "worst_case_20_mm_span_px": 84.62809917355372,
+    "working_distance_adjustment_mm": [
+      520.0,
+      590.0
+    ],
+    "nominal_working_distance_ground_mm": 555.6143478260869,
+    "aperture_f_number": 5.6,
+    "frozen_exposure_us": 170.0,
+    "blur_px_at_1_m_s": 0.7193388429752067,
+    "action_safe_width_range_mm": [
+      444.375,
+      453.75
+    ],
+    "proof_camera_count": 1,
+    "no_halo_module_fps": 29.52493339873606,
+    "halo_64px_module_mean_fps": 21.709355936757355,
+    "halo_64px_module_p95_fps": 18.982682901299285,
+    "compute_p95_service_utilization_at_baseline": 0.7901938876602798,
+    "compute_p95_remaining_budget_ms": 13.987074155981354,
+    "initial_poc_fps": 15.0,
+    "unproven_challenger_fps": 20,
+    "model_input_px": 1152,
+    "tile_core_px": 1024,
+    "halo_px": 64,
+    "outer_edge_abstain_px": 64,
+    "bom_budget": {
+      "contingency_fraction": 0.15,
+      "currency": "USD",
+      "existing_RTX3090_incremental_cost": 0.0,
+      "lower_cost_fallback_savings": 90.0,
+      "lower_cost_fallback_subtotal_range": [
+        3025.0,
+        6455.0
+      ],
+      "lower_cost_fallback_with_contingency_range": [
+        3478.75,
+        7423.25
+      ],
+      "quote_status": "budgetary_not_landed_quote",
+      "subtotal_range": [
+        3115.0,
+        6545.0
+      ],
+      "with_contingency_range": [
+        3582.25,
+        7526.75
+      ]
+    },
+    "baseline_analytic_checks_pass": true
+  },
+  "evidence_scope": {
+    "real_target_rig_result_exists": false,
+    "displayed_action_metric_unit": "single-frame connected-region action proxy",
+    "displayed_action_metric_is_not": [
+      "segmentation IoU",
+      "botanical-instance metric",
+      "track-level field metric"
+    ],
+    "size_82_px_definition": "sqrt(exact ground-truth weed bounding-box area) at native 1024 raster; not weed diameter or physical millimetres",
+    "crop_hit_denominator": "crop-colliding attempted actions / all attempted actions",
+    "future_track_gate_f1": 0.965,
+    "frame_and_track_f1_directly_comparable": false,
+    "measured_compute_path": [
+      "preprocessing",
+      "model forward pass",
+      "NMS",
+      "mask construction",
+      "result transfer"
+    ],
+    "excluded_from_compute_gate": [
+      "camera acquisition",
+      "tracking",
+      "scheduling",
+      "actuation",
+      "spray physics"
+    ]
+  },
+  "protocol_observation": "Ultralytics ran the same automatic post-training validation report for both arms despite val:false. It did not feed gradients or select last.pt; test was not read. The historical status string is too strong for validation, but A/B fairness is intact.",
+  "locked_models": {
+    "base_e50": {
+      "checkpoint": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt",
+      "sha256": "0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8"
+    },
+    "challenger_real_synthetic": {
+      "checkpoint": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_synth80_1024_seed41_e8/weights/last.pt",
+      "sha256": "d2fc87df95ec51c2dca7d9f741241ff0ef81351c9b42f2a0a04acd557e8419c2"
+    },
+    "control_real_replay": {
+      "checkpoint": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_replay80_1024_seed41_e8/weights/last.pt",
+      "sha256": "53a134c79ff36c7b2c5bb1f40c55cb98e04ca876e3aa0fbbf87dd886f2256b38"
+    }
+  },
+  "input_sha256": {
+    "action_metrics": "2e9dc1349235944ae312ebd38a8801add913f27561951c28e055f77334f9ab07",
+    "synthetic_metrics": "1ba9aa89c97c24baaf79df2f79c049871989c5a7325ca3bfdeb052a159278fcf",
+    "external_metrics": "cff40ee9961d8962c9cc795e9d938c8d6d4f145cdc3f53dba8a5ba64d2bf2d60",
+    "ab_receipt": "fc6fa57f04d51048dc3df994b323fec9f6b7f63feac18afd5aced3cd60b2b2aa",
+    "synthetic_receipt": "a61317815ca9870a22cf7ba11118a7756a87accdbcfc022a3c78890e7c92e13d",
+    "synthetic_release": "ff733bff9458af8afebbfdc84a5c5ee4377df0f7635c55638b61889a22b57cf0",
+    "compute": "b03898f35891e304631bfb410089aefdea7f4c5e339f4a9ccef27dc947d28804",
+    "compute_halo": "945c1e43ed9e672d58cc44a57a6a046f202bb285a43b9f385751e297e22de4e7",
+    "capture_v2": "0808c68d40285ff3eba5fb3d13603bc42c12c16d9bacc4fd87470a3c26eafbc8",
+    "pre_real_result": "12648329337a392572b7e697ca0b359f60ef62af34765e37c46e2574e3ea8878",
+    "pre_real_diagnostics": "e4b95a08611fee29d79c146d3001f9b0163d053c58519cd1c2d3ed65a0fd17a2",
+    "pre_real_gallery_receipt": "206446167b146a24d7702b8f85de21739cbb2961d32739084d4c4ded4dd93a65"
+  }
+}

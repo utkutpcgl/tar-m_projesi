@@ -1,0 +1,25 @@
+schema_version: 1
+source_release: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12
+output: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/cropcraft_deploy_segment_proxy_v12
+dataset_id: cropcraft_deploy_segment_proxy_v12
+labels:
+  minimum_component_area_px: 16
+  polygon_approximation_epsilon_px: 0.40
+  minimum_polygon_reconstruction_iou_p05: 0.95
+appearance_calibration:
+  enabled: true
+  method: classwise_hsv_median_half_gap_to_real_train
+  reference_membership: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/phenobench_detect_segment_fair_v1/membership.jsonl
+  reference_membership_sha256: fd9e0beeb0a7c56014220bb301afa3bf9a10c0263374b5a07db692f1299ce69f
+  reference_split: train
+  expected_reference_images: 1407
+  sampling_stride_px: 4
+  blend_fraction: 0.50
+  maximum_saturation: 240
+  minimum_value: 24
+  minimum_green_dominant_fraction_per_class: 0.70
+policy:
+  train_role_allowed_as_bounded_supplement: true
+  val_test_roles: synthetic_diagnostic_only
+  real_model_selection_score_weight: 0.0
+  instance_interpretation: semantic_connected_region_proxy

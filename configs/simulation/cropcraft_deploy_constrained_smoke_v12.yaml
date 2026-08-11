@@ -1,0 +1,69 @@
+schema_version: 1
+base_study: configs/simulation/cropcraft_deploy_constrained_pilot_v12.yaml
+release: cropcraft_deploy_constrained_smoke_v12
+purpose: bounded visual and integrity gate before the full V12 render
+frames_per_scene: 2
+
+deploy_visual_gates:
+  roles:
+    train:
+      minimum_frames_with_any_weed_fraction: 0.50
+      minimum_frames_with_actionable_weed_fraction: 0.50
+      minimum_actionable_weed_components: 4
+    val:
+      minimum_frames_with_any_weed_fraction: 0.50
+      minimum_frames_with_actionable_weed_fraction: 0.25
+      minimum_actionable_weed_components: 1
+    test:
+      minimum_frames_with_any_weed_fraction: 0.50
+      minimum_frames_with_actionable_weed_fraction: 0.25
+      minimum_actionable_weed_components: 1
+
+splits:
+  train:
+    scenes: 4
+    quality_gates:
+      expected_pairs: 8
+      minimum_used_crop_model_variants: 2
+      minimum_used_ground_families: 4
+      minimum_used_environment_families: 4
+      minimum_surface_parameter_spans:
+        environment_strength: 0.02
+        soil_moisture: 0.25
+        tillage_mode: 0.0
+        tillage_strength: 0.0
+        sun_energy: 0.0
+        local_shadow_fraction: 0.0
+        artificial_light_energy: 20.0
+        artificial_light_warmth: 0.0
+  val:
+    scenes: 2
+    quality_gates:
+      expected_pairs: 4
+      minimum_used_crop_model_variants: 1
+      minimum_used_ground_families: 2
+      minimum_used_environment_families: 2
+      minimum_surface_parameter_spans:
+        environment_strength: 0.01
+        soil_moisture: 0.25
+        tillage_mode: 0.0
+        sun_energy: 0.0
+        sun_elevation_deg: 0.0
+        local_shadow_fraction: 0.0
+        artificial_light_energy: 0.0
+  test:
+    scenes: 2
+    quality_gates:
+      expected_pairs: 4
+      minimum_mean_crop_fraction: 0.006
+      minimum_used_crop_model_variants: 1
+      minimum_used_ground_families: 2
+      minimum_used_environment_families: 2
+      minimum_surface_parameter_spans:
+        environment_strength: 0.01
+        soil_moisture: 0.25
+        tillage_mode: 0.0
+        sun_energy: 0.0
+        sun_elevation_deg: 0.0
+        local_shadow_fraction: 0.0
+        artificial_light_energy: 0.0

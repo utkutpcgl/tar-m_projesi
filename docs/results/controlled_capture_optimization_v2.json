@@ -1,0 +1,900 @@
+{
+  "baseline_analytic_checks": {
+    "analytic_DOF_covers_operating_object_range": true,
+    "continuous_hood_geometry_matches_swath_contract": true,
+    "five_observations_at_1_m_s_and_12_Hz": true,
+    "frozen_exposure_blur_at_1_m_s_at_most_0_75_px": true,
+    "local_strobe_storage_prescreen_is_consistent": true,
+    "nine_region_GSD_gate_implies_10_and_20_mm_spans": true,
+    "nine_unique_image_regions_are_gated": true,
+    "one_camera_15_Hz_compute_p95_below_capacity": true,
+    "one_camera_20_Hz_not_yet_proven_at_p95": true,
+    "replicated_bays_keep_minimum_safe_swath_overlap": true,
+    "replicated_module_pitch_has_no_worst_case_gap": true,
+    "ten_mm_span_at_least_41_px": true,
+    "thin_lens_FOV_below_500_mm": true,
+    "thin_lens_GSD_below_nine_region_gate": true,
+    "twenty_mm_span_at_least_82_px": true,
+    "two_camera_12_Hz_rejected_by_measured_p95": true,
+    "working_distance_mount_covers_catalog_focal_tolerance": true
+  },
+  "baseline_analytic_checks_pass": true,
+  "bom_budget": {
+    "contingency_fraction": 0.15,
+    "currency": "USD",
+    "existing_RTX3090_incremental_cost": 0.0,
+    "lower_cost_fallback_savings": 90.0,
+    "lower_cost_fallback_subtotal_range": [
+      3025.0,
+      6455.0
+    ],
+    "lower_cost_fallback_with_contingency_range": [
+      3478.75,
+      7423.25
+    ],
+    "quote_status": "budgetary_not_landed_quote",
+    "subtotal_range": [
+      3115.0,
+      6545.0
+    ],
+    "with_contingency_range": [
+      3582.25,
+      7526.75
+    ]
+  },
+  "camera_price_performance": {
+    "disclaimer": "Public list prices are comparison evidence, not landed quotations. Tax, shipping, tariff, cable, local stock, and foreign-exchange effects are excluded. Requote immediately before purchase.",
+    "matched_lens": {
+      "aperture_range_f_number": [
+        2.4,
+        16.0
+      ],
+      "catalog_focal_length_range_mm": [
+        7.657,
+        8.463000000000001
+      ],
+      "lens_mount": "C_mount",
+      "manufacturer": "Basler",
+      "model": "C23-0824-5M-P",
+      "nominal_design_focal_length_mm": 8.06,
+      "order_number": 2200000568,
+      "price": {
+        "amount": 136.0,
+        "currency": "USD",
+        "kind": "manufacturer_net_list",
+        "source_key": "basler_lens_spec_and_price"
+      },
+      "rated_pixel_pitch_um": 3.45,
+      "selected_aperture_f_number": 5.6,
+      "sensor_coverage": "2/3_inch"
+    },
+    "price_date": "2026-08-11",
+    "range_comparison_rule": "Supplier availability varies. When a challenger has a public supplier range, every price/performance and baseline-ratio calculation uses the range lower bound to favor the challenger; requote before purchase.",
+    "shortlist": [
+      {
+        "active_roi_offset_px": [
+          200,
+          0
+        ],
+        "active_roi_px": [
+          2048,
+          2048
+        ],
+        "bit_depths": [
+          8,
+          10,
+          12
+        ],
+        "color": "Bayer_RGB_with_factory_IR_cut",
+        "interface": "USB3_Vision_5_Gbit_s",
+        "lens_mount": "C_mount",
+        "manufacturer": "Basler",
+        "matched_lens_model": "C23-0824-5M-P",
+        "maximum_frame_rate_condition": "device_link_throughput_limit_off",
+        "maximum_frame_rate_hz": 77.7,
+        "megapixels": 5.013504,
+        "model": "a2A2464-77ucPRO",
+        "pixel_pitch_um": 3.45,
+        "power": "USB3_or_12_to_24_VDC",
+        "price": {
+          "amount": 709.0,
+          "comparison_amount": 709.0,
+          "comparison_basis": "single_listed_amount",
+          "currency": "USD",
+          "kind": "listed_unit_price",
+          "source_key": "basler_ace2_pro_price"
+        },
+        "price_per_max_fps_using_comparison_amount": 9.124839124839124,
+        "price_ratio_vs_selected_baseline_using_comparison_amount": 1.0,
+        "public_availability": "request_lead_time_then_quote",
+        "rank": 1,
+        "resolution_px": [
+          2448,
+          2048
+        ],
+        "role": "baseline",
+        "sensor": "OmniVision_OG05C_BSI",
+        "sensor_format": "2/3_inch",
+        "shutter": "global",
+        "trigger": "opto_coupled_hardware_input_plus_GPIO",
+        "typical_camera_power_w_by_supply": {
+          "IO_12_to_24V": 3.2,
+          "USB_5V": 3.0
+        }
+      },
+      {
+        "active_roi_offset_px": [
+          200,
+          0
+        ],
+        "active_roi_px": [
+          2048,
+          2048
+        ],
+        "bit_depths": [
+          8,
+          10,
+          12
+        ],
+        "color": "Bayer_RGB_with_factory_IR_cut",
+        "interface": "USB3_Vision_5_Gbit_s",
+        "lens_mount": "C_mount",
+        "manufacturer": "Basler",
+        "matched_lens_model": "C23-0824-5M-P",
+        "maximum_frame_rate_condition": "device_link_throughput_limit_off",
+        "maximum_frame_rate_hz": 77.7,
+        "megapixels": 5.013504,
+        "model": "a2A2464-77ucBAS",
+        "pixel_pitch_um": 3.45,
+        "power": "USB3_only",
+        "price": {
+          "amount": 619.0,
+          "comparison_amount": 619.0,
+          "comparison_basis": "single_listed_amount",
+          "currency": "USD",
+          "kind": "listed_unit_price",
+          "source_key": "basler_ace2_basic_price"
+        },
+        "price_per_max_fps_using_comparison_amount": 7.966537966537966,
+        "price_ratio_vs_selected_baseline_using_comparison_amount": 0.8730606488011283,
+        "public_availability": "request_lead_time_then_quote",
+        "rank": 2,
+        "resolution_px": [
+          2448,
+          2048
+        ],
+        "role": "lower_cost_fallback",
+        "sensor": "OmniVision_OG05C_BSI",
+        "sensor_format": "2/3_inch",
+        "shutter": "global",
+        "trigger": "opto_coupled_hardware_input_plus_GPIO",
+        "typical_camera_power_w": 2.7
+      },
+      {
+        "active_roi_offset_px": [
+          200,
+          0
+        ],
+        "active_roi_px": [
+          2048,
+          2048
+        ],
+        "bit_depths": [
+          8,
+          10,
+          12
+        ],
+        "color": "Bayer_RGB",
+        "full_frame_rate_hz_by_raw_format": {
+          "BayerRG10p": 49.0,
+          "BayerRG12p": 37.0,
+          "BayerRG8": 73.0
+        },
+        "interface": "USB3_Vision",
+        "lens_mount": "C_mount",
+        "manufacturer": "Teledyne_FLIR",
+        "matched_lens_model": "C23-0824-5M-P",
+        "maximum_frame_rate_condition": "BayerRG8_full_frame",
+        "maximum_frame_rate_hz": 73.0,
+        "megapixels": 5.013504,
+        "model": "BFS-U3-51S5C-C",
+        "pixel_pitch_um": 3.45,
+        "price": {
+          "comparison_amount": 1304.0,
+          "comparison_basis": "lower_bound_to_favor_challenger",
+          "currency": "USD",
+          "kind": "current_supplier_listing_range",
+          "maximum_amount": 1557.78,
+          "minimum_amount": 1304.0,
+          "source_keys": [
+            "flir_camera_price_digikey",
+            "flir_camera_price_edmund"
+          ]
+        },
+        "price_per_max_fps_using_comparison_amount": 17.863013698630137,
+        "price_ratio_vs_selected_baseline_using_comparison_amount": 1.839210155148096,
+        "public_availability": "varies_DigiKey_available_to_order_Edmund_US_in_stock",
+        "rank": 3,
+        "resolution_px": [
+          2448,
+          2048
+        ],
+        "role": "vendor_diverse_challenger",
+        "sensor": "Sony_IMX250",
+        "sensor_format": "2/3_inch",
+        "shutter": "global",
+        "trigger": "hardware_trigger"
+      }
+    ]
+  },
+  "camera_transport_payload": [
+    {
+      "Bayer10_packed_payload_mbps": 503.31648,
+      "Bayer12_packed_payload_mbps": 603.979776,
+      "frame_rate_hz": 12.0
+    },
+    {
+      "Bayer10_packed_payload_mbps": 629.1456,
+      "Bayer12_packed_payload_mbps": 754.97472,
+      "frame_rate_hz": 15.0
+    },
+    {
+      "Bayer10_packed_payload_mbps": 838.8608,
+      "Bayer12_packed_payload_mbps": 1006.63296,
+      "frame_rate_hz": 20.0
+    }
+  ],
+  "contract": "controlled_spot_spray_capture_optimization_v2",
+  "decision": {
+    "baseline_camera": "a2A2464-77ucPRO",
+    "baseline_frame_rate_hz": 15.0,
+    "frozen_exposure_us": 170.0,
+    "lens": "C23-0824-5M-P",
+    "lower_cost_fallback": "a2A2464-77ucBAS",
+    "nominal_working_distance_ground_mm": 555.6143478260869,
+    "proof_camera_count": 1,
+    "scale_rule": "Extend one continuous matte hood/skirt and repeat complete camera-light-trigger bays at no more than 430 mm center pitch, with matte inter-bay baffles. Give every camera a dedicated USB3 root controller and independently proven accelerator capacity; synchronize triggers but do not share an unbenchmarked RTX 3090 inference budget.",
+    "working_distance_adjustment_mm": [
+      520.0,
+      590.0
+    ],
+    "working_distance_required_catalog_envelope_mm": [
+      521.3314225543479,
+      588.1861657608696
+    ],
+    "working_distance_selection_rule": "Adjust the installed camera height until the measured ground FOV is in range, then freeze and record that unit's working distance. The mount range covers the lens maker's nominal focal tolerance; do not assume a catalog 550 mm distance for every delivered lens."
+  },
+  "evidence_date": "2026-08-11",
+  "manager_validation_required": true,
+  "motion_and_track_observation": [
+    {
+      "blur_px_at_frozen_exposure": 0.35966942148760334,
+      "maximum_exposure_us_at_blur_limit": 354.4921875,
+      "observation_envelope": [
+        {
+          "frame_rate_hz": 12.0,
+          "maximum_speed_m_s_for_five_observations": 1.0665,
+          "minimum_action_safe_observations": 10,
+          "trigger_pitch_mm": 41.666666666666664
+        },
+        {
+          "frame_rate_hz": 15.0,
+          "maximum_speed_m_s_for_five_observations": 1.3331250000000001,
+          "minimum_action_safe_observations": 13,
+          "trigger_pitch_mm": 33.333333333333336
+        },
+        {
+          "frame_rate_hz": 20.0,
+          "maximum_speed_m_s_for_five_observations": 1.7775000000000003,
+          "minimum_action_safe_observations": 17,
+          "trigger_pitch_mm": 25.0
+        }
+      ],
+      "speed_m_s": 0.5
+    },
+    {
+      "blur_px_at_frozen_exposure": 0.7193388429752067,
+      "maximum_exposure_us_at_blur_limit": 177.24609375,
+      "observation_envelope": [
+        {
+          "frame_rate_hz": 12.0,
+          "maximum_speed_m_s_for_five_observations": 1.0665,
+          "minimum_action_safe_observations": 5,
+          "trigger_pitch_mm": 83.33333333333333
+        },
+        {
+          "frame_rate_hz": 15.0,
+          "maximum_speed_m_s_for_five_observations": 1.3331250000000001,
+          "minimum_action_safe_observations": 6,
+          "trigger_pitch_mm": 66.66666666666667
+        },
+        {
+          "frame_rate_hz": 20.0,
+          "maximum_speed_m_s_for_five_observations": 1.7775000000000003,
+          "minimum_action_safe_observations": 8,
+          "trigger_pitch_mm": 50.0
+        }
+      ],
+      "speed_m_s": 1.0
+    }
+  ],
+  "optical_proof": {
+    "FOV_range_mm": [
+      474.0,
+      484.0
+    ],
+    "GSD_range_mm_px": [
+      0.2314453125,
+      0.236328125
+    ],
+    "action_safe_inner_px": 1920,
+    "action_safe_width_range_mm": [
+      444.375,
+      453.75
+    ],
+    "active_sensor_span_mm": 7.0656,
+    "airy_disk_at_design_wavelength_px": 2.17831884057971,
+    "airy_disk_at_design_wavelength_um": 7.5152,
+    "analytic_DOF": {
+      "far_mm": 586.2915006683968,
+      "hyperfocal_mm": 3370.5651759834373,
+      "near_mm": 436.7851620900211,
+      "total_mm": 149.50633857837568
+    },
+    "aperture_f_number": 5.6,
+    "canopy_relief_above_ground_mm": [
+      0.0,
+      110.0
+    ],
+    "catalog_focal_FOV_DOF_samples": [
+      {
+        "DOF": {
+          "far_mm": 549.1192746944879,
+          "hyperfocal_mm": 3042.317921325052,
+          "near_mm": 405.23608873192376,
+          "total_mm": 143.88318596256414
+        },
+        "far_DOF_margin_mm": 27.78785214013999,
+        "focal_length_mm": 7.657,
+        "focus_distance_mm": 466.3314225543479,
+        "ground_FOV_mm": 474.0,
+        "near_DOF_margin_mm": 6.095333822424152,
+        "operating_object_distance_mm": [
+          411.3314225543479,
+          521.3314225543479
+        ],
+        "working_distance_mm": 521.3314225543479
+      },
+      {
+        "DOF": {
+          "far_mm": 558.1805827883013,
+          "hyperfocal_mm": 3042.317921325052,
+          "near_mm": 410.124721920145,
+          "total_mm": 148.0558608681563
+        },
+        "far_DOF_margin_mm": 30.346952353518645,
+        "focal_length_mm": 7.657,
+        "focus_distance_mm": 472.83363043478266,
+        "ground_FOV_mm": 480.0,
+        "near_DOF_margin_mm": 7.708908514637642,
+        "operating_object_distance_mm": [
+          417.83363043478266,
+          527.8336304347827
+        ],
+        "working_distance_mm": 527.8336304347827
+      },
+      {
+        "DOF": {
+          "far_mm": 564.2468998309648,
+          "hyperfocal_mm": 3042.317921325052,
+          "near_mm": 413.37375362111436,
+          "total_mm": 150.87314620985046
+        },
+        "far_DOF_margin_mm": 32.07846414255903,
+        "focal_length_mm": 7.657,
+        "focus_distance_mm": 477.1684356884058,
+        "ground_FOV_mm": 484.0,
+        "near_DOF_margin_mm": 8.794682067291433,
+        "operating_object_distance_mm": [
+          422.1684356884058,
+          532.1684356884058
+        ],
+        "working_distance_mm": 532.1684356884058
+      },
+      {
+        "DOF": {
+          "far_mm": 576.9037069853827,
+          "hyperfocal_mm": 3370.5651759834373,
+          "near_mm": 431.578051721781,
+          "total_mm": 145.32565526360167
+        },
+        "far_DOF_margin_mm": 28.133788507121835,
+        "focal_length_mm": 8.06,
+        "focus_distance_mm": 493.7699184782608,
+        "ground_FOV_mm": 474.0,
+        "near_DOF_margin_mm": 7.19186675647984,
+        "operating_object_distance_mm": [
+          438.7699184782608,
+          548.7699184782608
+        ],
+        "working_distance_mm": 548.7699184782608
+      },
+      {
+        "DOF": {
+          "far_mm": 586.2915006683968,
+          "hyperfocal_mm": 3370.5651759834373,
+          "near_mm": 436.7851620900211,
+          "total_mm": 149.50633857837568
+        },
+        "far_DOF_margin_mm": 30.67715284230985,
+        "focal_length_mm": 8.06,
+        "focus_distance_mm": 500.61434782608694,
+        "ground_FOV_mm": 480.0,
+        "near_DOF_margin_mm": 8.829185736065824,
+        "operating_object_distance_mm": [
+          445.61434782608694,
+          555.6143478260869
+        ],
+        "working_distance_mm": 555.6143478260869
+      },
+      {
+        "DOF": {
+          "far_mm": 592.5748757027368,
+          "hyperfocal_mm": 3370.5651759834373,
+          "near_mm": 440.24633039913715,
+          "total_mm": 152.32854530359964
+        },
+        "far_DOF_margin_mm": 32.3975749780991,
+        "focal_length_mm": 8.06,
+        "focus_distance_mm": 505.1773007246377,
+        "ground_FOV_mm": 484.0,
+        "near_DOF_margin_mm": 9.930970325500539,
+        "operating_object_distance_mm": [
+          450.1773007246377,
+          560.1773007246377
+        ],
+        "working_distance_mm": 560.1773007246377
+      },
+      {
+        "DOF": {
+          "far_mm": 604.648088270048,
+          "hyperfocal_mm": 3715.6249565217404,
+          "near_mm": 458.00505211625665,
+          "total_mm": 146.64303615379134
+        },
+        "far_DOF_margin_mm": 28.439673867874035,
+        "focal_length_mm": 8.463000000000001,
+        "focus_distance_mm": 521.208414402174,
+        "ground_FOV_mm": 474.0,
+        "near_DOF_margin_mm": 8.203362285917308,
+        "operating_object_distance_mm": [
+          466.20841440217396,
+          576.208414402174
+        ],
+        "working_distance_mm": 576.208414402174
+      },
+      {
+        "DOF": {
+          "far_mm": 614.3637570953593,
+          "hyperfocal_mm": 3715.6249565217404,
+          "near_mm": 463.5323951838872,
+          "total_mm": 150.83136191147213
+        },
+        "far_DOF_margin_mm": 30.968691877968013,
+        "focal_length_mm": 8.463000000000001,
+        "focus_distance_mm": 528.3950652173913,
+        "ground_FOV_mm": 480.0,
+        "near_DOF_margin_mm": 9.862670033504116,
+        "operating_object_distance_mm": [
+          473.39506521739133,
+          583.3950652173913
+        ],
+        "working_distance_mm": 583.3950652173913
+      },
+      {
+        "DOF": {
+          "far_mm": 620.8651829114509,
+          "hyperfocal_mm": 3715.6249565217404,
+          "near_mm": 467.20688180355654,
+          "total_mm": 153.65830110789437
+        },
+        "far_DOF_margin_mm": 32.67901715058133,
+        "focal_length_mm": 8.463000000000001,
+        "focus_distance_mm": 533.1861657608696,
+        "ground_FOV_mm": 484.0,
+        "near_DOF_margin_mm": 10.979283957313044,
+        "operating_object_distance_mm": [
+          478.1861657608696,
+          588.1861657608696
+        ],
+        "working_distance_mm": 588.1861657608696
+      }
+    ],
+    "catalog_focal_length_range_mm": [
+      7.657,
+      8.463000000000001
+    ],
+    "catalog_math_is_not_acceptance_evidence": true,
+    "focus_plane_offset_above_ground_mm": 55.0,
+    "ground_distance_samples": [
+      {
+        "fov_mm": 474.0,
+        "gsd_mm_px": 0.2314453125,
+        "nominal_focal_length_mm": 8.06,
+        "object_distance_mm": 548.7699184782608,
+        "span_10_mm_px": 43.20675105485232,
+        "span_20_mm_px": 86.41350210970464
+      },
+      {
+        "fov_mm": 480.0,
+        "gsd_mm_px": 0.234375,
+        "nominal_focal_length_mm": 8.06,
+        "object_distance_mm": 555.6143478260869,
+        "span_10_mm_px": 42.666666666666664,
+        "span_20_mm_px": 85.33333333333333
+      },
+      {
+        "fov_mm": 484.0,
+        "gsd_mm_px": 0.236328125,
+        "nominal_focal_length_mm": 8.06,
+        "object_distance_mm": 560.1773007246377,
+        "span_10_mm_px": 42.31404958677686,
+        "span_20_mm_px": 84.62809917355372
+      }
+    ],
+    "minimum_far_DOF_margin_mm": 27.78785214013999,
+    "minimum_near_DOF_margin_mm": 6.095333822424152,
+    "nine_region_count": 9,
+    "nominal_design_focal_length_mm": 8.06,
+    "nominal_focus_distance_mm": 500.61434782608694,
+    "required_working_distance_range_mm": [
+      521.3314225543479,
+      588.1861657608696
+    ],
+    "working_distance_mount_adjustment_mm": [
+      520.0,
+      590.0
+    ],
+    "worst_case_10_mm_span_px": 42.31404958677686,
+    "worst_case_20_mm_span_px": 84.62809917355372
+  },
+  "schema_version": 2,
+  "source_integrity": {
+    "derivation_config": {
+      "path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+      "sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9"
+    },
+    "v12_synthetic_proxy": {
+      "path": "configs/simulation/cropcraft_deploy_constrained_pilot_v12.yaml",
+      "sha256": "f006c709249cee0e9d8b8f74fd22fa0e1fdccde55ac90a6e2c474608607c0ec4"
+    },
+    "v1_compute": {
+      "path": "docs/results/spot_spray_deploy_compute_summary_v1.json",
+      "sha256": "b03898f35891e304631bfb410089aefdea7f4c5e339f4a9ccef27dc947d28804"
+    },
+    "v1_contract": {
+      "path": "docs/SPOT_SPRAY_DEPLOY_SOZLESMESI_V1.md",
+      "sha256": "654ab5eea4a0efb6aad0c8c23e45703865916b3127c28fefec8116decc0fdaad"
+    },
+    "v1_deploy_config": {
+      "path": "configs/deploy/spot_spray_poc_v1.yaml",
+      "sha256": "cef2b7c3fe8430b792359c8e370339b02ada7f442660f0549a29d54ef10540e5"
+    },
+    "v1_halo_compute": {
+      "path": "docs/results/spot_spray_deploy_compute_halo_summary_v1.json",
+      "sha256": "945c1e43ed9e672d58cc44a57a6a046f202bb285a43b9f385751e297e22de4e7"
+    }
+  },
+  "status": "READY_FOR_MANAGER_VALIDATION",
+  "strobe_duty_and_power_envelope": {
+    "bench_variable_rule": "Lux, optical joules, LED current, and renderer energy have no frozen physical value until measured on the installed hood. Search current only inside the electrical ceiling; reject the light if no setting passes SNR, clipping, uniformity, ambient rejection, exposure, and thermal gates.",
+    "conservative_local_storage_prescreen_uF": 1249.9999999999998,
+    "maximum_peak_energy_ceiling_j_per_pulse": 0.0408,
+    "nominal_peak_energy_ceiling_j_per_pulse": 0.036,
+    "peak_electrical_ceiling_w": 240.0,
+    "rows": [
+      {
+        "average_w_at_peak_ceiling_and_nominal_pulse": 0.432,
+        "frame_rate_hz": 12.0,
+        "maximum_pulse_duty_fraction": 0.00204,
+        "nominal_pulse_duty_fraction": 0.0018
+      },
+      {
+        "average_w_at_peak_ceiling_and_nominal_pulse": 0.54,
+        "frame_rate_hz": 15.0,
+        "maximum_pulse_duty_fraction": 0.00255,
+        "nominal_pulse_duty_fraction": 0.00225
+      },
+      {
+        "average_w_at_peak_ceiling_and_nominal_pulse": 0.72,
+        "frame_rate_hz": 20.0,
+        "maximum_pulse_duty_fraction": 0.0034,
+        "nominal_pulse_duty_fraction": 0.003
+      }
+    ],
+    "unmeasured_lux_or_energy_is_frozen": false
+  },
+  "synthetic_envelope": {
+    "derived_optical_match": {
+      "action_safe_width_range_mm": [
+        444.375,
+        453.75
+      ],
+      "analytic_DOF_mm": {
+        "far_mm": 586.2915006683968,
+        "hyperfocal_mm": 3370.5651759834373,
+        "near_mm": 436.7851620900211,
+        "total_mm": 149.50633857837568
+      },
+      "catalog_focal_length_range_mm": [
+        7.657,
+        8.463000000000001
+      ],
+      "focus_plane_offset_above_ground_mm": 55.0,
+      "ground_FOV_range_mm": [
+        474.0,
+        484.0
+      ],
+      "ground_GSD_range_mm_px": [
+        0.2314453125,
+        0.236328125
+      ],
+      "required_working_distance_range_mm": [
+        521.3314225543479,
+        588.1861657608696
+      ]
+    },
+    "exposure_and_motion": {
+      "acquisition_rate_hz": [
+        12.0,
+        20.0
+      ],
+      "along_travel_blur_px": [
+        0.0,
+        0.75
+      ],
+      "exposure_us": [
+        161.5,
+        170.0
+      ],
+      "strobe_pulse_us": [
+        150.0,
+        170.0
+      ],
+      "trigger_to_light_jitter_p95_us": [
+        0.0,
+        5.0
+      ]
+    },
+    "geometry": {
+      "active_centered_ROI_offset_px": [
+        200,
+        0
+      ],
+      "active_centered_ROI_px": [
+        2048,
+        2048
+      ],
+      "aperture_f_number": 5.6,
+      "camera_pitch_deg": [
+        -1.0,
+        1.0
+      ],
+      "camera_roll_deg": [
+        -1.0,
+        1.0
+      ],
+      "camera_yaw_deg": [
+        -2.0,
+        2.0
+      ],
+      "canopy_relief_above_ground_mm": [
+        0.0,
+        110.0
+      ],
+      "catalog_focal_length_tolerance_fraction": 0.05,
+      "centered_independent_tile_proxy_for_final_release_forbidden": true,
+      "distortion_vignetting_and_off_axis_MTF": "sample_from_installed_rig_calibration_covariance",
+      "focus_plane_offset_above_ground_mm": 55.0,
+      "halo_px": 64,
+      "local_GSD_rejection_maximum_mm_px": 0.24390243902439024,
+      "nominal_design_focal_length_mm": 8.06,
+      "outer_64px_action_mask": "abstain",
+      "physical_sensor_resolution_px": [
+        2448,
+        2048
+      ],
+      "render_active_native_ROI_before_tiling": true,
+      "target_ground_FOV_mm": [
+        474.0,
+        484.0
+      ],
+      "tile_core_px": 1024,
+      "working_distance_adjustment_mm": [
+        520.0,
+        590.0
+      ],
+      "working_distance_coupling": "Sample calibrated focal geometry and target FOV together, derive the corresponding working distance, and never randomize these independently."
+    },
+    "image_space_light_constraints": {
+      "clipped_black_fraction": [
+        0.0,
+        0.001
+      ],
+      "clipped_white_fraction": [
+        0.0,
+        0.002
+      ],
+      "corrected_ambient_off_on_luma_ratio": [
+        0.0,
+        0.1
+      ],
+      "frame_mean_luma_8bit": [
+        40.0,
+        205.0
+      ],
+      "nine_region_luma_min_to_max_ratio": [
+        0.75,
+        1.0
+      ],
+      "polarization_profile": "separate_challenger_only_after_physical_AB_gate",
+      "wet_glare_challenge_required": true
+    },
+    "inherited_renderer_proxy_from_v12": {
+      "artificial_light_energy": [
+        25.0,
+        65.0
+      ],
+      "artificial_light_size_m": [
+        0.45,
+        0.9
+      ],
+      "artificial_light_warmth": [
+        0.25,
+        0.75
+      ],
+      "environment_strength": [
+        0.02,
+        0.12
+      ],
+      "local_shadow_fraction": [
+        0.0,
+        0.12
+      ],
+      "sun_energy": [
+        0.0,
+        0.08
+      ],
+      "warning": "Renderer units are not lux, joules, watts, CRI, or CCT. Retain only as broad pre-calibration proxies; accept generated images by image-space gates and replace priors with paired physical calibration distributions."
+    },
+    "real_GO_score_weight": 0.0,
+    "release_role": "diagnostic_and_training_support_only",
+    "sensor_and_color": {
+      "IR_cut": "installed",
+      "dark_noise_gain_color_matrix_flat_field_and_bad_pixels": "measured_rig_distributions_only",
+      "fixed_white_balance_with_measured_session_drift": true,
+      "mosaic": "Bayer_RGB",
+      "raw_bit_depth": [
+        10,
+        12
+      ]
+    },
+    "split_and_leakage": {
+      "adjacent_frames_across_splits_forbidden": true,
+      "camera_light_profile_metadata_required": true,
+      "cross_role_asset_overlap_forbidden": true,
+      "split_unit": "field_session_video_track"
+    }
+  },
+  "tiling_and_scalable_swath": {
+    "compute_consequence": [
+      {
+        "camera_count": 1,
+        "frame_rate_hz_each": 12.0,
+        "mean_service_utilization_fraction": 0.5527570709586144,
+        "p95_compute_only_supported": true,
+        "p95_remaining_budget_ms_per_cycle": 30.65374082264801,
+        "p95_service_utilization_fraction": 0.6321551101282238,
+        "tile_demand_per_s": 48.0
+      },
+      {
+        "camera_count": 1,
+        "frame_rate_hz_each": 15.0,
+        "mean_service_utilization_fraction": 0.6909463386982679,
+        "p95_compute_only_supported": true,
+        "p95_remaining_budget_ms_per_cycle": 13.987074155981354,
+        "p95_service_utilization_fraction": 0.7901938876602798,
+        "tile_demand_per_s": 60.0
+      },
+      {
+        "camera_count": 1,
+        "frame_rate_hz_each": 20.0,
+        "mean_service_utilization_fraction": 0.9212617849310238,
+        "p95_compute_only_supported": false,
+        "p95_remaining_budget_ms_per_cycle": -2.6795925106853176,
+        "p95_service_utilization_fraction": 1.0535918502137063,
+        "tile_demand_per_s": 80.0
+      },
+      {
+        "camera_count": 2,
+        "frame_rate_hz_each": 12.0,
+        "mean_service_utilization_fraction": 1.1055141419172287,
+        "p95_compute_only_supported": false,
+        "p95_remaining_budget_ms_per_cycle": -22.025851688037307,
+        "p95_service_utilization_fraction": 1.2643102202564476,
+        "tile_demand_per_s": 96.0
+      },
+      {
+        "camera_count": 2,
+        "frame_rate_hz_each": 15.0,
+        "mean_service_utilization_fraction": 1.3818926773965359,
+        "p95_compute_only_supported": false,
+        "p95_remaining_budget_ms_per_cycle": -38.692518354703964,
+        "p95_service_utilization_fraction": 1.5803877753205595,
+        "tile_demand_per_s": 120.0
+      },
+      {
+        "camera_count": 2,
+        "frame_rate_hz_each": 20.0,
+        "mean_service_utilization_fraction": 1.8425235698620477,
+        "p95_compute_only_supported": false,
+        "p95_remaining_budget_ms_per_cycle": -55.359185021370635,
+        "p95_service_utilization_fraction": 2.1071837004274125,
+        "tile_demand_per_s": 160.0
+      },
+      {
+        "camera_count": 3,
+        "frame_rate_hz_each": 12.0,
+        "mean_service_utilization_fraction": 1.658271212875843,
+        "p95_compute_only_supported": false,
+        "p95_remaining_budget_ms_per_cycle": -74.70544419872262,
+        "p95_service_utilization_fraction": 1.8964653303846715,
+        "tile_demand_per_s": 144.0
+      },
+      {
+        "camera_count": 3,
+        "frame_rate_hz_each": 15.0,
+        "mean_service_utilization_fraction": 2.072839016094804,
+        "p95_compute_only_supported": false,
+        "p95_remaining_budget_ms_per_cycle": -91.37211086538927,
+        "p95_service_utilization_fraction": 2.370581662980839,
+        "tile_demand_per_s": 180.0
+      },
+      {
+        "camera_count": 3,
+        "frame_rate_hz_each": 20.0,
+        "mean_service_utilization_fraction": 2.7637853547930717,
+        "p95_compute_only_supported": false,
+        "p95_remaining_budget_ms_per_cycle": -108.03877753205595,
+        "p95_service_utilization_fraction": 3.160775550641119,
+        "tile_demand_per_s": 240.0
+      }
+    ],
+    "continuous_hood_internal_width_mm_by_camera_count": {
+      "1": 600.0,
+      "2": 1030.0,
+      "3": 1460.0
+    },
+    "halo_px": 64,
+    "maximum_module_center_pitch_mm": 430.0,
+    "measured_halo_batch4_mean_ms": 46.06308924655119,
+    "measured_halo_batch4_p95_ms": 52.67959251068532,
+    "measured_mean_module_capacity_hz": 21.709355936757355,
+    "measured_p95_module_capacity_hz": 18.982682901299285,
+    "minimum_calibrated_safe_swath_overlap_mm": 10.0,
+    "minimum_valid_union_width_mm_by_camera_count": {
+      "1": 444.375,
+      "2": 874.375,
+      "3": 1304.375
+    },
+    "model_input_px": 1152,
+    "multi_camera_extrapolation_rule": "Multi-camera rows replicate the measured batch-4 module service time serially. They are workload consequences, not a batch-8 or concurrent multi-camera benchmark; only a new end-to-end benchmark may supersede them.",
+    "outer_edge_abstain_px": 64,
+    "tile_core_px": 1024,
+    "tile_grid": [
+      2,
+      2
+    ],
+    "worst_case_safe_swath_overlap_at_maximum_pitch_mm": 14.375
+  }
+}

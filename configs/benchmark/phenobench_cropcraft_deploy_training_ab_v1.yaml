@@ -1,0 +1,77 @@
+schema_version: 1
+protocol: phenobench_equal_exposure_real_replay_vs_deploy_synthetic_finetune_v1
+frozen_at: "2026-08-11T08:10:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+ab_dataset_receipt: processed/phenobench_cropcraft_deploy_ab_v1/dataset_receipt.json
+ab_dataset_receipt_sha256: fc6fa57f04d51048dc3df994b323fec9f6b7f63feac18afd5aced3cd60b2b2aa
+initial_checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+initial_checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+
+arms:
+  control_real_replay:
+    dataset_yaml: processed/phenobench_cropcraft_deploy_ab_v1/control_real_replay.yaml
+    dataset_yaml_sha256: 4985dbfe53f2a580336febc66cc8dcf66ccf448df5061046b9040e873bcee458
+    run_name: yolo26s_seg_real1407_replay80_1024_seed41_e8
+  challenger_real_synthetic:
+    dataset_yaml: processed/phenobench_cropcraft_deploy_ab_v1/challenger_real_synthetic.yaml
+    dataset_yaml_sha256: 96591e9e585340c425ca3d91f85486a406bc66155c802f1660d9e9a16f2b9fd0
+    run_name: yolo26s_seg_real1407_synth80_1024_seed41_e8
+
+model_family:
+  name: YOLO26s-seg
+  package: ultralytics
+  package_version: 8.4.60
+
+training:
+  epochs: 8
+  patience: 0
+  image_size: 1024
+  batch: 3
+  workers: 8
+  device: 0
+  seed: 41
+  deterministic: true
+  amp: true
+  optimizer: AdamW
+  lr0: 0.00015
+  lrf: 0.10
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 1.0
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  cos_lr: true
+  cache: ram
+  hsv_h: 0.015
+  hsv_s: 0.5
+  hsv_v: 0.3
+  degrees: 8.0
+  translate: 0.08
+  scale: 0.25
+  shear: 0.0
+  perspective: 0.0
+  fliplr: 0.5
+  flipud: 0.5
+  mosaic: 0.0
+  mixup: 0.0
+  copy_paste: 0.0
+  close_mosaic: 0
+  mask_ratio: 1
+  overlap_mask: true
+  val: false
+  plots: false
+
+selection:
+  checkpoint: last.pt
+  reason: fixed final epoch; confidence is calibrated later on the same real validation split
+  validation_role: not used during training
+  test_role: not used during training
+
+output:
+  project: runs/phenobench_cropcraft_deploy_training_ab_v1
+
+claims:
+  - Both arms use the same initial checkpoint, optimization settings, seed, sample count, batch size, and fixed eight-epoch exposure.
+  - The only intended difference is 80 real replay exposures versus 80 controlled synthetic train exposures.
+  - Real validation and test are not used by training or checkpoint selection.

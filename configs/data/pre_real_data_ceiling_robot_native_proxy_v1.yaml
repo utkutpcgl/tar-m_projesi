@@ -1,0 +1,59 @@
+schema_version: 1
+protocol: pre_real_data_ceiling_phenobench_plus_rose_native_proxy_v1
+frozen_at: "2026-08-11T15:10:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+
+phenobench:
+  dataset_root: processed/phenobench_detect_segment_fair_v1/segment
+  dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+  dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+  dataset_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_segment_fair_v1.yaml
+  dataset_yaml_sha256: 1f4039135c62d3886eb8ec04103ceff8e279451120e280ceaa1f08e1a5e9485d
+  expected_train_images: 1407
+
+robot_proxy:
+  dataset_id: rose
+  manifest: processed/manifests/rose.csv
+  manifest_sha256: 525871680c581ecf166297c7cd56a9cdf5e527d2a9d7ed0dfc54cee1660a0cb8
+  conversion_receipt: processed/manifests/rose_conversion.json
+  conversion_receipt_sha256: 18d8305a6854a34d8c31fef3ad0233066da9fcbe7f8f516e110c17559f271d3d
+  required_split: train
+  required_crop_species: Phaseolus vulgaris
+  required_platform_prefix: rose_robot_
+  source_raster_px_by_session:
+    rose_2019_bipbip_haricot: [2048, 1536]
+    rose_2019_pead_haricot: [3280, 2464]
+  tile_size_px: 1024
+  selection_seed: 20260811
+  session_quotas:
+    rose_2019_bipbip_haricot: 40
+    rose_2019_pead_haricot: 40
+  minimum_crop_pixels_per_tile: 256
+  minimum_weed_pixels_per_tile: 256
+  minimum_component_area_px: 16
+  polygon_approximation_epsilon_px: 0.5
+  minimum_polygon_reconstruction_iou_p05: 0.95
+
+bonirob_leakage_lock:
+  audit: processed/audits/sugarbeets2016_multiclass_holdout_v1_vs_all_prior_real_duplicates.json
+  audit_sha256: 9c32b8a0c49995db06adf732e9175d7ffbe985683a20906bdc57dafc2ee22fdd
+  required_passed: true
+  required_candidate_to_reference_matches: 0
+
+matched_reference:
+  role: current_best_real_plus_v12_synthetic
+  extra_train_images: 80
+  checkpoint: runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_synth80_1024_seed41_e8/weights/last.pt
+  checkpoint_sha256: d2fc87df95ec51c2dca7d9f741241ff0ef81351c9b42f2a0a04acd557e8419c2
+  synthetic_receipt: processed/cropcraft_deploy_segment_proxy_v12/dataset_receipt.json
+  synthetic_receipt_sha256: a61317815ca9870a22cf7ba11118a7756a87accdbcfc022a3c78890e7c92e13d
+
+output: processed/pre_real_data_ceiling_robot_native_proxy_v1
+
+claims:
+  - The challenger retains all 1407 unique PhenoBench train frames and replaces the current winner's 80 V12 synthetic exposures with 80 unique real ROSE robot-view train crops.
+  - Every ROSE crop is a native 1024-by-1024 pixel window from a 2048-by-1536 source; no resize or synthetic optical detail is introduced.
+  - Selection is deterministic, balanced across the two ROSE train sessions that natively exceed 1024 pixels in both axes, label-informed only within ROSE train, and never reads ROSE val/test or BoniRob pixels for training selection.
+  - ROSE semantic connected regions are training proxies, not botanical instance annotations.
+  - ROSE is research-only for this project because its embedded-content commercial status remains unresolved.

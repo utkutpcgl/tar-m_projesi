@@ -1,0 +1,31 @@
+schema_version: 1
+protocol: phenobench_real_replay_vs_real_plus_deploy_synthetic_region_proxy_v1
+frozen_at: "2026-08-11T08:00:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+real:
+  dataset_root: processed/phenobench_detect_segment_fair_v1/segment
+  dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+  dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+  dataset_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_segment_fair_v1.yaml
+  dataset_yaml_sha256: 1f4039135c62d3886eb8ec04103ceff8e279451120e280ceaa1f08e1a5e9485d
+  expected_train_images: 1407
+synthetic:
+  dataset_root: processed/cropcraft_deploy_segment_proxy_v12
+  dataset_receipt: processed/cropcraft_deploy_segment_proxy_v12/dataset_receipt.json
+  dataset_receipt_sha256: a61317815ca9870a22cf7ba11118a7756a87accdbcfc022a3c78890e7c92e13d
+  dataset_yaml: processed/cropcraft_deploy_segment_proxy_v12/cropcraft_deploy_segment_proxy_v12.yaml
+  dataset_yaml_sha256: 1cede11b0ce4771378596f54c596740bdccf473ef1dda48c558b5c38ce98950b
+  expected_train_images: 80
+
+replay_control:
+  seed: 20260811
+  replay_images: 80
+
+output: processed/phenobench_cropcraft_deploy_ab_v1
+
+claims:
+  - Both arms start from the same real-trained checkpoint and receive 1487 train samples per epoch.
+  - Both arms retain all 1407 unique real train frames; control adds 80 deterministic real replays while challenger adds 80 synthetic train frames.
+  - Real validation and test paths are byte-identical between arms; synthetic val/test never enter selection.
+  - The comparison tests bounded synthetic content, not extra optimization steps or botanical instance supervision.

@@ -1,0 +1,87 @@
+{
+  "checkpoint_sha256": "0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8",
+  "derived_imaging_metrics": {
+    "gsd_mm_per_px": 0.244140625,
+    "maximum_exposure_us_by_speed": {
+      "0.5": 366.2109375,
+      "1.0": 183.10546875
+    },
+    "minimum_frame_rate_hz_by_speed_for_track_observations": {
+      "0.5": 3.0,
+      "1.0": 6.0
+    },
+    "model_input_size_px": 1024,
+    "tile_core_size_px": 1024,
+    "tile_halo_px": 0,
+    "tile_world_height_mm": 250.0,
+    "tile_world_width_mm": 250.0,
+    "tiles_per_module_frame": 4,
+    "weed_diameter_px": {
+      "minimum_actionable": 40.96,
+      "primary_actionable": 81.92
+    }
+  },
+  "device": "NVIDIA GeForce RTX 3090",
+  "full_report": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/spot_spray_deploy_compute_v1/compute_benchmark.json",
+  "protocol": "controlled_spot_spray_imaging_and_compute_gate_v1",
+  "schema_version": 1,
+  "scope": {
+    "excluded": [
+      "camera acquisition and transport",
+      "filesystem decode",
+      "temporal tracking",
+      "actuator latency",
+      "spray physics"
+    ],
+    "included": [
+      "preloaded real RGB pixels",
+      "preprocessing",
+      "GPU model forward",
+      "NMS",
+      "segmentation mask construction",
+      "result transfer to CPU"
+    ]
+  },
+  "timing_by_batch_size": {
+    "1": {
+      "batch_size": 1,
+      "estimated_module_frames_per_second": 32.83630140420052,
+      "latency_ms": {
+        "max": 8.026737719774246,
+        "mean": 7.613524949798982,
+        "min": 7.18242023140192,
+        "p50": 7.674804888665676,
+        "p95": 7.964778039604425
+      },
+      "measured_iterations": 30,
+      "peak_cuda_memory_bytes": 172536320,
+      "prediction_count_per_batch": {
+        "max": 6,
+        "mean": 6.0,
+        "min": 6
+      },
+      "tiles_per_second": 131.34520561680208,
+      "warmup_iterations": 8
+    },
+    "4": {
+      "batch_size": 4,
+      "estimated_module_frames_per_second": 29.52493339873606,
+      "latency_ms": {
+        "max": 34.63097382336855,
+        "mean": 33.86967843398452,
+        "min": 33.435290679335594,
+        "p50": 33.80573773756623,
+        "p95": 34.339105943217874
+      },
+      "measured_iterations": 30,
+      "peak_cuda_memory_bytes": 524599296,
+      "prediction_count_per_batch": {
+        "max": 30,
+        "mean": 30.0,
+        "min": 30
+      },
+      "tiles_per_second": 118.09973359494424,
+      "warmup_iterations": 8
+    }
+  }
+}

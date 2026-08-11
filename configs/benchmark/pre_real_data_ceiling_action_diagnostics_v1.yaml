@@ -1,0 +1,82 @@
+schema_version: 1
+protocol: pre_real_data_ceiling_frozen_real_action_and_fixed_external_diagnostics_v1
+frozen_at: "2026-08-11T16:05:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+ultralytics_version: 8.4.60
+
+phenobench:
+  dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+  dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+  dataset_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_segment_fair_v1.yaml
+  dataset_yaml_sha256: 1f4039135c62d3886eb8ec04103ceff8e279451120e280ceaa1f08e1a5e9485d
+  size_views_px: [0, 28, 42, 56, 82]
+
+bonirob:
+  frozen_panel_receipt: runs/sugarbeets2016_yolo_segment_external_v1/external_action_metrics.json
+  frozen_panel_receipt_sha256: cff40ee9961d8962c9cc795e9d938c8d6d4f145cdc3f53dba8a5ba64d2bf2d60
+  expected_frames: 283
+  minimum_component_area_px: 16
+  size_views_px: [0, 42, 82]
+
+synthetic:
+  dataset_receipt: processed/cropcraft_deploy_segment_proxy_v12/dataset_receipt.json
+  dataset_receipt_sha256: a61317815ca9870a22cf7ba11118a7756a87accdbcfc022a3c78890e7c92e13d
+  legacy_diagnostic: runs/cropcraft_deploy_synthetic_diagnostic_v1/synthetic_diagnostic_metrics.json
+  legacy_diagnostic_sha256: 1ba9aa89c97c24baaf79df2f79c049871989c5a7325ca3bfdeb052a159278fcf
+  size_views_px: [0, 41, 82]
+  phenobench_threshold_size_map: {"0": 0, "41": 42, "82": 82}
+  real_model_selection_score_weight: 0.0
+
+models:
+  current_best_real_synthetic:
+    checkpoint: runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_synth80_1024_seed41_e8/weights/last.pt
+    checkpoint_sha256: d2fc87df95ec51c2dca7d9f741241ff0ef81351c9b42f2a0a04acd557e8419c2
+  challenger_real_robot_native:
+    checkpoint: runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt
+    checkpoint_sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+
+baseline_evidence:
+  phenobench_action: runs/phenobench_cropcraft_deploy_action_ab_v1/action_ab_metrics.json
+  phenobench_action_sha256: 2e9dc1349235944ae312ebd38a8801add913f27561951c28e055f77334f9ab07
+  bonirob_action: runs/sugarbeets2016_yolo_segment_external_v1/external_action_metrics.json
+  bonirob_action_sha256: cff40ee9961d8962c9cc795e9d938c8d6d4f145cdc3f53dba8a5ba64d2bf2d60
+
+inference:
+  image_size: 1024
+  batch: 2
+  chunk_size: 32
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+  crop_safety_confidence: 0.25
+  crop_safety_dilation_px: 0
+
+thresholds: {start: 0.01, stop: 0.99, step: 0.01}
+primary_method: segment_crop_safe_excess_green
+primary_service_minimum_sqrt_box_px: 82
+bootstrap: {iterations: 2000, seed: 20260811}
+
+pre_real_selection:
+  phenobench_f1_maximum_regression: 0.03
+  phenobench_crop_hit_maximum_absolute_increase: 0.02
+  bonirob_f1_minimum_absolute_gain: 0.03
+  bonirob_crop_hit_maximum_absolute_increase: 0.0
+
+field_gate:
+  precision_minimum: 0.98
+  recall_minimum: 0.95
+  f1_minimum: 0.965
+  crop_hit_rate_maximum: 0.005
+  crop_hit_upper_95_maximum: 0.005
+
+output: runs/pre_real_data_ceiling_action_diagnostics_v1
+
+claims:
+  - Both checkpoints use the frozen PhenoBench action method, size views, inference raster and validation-only threshold calibration before the already-opened test is evaluated.
+  - Each model's PhenoBench validation threshold is then applied unchanged to BoniRob and V12 synthetic test; neither target panel tunes confidence.
+  - The V12 synthetic 41 px diagnostic view uses the frozen PhenoBench 42 px validation threshold through the declared 41-to-42 compatibility map; no synthetic result selects that mapping.
+  - BoniRob remains a previously consumed, temporally correlated one-field/session development panel and cannot be called a deployment holdout.
+  - Synthetic test is diagnostic only and has exactly zero weight in the real winner or GO decision.
+  - Crop-hit rate and its Wilson 95 percent upper bound are explicit at the primary service view.

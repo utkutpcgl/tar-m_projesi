@@ -1,5 +1,30 @@
 # Tarım Arazisi Gerçek + Kontrollü Sentetik Segmentasyon Benchmark'ı
 
+## Güncel kontrollü spot-spray kararı — 2026-08-11
+
+- [Buradan başlayın: sade PDF](docs/results/kontrollu_spot_spray_poc_v1/BASLA_BURADAN_KONTROLLU_SPOT_SPRAY_POC_V1.pdf)
+- [Açıklamalı detaylı PDF](docs/results/kontrollu_spot_spray_poc_v1/DETAYLI_KONTROLLU_SPOT_SPRAY_POC_V1.pdf)
+- [Aranabilir rapor, exact JSON ve self-sufficient görseller](docs/results/kontrollu_spot_spray_poc_v1/README.md)
+- [Dondurulan kamera/lens/ışık/hız/BOM baseline'ı V2](docs/CONTROLLED_CAPTURE_OPTIMIZATION_V2.md)
+- [İlk kontrollü deploy sözleşmesi V1](docs/SPOT_SPRAY_DEPLOY_SOZLESMESI_V1.md)
+
+Instance segmentation temel olarak kalıyor; mevcut checkpoint ile saha
+ateşlemesi **NO-GO** ve henüz gerçek target-rig performansı ölçülmedi. Eşit
+bütçeli pre-real karşılaştırmada V12 sentetik ek maruziyeti ROSE native-detail
+robot görünümüyle değiştirildi. Seçilen ROSE-native aday, tüketilmiş
+PhenoBench UAV geliştirme panelinde `≥82 px` frame-action F1'ını
+`%72,6→%75,4`, aynı kilitli Pheno eşiğiyle tüketilmiş tek-session BoniRob dış
+robot-view panelinde `%5,4→%9,0` yükseltti. Pheno eşleştirilmiş farkının %95
+aralığı `[-1,36; +7,10]` puanla sıfırı kesiyor; ayrıca aday V12 sentetik
+holdout'ta sabit eşikte `%0,0` F1 verdi. Bu nedenle bu checkpoint yalnız
+pre-real geliştirme adayıdır ve sentetik seçim ağırlığı `0` kalır. Sonuç:
+optik ayrıntı önemlidir, fakat ana darboğaz hedef kamera dağılımına uyumdur.
+Sıradaki en yüksek getirili kanıt; bir adet Basler `a2A2464-77ucPRO` + 8 mm
+C23 lens, kapalı/diffuse strobe'lu native `2048²`, `474–484 mm FOV`,
+`170 µs`, `15 Hz` rig ve aynı rig'den field+session+track ayrık gerçek pilot
+veridir. RTX 3090 için 20 Hz ve ikinci kamera mevcut p95 hesap kapısını
+geçmedi; yeni E2E kanıt olmadan açılmayacaktır.
+
 Bu depo, RGB tarla görüntülerinde üç sınıflı semantik segmentasyon için
 tekrarlanabilir bir benchmark içerir:
 

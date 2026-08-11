@@ -1,0 +1,80 @@
+schema_version: 1
+protocol: pre_real_data_ceiling_robot_native_equal_exposure_finetune_v1
+frozen_at: "2026-08-11T15:45:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+dataset_receipt: processed/pre_real_data_ceiling_robot_native_proxy_v1/dataset_receipt.json
+dataset_receipt_sha256: 15b381ff5ea1a557b234543c72060f286ecd8e335d5e49ad5c68827b7b6e9910
+dataset_yaml: processed/pre_real_data_ceiling_robot_native_proxy_v1/pre_real_data_ceiling_robot_native_proxy_v1.yaml
+dataset_yaml_sha256: a390d11ad35936946f603070c3d1e0de8c5dd0dc4400c948ff02ebfa2c5cceb5
+initial_checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+initial_checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+
+matched_reference:
+  checkpoint: runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_synth80_1024_seed41_e8/weights/last.pt
+  checkpoint_sha256: d2fc87df95ec51c2dca7d9f741241ff0ef81351c9b42f2a0a04acd557e8419c2
+  train_images_per_epoch: 1487
+  supplement: 80 V12 synthetic native 1024 tiles
+  epochs: 8
+  seed: 41
+
+model_family:
+  name: YOLO26s-seg
+  package: ultralytics
+  package_version: 8.4.60
+
+training:
+  epochs: 8
+  patience: 0
+  image_size: 1024
+  batch: 3
+  workers: 8
+  device: 0
+  seed: 41
+  deterministic: true
+  amp: true
+  optimizer: AdamW
+  lr0: 0.00015
+  lrf: 0.10
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 1.0
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  cos_lr: true
+  cache: ram
+  hsv_h: 0.015
+  hsv_s: 0.5
+  hsv_v: 0.3
+  degrees: 8.0
+  translate: 0.08
+  scale: 0.25
+  shear: 0.0
+  perspective: 0.0
+  fliplr: 0.5
+  flipud: 0.5
+  mosaic: 0.0
+  mixup: 0.0
+  copy_paste: 0.0
+  close_mosaic: 0
+  mask_ratio: 1
+  overlap_mask: true
+  val: false
+  plots: false
+
+selection:
+  checkpoint: last.pt
+  reason: fixed final epoch; no checkpoint selection on PhenoBench validation or test
+  validation_role: framework may emit a final validation diagnostic but it cannot select the checkpoint
+  test_role: never read during training
+
+output:
+  project: runs/pre_real_data_ceiling_robot_native_train_v1
+  run_name: yolo26s_seg_real1407_rose80_native1024_seed41_e8
+
+claims:
+  - The challenger starts from the same checkpoint and uses the same 1487 samples per epoch, eight epochs, seed, optimizer, augmentation and raster as the current V12-synthetic winner.
+  - The bounded intended difference is 80 unique native-detail ROSE robot-view train crops instead of 80 V12 synthetic train tiles.
+  - PhenoBench test, BoniRob, ROSE val/test and V12 val/test never enter training or checkpoint selection.
+  - A CUDA-memory interruption after completed epoch four may resume the same run from its saved last.pt optimizer state; no completed epoch is repeated or added to the fixed eight-epoch budget.
+  - One seed is directional pre-real-data evidence, not variance or deployment proof.

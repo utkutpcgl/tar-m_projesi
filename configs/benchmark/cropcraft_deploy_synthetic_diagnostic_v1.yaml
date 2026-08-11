@@ -1,0 +1,51 @@
+schema_version: 1
+protocol: cropcraft_deploy_synthetic_holdout_resolution_diagnostic_v1
+frozen_at: "2026-08-11T09:05:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+ultralytics_version: 8.4.60
+dataset_receipt: processed/cropcraft_deploy_segment_proxy_v12/dataset_receipt.json
+dataset_receipt_sha256: a61317815ca9870a22cf7ba11118a7756a87accdbcfc022a3c78890e7c92e13d
+dataset_yaml: processed/cropcraft_deploy_segment_proxy_v12/cropcraft_deploy_segment_proxy_v12.yaml
+dataset_yaml_sha256: 1cede11b0ce4771378596f54c596740bdccf473ef1dda48c558b5c38ce98950b
+
+models:
+  base_e50:
+    checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+    checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+  control_real_replay:
+    checkpoint: runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_replay80_1024_seed41_e8/weights/last.pt
+    checkpoint_sha256: 53a134c79ff36c7b2c5bb1f40c55cb98e04ca876e3aa0fbbf87dd886f2256b38
+  challenger_real_synthetic:
+    checkpoint: runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_synth80_1024_seed41_e8/weights/last.pt
+    checkpoint_sha256: d2fc87df95ec51c2dca7d9f741241ff0ef81351c9b42f2a0a04acd557e8419c2
+
+inference:
+  image_sizes: [512, 768, 1024, 1152]
+  native_tile_size: 1024
+  batch: 2
+  chunk_size: 16
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+  crop_safety_confidence: 0.25
+  crop_safety_dilation_px: 0
+
+thresholds: {start: 0.01, stop: 0.99, step: 0.01}
+eligible_minimum_sqrt_box_px: [0, 41, 82]
+primary_method: segment_crop_safe_excess_green
+primary_service_minimum_sqrt_box_px: 82
+
+gallery:
+  model: challenger_real_synthetic
+  image_size: 1024
+  test_indices: [0, 5, 10, 15]
+
+output: runs/cropcraft_deploy_synthetic_diagnostic_v1
+
+claims:
+  - Synthetic validation calibrates only the synthetic diagnostic threshold; synthetic test never selects the real model.
+  - The 41/82-pixel views approximate 10/20 mm at the proposed 0.244 mm/px optical geometry, but region shape and visibility prevent exact physical equivalence.
+  - 1152 inference is software resampling of a native 1024 tile and cannot recreate missing optical detail.
+  - Connected semantic regions are intervention proxies, not botanical instances.

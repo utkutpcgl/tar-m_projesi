@@ -1,0 +1,50 @@
+schema_version: 1
+protocol: controlled_spot_spray_64px_halo_compute_gate_v1
+frozen_at: "2026-08-11T08:15:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+ultralytics_version: 8.4.60
+
+reference_images:
+  - processed/phenobench_detect_segment_fair_v1/segment/images/test/05-15_00052_P0030859.png
+  - processed/phenobench_detect_segment_fair_v1/segment/images/test/05-15_00053_P0030859.png
+  - processed/phenobench_detect_segment_fair_v1/segment/images/test/05-15_00053_P0030943.png
+  - processed/phenobench_detect_segment_fair_v1/segment/images/test/05-15_00054_P0030859.png
+
+imaging_contract:
+  raw_sensor_width_px: 2048
+  raw_sensor_height_px: 2048
+  field_width_mm: 500.0
+  field_height_mm: 500.0
+  tile_size_px: 1024
+  tile_halo_px: 64
+  tile_rows: 2
+  tile_columns: 2
+  minimum_actionable_weed_diameter_mm: 10.0
+  primary_actionable_weed_diameter_mm: 20.0
+  maximum_blur_px: 0.75
+  travel_speeds_m_s: [0.5, 1.0]
+  minimum_track_observations: 3
+
+inference:
+  image_size: 1152
+  batch_sizes: [1, 4]
+  warmup_iterations: 8
+  measured_iterations: 30
+  device: 0
+  half: true
+  confidence: 0.25
+  iou: 0.7
+  max_detections: 600
+
+outputs:
+  full_report: processed/audits/spot_spray_deploy_compute_halo_v1/compute_benchmark.json
+  repository_summary: docs/results/spot_spray_deploy_compute_halo_summary_v1.json
+
+claims:
+  - Each 1024 core receives a 64-pixel context halo and predictions are clipped back to the core before world-coordinate merge.
+  - Reflect padding is a compute-size proxy; production halos must come from adjacent raw sensor pixels, not padding.
+  - Timing includes preprocessing, forward, NMS, mask construction, and CPU result transfer, but excludes acquisition, tracking, and actuation.
+  - Accuracy remains a software diagnostic until the physical deploy camera distribution is labelled.

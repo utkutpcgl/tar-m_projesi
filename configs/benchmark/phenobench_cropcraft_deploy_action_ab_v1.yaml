@@ -1,0 +1,46 @@
+schema_version: 1
+protocol: phenobench_deploy_synthetic_equal_exposure_action_evaluation_v1
+frozen_at: "2026-08-11T08:20:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+ultralytics_version: 8.4.60
+dataset_receipt: processed/phenobench_detect_segment_fair_v1/dataset_receipt.json
+dataset_receipt_sha256: 12c9c92d5c54d8e4143fc5ef26c829f0ad2c0b61811566f8c21f2036a1410bd5
+dataset_yaml: processed/phenobench_detect_segment_fair_v1/phenobench_segment_fair_v1.yaml
+dataset_yaml_sha256: 1f4039135c62d3886eb8ec04103ceff8e279451120e280ceaa1f08e1a5e9485d
+
+models:
+  base_e50:
+    checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+    checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+  control_real_replay:
+    checkpoint: runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_replay80_1024_seed41_e8/weights/last.pt
+    checkpoint_sha256: 53a134c79ff36c7b2c5bb1f40c55cb98e04ca876e3aa0fbbf87dd886f2256b38
+  challenger_real_synthetic:
+    checkpoint: runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_synth80_1024_seed41_e8/weights/last.pt
+    checkpoint_sha256: d2fc87df95ec51c2dca7d9f741241ff0ef81351c9b42f2a0a04acd557e8419c2
+
+inference:
+  image_size: 1024
+  batch: 2
+  chunk_size: 32
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+  crop_safety_confidence: 0.25
+  crop_safety_dilation_px: 0
+
+thresholds: {start: 0.01, stop: 0.99, step: 0.01}
+eligible_minimum_sqrt_box_px: [0, 28, 42, 56, 82]
+primary_method: segment_crop_safe_excess_green
+primary_service_minimum_sqrt_box_px: 82
+bootstrap: {iterations: 2000, seed: 20260811}
+output: runs/phenobench_cropcraft_deploy_action_ab_v1
+
+claims:
+  - Every model calibrates confidence only on the same real PhenoBench validation plots before paired real test evaluation.
+  - The 28/42/56/82-pixel views ignore smaller weed opportunities and report the eligible service level; they do not create optical detail.
+  - Synthetic validation/test have zero weight in this real model comparison.
+  - PhenoBench test has already been consumed by earlier development and is not fresh deployment evidence.
+  - The 82-pixel primary service view is a resolution-conditioned real-data proxy, not a physical millimetre claim on PhenoBench.

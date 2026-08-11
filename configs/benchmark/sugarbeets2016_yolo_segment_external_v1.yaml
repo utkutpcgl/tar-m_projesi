@@ -1,0 +1,56 @@
+schema_version: 1
+protocol: sugarbeets2016_external_fixed_threshold_yolo_segment_action_v1
+frozen_at: "2026-08-11T09:20:00+03:00"
+
+data_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data
+ultralytics_version: 8.4.60
+manifest: processed/manifests/sugarbeets2016_multiclass_holdout_v1.csv
+manifest_sha256: 91522974b604c4a33ebd4036c023a19a881899eac791662ebe97e97728342e1e
+conversion_receipt: processed/audits/sugarbeets2016_multiclass_holdout_v1_conversion.json
+conversion_receipt_sha256: 2fced3aa49f0be1f7976cb9c8e276d974a830df727844b4175ab4879a257d739
+manual_review: processed/audits/sugarbeets2016_multiclass_holdout_v1_manual_visual_review.json
+manual_review_sha256: 14838cedb0970560c0d5dc06f0d04761fd5f5bee5ae9aac231613e3140aef036
+threshold_source: runs/phenobench_cropcraft_deploy_action_ab_v1/action_ab_metrics.json
+threshold_source_sha256: 2e9dc1349235944ae312ebd38a8801add913f27561951c28e055f77334f9ab07
+
+models:
+  base_e50:
+    checkpoint: runs/phenobench_detect_segment_fair_v1/yolo26s_segment_1024_seed17_e50/weights/last.pt
+    checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+  control_real_replay:
+    checkpoint: runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_replay80_1024_seed41_e8/weights/last.pt
+    checkpoint_sha256: 53a134c79ff36c7b2c5bb1f40c55cb98e04ca876e3aa0fbbf87dd886f2256b38
+  challenger_real_synthetic:
+    checkpoint: runs/phenobench_cropcraft_deploy_training_ab_v1/yolo26s_seg_real1407_synth80_1024_seed41_e8/weights/last.pt
+    checkpoint_sha256: d2fc87df95ec51c2dca7d9f741241ff0ef81351c9b42f2a0a04acd557e8419c2
+
+region_proxy:
+  minimum_component_area_px: 16
+  connectivity: 8
+
+inference:
+  image_size: 1024
+  batch: 2
+  chunk_size: 32
+  device: 0
+  confidence_floor: 0.01
+  nms_iou: 0.70
+  max_detections: 300
+  crop_safety_confidence: 0.25
+  crop_safety_dilation_px: 0
+
+eligible_minimum_sqrt_box_px: [0, 42, 82]
+primary_method: segment_crop_safe_excess_green
+primary_service_minimum_sqrt_box_px: 82
+
+gallery:
+  model: challenger_real_synthetic
+  frame_indices: [0, 50, 100, 150, 200, 250]
+
+output: runs/sugarbeets2016_yolo_segment_external_v1
+
+claims:
+  - All confidence thresholds come from PhenoBench validation and are applied to BoniRob without tuning.
+  - The 283 frames form one previously consumed field/session development panel, not a fresh independent deployment test.
+  - Connected semantic regions are action proxies rather than publisher botanical instances.
+  - This public robot-view panel is closer to deployment than UAV PhenoBench but does not match the proposed hood, strobe, optics or GSD.

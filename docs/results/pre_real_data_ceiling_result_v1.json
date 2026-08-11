@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-11T18:59:11+03:00",
+  "child_session": "019ff001-b472-76a3-93bf-4dd2e9838ab6",
+  "goal_multi_repeat_run": "goal-multi-repeat-pre-real-data-ceiling-a56b0ea9e8dc",
+  "pass": 2,
+  "state": "READY_FOR_MANAGER_VALIDATION",
+  "strategy": "Matched same-checkpoint and same-budget YOLO26s-seg challenger replacing 80 V12 synthetic train tiles with 80 unique native-pixel 1024x1024 ROSE robot-view train crops.",
+  "result": {
+    "candidate_displaces_current_pre_real_best": true,
+    "selected_pre_real_model": "challenger_real_robot_native",
+    "field_fire_go": false,
+    "numeric_public_panel_gate_passed": false,
+    "synthetic_score_used_in_real_decision": false,
+    "interpretation": "Native robot-view optical detail improved the primary >=82 px action view on both consumed real public panels and reduced crop-hit rate, but the PhenoBench paired interval crosses zero, BoniRob is one correlated development session, V12 transfer collapsed, and no own-rig test exists. This is a directional pre-real model choice, not deployment evidence."
+  },
+  "fairness": {
+    "initial_checkpoint_sha256": "0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8",
+    "current_best_checkpoint_sha256": "d2fc87df95ec51c2dca7d9f741241ff0ef81351c9b42f2a0a04acd557e8419c2",
+    "challenger_checkpoint_sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100",
+    "train_images_per_epoch": 1487,
+    "epochs": 8,
+    "batch": 3,
+    "seed": 41,
+    "image_size": 1024,
+    "bounded_difference": "80 native-detail ROSE robot crops replace 80 V12 synthetic tiles; checkpoint, exposure, optimizer, augmentation, raster and seed remain matched.",
+    "resume": {
+      "completed_epochs_before_resume": 4,
+      "epoch_4_checkpoint_sha256": "2feb7c3d1020a0bac51d8a54966fdd0d458c54802724c2ba5b1d9e4209e8e2c4",
+      "optimizer_state_present_before_resume": true,
+      "optimizer_state_source": "same-run last.pt",
+      "completed_epoch_repeated": false,
+      "final_completed_epochs": 8
+    }
+  },
+  "dataset": {
+    "phenobench_unique_train": 1407,
+    "rose_native_robot_proxy_train": 80,
+    "native_resize_used": false,
+    "polygon_reconstruction_iou_p05": 0.9667065757966476,
+    "all_quality_gates_passed": true,
+    "dataset_receipt_sha256": "15b381ff5ea1a557b234543c72060f286ecd8e335d5e49ad5c68827b7b6e9910",
+    "dataset_yaml_sha256": "a390d11ad35936946f603070c3d1e0de8c5dd0dc4400c948ff02ebfa2c5cceb5"
+  },
+  "primary_service": {
+    "method": "segment_crop_safe_excess_green",
+    "minimum_sqrt_gt_box_area_px": 82,
+    "physical_mm_equivalence_on_real_public_panels": false
+  },
+  "primary_metrics": {
+    "phenobench": {
+      "current_best": {
+        "fixed_threshold": 0.77,
+        "precision": 0.8238993710691824,
+        "recall": 0.6485148514851485,
+        "f1": 0.7257617728531857,
+        "crop_hit": 18,
+        "attempted_actions": 159,
+        "crop_hit_rate": 0.11320754716981132,
+        "crop_hit_wilson_upper_95": 0.1718447965055472
+      },
+      "challenger": {
+        "fixed_threshold": 0.76,
+        "precision": 0.8197674418604651,
+        "recall": 0.698019801980198,
+        "f1": 0.7540106951871658,
+        "crop_hit": 18,
+        "attempted_actions": 172,
+        "crop_hit_rate": 0.10465116279069768,
+        "crop_hit_wilson_upper_95": 0.15934845159352834
+      },
+      "challenger_minus_current": {
+        "precision": -0.0041319292087173,
+        "recall": 0.04950495049504944,
+        "f1": 0.02824892233398013,
+        "crop_hit_rate": -0.008556384379113643
+      }
+    },
+    "bonirob": {
+      "current_best": {
+        "fixed_threshold": 0.77,
+        "precision": 0.13756613756613756,
+        "recall": 0.03329065300896287,
+        "f1": 0.053608247422680416,
+        "crop_hit": 23,
+        "attempted_actions": 189,
+        "crop_hit_rate": 0.12169312169312169,
+        "crop_hit_wilson_upper_95": 0.17598325109650198
+      },
+      "challenger": {
+        "fixed_threshold": 0.76,
+        "precision": 0.20179372197309417,
+        "recall": 0.05761843790012804,
+        "f1": 0.08964143426294822,
+        "crop_hit": 23,
+        "attempted_actions": 223,
+        "crop_hit_rate": 0.1031390134529148,
+        "crop_hit_wilson_upper_95": 0.15000486985585196
+      },
+      "challenger_minus_current": {
+        "precision": 0.06422758440695661,
+        "recall": 0.024327784891165175,
+        "f1": 0.03603318684026781,
+        "crop_hit_rate": -0.018554108240206882
+      }
+    },
+    "synthetic_fixed_pheno_threshold": {
+      "current_best": {
+        "fixed_threshold": 0.77,
+        "precision": 1.0,
+        "recall": 0.4642857142857143,
+        "f1": 0.6341463414634146,
+        "crop_hit_rate": 0.0
+      },
+      "challenger": {
+        "fixed_threshold": 0.76,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "attempted_actions": 0,
+        "crop_hit_rate": 0.0,
+        "crop_hit_wilson_upper_95": null
+      },
+      "real_model_selection_score_weight": 0.0,
+      "legacy_current_best_synthetic_calibrated_f1": 0.7575757575757577
+    }
+  },
+  "size_strata": {
+    "phenobench_px": [0, 28, 42, 56, 82],
+    "phenobench_current_f1": [0.7797833935018051, 0.8188976377952755, 0.8155012636899747, 0.7994505494505494, 0.7257617728531857],
+    "phenobench_challenger_f1": [0.7772215269086357, 0.8257372654155495, 0.8148148148148149, 0.8140161725067385, 0.7540106951871658],
+    "phenobench_current_crop_hit_rate": [0.0375796178343949, 0.051330798479087454, 0.06227758007117438, 0.05642633228840126, 0.11320754716981132],
+    "phenobench_challenger_crop_hit_rate": [0.03398058252427184, 0.04519774011299435, 0.048507462686567165, 0.05405405405405406, 0.10465116279069768],
+    "bonirob_px": [0, 42, 82],
+    "bonirob_current_f1": [0.1477621091354997, 0.14050689195197869, 0.053608247422680416],
+    "bonirob_challenger_f1": [0.12917385170089357, 0.13357899585444497, 0.08964143426294822],
+    "bonirob_current_crop_hit_rate": [0.08247422680412371, 0.08349514563106795, 0.12169312169312169],
+    "bonirob_challenger_crop_hit_rate": [0.07089859851607584, 0.07551487414187644, 0.1031390134529148],
+    "synthetic_px": [0, 41, 82],
+    "synthetic_pheno_threshold_source_px": [0, 42, 82],
+    "synthetic_current_f1": [0.7246376811594202, 0.7356321839080459, 0.6341463414634146],
+    "synthetic_challenger_f1": [0.13793103448275862, 0.07142857142857142, 0.0]
+  },
+  "paired_bootstrap_phenobench_primary": {
+    "definition": "challenger F1 minus current-best F1",
+    "paired_samples": 403,
+    "iterations": 2000,
+    "seed": 20260811,
+    "median_difference": 0.028120717188675592,
+    "ci95": [-0.013571998420127018, 0.07096349006627682],
+    "probability_challenger_higher": 0.8985
+  },
+  "decision_checks": {
+    "phenobench_f1_noninferior": true,
+    "phenobench_crop_hit_not_materially_worse": true,
+    "bonirob_f1_material_gain": true,
+    "bonirob_crop_hit_not_worse": true,
+    "all_field_gate_checks": false,
+    "independent_own_rig_field_test": false
+  },
+  "provenance": {
+    "data_config_sha256": "6b7feb83b48a78de9e88115011f8d81cca4fe39e6d208fd210169dbeb72c1561",
+    "prepare_script_sha256": "a55d2f9fcce590f8290fc66b1b959767b387bad8e56856aa95d3b4f60a071be5",
+    "training_config_sha256": "4d4b477e2918ec754e8f9755b6763666973d4d32fce841ff00e741611f1c76f6",
+    "training_script_sha256": "1581cbc58edcb2b09ce4b0f63052608c47cfff999eefb6e2522855e43267ae24",
+    "resume_incident_sha256": "8611942023e60d7487e69fcadb6f36fd1ad10f39cdc3ddf89ac053525b287560",
+    "run_receipt_sha256": "9b45ca71b656e1e988d7cbffcb47a3ba708907562417c16797f7bf45e2cb427e",
+    "results_csv_sha256": "0a3f358c829d1e732913a03b36af097649825fac0494c5899d6e543daca80d52",
+    "diagnostic_config_sha256": "0e65ebdfc0eee3541ab292e6907afe8d5bb4c588b2c6bb00fc5368d476ca2e5e",
+    "diagnostic_script_sha256": "1e570a93acc9b117b2b635d32c1b0e819be40af1a034a6f1be6f9ac53865120b",
+    "diagnostics_sha256": "e4b95a08611fee29d79c146d3001f9b0163d053c58519cd1c2d3ed65a0fd17a2",
+    "summary_sha256": "470ef715dc000fca8743fc03dfb9de10f1a4d510ab37806aff6753e2b77baf56"
+  },
+  "validation": {
+    "scoped_tests_passed": 9,
+    "scoped_tests_failed": 0,
+    "completed_epoch_rows": 8,
+    "baseline_phenobench_reproduced": true,
+    "baseline_bonirob_reproduced": true,
+    "first_diagnostic_attempt": "Stopped before output creation on an undeclared synthetic-41/PhenoBench-42 threshold-view mismatch. The successful protocol declares the mechanical 41-to-42 compatibility map before inference; no metric selected it.",
+    "external_process_policy": "No VLLM or Ollama process was altered, killed, unloaded or awakened; batch remained 3."
+  },
+  "next_most_effective_step": "Freeze this checkpoint as the directional pre-real candidate, then collect and label an independent own-rig field/session safety holdout before any spray authorization. Recalibrate and evaluate once on that holdout with crop-hit confidence bounds; do not spend the next cycle on model-zoo complexity.",
+  "integration_or_blocker_risk": "The candidate is not a deployment model. The PhenoBench paired CI includes zero, BoniRob is a consumed correlated session, the native ROSE supplement is bean rather than sugar beet, synthetic transfer collapsed at the fixed real threshold, and no independent own-rig safety evidence exists."
+}

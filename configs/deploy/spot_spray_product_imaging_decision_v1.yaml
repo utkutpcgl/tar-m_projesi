@@ -1,0 +1,287 @@
+schema_version: 1
+decision_id: spot_spray_product_imaging_value_v1
+status: PRE_REAL_HARDWARE_DECISION_FROZEN_PHYSICAL_A_E_NOT_MEASURED
+decision_date: 2026-08-12
+scope: >-
+  Price-performance decision for one controlled RGB instance-segmentation
+  spot-spray proof module. This freezes what to prove first, not a production
+  environmental certification or a field/chemical-fire claim.
+
+source_identity:
+  planner:
+    path: docs/plans/part-spot-spray-product-imaging-value-decision.md
+    commit: f1865879815de6ee4516a700fbc7722c5bf30ae0
+    sha256: 540f857b5f4e9096bcd742131331d90e7fe6c1ee7d40838feab75937f888d9d6
+  frozen_capture_contract:
+    path: configs/deploy/spot_spray_capture_optimization_v2.yaml
+    sha256: f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9
+  frozen_capture_decision_document:
+    path: docs/CONTROLLED_CAPTURE_OPTIMIZATION_V2.md
+    sha256: c5eb80d8eb074b36463906a4dee993776d2415ae1e41ad50a988c8592e8ed7aa
+  rig_acceptance_contract:
+    path: configs/deploy/spot_spray_rig_acceptance_v1.yaml
+    exact_byte_sha256: a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c
+    canonical_policy_sha256: c05ae3837d98f313c32e81178045a9fef39965199c276ec06e9d01195e88ff21
+  rig_acceptance_evaluator:
+    path: scripts/evaluate_spot_spray_rig_acceptance_v1.py
+    sha256: 596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2
+  market_and_ceiling_review:
+    path: docs/SEGMENTASYON_95_SAHA_KANIT_PLANI_V1.md
+    sha256: 4659e1282aff0927fcd31dc1bd60a98cda6d4691144c53085f341aca6bab7c5e
+
+evidence_policy:
+  ordered_authority:
+    - exact_hash_bound_physical_A_E_receipt
+    - same_rig_same_scene_single_variable_physical_AB
+    - isolated_real_target_rig_track_action_test
+    - frozen_V2_derivation_and_measured_compute_proxy
+    - manufacturer_spec_and_current_supplier_quote
+    - literature_market_vendor_and_synthetic_direction_only
+  physical_A_E_available: false
+  controlled_capture_ready: false
+  physical_field_go: false
+  chemical_fire_go: false
+  synthetic_and_external_OOD_real_decision_weight: 0.0
+  vendor_claim_rule: >-
+    Recognition, placement, application accuracy, hit rate, kill rate,
+    precision, recall, F1, crop hit and minimum weed size are not interchangeable.
+
+first_service_class:
+  status: PROVISIONAL_UNTIL_REAL_TARGET_RIG_TRACK_ACTION_PASS
+  class_name: weed
+  eligibility:
+    canopy_span_mm_minimum: 20.0
+    visible_fraction_minimum_in_at_least_one_observation: 0.70
+    partial_must_be_false_in_that_observation: true
+    denominator_frozen_before_predictions: true
+    once_eligible_track_remains_in_denominator: true
+  size_bands:
+    below_10_mm: research_capture_only_no_intervention_promise
+    10_to_below_20_mm: optical_visibility_witness_but_abstain_for_first_product_proof
+    at_least_20_mm: first_intervention_eligible_class_if_visibility_rules_pass
+  interpretation: >-
+    The 20 mm threshold is a conservative product-proof denominator, not a
+    claim that every 20 mm weed is currently detected or safely sprayed.
+
+baseline_proof_module:
+  purchase_quantity: 1
+  camera:
+    manufacturer: Basler
+    model: a2A2464-77ucPRO
+    order_number: 109779
+    sensor: OmniVision_OG05C_BSI
+    shutter: global
+    native_resolution_px: [2448, 2048]
+    color_and_filter: Bayer_RGB_with_factory_IR_cut
+    power: external_12_to_24_VDC
+    interface: USB3_Vision
+    bare_camera_ingress_rating: IP30
+  lens:
+    manufacturer: Basler
+    model: C23-0824-5M-P
+    order_number: 2200000568
+    nominal_focal_length_mm: 8.06
+    selected_aperture_f_number: 5.6
+  capture:
+    native_roi_px: [2048, 2048]
+    native_roi_offset_px: [200, 0]
+    full_frame_resize_forbidden: true
+    ground_FOV_range_mm: [474.0, 484.0]
+    nominal_ground_FOV_mm: 480.0
+    working_distance_adjustment_mm: [520.0, 590.0]
+    focus_plane_above_ground_mm: 55.0
+    object_plane_offsets_above_ground_mm: [0.0, 55.0, 110.0]
+    exposure_us: 170.0
+    acquisition_rate_hz: 15.0
+    hardware_trigger_required: true
+    preferred_pixel_format: Bayer10_packed
+    dedicated_USB3_root_required: true
+    locking_cable_maximum_m: 3.0
+  optical_acceptance:
+    region_count: 9
+    plane_count: 3
+    all_27_cells_must_pass: true
+    local_GSD_maximum_mm_px: 0.24390243902439024
+    span_10mm_minimum_px: 41.0
+    span_20mm_minimum_px: 82.0
+    MTF50_minimum_cycles_px: 0.15
+    reprojection_RMS_maximum_px: 0.30
+    reprojection_p95_maximum_px: 0.50
+  tiling:
+    grid: [2, 2]
+    native_core_px: 1024
+    halo_px: 64
+    model_input_px: 1152
+    outer_ring_action_policy: abstain
+  compute:
+    accelerator: measured_NVIDIA_RTX_3090
+    currently_supported_camera_count: 1
+    currently_supported_rate_hz: 15.0
+    measured_compute_proxy_checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+    selected_pre_real_foundation_checkpoint_sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+    checkpoint_change_rule: >-
+      V2 latency is a same-architecture compute proxy. Re-run Stage E for the
+      final target-rig checkpoint or prove it no slower before any action GO.
+
+hood_light_and_functional_ruggedization:
+  hood:
+    minimum_internal_plan_mm: [600.0, 600.0]
+    rigid_top_and_walls: true
+    interior: matte_black_low_reflectance
+    direct_ground_to_sky_line_of_sight: false
+  skirt:
+    layers: 2
+    material: matte_black_flexible_EPDM_or_coated_fabric
+    layer_length_mm: [100.0, 150.0]
+    stagger_overlap_mm: [30.0, 50.0]
+    operating_ground_clearance_mm: [0.0, 20.0]
+    breakaway_and_no_entanglement_test_required: true
+  labyrinth:
+    stages: 2
+    minimum_baffle_depth_mm: 50.0
+    cable_entry: rear_facing_gasketed_S_path
+  optical_window:
+    material: replaceable_AR_coated_optical_glass
+    thickness_mm: [2.0, 3.0]
+    tilt_deg: [3.0, 5.0]
+    installed_during_calibration: true
+    sealed_and_cleanable: true
+  illumination:
+    architecture: four_symmetric_independently_current_limited_white_LED_quadrants
+    diffuser: opal
+    correlated_color_temperature_k: [4500, 5500]
+    color_rendering_index_minimum: 90
+    isolated_ExposureActive_driver: true
+    nominal_strobe_us: 150.0
+    allowed_strobe_us: [150.0, 170.0]
+    programmable_peak_current_a: [0.0, 10.0]
+    peak_electrical_ceiling_w_not_setpoint: 240.0
+    light_average_power_maximum_w: 20.0
+    module_average_power_maximum_w_excluding_compute: 60.0
+  environmental_claim:
+    current_level: functional_proof_enclosure_only
+    certified_IP_claim: false
+    rain_washdown_heavy_dust_shock_vibration_certified: false
+    production_rule: >-
+      The selected bare camera is IP30. A production unit exposed to rain,
+      washdown, heavy dust, stone impact, shock or vibration requires a new
+      environmental contract and either a qualified sealed enclosure or a
+      rugged camera challenger.
+
+camera_count_and_swath:
+  frozen_proof_camera_count: 1
+  minimum_action_safe_swath_mm: 444.375
+  proof_mechanical_swath_class_mm: 500.0
+  scale_architecture: repeat_complete_camera_light_trigger_compute_bays_under_one_hood
+  center_pitch_maximum_mm: 430.0
+  minimum_calibrated_overlap_mm: 10.0
+  multi_camera_conditions_all_required:
+    - exact_single_bay_physical_A_E_PASS
+    - product_required_swath_exceeds_single_safe_swath
+    - multi_bay_transport_and_end_to_end_compute_PASS
+    - each_bay_and_overlap_strip_passes_light_motion_and_geometry_gates
+  current_two_camera_decision: BLOCKED_NOT_PURCHASED
+
+price_performance:
+  public_price_date: 2026-08-11
+  prices_are_landed_quotes: false
+  baseline_camera_usd: 709.0
+  baseline_lens_usd: 136.0
+  complete_module_subtotal_range_usd: [3115.0, 6545.0]
+  complete_module_with_15pct_contingency_range_usd: [3582.25, 7526.75]
+  BAS_camera_saving_usd: 90.0
+  BAS_saving_fraction_of_low_module_subtotal: 0.028892455858747994
+  FLIR_camera_price_ratio_vs_PRO_using_challenger_favoring_lower_bound: 1.8392101551480958
+  decision: >-
+    Pay the small PRO premium for external power and freeze only one proof
+    module. Do not buy BAS, FLIR, a second camera or production quantity until
+    its explicit trigger is met.
+
+challengers:
+  rate_20_hz:
+    default: rejected_until_15Hz_A_E_PASS
+    promote_if: end_to_end_p95_ms_at_most_50_zero_deadline_miss_zero_frame_drop
+    rollback: 15_Hz
+  cross_polarization:
+    default: off
+    test_only_after_wet_scene_OFF_baseline: true
+    promote_if: glare_area_reduction_at_least_50_percent_and_all_other_D_gates_PASS
+    rollback: off
+  Basler_BAS:
+    default: not_purchased
+    trigger: PRO_supply_blocks_schedule_or_production_scale_savings_exceed_full_retest_cost
+    validation: repeat_full_A_E_on_exact_host_USB_power_topology
+  FLIR_BFS_U3_51S5C_C:
+    default: not_purchased
+    trigger: >-
+      PRO supply blocks the proof schedule, or one bounded remediation cannot
+      resolve a proven camera-intrinsic SNR, sensor-artifact or transport failure.
+    validation: repeat_full_A_E
+  wider_FOV_or_higher_resolution:
+    default: not_purchased
+    trigger: service_size_below_20mm_or_swath_requirement_invalidates_current_geometry
+    rule: new_optical_compute_and_real_action_contract_required
+
+procurement_boundary:
+  owner_approval_required: true
+  current_supplier_quote_available: false
+  currently_authorized_for_purchase: false
+  maximum_initial_proof_sets_after_quote_and_owner_approval: 1
+  allowed_initial_items:
+    - one_a2A2464_77ucPRO
+    - one_C23_0824_5M_P
+    - one_locking_USB3_and_IO_set
+    - one_external_camera_power_path
+    - one_isolated_trigger_strobe_driver
+    - one_four_quadrant_LED_diffuser_proof_set
+    - one_adjustable_hood_skirt_window_prototype
+    - calibration_and_thermal_electrical_measurement_items
+  blocked_initial_items:
+    - second_camera
+    - Basler_BAS_challenger
+    - FLIR_challenger
+    - second_accelerator
+    - production_quantity_enclosure
+    - production_quantity_polarizer
+    - production_boom_replication
+
+physical_stage_state:
+  A_procurement_and_identity: NOT_MEASURED
+  B_transport_trigger_and_thermal: NOT_MEASURED
+  C_optics_and_window: NOT_MEASURED
+  D_light_hood_and_polarization: NOT_MEASURED
+  E_motion_tracking_and_compute: NOT_MEASURED
+  current_result: PRE_REAL_NOT_READY
+  next_exact_action: >-
+    Obtain a current landed quote and owner approval for one exact PRO/C23
+    proof set, assemble it, and execute the existing hash-bound physical A-E
+    runbook without changing thresholds.
+  A_E_PASS_result_label: FROZEN_FOR_CONTROLLED_CAPTURE
+  prohibited_result_labels:
+    - PRODUCT_GO
+    - FIELD_GO
+    - DRY_MARKER_GO
+    - CHEMICAL_FIRE_GO
+
+stopping_rules:
+  - Stop camera research when one PRO baseline passes physical A-E and no explicit challenger trigger exists.
+  - Do not buy a challenger only because it might be better.
+  - Stop current tuning after one bounded remediation fails the same decisive stage twice.
+  - Keep 15 Hz when the 20 Hz absolute gate fails.
+  - Keep polarization off when its paired wet-scene gate fails.
+  - Do not plan multiple cameras before one-module A-E PASS and an explicit swath requirement.
+  - Keep below-20-mm intervention closed until dedicated real target-rig evidence changes the service contract.
+
+replan_triggers:
+  - PRO_or_C23_unavailable_for_proof_schedule
+  - target_FOV_unreachable_in_working_distance_range
+  - any_of_27_cells_permanently_fails_20mm_or_MTF_gate
+  - no_light_operating_point_passes_all_D_gates
+  - motion_blur_exceeds_0p75px_at_1mps_and_170us
+  - one_camera_15Hz_end_to_end_gate_fails
+  - required_speed_exceeds_1mps
+  - required_safe_swath_exceeds_444p375mm
+  - intended_temperature_exceeds_5_to_40C_proof_envelope
+  - certified_ingress_washdown_dust_shock_or_vibration_becomes_required
+  - nozzle_or_crop_safety_contract_changes_the_20mm_service_class
+  - camera_lens_EOL_or_interface_change

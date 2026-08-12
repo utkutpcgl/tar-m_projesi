@@ -1,0 +1,22 @@
+receipt_schema_version: 1
+contract_id: controlled_spot_spray_rig_acceptance_v1
+receipt_id: SYNTHETIC-NOT-MEASURED-NOT-DEPLOYMENT-EVIDENCE
+created_at_utc: "2026-08-12T03:40:00+00:00"
+evidence_kind: synthetic_fixture
+deployment_evidence: false
+synthetic_fixture: true
+rig_unit_id: SYNTHETIC-RIG-NOT-HARDWARE
+hardware_revision: SYNTHETIC-V1
+software_commit: dfd4fad4c5675cd1d23b484ce465d1616460c095
+frozen_v2_source_sha256:
+  capture_contract: f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9
+  decision_document: c5eb80d8eb074b36463906a4dee993776d2415ae1e41ad50a988c8592e8ed7aa
+notes: Synthetic missing-measurement fixture only; it is not hardware evidence.
+artifacts: {}
+stages:
+  A_procurement_and_identity: {measurement_status: not_measured}
+  B_transport_trigger_and_thermal: {measurement_status: not_measured}
+  C_optics_and_window: {measurement_status: not_measured}
+  D_light_hood_and_polarization: {measurement_status: not_measured}
+  E_motion_tracking_and_compute: {measurement_status: not_measured}
+  F_registration_and_safe_actuation: {measurement_status: not_measured}

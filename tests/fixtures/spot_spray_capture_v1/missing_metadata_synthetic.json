@@ -1,0 +1,22 @@
+{
+  "schema_version": "capture_manifest_v1",
+  "manifest_id": "synthetic_missing_metadata",
+  "evidence_scope": "synthetic_fixture",
+  "frames": [
+    {
+      "frame_id": "frame_a1_000",
+      "image_path": "images/frame_a1_000.jpg",
+      "field_id": "field_a",
+      "session_id": "session_a1",
+      "video_id": "video_a1",
+      "frame_index": 0,
+      "timestamp_ns": 1000000000,
+      "encoder_mm": 0.0,
+      "gain_db": 2.0,
+      "working_distance_mm": 480.0,
+      "strobe_profile_id": "strobe_150us_v1",
+      "split": "train",
+      "instances": []
+    }
+  ]
+}

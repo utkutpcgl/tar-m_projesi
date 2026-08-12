@@ -1,12 +1,15 @@
 # Tarım Arazisi Gerçek + Kontrollü Sentetik Segmentasyon Benchmark'ı
 
-## Güncel kontrollü spot-spray kararı — 2026-08-11
+## Güncel kontrollü spot-spray kararı — 2026-08-12
 
 - [Buradan başlayın: sade PDF](docs/results/kontrollu_spot_spray_poc_v1/BASLA_BURADAN_KONTROLLU_SPOT_SPRAY_POC_V1.pdf)
 - [Açıklamalı detaylı PDF](docs/results/kontrollu_spot_spray_poc_v1/DETAYLI_KONTROLLU_SPOT_SPRAY_POC_V1.pdf)
 - [Aranabilir rapor, exact JSON ve self-sufficient görseller](docs/results/kontrollu_spot_spray_poc_v1/README.md)
+- [Fiyat/performans odaklı kamera–hood–ışık–kamera sayısı ürün kararı](docs/SPOT_SPRAY_PRODUCT_IMAGING_DECISION_V1.md)
 - [Dondurulan kamera/lens/ışık/hız/BOM baseline'ı V2](docs/CONTROLLED_CAPTURE_OPTIMIZATION_V2.md)
-- [İlk kontrollü deploy sözleşmesi V1](docs/SPOT_SPRAY_DEPLOY_SOZLESMESI_V1.md)
+- [Fiziksel A–F rig kabul runbook'u](docs/SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md)
+- [Capture/annotation/split sözleşmesi](docs/SPOT_SPRAY_DATA_CAPTURE_AND_ANNOTATION_V1.md)
+- [Fail-closed target-rig fine-tune ve track-action hattı](docs/SPOT_SPRAY_TARGET_RIG_MODEL_PIPELINE_V1.md)
 
 Instance segmentation temel olarak kalıyor; mevcut checkpoint ile saha
 ateşlemesi **NO-GO** ve henüz gerçek target-rig performansı ölçülmedi. Eşit
@@ -16,14 +19,34 @@ PhenoBench UAV geliştirme panelinde `≥82 px` frame-action F1'ını
 `%72,6→%75,4`, aynı kilitli Pheno eşiğiyle tüketilmiş tek-session BoniRob dış
 robot-view panelinde `%5,4→%9,0` yükseltti. Pheno eşleştirilmiş farkının %95
 aralığı `[-1,36; +7,10]` puanla sıfırı kesiyor; ayrıca aday V12 sentetik
-holdout'ta sabit eşikte `%0,0` F1 verdi. Bu nedenle bu checkpoint yalnız
-pre-real geliştirme adayıdır ve sentetik seçim ağırlığı `0` kalır. Sonuç:
-optik ayrıntı önemlidir, fakat ana darboğaz hedef kamera dağılımına uyumdur.
-Sıradaki en yüksek getirili kanıt; bir adet Basler `a2A2464-77ucPRO` + 8 mm
-C23 lens, kapalı/diffuse strobe'lu native `2048²`, `474–484 mm FOV`,
-`170 µs`, `15 Hz` rig ve aynı rig'den field+session+track ayrık gerçek pilot
-veridir. RTX 3090 için 20 Hz ve ikinci kamera mevcut p95 hesap kapısını
-geçmedi; yeni E2E kanıt olmadan açılmayacaktır.
+holdout'ta sabit eşikte `%0,0` F1 verdi. Bu nedenle SHA-256
+`3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100`
+olan checkpoint yalnız ROSE-native yönsel fine-tune foundation'ıdır; sentetik
+seçim ağırlığı `0` kalır.
+
+Güncel zincir `PRE_REAL_NOT_READY` durumundadır: fiziksel A–E rig kabul
+receipt'i, audited gerçek `capture_manifest_v1`, target-rig fine-tune
+checkpoint'i ve gerçek track-action sonucu yoktur; evaluator'daki
+`evaluated_checkpoint` bilinçli olarak `null`dur. Physical A–E yalnız
+kontrollü RGB veri toplamayı, A–F ise ayrıca kimyasal içermeyen dry-marker'ı
+açabilir. Frozen V2 nicel deposition/crop-injury kabul eşiği tanımlamadığı
+için chemical fire her durumda kapalıdır.
+
+Sıradaki tek unblock, bir adet Basler `a2A2464-77ucPRO` + 8 mm C23 lens,
+kapalı/diffuse strobe'lu native `2048²`, `474–484 mm FOV`, `170 µs`, `15 Hz`
+proof modülünde hash-bound physical A–E PASS üretmektir. Ardından aynı rig'den
+en az 3 tarla / 4 field-session, instance mask + track ID, exact image/hardware
+provenance ve deterministic field `60/20/20` split gelir. RTX 3090 için 20 Hz
+ve ikinci kamera mevcut p95 hesap kapısını geçmedi; yeni E2E kanıt olmadan
+açılmayacaktır.
+
+Ürün görüntüleme kararı bu baseline'ı fiyat/performans açısından da
+dondurur: ilk servis sınıfı provisional `≥20 mm` canopy span, `10 mm`
+yalnız optik witness ve ilk proof kamera sayısı birdir. Çıplak kamera IP30
+olduğu için mevcut hood yalnız işlevsel proof muhafazasıdır; production
+rain/washdown/dust/vibration gereksinimi ayrı environmental kontrat ister.
+Güncel landed quote, owner onayı ve physical A–E olmadan satın alma veya
+field/product GO iddiası yoktur.
 
 Bu depo, RGB tarla görüntülerinde üç sınıflı semantik segmentasyon için
 tekrarlanabilir bir benchmark içerir:

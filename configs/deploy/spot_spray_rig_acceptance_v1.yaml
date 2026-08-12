@@ -1,0 +1,267 @@
+schema_version: 1
+contract_id: controlled_spot_spray_rig_acceptance_v1
+status: HARDWARE_ACCEPTANCE_A_F
+scope: >-
+  One frozen Basler PRO proof module. Physical A-E PASS may authorize
+  controlled RGB data collection. Physical A-F PASS is separately required
+  for safe dry-marker actuation. No chemical-fire gate is supported here.
+
+default_contract_identity:
+  identity_id: controlled_spot_spray_rig_acceptance_v1_exact_default
+  canonicalization: sorted_compact_JSON_UTF8_with_ISO8601_dates_v1
+  CLI_requires_exact_default_bytes: true
+  library_requires_exact_canonical_policy: true
+  duplicate_YAML_mapping_keys_rejected: true
+  drift_rule: reject_before_any_gate_evaluation
+
+frozen_v2_sources:
+  repository_commit_at_freeze: dfd4fad4c5675cd1d23b484ce465d1616460c095
+  capture_contract:
+    path: configs/deploy/spot_spray_capture_optimization_v2.yaml
+    sha256: f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9
+  decision_document:
+    path: docs/CONTROLLED_CAPTURE_OPTIMIZATION_V2.md
+    sha256: c5eb80d8eb074b36463906a4dee993776d2415ae1e41ad50a988c8592e8ed7aa
+
+receipt_contract:
+  receipt_schema_version: 1
+  required_root_fields:
+    - receipt_schema_version
+    - contract_id
+    - receipt_id
+    - created_at_utc
+    - evidence_kind
+    - deployment_evidence
+    - synthetic_fixture
+    - rig_unit_id
+    - hardware_revision
+    - software_commit
+    - frozen_v2_source_sha256
+    - artifacts
+    - stages
+  evidence_kinds: [physical_bench, synthetic_fixture]
+  stage_measurement_statuses: [measured, not_measured]
+  required_stage_evidence_artifacts_when_measured: 1
+  physical_artifact_rule: >-
+    Every referenced physical artifact path must exist and match its declared
+    SHA-256. Missing files never pass; hash mismatches fail integrity.
+  synthetic_rule: >-
+    Synthetic fixtures may prove evaluator logic only. They must declare
+    deployment_evidence false and can never authorize data collection.
+  missing_value_rule: missing_or_null_or_not_measured_is_NOT_MEASURED_never_PASS
+
+decision_policy:
+  evaluated_stages:
+    - A_procurement_and_identity
+    - B_transport_trigger_and_thermal
+    - C_optics_and_window
+    - D_light_hood_and_polarization
+    - E_motion_tracking_and_compute
+    - F_registration_and_safe_actuation
+  controlled_data_collection_stages:
+    - A_procurement_and_identity
+    - B_transport_trigger_and_thermal
+    - C_optics_and_window
+    - D_light_hood_and_polarization
+    - E_motion_tracking_and_compute
+  dry_marker_readiness_stages:
+    - A_procurement_and_identity
+    - B_transport_trigger_and_thermal
+    - C_optics_and_window
+    - D_light_hood_and_polarization
+    - E_motion_tracking_and_compute
+    - F_registration_and_safe_actuation
+  all_A_through_E_must_pass: true
+  all_A_through_F_must_pass_for_dry_marker: true
+  stage_F_evaluated: true
+  controlled_data_collection_requires_physical_bench_evidence: true
+  dry_marker_actuation_requires_physical_bench_evidence: true
+  synthetic_can_authorize_collection: false
+  synthetic_can_authorize_dry_marker: false
+  chemical_fire_allowed: false
+  chemical_fire_blocker: >-
+    Frozen V2 defines no quantitative deposition or crop-injury acceptance
+    thresholds. Those gates remain unsupported and unmeasured; chemical fire
+    is disabled even after dry-marker PASS.
+
+thresholds:
+  A_procurement_and_identity:
+    camera:
+      manufacturer: Basler
+      model: a2A2464-77ucPRO
+      order_number: 109779
+      color_sensor_required: true
+      factory_ir_cut_required: true
+      installed_power_source: external_12_to_24_VDC
+    lens:
+      manufacturer: Basler
+      model: C23-0824-5M-P
+      order_number: 2200000568
+    cable:
+      locking_required: true
+      maximum_length_m: 3.0
+    dedicated_USB3_root_required: true
+    supplier_quote_strictly_after: 2026-08-11
+
+  B_transport_trigger_and_thermal:
+    trigger_count_minimum: 10000
+    trigger_rate_hz: 20.0
+    hardware_trigger_required: true
+    missing_frame_counter_maximum: 0
+    duplicate_frame_counter_maximum: 0
+    invalid_camera_timestamp_maximum: 0
+    stale_encoder_event_maximum: 0
+    trigger_encoder_delta_p95_maximum_us: 100.0
+    trigger_encoder_delta_maximum_us: 250.0
+    strobe_jitter_p95_maximum_us: 5.0
+    pulse_width_error_maximum_fraction: 0.05
+    bus_droop_maximum_fraction: 0.05
+    thermal_duration_minimum_minutes: 120
+    thermal_ambient_coverage_c: [5.0, 40.0]
+    camera_housing_maximum_c: 50.0
+    LED_plate_maximum_c: 60.0
+    frame_drop_maximum: 0
+    thermal_throttle_event_maximum: 0
+    powered_USB_fallback_in_use: false
+
+  C_optics_and_window:
+    installed_window_required: true
+    focus_and_iris_locked_required: true
+    working_distance_range_mm: [520.0, 590.0]
+    ground_FOV_range_mm: [474.0, 484.0]
+    action_safe_length_minimum_mm: 444.375
+    plane_offsets_above_ground_mm: [0.0, 55.0, 110.0]
+    region_ids: [R1, R2, R3, R4, R5, R6, R7, R8, R9]
+    expected_cell_count: 27
+    local_GSD_maximum_mm_px: 0.24390243902439024
+    span_10mm_minimum_px: 41.0
+    span_20mm_minimum_px: 82.0
+    MTF50_minimum_cycles_px: 0.15
+    reprojection_RMS_maximum_px: 0.30
+    reprojection_p95_maximum_px: 0.50
+    distortion_model_valid_required: true
+
+  D_light_hood_and_polarization:
+    camera_exposure_us: 170.0
+    strobe_pulse_range_us: [150.0, 170.0]
+    strobe_peak_current_range_a: [0.0, 10.0]
+    pulse_width_error_maximum_fraction: 0.05
+    strobe_jitter_p95_maximum_us: 5.0
+    bus_droop_maximum_fraction: 0.05
+    correlated_color_temperature_range_k: [4500.0, 5500.0]
+    color_rendering_index_minimum: 90.0
+    light_branch_average_power_maximum_w: 20.0
+    capture_module_average_power_maximum_w_excluding_compute: 60.0
+    thermal_duration_minimum_minutes: 120
+    camera_housing_maximum_c: 50.0
+    LED_plate_maximum_c: 60.0
+    frame_drop_maximum: 0
+    thermal_throttle_event_maximum: 0
+    exterior_lux_must_be_measured: true
+    worst_ambient_condition_must_be_documented: true
+    region_ids: [R1, R2, R3, R4, R5, R6, R7, R8, R9]
+    ambient_off_on_ratio_maximum: 0.10
+    nine_region_luma_min_to_max_ratio_minimum: 0.75
+    frame_mean_luma_range_8bit: [40.0, 205.0]
+    clipped_white_fraction_maximum: 0.002
+    clipped_black_fraction_maximum: 0.001
+    temporal_SNR_18pct_gray_minimum_db: 20.0
+    paired_wet_glare_test_required: true
+    polarization_default_enabled: false
+    polarization_enable_glare_reduction_minimum_fraction: 0.50
+    polarization_enable_requires_all_other_gates: true
+
+  E_motion_tracking_and_compute:
+    motion_speeds_m_s: [0.5, 1.0]
+    motion_blur_maximum_px: 0.75
+    motion_exposure_maximum_us: 170.0
+    observation_speed_m_s: 1.0
+    observation_rate_hz: 12.0
+    valid_region_observations_minimum: 5
+    camera_count: 1
+    end_to_end_rate_hz: 15.0
+    end_to_end_p95_deadline_ms: 66.66666666666667
+    deadline_miss_maximum: 0
+    frame_drop_maximum: 0
+    accelerator: measured_NVIDIA_RTX_3090
+    model_checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+    required_pipeline_components:
+      - camera_acquisition
+      - tracking
+      - result_transfer
+
+  F_registration_and_safe_actuation:
+    required_evidence_roles:
+      - homography_encoder_and_daily_registration
+      - nozzle_latency_and_footprint
+      - dry_marker_and_deadline
+      - hardware_safety_fault_injection
+    time_and_encoder:
+      shared_real_time_controller_clock_required: true
+      trigger_encoder_same_hardware_event_required: true
+      host_arrival_timestamp_for_control: false
+      encoder_resolution_maximum_mm_per_count: 1.0
+      encoder_scale_error_maximum_mm_per_m: 1.0
+      trigger_encoder_delta_p95_maximum_us: 100.0
+      trigger_encoder_delta_maximum_us: 250.0
+      encoder_stale_no_fire_maximum_ms: 5.0
+    calibration:
+      installed_optical_state_frozen_required: true
+      daily_fiducial_check_id_required: true
+      ground_homography_residual_p95_maximum_mm: 1.0
+      ground_homography_residual_maximum_mm: 2.0
+      daily_registration_drift_maximum_mm: 2.0
+    nozzle_registration:
+      offset_coordinate_convention: positive_downstream_along_travel
+      camera_to_nozzle_offset_must_be_physically_measured: true
+      camera_to_nozzle_offset_CAD_assumed: false
+      valve_onset_latency_minimum_ms_exclusive: 0.0
+      footprint_radius_minimum_mm_exclusive: 0.0
+      allowed_latency_footprint_methods:
+        - water_sensitive_paper
+        - fluorescent_dye
+      command_encoder_formula: >-
+        capture_encoder_mm + measured_camera_to_nozzle_offset_mm -
+        speed_mm_s * measured_valve_onset_latency_s
+      no_fire_distance_formula: >-
+        footprint_radius_mm + p95_total_registration_error_mm
+    actuation_deadline:
+      dry_marker_medium: nonchemical_dry_marker
+      required_latency_formula: >-
+        worst_case_inference_latency_ms + worst_case_result_transfer_latency_ms
+        + worst_case_controller_latency_ms + measured_valve_onset_latency_ms
+      available_time_formula: >-
+        remaining_encoder_distance_mm / speed_mm_s * 1000
+      each_case_valve_latency_must_match_measured_nozzle_latency: true
+      feasible_case_must_emit_dry_marker_command: true
+      forced_missed_deadline_must_abort: true
+      forced_missed_deadline_valve_enable: false
+      forced_missed_deadline_fire_command: false
+    dry_marker:
+      evaluated_marks_minimum_exclusive: 0
+      end_to_end_error_p95_maximum_mm: 5.0
+      end_to_end_error_maximum_mm: 10.0
+    safety:
+      SELV_LPS_power_verified: true
+      fused_camera_light_controller_branches_verified: true
+      emergency_stop_tested: true
+      emergency_stop_strobe_enable: false
+      emergency_stop_valve_enable: false
+      watchdog_tested: true
+      watchdog_default_no_fire: true
+      watchdog_valve_enable: false
+      forced_no_fire_faults:
+        - timestamp_invalid
+        - encoder_stale
+        - frame_drop
+        - calibration_invalid
+        - overtemperature
+        - hood_open
+      each_fault_injected: true
+      each_fault_no_fire_observed: true
+      each_fault_valve_enable: false
+    chemical:
+      chemical_enable: false
+      chemical_enable_hardware_line_verified_disabled: true
+      deposition_acceptance_status: unsupported_unmeasured_no_frozen_threshold
+      crop_injury_acceptance_status: unsupported_unmeasured_no_frozen_threshold

@@ -1,0 +1,297 @@
+receipt_schema_version: 1
+contract_id: controlled_spot_spray_rig_acceptance_v1
+receipt_id: SYNTHETIC-PASS-NOT-DEPLOYMENT-EVIDENCE
+created_at_utc: "2026-08-12T03:30:00+00:00"
+evidence_kind: synthetic_fixture
+deployment_evidence: false
+synthetic_fixture: true
+rig_unit_id: SYNTHETIC-RIG-NOT-HARDWARE
+hardware_revision: SYNTHETIC-V1
+software_commit: dfd4fad4c5675cd1d23b484ce465d1616460c095
+frozen_v2_source_sha256:
+  capture_contract: f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9
+  decision_document: c5eb80d8eb074b36463906a4dee993776d2415ae1e41ad50a988c8592e8ed7aa
+notes: Synthetic boundary fixture only; it is not a physical PASS receipt.
+
+_synthetic_templates:
+  optical_cell: &optical_cell
+    local_GSD_mm_px: 0.24
+    span_10mm_px: 41.5
+    span_20mm_px: 83.0
+    MTF50_cycles_px: 0.16
+    reprojection_RMS_px: 0.29
+    reprojection_p95_px: 0.49
+    distortion_model_valid: true
+  light_region: &light_region
+    ambient_off_on_ratio: 0.09
+    mean_luma_8bit: 100.0
+    clipped_white_fraction: 0.001
+    clipped_black_fraction: 0.0005
+    temporal_SNR_18pct_gray_db: 21.0
+
+artifacts:
+  SYNTHETIC_A:
+    kind: synthetic_placeholder
+    uri: synthetic://stage-A/pass
+    deployment_evidence: false
+  SYNTHETIC_B:
+    kind: synthetic_placeholder
+    uri: synthetic://stage-B/pass
+    deployment_evidence: false
+  SYNTHETIC_C:
+    kind: synthetic_placeholder
+    uri: synthetic://stage-C/pass
+    deployment_evidence: false
+  SYNTHETIC_D:
+    kind: synthetic_placeholder
+    uri: synthetic://stage-D/pass
+    deployment_evidence: false
+  SYNTHETIC_E:
+    kind: synthetic_placeholder
+    uri: synthetic://stage-E/pass
+    deployment_evidence: false
+  SYNTHETIC_F:
+    kind: synthetic_placeholder
+    uri: synthetic://stage-F/pass
+    deployment_evidence: false
+
+stages:
+  A_procurement_and_identity:
+    measurement_status: measured
+    evidence_artifact_ids: [SYNTHETIC_A]
+    camera:
+      manufacturer: Basler
+      model: a2A2464-77ucPRO
+      order_number: 109779
+      serial_number: SYNTHETIC-CAMERA-SERIAL
+      color_sensor: true
+      factory_ir_cut: true
+    lens:
+      manufacturer: Basler
+      model: C23-0824-5M-P
+      order_number: 2200000568
+      serial_number: SYNTHETIC-LENS-SERIAL
+    installed_power_source: external_12_to_24_VDC
+    locking_cable: true
+    cable_length_m: 2.5
+    dedicated_USB3_root: true
+    supplier_quote_id: SYNTHETIC-NOT-A-QUOTE
+    supplier_quote_date: 2026-08-12
+    supplier_lead_time_days: 28
+
+  B_transport_trigger_and_thermal:
+    measurement_status: measured
+    evidence_artifact_ids: [SYNTHETIC_B]
+    trigger_test:
+      hardware_trigger: true
+      trigger_count: 10000
+      trigger_rate_hz: 20.0
+      missing_frame_counters: 0
+      duplicate_frame_counters: 0
+      invalid_camera_timestamps: 0
+    timing:
+      stale_encoder_events: 0
+      trigger_encoder_delta_p95_us: 99.0
+      trigger_encoder_delta_max_us: 249.0
+      strobe_jitter_p95_us: 4.9
+      pulse_width_error_fraction: 0.049
+      bus_droop_fraction: 0.049
+    thermal:
+      duration_minutes: 120
+      ambient_min_c: 5.0
+      ambient_max_c: 40.0
+      camera_housing_max_c: 49.0
+      LED_plate_max_c: 59.0
+      frame_drops: 0
+      thermal_throttle_events: 0
+    powered_USB_fallback_in_use: false
+
+  C_optics_and_window:
+    measurement_status: measured
+    evidence_artifact_ids: [SYNTHETIC_C]
+    installed_window: true
+    focus_locked: true
+    iris_locked: true
+    working_distance_mm: 555.0
+    ground_FOV_mm: 480.0
+    action_safe_length_mm: 445.0
+    cells:
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 0.0, region_id: R1}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 0.0, region_id: R2}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 0.0, region_id: R3}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 0.0, region_id: R4}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 0.0, region_id: R5}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 0.0, region_id: R6}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 0.0, region_id: R7}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 0.0, region_id: R8}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 0.0, region_id: R9}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 55.0, region_id: R1}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 55.0, region_id: R2}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 55.0, region_id: R3}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 55.0, region_id: R4}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 55.0, region_id: R5}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 55.0, region_id: R6}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 55.0, region_id: R7}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 55.0, region_id: R8}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 55.0, region_id: R9}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 110.0, region_id: R1}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 110.0, region_id: R2}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 110.0, region_id: R3}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 110.0, region_id: R4}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 110.0, region_id: R5}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 110.0, region_id: R6}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 110.0, region_id: R7}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 110.0, region_id: R8}
+      - {<<: *optical_cell, plane_offset_above_ground_mm: 110.0, region_id: R9}
+
+  D_light_hood_and_polarization:
+    measurement_status: measured
+    evidence_artifact_ids: [SYNTHETIC_D]
+    bench_setting_id: SYNTHETIC-LIGHT-SETTING
+    camera_controls_frozen: true
+    worst_ambient_condition_documented: true
+    worst_ambient_condition_id: SYNTHETIC-AMBIENT-CHALLENGE
+    exterior_lux: 80000.0
+    camera_exposure_us: 170.0
+    strobe_pulse_us: 150.0
+    strobe_peak_current_a: 8.0
+    correlated_color_temperature_k: 5000.0
+    color_rendering_index: 95.0
+    pulse_width_error_fraction: 0.049
+    strobe_jitter_p95_us: 4.9
+    bus_droop_fraction: 0.049
+    light_branch_average_power_w: 19.0
+    capture_module_average_power_w_excluding_compute: 59.0
+    thermal:
+      duration_minutes: 120
+      camera_housing_max_c: 49.0
+      LED_plate_max_c: 59.0
+      frame_drops: 0
+      thermal_throttle_events: 0
+    regions:
+      - {<<: *light_region, region_id: R1}
+      - {<<: *light_region, region_id: R2}
+      - {<<: *light_region, region_id: R3}
+      - {<<: *light_region, region_id: R4}
+      - {<<: *light_region, region_id: R5}
+      - {<<: *light_region, region_id: R6}
+      - {<<: *light_region, region_id: R7}
+      - {<<: *light_region, region_id: R8}
+      - {<<: *light_region, region_id: R9}
+    polarization:
+      enabled: false
+      paired_wet_glare_test_completed: true
+      saturated_glare_reduction_fraction: 0.40
+
+  E_motion_tracking_and_compute:
+    measurement_status: measured
+    evidence_artifact_ids: [SYNTHETIC_E]
+    motion_trials:
+      - {speed_m_s: 0.5, exposure_us: 170.0, motion_blur_px: 0.36}
+      - {speed_m_s: 1.0, exposure_us: 170.0, motion_blur_px: 0.72}
+    observation_test:
+      speed_m_s: 1.0
+      rate_hz: 12.0
+      minimum_valid_region_observations: 5
+    end_to_end:
+      camera_count: 1
+      rate_hz: 15.0
+      evaluated_frame_count: 1000
+      latency_p95_ms: 60.0
+      deadline_misses: 0
+      frame_drops: 0
+      accelerator: measured_NVIDIA_RTX_3090
+      model_checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+      pipeline_components: [camera_acquisition, tracking, result_transfer]
+
+  F_registration_and_safe_actuation:
+    measurement_status: measured
+    evidence_artifact_ids: [SYNTHETIC_F]
+    evidence_roles:
+      homography_encoder_and_daily_registration: SYNTHETIC_F
+      nozzle_latency_and_footprint: SYNTHETIC_F
+      dry_marker_and_deadline: SYNTHETIC_F
+      hardware_safety_fault_injection: SYNTHETIC_F
+    time_and_encoder:
+      shared_real_time_controller_clock: true
+      trigger_encoder_same_hardware_event: true
+      host_arrival_timestamp_used_for_control: false
+      encoder_resolution_mm_per_count: 1.0
+      encoder_scale_error_mm_per_m: 1.0
+      trigger_encoder_delta_p95_us: 100.0
+      trigger_encoder_delta_max_us: 250.0
+      encoder_stale_no_fire_after_ms: 5.0
+    calibration:
+      installed_optical_state_frozen: true
+      daily_fiducial_check_id: SYNTHETIC-DAILY-FIDUCIAL
+      ground_homography_residual_p95_mm: 1.0
+      ground_homography_residual_max_mm: 2.0
+      daily_registration_drift_mm: 2.0
+    nozzle_registration:
+      offset_measurement_method: synthetic_fixture_caliper_proxy
+      offset_physically_measured: true
+      offset_CAD_assumed: false
+      offset_coordinate_convention: positive_downstream_along_travel
+      measured_camera_to_nozzle_offset_mm: 300.0
+      latency_footprint_measurement_method: fluorescent_dye
+      measured_valve_onset_latency_ms: 50.0
+      measured_footprint_radius_mm: 12.0
+      p95_total_registration_error_mm: 4.0
+      formula_verification:
+        capture_encoder_mm: 1000.0
+        speed_mm_s: 1000.0
+        command_encoder_mm: 1250.0
+      frozen_no_fire_distance_mm: 16.0
+    actuation_deadline:
+      actuation_medium: nonchemical_dry_marker
+      feasible_case:
+        deadline_feasible: true
+        speed_mm_s: 1000.0
+        remaining_encoder_distance_mm: 100.0
+        worst_case_inference_latency_ms: 20.0
+        worst_case_result_transfer_latency_ms: 5.0
+        worst_case_controller_latency_ms: 5.0
+        measured_valve_onset_latency_ms: 50.0
+        calculated_required_latency_ms: 80.0
+        calculated_available_time_ms: 100.0
+        dry_marker_command_emitted: true
+      forced_missed_deadline:
+        deadline_feasible: false
+        speed_mm_s: 1000.0
+        remaining_encoder_distance_mm: 50.0
+        worst_case_inference_latency_ms: 20.0
+        worst_case_result_transfer_latency_ms: 5.0
+        worst_case_controller_latency_ms: 5.0
+        measured_valve_onset_latency_ms: 50.0
+        calculated_required_latency_ms: 80.0
+        calculated_available_time_ms: 50.0
+        abort_observed: true
+        valve_enable: false
+        fire_command: false
+    dry_marker:
+      evaluated_marks: 100
+      end_to_end_error_p95_mm: 5.0
+      end_to_end_error_max_mm: 10.0
+    safety:
+      SELV_LPS_power_verified: true
+      fused_camera_light_controller_branches_verified: true
+      emergency_stop:
+        tested: true
+        strobe_enable: false
+        valve_enable: false
+      watchdog:
+        tested: true
+        default_no_fire: true
+        valve_enable: false
+      fault_injection_results:
+        - {fault: timestamp_invalid, injected: true, no_fire_observed: true, valve_enable: false}
+        - {fault: encoder_stale, injected: true, no_fire_observed: true, valve_enable: false}
+        - {fault: frame_drop, injected: true, no_fire_observed: true, valve_enable: false}
+        - {fault: calibration_invalid, injected: true, no_fire_observed: true, valve_enable: false}
+        - {fault: overtemperature, injected: true, no_fire_observed: true, valve_enable: false}
+        - {fault: hood_open, injected: true, no_fire_observed: true, valve_enable: false}
+    chemical:
+      chemical_enable: false
+      chemical_enable_hardware_line_verified_disabled: true
+      deposition_acceptance_status: unsupported_unmeasured_no_frozen_threshold
+      crop_injury_acceptance_status: unsupported_unmeasured_no_frozen_threshold

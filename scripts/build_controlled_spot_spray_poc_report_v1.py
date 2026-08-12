@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from PIL import Image, ImageDraw
+import yaml
 
 IMPORT_ROOT = Path(__file__).resolve().parents[1]
 if str(IMPORT_ROOT) not in sys.path:
@@ -62,6 +63,18 @@ PRE_REAL_DIAGNOSTICS = DATA / "runs/pre_real_data_ceiling_action_diagnostics_v1/
 PRE_REAL_GALLERY = DATA / "runs/pre_real_data_ceiling_gallery_v1"
 PRE_REAL_GALLERY_RECEIPT = PRE_REAL_GALLERY / "gallery_receipt.json"
 SYNTHETIC_GALLERY = DATA / "runs/cropcraft_deploy_synthetic_diagnostic_v1/gallery"
+RIG_ACCEPTANCE = ROOT / "configs/deploy/spot_spray_rig_acceptance_v1.yaml"
+RIG_ACCEPTANCE_IMPL = ROOT / "scripts/evaluate_spot_spray_rig_acceptance_v1.py"
+RIG_ACCEPTANCE_RUNBOOK = ROOT / "docs/SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md"
+CAPTURE_SCHEMA = ROOT / "configs/data/spot_spray_capture_manifest_v1.schema.json"
+CAPTURE_POLICY = ROOT / "configs/data/spot_spray_capture_audit_v1.yaml"
+CAPTURE_AUDIT_IMPL = ROOT / "scripts/audit_spot_spray_capture_v1.py"
+CAPTURE_ANNOTATION_DOC = ROOT / "docs/SPOT_SPRAY_DATA_CAPTURE_AND_ANNOTATION_V1.md"
+FINETUNE_CONTRACT = ROOT / "configs/benchmark/spot_spray_target_rig_finetune_v1.yaml"
+FINETUNE_IMPL = ROOT / "scripts/train_spot_spray_target_rig_finetune_v1.py"
+ACTION_EVAL_CONTRACT = ROOT / "configs/benchmark/spot_spray_target_rig_action_eval_v1.yaml"
+ACTION_EVAL_IMPL = ROOT / "scripts/evaluate_spot_spray_target_rig_action_v1.py"
+TARGET_RIG_MODEL_DOC = ROOT / "docs/SPOT_SPRAY_TARGET_RIG_MODEL_PIPELINE_V1.md"
 
 MODELS = {
     "base_e50": "Başlangıç e50",
@@ -77,6 +90,15 @@ def load(path: Path) -> dict[str, Any]:
     if not path.is_file():
         raise FileNotFoundError(path)
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_yaml(path: Path) -> dict[str, Any]:
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    value = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(value, dict):
+        raise ValueError(f"Expected a YAML mapping: {path}")
+    return value
 
 
 def pct(value: float | None, digits: int = 1) -> str:
@@ -134,6 +156,11 @@ def build_summary(inputs: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
     pre_real = inputs["pre_real_result"]
     pre_diag = inputs["pre_real_diagnostics"]
     pre_gallery = inputs["pre_real_gallery"]
+    rig_acceptance = inputs["rig_acceptance"]
+    capture_schema = inputs["capture_schema"]
+    capture_policy = inputs["capture_policy"]
+    finetune = inputs["finetune_contract"]
+    action_eval = inputs["action_eval_contract"]
     if pre_real["result"]["selected_pre_real_model"] != SELECTED_MODEL:
         raise ValueError("Pre-real result does not select the expected checkpoint")
     if pre_real["result"]["field_fire_go"] is not False:
@@ -146,6 +173,39 @@ def build_summary(inputs: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
         "challenger_checkpoint_sha256"
     ]:
         raise ValueError("Gallery and selected checkpoint differ")
+    selected_checkpoint_sha256 = pre_real["fairness"][
+        "challenger_checkpoint_sha256"
+    ]
+    foundation = finetune["foundation"]
+    action_foundation = action_eval["model"]["foundation"]
+    if foundation["checkpoint_sha256"] != selected_checkpoint_sha256:
+        raise ValueError("Fine-tune foundation and selected checkpoint differ")
+    if action_foundation["checkpoint_sha256"] != selected_checkpoint_sha256:
+        raise ValueError("Action-eval foundation and selected checkpoint differ")
+    if action_eval["model"]["evaluated_checkpoint"]["checkpoint"] is not None:
+        raise ValueError("A real target-rig checkpoint unexpectedly exists")
+    if action_eval["model"]["evaluated_checkpoint"]["checkpoint_sha256"] is not None:
+        raise ValueError("A real target-rig checkpoint hash unexpectedly exists")
+    if finetune["status"] != "blocked_before_physical_ready_real_capture":
+        raise ValueError("Fine-tune status is no longer fail-closed")
+    manager_acceptance = finetune["capture_interface"]["manager_acceptance"]
+    if manager_acceptance["status"] != "pending_manager_acceptance":
+        raise ValueError("Report expects pending capture-manager acceptance")
+    if action_eval["status"] != "frozen_before_real_target_rig_data":
+        raise ValueError("Action evaluator is no longer in the pre-real state")
+    if rig_acceptance["decision_policy"]["chemical_fire_allowed"] is not False:
+        raise ValueError("Chemical fire must remain disabled")
+    trusted_capture_sources = finetune["capture_interface"]["sources"]
+    current_capture_hashes = {
+        "schema": sha256(CAPTURE_SCHEMA),
+        "policy": sha256(CAPTURE_POLICY),
+        "audit_implementation": sha256(CAPTURE_AUDIT_IMPL),
+    }
+    for role, expected in trusted_capture_sources.items():
+        if expected["sha256"] != current_capture_hashes[role]:
+            raise ValueError(f"Fine-tune capture source pin drifted: {role}")
+    if capture_schema["properties"]["schema_version"]["const"] != "capture_manifest_v1":
+        raise ValueError("Unexpected capture manifest contract")
     capture_decision = capture_v2["decision"]
     optics = capture_v2["optical_proof"]
     tiling = capture_v2["tiling_and_scalable_swath"]
@@ -169,7 +229,7 @@ def build_summary(inputs: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
     control = action_view(action, "control_real_replay", size)
     challenger = action_view(action, "challenger_real_synthetic", size)
     result: dict[str, Any] = {
-        "schema_version": 4,
+        "schema_version": 5,
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "decision": {
             "foundation": "instance_segmentation",
@@ -177,7 +237,7 @@ def build_summary(inputs: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
             "selected_development_model": SELECTED_MODEL,
             "selected_development_model_label": SELECTED_MODEL_LABEL,
             "field_fire_status": "NO-GO",
-            "reason": "Directional public-panel gain, but every field gate fails and no independent own-rig test exists.",
+            "reason": "The selected foundation has directional public-panel gains, but no physical A-E acceptance, audited real target-rig capture, target-rig fine-tune, or track-action result exists.",
         },
         "field_gate": {
             "track_precision_minimum": 0.98,
@@ -200,9 +260,7 @@ def build_summary(inputs: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
             "role": "directional model selection before own-rig data; not deployment evidence",
             "selected_model": SELECTED_MODEL,
             "selected_model_label": SELECTED_MODEL_LABEL,
-            "checkpoint_sha256": pre_real["fairness"][
-                "challenger_checkpoint_sha256"
-            ],
+            "checkpoint_sha256": selected_checkpoint_sha256,
             "matched_difference": pre_real["fairness"]["bounded_difference"],
             "training": {
                 key: pre_real["fairness"][key]
@@ -338,8 +396,144 @@ def build_summary(inputs: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
                 "baseline_analytic_checks_pass"
             ],
         },
+        "target_rig_contracts": {
+            "overall_status": "PRE_REAL_NOT_READY",
+            "field_fire_status": "NO-GO",
+            "chemical_fire_status": "NO-GO_UNSUPPORTED",
+            "status_reason": (
+                "No physical A-E rig-acceptance result, audited real target-rig "
+                "manifest, executed target-rig fine-tune, frozen evaluated checkpoint, "
+                "or real track-action result exists."
+            ),
+            "selected_foundation": {
+                "role": foundation["role"],
+                "checkpoint": foundation["checkpoint"],
+                "checkpoint_sha256": selected_checkpoint_sha256,
+                "is_target_rig_finetuned_checkpoint": False,
+                "is_deployment_proof": False,
+            },
+            "rig_acceptance": {
+                "contract_id": rig_acceptance["contract_id"],
+                "contract_status": rig_acceptance["status"],
+                "physical_result_exists": False,
+                "current_controlled_data_collection_allowed": False,
+                "current_dry_marker_allowed": False,
+                "controlled_data_collection_gate": "physical A-E PASS",
+                "dry_marker_gate": "physical A-F PASS",
+                "chemical_fire_allowed": False,
+                "chemical_fire_blocker": rig_acceptance["decision_policy"][
+                    "chemical_fire_blocker"
+                ],
+            },
+            "capture": {
+                "manifest_contract": capture_policy["manifest_contract"],
+                "real_manifest_exists": False,
+                "current_audit_status": "NOT_READY",
+                "evidence_scope_required": capture_policy["evidence_scope"]["real"],
+                "rig_acceptance_binding": {
+                    "contract_id": capture_policy["rig_acceptance"]["contract_id"],
+                    "contract_identity_id": capture_policy["rig_acceptance"].get(
+                        "contract_identity_id"
+                    ),
+                    "contract_exact_byte_sha256": capture_policy[
+                        "rig_acceptance"
+                    ].get("contract_exact_byte_sha256"),
+                    "contract_canonical_policy_sha256": capture_policy[
+                        "rig_acceptance"
+                    ].get("contract_canonical_policy_sha256"),
+                    "evaluator_sha256": capture_policy["rig_acceptance"].get(
+                        "evaluator_sha256"
+                    ),
+                },
+                "minimum_fields": capture_policy["readiness"]["minimum_fields"],
+                "minimum_field_sessions": capture_policy["readiness"][
+                    "minimum_sessions"
+                ],
+                "split_roles": capture_policy["split"]["roles"],
+                "split_target_fractions": capture_policy["split"][
+                    "target_fractions"
+                ],
+                "split_seed": capture_policy["split"]["deterministic_seed"],
+                "split_isolation": capture_policy["split"][
+                    "role_exclusive_levels"
+                ],
+                "adjacent_frame_max_gap": capture_policy["split"][
+                    "adjacent_frame_max_gap"
+                ],
+                "required_real_frame_provenance": capture_policy[
+                    "real_capture_provenance"
+                ]["required_frame_fields"],
+                "instance_classes": capture_policy["annotation"]["classes"],
+                "stem_or_keypoint_labels_allowed": capture_policy["annotation"][
+                    "stem_or_keypoint_labels_allowed"
+                ],
+                "synthetic_fixture_can_be_ready": capture_policy[
+                    "evidence_scope"
+                ]["synthetic_fixture_can_be_ready"],
+            },
+            "fine_tune": {
+                "contract": finetune["contract"],
+                "status": finetune["status"],
+                "manager_acceptance_status": manager_acceptance["status"],
+                "real_training_started": False,
+                "epochs": finetune["training"]["epochs"],
+                "image_size_px": finetune["training"]["image_size"],
+                "batch": finetune["training"]["batch"],
+                "seed": finetune["training"]["seed"],
+                "final_checkpoint_rule": finetune["selection"]["rule"],
+                "test_role": finetune["selection"]["test_role"],
+                "fixture_can_produce_checkpoint": False,
+            },
+            "track_action_evaluation": {
+                "contract": action_eval["contract"],
+                "status": action_eval["status"],
+                "current_evaluation_status": "NOT_READY",
+                "evaluated_checkpoint": None,
+                "evaluated_checkpoint_sha256": None,
+                "minimum_canopy_span_mm": action_eval["eligible_weed_track"][
+                    "minimum_canopy_span_mm"
+                ],
+                "minimum_visible_fraction": action_eval["eligible_weed_track"][
+                    "minimum_visible_fraction"
+                ],
+                "minimum_confirmations": action_eval["temporal_action"][
+                    "minimum_confirmations"
+                ],
+                "preferred_window_frames": action_eval["temporal_action"][
+                    "preferred_window_frames"
+                ],
+                "fire_once_per_predicted_track": action_eval["temporal_action"][
+                    "fire_once_per_predicted_track"
+                ],
+                "threshold_source_split": action_eval["threshold_calibration"][
+                    "source_split"
+                ],
+                "test_access_forbidden_during_calibration": action_eval[
+                    "threshold_calibration"
+                ]["test_access_forbidden"],
+                "offline_go_gates": action_eval["offline_go_gates"],
+                "synthetic_fixture_status": "FIXTURE_ONLY",
+                "synthetic_score_weight_in_real_go_decision": action_eval[
+                    "offline_go_gates"
+                ]["synthetic_score_weight_in_real_go_decision"],
+                "chemical_fire_go": False,
+            },
+            "next_physical_proof": [
+                "Generate one hash-bound physical-bench A-E PASS rig receipt.",
+                "Collect and audit real target-rig RGB data across at least 3 fields and 4 field/session groups.",
+                "Freeze deterministic field-level train/validation/test roles with no video-track or adjacent-frame leakage.",
+                "After manager acceptance, fine-tune the selected foundation with the frozen 30-epoch protocol and freeze last.pt.",
+                "Calibrate on validation only and read the separate test once for pooled and every-field track-action gates.",
+                "Keep chemical fire disabled; physical A-F can authorize only a separate nonchemical dry-marker step.",
+            ],
+        },
         "evidence_scope": {
             "real_target_rig_result_exists": False,
+            "physical_rig_acceptance_result_exists": False,
+            "real_capture_audit_result_exists": False,
+            "target_rig_finetune_result_exists": False,
+            "real_track_action_result_exists": False,
+            "synthetic_fixture_is_deployment_evidence": False,
             "displayed_action_metric_unit": "single-frame connected-region action proxy",
             "displayed_action_metric_is_not": [
                 "segmentation IoU",
@@ -384,6 +578,18 @@ def build_summary(inputs: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
             "pre_real_result": sha256(PRE_REAL_RESULT),
             "pre_real_diagnostics": sha256(PRE_REAL_DIAGNOSTICS),
             "pre_real_gallery_receipt": sha256(PRE_REAL_GALLERY_RECEIPT),
+            "rig_acceptance_contract": sha256(RIG_ACCEPTANCE),
+            "rig_acceptance_implementation": sha256(RIG_ACCEPTANCE_IMPL),
+            "rig_acceptance_runbook": sha256(RIG_ACCEPTANCE_RUNBOOK),
+            "capture_manifest_schema": sha256(CAPTURE_SCHEMA),
+            "capture_audit_policy": sha256(CAPTURE_POLICY),
+            "capture_audit_implementation": sha256(CAPTURE_AUDIT_IMPL),
+            "capture_annotation_document": sha256(CAPTURE_ANNOTATION_DOC),
+            "target_rig_finetune_contract": sha256(FINETUNE_CONTRACT),
+            "target_rig_finetune_implementation": sha256(FINETUNE_IMPL),
+            "target_rig_action_eval_contract": sha256(ACTION_EVAL_CONTRACT),
+            "target_rig_action_eval_implementation": sha256(ACTION_EVAL_IMPL),
+            "target_rig_model_document": sha256(TARGET_RIG_MODEL_DOC),
         },
     }
     return result
@@ -392,6 +598,7 @@ def build_summary(inputs: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
 def cover(summary: Mapping[str, Any], detailed: bool) -> Image.Image:
     pheno = summary["phenobench"]["selected"]
     bonirob = summary["bonirob"]["selected"]
+    complete_gate_page = "17'de" if detailed else "6'da"
     page = Image.new("RGB", (1920, 1080), DARK_GREEN)
     draw = ImageDraw.Draw(page)
     card(draw, (65, 48, 1855, 1015), fill=BG, outline=BG, radius=42)
@@ -412,7 +619,7 @@ def cover(summary: Mapping[str, Any], detailed: bool) -> Image.Image:
         fill=RED,
     )
     label = "Detaylı teknik rapor" if detailed else "6 sayfalık sade karar raporu"
-    add_text(draw, (125, 225), f"{label} • 11 Ağustos 2026", 23, fill=MUTED)
+    add_text(draw, (125, 225), f"{label} • 12 Ağustos 2026", 23, fill=MUTED)
     add_text(
         draw,
         (125, 270),
@@ -441,8 +648,8 @@ def cover(summary: Mapping[str, Any], detailed: bool) -> Image.Image:
         page,
         (1300, 330, 1800, 610),
         "%96,5",
-        "Gelecekteki track-level GO F1",
-        "Ayrı target-rig testi; gösterilen frame F1 ile doğrudan kıyaslanmaz.",
+        "Track F1: gerekli, tek başına GO değil",
+        f"Ayrı target-rig testi; tam offline güvenlik kapısı sayfa {complete_gate_page}.",
         accent=GREEN,
     )
     card(draw, (120, 700, 1800, 910), fill=LIGHT_BLUE, outline=BLUE)
@@ -450,10 +657,9 @@ def cover(summary: Mapping[str, Any], detailed: bool) -> Image.Image:
     add_text(
         draw,
         (165, 782),
-        "Daha büyük model aramadan önce kameranın gördüğü dağılımı "
-        "fiziksel olarak daraltmalı; sonra aynı rig ile gerçek crop/weed "
-        "track verisi toplamalıyız.",
-        31,
+        "Seçilen ROSE-native temel 3aba4b19…; fiziksel A–E receipt ve gerçek "
+        "capture henüz yok. Sıradaki adım: A–E bench → ≥3 tarla / ≥4 session pilot.",
+        29,
         bold=True,
         width=94,
     )
@@ -887,7 +1093,7 @@ def rig_page(summary: Mapping[str, Any]) -> Image.Image:
     contract = summary["capture_contract"]
     page = base_page(
         "Dondurulan tek-modül baseline: kontrollü görüntü, güvenli hesap",
-        "Model-compute-only: tek kamera / 15 Hz p95 satırı geçer; uçtan uca sistem henüz kanıtlanmadı.",
+        "Tasarım ve model-compute kanıtı var; fiziksel A–E kabul receipt'i olmadığı için veri toplama henüz kapalı.",
     )
     draw = ImageDraw.Draw(page)
     boxes = [
@@ -934,11 +1140,10 @@ def rig_page(summary: Mapping[str, Any]) -> Image.Image:
     add_text(
         draw,
         (105, 930),
-        "Ölçülen yol: preprocess → forward → NMS → mask construction → result transfer; "
-        "kamera acquisition ve E2E kontrol zinciri kapsam dışı.",
+        "Bugünkü durum: physical A–E sonucu yok → collection kapalı; A–F sonucu yok → dry-marker kapalı; kimyasal kapı desteklenmiyor.",
         18,
         bold=True,
-        fill=BLUE,
+        fill=RED,
         width=145,
     )
     add_text(
@@ -953,18 +1158,19 @@ def rig_page(summary: Mapping[str, Any]) -> Image.Image:
     return page
 
 
-def rig_acceptance_page() -> Image.Image:
+def rig_acceptance_page(summary: Mapping[str, Any]) -> Image.Image:
+    rig = summary["target_rig_contracts"]["rig_acceptance"]
     page = base_page(
-        "Donanım seçimi ürün kanıtı değildir: altı fiziksel kabul kapısı",
-        "Gate geçmezse model skoru iyi görünse bile kimyasal ateşleme açılmaz.",
+        "A–E veri toplama, A–F dry-marker; kimyasal kapı yok",
+        "Fiziksel receipt yok: collection ve dry-marker bugün kapalı, chemical fire her durumda unsupported.",
     )
     rows = [
         ["A", "Kimlik + satın alma", "Exact renkli PRO/BAS varyantı, lens, IR-cut ve güncel teklif"],
         ["B", "Transport + termal", "10.000 trigger: 0 kayıp; 120 dk soak; jitter ve bus droop geçer"],
         ["C", "Optik 27 hücre", "3×3 bölge × 3 yükseklik: GSD, MTF50 ve reprojection ayrı geçer"],
         ["D", "Hood + ışık", "Off/on ≤0,10; uniformity ≥0,75; SNR ≥20 dB; glare A/B"],
-        ["E", "Hareket + E2E", "1 m/s blur ≤0,75 px; tek modül 15 Hz p95 deadline; kuyruk yok"],
-        ["F", "Kayıt + nozzle", "Kuru marker p95 ≤5 mm; latency/footprint ölçülür; fail-closed"],
+        ["E", "Hareket + E2E", "Acquisition+tracking+transfer dahil 15 Hz p95; frame drop/deadline miss yok"],
+        ["F", "Kayıt + nozzle", "Ayrı nonchemical dry-marker: p95 ≤5 mm; fault injection no-fire"],
     ]
     draw_table(
         page,
@@ -980,7 +1186,9 @@ def rig_acceptance_page() -> Image.Image:
     add_text(
         draw,
         (135, 883),
-        "Gerçek veri A–E geçince toplanır. Kimyasal enable için F + deposition + crop-injury gate ayrıca zorunludur.",
+        f"Durum: collection={str(rig['current_controlled_data_collection_allowed']).lower()}, "
+        f"dry-marker={str(rig['current_dry_marker_allowed']).lower()}, chemical={str(rig['chemical_fire_allowed']).lower()}. "
+        "F geçse bile frozen V2'de nicel deposition/crop-injury eşiği yoktur; kimyasal ateş açılamaz.",
         25,
         bold=True,
         fill=ORANGE,
@@ -989,19 +1197,85 @@ def rig_acceptance_page() -> Image.Image:
     return page
 
 
+def target_rig_readiness_page(summary: Mapping[str, Any]) -> Image.Image:
+    target = summary["target_rig_contracts"]
+    capture = target["capture"]
+    finetune = target["fine_tune"]
+    action = target["track_action_evaluation"]
+    rows = [
+        [
+            "1. Fiziksel rig",
+            "NOT_READY",
+            "A–E physical receipt yok",
+            "Hash-bound A–E PASS → yalnız RGB collection",
+        ],
+        [
+            "2. Capture",
+            capture["current_audit_status"],
+            "Real manifest/audit yok",
+            "≥3 tarla / ≥4 session; image SHA + exact metadata",
+        ],
+        [
+            "3. Fine-tune",
+            "BLOCKED",
+            finetune["manager_acceptance_status"],
+            "30 epoch, 1024, seed 41; fixed last.pt; test izole",
+        ],
+        [
+            "4. Track action",
+            action["current_evaluation_status"],
+            "evaluated_checkpoint = null",
+            "Validation threshold; test bir kez; pooled + her tarla",
+        ],
+        [
+            "5. Ateşleme",
+            "NO-GO",
+            "Real action/physical sonuç yok",
+            "A–F yalnız dry-marker; chemical gate unsupported",
+        ],
+    ]
+    page = base_page(
+        "Pre-real target-rig zinciri: sözleşmeler hazır, gerçek kanıt yok",
+        "Her aşama önceki hash-bound çıktıyı tüketir; fixture veya yeniden etiketleme READY üretemez.",
+    )
+    draw_table(
+        page,
+        (30, 225, 1890, 720),
+        ("Aşama", "Bugün", "Blokaj", "Açılma koşulu"),
+        rows,
+        (0.19, 0.14, 0.25, 0.42),
+        font_size=19,
+        row_height=80,
+    )
+    draw = ImageDraw.Draw(page)
+    card(draw, (90, 790, 1830, 955), fill=LIGHT_BLUE, outline=BLUE)
+    add_text(draw, (135, 820), "SEÇİLEN BAŞLANGIÇ", 24, bold=True, fill=BLUE)
+    add_text(
+        draw,
+        (135, 865),
+        "YOLO26s-seg ROSE-native directional foundation • SHA-256 "
+        f"{target['selected_foundation']['checkpoint_sha256'][:16]}… • hedef-rig fine-tune veya deployment modeli değil.",
+        24,
+        bold=True,
+        fill=INK,
+        width=112,
+    )
+    return page
+
+
 def tracking_page(summary: Mapping[str, Any]) -> Image.Image:
     selected_bonirob = summary["bonirob"]["selected"]
     page = base_page(
-        "Tracking precision'ı artırabilir; kaçırılan sınıfı yaratamaz",
-        "Tek-kare metriği ile video-track metriğini ayrı raporlamak gerekir.",
+        "Track-action metriği: validation seçer, test bir kez okunur",
+        "Uygun denominator etiketten önce donar; evaluator stable track ID'leri tüketir, association'ı onarmaz.",
     )
     draw = ImageDraw.Draw(page)
     steps = [
-        ("1", "Dünya koordinatı", "Kamera kalibrasyonu + encoder zamanı"),
-        ("2", "Basit association", "Mesafe + mask IoU; ReID ilk PoC'de gereksiz"),
-        ("3", "3/5 onay", "Geçici false-positive'leri reddet"),
-        ("4", "Crop safety veto", "Footprint + registration p95 no-fire alanı"),
-        ("5", "Bir track / bir atış", "Duplicate komutu en fazla %1 tut"),
+        ("1", "Uygun GT track", "≥20 mm, visible ≥0,70, non-partial gözlem"),
+        ("2", "Stable predicted ID", "Field/session/video içinde sabit; evaluator repair etmez"),
+        ("3", "3/5 onay", "Üç qualifying gözlem / beş frame index"),
+        ("4", "Crop safety veto", "Action point qualifying crop maskesinde ise ateş yok"),
+        ("5", "Bir track / bir atış", "Fragmentation duplicate FP; tüm atışlar safety paydasında"),
     ]
     y = 235
     for number, title, note in steps:
@@ -1015,7 +1289,7 @@ def tracking_page(summary: Mapping[str, Any]) -> Image.Image:
     add_text(
         draw,
         (145, 945),
-        f"BoniRob recall {pct(selected_bonirob['recall'])} iken tracking tek başına %95'e taşıyamaz; önce per-frame domain uyumu gerekir.",
+        f"Bugünkü BoniRob recall {pct(selected_bonirob['recall'])}; gerçek evaluated checkpoint yok. Tracking görünmeyen weed'i yaratamaz.",
         23,
         bold=True,
         fill=RED,
@@ -1069,16 +1343,21 @@ def diagnosis_page(summary: Mapping[str, Any]) -> Image.Image:
 
 def proof_plan_page() -> Image.Image:
     page = base_page(
-        "%96,5 F1 iddiasını nasıl kanıtlayacağız?",
-        "Bu gelecek track-level gate'tir; bugünkü tek-kare region F1 değerleriyle doğrudan kıyaslanmaz.",
+        "Sıradaki fiziksel kanıt zinciri — adım atlama yok",
+        "İlk açılacak kapı fiziksel A–E'dir; bugünkü public/synthetic paneller collection izni vermez.",
     )
     rows = [
-        ["1. Rig bench", "10 mm ≥41 px; blur ≤0,75 px", "Fokus, strobe, dokuz bölge"],
-        ["2. Fizik bench", "Footprint + latency p95", "Su-duyarlı kâğıt; henüz ateş yok"],
-        ["3. Gerçek veri", "≥3 tarla, ≥4 session", "Instance mask + track ID"],
-        ["4. Split", "Field + session + track ayrı", "Komşu kare sızıntısı yasak"],
-        ["5. Offline gate", "P≥%98, R≥%95, F1≥%96,5", "Crop hit≤%0,5; worst-field"],
-        ["6. Fizik saha", "Deposition/kill + crop injury", "Perception gate sonrası"],
+        ["1. Physical A–E", "Hash-bound bench PASS", "Collection ancak bundan sonra açılır"],
+        ["2. Gerçek capture", "≥3 tarla / ≥4 field-session", "Mask + track + image SHA + exact hardware metadata"],
+        ["3. Split + audit", "Field 60/20/20", "Session/video-track/adjacent frame sızıntısı yok"],
+        ["4. Fine-tune", "30 epoch / 1024 / seed 41", "Manager acceptance; fixed epoch-30 last.pt; test yok"],
+        [
+            "5. Track test",
+            "P≥%98 • R≥%95 • F1≥%96,5",
+            "Crop-hit oranı + zorunlu Wilson üst %95 ≤%0,5; "
+            "duplicate-shot ≤%1; pooled PASS + her-field PASS",
+        ],
+        ["6. Physical action", "A–F yalnız dry-marker", "Chemical kapı yeni deposition/crop-injury eşiği olmadan kapalı"],
     ]
     draw_table(
         page,
@@ -1086,17 +1365,17 @@ def proof_plan_page() -> Image.Image:
         ("Aşama", "Geçiş kapısı", "Kanıt"),
         rows,
         (0.22, 0.30, 0.48),
-        font_size=22,
-        row_height=72,
+        font_size=20,
+        row_height=76,
     )
     draw = ImageDraw.Draw(page)
     card(draw, (95, 835, 1825, 955), fill=LIGHT_GREEN, outline=GREEN)
     add_text(
         draw,
         (140, 867),
-        "En etkili sonraki deney: aynı kontrollü rig ile küçük bir pilot gerçek veri seti; "
-        "mevcut model → fine-tune → tamamen ayrı session testi. Yeni model ailesi bundan sonra.",
-        26,
+        "Şimdi yapılacak tek adım: gerçek Basler proof modülünde A–E receipt'i üretmek. "
+        "PASS yoksa capture, training, offline GO ve herhangi bir ateşleme ilerlemez.",
+        25,
         bold=True,
         fill=DARK_GREEN,
         width=106,
@@ -1153,7 +1432,7 @@ def limitations_page() -> Image.Image:
         page,
         [
             "Instance segmentation adil detection kıyasından daha iyi PoC temeli.",
-            "V12 gate'leri geçiyor ve sentetik alanı gerçekten öğretiyor.",
+            "Rig, capture, fine-tune ve track-action sözleşmeleri executable ve fail-closed.",
             "ROSE-native aday PhenoBench/BoniRob'da yönsel F1 ve crop-hit kazanımı verdi.",
             "Native robot detayı yararlı; domain uyumu hâlâ ana darboğaz.",
             "RTX 3090 model katmanı tek kamera / 15 Hz halo baseline'ını p95'te taşıyor.",
@@ -1168,9 +1447,9 @@ def limitations_page() -> Image.Image:
     bullet_list(
         page,
         [
-            "Gerçek target-rig performansı ve %96,5 track-action F1.",
+            "Fiziksel A–E receipt, gerçek capture READY ve %96,5 track-action F1.",
             "Farklı tarla/session'larda worst-field genelleme.",
-            "Tracking'in net precision/recall katkısı.",
+            "Target-rig fine-tune checkpoint'i veya tracking'in net katkısı.",
             "Nozul footprint, deposition, weed kill veya crop injury.",
             "Sentetik assetlerin tam botanik/fiziksel gerçekliği.",
             "Tek-seed ROSE katkısının istatistiksel kesinliği veya ticari kullanım hakkı.",
@@ -1198,34 +1477,35 @@ def provenance_page(summary: Mapping[str, Any]) -> Image.Image:
         "Tam JSON yolları, checkpoint hashleri ve deney configleri kilitli.",
     )
     rows = [
-        ["Pheno action metrics", hashes["action_metrics"][:18] + "…"],
-        ["Synthetic diagnostic", hashes["synthetic_metrics"][:18] + "…"],
-        ["BoniRob external", hashes["external_metrics"][:18] + "…"],
-        ["A/B dataset receipt", hashes["ab_receipt"][:18] + "…"],
-        ["V12 processed receipt", hashes["synthetic_receipt"][:18] + "…"],
-        ["V12 raw release", hashes["synthetic_release"][:18] + "…"],
-        ["Capture V2 decision", hashes["capture_v2"][:18] + "…"],
-        ["Pre-real result", hashes["pre_real_result"][:18] + "…"],
-        ["Pre-real diagnostics", hashes["pre_real_diagnostics"][:18] + "…"],
-        ["Selected-model gallery", hashes["pre_real_gallery_receipt"][:18] + "…"],
+        ["Pheno action metrics", hashes["action_metrics"][:16] + "…"],
+        ["BoniRob external", hashes["external_metrics"][:16] + "…"],
+        ["Synthetic diagnostic", hashes["synthetic_metrics"][:16] + "…"],
+        ["Pre-real selection", hashes["pre_real_result"][:16] + "…"],
+        ["Rig acceptance contract", hashes["rig_acceptance_contract"][:16] + "…"],
+        ["Capture manifest schema", hashes["capture_manifest_schema"][:16] + "…"],
+        ["Capture audit policy", hashes["capture_audit_policy"][:16] + "…"],
+        ["Capture audit CLI", hashes["capture_audit_implementation"][:16] + "…"],
+        ["Target-rig fine-tune", hashes["target_rig_finetune_contract"][:16] + "…"],
+        ["Fine-tune CLI", hashes["target_rig_finetune_implementation"][:16] + "…"],
+        ["Track-action evaluator", hashes["target_rig_action_eval_contract"][:16] + "…"],
     ]
     draw_table(
         page,
-        (150, 215, 1770, 825),
+        (150, 190, 1770, 820),
         ("Artefakt", "SHA-256 (kısaltılmış)"),
         rows,
         (0.50, 0.50),
-        font_size=21,
-        row_height=54,
+        font_size=19,
+        row_height=49,
     )
     draw = ImageDraw.Draw(page)
     card(draw, (110, 855, 1810, 980), fill=LIGHT_BLUE, outline=BLUE)
     add_text(
         draw,
         (150, 880),
-        "Tam hashler metrics_summary.json içindedir. >100 MB model ağırlıkları ve ham "
-        "datasetler veri diskinde kalır; repo kod, config, test, rapor ve seçili görselleri taşır.",
-        25,
+        "Tam hashler metrics_summary.json içindedir. Seçilen foundation 3aba4b19…; "
+        "evaluated target-rig checkpoint hâlâ null ve gerçek result receipt yoktur.",
+        24,
         bold=True,
         fill=BLUE,
         width=110,
@@ -1238,6 +1518,7 @@ def markdown_report(summary: Mapping[str, Any]) -> str:
     bonirob = summary["bonirob"]
     synthetic = summary["synthetic"]
     ceiling = summary["pre_real_ceiling"]
+    target = summary["target_rig_contracts"]
     p = pheno["selected"]
     b = bonirob["selected"]
     bootstrap = pheno["paired_bootstrap"]
@@ -1254,18 +1535,32 @@ def markdown_report(summary: Mapping[str, Any]) -> str:
         f"aynı kilitli eşiklerle BoniRob'da `{b['precision']:.4f}/{b['recall']:.4f}/{b['f1']:.4f}` seviyesine düştü. "
         "Öncelik sırası domain uyumu, kontrollü optik/ışık ve temporal safety'dir.",
         "",
+        "## 0. Güncel target-rig hazırlık durumu",
+        "",
+        f"Seçilen fine-tune temeli `{target['selected_foundation']['checkpoint']}` ve SHA-256 `{target['selected_foundation']['checkpoint_sha256']}` değeridir. Bu checkpoint yönsel pre-real ROSE-native adaydır; target-rig fine-tune, deployment veya kimyasal ateşleme modeli değildir.",
+        "",
+        "| Aşama | Bugünkü durum | Neden açılmadı? |",
+        "|---|---|---|",
+        "| Fiziksel rig | `NOT_READY` | Hash-bound physical A–E kabul sonucu yok; controlled RGB collection kapalı. |",
+        "| Capture/audit | `NOT_READY` | Gerçek `capture_manifest_v1`, doğrulanmış image SHA/content ve ≥3 tarla/≥4 field-session yok. |",
+        f"| Fine-tune | `{target['fine_tune']['status']}` | Manager acceptance `{target['fine_tune']['manager_acceptance_status']}`; gerçek READY audit yok; training başlamadı. |",
+        "| Track-action eval | `NOT_READY` | `evaluated_checkpoint` ve SHA-256 `null`; gerçek prediction/result receipt yok. |",
+        "| Saha / kimyasal | `NO-GO` / `NO-GO_UNSUPPORTED` | Offline ve fiziksel sonuç yok; frozen V2 nicel deposition/crop-injury eşiği tanımlamıyor. |",
+        "",
+        "Sözleşme ve fixture testlerinin geçmesi gerçek performans değildir. Sentetik fixture `FIXTURE_ONLY`/`NOT_READY` kalır; public PhenoBench/BoniRob ve V12 panelleri collection, training, offline GO veya ateşleme izni vermez.",
+        "",
         "## 1. Gerçek saha başarı sözleşmesi",
         "",
         "Spot spray için ana metrik mIoU değil, uygun bir weed track'inde güvenli atış kararıdır:",
         "",
         "- track action precision `≥0.98`; recall `≥0.95`; F1 `≥0.965`;",
-        "- crop-hit / attempted action `≤0.005`; duplicate shot `≤0.01`;",
-        "- her tarla ve worst-field ayrı rapor;",
+        "- crop-hit / attempted action `≤0.005` ve zorunlu Wilson üst %95 sınırı `≤0.005`;",
+        "- duplicate shot `≤0.01`; pooled test ve her test tarlası ayrı ayrı `PASS`;",
         "- sentetik skorun gerçek GO kararındaki ağırlığı `0`.",
         "",
         "Bu gate geçse bile nozzle deposition, weed kill ve crop injury ayrı fiziksel deneydir.",
         "",
-        "Gösterilen P/R/F1 değerleri **tek-kare connected-region aksiyon proxy'sidir**; segmentation IoU, botanik-instance veya track metriği değildir. `≥82 px`, native 1024 rasterda `sqrt(exact GT weed bounding-box area)` tanımıdır; weed çapı veya fiziksel mm değildir. `Crop hit`, crop'a çarpan atış denemelerinin tüm atış denemelerine oranıdır. Gelecekteki `0,965` GO F1 ise ayrı bir track-level ölçümdür ve bu frame-level F1 değerleriyle doğrudan kıyaslanmaz.",
+        "Gösterilen P/R/F1 değerleri **tek-kare connected-region aksiyon proxy'sidir**; segmentation IoU, botanik-instance veya track metriği değildir. `≥82 px`, native 1024 rasterda `sqrt(exact GT weed bounding-box area)` tanımıdır; weed çapı veya fiziksel mm değildir. `Crop hit`, crop'a çarpan atış denemelerinin tüm atış denemelerine oranıdır. Gelecekteki `0,965` track F1 yalnız bir gerekli koşuldur, tek başına GO değildir; bu frame-level F1 değerleriyle de doğrudan kıyaslanmaz.",
         "",
         "## 2. Pre-real model-ceiling seçimi",
         "",
@@ -1378,9 +1673,11 @@ def markdown_report(summary: Mapping[str, Any]) -> str:
             "- dört native 1024 core + gerçek komşu pikselden 64 px halo; dış 64 px no-fire/abstain;",
             "- dünya koordinatında distance + mask-IoU tracking, 3/5 onay, crop veto, tek track/tek atış.",
             "",
+            "Bu baseline henüz fiziksel kabul değildir. Dondurulmuş A–E kapıları procurement/identity, transport-trigger-thermal, 27-hücre optik, hood/ışık ve acquisition+tracking+transfer dahil motion/E2E ölçümlerini fiziksel artifact SHA'larıyla ister. Yalnız physical A–E PASS kontrollü RGB collection açabilir. A–F PASS ayrı, kimyasal içermeyen dry-marker kapısıdır. Frozen V2 nicel deposition/crop-injury kabul eşiği tanımlamadığı için F geçse bile chemical fire kapalıdır.",
+            "",
             "RTX 3090 halo benchmark'ında batch-4 p95 servis süresi `52,68 ms` oldu. Ölçülen model yolu preprocessing, forward pass, NMS, mask construction ve result transfer'ı kapsar. Tek kamera 15 Hz satırı p95 `%79,0` compute kullanımı ve `13,99 ms` compute-only artıkla geçer; 20 Hz `%105,4` ile geçmez. Kamera acquisition, tracking, scheduling, actuation ve spray fiziği dahil değildir. Bu zincirle 15 Hz E2E tekrar geçmeden baseline sistem düzeyinde kanıtlanmış sayılmaz. İkinci kamera aynı RTX 3090'a eklenmez; her yeni bay ayrı USB root ve bağımsız kanıtlı accelerator kapasitesi ister.",
             "",
-            "Baseline incremental BOM `3.115–6.545 USD`, `%15` contingency ile `3.582–7.527 USD`'dir; mevcut RTX 3090 yeniden kullanılır, vergi/kargo dahil değildir. Exact BOM, optik türetim ve A–F kabul kapıları [`CONTROLLED_CAPTURE_OPTIMIZATION_V2.md`](../../CONTROLLED_CAPTURE_OPTIMIZATION_V2.md) ile makine-okunur [`controlled_capture_optimization_v2.json`](../controlled_capture_optimization_v2.json) içindedir.",
+            "Baseline incremental BOM `3.115–6.545 USD`, `%15` contingency ile `3.582–7.527 USD`'dir; mevcut RTX 3090 yeniden kullanılır, vergi/kargo dahil değildir. Exact BOM ve optik türetim [`CONTROLLED_CAPTURE_OPTIMIZATION_V2.md`](../../CONTROLLED_CAPTURE_OPTIMIZATION_V2.md) ile makine-okunur [`controlled_capture_optimization_v2.json`](../controlled_capture_optimization_v2.json) içindedir. Fiziksel kabul sözleşmesi [`SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md`](../../SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md) içindedir.",
             "",
             "Kaynaklar: [Basler PRO teknik dokümanı](https://docs.baslerweb.com/a2a2464-77ucpro), [C23 lens teknik dokümanı](https://docs.baslerweb.com/c23-0824-5m-p), [Basler triggered acquisition](https://docs.baslerweb.com/triggered-image-acquisition), [FLIR challenger spec](https://softwareservices.flir.com/BFS-U3-51S5/latest/Model/spec.html), [polarizasyon](https://www.edmundoptics.com/knowledge-center/application-notes/imaging/machine-vision-filter-technology/).",
             "",
@@ -1390,15 +1687,21 @@ def markdown_report(summary: Mapping[str, Any]) -> str:
             "",
             f"Tracking geçici false-positive'leri ve duplicate atışı azaltabilir. Fakat BoniRob'taki `{pct(b['recall'])}` recall sistematik sınıf kaçırmasıdır; tracking görünmeyen weed'i yaratamaz. Kazanç gerçek video track testiyle ölçülmeli, varsayılmamalıdır.",
             "",
+            "Gerçek capture sözleşmesi her görüntüyü exact image SHA-256, hardware frame counter/camera timestamp, exposure/gain/manual WB, working distance, native dimensions/pixel format, camera+rig+profile kimliği ve exact strobe binding ile taşır. Crop/weed/partial_unknown instance maskeleri ile stable track ID korunur; stem/keypoint V1'de ertelenmiştir. Deterministik `60/20/20` roller fiziksel field düzeyinde atanır; field, session, video-track ve komşu kareler roller arasında geçemez.",
+            "",
+            "Fine-tune bugün fail-closed blokludur: physical `READY` audit ve açık manager acceptance olmadan çalışmaz. Açıldığında seçilen foundation'dan `30 epoch / 1024 / batch 3 / seed 41` ile gider, yalnız fixed epoch-30 `last.pt` seçilir; test görüntüsü veya etiketi training datasetine materialize edilmez. Final checkpoint yine `NOT_EVALUATED` kalır.",
+            "",
+            "Track-action evaluator stable predicted track ID'leri tüketir. Uygun GT weed denominator'ı ≥20 mm, visible fraction ≥0,70 ve non-partial gözlemle etiketten donar. Üç qualifying gözlem beş frame index içinde tek atış üretir; crop veto ve fragmentation duplicate FP önce uygulanır. Confidence threshold yalnız validation'da seçilir; test o eşikte bir kez okunur. Pooled ve her tarla P/R/F1, crop-hit Wilson üst %95 sınırı ve duplicate gate'leri birlikte geçmeden offline model GO yoktur.",
+            "",
             "## 9. En etkili sonraki kanıt",
             "",
-            "1. Rig'i dokuz görüntü bölgesinde 10 mm ≥41 px, fokus/MTF, distortion ve ≤0,75 px blur gate'lerinden geçir.",
-            "2. Nozzle footprint, latency ve registration p95'i su-duyarlı kâğıt/fluorescent dye ile ölç; no-fire alanını sonra dondur.",
-            "3. Aynı donanımla en az 3 tarla ve 4 session topla. Etiket: crop/weed instance mask, track ID, partial/occlusion; metadata: poz, gain, mesafe, crop evresi, weed mm.",
-            "4. Split'i field + session + video track seviyesinde yap; komşu kare sızıntısını engelle.",
-            "5. Mevcut modeli crop-yakın hard-negative, ıslak/kuru toprak, gölge ve büyüme evresi dengesiyle fine-tune et.",
-            "6. Ayrı session testinde tek-kare ve track-action P/R/F1, crop-hit, duplicate ve worst-field değerlerini raporla.",
-            "7. Kontrollü RGB tavanı kalırsa daha büyük backbone veya NIR/red-edge A/B aç.",
+            "1. Gerçek Basler proof modülünde A–E'yi fiziksel artifact/receipt SHA'larıyla geçir; bu ilk ve mevcut tek unblock adımıdır.",
+            "2. Collection açılırsa aynı donanımla en az 3 tarla ve 4 field/session grubu topla; exact image/provenance metadata ile instance mask + track ID etiketle.",
+            "3. Deterministik field `60/20/20` splitini dondur; session/video-track/komşu kare leakage auditini `READY` geçir.",
+            "4. Manager acceptance sonrası seçilen ROSE-native foundation'ı frozen 30-epoch tarifle fine-tune et; fixed `last.pt` path/SHA'yı receipt'e bağla.",
+            "5. Validation'da threshold seç, test'i bir kez aç; pooled + her-field track P/R/F1, crop-hit Wilson üst sınırı ve duplicate gate'lerini raporla.",
+            "6. Ayrı physical A–F ile yalnız nonchemical dry-marker'ı değerlendir. Chemical fire, yeni nicel deposition/crop-injury sözleşmesi ve gerçek kanıt olmadan kapalı kalır.",
+            "7. Kontrollü RGB tavanı gerçek testte kalırsa ancak o zaman daha büyük backbone veya NIR/red-edge A/B aç.",
             "",
             "## 10. Rakip ceiling'i",
             "",
@@ -1406,7 +1709,7 @@ def markdown_report(summary: Mapping[str, Any]) -> str:
             "",
             "## 11. Son karar",
             "",
-            "Mevcut model saha için yeterli değildir. Segmentasyon temeli, compute kapasitesi ve sentetik pipeline kullanılabilir durumdadır. Eksik olan temel parça, tasarlanan kontrollü kamerayla aynı dağılımdan gelen gerçek crop/weed track verisidir. En yüksek getirili adım yeni model aramak değil, rig + pilot gerçek veri A/B'sidir.",
+            "Mevcut model saha için yeterli değildir. Segmentasyon temeli, compute kapasitesi ve fail-closed rig/capture/fine-tune/action sözleşmeleri hazırdır; bunların fixture başarısı gerçek READY değildir. Eksik ilk parça fiziksel A–E receipt'tir; ardından aynı rig'den provenance-bound gerçek crop/weed track verisi gerekir. En yüksek getirili adım yeni model aramak değil, A–E bench → audited pilot → frozen fine-tune → ayrı track-action test zinciridir. Chemical fire kapalıdır.",
             "",
             "Tam değerler ve SHA-256 makbuzları [`metrics_summary.json`](metrics_summary.json) içindedir.",
         ]
@@ -1417,6 +1720,7 @@ def markdown_report(summary: Mapping[str, Any]) -> str:
 def package_readme(summary: Mapping[str, Any]) -> str:
     pheno = summary["phenobench"]["selected"]
     bonirob = summary["bonirob"]["selected"]
+    target = summary["target_rig_contracts"]
     return f"""# Kontrollü spot-spray PoC sonucu
 
 Buradan başlayın:
@@ -1427,15 +1731,23 @@ Buradan başlayın:
 - [Makine-okunur exact metrikler](metrics_summary.json)
 - [Seçili self-sufficient görseller](figures/README.md)
 - [Exact kamera/lens/ışık/hız/BOM baseline'ı](../../CONTROLLED_CAPTURE_OPTIMIZATION_V2.md)
+- [Fiziksel A–F rig kabul runbook'u](../../SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md)
+- [Capture/annotation/split sözleşmesi](../../SPOT_SPRAY_DATA_CAPTURE_AND_ANNOTATION_V1.md)
+- [Fail-closed fine-tune ve track-action hattı](../../SPOT_SPRAY_TARGET_RIG_MODEL_PIPELINE_V1.md)
 
 Kısa karar: instance segmentation temel olarak kalıyor; mevcut model saha
 ateşlemesi için **NO-GO**. Henüz gerçek target-rig sonucu yoktur. Tüketilmiş
 PhenoBench UAV geliştirme panelinde ≥82 px frame-action F1 `{pct(pheno['f1'])}`, tüketilmiş
 tek-session BoniRob dış robot-view geliştirme panelinde `{pct(bonirob['f1'])}` oldu.
 Seçilen model, eş bütçeli `80 V12 sentetik → 80 native ROSE robot crop'u`
-deneyinin yönsel adayıdır; gerçek saha kanıtı değildir. Sıradaki
-en etkili adım kontrollü kamera/aydınlatma rig'i ve aynı rig ile
-field+session+track ayrık pilot veridir.
+deneyinin yönsel adayıdır; SHA-256
+`{target['selected_foundation']['checkpoint_sha256']}` ile yalnız fine-tune
+foundation'ıdır. Fiziksel A–E receipt, gerçek `capture_manifest_v1`, target-rig
+fine-tune checkpoint'i ve track-action sonucu yoktur; bu yüzden pipeline
+`PRE_REAL_NOT_READY` kalır. Sıradaki tek unblock, physical A–E PASS'tir;
+ardından en az 3 tarla / 4 field-session, deterministic field split ve ayrı
+track-action testi gelir. A–F yalnız nonchemical dry-marker açabilir; chemical
+fire frozen V2'de unsupported ve kapalıdır.
 """
 
 
@@ -1452,6 +1764,13 @@ Her görsel kendi başlığı ve legend'i ile tek başına okunabilir:
 Legend: gerçek maske yeşil=mahsul, kırmızı=yabani ot; tahmin
 yeşil=mahsul, mor=yabani ot; mavi nokta=güvenli weed teması,
 sarı/çarpı=hatalı müdahale.
+
+Kanıt rolleri: BoniRob görselleri seçilen `3aba4b19…` ROSE-native foundation'ın
+daha önce tüketilmiş tek tarla/session dış robot-view geliştirme panelidir;
+target-rig, bağımsız field veya deployment kanıtı değildir. Sentetik görseller
+asset/seed-ayrık tanı fixture'larıdır ve gerçek model/GO karar ağırlıkları
+`0`dır. Hiçbir görsel physical A–E kabulü, real capture READY, target-rig
+fine-tune, track-action GO, dry-marker veya chemical-fire izni göstermez.
 """
 
 
@@ -1504,7 +1823,8 @@ def build_pages(
         ),
         diagnosis_page(summary),
         rig_page(summary),
-        rig_acceptance_page(),
+        rig_acceptance_page(summary),
+        target_rig_readiness_page(summary),
         tracking_page(summary),
         proof_plan_page(),
         competitor_page(),
@@ -1528,6 +1848,11 @@ def write_package(output: Path) -> dict[str, Any]:
         "pre_real_result": load(PRE_REAL_RESULT),
         "pre_real_diagnostics": load(PRE_REAL_DIAGNOSTICS),
         "pre_real_gallery": load(PRE_REAL_GALLERY_RECEIPT),
+        "rig_acceptance": load_yaml(RIG_ACCEPTANCE),
+        "capture_schema": load(CAPTURE_SCHEMA),
+        "capture_policy": load_yaml(CAPTURE_POLICY),
+        "finetune_contract": load_yaml(FINETUNE_CONTRACT),
+        "action_eval_contract": load_yaml(ACTION_EVAL_CONTRACT),
     }
     summary = build_summary(inputs)
     output.mkdir(parents=True, exist_ok=True)
@@ -1568,8 +1893,38 @@ def write_package(output: Path) -> dict[str, Any]:
     save_pdf(detailed, detailed_pdf, title=detailed_name)
 
     receipt: dict[str, Any] = {
-        "schema_version": 1,
-        "status": "controlled_spot_spray_poc_report_package_complete",
+        "schema_version": 2,
+        "status": "report_package_complete_pre_real_target_rig_not_ready",
+        "decision": {
+            "selected_foundation_checkpoint_sha256": summary[
+                "target_rig_contracts"
+            ]["selected_foundation"]["checkpoint_sha256"],
+            "target_rig_status": summary["target_rig_contracts"]["overall_status"],
+            "field_fire_status": summary["target_rig_contracts"][
+                "field_fire_status"
+            ],
+            "chemical_fire_status": summary["target_rig_contracts"][
+                "chemical_fire_status"
+            ],
+        },
+        "pdf_pages": {
+            "BASLA_BURADAN_KONTROLLU_SPOT_SPRAY_POC_V1.pdf": len(concise),
+            "DETAYLI_KONTROLLU_SPOT_SPRAY_POC_V1.pdf": len(detailed),
+        },
+        "target_rig_source_sha256": {
+            key: summary["input_sha256"][key]
+            for key in (
+                "rig_acceptance_contract",
+                "rig_acceptance_implementation",
+                "capture_manifest_schema",
+                "capture_audit_policy",
+                "capture_audit_implementation",
+                "target_rig_finetune_contract",
+                "target_rig_finetune_implementation",
+                "target_rig_action_eval_contract",
+                "target_rig_action_eval_implementation",
+            )
+        },
         "output": str(output),
         "files": {},
     }

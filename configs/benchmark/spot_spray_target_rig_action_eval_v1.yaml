@@ -1,0 +1,192 @@
+schema_version: 1
+contract: spot_spray_target_rig_track_action_eval_v1
+status: frozen_before_real_target_rig_data
+
+locked_sources:
+  deploy_contract:
+    path: configs/deploy/spot_spray_poc_v1.yaml
+    sha256: cef2b7c3fe8430b792359c8e370339b02ada7f442660f0549a29d54ef10540e5
+  capture_contract:
+    path: configs/deploy/spot_spray_capture_optimization_v2.yaml
+    sha256: f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9
+  pre_real_selection:
+    path: docs/results/pre_real_data_ceiling_result_v1.json
+    sha256: 12648329337a392572b7e697ca0b359f60ef62af34765e37c46e2574e3ea8878
+
+model:
+  foundation:
+    role: directional_pre_real_candidate_not_deployment_proof
+    checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt
+    checkpoint_sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+  evaluated_checkpoint:
+    role: frozen_final_target_rig_finetune_checkpoint
+    checkpoint: null
+    checkpoint_sha256: null
+    readiness_rule: real_evaluation_is_not_ready_until_path_and_sha256_are_frozen
+
+inputs:
+  capture_manifest_json: null
+  capture_audit_result_json: null
+  prediction_jsonl: null
+  output_json: null
+
+capture_audit:
+  contract: spot_spray_capture_audit_v1
+  manifest_contract: capture_manifest_v1
+  real_ready_status: READY
+  real_evidence_scope: real_target_rig
+  trusted_sources:
+    schema: configs/data/spot_spray_capture_manifest_v1.schema.json
+    policy: configs/data/spot_spray_capture_audit_v1.yaml
+    implementation: scripts/audit_spot_spray_capture_v1.py
+  rule: real_evaluation_requires_a_hash_bound_ready_valid_non_fixture_audit_for_the_exact_manifest
+
+capture_manifest:
+  contract: capture_manifest_v1
+  required_top_level_fields: [schema_version, manifest_id, evidence_scope, frames]
+  top_level_fields: [schema_version, manifest_id, evidence_scope, rig_acceptance, frames]
+  real_required_top_level_fields: [rig_acceptance]
+  evidence_scopes: [real_target_rig, synthetic_fixture]
+  splits: [unassigned, train, validation, test]
+  calibration_split: validation
+  locked_test_split: test
+  minimum_normalized_polygon_area: 1.0e-8
+  required_frame_fields:
+    - frame_id
+    - image_path
+    - field_id
+    - session_id
+    - video_id
+    - frame_index
+    - timestamp_ns
+    - encoder_mm
+    - exposure_us
+    - gain_db
+    - working_distance_mm
+    - strobe_profile_id
+    - split
+    - instances
+  real_required_frame_fields:
+    - image_sha256
+    - camera_frame_counter
+    - camera_timestamp_ns
+    - white_balance
+    - native_width_px
+    - native_height_px
+    - pixel_format
+    - camera_id
+    - rig_id
+    - capture_profile_id
+    - strobe_settings
+  rig_acceptance_fields: [result_path, result_sha256]
+  white_balance_fields: [mode, red_gain, green_gain, blue_gain]
+  strobe_settings_fields: [profile_id, pulse_width_us, peak_current_a]
+  required_instance_fields:
+    - instance_id
+    - track_id
+    - class_name
+    - polygon
+    - visible_fraction
+    - canopy_span_mm
+    - partial
+    - occluded
+  classes: [crop, weed, partial_unknown]
+  normalized_polygon_coordinates: true
+
+prediction_jsonl:
+  schema_version: 1
+  first_record: prediction_metadata
+  frame_record: frame_prediction
+  required_metadata_fields:
+    - record_type
+    - schema_version
+    - model_checkpoint_sha256
+    - capture_manifest_sha256
+    - capture_audit_result_sha256
+  required_frame_fields: [record_type, frame_id, candidates]
+  required_candidate_fields:
+    - predicted_track_id
+    - class_name
+    - confidence
+    - polygon
+  weed_only_required_candidate_fields: [action_point]
+  classes: [crop, weed, partial_unknown]
+  stable_predicted_track_ids_required: true
+
+eligible_weed_track:
+  class_name: weed
+  minimum_canopy_span_mm: 20.0
+  minimum_visible_fraction: 0.70
+  require_non_partial_observation: true
+  rule: any_observation_meeting_all_requirements_freezes_the_track_into_the_denominator
+
+temporal_action:
+  minimum_confirmations: 3
+  preferred_window_frames: 5
+  fire_once_per_predicted_track: true
+  crop_mask_confidence_threshold: 0.25
+  crop_veto: weed_action_point_inside_any_qualifying_predicted_crop_polygon
+  fired_action_point: qualifying_candidate_action_point_on_confirmation_frame
+
+threshold_calibration:
+  source_split: validation
+  test_access_forbidden: true
+  start: 0.05
+  stop: 0.95
+  step: 0.05
+  selection: maximum_recall_subject_to_precision_crop_and_duplicate_safety
+  fallback_when_no_feasible_threshold: maximum_f1_validation_only_and_force_no_go
+  minimum_precision: 0.98
+  maximum_crop_hit_rate: 0.005
+  crop_hit_upper_confidence_bound_required: true
+  maximum_duplicate_shot_rate: 0.01
+  tie_breakers: [f1, precision, higher_threshold]
+
+matching:
+  true_positive: first_fire_whose_action_point_hits_one_unmatched_eligible_gt_weed_track_on_that_frame
+  one_to_one_track_matching: true
+  crop_collision_precedence: true
+  partial_or_unknown_hit: false_positive
+  eligible_track_repeat_hit: duplicate_shot_and_false_positive
+  noneligible_nonpartial_weed_hit: ignored_for_precision_recall_but_retained_in_attempted_shot_safety_denominators
+  background_hit: false_positive
+  duplicate_rate_denominator: all_attempted_fire_events
+  crop_hit_rate_denominator: all_attempted_fire_events
+
+readiness:
+  minimum_total_fields: 3
+  minimum_total_field_sessions: 4
+  minimum_train_frames: 1
+  minimum_train_fields: 1
+  minimum_validation_fields: 1
+  minimum_test_fields: 1
+  minimum_validation_eligible_weed_tracks: 1
+  minimum_test_eligible_weed_tracks: 1
+  require_each_test_field_has_eligible_weed: true
+  predictions_must_exactly_cover_validation_and_test_frames: true
+  adjacent_frames_across_splits_forbidden: true
+  field_session_video_track_split_unit: true
+  unassigned_frames_forbidden: true
+
+offline_go_gates:
+  precision_minimum: 0.98
+  recall_minimum: 0.95
+  f1_minimum: 0.965
+  crop_hit_rate_maximum: 0.005
+  crop_hit_upper_confidence_bound_required: true
+  duplicate_shot_rate_maximum: 0.01
+  pooled_test_required: true
+  every_test_field_required: true
+  synthetic_score_weight_in_real_go_decision: 0.0
+
+claims:
+  - Validation alone selects the weed-confidence threshold; test never enters calibration or fallback selection.
+  - The eligible GT denominator is frozen from labels before predictions are scored.
+  - Stable predicted track IDs are consumed, not repaired or associated by this evaluator.
+  - One predicted track can fire once; fragmented predicted tracks hitting one GT track expose duplicate shots through one-to-one matching.
+  - Crop-hit and duplicate rates use all attempted fire events, including actions ignored from the primary eligible-weed P/R/F1 denominator.
+  - When required, the crop-hit Wilson upper 95 percent bound itself must meet the same maximum during validation selection and pooled/per-field test gating.
+  - Fixture mode can prove mechanics but can never produce real offline GO.
+  - Manifest evidence_scope alone is never real proof; predictions bind the exact capture-audit artifact and real evaluation requires its accepted READY provenance.
+  - Real evaluation remains NOT_READY until the final target-rig checkpoint path and SHA-256 are frozen and match prediction provenance.
+  - Passing offline model gates never authorizes chemical firing without independent rig, registration, deposition, and crop-injury gates.

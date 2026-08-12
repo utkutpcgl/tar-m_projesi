@@ -1,0 +1,98 @@
+schema_version: 1
+manifest_contract: capture_manifest_v1
+manifest_schema: configs/data/spot_spray_capture_manifest_v1.schema.json
+
+evidence_scope:
+  real: real_target_rig
+  synthetic_fixture: synthetic_fixture
+  synthetic_fixture_can_be_ready: false
+
+image_files:
+  require_exists: true
+  require_nonempty: true
+  require_sha256_for_real: true
+  verify_declared_sha256: true
+  require_decodable_content_for_real: true
+  verify_native_dimensions_for_real: true
+  read_pixels: false
+
+rig_acceptance:
+  result_path_base: data_root
+  contract_id: controlled_spot_spray_rig_acceptance_v1
+  contract_path: configs/deploy/spot_spray_rig_acceptance_v1.yaml
+  contract_identity_id: controlled_spot_spray_rig_acceptance_v1_exact_default
+  contract_identity_algorithm: sha256_exact_bytes_plus_canonical_json_v1
+  contract_exact_byte_sha256: a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c
+  contract_canonical_policy_sha256: c05ae3837d98f313c32e81178045a9fef39965199c276ec06e9d01195e88ff21
+  evaluator_path: scripts/evaluate_spot_spray_rig_acceptance_v1.py
+  evaluator_sha256: 596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2
+  accepted_evidence_kind: physical_bench
+  required_collection_outcome: PASS
+  required_validation_status: PASS
+  controlled_data_collection_allowed: true
+  deployment_evidence_eligible: true
+  required_stages_A_E:
+    - A_procurement_and_identity
+    - B_transport_trigger_and_thermal
+    - C_optics_and_window
+    - D_light_hood_and_polarization
+    - E_motion_tracking_and_compute
+
+real_capture_provenance:
+  required_frame_fields:
+    - image_sha256
+    - camera_frame_counter
+    - camera_timestamp_ns
+    - white_balance
+    - native_width_px
+    - native_height_px
+    - pixel_format
+    - camera_id
+    - rig_id
+    - capture_profile_id
+    - strobe_settings
+  require_manual_white_balance: true
+  require_strobe_profile_binding: true
+  require_strict_camera_counter_order: true
+  require_strict_camera_timestamp_order: true
+  require_contiguous_video_frames: true
+  require_frame_index_counter_delta_match: true
+  freeze_profile_bindings: true
+  freeze_video_camera_and_rig_identity: true
+
+metadata_bounds:
+  exposure_us: {minimum: 1.0, maximum: 100000.0}
+  gain_db: {minimum: -24.0, maximum: 48.0}
+  working_distance_mm: {minimum: 50.0, maximum: 2000.0}
+  white_balance_gain: {minimum: 0.01, maximum: 64.0}
+  strobe_pulse_width_us: {minimum: 1.0, maximum: 100000.0}
+  strobe_peak_current_a: {minimum: 0.0, maximum: 100.0}
+  canopy_span_mm: {minimum: 0.1, maximum: 2000.0}
+
+annotation:
+  classes: [crop, weed, partial_unknown]
+  minimum_normalized_polygon_area: 1.0e-8
+  complete_visibility_threshold: 0.999999
+  partial_unknown_requires_partial: true
+  partial_unknown_canopy_span_must_be_null: true
+  complete_crop_or_weed_requires_canopy_span: true
+  stem_or_keypoint_labels_allowed: false
+
+split:
+  roles: [train, validation, test]
+  unassigned_role: unassigned
+  deterministic_seed: spot_spray_capture_manifest_v1
+  target_fractions:
+    train: 0.60
+    validation: 0.20
+    test: 0.20
+  role_exclusive_levels: [field, session, video_track]
+  adjacent_frame_max_gap: 1
+  require_every_role_for_ready: true
+
+readiness:
+  minimum_fields: 3
+  minimum_sessions: 4
+  require_frozen_splits: true
+  ready_status: READY
+  not_ready_status: NOT_READY

@@ -1,0 +1,67 @@
+{
+  "audit_contract": "spot_spray_capture_audit_v1",
+  "manifest_contract": "capture_manifest_v1",
+  "status": "NOT_READY",
+  "valid": true,
+  "ready": false,
+  "evidence": {
+    "scope": "synthetic_fixture",
+    "synthetic_fixture": true,
+    "counts_as_real_target_rig_evidence": false,
+    "fixture_can_unlock_ready": false
+  },
+  "integrity": {
+    "real_capture_metadata_complete": false,
+    "image_sha256_verified": 0,
+    "image_content_verified": 0,
+    "all_real_image_sha256_verified": false,
+    "all_real_image_content_verified": false,
+    "rig_acceptance": {
+      "present": true,
+      "physical_collection_allowed": false,
+      "status": "NOT_EVALUATED"
+    }
+  },
+  "statistics": {
+    "frames": 4,
+    "images": 4,
+    "instances": 5,
+    "tracks": 5,
+    "fields": 3,
+    "sessions": 3,
+    "videos": 3,
+    "split_counts": {"train": 2, "validation": 1, "test": 1},
+    "class_counts": {"crop": 1, "weed": 3, "partial_unknown": 1},
+    "deterministic_field_assignment": {}
+  },
+  "errors": [],
+  "readiness_reasons": [
+    {
+      "code": "readiness.synthetic_fixture_only",
+      "path": "$.evidence_scope",
+      "message": "Synthetic fixture is contract evidence only"
+    }
+  ],
+  "inputs": {
+    "manifest": "tests/fixtures/spot_spray_target_rig_model_v1/finetune_capture_manifest_v1.json",
+    "manifest_sha256": "1e4aa83e413b8b2b575a5e633c404b9a92a52e07f51c9f1e64de995af5ee4418",
+    "schema": "configs/data/spot_spray_capture_manifest_v1.schema.json",
+    "schema_sha256": "d6a3a8c31a3fc762a9f71262074e724864fc265643c9a945f4d2ee742d125745",
+    "policy": "configs/data/spot_spray_capture_audit_v1.yaml",
+    "policy_sha256": "cbebfea95f8b39dcd2d3189c874e7910f9fdb6d6e58b4e905eaabadc36e667f4",
+    "data_root": "tests/fixtures/spot_spray_target_rig_model_v1"
+  },
+  "implementation": {
+    "script": "scripts/audit_spot_spray_capture_v1.py",
+    "script_sha256": "d75aaebe641b74ad920c701367dc7e0b6d14a3b749093a109690203a1c6834e6"
+  },
+  "audit_scope": {
+    "image_files_read": false,
+    "image_file_metadata_checked": true,
+    "image_file_bytes_hashed": 0,
+    "image_containers_verified": 0,
+    "scene_quality_metrics_evaluated": false,
+    "model_outputs_read": false,
+    "real_field_evidence_inferred_from_fixtures": false
+  }
+}

@@ -1,27 +1,48 @@
 {
-  "schema_version": 1,
-  "status": "controlled_spot_spray_poc_report_package_complete",
+  "schema_version": 2,
+  "status": "report_package_complete_pre_real_target_rig_not_ready",
+  "decision": {
+    "selected_foundation_checkpoint_sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100",
+    "target_rig_status": "PRE_REAL_NOT_READY",
+    "field_fire_status": "NO-GO",
+    "chemical_fire_status": "NO-GO_UNSUPPORTED"
+  },
+  "pdf_pages": {
+    "BASLA_BURADAN_KONTROLLU_SPOT_SPRAY_POC_V1.pdf": 6,
+    "DETAYLI_KONTROLLU_SPOT_SPRAY_POC_V1.pdf": 20
+  },
+  "target_rig_source_sha256": {
+    "rig_acceptance_contract": "a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c",
+    "rig_acceptance_implementation": "596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2",
+    "capture_manifest_schema": "d6a3a8c31a3fc762a9f71262074e724864fc265643c9a945f4d2ee742d125745",
+    "capture_audit_policy": "cbebfea95f8b39dcd2d3189c874e7910f9fdb6d6e58b4e905eaabadc36e667f4",
+    "capture_audit_implementation": "d75aaebe641b74ad920c701367dc7e0b6d14a3b749093a109690203a1c6834e6",
+    "target_rig_finetune_contract": "7231275a5e91b46ecf977377ebd3f88b2f3854fc821f0dea8f166386f831b6dc",
+    "target_rig_finetune_implementation": "97499755fdacf00d683ad25acb8cd35c1b01115dfe6c83243c592fa2b8dd1e76",
+    "target_rig_action_eval_contract": "210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09",
+    "target_rig_action_eval_implementation": "3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45"
+  },
   "output": "/home/ankaref/utku/tarım_projesi/docs/results/kontrollu_spot_spray_poc_v1",
   "files": {
     "BASLA_BURADAN_KONTROLLU_SPOT_SPRAY_POC_V1.pdf": {
-      "bytes": 1129821,
-      "sha256": "328349847daa6f1d9d212833aeb40fef0172f5d4fba87c2fabbef8cecc38e777"
+      "bytes": 1156727,
+      "sha256": "d07fb6fc3d8a57fe07fcb167994a4443ac1091cc99cac40f491aff9017b47ebb"
     },
     "DETAYLI_KONTROLLU_SPOT_SPRAY_POC_V1.pdf": {
-      "bytes": 3487871,
-      "sha256": "7e541ce844f3562c06e20f113d6c97818a7fdad8cad3cd286e0acb888076562d"
+      "bytes": 3724786,
+      "sha256": "9e94b796b1486659ac71b9ab08ea5ece35a89cf43e0df4426f48ffae32b739ae"
     },
     "DETAYLI_RAPOR.md": {
-      "bytes": 11744,
-      "sha256": "5d417263d076ae64e24d47f51987cb7242422bb88b5eba88183b59cbbcec9d03"
+      "bytes": 15587,
+      "sha256": "a713f0c3439ee3b35e055270b447cdb8f8b6914d8416fca47decbfbae07345a9"
     },
     "README.md": {
-      "bytes": 1047,
-      "sha256": "4f5668eb6d031e83b85d74a484c7b8278576c0756a14082d2d2edb4ac15e8a7f"
+      "bytes": 1712,
+      "sha256": "d215ec7393522b7909ea89a12b9dabbc654d68270a89341d61c033e13afdfe15"
     },
     "figures/README.md": {
-      "bytes": 569,
-      "sha256": "3427b2783d61f22ee6bfa636ed125a435a20807f2079e33fdb24196438c8ac67"
+      "bytes": 1063,
+      "sha256": "60d4df7cff4c76d97942e324ee676636fbe31f49ab99bd4e42f52294df6387ab"
     },
     "figures/bonirob_000.jpg": {
       "bytes": 308325,
@@ -40,8 +61,8 @@
       "sha256": "7d5d723b51a648400a29133e86a672d53a628e5837a640730aa742be95c68bf2"
     },
     "metrics_summary.json": {
-      "bytes": 25657,
-      "sha256": "5be0debc195f718658545a299124efb1dd1d60eb519ca1e0551bfa57fb628844"
+      "bytes": 32742,
+      "sha256": "8dc61875334f29695a2b33f88c41708a7df315f8268e6fa2763a4f3f8601397f"
     }
   }
 }

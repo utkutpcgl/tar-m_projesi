@@ -1,0 +1,303 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tarim-projesi.local/schema/spot_spray_capture_manifest_v1.schema.json",
+  "title": "Spot-spray target-rig capture manifest v1",
+  "description": "Canonical frame, instance-mask, track, capture-metadata, and split contract for target-rig RGB data.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "evidence_scope",
+    "frames"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "capture_manifest_v1"
+    },
+    "manifest_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "evidence_scope": {
+      "type": "string",
+      "enum": [
+        "real_target_rig",
+        "synthetic_fixture"
+      ]
+    },
+    "rig_acceptance": {
+      "description": "Hash-pinned evaluator result under data_root. It is optional for backward-compatible synthetic manifests and required by the audit before real_target_rig can be READY.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "result_path",
+        "result_sha256"
+      ],
+      "properties": {
+        "result_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "frames": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "frame_id",
+          "image_path",
+          "field_id",
+          "session_id",
+          "video_id",
+          "frame_index",
+          "timestamp_ns",
+          "encoder_mm",
+          "exposure_us",
+          "gain_db",
+          "working_distance_mm",
+          "strobe_profile_id",
+          "split",
+          "instances"
+        ],
+        "properties": {
+          "frame_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "image_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "image_sha256": {
+            "description": "SHA-256 of the exact image bytes referenced by image_path.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "field_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "session_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "video_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "frame_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "timestamp_ns": {
+            "description": "Timestamp of the controller event that hardware-triggers the camera and latches encoder_mm; never a host-arrival timestamp.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "camera_frame_counter": {
+            "description": "Frame counter emitted by the camera for this hardware-triggered exposure.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "camera_timestamp_ns": {
+            "description": "Hardware timestamp emitted by the camera, in nanoseconds; never a host-arrival timestamp.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "encoder_mm": {
+            "type": "number"
+          },
+          "exposure_us": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "gain_db": {
+            "type": "number"
+          },
+          "white_balance": {
+            "description": "Exact manual white-balance state applied at capture.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "mode",
+              "red_gain",
+              "green_gain",
+              "blue_gain"
+            ],
+            "properties": {
+              "mode": {
+                "const": "manual"
+              },
+              "red_gain": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "green_gain": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "blue_gain": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          },
+          "working_distance_mm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "native_width_px": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "native_height_px": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "pixel_format": {
+            "description": "Exact native camera pixel format, such as BayerRG10p; this is distinct from the storage container.",
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "camera_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "rig_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "capture_profile_id": {
+            "description": "Frozen profile identity binding camera, rig, dimensions, pixel format, exposure, gain, white balance, working distance, and strobe settings.",
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "strobe_profile_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "strobe_settings": {
+            "description": "Exact strobe setting used for the frame and bound to strobe_profile_id.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "profile_id",
+              "pulse_width_us",
+              "peak_current_a"
+            ],
+            "properties": {
+              "profile_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "pulse_width_us": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "peak_current_a": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          },
+          "split": {
+            "type": "string",
+            "enum": [
+              "unassigned",
+              "train",
+              "validation",
+              "test"
+            ]
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "instance_id",
+                "track_id",
+                "class_name",
+                "polygon",
+                "visible_fraction",
+                "canopy_span_mm",
+                "partial",
+                "occluded"
+              ],
+              "properties": {
+                "instance_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                },
+                "track_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                },
+                "class_name": {
+                  "type": "string",
+                  "enum": [
+                    "crop",
+                    "weed",
+                    "partial_unknown"
+                  ]
+                },
+                "polygon": {
+                  "type": "array",
+                  "minItems": 3,
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  }
+                },
+                "visible_fraction": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1
+                },
+                "canopy_span_mm": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "partial": {
+                  "type": "boolean"
+                },
+                "occluded": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

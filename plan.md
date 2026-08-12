@@ -293,12 +293,52 @@
       dört-zone diffuse strobe ve dış `64 px` no-fire. RTX 3090 p95 kanıtı
       tek kamera/15 Hz'i taşır; 20 Hz ve ikinci kamera geçmez. A–F optik,
       ışık, transport, hareket, registration ve nozzle kapıları fiziksel
-      kabulden önce zorunludur.
-- [x] Sade 6 sayfa + açıklamalı 19 sayfa kontrollü spot-spray rapor paketi,
-      exact V2 donanım/BOM sayfaları ve self-sufficient gerçek/sentetik
-      görsellerle yeniden üretildi. Yeni ROSE sonucu entegre edilen exact
-      fingerprint `0b4503f339d9232553547217c7f83af2c9234b2deb8e031e0469e2586fde4f17`,
-      aynı reviewer kimliğinde cycle 4 ile `Verdict: OLDU, TAMAM` aldı.
+      kabul sözleşmesindedir: physical A–E yalnız kontrollü RGB collection'ı,
+      A–F ayrıca nonchemical dry-marker'ı açabilir; chemical fire için nicel
+      deposition/crop-injury eşiği yoktur ve kapı kapalıdır.
+- [x] Kamera–çözünürlük–hood–ışık–kamera sayısı kararı
+      fiyat/performans açısından ayrı kayda bağlandı. İlk proof; tek PRO/C23
+      bay, `≥444,375 mm` güvenli swath, `15 Hz` ve provisional `≥20 mm`
+      müdahale sınıfıdır; `10 mm` yalnız 41 px optik witness'tır. BAS/FLIR,
+      20 Hz, ikinci kamera ve production quantity explicit trigger olmadan
+      kapalıdır. Çıplak kameranın IP30 olması nedeniyle mevcut hood certified
+      IP değil, işlevsel proof muhafazasıdır. Exact karar ve araştırma özeti:
+      `docs/SPOT_SPRAY_PRODUCT_IMAGING_DECISION_V1.md`.
+- [ ] Tek proof set için güncel landed quote ve owner onayı al; fiziksel
+      hardware olmadan procurement, montaj veya A–E PASS iddiası yapma.
+- [x] `capture_manifest_v1` schema/audit/split hattı fail-closed tamamlandı:
+      real READY; hash-pinned physical A–E sonucu, decodable image SHA'ları,
+      exact counter/timestamp/WB/native-dimension/rig/strobe provenance,
+      en az 3 tarla / 4 field-session ve deterministic field `60/20/20`
+      isolation ister. Sentetik fixture her durumda `NOT_READY` kalır.
+- [x] Seçilen ROSE-native foundation'dan provenance-bound target-rig fine-tune
+      ve track-action evaluator sözleşmeleri hazırdır. Fine-tune physical READY
+      + manager acceptance bekler; frozen tarif `30 epoch / 1024 / batch 3 /
+      seed 41`, fixed epoch-30 `last.pt` ve test isolation'dır. Action
+      evaluator'da `evaluated_checkpoint=null`; fixture `FIXTURE_ONLY`, gerçek
+      offline GO henüz `NOT_READY`dır.
+- [ ] Gerçek proof modülünde hash-bound physical A–E PASS receipt üret; bu
+      olmadan controlled RGB collection başlatma.
+- [ ] A–E sonrası aynı rig'den ≥3 tarla / ≥4 field-session gerçek instance-mask
+      + track verisi topla, exact provenance'u doğrula ve deterministic field
+      split/audit'i `READY` geçir.
+- [ ] Manager acceptance sonrası frozen fine-tune'u çalıştır, fixed `last.pt`
+      path/SHA'yı action evaluator'a dondur ve validation-only threshold ile
+      ayrı testte pooled + her-field track gate'lerini ölç. Bu adımların hiçbiri
+      chemical fire izni değildir.
+- [x] Tarihsel sade 6 + açıklamalı 19 sayfa rapor fingerprint'i
+      `0b4503f339d9232553547217c7f83af2c9234b2deb8e031e0469e2586fde4f17`
+      aynı reviewer kimliğinde cycle 4 ile `Verdict: OLDU, TAMAM` aldı. Bu onay
+      yalnız eski fingerprint içindir; target-rig contract refresh'i sonrası
+      güncel fingerprint yeniden aynı reviewer kimliğinde manager tarafından
+      değerlendirilmelidir.
+- [x] Target-rig contract refresh'i sade 6 + açıklamalı 20 sayfa olarak
+      regenerate edildi. Current reviewer bundle fingerprint'i
+      `3a4a1a396e143846d4a95d6b51e9178ee751c2cc12a7cb54d40f807a824ae4b3`;
+      package receipt 10/10 byte/hash doğrulaması, 26 komşu report/contract
+      testi, 604 render-text bounding kaydı ve değişen sayfaların yerel görsel
+      denetimi geçti. Bu yeni fingerprint için exact reviewer kararı henüz
+      manager tarafından alınmadı; eski cycle-4 onayı devralınmaz.
 - [x] Matched native-detail ROSE challenger aynı koşuda batch 3 ile 8/8 epoch
       tamamlandı. Seçilen `last.pt` SHA-256
       `3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100`.

@@ -1,11 +1,15 @@
 # Segmentasyon ve bitki müdahalesi sonucu
 
-## Güncel kontrollü spot-spray PoC — 2026-08-11
+## Güncel kontrollü spot-spray PoC — 2026-08-12
 
 - [Buradan başlayın — 6 sayfalık sade PDF](kontrollu_spot_spray_poc_v1/BASLA_BURADAN_KONTROLLU_SPOT_SPRAY_POC_V1.pdf)
 - [Okunabilir detaylı PDF](kontrollu_spot_spray_poc_v1/DETAYLI_KONTROLLU_SPOT_SPRAY_POC_V1.pdf)
 - [Aranabilir rapor, exact JSON ve self-sufficient görseller](kontrollu_spot_spray_poc_v1/README.md)
+- [Fiyat/performans odaklı ürün görüntüleme kararı](../SPOT_SPRAY_PRODUCT_IMAGING_DECISION_V1.md)
 - [Exact kamera/lens/ışık/hız/BOM baseline'ı](../CONTROLLED_CAPTURE_OPTIMIZATION_V2.md)
+- [Fiziksel A–F rig kabul runbook'u](../SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md)
+- [Capture/annotation/split sözleşmesi](../SPOT_SPRAY_DATA_CAPTURE_AND_ANNOTATION_V1.md)
+- [Fail-closed target-rig fine-tune ve track-action hattı](../SPOT_SPRAY_TARGET_RIG_MODEL_PIPELINE_V1.md)
 
 Henüz gerçek target-rig performansı ölçülmedi. Eşit bütçeli pre-real
 karşılaştırmada V12 sentetik ek maruziyeti yerine ROSE native-detail robot
@@ -14,11 +18,21 @@ panelindeki `≥82 px` frame-action F1 `%72,6→%75,4`, aynı kilitli Pheno
 eşiğiyle tüketilmiş tek-session BoniRob dış robot-view panelindeki F1
 `%5,4→%9,0` oldu. Pheno %95 fark aralığı sıfırı kesiyor ve yeni aday V12
 sentetik holdout'ta sabit eşikte `%0,0` F1 veriyor; dolayısıyla bu yalnız
-yönsel pre-real model seçimi, sentetik karar ağırlığı yine `0`. Karar:
-instance segmentation devam, mevcut modelle saha ateşlemesi NO-GO; öncelik
-kontrollü rig ve aynı rig'den session-ayrı gerçek track verisi. Dondurulan
-başlangıç tek Basler PRO kamera, native 2048² ROI, 474–484 mm FOV, 170 µs ve
-15 Hz'dir; 20 Hz/ikinci kamera ayrı E2E benchmark geçmeden açılmaz.
+yönsel pre-real model seçimi, sentetik karar ağırlığı yine `0`. Seçilen
+ROSE-native foundation SHA-256
+`3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100`;
+target-rig fine-tune/deployment checkpoint'i değildir.
+
+Karar: instance segmentation devam, mevcut modelle saha ateşlemesi NO-GO.
+Pipeline `PRE_REAL_NOT_READY`: physical A–E receipt, gerçek capture READY,
+fine-tune sonucu ve frozen evaluated checkpoint yoktur. A–E yalnız kontrollü
+RGB collection; A–F yalnız nonchemical dry-marker açabilir. Chemical fire,
+nicel deposition/crop-injury eşiği olmadığı için kapalıdır. İlk unblock
+physical A–E PASS; ardından aynı rig'den en az 3 tarla / 4 field-session,
+image SHA + exact metadata, deterministic field `60/20/20` split ve ayrı
+track-action testidir. Dondurulan başlangıç tek Basler PRO kamera, native
+2048² ROI, 474–484 mm FOV, 170 µs ve 15 Hz'dir; 20 Hz/ikinci kamera ayrı E2E
+benchmark geçmeden açılmaz.
 
 ## Adil target-trained detection vs segmentation A/B — 2026-08-10
 

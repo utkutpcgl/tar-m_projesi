@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "contract_id": "controlled_spot_spray_rig_acceptance_v1",
+  "contract_identity": {
+    "identity_id": "controlled_spot_spray_rig_acceptance_v1_exact_default",
+    "algorithm": "sha256_exact_bytes_plus_canonical_json_v1",
+    "default_contract_path": "configs/deploy/spot_spray_rig_acceptance_v1.yaml",
+    "expected_exact_byte_sha256": "a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c",
+    "observed_exact_byte_sha256": "a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c",
+    "exact_bytes_verified": true,
+    "expected_canonical_policy_sha256": "c05ae3837d98f313c32e81178045a9fef39965199c276ec06e9d01195e88ff21",
+    "observed_canonical_policy_sha256": "c05ae3837d98f313c32e81178045a9fef39965199c276ec06e9d01195e88ff21",
+    "canonical_policy_verified": true
+  },
+  "implementation": {
+    "script": "scripts/evaluate_spot_spray_rig_acceptance_v1.py",
+    "script_sha256": "596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2"
+  },
+  "receipt_id": "SYNTHETIC-CAPTURE-AUDIT-BOUNDARY-NOT-HARDWARE",
+  "receipt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "evidence_kind": "synthetic_fixture",
+  "receipt_validation": {
+    "status": "PASS"
+  },
+  "frozen_v2_source_integrity": {
+    "status": "PASS"
+  },
+  "stage_results": {
+    "A_procurement_and_identity": {
+      "measurement_status": "measured",
+      "status": "PASS"
+    },
+    "B_transport_trigger_and_thermal": {
+      "measurement_status": "measured",
+      "status": "PASS"
+    },
+    "C_optics_and_window": {
+      "measurement_status": "measured",
+      "status": "PASS"
+    },
+    "D_light_hood_and_polarization": {
+      "measurement_status": "measured",
+      "status": "PASS"
+    },
+    "E_motion_tracking_and_compute": {
+      "measurement_status": "measured",
+      "status": "PASS"
+    }
+  },
+  "collection_gate_outcome_A_E": "PASS",
+  "collection_acceptance_outcome_A_E": "PASS",
+  "decision": {
+    "controlled_data_collection_allowed": false,
+    "deployment_evidence_eligible": false
+  },
+  "warning": "Synthetic evaluator boundary fixture only. This is not a physical receipt and cannot authorize collection, training, deployment, or field claims."
+}

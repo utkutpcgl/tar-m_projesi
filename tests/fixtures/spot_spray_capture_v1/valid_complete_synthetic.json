@@ -1,0 +1,162 @@
+{
+  "schema_version": "capture_manifest_v1",
+  "manifest_id": "synthetic_valid_complete",
+  "evidence_scope": "synthetic_fixture",
+  "frames": [
+    {
+      "frame_id": "frame_a1_000",
+      "image_path": "images/frame_a1_000.jpg",
+      "field_id": "field_a",
+      "session_id": "session_a1",
+      "video_id": "video_a1",
+      "frame_index": 0,
+      "timestamp_ns": 1000000000,
+      "encoder_mm": 0.0,
+      "exposure_us": 170.0,
+      "gain_db": 2.0,
+      "working_distance_mm": 480.0,
+      "strobe_profile_id": "strobe_150us_v1",
+      "split": "validation",
+      "instances": [
+        {
+          "instance_id": "plant_a1_weed_000",
+          "track_id": "track_a1_weed",
+          "class_name": "weed",
+          "polygon": [[0.10, 0.10], [0.24, 0.11], [0.23, 0.25], [0.11, 0.24]],
+          "visible_fraction": 1.0,
+          "canopy_span_mm": 18.4,
+          "partial": false,
+          "occluded": false
+        },
+        {
+          "instance_id": "plant_a1_crop_000",
+          "track_id": "track_a1_crop",
+          "class_name": "crop",
+          "polygon": [[0.60, 0.12], [0.76, 0.13], [0.74, 0.29], [0.61, 0.27]],
+          "visible_fraction": 1.0,
+          "canopy_span_mm": 24.2,
+          "partial": false,
+          "occluded": false
+        }
+      ]
+    },
+    {
+      "frame_id": "frame_a1_001",
+      "image_path": "images/frame_a1_001.jpg",
+      "field_id": "field_a",
+      "session_id": "session_a1",
+      "video_id": "video_a1",
+      "frame_index": 1,
+      "timestamp_ns": 1066666667,
+      "encoder_mm": 66.7,
+      "exposure_us": 170.0,
+      "gain_db": 2.0,
+      "working_distance_mm": 480.0,
+      "strobe_profile_id": "strobe_150us_v1",
+      "split": "validation",
+      "instances": [
+        {
+          "instance_id": "plant_a1_weed_001",
+          "track_id": "track_a1_weed",
+          "class_name": "weed",
+          "polygon": [[0.08, 0.10], [0.22, 0.11], [0.21, 0.25], [0.09, 0.24]],
+          "visible_fraction": 1.0,
+          "canopy_span_mm": 18.4,
+          "partial": false,
+          "occluded": false
+        },
+        {
+          "instance_id": "plant_a1_crop_001",
+          "track_id": "track_a1_crop",
+          "class_name": "crop",
+          "polygon": [[0.58, 0.12], [0.74, 0.13], [0.72, 0.29], [0.59, 0.27]],
+          "visible_fraction": 1.0,
+          "canopy_span_mm": 24.2,
+          "partial": false,
+          "occluded": false
+        }
+      ]
+    },
+    {
+      "frame_id": "frame_a2_000",
+      "image_path": "images/frame_a2_000.jpg",
+      "field_id": "field_a",
+      "session_id": "session_a2",
+      "video_id": "video_a2",
+      "frame_index": 0,
+      "timestamp_ns": 2000000000,
+      "encoder_mm": 0.0,
+      "exposure_us": 165.0,
+      "gain_db": 1.5,
+      "working_distance_mm": 478.0,
+      "strobe_profile_id": "strobe_150us_v1",
+      "split": "validation",
+      "instances": [
+        {
+          "instance_id": "plant_a2_unknown",
+          "track_id": "track_a2_unknown",
+          "class_name": "partial_unknown",
+          "polygon": [[0.00, 0.40], [0.09, 0.41], [0.08, 0.56], [0.00, 0.55]],
+          "visible_fraction": 0.45,
+          "canopy_span_mm": null,
+          "partial": true,
+          "occluded": false
+        }
+      ]
+    },
+    {
+      "frame_id": "frame_b1_000",
+      "image_path": "images/frame_b1_000.jpg",
+      "field_id": "field_b",
+      "session_id": "session_b1",
+      "video_id": "video_b1",
+      "frame_index": 0,
+      "timestamp_ns": 3000000000,
+      "encoder_mm": 0.0,
+      "exposure_us": 175.0,
+      "gain_db": 2.5,
+      "working_distance_mm": 482.0,
+      "strobe_profile_id": "strobe_150us_v1",
+      "split": "test",
+      "instances": [
+        {
+          "instance_id": "plant_b1_crop",
+          "track_id": "track_b1_crop",
+          "class_name": "crop",
+          "polygon": [[0.30, 0.30], [0.48, 0.31], [0.47, 0.50], [0.31, 0.49]],
+          "visible_fraction": 1.0,
+          "canopy_span_mm": 27.0,
+          "partial": false,
+          "occluded": false
+        }
+      ]
+    },
+    {
+      "frame_id": "frame_c1_000",
+      "image_path": "images/frame_c1_000.jpg",
+      "field_id": "field_c",
+      "session_id": "session_c1",
+      "video_id": "video_c1",
+      "frame_index": 0,
+      "timestamp_ns": 4000000000,
+      "encoder_mm": 0.0,
+      "exposure_us": 168.0,
+      "gain_db": 1.0,
+      "working_distance_mm": 479.0,
+      "strobe_profile_id": "strobe_150us_v1",
+      "split": "train",
+      "instances": [
+        {
+          "instance_id": "plant_c1_weed",
+          "track_id": "track_c1_weed",
+          "class_name": "weed",
+          "polygon": [[0.42, 0.55], [0.56, 0.56], [0.55, 0.72], [0.43, 0.71]],
+          "visible_fraction": 1.0,
+          "canopy_span_mm": 16.8,
+          "partial": false,
+          "occluded": false
+        }
+      ]
+    }
+  ]
+}

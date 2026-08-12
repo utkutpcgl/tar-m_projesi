@@ -6,18 +6,32 @@
 
 En önemli bulgu, küçük obje çözünürlüğünün tek darboğaz olmadığıdır. Seçilen model PhenoBench ≥82 px görünümünde P/R/F1 `0.8198/0.6980/0.7540` verirken, aynı kilitli eşiklerle BoniRob'da `0.2018/0.0576/0.0896` seviyesine düştü. Öncelik sırası domain uyumu, kontrollü optik/ışık ve temporal safety'dir.
 
+## 0. Güncel target-rig hazırlık durumu
+
+Seçilen fine-tune temeli `/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt` ve SHA-256 `3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100` değeridir. Bu checkpoint yönsel pre-real ROSE-native adaydır; target-rig fine-tune, deployment veya kimyasal ateşleme modeli değildir.
+
+| Aşama | Bugünkü durum | Neden açılmadı? |
+|---|---|---|
+| Fiziksel rig | `NOT_READY` | Hash-bound physical A–E kabul sonucu yok; controlled RGB collection kapalı. |
+| Capture/audit | `NOT_READY` | Gerçek `capture_manifest_v1`, doğrulanmış image SHA/content ve ≥3 tarla/≥4 field-session yok. |
+| Fine-tune | `blocked_before_physical_ready_real_capture` | Manager acceptance `pending_manager_acceptance`; gerçek READY audit yok; training başlamadı. |
+| Track-action eval | `NOT_READY` | `evaluated_checkpoint` ve SHA-256 `null`; gerçek prediction/result receipt yok. |
+| Saha / kimyasal | `NO-GO` / `NO-GO_UNSUPPORTED` | Offline ve fiziksel sonuç yok; frozen V2 nicel deposition/crop-injury eşiği tanımlamıyor. |
+
+Sözleşme ve fixture testlerinin geçmesi gerçek performans değildir. Sentetik fixture `FIXTURE_ONLY`/`NOT_READY` kalır; public PhenoBench/BoniRob ve V12 panelleri collection, training, offline GO veya ateşleme izni vermez.
+
 ## 1. Gerçek saha başarı sözleşmesi
 
 Spot spray için ana metrik mIoU değil, uygun bir weed track'inde güvenli atış kararıdır:
 
 - track action precision `≥0.98`; recall `≥0.95`; F1 `≥0.965`;
-- crop-hit / attempted action `≤0.005`; duplicate shot `≤0.01`;
-- her tarla ve worst-field ayrı rapor;
+- crop-hit / attempted action `≤0.005` ve zorunlu Wilson üst %95 sınırı `≤0.005`;
+- duplicate shot `≤0.01`; pooled test ve her test tarlası ayrı ayrı `PASS`;
 - sentetik skorun gerçek GO kararındaki ağırlığı `0`.
 
 Bu gate geçse bile nozzle deposition, weed kill ve crop injury ayrı fiziksel deneydir.
 
-Gösterilen P/R/F1 değerleri **tek-kare connected-region aksiyon proxy'sidir**; segmentation IoU, botanik-instance veya track metriği değildir. `≥82 px`, native 1024 rasterda `sqrt(exact GT weed bounding-box area)` tanımıdır; weed çapı veya fiziksel mm değildir. `Crop hit`, crop'a çarpan atış denemelerinin tüm atış denemelerine oranıdır. Gelecekteki `0,965` GO F1 ise ayrı bir track-level ölçümdür ve bu frame-level F1 değerleriyle doğrudan kıyaslanmaz.
+Gösterilen P/R/F1 değerleri **tek-kare connected-region aksiyon proxy'sidir**; segmentation IoU, botanik-instance veya track metriği değildir. `≥82 px`, native 1024 rasterda `sqrt(exact GT weed bounding-box area)` tanımıdır; weed çapı veya fiziksel mm değildir. `Crop hit`, crop'a çarpan atış denemelerinin tüm atış denemelerine oranıdır. Gelecekteki `0,965` track F1 yalnız bir gerekli koşuldur, tek başına GO değildir; bu frame-level F1 değerleriyle de doğrudan kıyaslanmaz.
 
 ## 2. Pre-real model-ceiling seçimi
 
@@ -107,9 +121,11 @@ Connected region botanik instance değildir; bazı prosedürel bitkiler basit ve
 - dört native 1024 core + gerçek komşu pikselden 64 px halo; dış 64 px no-fire/abstain;
 - dünya koordinatında distance + mask-IoU tracking, 3/5 onay, crop veto, tek track/tek atış.
 
+Bu baseline henüz fiziksel kabul değildir. Dondurulmuş A–E kapıları procurement/identity, transport-trigger-thermal, 27-hücre optik, hood/ışık ve acquisition+tracking+transfer dahil motion/E2E ölçümlerini fiziksel artifact SHA'larıyla ister. Yalnız physical A–E PASS kontrollü RGB collection açabilir. A–F PASS ayrı, kimyasal içermeyen dry-marker kapısıdır. Frozen V2 nicel deposition/crop-injury kabul eşiği tanımlamadığı için F geçse bile chemical fire kapalıdır.
+
 RTX 3090 halo benchmark'ında batch-4 p95 servis süresi `52,68 ms` oldu. Ölçülen model yolu preprocessing, forward pass, NMS, mask construction ve result transfer'ı kapsar. Tek kamera 15 Hz satırı p95 `%79,0` compute kullanımı ve `13,99 ms` compute-only artıkla geçer; 20 Hz `%105,4` ile geçmez. Kamera acquisition, tracking, scheduling, actuation ve spray fiziği dahil değildir. Bu zincirle 15 Hz E2E tekrar geçmeden baseline sistem düzeyinde kanıtlanmış sayılmaz. İkinci kamera aynı RTX 3090'a eklenmez; her yeni bay ayrı USB root ve bağımsız kanıtlı accelerator kapasitesi ister.
 
-Baseline incremental BOM `3.115–6.545 USD`, `%15` contingency ile `3.582–7.527 USD`'dir; mevcut RTX 3090 yeniden kullanılır, vergi/kargo dahil değildir. Exact BOM, optik türetim ve A–F kabul kapıları [`CONTROLLED_CAPTURE_OPTIMIZATION_V2.md`](../../CONTROLLED_CAPTURE_OPTIMIZATION_V2.md) ile makine-okunur [`controlled_capture_optimization_v2.json`](../controlled_capture_optimization_v2.json) içindedir.
+Baseline incremental BOM `3.115–6.545 USD`, `%15` contingency ile `3.582–7.527 USD`'dir; mevcut RTX 3090 yeniden kullanılır, vergi/kargo dahil değildir. Exact BOM ve optik türetim [`CONTROLLED_CAPTURE_OPTIMIZATION_V2.md`](../../CONTROLLED_CAPTURE_OPTIMIZATION_V2.md) ile makine-okunur [`controlled_capture_optimization_v2.json`](../controlled_capture_optimization_v2.json) içindedir. Fiziksel kabul sözleşmesi [`SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md`](../../SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md) içindedir.
 
 Kaynaklar: [Basler PRO teknik dokümanı](https://docs.baslerweb.com/a2a2464-77ucpro), [C23 lens teknik dokümanı](https://docs.baslerweb.com/c23-0824-5m-p), [Basler triggered acquisition](https://docs.baslerweb.com/triggered-image-acquisition), [FLIR challenger spec](https://softwareservices.flir.com/BFS-U3-51S5/latest/Model/spec.html), [polarizasyon](https://www.edmundoptics.com/knowledge-center/application-notes/imaging/machine-vision-filter-technology/).
 
@@ -119,15 +135,21 @@ Adil target-trained detection/segmentation kıyasındaki action sonucu segmentas
 
 Tracking geçici false-positive'leri ve duplicate atışı azaltabilir. Fakat BoniRob'taki `%5,8` recall sistematik sınıf kaçırmasıdır; tracking görünmeyen weed'i yaratamaz. Kazanç gerçek video track testiyle ölçülmeli, varsayılmamalıdır.
 
+Gerçek capture sözleşmesi her görüntüyü exact image SHA-256, hardware frame counter/camera timestamp, exposure/gain/manual WB, working distance, native dimensions/pixel format, camera+rig+profile kimliği ve exact strobe binding ile taşır. Crop/weed/partial_unknown instance maskeleri ile stable track ID korunur; stem/keypoint V1'de ertelenmiştir. Deterministik `60/20/20` roller fiziksel field düzeyinde atanır; field, session, video-track ve komşu kareler roller arasında geçemez.
+
+Fine-tune bugün fail-closed blokludur: physical `READY` audit ve açık manager acceptance olmadan çalışmaz. Açıldığında seçilen foundation'dan `30 epoch / 1024 / batch 3 / seed 41` ile gider, yalnız fixed epoch-30 `last.pt` seçilir; test görüntüsü veya etiketi training datasetine materialize edilmez. Final checkpoint yine `NOT_EVALUATED` kalır.
+
+Track-action evaluator stable predicted track ID'leri tüketir. Uygun GT weed denominator'ı ≥20 mm, visible fraction ≥0,70 ve non-partial gözlemle etiketten donar. Üç qualifying gözlem beş frame index içinde tek atış üretir; crop veto ve fragmentation duplicate FP önce uygulanır. Confidence threshold yalnız validation'da seçilir; test o eşikte bir kez okunur. Pooled ve her tarla P/R/F1, crop-hit Wilson üst %95 sınırı ve duplicate gate'leri birlikte geçmeden offline model GO yoktur.
+
 ## 9. En etkili sonraki kanıt
 
-1. Rig'i dokuz görüntü bölgesinde 10 mm ≥41 px, fokus/MTF, distortion ve ≤0,75 px blur gate'lerinden geçir.
-2. Nozzle footprint, latency ve registration p95'i su-duyarlı kâğıt/fluorescent dye ile ölç; no-fire alanını sonra dondur.
-3. Aynı donanımla en az 3 tarla ve 4 session topla. Etiket: crop/weed instance mask, track ID, partial/occlusion; metadata: poz, gain, mesafe, crop evresi, weed mm.
-4. Split'i field + session + video track seviyesinde yap; komşu kare sızıntısını engelle.
-5. Mevcut modeli crop-yakın hard-negative, ıslak/kuru toprak, gölge ve büyüme evresi dengesiyle fine-tune et.
-6. Ayrı session testinde tek-kare ve track-action P/R/F1, crop-hit, duplicate ve worst-field değerlerini raporla.
-7. Kontrollü RGB tavanı kalırsa daha büyük backbone veya NIR/red-edge A/B aç.
+1. Gerçek Basler proof modülünde A–E'yi fiziksel artifact/receipt SHA'larıyla geçir; bu ilk ve mevcut tek unblock adımıdır.
+2. Collection açılırsa aynı donanımla en az 3 tarla ve 4 field/session grubu topla; exact image/provenance metadata ile instance mask + track ID etiketle.
+3. Deterministik field `60/20/20` splitini dondur; session/video-track/komşu kare leakage auditini `READY` geçir.
+4. Manager acceptance sonrası seçilen ROSE-native foundation'ı frozen 30-epoch tarifle fine-tune et; fixed `last.pt` path/SHA'yı receipt'e bağla.
+5. Validation'da threshold seç, test'i bir kez aç; pooled + her-field track P/R/F1, crop-hit Wilson üst sınırı ve duplicate gate'lerini raporla.
+6. Ayrı physical A–F ile yalnız nonchemical dry-marker'ı değerlendir. Chemical fire, yeni nicel deposition/crop-injury sözleşmesi ve gerçek kanıt olmadan kapalı kalır.
+7. Kontrollü RGB tavanı gerçek testte kalırsa ancak o zaman daha büyük backbone veya NIR/red-edge A/B aç.
 
 ## 10. Rakip ceiling'i
 
@@ -135,6 +157,6 @@ Tracking geçici false-positive'leri ve duplicate atışı azaltabilir. Fakat Bo
 
 ## 11. Son karar
 
-Mevcut model saha için yeterli değildir. Segmentasyon temeli, compute kapasitesi ve sentetik pipeline kullanılabilir durumdadır. Eksik olan temel parça, tasarlanan kontrollü kamerayla aynı dağılımdan gelen gerçek crop/weed track verisidir. En yüksek getirili adım yeni model aramak değil, rig + pilot gerçek veri A/B'sidir.
+Mevcut model saha için yeterli değildir. Segmentasyon temeli, compute kapasitesi ve fail-closed rig/capture/fine-tune/action sözleşmeleri hazırdır; bunların fixture başarısı gerçek READY değildir. Eksik ilk parça fiziksel A–E receipt'tir; ardından aynı rig'den provenance-bound gerçek crop/weed track verisi gerekir. En yüksek getirili adım yeni model aramak değil, A–E bench → audited pilot → frozen fine-tune → ayrı track-action test zinciridir. Chemical fire kapalıdır.
 
 Tam değerler ve SHA-256 makbuzları [`metrics_summary.json`](metrics_summary.json) içindedir.

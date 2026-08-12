@@ -1,0 +1,34 @@
+{
+  "schema_version": "capture_manifest_v1",
+  "manifest_id": "synthetic_invalid_polygon",
+  "evidence_scope": "synthetic_fixture",
+  "frames": [
+    {
+      "frame_id": "frame_a1_000",
+      "image_path": "images/frame_a1_000.jpg",
+      "field_id": "field_a",
+      "session_id": "session_a1",
+      "video_id": "video_a1",
+      "frame_index": 0,
+      "timestamp_ns": 1000000000,
+      "encoder_mm": 0.0,
+      "exposure_us": 170.0,
+      "gain_db": 2.0,
+      "working_distance_mm": 480.0,
+      "strobe_profile_id": "strobe_150us_v1",
+      "split": "train",
+      "instances": [
+        {
+          "instance_id": "plant_bad_polygon",
+          "track_id": "track_bad_polygon",
+          "class_name": "weed",
+          "polygon": [[0.10, 0.10], [0.30, 0.30], [0.10, 0.30], [0.30, 0.10]],
+          "visible_fraction": 1.0,
+          "canopy_span_mm": 18.0,
+          "partial": false,
+          "occluded": false
+        }
+      ]
+    }
+  ]
+}

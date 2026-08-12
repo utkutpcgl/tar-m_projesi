@@ -1,0 +1,140 @@
+schema_version: 1
+contract: spot_spray_target_rig_segmentation_finetune_v1
+status: blocked_before_physical_ready_real_capture
+
+foundation:
+  role: selected_rose_native_directional_checkpoint
+  checkpoint: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt
+  checkpoint_sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+  task: segment
+
+capture_interface:
+  manager_acceptance:
+    required_for_real_training: true
+    status: pending_manager_acceptance
+    acceptance_id: null
+    accepted_status: accepted
+  sources:
+    schema:
+      path: configs/data/spot_spray_capture_manifest_v1.schema.json
+      sha256: d6a3a8c31a3fc762a9f71262074e724864fc265643c9a945f4d2ee742d125745
+    policy:
+      path: configs/data/spot_spray_capture_audit_v1.yaml
+      sha256: cbebfea95f8b39dcd2d3189c874e7910f9fdb6d6e58b4e905eaabadc36e667f4
+    audit_implementation:
+      path: scripts/audit_spot_spray_capture_v1.py
+      sha256: d75aaebe641b74ad920c701367dc7e0b6d14a3b749093a109690203a1c6834e6
+  manifest_contract: capture_manifest_v1
+  audit_contract: spot_spray_capture_audit_v1
+  real_evidence_scope: real_target_rig
+  ready_status: READY
+  require_valid: true
+  require_ready: true
+  require_no_errors_or_readiness_reasons: true
+  require_complete_real_capture_metadata: true
+  require_all_real_image_sha256_verified: true
+  require_all_real_image_content_verified: true
+  require_physical_rig_acceptance_pass: true
+
+inputs:
+  capture_manifest_json: null
+  capture_audit_result_json: null
+  data_root: null
+  derived_output_directory: null
+
+dataset:
+  task: segment
+  class_names:
+    0: crop
+    1: weed
+  train_split: train
+  validation_split: validation
+  forbidden_training_splits: [test, unassigned]
+  image_link_mode: symlink
+  supported_image_suffixes: [.jpg, .jpeg, .png, .bmp, .tif, .tiff, .webp]
+  require_source_image_exists: true
+  require_source_image_sha256_match_when_declared: true
+  require_declared_image_sha256_for_real: true
+  partial_unknown:
+    policy: quarantine_entire_frame
+    rationale: Ultralytics segmentation has no ignore-region target; retaining the frame would silently train unresolved plant pixels as background.
+    materialize_image: false
+    materialize_label: false
+  require_nonempty_train_after_quarantine: true
+  require_nonempty_validation_after_quarantine: true
+  test_images_materialized: false
+  test_labels_materialized: false
+
+model_family:
+  name: YOLO26s-seg
+  package: ultralytics
+  package_version: 8.4.60
+
+training:
+  epochs: 30
+  patience: 0
+  image_size: 1024
+  batch: 3
+  workers: 8
+  device: 0
+  seed: 41
+  deterministic: true
+  amp: true
+  optimizer: AdamW
+  lr0: 0.00015
+  lrf: 0.10
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 1.0
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  cos_lr: true
+  cache: false
+  hsv_h: 0.015
+  hsv_s: 0.4
+  hsv_v: 0.25
+  degrees: 5.0
+  translate: 0.05
+  scale: 0.15
+  shear: 0.0
+  perspective: 0.0
+  fliplr: 0.5
+  flipud: 0.0
+  mosaic: 0.0
+  mixup: 0.0
+  copy_paste: 0.0
+  close_mosaic: 0
+  mask_ratio: 1
+  overlap_mask: true
+  val: true
+  plots: false
+  pretrained: true
+
+selection:
+  final_checkpoint: last.pt
+  rule: fixed_epoch_30_last_checkpoint_only
+  best_checkpoint_used_for_final: false
+  validation_role: monitoring_only_then_later_action_threshold_calibration
+  test_role: forbidden_during_training_checkpoint_selection_and_threshold_calibration
+
+output:
+  run_name: target_rig_seg_finetune_seed41_e30
+  dataset_yaml: dataset.yaml
+  dataset_index: dataset_index.json
+  dataset_receipt: dataset_receipt.json
+  training_receipt: training_receipt.json
+  final_checkpoint_receipt: final_checkpoint_receipt.json
+
+exit_codes:
+  ready_or_complete: 0
+  not_ready: 2
+  fixture_only: 4
+  contract_error: 5
+
+claims:
+  - The selected ROSE-native checkpoint is a fine-tuning foundation, not field-performance or deployment proof.
+  - Only audit-accepted real train and validation frames may enter a real run; test paths and labels are never materialized in the training dataset.
+  - Any frame containing partial_unknown is quarantined in full because the trainer has no ignore-region target and must not learn unresolved plant pixels as background.
+  - The fixed final epoch checkpoint is selected without test access; validation is monitoring-only and remains the sole later threshold-calibration source.
+  - Dry-run and fixture receipts prove contract mechanics only and can never serve as a final target-rig checkpoint receipt.
+  - Training completion does not imply offline model GO, field-fire GO, or chemical-fire GO.

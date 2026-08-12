@@ -1,13 +1,13 @@
 {
-  "schema_version": 4,
-  "generated_at_utc": "2026-08-11T18:05:55.245077+00:00",
+  "schema_version": 5,
+  "generated_at_utc": "2026-08-12T10:21:05.078424+00:00",
   "decision": {
     "foundation": "instance_segmentation",
     "primary_intervention": "chemical_spot_spray",
     "selected_development_model": "challenger_real_robot_native",
     "selected_development_model_label": "Aday: gerçek + ROSE native",
     "field_fire_status": "NO-GO",
-    "reason": "Directional public-panel gain, but every field gate fails and no independent own-rig test exists."
+    "reason": "The selected foundation has directional public-panel gains, but no physical A-E acceptance, audited real target-rig capture, target-rig fine-tune, or track-action result exists."
   },
   "field_gate": {
     "track_precision_minimum": 0.98,
@@ -664,8 +664,138 @@
     },
     "baseline_analytic_checks_pass": true
   },
+  "target_rig_contracts": {
+    "overall_status": "PRE_REAL_NOT_READY",
+    "field_fire_status": "NO-GO",
+    "chemical_fire_status": "NO-GO_UNSUPPORTED",
+    "status_reason": "No physical A-E rig-acceptance result, audited real target-rig manifest, executed target-rig fine-tune, frozen evaluated checkpoint, or real track-action result exists.",
+    "selected_foundation": {
+      "role": "selected_rose_native_directional_checkpoint",
+      "checkpoint": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt",
+      "checkpoint_sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100",
+      "is_target_rig_finetuned_checkpoint": false,
+      "is_deployment_proof": false
+    },
+    "rig_acceptance": {
+      "contract_id": "controlled_spot_spray_rig_acceptance_v1",
+      "contract_status": "HARDWARE_ACCEPTANCE_A_F",
+      "physical_result_exists": false,
+      "current_controlled_data_collection_allowed": false,
+      "current_dry_marker_allowed": false,
+      "controlled_data_collection_gate": "physical A-E PASS",
+      "dry_marker_gate": "physical A-F PASS",
+      "chemical_fire_allowed": false,
+      "chemical_fire_blocker": "Frozen V2 defines no quantitative deposition or crop-injury acceptance thresholds. Those gates remain unsupported and unmeasured; chemical fire is disabled even after dry-marker PASS."
+    },
+    "capture": {
+      "manifest_contract": "capture_manifest_v1",
+      "real_manifest_exists": false,
+      "current_audit_status": "NOT_READY",
+      "evidence_scope_required": "real_target_rig",
+      "rig_acceptance_binding": {
+        "contract_id": "controlled_spot_spray_rig_acceptance_v1",
+        "contract_identity_id": "controlled_spot_spray_rig_acceptance_v1_exact_default",
+        "contract_exact_byte_sha256": "a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c",
+        "contract_canonical_policy_sha256": "c05ae3837d98f313c32e81178045a9fef39965199c276ec06e9d01195e88ff21",
+        "evaluator_sha256": "596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2"
+      },
+      "minimum_fields": 3,
+      "minimum_field_sessions": 4,
+      "split_roles": [
+        "train",
+        "validation",
+        "test"
+      ],
+      "split_target_fractions": {
+        "train": 0.6,
+        "validation": 0.2,
+        "test": 0.2
+      },
+      "split_seed": "spot_spray_capture_manifest_v1",
+      "split_isolation": [
+        "field",
+        "session",
+        "video_track"
+      ],
+      "adjacent_frame_max_gap": 1,
+      "required_real_frame_provenance": [
+        "image_sha256",
+        "camera_frame_counter",
+        "camera_timestamp_ns",
+        "white_balance",
+        "native_width_px",
+        "native_height_px",
+        "pixel_format",
+        "camera_id",
+        "rig_id",
+        "capture_profile_id",
+        "strobe_settings"
+      ],
+      "instance_classes": [
+        "crop",
+        "weed",
+        "partial_unknown"
+      ],
+      "stem_or_keypoint_labels_allowed": false,
+      "synthetic_fixture_can_be_ready": false
+    },
+    "fine_tune": {
+      "contract": "spot_spray_target_rig_segmentation_finetune_v1",
+      "status": "blocked_before_physical_ready_real_capture",
+      "manager_acceptance_status": "pending_manager_acceptance",
+      "real_training_started": false,
+      "epochs": 30,
+      "image_size_px": 1024,
+      "batch": 3,
+      "seed": 41,
+      "final_checkpoint_rule": "fixed_epoch_30_last_checkpoint_only",
+      "test_role": "forbidden_during_training_checkpoint_selection_and_threshold_calibration",
+      "fixture_can_produce_checkpoint": false
+    },
+    "track_action_evaluation": {
+      "contract": "spot_spray_target_rig_track_action_eval_v1",
+      "status": "frozen_before_real_target_rig_data",
+      "current_evaluation_status": "NOT_READY",
+      "evaluated_checkpoint": null,
+      "evaluated_checkpoint_sha256": null,
+      "minimum_canopy_span_mm": 20.0,
+      "minimum_visible_fraction": 0.7,
+      "minimum_confirmations": 3,
+      "preferred_window_frames": 5,
+      "fire_once_per_predicted_track": true,
+      "threshold_source_split": "validation",
+      "test_access_forbidden_during_calibration": true,
+      "offline_go_gates": {
+        "precision_minimum": 0.98,
+        "recall_minimum": 0.95,
+        "f1_minimum": 0.965,
+        "crop_hit_rate_maximum": 0.005,
+        "crop_hit_upper_confidence_bound_required": true,
+        "duplicate_shot_rate_maximum": 0.01,
+        "pooled_test_required": true,
+        "every_test_field_required": true,
+        "synthetic_score_weight_in_real_go_decision": 0.0
+      },
+      "synthetic_fixture_status": "FIXTURE_ONLY",
+      "synthetic_score_weight_in_real_go_decision": 0.0,
+      "chemical_fire_go": false
+    },
+    "next_physical_proof": [
+      "Generate one hash-bound physical-bench A-E PASS rig receipt.",
+      "Collect and audit real target-rig RGB data across at least 3 fields and 4 field/session groups.",
+      "Freeze deterministic field-level train/validation/test roles with no video-track or adjacent-frame leakage.",
+      "After manager acceptance, fine-tune the selected foundation with the frozen 30-epoch protocol and freeze last.pt.",
+      "Calibrate on validation only and read the separate test once for pooled and every-field track-action gates.",
+      "Keep chemical fire disabled; physical A-F can authorize only a separate nonchemical dry-marker step."
+    ]
+  },
   "evidence_scope": {
     "real_target_rig_result_exists": false,
+    "physical_rig_acceptance_result_exists": false,
+    "real_capture_audit_result_exists": false,
+    "target_rig_finetune_result_exists": false,
+    "real_track_action_result_exists": false,
+    "synthetic_fixture_is_deployment_evidence": false,
     "displayed_action_metric_unit": "single-frame connected-region action proxy",
     "displayed_action_metric_is_not": [
       "segmentation IoU",
@@ -718,6 +848,18 @@
     "capture_v2": "0808c68d40285ff3eba5fb3d13603bc42c12c16d9bacc4fd87470a3c26eafbc8",
     "pre_real_result": "12648329337a392572b7e697ca0b359f60ef62af34765e37c46e2574e3ea8878",
     "pre_real_diagnostics": "e4b95a08611fee29d79c146d3001f9b0163d053c58519cd1c2d3ed65a0fd17a2",
-    "pre_real_gallery_receipt": "206446167b146a24d7702b8f85de21739cbb2961d32739084d4c4ded4dd93a65"
+    "pre_real_gallery_receipt": "206446167b146a24d7702b8f85de21739cbb2961d32739084d4c4ded4dd93a65",
+    "rig_acceptance_contract": "a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c",
+    "rig_acceptance_implementation": "596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2",
+    "rig_acceptance_runbook": "9b73fb34741d8862f27abc4aab30e42268fadb2ad05233d3b201f098fb1acb78",
+    "capture_manifest_schema": "d6a3a8c31a3fc762a9f71262074e724864fc265643c9a945f4d2ee742d125745",
+    "capture_audit_policy": "cbebfea95f8b39dcd2d3189c874e7910f9fdb6d6e58b4e905eaabadc36e667f4",
+    "capture_audit_implementation": "d75aaebe641b74ad920c701367dc7e0b6d14a3b749093a109690203a1c6834e6",
+    "capture_annotation_document": "9150d2e169edcbfd431488cd590962b93ceef977118f8e6a4eb98488d187ad3b",
+    "target_rig_finetune_contract": "7231275a5e91b46ecf977377ebd3f88b2f3854fc821f0dea8f166386f831b6dc",
+    "target_rig_finetune_implementation": "97499755fdacf00d683ad25acb8cd35c1b01115dfe6c83243c592fa2b8dd1e76",
+    "target_rig_action_eval_contract": "210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09",
+    "target_rig_action_eval_implementation": "3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45",
+    "target_rig_model_document": "8c5682bf1db6dc98f3ec330e37deb58ecca30eaf2f4a4dc31f0c179f925a61db"
   }
 }

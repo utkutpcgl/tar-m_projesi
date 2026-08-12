@@ -1,0 +1,42 @@
+{
+  "audit_contract": "spot_spray_capture_audit_v1",
+  "manifest_contract": "capture_manifest_v1",
+  "status": "NOT_READY",
+  "valid": true,
+  "ready": false,
+  "evidence": {
+    "scope": "synthetic_fixture",
+    "synthetic_fixture": true,
+    "counts_as_real_target_rig_evidence": false,
+    "fixture_can_unlock_ready": false
+  },
+  "errors": [],
+  "integrity": {
+    "real_capture_metadata_complete": false,
+    "image_sha256_verified": 0,
+    "image_content_verified": 0,
+    "all_real_image_sha256_verified": false,
+    "all_real_image_content_verified": false,
+    "rig_acceptance": {
+      "present": false,
+      "physical_collection_allowed": false,
+      "status": "NOT_EVALUATED"
+    }
+  },
+  "readiness_reasons": [
+    {
+      "code": "readiness.synthetic_fixture_only",
+      "path": "$.evidence_scope",
+      "message": "Synthetic fixture is contract evidence only"
+    }
+  ],
+  "inputs": {
+    "data_root": "tests/fixtures/spot_spray_target_rig_model_v1",
+    "manifest": "tests/fixtures/spot_spray_target_rig_model_v1/capture_manifest_v1.json",
+    "manifest_sha256": "2488d829daae92c0e967c57bc877ac015fc13ae7a6672bb02ab3804545700515"
+  },
+  "audit_scope": {
+    "image_file_metadata_checked": true,
+    "real_field_evidence_inferred_from_fixtures": false
+  }
+}

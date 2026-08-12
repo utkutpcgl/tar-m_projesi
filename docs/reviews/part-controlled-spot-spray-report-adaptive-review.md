@@ -1,66 +1,31 @@
-Status: NEEDS_CHANGES
-Review cycle: 5/unbounded
-Artifact fingerprint: 3a4a1a396e143846d4a95d6b51e9178ee751c2cc12a7cb54d40f807a824ae4b3
-Verdict: IMPORTANT_GAPS_REMAIN
+Status: APPROVED
+Review cycle: 6/unbounded
+Artifact fingerprint: 93a93072d81514036a4f45e9c68ad6c24b414985eb72ec325c317709e1c926fd
+Verdict: OLDU, TAMAM
 
 ## Core function verdicts
 
-Evidence-role separation — PROVEN. The primary report immediately states that real target-rig performance has not been measured. It distinguishes the consumed PhenoBench UAV source/development panel, the selected ROSE-native model’s unseen-synthetic fixed-real-threshold diagnosis, and the consumed one-field/session BoniRob external robot-view panel. The historical real+V12 values and the selected real+ROSE values are separately attributed, and synthetic evidence retains zero real-selection weight. 
-
-BASLA_BURADAN_KONTROLLU_SPOT_SP…
-
-Intervention metric and class/legend semantics — PROVEN. Primary page 2 defines P/R/F1 as a single-frame connected-region action proxy rather than IoU, botanical-instance or track performance; defines ≥82 px as sqrt(exact GT weed-box area) at native 1024; and gives the crop-hit denominator. Page 4 maps ground-truth crop/weed, predicted crop/weed, safe weed-contact points and erroneous interventions. 
-
-BASLA_BURADAN_KONTROLLU_SPOT_SP…
-
-Current field decision and physical sequence — PROVEN. The package gives an unmistakable current-checkpoint NO-GO. It correctly says physical A–E acceptance, audited real capture, target-rig fine-tuning and real track-action evidence do not yet exist; A–E can open controlled RGB collection, A–F can open only a nonchemical dry-marker step, and chemical fire remains unsupported. The first actionable unblock is a hash-bound physical A–E PASS, followed by real multi-field/session capture, isolated splitting, fine-tuning and separate-session track testing. 
+Evidence-role separation — PROVEN. The primary report states before interpretation that real target-rig performance has not been measured. It identifies PhenoBench as a consumed real UAV source/development panel rather than target-rig evidence, the selected ROSE-native model’s unseen-synthetic result as a fixed-real-threshold diagnostic with zero selection weight, and BoniRob as a consumed external robot-view development panel from one field/session rather than deployment proof. Historical real+V12 values and current real+ROSE values are separately attributed, so a no-context reader can distinguish the three evidence roles without inferring unsupported field maturity. 
 
 BASLA_BURADAN_KONTROLLU_SPOT_SP…
 
  
 
-DETAYLI_KONTROLLU_SPOT_SPRAY_PO…
+supporting-evidence-bundle-b4b8…
 
-Headline metric correctness — PROVEN. The selected values shown in the reports—PhenoBench P/R/F1 %82,0/%69,8/%75,4, BoniRob %20,2/%5,8/%9,0, crop hit %10,5/%10,3, unseen-synthetic fixed-threshold F1 %0,0, and paired interval [-1,36; +7,10]—agree with the exact evidence. The historical V12-supported synthetic table is explicitly separated from the selected model’s %0,0 fixed-real-threshold result. 
+Intervention metrics and class/legend semantics — PROVEN. Primary page 2 defines P/R/F1 as a single-frame connected-region action proxy rather than IoU, botanical-instance or track performance; defines ≥82 px as sqrt(exact GT weed-box area) at native 1024, not weed diameter or physical millimetres; gives the crop-hit denominator; and separates frame F1 from the future track gate. Primary page 4 maps ground-truth crop/weed, predicted crop/weed, safe weed-contact points and erroneous interventions. The metric and visual vocabulary is self-contained. 
 
-supporting-evidence-bundle-a1da…
+BASLA_BURADAN_KONTROLLU_SPOT_SP…
 
- 
-
-DETAYLI_KONTROLLU_SPOT_SPRAY_PO…
-
-Readability — PROVEN. The six primary and twenty detailed pages are visually readable at normal page view, with no material clipping, overlap, broken glyph, illegible table or legend ambiguity. 
+Field decision, controlled recommendation and next proof — PROVEN. The package gives an unmistakable current-checkpoint field NO-GO. It states that physical A–E acceptance, audited real target-rig capture, target-rig fine-tuning and real track-action evidence do not yet exist. The one-camera 15 Hz configuration is correctly framed as a frozen controlled-proof baseline whose measured p95 covers the model path, not acquisition, tracking, scheduling or actuation. Physical A–E can open controlled RGB collection; A–F can additionally open only a nonchemical dry-marker step; chemical fire remains unsupported. The next action is concrete and ordered: produce a hash-bound physical A–E PASS, then collect and audit same-rig data across at least three fields and four field/session groups before isolated fine-tuning and one-time test evaluation. 
 
 BASLA_BURADAN_KONTROLLU_SPOT_SP…
 
  
 
-DETAYLI_KONTROLLU_SPOT_SPRAY_PO… +1
+supporting-evidence-bundle-b4b8… +1
 
-Complete future-GO semantics — PARTIAL. The revised physical chain correctly adds the missing execution order, but its track-test row now presents P/R/F1 as the visible gate while omitting two frozen action-safety thresholds required for offline GO.
-
-## Evidence boundary
-
-The package proves a directional pre-real foundation choice, not field performance. Replacing the 80 V12 synthetic exposures with 80 native-detail ROSE robot crops moved the consumed PhenoBench panel from %72,6 to %75,4 F1 and the consumed BoniRob panel from %5,4 to %9,0; the Pheno interval still crosses zero, the experiment is one-seed, BoniRob is one consumed correlated session, and synthetic transfer collapses at the selected model’s fixed real threshold. 
-
-BASLA_BURADAN_KONTROLLU_SPOT_SP…
-
- 
-
-supporting-evidence-bundle-a1da…
-
-The executable chain is still PRE_REAL_NOT_READY: there is no physical A–E result, accepted real capture manifest, target-rig checkpoint or real track-action result, and evaluated_checkpoint remains null. Passing physical A–F would authorize only dry-marker evaluation; chemical firing remains disabled because deposition and crop-injury thresholds are unsupported and unmeasured. 
-
-supporting-evidence-bundle-a1da… +1
-
-The frozen offline contract is stricter than the PDFs currently expose. GO requires track precision ≥98%, recall ≥95%, F1 ≥96,5%, crop-hit rate and its required Wilson upper 95% bound ≤0,5%, duplicate-shot rate ≤1%, and passage on both pooled test and every test field. Synthetic score weight remains zero. 
-
-tarım-projesi-part-controlled-s…
-
-## Material gaps
-1. The revised proof chain can be read as though P/R/F1 alone determine offline GO
-
-Impact: Primary page 1 labels %96,5 as the future track-level GO F1, while primary page 6 and detailed page 17 show only P/R/F1 in the track-test gate. Crop hit is defined earlier, and the detailed report explains crop veto and duplicate accounting, but neither report states the frozen ≤0,5% crop-hit/Wilson requirement or the ≤1% duplicate-shot requirement in the future acceptance chain. A no-context engineer can therefore conclude that meeting P/R/F1 is sufficient, even though the actual contract would still force NO-GO. This changes the user’s understanding of the safety decision and future acceptance evidence. 
+Complete future-GO semantics — PROVEN. The cycle-5 gap is closed. Primary page 1 now says explicitly that %96,5 track F1 is necessary but not sufficient. Primary page 6 and detailed page 17 expose the full frozen offline gate: track precision ≥98%, recall ≥95%, F1 ≥96,5%, crop-hit rate and its required Wilson upper 95% bound ≤0,5%, duplicate-shot rate ≤1%, pooled-test PASS and every-field PASS. A reader can no longer mistake F1 alone for authorization. 
 
 BASLA_BURADAN_KONTROLLU_SPOT_SP… +1
 
@@ -68,31 +33,49 @@ BASLA_BURADAN_KONTROLLU_SPOT_SP… +1
 
 DETAYLI_KONTROLLU_SPOT_SPRAY_PO…
 
-Simplest corrective direction: Make a report-only gate correction; no experiment or pipeline change is needed.
+ 
 
-On primary page 6 and detailed page 17, expose the complete frozen offline gate: P≥98%, R≥95%, F1≥96,5%, crop-hit rate and required Wilson upper bound ≤0,5%, duplicate-shot rate ≤1%, pooled test PASS and every-field PASS.
+supporting-evidence-bundle-b4b8…
 
-Qualify the page-1 %96,5 card so it cannot be read as the sole GO condition.
+Metric and readability integrity — PROVEN. The selected values shown in the reports—PhenoBench P/R/F1 %82,0/%69,8/%75,4 with crop hit %10,5; BoniRob %20,2/%5,8/%9,0 with crop hit %10,3; unseen-synthetic fixed-threshold F1 %0,0; and the Pheno paired interval [-1,36; +7,10]—agree with the exact evidence. Historical V12-supported synthetic results remain explicitly historical. 
 
-Preserve the current A–E collection, A–F dry-marker and chemical-unsupported sequencing unchanged.
+supporting-evidence-bundle-b4b8… +2
 
-Observable acceptance evidence:
+The six primary and twenty detailed pages show no material clipping, overlap, broken glyph, illegible table or legend ambiguity. The full gate added to the final table remains readable at normal page view rather than being technically present but unusably small. 
 
-A reader can discover every offline GO threshold from the six-page primary PDF without opening JSON or another document.
+BASLA_BURADAN_KONTROLLU_SPOT_SP… +1
 
-No card, row or caption implies that %96,5 F1 alone constitutes GO.
+ 
 
-Primary page 6 and detailed page 17 agree exactly with the frozen action-evaluation contract.
+DETAYLI_KONTROLLU_SPOT_SPRAY_PO… +1
 
-Current metric values, evidence roles and physical state remain unchanged.
+## Evidence boundary
 
-Re-rendered six-page and twenty-page PDFs remain unclipped and readable.
+The package proves a directional pre-real foundation choice and a specified next-evidence sequence, not product performance. Replacing 80 V12 synthetic exposures with 80 native-detail ROSE robot crops moved the consumed PhenoBench panel from %72,6 to %75,4 F1 and the consumed BoniRob panel from %5,4 to %9,0; however, the Pheno paired interval crosses zero, the comparison has one seed, BoniRob is a consumed correlated session, and the selected candidate collapses to %0,0 on the unseen-synthetic diagnostic at its fixed real threshold. These results support a domain-specialization warning and the choice of the next data source; they do not demonstrate generalization or deployment readiness. 
 
- - [ ] Restore the crop-hit/Wilson, duplicate-shot, pooled-test and every-field requirements to the visible future track-action gate.
+BASLA_BURADAN_KONTROLLU_SPOT_SP…
 
- - [ ] Regenerate and visually audit both PDFs so the full safety contract is self-contained without weakening the current physical and chemical fail-closed boundaries.
+ 
+
+supporting-evidence-bundle-b4b8…
+
+The target-rig chain remains PRE_REAL_NOT_READY: there is no physical A–E result, accepted real capture manifest, target-rig fine-tuned checkpoint or real track-action result, and evaluated_checkpoint remains null. Passing physical A–F would authorize only separate dry-marker evaluation. Chemical firing remains disabled because quantitative deposition and crop-injury acceptance thresholds are unsupported and unmeasured. These exclusions are presented at the decision point rather than hidden in trace evidence. 
+
+supporting-evidence-bundle-b4b8… +1
+
+The future offline perception gate is not itself a chemical-fire gate. Even a full track-action PASS would still require independent physical registration, deposition, kill and crop-injury evidence before chemical enablement. This boundary is consistent across the primary report, detailed report and supporting contract evidence. 
+
+BASLA_BURADAN_KONTROLLU_SPOT_SP…
+
+ 
+
+DETAYLI_KONTROLLU_SPOT_SPRAY_PO…
+
+## Material gaps
+
+None. The omitted safety-gate semantics identified in cycle 5 are now visible in both PDFs and agree with the frozen action-evaluation contract. Evidence roles, metric units, current selected-model values, field NO-GO reasoning, controlled-proof scope and the next proof step are materially correct and readable. No remaining issue changes user understanding, action or claimed value within this report-package boundary.
 
 ## User-value direction
 
-Preserve the current evidence taxonomy, selected ROSE-native foundation, physical A–E-first sequence, field NO-GO, one-camera 15 Hz proof baseline and same-rig real-data plan. The new execution ordering is valuable and should remain. The smallest approval path is to restore the two omitted action-safety gates and make clear that F1 is one necessary condition, not the whole field-GO decision.
+Use this package as the current start-here authority: retain instance segmentation as the PoC foundation, keep field and chemical firing disabled, and do not treat public-panel or synthetic performance as target-rig proof. The highest-value next expenditure is the physical A–E proof module followed by same-rig, field/session/track-separated real capture. Model-family or modality expansion should wait until that controlled evidence reveals a remaining ceiling.
 tarım-projesi-part-controlled-s…

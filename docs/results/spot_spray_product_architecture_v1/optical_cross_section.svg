@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title-optical_cross_section desc-optical_cross_section" data-view-id="optical_cross_section" data-config-sha256="09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd" data-architecture-sha256="609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634">
+  <title id="title-optical_cross_section">Optical cross-section and capture interfaces</title>
+  <desc id="desc-optical_cross_section">Source-bound schematic of the frozen one-bay proof architecture. It is pre-real, not physically accepted, and not a fabrication drawing.</desc>
+  <metadata>{&quot;architecture_sha256&quot;:&quot;609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634&quot;,&quot;config_sha256&quot;:&quot;09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd&quot;,&quot;contract_id&quot;:&quot;spot_spray_product_architecture_v1&quot;,&quot;source_integrity&quot;:&quot;PASS&quot;,&quot;view_id&quot;:&quot;optical_cross_section&quot;}</metadata>
+  <defs>
+    <pattern id="minor-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" class="grid" fill="none"/></pattern>
+    <marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#087f6d"/></marker>
+    <marker id="flow-arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#bd2d2d"/></marker>
+    <marker id="dim-arrow" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,3.5 L7,0 L7,7 Z" fill="#8b3fd1"/></marker>
+    <style>.bg { fill: #f7fafc; }
+    .grid { stroke: #d9e3ec; stroke-width: 1; }
+    .panel { fill: #ffffff; stroke: #9fb2c4; stroke-width: 1.5; }
+    .ink { fill: none; stroke: #17324d; stroke-width: 3; }
+    .thin { fill: none; stroke: #48657e; stroke-width: 1.5; }
+    .muted { fill: none; stroke: #8498aa; stroke-width: 2; }
+    .dashed { stroke-dasharray: 9 7; }
+    .unresolved { fill: #fff8e6; stroke: #d28a00; stroke-width: 2.5; stroke-dasharray: 8 6; }
+    .selected { fill: #e8f5f2; stroke: #087f6d; stroke-width: 3; }
+    .safe { fill: #36b59b; fill-opacity: 0.18; stroke: #087f6d; stroke-width: 3; }
+    .optical { fill: #58a6ff; fill-opacity: 0.10; stroke: #1673bd; stroke-width: 2.5; }
+    .light { fill: #fff1a8; stroke: #c98b00; stroke-width: 2; }
+    .fault { fill: #fff0f0; stroke: #bd2d2d; stroke-width: 2; }
+    .disabled { fill: #f4f5f7; stroke: #6f7782; stroke-width: 2; }
+    .dimension { fill: none; stroke: #8b3fd1; stroke-width: 1.8; marker-start: url(#dim-arrow); marker-end: url(#dim-arrow); }
+    .flow { fill: none; stroke: #087f6d; stroke-width: 2.2; marker-end: url(#flow-arrow); }
+    .fault-flow { fill: none; stroke: #bd2d2d; stroke-width: 2.2; marker-end: url(#flow-arrow-red); }
+    text { font-family: Inter, 'DejaVu Sans', Arial, sans-serif; fill: #17324d; }
+    .title { font-size: 27px; font-weight: 700; letter-spacing: 0.2px; }
+    .subtitle { font-size: 13px; font-weight: 600; fill: #48657e; letter-spacing: 0.8px; }
+    .section { font-size: 18px; font-weight: 700; }
+    .label { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #48657e; }
+    .tiny { font-size: 10.5px; fill: #48657e; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; font-size: 10px; fill: #48657e; }
+    .chip { font-size: 11px; font-weight: 700; letter-spacing: 0.45px; }
+    .warning { fill: #a36300; font-weight: 700; }
+    .danger { fill: #a11e1e; font-weight: 700; }</style>
+  </defs>
+  <rect width="1400" height="900" class="bg"/>
+  <rect x="0" y="96" width="1400" height="714" fill="url(#minor-grid)" opacity="0.58"/>
+  <g id="header">
+    <text x="38" y="43" class="title">Optical cross-section and capture interfaces</text>
+    <text x="40" y="70" class="subtitle">ONE-BAY PROOF · ARCHITECTURE FROZEN · SOURCE INTEGRITY PASS</text>
+    <rect x="1008" y="24" width="112" height="28" rx="14" class="selected"/><text x="1064" y="43" text-anchor="middle" class="chip">ONE BAY</text>
+    <rect x="1132" y="24" width="116" height="28" rx="14" class="unresolved"/><text x="1190" y="43" text-anchor="middle" class="chip">HOST OPEN</text>
+    <rect x="1260" y="24" width="106" height="28" rx="14" class="fault"/><text x="1313" y="43" text-anchor="middle" class="chip">NO FIRE</text>
+    <text x="1365" y="70" text-anchor="end" class="small">physical: PRE_REAL_NOT_READY</text>
+  </g>
+
+  <g id="cross-section-main">
+    <rect x="35" y="118" width="790" height="664" rx="12" class="panel"/>
+    <text x="60" y="151" class="section">OPTICAL CROSS-SECTION · NOMINAL POSE</text>
+    <text x="60" y="174" class="small">vertical layout uses a nominal schematic pose inside the bounded WD; labels carry the contract</text>
+    <line x1="70" y1="720" x2="790" y2="720" class="ink"/>
+    <g id="annotation-test_planes" data-annotation-id="test_planes">
+      <line x1="92" y1="665" x2="730" y2="665" class="muted dashed"/>
+      <line x1="92" y1="610" x2="730" y2="610" class="muted dashed"/>
+      <text x="82" y="724" text-anchor="end" class="label">0 mm</text>
+      <text x="82" y="669" text-anchor="end" class="label">55 mm</text>
+      <text x="82" y="614" text-anchor="end" class="label">110 mm</text>
+      <text x="112" y="702" class="small">local ground</text>
+      <text x="112" y="647" class="small">focus plane</text>
+      <text x="112" y="592" class="small">upper test plane</text>
+    </g>
+    <g id="hood-section">
+      <path d="M130 278 L130 570 L690 570 L690 278" class="ink"/>
+      <path d="M130 278 L300 278 M520 278 L690 278" class="ink"/>
+      <rect x="132" y="286" width="556" height="24" class="disabled"/>
+      <text x="410" y="268" text-anchor="middle" class="label">rigid matte hood · passive sealed thermal path</text>
+      <path d="M190 278 L190 230 L260 230" class="thin"/><path d="M630 278 L630 230 L560 230" class="thin"/>
+      <text x="225" y="252" text-anchor="middle" class="small">external heatsink</text>
+      <text x="595" y="252" text-anchor="middle" class="small">sealed path · no optical airflow</text>
+    </g>
+    <g id="camera-section">
+      <rect x="354" y="184" width="112" height="64" rx="9" class="selected"/>
+      <path d="M382 248 L382 275 L438 275 L438 248" class="ink"/>
+      <circle cx="410" cy="278" r="9" class="optical"/>
+      <text x="410" y="207" text-anchor="middle" class="label">a2A2464-77ucPRO</text>
+      <text x="410" y="227" text-anchor="middle" class="small">C23-0824-5M-P · f/5.6</text>
+      <text x="410" y="246" text-anchor="middle" class="small">F_camera · optical axis −Z</text>
+    </g>
+    <g id="annotation-window" data-annotation-id="window">
+      <path d="M319 334 L501 318" stroke="#1673bd" stroke-width="8" opacity="0.48"/>
+      <text x="516" y="322" class="label">AR window 2–3 mm</text>
+      <text x="516" y="342" class="small">installed tilt 3–5° · exact part/profile open</text>
+    </g>
+    <g id="light-section">
+      <path d="M174 366 L290 334 L310 388 L194 420 Z" class="light"/>
+      <path d="M646 366 L530 334 L510 388 L626 420 Z" class="light"/>
+      <text x="236" y="383" text-anchor="middle" class="small">diffuse quadrant</text>
+      <text x="584" y="383" text-anchor="middle" class="small">diffuse quadrant</text>
+      <path d="M290 368 L399 472 M530 368 L421 472" class="thin dashed"/>
+    </g>
+    <g id="annotation-ray_cone" data-annotation-id="ray_cone">
+      <path d="M410 282 L168 720 L652 720 Z" class="optical"/>
+      <line x1="410" y1="282" x2="410" y2="720" class="thin dashed"/>
+      <line x1="188" y1="706" x2="632" y2="706" class="safe"/>
+      <text x="410" y="524" text-anchor="middle" class="label">calibrated optical cone</text>
+      <text x="410" y="546" text-anchor="middle" class="small">FOV 474–484 mm at ground</text>
+      <text x="410" y="697" text-anchor="middle" class="label">safe ≥444.375 mm</text>
+    </g>
+    <g id="annotation-skirts" data-annotation-id="skirts">
+      <path d="M130 570 L130 702 M158 570 L158 702 M690 570 L690 702 M662 570 L662 702" class="muted"/>
+      <path d="M130 652 L102 652 M690 652 L718 652" class="thin"/>
+      <text x="480" y="588" class="small">dual skirts 100–150 mm</text>
+      <text x="480" y="608" class="small">rail height 100–170 mm · clearance 0–20 mm</text>
+    </g>
+    <g id="annotation-working_distance" data-annotation-id="working_distance">
+      <line x1="748" y1="278" x2="748" y2="720" class="dimension"/>
+      <text x="730" y="470" text-anchor="end" class="label">WD 520–590 mm</text>
+      <text x="730" y="491" text-anchor="end" class="small">measured and locked</text>
+    </g>
+    <g id="annotation-physical_stage_C_unmeasured" data-annotation-id="physical_stage_C_unmeasured">
+      <rect x="254" y="734" width="312" height="34" rx="8" class="unresolved"/>
+      <text x="410" y="756" text-anchor="middle" class="label warning">exact ray clearance = UNMEASURED · Stage C required</text>
+    </g>
+  </g>
+  <g id="capture-interface-panel">
+    <rect x="850" y="118" width="515" height="664" rx="12" class="panel"/>
+    <text x="878" y="151" class="section">CAPTURE / SAFETY INTERFACES</text>
+    <g id="annotation-exposure_strobe" data-annotation-id="exposure_strobe">
+      <rect x="884" y="182" width="180" height="58" rx="8" class="selected"/>
+      <text x="974" y="207" text-anchor="middle" class="label">real-time controller</text>
+      <text x="974" y="227" text-anchor="middle" class="small">trigger + encoder latch</text>
+      <path d="M1064 211 L1131 211" class="flow"/>
+      <rect x="1136" y="182" width="195" height="58" rx="8" class="selected"/>
+      <text x="1233" y="207" text-anchor="middle" class="label">global exposure</text>
+      <text x="1233" y="227" text-anchor="middle" class="small">170 µs · 15 Hz</text>
+      <path d="M1233 240 L1233 284" class="flow"/>
+      <rect x="1136" y="289" width="195" height="58" rx="8" class="light"/>
+      <text x="1233" y="314" text-anchor="middle" class="label">ExposureActive → strobe</text>
+      <text x="1233" y="334" text-anchor="middle" class="small">150–170 µs · four channels</text>
+      <text x="884" y="269" class="small">same hardware event · stale host/GPS time forbidden</text>
+    </g>
+    <g id="annotation-usb_compute" data-annotation-id="usb_compute">
+      <rect x="884" y="379" width="180" height="66" rx="8" class="selected"/>
+      <text x="974" y="404" text-anchor="middle" class="label">Basler camera</text>
+      <text x="974" y="425" text-anchor="middle" class="small">native 2048×2048</text>
+      <path d="M1064 412 L1131 412" class="flow"/>
+      <text x="1097" y="400" text-anchor="middle" class="tiny">USB3 ≤3 m</text>
+      <rect x="1136" y="379" width="195" height="66" rx="8" class="selected"/>
+      <text x="1233" y="404" text-anchor="middle" class="label">RTX 3090 lane</text>
+      <text x="1233" y="425" text-anchor="middle" class="small">1 camera / 15 Hz only</text>
+      <path d="M1233 445 L1233 485" class="flow"/>
+      <rect x="1105" y="490" width="226" height="50" rx="8" class="disabled"/>
+      <text x="1218" y="512" text-anchor="middle" class="label">scheduler / intervention interface</text>
+      <text x="1218" y="530" text-anchor="middle" class="tiny">physical offset and hardware unresolved</text>
+    </g>
+    <g id="annotation-fail_closed" data-annotation-id="fail_closed">
+      <rect x="884" y="574" width="447" height="122" rx="9" class="fault"/>
+      <text x="1107" y="601" text-anchor="middle" class="label danger">FAULT OR INVALID IDENTITY → NO FIRE</text>
+      <text x="906" y="627" class="small">E-stop · watchdog · hood open · overtemperature</text>
+      <text x="906" y="650" class="small">timestamp · encoder · frame · deadline · calibration</text>
+      <text x="906" y="673" class="small">profile · strobe · light channel · deploy · reverse · brownout</text>
+      <path d="M1107 696 L1107 733" class="fault-flow"/>
+      <rect x="952" y="733" width="310" height="33" rx="7" class="disabled"/>
+      <text x="1107" y="755" text-anchor="middle" class="label danger">chemical-enable line: VERIFIED DISABLED</text>
+    </g>
+  </g>
+  <g id="footer">
+    <rect x="0" y="810" width="1400" height="90" fill="#17324d"/>
+    <text x="38" y="839" fill="#ffffff" style="font-size:14px;font-weight:700">NOT A FABRICATION DRAWING · NOT TO SCALE · SCHEMATIC ENVELOPES ONLY</text>
+    <text x="38" y="862" class="mono" style="fill:#dbe8f2">config sha256: 09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd</text>
+    <text x="38" y="881" class="mono" style="fill:#dbe8f2">architecture sha256: 609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634</text>
+    <text x="1362" y="862" text-anchor="end" fill="#ffffff" style="font-size:12px">controlled capture: false · dry marker: false</text>
+    <text x="1362" y="881" text-anchor="end" fill="#ffffff" style="font-size:12px">field GO: false · chemical fire: false</text>
+  </g>
+</svg>

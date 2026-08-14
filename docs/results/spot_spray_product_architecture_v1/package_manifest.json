@@ -1,0 +1,304 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "canonical_config",
+      "path": "configs/deploy/spot_spray_product_architecture_v1.yaml",
+      "sha256": "09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd"
+    },
+    {
+      "artifact_id": "architecture_json",
+      "path": "docs/results/spot_spray_product_architecture_v1/architecture.json",
+      "sha256": "609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634"
+    },
+    {
+      "artifact_id": "normalized_bom_csv",
+      "path": "docs/results/spot_spray_product_architecture_v1/bom.csv",
+      "sha256": "d25e399ef864ee7656b48d9eb2a344de03bffe9bd8e47a47e5810d9d68f56b1c"
+    },
+    {
+      "artifact_id": "human_readable_architecture",
+      "path": "docs/SPOT_SPRAY_PRODUCT_ARCHITECTURE_V1.md",
+      "sha256": "0c4c10ea8d754117cb0332353bc560d2c34dfa39bda92096fb23204aee8448b7"
+    },
+    {
+      "artifact_id": "visual_manifest",
+      "path": "docs/results/spot_spray_product_architecture_v1/visual_manifest.json",
+      "sha256": "103235690689ba8bc0c7b98744c05505e8abba46f7f6ee743eabc2dea8ac926f"
+    },
+    {
+      "artifact_id": "visual_exterior",
+      "path": "docs/results/spot_spray_product_architecture_v1/exterior.svg",
+      "sha256": "1794c6f2d49a21a7afd56d96bb7c6b6517301513e197928c2a7f3709947f3825"
+    },
+    {
+      "artifact_id": "visual_underside",
+      "path": "docs/results/spot_spray_product_architecture_v1/underside.svg",
+      "sha256": "2f533e5a7393f512f8563058e7f54541958842141aad424cc14f2f553aef824b"
+    },
+    {
+      "artifact_id": "visual_optical_cross_section",
+      "path": "docs/results/spot_spray_product_architecture_v1/optical_cross_section.svg",
+      "sha256": "ff17dc7ea99b6001de00cc0ce8ea3b30f2bbb77f981677a1c0db37e3579b0383"
+    }
+  ],
+  "claim_boundary": {
+    "autonomous_operation_in_scope": false,
+    "certified_ingress_claim": false,
+    "integration_validation_is_physical_acceptance": false,
+    "note": "A consistent result proves only that pinned desk evidence and deterministic calculations agree. It cannot authorize capture, dry-marker, field, product, purchase, fabrication, or chemical operation.",
+    "physical_A_to_E_receipt_available": false,
+    "physical_A_to_F_receipt_available": false,
+    "procurement_or_fabrication_authority": false
+  },
+  "contract_id": "spot_spray_product_architecture_v1",
+  "evidence_ledger": {
+    "deterministic_calculations": {
+      "claim_limit": "arithmetic_from_pinned_primitives_not_physical_measurement",
+      "evidence_class": "DETERMINISTIC_CALCULATION",
+      "result_paths": [
+        "calculations",
+        "bom.totals"
+      ]
+    },
+    "integration_hypotheses": {
+      "claim_limit": "interface_hypothesis_only_cannot_create_a_physical_PASS",
+      "evidence_class": "ENGINEERING_INTEGRATION_INFERENCE",
+      "result_paths": [
+        "ownership_boundary",
+        "coordinate_frames",
+        "spatial_contract",
+        "interface_contract"
+      ]
+    },
+    "physical_measurements": {
+      "claim_limit": "reserved_for_hash_bound_rig_evaluator_receipts_none_current",
+      "current_product_receipt_count": 0,
+      "evidence_class": "PHYSICAL_MEASUREMENT",
+      "result_paths": [
+        "acceptance_binding"
+      ]
+    },
+    "physically_unmeasured": {
+      "claim_limit": "unknowns_remain_null_until_owning_physical_evidence_exists",
+      "evidence_class": "NO_EVIDENCE_NULL",
+      "result_paths": [
+        "decision_items",
+        "calculations.mechanical_payload",
+        "calculations.power_status"
+      ]
+    },
+    "sourced_facts": {
+      "claim_limit": "exact_pinned_desk_evidence_not_installed_hardware_evidence",
+      "evidence_classes": [
+        "FROZEN_REPOSITORY_CONTRACT",
+        "TERMINAL_LANE_DECISION"
+      ],
+      "result_paths": [
+        "source_integrity.sources",
+        "baseline",
+        "decision_items"
+      ]
+    }
+  },
+  "integration_result": "INTEGRATION_CONSISTENT_PRE_REAL",
+  "manifest_self_identity": {
+    "path": "docs/results/spot_spray_product_architecture_v1/package_manifest.json",
+    "reason": "self_digest_excluded_to_avoid_recursive_hash",
+    "sha256": null
+  },
+  "package_claim": "desk_evidence_and_deterministic_integration_only; no procurement, physical READY, controlled capture, dry-marker READY, field GO, product GO or chemical fire",
+  "schema_version": 1,
+  "source_inputs": [
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "compute_capture",
+      "path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+      "role": "frozen_numeric_capture_contract",
+      "sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+      "source_id": "capture_optimization_contract"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "compute_capture",
+      "path": "docs/CONTROLLED_CAPTURE_OPTIMIZATION_V2.md",
+      "role": "frozen_capture_derivation_document",
+      "sha256": "c5eb80d8eb074b36463906a4dee993776d2415ae1e41ad50a988c8592e8ed7aa",
+      "source_id": "capture_optimization_document"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "compute_capture",
+      "path": "docs/results/controlled_capture_optimization_v2.json",
+      "role": "frozen_golden_calculation_result",
+      "sha256": "0808c68d40285ff3eba5fb3d13603bc42c12c16d9bacc4fd87470a3c26eafbc8",
+      "source_id": "capture_optimization_result"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "compute_capture",
+      "path": "docs/results/spot_spray_deploy_compute_summary_v1.json",
+      "role": "measured_compute_proxy_without_halo",
+      "sha256": "b03898f35891e304631bfb410089aefdea7f4c5e339f4a9ccef27dc947d28804",
+      "source_id": "compute_summary"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "compute_capture",
+      "path": "docs/results/spot_spray_deploy_compute_halo_summary_v1.json",
+      "role": "measured_64px_halo_compute_proxy",
+      "sha256": "945c1e43ed9e672d58cc44a57a6a046f202bb285a43b9f385751e297e22de4e7",
+      "source_id": "halo_compute_summary"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "safety_acceptance",
+      "path": "docs/SPOT_SPRAY_INTEGRATED_CONTRACT_RELEASE_V1.md",
+      "role": "current_provenance_and_claim_boundary",
+      "sha256": "ad867317332dc2421188bad5903b47e6c0deeb08912243103d74e1ead5d426ad",
+      "source_id": "integrated_contract_release"
+    },
+    {
+      "committed_bytes_verified": true,
+      "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+      "owner": "light_enclosure",
+      "path": "docs/plans/part-spot-spray-light-enclosure-adaptive-plan.md",
+      "role": "terminal_light_enclosure_ownership_challenger_and_stopping_rules",
+      "sha256": "b90d73200f4384cd00ee466d43420d22ff078b3d97c5619cd581eefc8e893bb5",
+      "source_id": "light_enclosure_plan"
+    },
+    {
+      "committed_bytes_verified": true,
+      "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+      "owner": "light_enclosure",
+      "path": "docs/research/SPOT_SPRAY_LIGHT_ENCLOSURE_SURVEY_V1.md",
+      "role": "terminal_light_enclosure_decision",
+      "sha256": "ddb34ff6db4eac7065cd0c4fed5d103b119b5a46c430cf2ba08fb5fa7dba7dc1",
+      "source_id": "light_enclosure_survey"
+    },
+    {
+      "committed_bytes_verified": true,
+      "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+      "owner": "platform_carrier",
+      "path": "docs/plans/part-spot-spray-platform-product-adaptive-plan.md",
+      "role": "terminal_platform_ownership_challenger_and_stopping_rules",
+      "sha256": "6ef6d94819bffdb303b3e121f52a0d6cb19e91ee49f10a5ddba84f217f6c1292",
+      "source_id": "platform_product_plan"
+    },
+    {
+      "committed_bytes_verified": true,
+      "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+      "owner": "platform_carrier",
+      "path": "docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md",
+      "role": "terminal_platform_product_decision",
+      "sha256": "38ccf561fff37f64e4f1aed192b06e03196ca13f40734fc876188c3e817c50e5",
+      "source_id": "platform_product_survey"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "sensor_optics",
+      "path": "configs/deploy/spot_spray_product_imaging_decision_v1.yaml",
+      "role": "frozen_product_imaging_contract",
+      "sha256": "052241b48ad675945f8628c1618d1d337bca0818cd109c825197636dd5d98123",
+      "source_id": "product_imaging_contract"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "sensor_optics",
+      "path": "docs/SPOT_SPRAY_PRODUCT_IMAGING_DECISION_V1.md",
+      "role": "frozen_product_imaging_decision",
+      "sha256": "c4b7ee5d77fb897576c322a35ab820d882986a096eff225a5364f354b2d0269f",
+      "source_id": "product_imaging_document"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "safety_acceptance",
+      "path": "configs/deploy/spot_spray_rig_acceptance_v1.yaml",
+      "role": "sole_physical_acceptance_policy",
+      "sha256": "a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c",
+      "source_id": "rig_acceptance_contract"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "safety_acceptance",
+      "path": "scripts/evaluate_spot_spray_rig_acceptance_v1.py",
+      "role": "sole_physical_acceptance_evaluator",
+      "sha256": "596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2",
+      "source_id": "rig_acceptance_evaluator"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "safety_acceptance",
+      "path": "docs/SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md",
+      "role": "physical_A_to_F_runbook",
+      "sha256": "9b73fb34741d8862f27abc4aab30e42268fadb2ad05233d3b201f098fb1acb78",
+      "source_id": "rig_acceptance_runbook"
+    },
+    {
+      "committed_bytes_verified": true,
+      "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+      "owner": "sensor_optics",
+      "path": "docs/plans/part-spot-spray-sensor-optics-adaptive-plan.md",
+      "role": "terminal_sensor_optics_ownership_challenger_and_stopping_rules",
+      "sha256": "d3e65e265052b7d47e7d6522f8679145951b9bd7bbc8c9d2aa4dccef7e67c19b",
+      "source_id": "sensor_optics_plan"
+    },
+    {
+      "committed_bytes_verified": true,
+      "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+      "owner": "sensor_optics",
+      "path": "docs/research/SPOT_SPRAY_SENSOR_OPTICS_SURVEY_V1.md",
+      "role": "terminal_sensor_optics_decision",
+      "sha256": "36bb374664d4a799706facc1ac7914cc8913757510b0bb618e9a765557aa52e8",
+      "source_id": "sensor_optics_survey"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "intervention_external",
+      "path": "configs/benchmark/spot_spray_target_rig_action_eval_v1.yaml",
+      "role": "frozen_track_action_contract",
+      "sha256": "210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09",
+      "source_id": "track_action_contract"
+    },
+    {
+      "committed_bytes_verified": false,
+      "containing_commit": null,
+      "owner": "intervention_external",
+      "path": "scripts/evaluate_spot_spray_target_rig_action_v1.py",
+      "role": "frozen_track_action_evaluator",
+      "sha256": "3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45",
+      "source_id": "track_action_evaluator"
+    }
+  ],
+  "source_integrity": "PASS",
+  "source_release": {
+    "admission_policy": "six_terminal_files_exact_bytes_at_reachable_commit_fail_closed",
+    "implementation_base_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+    "terminal_source_count": 6,
+    "terminal_sources_clean_against_commit": true
+  },
+  "status_axes": {
+    "architecture_selection": "FROZEN_BASELINE",
+    "chemical_fire_allowed": false,
+    "controlled_capture_authorized": false,
+    "dry_marker_ready": false,
+    "field_go": false,
+    "host_qualification": "HOST_UNRESOLVED",
+    "physical_acceptance": "PRE_REAL_NOT_READY",
+    "product_go": false,
+    "purchase_authorized": false,
+    "source_integrity": "VERIFY_AT_BUILD"
+  },
+  "verified_source_count": 19
+}

@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title-exterior desc-exterior" data-view-id="exterior" data-config-sha256="09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd" data-architecture-sha256="609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634">
+  <title id="title-exterior">Exterior carrier and one-bay proof architecture</title>
+  <desc id="desc-exterior">Source-bound schematic of the frozen one-bay proof architecture. It is pre-real, not physically accepted, and not a fabrication drawing.</desc>
+  <metadata>{&quot;architecture_sha256&quot;:&quot;609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634&quot;,&quot;config_sha256&quot;:&quot;09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd&quot;,&quot;contract_id&quot;:&quot;spot_spray_product_architecture_v1&quot;,&quot;source_integrity&quot;:&quot;PASS&quot;,&quot;view_id&quot;:&quot;exterior&quot;}</metadata>
+  <defs>
+    <pattern id="minor-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" class="grid" fill="none"/></pattern>
+    <marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#087f6d"/></marker>
+    <marker id="flow-arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#bd2d2d"/></marker>
+    <marker id="dim-arrow" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,3.5 L7,0 L7,7 Z" fill="#8b3fd1"/></marker>
+    <style>.bg { fill: #f7fafc; }
+    .grid { stroke: #d9e3ec; stroke-width: 1; }
+    .panel { fill: #ffffff; stroke: #9fb2c4; stroke-width: 1.5; }
+    .ink { fill: none; stroke: #17324d; stroke-width: 3; }
+    .thin { fill: none; stroke: #48657e; stroke-width: 1.5; }
+    .muted { fill: none; stroke: #8498aa; stroke-width: 2; }
+    .dashed { stroke-dasharray: 9 7; }
+    .unresolved { fill: #fff8e6; stroke: #d28a00; stroke-width: 2.5; stroke-dasharray: 8 6; }
+    .selected { fill: #e8f5f2; stroke: #087f6d; stroke-width: 3; }
+    .safe { fill: #36b59b; fill-opacity: 0.18; stroke: #087f6d; stroke-width: 3; }
+    .optical { fill: #58a6ff; fill-opacity: 0.10; stroke: #1673bd; stroke-width: 2.5; }
+    .light { fill: #fff1a8; stroke: #c98b00; stroke-width: 2; }
+    .fault { fill: #fff0f0; stroke: #bd2d2d; stroke-width: 2; }
+    .disabled { fill: #f4f5f7; stroke: #6f7782; stroke-width: 2; }
+    .dimension { fill: none; stroke: #8b3fd1; stroke-width: 1.8; marker-start: url(#dim-arrow); marker-end: url(#dim-arrow); }
+    .flow { fill: none; stroke: #087f6d; stroke-width: 2.2; marker-end: url(#flow-arrow); }
+    .fault-flow { fill: none; stroke: #bd2d2d; stroke-width: 2.2; marker-end: url(#flow-arrow-red); }
+    text { font-family: Inter, 'DejaVu Sans', Arial, sans-serif; fill: #17324d; }
+    .title { font-size: 27px; font-weight: 700; letter-spacing: 0.2px; }
+    .subtitle { font-size: 13px; font-weight: 600; fill: #48657e; letter-spacing: 0.8px; }
+    .section { font-size: 18px; font-weight: 700; }
+    .label { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #48657e; }
+    .tiny { font-size: 10.5px; fill: #48657e; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; font-size: 10px; fill: #48657e; }
+    .chip { font-size: 11px; font-weight: 700; letter-spacing: 0.45px; }
+    .warning { fill: #a36300; font-weight: 700; }
+    .danger { fill: #a11e1e; font-weight: 700; }</style>
+  </defs>
+  <rect width="1400" height="900" class="bg"/>
+  <rect x="0" y="96" width="1400" height="714" fill="url(#minor-grid)" opacity="0.58"/>
+  <g id="header">
+    <text x="38" y="43" class="title">Exterior carrier and one-bay proof architecture</text>
+    <text x="40" y="70" class="subtitle">ONE-BAY PROOF · ARCHITECTURE FROZEN · SOURCE INTEGRITY PASS</text>
+    <rect x="1008" y="24" width="112" height="28" rx="14" class="selected"/><text x="1064" y="43" text-anchor="middle" class="chip">ONE BAY</text>
+    <rect x="1132" y="24" width="116" height="28" rx="14" class="unresolved"/><text x="1190" y="43" text-anchor="middle" class="chip">HOST OPEN</text>
+    <rect x="1260" y="24" width="106" height="28" rx="14" class="fault"/><text x="1313" y="43" text-anchor="middle" class="chip">NO FIRE</text>
+    <text x="1365" y="70" text-anchor="end" class="small">physical: PRE_REAL_NOT_READY</text>
+  </g>
+
+  <g id="exterior-main">
+    <rect x="35" y="118" width="925" height="664" rx="12" class="panel"/>
+    <text x="60" y="151" class="section">SIDE / EXTERIOR SCHEMATIC</text>
+    <text x="60" y="174" class="small">+X forward travel · host-specific structure deliberately unresolved</text>
+    <line x1="70" y1="724" x2="930" y2="724" class="ink"/>
+    <text x="76" y="748" class="small">local ground / F_world</text>
+    <line x1="160" y1="206" x2="310" y2="206" class="flow"/><text x="165" y="196" class="label">+X forward · 0.5–1 m/s proof</text>
+
+    <g id="annotation-host_unresolved" data-annotation-id="host_unresolved">
+      <path d="M92 475 L132 360 L318 336 L383 423 L374 580 L116 580 Z" class="unresolved"/>
+      <circle cx="163" cy="592" r="75" class="unresolved"/><circle cx="330" cy="602" r="48" class="unresolved"/>
+      <text x="232" y="401" text-anchor="middle" class="label warning">EXACT REAR HOST</text>
+      <text x="232" y="423" text-anchor="middle" class="label warning">UNRESOLVED</text>
+      <text x="232" y="450" text-anchor="middle" class="small">hitch · ballast · axle · visibility</text>
+      <text x="232" y="469" text-anchor="middle" class="small">power · cable · speed evidence = null</text>
+    </g>
+    <g id="annotation-rear_three_point" data-annotation-id="rear_three_point">
+      <path d="M375 448 L461 388 L465 547 L377 524" class="ink"/>
+      <circle cx="462" cy="389" r="7" class="selected"/><circle cx="465" cy="547" r="7" class="selected"/>
+      <text x="411" y="370" class="label">rear three-point</text>
+      <text x="411" y="390" class="small">proof topology selected</text>
+    </g>
+    <g id="carrier-frame">
+      <rect x="453" y="315" width="417" height="34" rx="6" class="ink"/>
+      <text x="661" y="388" text-anchor="middle" class="label">carrier toolbar · rating unresolved</text>
+    </g>
+    <g id="annotation-compute_tray" data-annotation-id="compute_tray">
+      <rect x="493" y="250" width="212" height="54" rx="8" class="unresolved"/>
+      <text x="599" y="273" text-anchor="middle" class="label">compute / power tray</text>
+      <text x="599" y="292" text-anchor="middle" class="small">whole-system input: UNRESOLVED</text>
+      <path d="M705 277 L775 277 L775 398" class="thin dashed"/>
+    </g>
+    <g id="annotation-ground_follow" data-annotation-id="ground_follow">
+      <path d="M648 349 L608 430 L608 568 M705 349 L745 430 L745 568" class="ink"/>
+      <rect x="583" y="422" width="188" height="28" rx="7" class="selected"/>
+      <text x="676" y="414" text-anchor="middle" class="label">passive ground following</text>
+      <text x="676" y="471" text-anchor="middle" class="small">carrier owns coarse height and guide</text>
+    </g>
+    <g id="annotation-removable_cassette" data-annotation-id="removable_cassette">
+      <rect x="545" y="488" width="265" height="178" rx="8" class="selected"/>
+      <rect x="574" y="512" width="207" height="110" class="ink"/>
+      <path d="M585 622 L585 690 M615 622 L615 690 M741 622 L741 690 M771 622 L771 690" class="muted"/>
+      <circle cx="677" cy="540" r="18" class="optical"/>
+      <text x="677" y="572" text-anchor="middle" class="label">REMOVABLE ONE-BAY CASSETTE</text>
+      <text x="677" y="594" text-anchor="middle" class="small">hood internal plan ≥ 600×600 mm</text>
+      <text x="677" y="646" text-anchor="middle" class="small">dual skirts 100–150 mm · clearance 0–20 mm</text>
+    </g>
+    <line x1="825" y1="540" x2="825" y2="724" class="dimension"/>
+    <text x="925" y="617" text-anchor="end" class="label">WD 520–590 mm</text>
+    <text x="925" y="638" text-anchor="end" class="small">unit-adjusted and locked</text>
+    <g id="annotation-gauge_wheel" data-annotation-id="gauge_wheel">
+      <path d="M812 420 L888 477 L888 627" class="ink"/>
+      <circle cx="888" cy="674" r="48" class="ink"/>
+      <text x="925" y="404" text-anchor="end" class="label">gauge wheel</text>
+      <text x="925" y="425" text-anchor="end" class="small">outside optical/action envelope</text>
+    </g>
+    <g id="annotation-encoder" data-annotation-id="encoder">
+      <circle cx="888" cy="674" r="14" class="selected"/>
+      <path d="M903 650 L930 626" class="thin"/>
+      <text x="930" y="704" text-anchor="end" class="label">F_encoder · signed ground travel</text>
+    </g>
+    <g id="annotation-intervention_offset_unresolved" data-annotation-id="intervention_offset_unresolved">
+      <path d="M704 690 L704 730 M684 710 L724 710" class="fault-flow"/>
+      <text x="496" y="748" class="label warning">F_intervention_mount: rigid datum only</text>
+      <text x="496" y="770" class="small">signed camera offset = UNRESOLVED · hardware / footprint = null</text>
+    </g>
+    <g id="annotation-deployed_state" data-annotation-id="deployed_state">
+      <rect x="458" y="571" width="82" height="48" rx="7" class="fault"/>
+      <text x="499" y="590" text-anchor="middle" class="label danger">STATE</text>
+      <text x="499" y="608" text-anchor="middle" class="small">lift/lock/deploy</text>
+      <path d="M540 595 L577 595" class="fault-flow"/>
+    </g>
+  </g>
+  <g id="exterior-contract-panel">
+    <rect x="985" y="118" width="380" height="664" rx="12" class="panel"/>
+    <text x="1012" y="151" class="section">BUILD / CONTROL BOUNDARY</text>
+    <text x="1012" y="184" class="label">Frozen cassette</text>
+    <text x="1028" y="208" class="small">• a2A2464-77ucPRO + C23-0824-5M-P</text>
+    <text x="1028" y="230" class="small">• native 2048×2048 ROI · 15 Hz</text>
+    <text x="1028" y="252" class="small">• four diffuse white quadrants · polarization OFF</text>
+    <text x="1028" y="274" class="small">• local camera-to-intervention rigid frame</text>
+    <line x1="1012" y1="294" x2="1338" y2="294" class="grid"/>
+    <text x="1012" y="326" class="label">Carrier owns</text>
+    <text x="1028" y="350" class="small">• hitch, toolbar, ground following, gauge wheel</text>
+    <text x="1028" y="372" class="small">• signed encoder, lift/transport and deployed state</text>
+    <text x="1028" y="394" class="small">• host power conversion and E-stop route</text>
+    <line x1="1012" y1="414" x2="1338" y2="414" class="grid"/>
+    <text x="1012" y="446" class="label">Known electrical boundaries</text>
+    <text x="1028" y="470" class="small">capture module ≤ 60 W average (no compute)</text>
+    <text x="1028" y="492" class="small">light branch ≤ 20 W average</text>
+    <text x="1028" y="514" class="small">GPU 350 W = reference only</text>
+    <text x="1028" y="536" class="small">host continuous / transient input = UNRESOLVED</text>
+    <line x1="1012" y1="556" x2="1338" y2="556" class="grid"/>
+    <rect x="1012" y="578" width="326" height="86" rx="8" class="fault"/>
+    <text x="1175" y="605" text-anchor="middle" class="label danger">DEFAULT = NO FIRE</text>
+    <text x="1175" y="629" text-anchor="middle" class="small">invalid host / lift / reverse / encoder / power</text>
+    <text x="1175" y="648" text-anchor="middle" class="small">cancels pending commands; clean witness required</text>
+    <rect x="1012" y="686" width="326" height="69" rx="8" class="unresolved"/>
+    <text x="1175" y="713" text-anchor="middle" class="label warning">NO BUILD OR PROCUREMENT AUTHORITY</text>
+    <text x="1175" y="737" text-anchor="middle" class="small">mass · CG · rating · exact cost remain null</text>
+  </g>
+  <g id="footer">
+    <rect x="0" y="810" width="1400" height="90" fill="#17324d"/>
+    <text x="38" y="839" fill="#ffffff" style="font-size:14px;font-weight:700">NOT A FABRICATION DRAWING · NOT TO SCALE · SCHEMATIC ENVELOPES ONLY</text>
+    <text x="38" y="862" class="mono" style="fill:#dbe8f2">config sha256: 09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd</text>
+    <text x="38" y="881" class="mono" style="fill:#dbe8f2">architecture sha256: 609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634</text>
+    <text x="1362" y="862" text-anchor="end" fill="#ffffff" style="font-size:12px">controlled capture: false · dry marker: false</text>
+    <text x="1362" y="881" text-anchor="end" fill="#ffffff" style="font-size:12px">field GO: false · chemical fire: false</text>
+  </g>
+</svg>

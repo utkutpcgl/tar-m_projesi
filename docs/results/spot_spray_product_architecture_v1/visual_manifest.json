@@ -1,0 +1,56 @@
+{
+  "architecture_sha256": "609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634",
+  "config_sha256": "09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd",
+  "contract_id": "spot_spray_product_architecture_v1",
+  "notice": "NOT A FABRICATION DRAWING",
+  "schema_version": 1,
+  "views": [
+    {
+      "filename": "exterior.svg",
+      "required_annotation_ids": [
+        "host_unresolved",
+        "rear_three_point",
+        "removable_cassette",
+        "ground_follow",
+        "gauge_wheel",
+        "compute_tray",
+        "deployed_state",
+        "encoder",
+        "intervention_offset_unresolved"
+      ],
+      "sha256": "1794c6f2d49a21a7afd56d96bb7c6b6517301513e197928c2a7f3709947f3825",
+      "view_id": "exterior"
+    },
+    {
+      "filename": "underside.svg",
+      "required_annotation_ids": [
+        "hood_600",
+        "four_quadrants",
+        "fov_range",
+        "abstain_ring",
+        "safe_region_444_375",
+        "no_emitter_zone",
+        "no_intrusion",
+        "axis_permutation"
+      ],
+      "sha256": "2f533e5a7393f512f8563058e7f54541958842141aad424cc14f2f553aef824b",
+      "view_id": "underside"
+    },
+    {
+      "filename": "optical_cross_section.svg",
+      "required_annotation_ids": [
+        "working_distance",
+        "test_planes",
+        "skirts",
+        "window",
+        "ray_cone",
+        "exposure_strobe",
+        "usb_compute",
+        "fail_closed",
+        "physical_stage_C_unmeasured"
+      ],
+      "sha256": "ff17dc7ea99b6001de00cc0ce8ea3b30f2bbb77f981677a1c0db37e3579b0383",
+      "view_id": "optical_cross_section"
+    }
+  ]
+}

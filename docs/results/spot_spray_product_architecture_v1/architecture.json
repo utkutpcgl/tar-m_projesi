@@ -1,0 +1,2195 @@
+{
+  "acceptance_binding": {
+    "canonical_policy_sha256": "c05ae3837d98f313c32e81178045a9fef39965199c276ec06e9d01195e88ff21",
+    "chemical_target": {
+      "allowed": false,
+      "blocker": "deposition_and_crop_injury_thresholds_unsupported_and_unmeasured"
+    },
+    "contract_source_id": "rig_acceptance_contract",
+    "controlled_capture_target": {
+      "current_authorized": false,
+      "physical_bench_evidence_required": true,
+      "required_stages": [
+        "A_procurement_and_identity",
+        "B_transport_trigger_and_thermal",
+        "C_optics_and_window",
+        "D_light_hood_and_polarization",
+        "E_motion_tracking_and_compute"
+      ]
+    },
+    "dry_marker_target": {
+      "current_ready": false,
+      "physical_bench_evidence_required": true,
+      "required_stages": [
+        "A_procurement_and_identity",
+        "B_transport_trigger_and_thermal",
+        "C_optics_and_window",
+        "D_light_hood_and_polarization",
+        "E_motion_tracking_and_compute",
+        "F_registration_and_safe_actuation"
+      ]
+    },
+    "evaluator_sha256": "596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2",
+    "evaluator_source_id": "rig_acceptance_evaluator",
+    "exact_contract_sha256": "a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c",
+    "integration_can_override_rig_evaluator": false,
+    "integration_evaluates_physical_receipts": false,
+    "runbook_source_id": "rig_acceptance_runbook"
+  },
+  "baseline": {
+    "compute_capture": {
+      "accelerator": "NVIDIA_RTX_3090",
+      "camera_transport": "dedicated_USB3_root_with_locking_cable",
+      "halo_batch4_p95_ms": 52.67959251068532,
+      "locking_cable_maximum_m": 3.0,
+      "preferred_pixel_format": "Bayer10_packed",
+      "selected_foundation_checkpoint_sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100",
+      "stage_e_deadline_ms": 66.66666666666667,
+      "stage_e_proxy_applies_to_selected_foundation": false,
+      "stage_e_proxy_checkpoint_sha256": "0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8",
+      "supported_camera_count": 1,
+      "supported_rate_hz": 15.0
+    },
+    "light_enclosure": {
+      "architecture": "four_cardinal_diffuse_visible_white_quadrants",
+      "central_no_emitter_minimum_diameter_mm": 120.0,
+      "color_rendering_index_minimum": 90,
+      "cooling_topology": "passive_sealed_to_external_heatsink",
+      "exact_installed_profile": null,
+      "firing": "simultaneous_all_on_inside_global_exposure",
+      "hood_internal_plan_minimum_mm": [
+        600.0,
+        600.0
+      ],
+      "inner_skirt_rail_nominal_inset_mm": 50.0,
+      "labyrinth_depth_minimum_mm": 50.0,
+      "labyrinth_stages": 2,
+      "led_to_diffuser_standoff_adjustment_mm": [
+        20.0,
+        80.0
+      ],
+      "operating_clearance_mm": [
+        0.0,
+        20.0
+      ],
+      "polarization_state": "OFF",
+      "quadrant_cassette_mounting_face_maximum_mm": [
+        140.0,
+        140.0
+      ],
+      "quadrant_center_radius_adjustment_mm": [
+        140.0,
+        210.0
+      ],
+      "quadrant_inward_tilt_adjustment_deg": [
+        10.0,
+        35.0
+      ],
+      "skirt_layers": 2,
+      "skirt_length_mm": [
+        100.0,
+        150.0
+      ],
+      "skirt_overlap_mm": [
+        30.0,
+        50.0
+      ],
+      "spectrum_cct_k": [
+        4500,
+        5500
+      ],
+      "strobe_pulse_us": [
+        150.0,
+        170.0
+      ],
+      "window_thickness_mm": [
+        2.0,
+        3.0
+      ],
+      "window_tilt_deg": [
+        3.0,
+        5.0
+      ]
+    },
+    "platform_carrier": {
+      "camera_to_intervention_offset_mm": null,
+      "exact_host": null,
+      "intervention_hardware": null,
+      "multi_bay_compatibility": {
+        "active_bay_count": 1,
+        "center_pitch_maximum_mm": 430.0,
+        "claim_limit": "compatibility_formula_only_not_current_capability",
+        "continuous_hood_formula": "600mm_plus_N_minus_1_times_pitch",
+        "multi_bay_currently_active": false,
+        "overlap_minimum_mm": 10.0,
+        "per_bay_independent_acceptance_required": true,
+        "safe_swath_formula": "minimum_one_bay_safe_width_plus_N_minus_1_times_pitch",
+        "second_camera_currently_active": false
+      },
+      "proof_topology": "manual_tractor_rear_three_point_rigid_toolbar",
+      "reusable_unit": "removable_ground_following_lower_bay_cassette",
+      "travel_source": "local_ground_contact_quadrature_encoder",
+      "trial_speeds_m_s": [
+        0.5,
+        1.0
+      ]
+    },
+    "power_thermal": {
+      "camera_external_supply_vdc": [
+        12.0,
+        24.0
+      ],
+      "camera_housing_maximum_c": 50.0,
+      "capture_module_average_maximum_w_excluding_compute": 60.0,
+      "capture_module_transient_measured_w": null,
+      "conversion_distribution_continuous_loss_w": null,
+      "conversion_distribution_transient_loss_w": null,
+      "exterior_ambient_test_c": [
+        5.0,
+        40.0
+      ],
+      "gpu_reference_board_power_w_not_vehicle_draw": 350.0,
+      "integrated_host_continuous_power_w": null,
+      "integrated_host_transient_power_w": null,
+      "led_plate_maximum_c": 60.0,
+      "light_branch_average_maximum_w": 20.0,
+      "light_bus_vdc": 24.0,
+      "light_peak_electrical_ceiling_w_not_setpoint": 240.0,
+      "reference_system_psu_w_not_vehicle_draw": 750.0,
+      "strobe_peak_current_envelope_a": [
+        0.0,
+        10.0
+      ],
+      "thermal_duration_minimum_minutes": 120,
+      "whole_compute_system_measured_w": null,
+      "whole_compute_system_transient_measured_w": null
+    },
+    "safety": {
+      "chemical_enable_hardware_line": "verified_disabled",
+      "default_state": "no_fire",
+      "encoder_resolution_maximum_mm_per_count": 1.0,
+      "encoder_scale_error_maximum_mm_per_m": 1.0,
+      "encoder_stale_no_fire_after_ms": 5.0,
+      "no_fire_on": [
+        "estop",
+        "watchdog",
+        "hood_open",
+        "overtemperature",
+        "invalid_timestamp",
+        "stale_encoder",
+        "frame_drop",
+        "deadline_miss",
+        "calibration_invalid",
+        "profile_mismatch",
+        "malformed_strobe",
+        "partial_light_channel_failure",
+        "invalid_deployed_state",
+        "lift_or_transport_state",
+        "reverse_or_ambiguous_direction",
+        "brownout_or_reboot"
+      ],
+      "same_event_camera_trigger_and_encoder_latch": true,
+      "strobe_jitter_p95_maximum_us": 5.0,
+      "trigger_encoder_maximum_us": 250.0,
+      "trigger_encoder_p95_maximum_us": 100.0
+    },
+    "sensor_optics": {
+      "acquisition_rate_hz": 15.0,
+      "action_service_class_mm": 20.0,
+      "active_roi_offset_px": [
+        200,
+        0
+      ],
+      "active_roi_px": [
+        2048,
+        2048
+      ],
+      "aperture_f_number": 5.6,
+      "camera_count": 1,
+      "exposure_us": 170.0,
+      "focus_plane_above_ground_mm": 55.0,
+      "full_frame_resize_forbidden": true,
+      "ground_fov_mm": [
+        474.0,
+        480.0,
+        484.0
+      ],
+      "lens_model": "C23-0824-5M-P",
+      "lens_order_number": 2200000568,
+      "local_gsd_maximum_mm_px": 0.24390243902439024,
+      "manufacturer": "Basler",
+      "maximum_blur_px": 0.75,
+      "modality": "visible_RGB_with_factory_IR_cut",
+      "model": "a2A2464-77ucPRO",
+      "native_sensor_px": [
+        2448,
+        2048
+      ],
+      "nominal_focal_length_mm": 8.06,
+      "optical_witness_mm": 10.0,
+      "order_number": 109779,
+      "outer_abstain_ring_px": 64,
+      "pixel_pitch_um": 3.45,
+      "sensor": "OmniVision_OG05C_BSI",
+      "shutter": "global",
+      "target_pixel_minima": {
+        "10_mm": 41.0,
+        "20_mm": 82.0
+      },
+      "test_planes_above_ground_mm": [
+        0.0,
+        55.0,
+        110.0
+      ],
+      "working_distance_adjustment_mm": [
+        520.0,
+        590.0
+      ]
+    }
+  },
+  "bom": {
+    "claim_limit": "module values are dated budgetary evidence; carrier screen is not a quote; integrated total remains null until every required cost and overlap reconciliation is complete",
+    "currency": "USD",
+    "forbidden_benefit_credits": [
+      "chemical_saving",
+      "yield_gain",
+      "labor_saving",
+      "acreage_claim",
+      "autonomy_saving"
+    ],
+    "items": [
+      {
+        "bom_item_id": "rear_carrier_structure_engineering_screen",
+        "cost_scope": "carrier_engineering_screen",
+        "currency": "USD",
+        "description": "rear_three_point_carrier_structure_screen_not_quote",
+        "double_count_group": "carrier_screen_not_exact_cost",
+        "evidence_class": "ENGINEERING_SCREEN_NOT_QUOTE",
+        "included_in_integrated_total": false,
+        "included_in_module_total": false,
+        "maximum_cost": 14000.0,
+        "minimum_cost": 4300.0,
+        "owner": "platform_carrier",
+        "price_checked_on": "2026-08-14",
+        "quantity": 1.0,
+        "source_id": "platform_product_survey",
+        "source_path": "docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md",
+        "source_sha256": "38ccf561fff37f64e4f1aed192b06e03196ca13f40734fc876188c3e817c50e5",
+        "unit": "screen",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "exact_rear_carrier_cost",
+        "cost_scope": "carrier_increment",
+        "currency": "USD",
+        "description": "exact_host_specific_rear_carrier_quote",
+        "double_count_group": "host_integration_shared_pending_reconciliation",
+        "evidence_class": "UNRESOLVED_REQUIRED_COST",
+        "included_in_integrated_total": true,
+        "included_in_module_total": false,
+        "maximum_cost": null,
+        "minimum_cost": null,
+        "owner": "platform_carrier",
+        "price_checked_on": null,
+        "quantity": 1.0,
+        "source_id": "platform_product_survey",
+        "source_path": "docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md",
+        "source_sha256": "38ccf561fff37f64e4f1aed192b06e03196ca13f40734fc876188c3e817c50e5",
+        "unit": "assembly",
+        "unknown_reason": "exact_host_material_mass_fabrication_and_quote_absent"
+      },
+      {
+        "bom_item_id": "compute_opportunity_cost",
+        "cost_scope": "compute_existing_asset",
+        "currency": "USD",
+        "description": "existing_compute_opportunity_and_whole_system_integration_cost",
+        "double_count_group": "compute_opportunity",
+        "evidence_class": "UNRESOLVED_REQUIRED_COST",
+        "included_in_integrated_total": true,
+        "included_in_module_total": false,
+        "maximum_cost": null,
+        "minimum_cost": null,
+        "owner": "compute_capture",
+        "price_checked_on": null,
+        "quantity": 1.0,
+        "source_id": "platform_product_survey",
+        "source_path": "docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md",
+        "source_sha256": "38ccf561fff37f64e4f1aed192b06e03196ca13f40734fc876188c3e817c50e5",
+        "unit": "system",
+        "unknown_reason": "reuse_does_not_prove_zero_opportunity_or_integration_cost"
+      },
+      {
+        "bom_item_id": "existing_RTX3090_incremental_acquisition",
+        "cost_scope": "compute_existing_asset",
+        "currency": "USD",
+        "description": "existing_RTX3090_reused_incremental_acquisition_only",
+        "double_count_group": "accelerator_acquisition",
+        "evidence_class": "EXISTING_ASSET_INCREMENTAL_ACQUISITION_ONLY",
+        "included_in_integrated_total": true,
+        "included_in_module_total": false,
+        "maximum_cost": 0.0,
+        "minimum_cost": 0.0,
+        "owner": "compute_capture",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "existing_asset",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "exact_host_incremental_cost",
+        "cost_scope": "host_increment",
+        "currency": "USD",
+        "description": "exact_owned_rented_or_acquired_host_increment",
+        "double_count_group": "exact_host_increment",
+        "evidence_class": "UNRESOLVED_REQUIRED_COST",
+        "included_in_integrated_total": true,
+        "included_in_module_total": false,
+        "maximum_cost": null,
+        "minimum_cost": null,
+        "owner": "host_owner",
+        "price_checked_on": null,
+        "quantity": 1.0,
+        "source_id": "platform_product_survey",
+        "source_path": "docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md",
+        "source_sha256": "38ccf561fff37f64e4f1aed192b06e03196ca13f40734fc876188c3e817c50e5",
+        "unit": "host",
+        "unknown_reason": "exact_host_inventory_and_ownership_scenario_absent"
+      },
+      {
+        "bom_item_id": "intervention_external_cost",
+        "cost_scope": "intervention_external",
+        "currency": "USD",
+        "description": "nozzle_valve_pressure_tank_and_nonchemical_dry_output_path",
+        "double_count_group": "intervention_external",
+        "evidence_class": "UNRESOLVED_REQUIRED_COST",
+        "included_in_integrated_total": true,
+        "included_in_module_total": false,
+        "maximum_cost": null,
+        "minimum_cost": null,
+        "owner": "intervention_external",
+        "price_checked_on": null,
+        "quantity": 1.0,
+        "source_id": "platform_product_survey",
+        "source_path": "docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md",
+        "source_sha256": "38ccf561fff37f64e4f1aed192b06e03196ca13f40734fc876188c3e817c50e5",
+        "unit": "external_scope",
+        "unknown_reason": "intervention_lane_has_not_selected_or_quoted_hardware"
+      },
+      {
+        "bom_item_id": "physical_acceptance_execution_cost",
+        "cost_scope": "measurement_and_calibration",
+        "currency": "USD",
+        "description": "exact_A_to_E_facility_labor_instrument_and_execution_cost",
+        "double_count_group": "physical_acceptance_execution",
+        "evidence_class": "UNRESOLVED_REQUIRED_COST",
+        "included_in_integrated_total": true,
+        "included_in_module_total": false,
+        "maximum_cost": null,
+        "minimum_cost": null,
+        "owner": "safety_acceptance",
+        "price_checked_on": null,
+        "quantity": 1.0,
+        "source_id": "rig_acceptance_runbook",
+        "source_path": "docs/SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md",
+        "source_sha256": "9b73fb34741d8862f27abc4aab30e42268fadb2ad05233d3b201f098fb1acb78",
+        "unit": "campaign",
+        "unknown_reason": "facility_labor_and_instrument_availability_not_quoted"
+      },
+      {
+        "bom_item_id": "locking_USB3_IO_and_isolated_trigger_cables",
+        "cost_scope": "proof_module_core",
+        "currency": "USD",
+        "description": "locking_USB3_IO_and_isolated_trigger_cables",
+        "double_count_group": "camera_transport_cables",
+        "evidence_class": "BUDGETARY_ALLOWANCE",
+        "included_in_integrated_total": true,
+        "included_in_module_total": true,
+        "maximum_cost": 250.0,
+        "minimum_cost": 120.0,
+        "owner": "compute_capture",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "allowance",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "calibration_targets_and_motion_fixture",
+        "cost_scope": "proof_module_core",
+        "currency": "USD",
+        "description": "calibration_targets_and_motion_fixture",
+        "double_count_group": "calibration_fixture",
+        "evidence_class": "BUDGETARY_ALLOWANCE",
+        "included_in_integrated_total": true,
+        "included_in_module_total": true,
+        "maximum_cost": 400.0,
+        "minimum_cost": 150.0,
+        "owner": "integration_only",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "allowance",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "encoder_real_time_trigger_controller_and_IO",
+        "cost_scope": "proof_module_core",
+        "currency": "USD",
+        "description": "encoder_real_time_trigger_controller_and_IO_shared_interface_allowance",
+        "double_count_group": "realtime_control_interface",
+        "evidence_class": "BUDGETARY_ALLOWANCE",
+        "included_in_integrated_total": true,
+        "included_in_module_total": true,
+        "maximum_cost": 900.0,
+        "minimum_cost": 350.0,
+        "owner": "integration_only",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "allowance",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "host_integration_cooling_and_dedicated_USB_controller",
+        "cost_scope": "proof_module_core",
+        "currency": "USD",
+        "description": "V2_combined_host_integration_cooling_and_USB_allowance",
+        "double_count_group": "host_integration_shared_pending_reconciliation",
+        "evidence_class": "BUDGETARY_ALLOWANCE",
+        "included_in_integrated_total": false,
+        "included_in_module_total": true,
+        "maximum_cost": 1200.0,
+        "minimum_cost": 500.0,
+        "owner": "integration_only",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "allowance",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "diffuse_LED_quadrants_driver_and_diffusers",
+        "cost_scope": "proof_module_core",
+        "currency": "USD",
+        "description": "diffuse_LED_quadrants_driver_and_diffusers_pending_bench",
+        "double_count_group": "light_subsystem",
+        "evidence_class": "BUDGETARY_ALLOWANCE",
+        "included_in_integrated_total": true,
+        "included_in_module_total": true,
+        "maximum_cost": 1200.0,
+        "minimum_cost": 450.0,
+        "owner": "light_enclosure",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "allowance",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "matte_hood_skirt_window_mount",
+        "cost_scope": "proof_module_core",
+        "currency": "USD",
+        "description": "matte_hood_skirt_window_mount",
+        "double_count_group": "enclosure_subsystem",
+        "evidence_class": "FABRICATED_BUDGETARY_ALLOWANCE",
+        "included_in_integrated_total": true,
+        "included_in_module_total": true,
+        "maximum_cost": 1000.0,
+        "minimum_cost": 400.0,
+        "owner": "light_enclosure",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "allowance",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "SELV_power_safety_and_thermal_instrumentation",
+        "cost_scope": "proof_module_core",
+        "currency": "USD",
+        "description": "SELV_power_safety_and_thermal_instrumentation",
+        "double_count_group": "safety_instrumentation",
+        "evidence_class": "BUDGETARY_ALLOWANCE",
+        "included_in_integrated_total": true,
+        "included_in_module_total": true,
+        "maximum_cost": 750.0,
+        "minimum_cost": 300.0,
+        "owner": "safety_acceptance",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "allowance",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "camera_a2A2464_77ucPRO",
+        "cost_scope": "proof_module_core",
+        "currency": "USD",
+        "description": "Basler_a2A2464_77ucPRO_camera",
+        "double_count_group": "camera_body",
+        "evidence_class": "PUBLIC_PRICE_NOT_LANDED_QUOTE",
+        "included_in_integrated_total": true,
+        "included_in_module_total": true,
+        "maximum_cost": 709.0,
+        "minimum_cost": 709.0,
+        "owner": "sensor_optics",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "each",
+        "unknown_reason": null
+      },
+      {
+        "bom_item_id": "lens_C23_0824_5M_P",
+        "cost_scope": "proof_module_core",
+        "currency": "USD",
+        "description": "Basler_C23_0824_5M_P_lens",
+        "double_count_group": "camera_lens",
+        "evidence_class": "PUBLIC_PRICE_NOT_LANDED_QUOTE",
+        "included_in_integrated_total": true,
+        "included_in_module_total": true,
+        "maximum_cost": 136.0,
+        "minimum_cost": 136.0,
+        "owner": "sensor_optics",
+        "price_checked_on": "2026-08-11",
+        "quantity": 1.0,
+        "source_id": "capture_optimization_contract",
+        "source_path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "source_sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9",
+        "unit": "each",
+        "unknown_reason": null
+      }
+    ],
+    "price_evidence_date": "2026-08-11",
+    "totals": {
+      "bounded_proof_plus_carrier_screen_not_integrated_total": [
+        7882.25,
+        21526.75
+      ],
+      "contingency_fraction": 0.15,
+      "integrated_one_bay_total": null,
+      "integrated_total_blockers": [
+        {
+          "bom_item_id": "exact_rear_carrier_cost",
+          "reason": "exact_host_material_mass_fabrication_and_quote_absent"
+        },
+        {
+          "bom_item_id": "exact_host_incremental_cost",
+          "reason": "exact_host_inventory_and_ownership_scenario_absent"
+        },
+        {
+          "bom_item_id": "compute_opportunity_cost",
+          "reason": "reuse_does_not_prove_zero_opportunity_or_integration_cost"
+        },
+        {
+          "bom_item_id": "intervention_external_cost",
+          "reason": "intervention_lane_has_not_selected_or_quoted_hardware"
+        },
+        {
+          "bom_item_id": "physical_acceptance_execution_cost",
+          "reason": "facility_labor_and_instrument_availability_not_quoted"
+        },
+        {
+          "double_count_group": "host_integration_shared_pending_reconciliation",
+          "reason": "source_allowance_overlap_requires_line_by_line_quote_reconciliation"
+        }
+      ],
+      "integrated_total_complete": false,
+      "proof_module_before_contingency": [
+        3115.0,
+        6545.0
+      ],
+      "proof_module_with_contingency": [
+        3582.25,
+        7526.75
+      ],
+      "rear_carrier_engineering_screen_not_quote": [
+        4300.0,
+        14000.0
+      ]
+    }
+  },
+  "calculations": {
+    "active_sensor_span_mm": 7.065600000000001,
+    "blur_px": {
+      "0.5": {
+        "474": 0.36725738396624474,
+        "480": 0.3626666666666667,
+        "484": 0.35966942148760334
+      },
+      "1.0": {
+        "474": 0.7345147679324895,
+        "480": 0.7253333333333334,
+        "484": 0.7193388429752067
+      }
+    },
+    "compute_proxy": {
+      "halo_batch4_p95_ms": 52.67959251068532,
+      "remaining_deadline_margin_ms": 13.987074155981354,
+      "scope": "compute_proxy_not_end_to_end_physical_PASS",
+      "stage_e_deadline_ms": 66.66666666666667
+    },
+    "frame_period_ms": 66.66666666666667,
+    "gross_geometric_throughput_ha_h": {
+      "0.5": 0.0799875,
+      "1.0": 0.159975
+    },
+    "gsd_mm_px": {
+      "474": 0.2314453125,
+      "480": 0.234375,
+      "484": 0.236328125
+    },
+    "mechanical_payload": {
+      "cassette_center_of_gravity_mm": null,
+      "cassette_mass_kg": null,
+      "center_of_gravity_from_carrier_datum_mm": null,
+      "components": [
+        {
+          "component_id": "hood_light_optics_structure",
+          "evidence_class": "NO_EVIDENCE_NULL",
+          "mass_kg": null,
+          "owner": "light_enclosure",
+          "required_for_payload": true,
+          "signed_distance_from_carrier_datum_mm": null,
+          "source_id": "light_enclosure_survey"
+        },
+        {
+          "component_id": "cassette_frame",
+          "evidence_class": "NO_EVIDENCE_NULL",
+          "mass_kg": null,
+          "owner": "platform_carrier",
+          "required_for_payload": true,
+          "signed_distance_from_carrier_datum_mm": null,
+          "source_id": "platform_product_survey"
+        },
+        {
+          "component_id": "ground_following_mechanism",
+          "evidence_class": "NO_EVIDENCE_NULL",
+          "mass_kg": null,
+          "owner": "platform_carrier",
+          "required_for_payload": true,
+          "signed_distance_from_carrier_datum_mm": null,
+          "source_id": "platform_product_survey"
+        },
+        {
+          "component_id": "gauge_wheel",
+          "evidence_class": "NO_EVIDENCE_NULL",
+          "mass_kg": null,
+          "owner": "platform_carrier",
+          "required_for_payload": true,
+          "signed_distance_from_carrier_datum_mm": null,
+          "source_id": "platform_product_survey"
+        },
+        {
+          "component_id": "compute_tray_and_compute",
+          "evidence_class": "NO_EVIDENCE_NULL",
+          "mass_kg": null,
+          "owner": "compute_capture",
+          "required_for_payload": true,
+          "signed_distance_from_carrier_datum_mm": null,
+          "source_id": "platform_product_survey"
+        },
+        {
+          "component_id": "enclosure_electronics",
+          "evidence_class": "NO_EVIDENCE_NULL",
+          "mass_kg": null,
+          "owner": "light_enclosure",
+          "required_for_payload": true,
+          "signed_distance_from_carrier_datum_mm": null,
+          "source_id": "light_enclosure_survey"
+        },
+        {
+          "component_id": "cables_and_safety_equipment",
+          "evidence_class": "NO_EVIDENCE_NULL",
+          "mass_kg": null,
+          "owner": "safety_acceptance",
+          "required_for_payload": true,
+          "signed_distance_from_carrier_datum_mm": null,
+          "source_id": "platform_product_survey"
+        },
+        {
+          "component_id": "intervention_placeholder",
+          "evidence_class": "NO_EVIDENCE_NULL",
+          "mass_kg": null,
+          "owner": "intervention_external",
+          "required_for_payload": true,
+          "signed_distance_from_carrier_datum_mm": null,
+          "source_id": "platform_product_survey"
+        }
+      ],
+      "datum": "carrier_mount_datum",
+      "gravity_m_s2": 9.80665,
+      "missing_distance_component_ids": [
+        "hood_light_optics_structure",
+        "cassette_frame",
+        "ground_following_mechanism",
+        "gauge_wheel",
+        "compute_tray_and_compute",
+        "enclosure_electronics",
+        "cables_and_safety_equipment",
+        "intervention_placeholder"
+      ],
+      "missing_mass_component_ids": [
+        "hood_light_optics_structure",
+        "cassette_frame",
+        "ground_following_mechanism",
+        "gauge_wheel",
+        "compute_tray_and_compute",
+        "enclosure_electronics",
+        "cables_and_safety_equipment",
+        "intervention_placeholder"
+      ],
+      "moment_about_carrier_datum_Nm": null,
+      "null_rule": "any_missing_required_mass_propagates_payload_null; any_missing_required_mass_or_distance_propagates_moment_and_CG_null",
+      "payload_total_kg": null
+    },
+    "multi_bay_compatibility": {
+      "center_pitch_maximum_mm": 430.0,
+      "claim_limit": "compatibility_formula_only_not_current_capability",
+      "continuous_hood_formula": "600mm_plus_N_minus_1_times_pitch",
+      "current_active_bay_count": 1,
+      "inactive_two_bay_continuous_hood_width_at_max_pitch_mm": 1030.0,
+      "inactive_two_bay_safe_swath_at_max_pitch_mm": 874.375,
+      "multi_bay_currently_active": false,
+      "one_bay_conservative_safe_swath_mm": 444.375,
+      "overlap_minimum_mm": 10.0,
+      "per_bay_independent_acceptance_required": true,
+      "safe_swath_formula": "minimum_one_bay_safe_width_plus_N_minus_1_times_pitch",
+      "second_camera_currently_active": false
+    },
+    "payload_with_headroom_mbit_s": {
+      "bayer10_15hz": 754.9747199999999,
+      "bayer10_20hz": 1006.63296,
+      "bayer12_15hz": 905.9696640000001,
+      "bayer12_20hz": 1207.959552
+    },
+    "power_status": {
+      "aggregation_model": {
+        "claim_limit": "calculated_load_is_not_measured_vehicle_input_or_host_qualification",
+        "continuous_missing_fields": [
+          "whole_compute_system_measured_w",
+          "conversion_distribution_continuous_loss_w"
+        ],
+        "continuous_required_fields": [
+          "capture_module_average_maximum_w_excluding_compute",
+          "whole_compute_system_measured_w",
+          "conversion_distribution_continuous_loss_w"
+        ],
+        "field_evidence_class": {
+          "capture_module_average_maximum_w_excluding_compute": "ACCEPTANCE_CEILING",
+          "capture_module_transient_measured_w": "NO_EVIDENCE_NULL",
+          "conversion_distribution_continuous_loss_w": "NO_EVIDENCE_NULL",
+          "conversion_distribution_transient_loss_w": "NO_EVIDENCE_NULL",
+          "gpu_reference_board_power_w_not_vehicle_draw": "REFERENCE_ONLY_NOT_VEHICLE_DRAW",
+          "light_branch_average_maximum_w": "ACCEPTANCE_CEILING",
+          "light_peak_electrical_ceiling_w_not_setpoint": "REFERENCE_CEILING_NOT_SETPOINT",
+          "reference_system_psu_w_not_vehicle_draw": "REFERENCE_ONLY_NOT_VEHICLE_DRAW",
+          "whole_compute_system_measured_w": "NO_EVIDENCE_NULL",
+          "whole_compute_system_transient_measured_w": "NO_EVIDENCE_NULL"
+        },
+        "null_rule": "any_missing_required_power_input_propagates_null",
+        "transient_missing_fields": [
+          "capture_module_transient_measured_w",
+          "whole_compute_system_transient_measured_w",
+          "conversion_distribution_transient_loss_w"
+        ],
+        "transient_required_fields": [
+          "capture_module_transient_measured_w",
+          "whole_compute_system_transient_measured_w",
+          "conversion_distribution_transient_loss_w"
+        ]
+      },
+      "camera_external_supply_vdc": [
+        12.0,
+        24.0
+      ],
+      "camera_housing_maximum_c": 50.0,
+      "capture_module_average_maximum_w_excluding_compute": 60.0,
+      "capture_module_transient_measured_w": null,
+      "conversion_distribution_continuous_loss_w": null,
+      "conversion_distribution_transient_loss_w": null,
+      "exterior_ambient_test_c": [
+        5.0,
+        40.0
+      ],
+      "gpu_reference_board_power_w_not_vehicle_draw": 350.0,
+      "integrated_host_continuous_power_w": null,
+      "integrated_host_transient_power_w": null,
+      "led_plate_maximum_c": 60.0,
+      "light_branch_average_maximum_w": 20.0,
+      "light_bus_vdc": 24.0,
+      "light_peak_electrical_ceiling_w_not_setpoint": 240.0,
+      "reference_system_psu_w_not_vehicle_draw": 750.0,
+      "strobe_peak_current_envelope_a": [
+        0.0,
+        10.0
+      ],
+      "thermal_duration_minimum_minutes": 120,
+      "whole_compute_system_measured_w": null,
+      "whole_compute_system_transient_measured_w": null
+    },
+    "raw_payload_mbit_s": {
+      "bayer10_15hz": 629.1456,
+      "bayer10_20hz": 838.8608,
+      "bayer12_15hz": 754.97472,
+      "bayer12_20hz": 1006.63296
+    },
+    "safe_fraction": 0.9375,
+    "safe_width_mm": {
+      "474": 444.375,
+      "480": 450.0,
+      "484": 453.75
+    },
+    "skirt_rail_height_range_mm": [
+      100.0,
+      170.0
+    ],
+    "smear_mm": {
+      "0.5": 0.085,
+      "1.0": 0.17
+    },
+    "target_pixels": {
+      "474": {
+        "10": 43.20675105485232,
+        "20": 86.41350210970464
+      },
+      "480": {
+        "10": 42.666666666666664,
+        "20": 85.33333333333333
+      },
+      "484": {
+        "10": 42.31404958677686,
+        "20": 84.62809917355372
+      }
+    }
+  },
+  "claim_boundary": {
+    "autonomous_operation_in_scope": false,
+    "certified_ingress_claim": false,
+    "integration_validation_is_physical_acceptance": false,
+    "note": "A consistent result proves only that pinned desk evidence and deterministic calculations agree. It cannot authorize capture, dry-marker, field, product, purchase, fabrication, or chemical operation.",
+    "physical_A_to_E_receipt_available": false,
+    "physical_A_to_F_receipt_available": false,
+    "procurement_or_fabrication_authority": false
+  },
+  "config_identity": {
+    "path": "configs/deploy/spot_spray_product_architecture_v1.yaml",
+    "sha256": "09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd"
+  },
+  "contract_id": "spot_spray_product_architecture_v1",
+  "coordinate_frames": {
+    "camera": {
+      "frame_id": "F_camera",
+      "optical_axis": "negative_z",
+      "origin": "camera_optical_center",
+      "owner": "sensor_optics",
+      "parent_frame": "F_cassette",
+      "transform_state": "INSTALLED_STAGE_C_MEASUREMENT_REQUIRED",
+      "transform_to_parent": null,
+      "x_axis": "forward_travel",
+      "y_axis": "vehicle_right",
+      "z_axis": "up_from_local_ground"
+    },
+    "carrier": {
+      "frame_id": "F_carrier",
+      "origin": "exact_host_specific_upper_carrier_datum",
+      "owner": "platform_carrier",
+      "parent_frame": "F_world",
+      "transform_state": "HOST_UNRESOLVED",
+      "transform_to_parent": null,
+      "x_axis": "forward_travel",
+      "y_axis": "vehicle_right",
+      "z_axis": "up_from_local_ground"
+    },
+    "cassette": {
+      "frame_id": "F_cassette",
+      "origin": "rigid_lower_bay_datum",
+      "owner": "platform_carrier",
+      "parent_frame": "F_carrier",
+      "transform_state": "PHYSICAL_MEASUREMENT_REQUIRED",
+      "transform_to_parent": null,
+      "x_axis": "forward_travel",
+      "y_axis": "vehicle_right",
+      "z_axis": "up_from_local_ground"
+    },
+    "encoder": {
+      "frame_id": "F_encoder",
+      "origin": "ground_contact_encoder_axis",
+      "owner": "platform_carrier",
+      "parent_frame": "F_carrier",
+      "transform_state": "EXACT_HOST_INSTALLATION_REQUIRED",
+      "transform_to_parent": null,
+      "x_axis": "signed_forward_travel",
+      "y_axis": "vehicle_right",
+      "z_axis": "up_from_local_ground"
+    },
+    "ground_calibration": {
+      "frame_id": "F_ground_calibration",
+      "origin": "calibrated_ground_homography_origin",
+      "owner": "safety_acceptance",
+      "parent_frame": "F_world",
+      "transform_state": "INSTALLED_STAGE_C_MEASUREMENT_REQUIRED",
+      "transform_to_parent": null,
+      "x_axis": "forward_travel",
+      "y_axis": "vehicle_right",
+      "z_axis": "up_from_local_ground"
+    },
+    "intervention_mount": {
+      "datum_mechanical_owner": "platform_carrier",
+      "frame_id": "F_intervention_mount",
+      "hardware_owner": "intervention_external",
+      "measured_along_track_offset_mm": null,
+      "origin": "rigid_local_intervention_mount_datum",
+      "owner": "integration_only",
+      "parent_frame": "F_cassette",
+      "rigid_to_cassette": true,
+      "transform_state": "PHYSICAL_MEASUREMENT_REQUIRED",
+      "transform_to_parent": null,
+      "x_axis": "forward_travel",
+      "y_axis": "vehicle_right",
+      "z_axis": "up_from_local_ground"
+    },
+    "light_fixture": {
+      "frame_id": "F_light_fixture",
+      "origin": "camera_optical_axis_at_local_ground_reference",
+      "owner": "light_enclosure",
+      "parent_frame": "F_cassette",
+      "transform_to_parent": "exact_axis_permutation_no_scale_no_reflection",
+      "x_axis": "vehicle_right",
+      "y_axis": "vehicle_front",
+      "z_axis": "up_from_local_ground"
+    },
+    "light_fixture_to_cassette": {
+      "cassette_x_from": "light_fixture_y",
+      "cassette_y_from": "light_fixture_x",
+      "cassette_z_from": "light_fixture_z",
+      "owner": "integration_only",
+      "transform_type": "exact_axis_permutation_no_scale_no_reflection"
+    },
+    "world": {
+      "frame_id": "F_world",
+      "origin": "local_ground_reference_at_proof_bay",
+      "owner": "integration_only",
+      "parent_frame": null,
+      "transform_to_parent": null,
+      "x_axis": "forward_travel",
+      "y_axis": "vehicle_right",
+      "z_axis": "up_from_local_ground"
+    }
+  },
+  "decision_items": [
+    {
+      "category": "sensor",
+      "claim_limit": "proof_control_not_production_camera",
+      "decision_state": "FROZEN_BASELINE",
+      "dependency_ids": [],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "geometry",
+        "compute",
+        "enclosure",
+        "acceptance"
+      ],
+      "item_id": "action_camera",
+      "owner": "sensor_optics",
+      "rationale": "retained_fail_closed_RGB_control",
+      "resolution_rule": "owning_sensor_lane_only",
+      "resolution_trigger": null,
+      "source_id": "sensor_optics_survey",
+      "source_locator": "section_19_terminal_survey_decision",
+      "unit": null,
+      "value": "a2A2464-77ucPRO"
+    },
+    {
+      "category": "optics",
+      "claim_limit": "installed_stage_C_still_unmeasured",
+      "decision_state": "FROZEN_BASELINE",
+      "dependency_ids": [
+        "action_camera"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "geometry",
+        "enclosure",
+        "acceptance"
+      ],
+      "item_id": "action_lens",
+      "owner": "sensor_optics",
+      "rationale": "source_locked_matched_visible_lens",
+      "resolution_rule": "owning_sensor_lane_only",
+      "resolution_trigger": null,
+      "source_id": "sensor_optics_survey",
+      "source_locator": "section_19_terminal_survey_decision",
+      "unit": null,
+      "value": "C23-0824-5M-P"
+    },
+    {
+      "category": "modality",
+      "claim_limit": "no_claim_of_modal_optimality_after_physical_failure",
+      "decision_state": "FROZEN_BASELINE",
+      "dependency_ids": [
+        "action_camera"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "sensor",
+        "light",
+        "compute",
+        "acceptance"
+      ],
+      "item_id": "visible_rgb_modality",
+      "owner": "sensor_optics",
+      "rationale": "no_challenger_closed_all_decisive_gates",
+      "resolution_rule": "terminal_sensor_trigger_ledger",
+      "resolution_trigger": null,
+      "source_id": "sensor_optics_survey",
+      "source_locator": "section_27_final_freeze",
+      "unit": null,
+      "value": "visible_RGB_with_factory_IR_cut"
+    },
+    {
+      "category": "modality",
+      "claim_limit": "integration_cannot_promote_a_challenger",
+      "decision_state": "CHALLENGER_CLOSED_NOT_TRIGGERED",
+      "dependency_ids": [
+        "visible_rgb_modality"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "sensor",
+        "light",
+        "compute",
+        "enclosure",
+        "acceptance"
+      ],
+      "item_id": "alternative_modalities",
+      "owner": "sensor_optics",
+      "rationale": "triggers_or_hard_gates_open",
+      "resolution_rule": "owning_sensor_lane_bounded_AB_only",
+      "resolution_trigger": "terminal_sensor_failure_attribution_trigger",
+      "source_id": "sensor_optics_survey",
+      "source_locator": "sections_20_to_23",
+      "unit": null,
+      "value": [
+        "visible_mono",
+        "RGB_plus_NIR",
+        "multispectral",
+        "RGB_plus_thermal",
+        "RGB_plus_depth"
+      ]
+    },
+    {
+      "category": "illumination",
+      "claim_limit": "frozen_for_test_not_physically_passing",
+      "decision_state": "FROZEN_BASELINE",
+      "dependency_ids": [
+        "visible_rgb_modality"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "light",
+        "enclosure",
+        "power",
+        "acceptance"
+      ],
+      "item_id": "light_architecture",
+      "owner": "light_enclosure",
+      "rationale": "smallest_sensor_preserving_measurable_proof_bay",
+      "resolution_rule": "terminal_light_lane_only",
+      "resolution_trigger": null,
+      "source_id": "light_enclosure_survey",
+      "source_locator": "section_17_1_selected_proof_hypothesis",
+      "unit": null,
+      "value": "four_cardinal_diffuse_visible_white_quadrants_simultaneous_all_on"
+    },
+    {
+      "category": "illumination",
+      "claim_limit": "catalogue_values_do_not_populate_physical_fields",
+      "decision_state": "OPEN_BENCH_VARIABLE",
+      "dependency_ids": [
+        "light_architecture"
+      ],
+      "evidence_class": "NO_EVIDENCE_NULL",
+      "invalidation_scope": [
+        "light",
+        "power",
+        "thermal",
+        "acceptance"
+      ],
+      "item_id": "installed_light_profile",
+      "owner": "light_enclosure",
+      "rationale": "exact_LED_diffuser_current_geometry_and_thermal_path_unmeasured",
+      "resolution_rule": "first_eligible_exact_profile_passing_all_absolute_gates",
+      "resolution_trigger": "installed_D0_to_D9_candidate_sequence",
+      "source_id": "light_enclosure_survey",
+      "source_locator": "sections_7_to_9",
+      "unit": null,
+      "value": null
+    },
+    {
+      "category": "illumination",
+      "claim_limit": "no_preference_based_enable",
+      "decision_state": "CHALLENGER_CLOSED_NOT_TRIGGERED",
+      "dependency_ids": [
+        "installed_light_profile"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "light",
+        "optics",
+        "power",
+        "acceptance"
+      ],
+      "item_id": "cross_polarization",
+      "owner": "light_enclosure",
+      "rationale": "baseline_polarization_off",
+      "resolution_rule": "promote_only_with_50pct_glare_reduction_and_all_other_gates_pass",
+      "resolution_trigger": "paired_wet_leaf_and_soil_glare_failure",
+      "source_id": "light_enclosure_survey",
+      "source_locator": "challenger_C06",
+      "unit": null,
+      "value": false
+    },
+    {
+      "category": "enclosure",
+      "claim_limit": "functional_proof_enclosure_not_certified_ingress",
+      "decision_state": "FROZEN_BASELINE",
+      "dependency_ids": [
+        "light_architecture",
+        "action_camera"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "optics",
+        "light",
+        "thermal",
+        "acceptance"
+      ],
+      "item_id": "hood_architecture",
+      "owner": "light_enclosure",
+      "rationale": "bounded_external_light_rejection_proof_volume",
+      "resolution_rule": "terminal_light_lane_only",
+      "resolution_trigger": null,
+      "source_id": "light_enclosure_survey",
+      "source_locator": "sections_5_and_17",
+      "unit": null,
+      "value": "minimum_600x600mm_internal_plan_dual_skirt_labyrinth_tilted_window"
+    },
+    {
+      "category": "thermal",
+      "claim_limit": "exact_sink_and_TIM_remain_unmeasured",
+      "decision_state": "FROZEN_BASELINE",
+      "dependency_ids": [
+        "hood_architecture"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "thermal",
+        "power",
+        "acceptance"
+      ],
+      "item_id": "cooling_topology",
+      "owner": "light_enclosure",
+      "rationale": "baseline_has_no_optical_volume_airflow",
+      "resolution_rule": "larger_passive_sink_before_external_fan_challenger",
+      "resolution_trigger": null,
+      "source_id": "light_enclosure_survey",
+      "source_locator": "section_5_7",
+      "unit": null,
+      "value": "passive_sealed_to_external_heatsink"
+    },
+    {
+      "category": "thermal",
+      "claim_limit": "fan_cannot_exchange_air_with_optical_volume",
+      "decision_state": "CHALLENGER_CLOSED_NOT_TRIGGERED",
+      "dependency_ids": [
+        "cooling_topology"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "thermal",
+        "power",
+        "acceptance"
+      ],
+      "item_id": "external_heatsink_fan",
+      "owner": "light_enclosure",
+      "rationale": "passive_baseline_not_yet_failed",
+      "resolution_rule": "authority_replanned_single_external_fan_challenger",
+      "resolution_trigger": "larger_passive_sink_fails_exact_thermal_gate",
+      "source_id": "light_enclosure_survey",
+      "source_locator": "challenger_C05",
+      "unit": null,
+      "value": false
+    },
+    {
+      "category": "platform",
+      "claim_limit": "architecture_selected_host_pending",
+      "decision_state": "FROZEN_BASELINE",
+      "dependency_ids": [
+        "hood_architecture"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "carrier",
+        "registration",
+        "power",
+        "acceptance"
+      ],
+      "item_id": "proof_carrier_topology",
+      "owner": "platform_carrier",
+      "rationale": "smallest_reversible_carrier_for_one_bay_proof",
+      "resolution_rule": "terminal_platform_lane_only",
+      "resolution_trigger": null,
+      "source_id": "platform_product_survey",
+      "source_locator": "section_1_proof_baseline",
+      "unit": null,
+      "value": "manual_tractor_rear_three_point_rigid_toolbar"
+    },
+    {
+      "category": "platform",
+      "claim_limit": "no_build_authority_without_exact_host",
+      "decision_state": "HOST_UNRESOLVED",
+      "dependency_ids": [
+        "proof_carrier_topology"
+      ],
+      "evidence_class": "NO_EVIDENCE_NULL",
+      "invalidation_scope": [
+        "host",
+        "carrier",
+        "power",
+        "registration",
+        "acceptance"
+      ],
+      "item_id": "exact_rear_host",
+      "owner": "host_owner",
+      "rationale": "exact_tractor_inventory_and_structural_power_geometry_evidence_absent",
+      "resolution_rule": "pass_all_structural_geometry_speed_power_cable_and_safety_hard_gates",
+      "resolution_trigger": "exact_host_intake_complete",
+      "source_id": "platform_product_survey",
+      "source_locator": "section_13_exact_host_intake",
+      "unit": null,
+      "value": null
+    },
+    {
+      "category": "platform",
+      "claim_limit": "preference_or_catalogue_speed_is_not_a_trigger",
+      "decision_state": "CHALLENGER_CLOSED_NOT_TRIGGERED",
+      "dependency_ids": [
+        "exact_rear_host"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "carrier",
+        "power",
+        "registration",
+        "acceptance"
+      ],
+      "item_id": "front_three_point_challenger",
+      "owner": "platform_carrier",
+      "rationale": "rear_proof_is_current_baseline",
+      "resolution_rule": "open_one_front_candidate_with_same_frozen_bay",
+      "resolution_trigger": "exact_rear_host_capacity_or_lane_geometry_failure",
+      "source_id": "platform_product_survey",
+      "source_locator": "section_14_challenger_triggers",
+      "unit": null,
+      "value": "front_three_point_proof"
+    },
+    {
+      "category": "platform",
+      "claim_limit": "not_current_one_bay_capability",
+      "decision_state": "OUT_OF_SCOPE",
+      "dependency_ids": [
+        "proof_carrier_topology"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "multi_bay",
+        "compute",
+        "carrier",
+        "acceptance"
+      ],
+      "item_id": "scale_carrier",
+      "owner": "platform_carrier",
+      "rationale": "one_bay_proof_precedes_scale",
+      "resolution_rule": "exact_host_gate_then_TCO_tie_break",
+      "resolution_trigger": "physical_A_to_E_and_independent_multi_bay_compute_evidence",
+      "source_id": "platform_product_survey",
+      "source_locator": "section_1_scale_up_baseline",
+      "unit": null,
+      "value": "qualified_existing_boom_else_dedicated_trailed_modular_carrier"
+    },
+    {
+      "category": "compute",
+      "claim_limit": "compute_proxy_excludes_acquisition_tracking_and_actuation",
+      "decision_state": "FROZEN_BASELINE",
+      "dependency_ids": [
+        "action_camera"
+      ],
+      "evidence_class": "FROZEN_REPOSITORY_CONTRACT",
+      "invalidation_scope": [
+        "compute",
+        "power",
+        "acceptance"
+      ],
+      "item_id": "one_camera_15hz_compute",
+      "owner": "compute_capture",
+      "rationale": "only_current_supported_compute_baseline",
+      "resolution_rule": "new_hash_bound_end_to_end_benchmark_only",
+      "resolution_trigger": null,
+      "source_id": "halo_compute_summary",
+      "source_locator": "timing_by_batch_size_4",
+      "unit": null,
+      "value": "one_RTX3090_lane_one_camera_15Hz"
+    },
+    {
+      "category": "compute",
+      "claim_limit": "transport_capacity_is_not_end_to_end_support",
+      "decision_state": "CHALLENGER_CLOSED_NOT_TRIGGERED",
+      "dependency_ids": [
+        "one_camera_15hz_compute"
+      ],
+      "evidence_class": "FROZEN_REPOSITORY_CONTRACT",
+      "invalidation_scope": [
+        "compute",
+        "power",
+        "acceptance"
+      ],
+      "item_id": "rate_20hz",
+      "owner": "compute_capture",
+      "rationale": "current_compute_envelope_does_not_qualify_20Hz",
+      "resolution_rule": "p95_at_most_50ms_zero_miss_zero_drop",
+      "resolution_trigger": "15Hz_physical_A_to_E_pass_then_new_end_to_end_benchmark",
+      "source_id": "product_imaging_contract",
+      "source_locator": "challengers_rate_20_hz",
+      "unit": "Hz",
+      "value": 20.0
+    },
+    {
+      "category": "compute",
+      "claim_limit": "camera_purchase_does_not_open_capability",
+      "decision_state": "CHALLENGER_CLOSED_NOT_TRIGGERED",
+      "dependency_ids": [
+        "one_camera_15hz_compute"
+      ],
+      "evidence_class": "TERMINAL_LANE_DECISION",
+      "invalidation_scope": [
+        "multi_bay",
+        "compute",
+        "power",
+        "enclosure",
+        "acceptance"
+      ],
+      "item_id": "second_camera",
+      "owner": "compute_capture",
+      "rationale": "current_halo_proxy_does_not_qualify_two_cameras",
+      "resolution_rule": "separate_compute_lane_or_new_multi_camera_end_to_end_benchmark",
+      "resolution_trigger": "product_swath_need_plus_single_bay_A_to_E_plus_independent_compute",
+      "source_id": "platform_product_survey",
+      "source_locator": "section_5_compute_scale_boundary",
+      "unit": "camera_count",
+      "value": 2
+    },
+    {
+      "category": "power",
+      "claim_limit": "60W_plus_350W_must_not_be_used_as_host_requirement",
+      "decision_state": "OPEN_BENCH_VARIABLE",
+      "dependency_ids": [
+        "one_camera_15hz_compute"
+      ],
+      "evidence_class": "NO_EVIDENCE_NULL",
+      "invalidation_scope": [
+        "power",
+        "host",
+        "acceptance"
+      ],
+      "item_id": "whole_compute_system_power",
+      "owner": "compute_capture",
+      "rationale": "board_power_and_PSU_nameplate_are_not_vehicle_draw",
+      "resolution_rule": "measure_steady_transient_startup_and_brownout_at_15Hz",
+      "resolution_trigger": "exact_installed_compute_power_measurement",
+      "source_id": "platform_product_survey",
+      "source_locator": "section_5_compute_power_boundary",
+      "unit": "W",
+      "value": null
+    },
+    {
+      "category": "mechanical",
+      "claim_limit": "null_mass_propagates_to_null_payload_and_moment",
+      "decision_state": "OPEN_BENCH_VARIABLE",
+      "dependency_ids": [
+        "proof_carrier_topology"
+      ],
+      "evidence_class": "NO_EVIDENCE_NULL",
+      "invalidation_scope": [
+        "carrier",
+        "host",
+        "transport",
+        "acceptance"
+      ],
+      "item_id": "cassette_mass",
+      "owner": "platform_carrier",
+      "rationale": "assembled_cassette_not_weighed",
+      "resolution_rule": "weigh_each_required_subassembly_with_uncertainty",
+      "resolution_trigger": "exact_assembly_mass_measurement",
+      "source_id": "platform_product_survey",
+      "source_locator": "section_13_exact_host_intake",
+      "unit": "kg",
+      "value": null
+    },
+    {
+      "category": "mechanical",
+      "claim_limit": "hitch_capacity_alone_cannot_close_structural_gate",
+      "decision_state": "OPEN_BENCH_VARIABLE",
+      "dependency_ids": [
+        "cassette_mass"
+      ],
+      "evidence_class": "NO_EVIDENCE_NULL",
+      "invalidation_scope": [
+        "carrier",
+        "host",
+        "transport",
+        "acceptance"
+      ],
+      "item_id": "cassette_center_of_gravity",
+      "owner": "platform_carrier",
+      "rationale": "installed_CG_not_measured",
+      "resolution_rule": "measure_signed_CG_relative_to_declared_carrier_datum",
+      "resolution_trigger": "exact_assembly_CG_measurement",
+      "source_id": "platform_product_survey",
+      "source_locator": "section_13_exact_host_intake",
+      "unit": "mm_from_carrier_datum",
+      "value": null
+    },
+    {
+      "category": "registration",
+      "claim_limit": "datum_exists_but_offset_and_valve_latency_are_unmeasured",
+      "decision_state": "OPEN_BENCH_VARIABLE",
+      "dependency_ids": [
+        "proof_carrier_topology"
+      ],
+      "evidence_class": "NO_EVIDENCE_NULL",
+      "invalidation_scope": [
+        "registration",
+        "scheduling",
+        "dry_marker"
+      ],
+      "item_id": "camera_to_intervention_offset",
+      "owner": "intervention_external",
+      "rationale": "CAD_offset_is_forbidden",
+      "resolution_rule": "populate_only_from_hash_bound_physical_registration_receipt",
+      "resolution_trigger": "physical_stage_F_measurement",
+      "source_id": "rig_acceptance_contract",
+      "source_locator": "stage_F_registration_and_safe_actuation",
+      "unit": "mm",
+      "value": null
+    },
+    {
+      "category": "authority",
+      "claim_limit": "integration_cannot_evaluate_or_promote_physical_status",
+      "decision_state": "UNSUPPORTED",
+      "dependency_ids": [
+        "action_camera",
+        "light_architecture",
+        "one_camera_15hz_compute"
+      ],
+      "evidence_class": "FROZEN_REPOSITORY_CONTRACT",
+      "invalidation_scope": [
+        "capture_authority"
+      ],
+      "item_id": "controlled_capture_authority",
+      "owner": "safety_acceptance",
+      "rationale": "physical_A_to_E_receipt_absent",
+      "resolution_rule": "existing_rig_evaluator_only",
+      "resolution_trigger": "physical_A_to_E_hash_bound_receipt",
+      "source_id": "rig_acceptance_contract",
+      "source_locator": "decision_policy",
+      "unit": null,
+      "value": false
+    },
+    {
+      "category": "authority",
+      "claim_limit": "no_dry_marker_ready_claim",
+      "decision_state": "UNSUPPORTED",
+      "dependency_ids": [
+        "controlled_capture_authority",
+        "camera_to_intervention_offset"
+      ],
+      "evidence_class": "FROZEN_REPOSITORY_CONTRACT",
+      "invalidation_scope": [
+        "dry_marker_authority"
+      ],
+      "item_id": "dry_marker_authority",
+      "owner": "safety_acceptance",
+      "rationale": "physical_A_to_F_receipt_absent",
+      "resolution_rule": "existing_rig_evaluator_only",
+      "resolution_trigger": "physical_A_to_F_hash_bound_receipt",
+      "source_id": "rig_acceptance_contract",
+      "source_locator": "decision_policy",
+      "unit": null,
+      "value": false
+    },
+    {
+      "category": "authority",
+      "claim_limit": "remains_false_even_after_dry_marker_pass",
+      "decision_state": "UNSUPPORTED",
+      "dependency_ids": [
+        "dry_marker_authority"
+      ],
+      "evidence_class": "FROZEN_REPOSITORY_CONTRACT",
+      "invalidation_scope": [
+        "chemical_authority"
+      ],
+      "item_id": "chemical_enable",
+      "owner": "safety_acceptance",
+      "rationale": "deposition_and_crop_injury_thresholds_unsupported_and_unmeasured",
+      "resolution_rule": "full_replan_required",
+      "resolution_trigger": "new_separately_authorized_chemical_safety_scope",
+      "source_id": "rig_acceptance_contract",
+      "source_locator": "decision_policy_chemical",
+      "unit": null,
+      "value": false
+    }
+  ],
+  "evidence_ledger": {
+    "deterministic_calculations": {
+      "claim_limit": "arithmetic_from_pinned_primitives_not_physical_measurement",
+      "evidence_class": "DETERMINISTIC_CALCULATION",
+      "result_paths": [
+        "calculations",
+        "bom.totals"
+      ]
+    },
+    "integration_hypotheses": {
+      "claim_limit": "interface_hypothesis_only_cannot_create_a_physical_PASS",
+      "evidence_class": "ENGINEERING_INTEGRATION_INFERENCE",
+      "result_paths": [
+        "ownership_boundary",
+        "coordinate_frames",
+        "spatial_contract",
+        "interface_contract"
+      ]
+    },
+    "physical_measurements": {
+      "claim_limit": "reserved_for_hash_bound_rig_evaluator_receipts_none_current",
+      "current_product_receipt_count": 0,
+      "evidence_class": "PHYSICAL_MEASUREMENT",
+      "result_paths": [
+        "acceptance_binding"
+      ]
+    },
+    "physically_unmeasured": {
+      "claim_limit": "unknowns_remain_null_until_owning_physical_evidence_exists",
+      "evidence_class": "NO_EVIDENCE_NULL",
+      "result_paths": [
+        "decision_items",
+        "calculations.mechanical_payload",
+        "calculations.power_status"
+      ]
+    },
+    "sourced_facts": {
+      "claim_limit": "exact_pinned_desk_evidence_not_installed_hardware_evidence",
+      "evidence_classes": [
+        "FROZEN_REPOSITORY_CONTRACT",
+        "TERMINAL_LANE_DECISION"
+      ],
+      "result_paths": [
+        "source_integrity.sources",
+        "baseline",
+        "decision_items"
+      ]
+    }
+  },
+  "fail_safe_interfaces": [
+    {
+      "fault_id": "estop",
+      "immediate_action": "hard_cut_strobe_and_intervention_enable",
+      "owner": "safety_acceptance",
+      "pending_command_action": "discard_all",
+      "recovery": "explicit_clear_plus_new_startup_identity_witness",
+      "scope": "whole_carrier"
+    },
+    {
+      "fault_id": "watchdog",
+      "immediate_action": "no_fire",
+      "owner": "safety_acceptance",
+      "pending_command_action": "discard_all_in_scope",
+      "recovery": "healthy_watchdog_plus_new_startup_identity_witness",
+      "scope": "controlled_scope"
+    },
+    {
+      "fault_id": "hood_open",
+      "immediate_action": "inhibit_strobe_and_no_fire",
+      "owner": "light_enclosure",
+      "pending_command_action": "discard_affected_bay",
+      "recovery": "hood_closed_interlock_valid_plus_new_light_witness",
+      "scope": "affected_bay"
+    },
+    {
+      "fault_id": "overtemperature",
+      "immediate_action": "inhibit_strobe_and_no_fire",
+      "owner": "light_enclosure",
+      "pending_command_action": "discard_affected_bay",
+      "recovery": "temperature_valid_plus_explicit_fault_clear_and_new_witness",
+      "scope": "affected_bay"
+    },
+    {
+      "fault_id": "invalid_timestamp",
+      "immediate_action": "no_fire",
+      "owner": "compute_capture",
+      "pending_command_action": "discard_affected_frame_and_track_command",
+      "recovery": "new_same_event_timestamp_witness",
+      "scope": "affected_frame"
+    },
+    {
+      "fault_id": "stale_encoder",
+      "immediate_action": "no_fire",
+      "owner": "platform_carrier",
+      "pending_command_action": "discard_all_scheduled_commands",
+      "recovery": "valid_signed_encoder_and_scale_witness",
+      "scope": "affected_carrier"
+    },
+    {
+      "fault_id": "frame_drop",
+      "immediate_action": "no_fire",
+      "owner": "compute_capture",
+      "pending_command_action": "discard_affected_frame_and_track_command",
+      "recovery": "next_complete_identity_bound_frame_only",
+      "scope": "affected_frame_and_bay"
+    },
+    {
+      "fault_id": "deadline_miss",
+      "immediate_action": "no_fire",
+      "owner": "compute_capture",
+      "pending_command_action": "discard_late_result",
+      "recovery": "next_result_inside_frozen_deadline_only",
+      "scope": "affected_frame_and_bay"
+    },
+    {
+      "fault_id": "calibration_invalid",
+      "immediate_action": "no_fire",
+      "owner": "safety_acceptance",
+      "pending_command_action": "discard_affected_bay",
+      "recovery": "matching_calibration_identity_and_required_retest",
+      "scope": "affected_bay"
+    },
+    {
+      "fault_id": "profile_mismatch",
+      "immediate_action": "inhibit_strobe_and_no_fire",
+      "owner": "light_enclosure",
+      "pending_command_action": "discard_affected_profile_commands",
+      "recovery": "matching_capture_strobe_bench_profiles_plus_new_witness",
+      "scope": "affected_frame_and_profile"
+    },
+    {
+      "fault_id": "malformed_strobe",
+      "immediate_action": "inhibit_strobe_and_no_fire",
+      "owner": "light_enclosure",
+      "pending_command_action": "discard_affected_profile_commands",
+      "recovery": "valid_timing_path_plus_applicable_stage_retest",
+      "scope": "affected_frame_and_profile"
+    },
+    {
+      "fault_id": "partial_light_channel_failure",
+      "immediate_action": "inhibit_strobe_and_no_fire",
+      "owner": "light_enclosure",
+      "pending_command_action": "discard_affected_bay",
+      "recovery": "all_four_channels_observed_plus_new_witness",
+      "scope": "affected_frame_and_bay"
+    },
+    {
+      "fault_id": "invalid_deployed_state",
+      "immediate_action": "no_fire",
+      "owner": "platform_carrier",
+      "pending_command_action": "discard_all_in_scope",
+      "recovery": "hard_seated_deployed_identity_valid",
+      "scope": "affected_carrier_or_section"
+    },
+    {
+      "fault_id": "lift_or_transport_state",
+      "immediate_action": "no_fire",
+      "owner": "platform_carrier",
+      "pending_command_action": "discard_all",
+      "recovery": "operating_state_and_transport_lock_release_valid",
+      "scope": "affected_carrier"
+    },
+    {
+      "fault_id": "reverse_or_ambiguous_direction",
+      "immediate_action": "no_fire",
+      "owner": "platform_carrier",
+      "pending_command_action": "discard_all_scheduled_commands",
+      "recovery": "signed_forward_direction_witness",
+      "scope": "affected_carrier"
+    },
+    {
+      "fault_id": "brownout_or_reboot",
+      "immediate_action": "hard_cut_strobe_and_intervention_enable",
+      "owner": "safety_acceptance",
+      "pending_command_action": "discard_all",
+      "recovery": "power_valid_plus_explicit_clean_startup_witness",
+      "scope": "whole_carrier"
+    }
+  ],
+  "integration_result": "INTEGRATION_CONSISTENT_PRE_REAL",
+  "interface_contract": [
+    {
+      "claim_limit": "exact_host_hitch_lift_moment_ballast_and_transport_ratings_absent",
+      "counterparty": "platform_carrier",
+      "interface_id": "host_structure_to_carrier",
+      "no_fire_on_invalid": true,
+      "owner": "host_owner",
+      "state": "HOST_UNRESOLVED",
+      "value": null
+    },
+    {
+      "claim_limit": "measured_steady_transient_conversion_drop_and_brownout_evidence_absent",
+      "counterparty": "safety_acceptance",
+      "interface_id": "host_power_to_regulated_distribution",
+      "no_fire_on_invalid": true,
+      "owner": "host_owner",
+      "state": "HOST_UNRESOLVED",
+      "value": null
+    },
+    {
+      "claim_limit": "exact_host_specific_geometry_and_loads_unmeasured",
+      "counterparty": "integration_only",
+      "interface_id": "carrier_to_removable_cassette",
+      "no_fire_on_invalid": true,
+      "owner": "platform_carrier",
+      "state": "FROZEN_BASELINE",
+      "value": "rigid_identified_seat_with_ground_follow_connection_and_hard_deployed_witness"
+    },
+    {
+      "claim_limit": "physical_stage_B_timing_receipt_absent",
+      "counterparty": "platform_carrier",
+      "interface_id": "trigger_to_camera_and_encoder_latch",
+      "no_fire_on_invalid": true,
+      "owner": "compute_capture",
+      "state": "FROZEN_BASELINE",
+      "value": "same_hardware_event"
+    },
+    {
+      "claim_limit": "exact_installed_strobe_profile_open_bench_variable",
+      "counterparty": "sensor_optics",
+      "interface_id": "camera_exposureactive_to_strobe",
+      "no_fire_on_invalid": true,
+      "owner": "light_enclosure",
+      "state": "FROZEN_BASELINE",
+      "value": "isolated_driver_four_channels_all_on_inside_global_exposure"
+    },
+    {
+      "claim_limit": "measured_compute_is_proxy_not_end_to_end_physical_PASS",
+      "counterparty": "sensor_optics",
+      "interface_id": "camera_to_compute_data",
+      "no_fire_on_invalid": true,
+      "owner": "compute_capture",
+      "state": "FROZEN_BASELINE",
+      "value": "dedicated_USB3_root_locking_cable_maximum_3m_one_camera_15Hz"
+    },
+    {
+      "claim_limit": "rigid_datum_exists_but_signed_offset_hardware_and_footprint_are_unmeasured",
+      "counterparty": "intervention_external",
+      "interface_id": "camera_to_intervention_mount",
+      "no_fire_on_invalid": true,
+      "owner": "integration_only",
+      "state": "OPEN_BENCH_VARIABLE",
+      "value": null
+    },
+    {
+      "claim_limit": "integration_does_not_grant_controlled_capture_or_dry_marker_authority",
+      "counterparty": "intervention_external",
+      "interface_id": "safety_to_strobe_and_intervention_enable",
+      "no_fire_on_invalid": true,
+      "owner": "safety_acceptance",
+      "state": "FROZEN_BASELINE",
+      "value": "default_no_fire_chemical_enable_verified_disabled"
+    }
+  ],
+  "ownership_boundary": {
+    "carrier_owns": [
+      "exact_host_and_three_point_adapter",
+      "transverse_toolbar_and_structural_load_path",
+      "passive_ground_following_mechanism_and_gauge_wheel",
+      "lift_transport_lock_and_deployed_state",
+      "host_power_conversion_and_estop_routing",
+      "compute_power_tray_and_host_specific_cable_route",
+      "ballast_axle_hitch_and_moment_qualification"
+    ],
+    "cassette_owns": [
+      "rigid_local_coordinate_frame",
+      "camera_hood_light_mounting_interfaces",
+      "rigid_camera_to_intervention_mount_relationship",
+      "fine_working_height_adjustment",
+      "local_identity_and_calibration_fiducials",
+      "no_intrusion_envelopes",
+      "cable_termination_and_strain_relief"
+    ],
+    "external_owners": {
+      "intervention_external": [
+        "nozzle",
+        "valve",
+        "pressure",
+        "tank",
+        "deposition",
+        "crop_injury",
+        "chemistry"
+      ],
+      "light_enclosure": [
+        "emitters",
+        "diffuser",
+        "window",
+        "hood_optical_internals",
+        "cooling"
+      ],
+      "sensor_optics": [
+        "camera",
+        "sensor",
+        "lens",
+        "roi",
+        "fov",
+        "working_distance"
+      ]
+    }
+  },
+  "replan_triggers": [
+    "sensor_lane_rejects_Basler_PRO_or_C23",
+    "measured_safe_width_below_444p375mm",
+    "600x600mm_enclosure_cannot_package_frozen_optical_light_stack_without_occlusion",
+    "no_bounded_light_profile_passes_existing_gates",
+    "one_camera_15Hz_stage_E_failure",
+    "required_speed_above_1m_s",
+    "required_safe_swath_above_444p375mm",
+    "action_service_class_below_20mm",
+    "second_camera_or_multi_bay_becomes_required",
+    "certified_ingress_washdown_dust_shock_or_vibration_required",
+    "no_rear_or_triggered_front_host_preserves_the_frozen_bay",
+    "exact_host_power_or_structure_cannot_support_measured_one_bay_assembly",
+    "intervention_or_crop_safety_contract_changes_action_geometry",
+    "acceptance_authority_changes_materially",
+    "chemical_operation_enters_scope"
+  ],
+  "schema_version": 1,
+  "source_integrity": {
+    "admission_policy": "six_terminal_files_exact_bytes_at_reachable_commit_fail_closed",
+    "algorithm": "sha256_exact_bytes",
+    "implementation_base_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+    "sources": {
+      "capture_optimization_contract": {
+        "exact_bytes_verified": true,
+        "owner": "compute_capture",
+        "path": "configs/deploy/spot_spray_capture_optimization_v2.yaml",
+        "role": "frozen_numeric_capture_contract",
+        "sha256": "f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9"
+      },
+      "capture_optimization_document": {
+        "exact_bytes_verified": true,
+        "owner": "compute_capture",
+        "path": "docs/CONTROLLED_CAPTURE_OPTIMIZATION_V2.md",
+        "role": "frozen_capture_derivation_document",
+        "sha256": "c5eb80d8eb074b36463906a4dee993776d2415ae1e41ad50a988c8592e8ed7aa"
+      },
+      "capture_optimization_result": {
+        "exact_bytes_verified": true,
+        "owner": "compute_capture",
+        "path": "docs/results/controlled_capture_optimization_v2.json",
+        "role": "frozen_golden_calculation_result",
+        "sha256": "0808c68d40285ff3eba5fb3d13603bc42c12c16d9bacc4fd87470a3c26eafbc8"
+      },
+      "compute_summary": {
+        "exact_bytes_verified": true,
+        "owner": "compute_capture",
+        "path": "docs/results/spot_spray_deploy_compute_summary_v1.json",
+        "role": "measured_compute_proxy_without_halo",
+        "sha256": "b03898f35891e304631bfb410089aefdea7f4c5e339f4a9ccef27dc947d28804"
+      },
+      "halo_compute_summary": {
+        "exact_bytes_verified": true,
+        "owner": "compute_capture",
+        "path": "docs/results/spot_spray_deploy_compute_halo_summary_v1.json",
+        "role": "measured_64px_halo_compute_proxy",
+        "sha256": "945c1e43ed9e672d58cc44a57a6a046f202bb285a43b9f385751e297e22de4e7"
+      },
+      "integrated_contract_release": {
+        "exact_bytes_verified": true,
+        "owner": "safety_acceptance",
+        "path": "docs/SPOT_SPRAY_INTEGRATED_CONTRACT_RELEASE_V1.md",
+        "role": "current_provenance_and_claim_boundary",
+        "sha256": "ad867317332dc2421188bad5903b47e6c0deeb08912243103d74e1ead5d426ad"
+      },
+      "light_enclosure_plan": {
+        "committed_bytes_verified": true,
+        "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+        "exact_bytes_verified": true,
+        "owner": "light_enclosure",
+        "path": "docs/plans/part-spot-spray-light-enclosure-adaptive-plan.md",
+        "role": "terminal_light_enclosure_ownership_challenger_and_stopping_rules",
+        "sha256": "b90d73200f4384cd00ee466d43420d22ff078b3d97c5619cd581eefc8e893bb5"
+      },
+      "light_enclosure_survey": {
+        "committed_bytes_verified": true,
+        "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+        "exact_bytes_verified": true,
+        "owner": "light_enclosure",
+        "path": "docs/research/SPOT_SPRAY_LIGHT_ENCLOSURE_SURVEY_V1.md",
+        "role": "terminal_light_enclosure_decision",
+        "sha256": "ddb34ff6db4eac7065cd0c4fed5d103b119b5a46c430cf2ba08fb5fa7dba7dc1"
+      },
+      "platform_product_plan": {
+        "committed_bytes_verified": true,
+        "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+        "exact_bytes_verified": true,
+        "owner": "platform_carrier",
+        "path": "docs/plans/part-spot-spray-platform-product-adaptive-plan.md",
+        "role": "terminal_platform_ownership_challenger_and_stopping_rules",
+        "sha256": "6ef6d94819bffdb303b3e121f52a0d6cb19e91ee49f10a5ddba84f217f6c1292"
+      },
+      "platform_product_survey": {
+        "committed_bytes_verified": true,
+        "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+        "exact_bytes_verified": true,
+        "owner": "platform_carrier",
+        "path": "docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md",
+        "role": "terminal_platform_product_decision",
+        "sha256": "38ccf561fff37f64e4f1aed192b06e03196ca13f40734fc876188c3e817c50e5"
+      },
+      "product_imaging_contract": {
+        "exact_bytes_verified": true,
+        "owner": "sensor_optics",
+        "path": "configs/deploy/spot_spray_product_imaging_decision_v1.yaml",
+        "role": "frozen_product_imaging_contract",
+        "sha256": "052241b48ad675945f8628c1618d1d337bca0818cd109c825197636dd5d98123"
+      },
+      "product_imaging_document": {
+        "exact_bytes_verified": true,
+        "owner": "sensor_optics",
+        "path": "docs/SPOT_SPRAY_PRODUCT_IMAGING_DECISION_V1.md",
+        "role": "frozen_product_imaging_decision",
+        "sha256": "c4b7ee5d77fb897576c322a35ab820d882986a096eff225a5364f354b2d0269f"
+      },
+      "rig_acceptance_contract": {
+        "canonical_policy_verified": true,
+        "canonical_sha256": "c05ae3837d98f313c32e81178045a9fef39965199c276ec06e9d01195e88ff21",
+        "exact_bytes_verified": true,
+        "owner": "safety_acceptance",
+        "path": "configs/deploy/spot_spray_rig_acceptance_v1.yaml",
+        "role": "sole_physical_acceptance_policy",
+        "sha256": "a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c"
+      },
+      "rig_acceptance_evaluator": {
+        "exact_bytes_verified": true,
+        "owner": "safety_acceptance",
+        "path": "scripts/evaluate_spot_spray_rig_acceptance_v1.py",
+        "role": "sole_physical_acceptance_evaluator",
+        "sha256": "596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2"
+      },
+      "rig_acceptance_runbook": {
+        "exact_bytes_verified": true,
+        "owner": "safety_acceptance",
+        "path": "docs/SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md",
+        "role": "physical_A_to_F_runbook",
+        "sha256": "9b73fb34741d8862f27abc4aab30e42268fadb2ad05233d3b201f098fb1acb78"
+      },
+      "sensor_optics_plan": {
+        "committed_bytes_verified": true,
+        "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+        "exact_bytes_verified": true,
+        "owner": "sensor_optics",
+        "path": "docs/plans/part-spot-spray-sensor-optics-adaptive-plan.md",
+        "role": "terminal_sensor_optics_ownership_challenger_and_stopping_rules",
+        "sha256": "d3e65e265052b7d47e7d6522f8679145951b9bd7bbc8c9d2aa4dccef7e67c19b"
+      },
+      "sensor_optics_survey": {
+        "committed_bytes_verified": true,
+        "containing_commit": "a24f7dec956af170436bcb17d679aa53918c9ec8",
+        "exact_bytes_verified": true,
+        "owner": "sensor_optics",
+        "path": "docs/research/SPOT_SPRAY_SENSOR_OPTICS_SURVEY_V1.md",
+        "role": "terminal_sensor_optics_decision",
+        "sha256": "36bb374664d4a799706facc1ac7914cc8913757510b0bb618e9a765557aa52e8"
+      },
+      "track_action_contract": {
+        "exact_bytes_verified": true,
+        "owner": "intervention_external",
+        "path": "configs/benchmark/spot_spray_target_rig_action_eval_v1.yaml",
+        "role": "frozen_track_action_contract",
+        "sha256": "210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09"
+      },
+      "track_action_evaluator": {
+        "exact_bytes_verified": true,
+        "owner": "intervention_external",
+        "path": "scripts/evaluate_spot_spray_target_rig_action_v1.py",
+        "role": "frozen_track_action_evaluator",
+        "sha256": "3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45"
+      }
+    },
+    "status": "PASS",
+    "terminal_source_count": 6,
+    "terminal_sources_clean_against_commit": true,
+    "verified_source_count": 19
+  },
+  "spatial_contract": {
+    "active_geometry": {
+      "action_safe_lateral_width_minimum_mm": 444.375,
+      "active_bay_count": 1,
+      "calibrated_ground_fov_range_mm": [
+        474.0,
+        484.0
+      ],
+      "conservative_action_safe_plan_mm": [
+        444.375,
+        444.375
+      ],
+      "exact_installed_optical_clearance_mm": null,
+      "hood_internal_plan_minimum_mm": [
+        600.0,
+        600.0
+      ],
+      "intervention_footprint_mm": null,
+      "nominal_ground_fov_mm": 480.0,
+      "outer_abstain_ring_px": 64
+    },
+    "claim_limit": "Schematic envelopes do not prove installed non-occlusion. Stage C owns the physical ray-cone, window, FOV and clearance evidence.",
+    "no_intrusion_envelopes": [
+      {
+        "authority": "rig_acceptance_stage_C",
+        "envelope_id": "installed_calibrated_ray_cone",
+        "exact_installed_shape_mm": null,
+        "owner": "sensor_optics",
+        "prohibited_intruders": [
+          "hood_wall",
+          "skirt",
+          "baffle",
+          "emitter",
+          "diffuser",
+          "window_frame",
+          "cable",
+          "carrier_member",
+          "gauge_wheel"
+        ],
+        "state": "PHYSICAL_MEASUREMENT_REQUIRED"
+      },
+      {
+        "authority": "calculated_from_measured_minimum_FOV_and_64px_ring",
+        "envelope_id": "conservative_action_safe_ground_region",
+        "owner": "integration_only",
+        "plan_mm": [
+          444.375,
+          444.375
+        ],
+        "prohibited_intruders": [
+          "carrier_member",
+          "gauge_wheel",
+          "cable",
+          "intervention_structure"
+        ],
+        "state": "DETERMINISTIC_CALCULATION"
+      },
+      {
+        "authority": "light_enclosure_survey",
+        "envelope_id": "central_no_emitter_packaging_zone",
+        "minimum_diameter_mm": 120.0,
+        "owner": "light_enclosure",
+        "prohibited_intruders": [
+          "emitter_face"
+        ],
+        "state": "TERMINAL_LANE_DECISION"
+      }
+    ]
+  },
+  "status_axes": {
+    "architecture_selection": "FROZEN_BASELINE",
+    "chemical_fire_allowed": false,
+    "controlled_capture_authorized": false,
+    "dry_marker_ready": false,
+    "field_go": false,
+    "host_qualification": "HOST_UNRESOLVED",
+    "physical_acceptance": "PRE_REAL_NOT_READY",
+    "product_go": false,
+    "purchase_authorized": false,
+    "source_integrity": "VERIFY_AT_BUILD"
+  },
+  "visual_contract": {
+    "deterministic_contract": {
+      "absolute_paths_forbidden": true,
+      "embed_config_and_architecture_sha256": true,
+      "random_ids_forbidden": true,
+      "required_final_newline": true,
+      "timestamps_forbidden": true
+    },
+    "fixed_viewbox": [
+      0,
+      0,
+      1400,
+      900
+    ],
+    "notice": "NOT A FABRICATION DRAWING",
+    "schema_version": 1,
+    "views": [
+      {
+        "filename": "exterior.svg",
+        "required_annotation_ids": [
+          "host_unresolved",
+          "rear_three_point",
+          "removable_cassette",
+          "ground_follow",
+          "gauge_wheel",
+          "compute_tray",
+          "deployed_state",
+          "encoder",
+          "intervention_offset_unresolved"
+        ],
+        "title": "Exterior carrier and one-bay proof architecture",
+        "view_id": "exterior"
+      },
+      {
+        "filename": "underside.svg",
+        "required_annotation_ids": [
+          "hood_600",
+          "four_quadrants",
+          "fov_range",
+          "abstain_ring",
+          "safe_region_444_375",
+          "no_emitter_zone",
+          "no_intrusion",
+          "axis_permutation"
+        ],
+        "title": "Underside optical and action geometry",
+        "view_id": "underside"
+      },
+      {
+        "filename": "optical_cross_section.svg",
+        "required_annotation_ids": [
+          "working_distance",
+          "test_planes",
+          "skirts",
+          "window",
+          "ray_cone",
+          "exposure_strobe",
+          "usb_compute",
+          "fail_closed",
+          "physical_stage_C_unmeasured"
+        ],
+        "title": "Optical cross-section and capture interfaces",
+        "view_id": "optical_cross_section"
+      }
+    ]
+  }
+}

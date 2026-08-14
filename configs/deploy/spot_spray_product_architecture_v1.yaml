@@ -1,0 +1,1466 @@
+schema_version: 1
+contract_id: spot_spray_product_architecture_v1
+contract_status: PRE_REAL_INTEGRATION_BASELINE
+evidence_date: 2026-08-14
+scope: >-
+  Hash-bound integration contract for one buildable spot-spray proof bay. It
+  reconciles terminal sensor/optics, light/enclosure, and platform decisions;
+  it does not replace any owning lane or physical acceptance authority.
+
+source_lock:
+  algorithm: sha256_exact_bytes
+  admission_policy: six_terminal_files_exact_bytes_at_reachable_commit_fail_closed
+  implementation_base_commit: a24f7dec956af170436bcb17d679aa53918c9ec8
+  observed_repository_head: a24f7dec956af170436bcb17d679aa53918c9ec8
+  terminal_plans:
+    - source_id: sensor_optics_plan
+      path: docs/plans/part-spot-spray-sensor-optics-adaptive-plan.md
+      sha256: d3e65e265052b7d47e7d6522f8679145951b9bd7bbc8c9d2aa4dccef7e67c19b
+      containing_commit: a24f7dec956af170436bcb17d679aa53918c9ec8
+      owner: sensor_optics
+      role: terminal_sensor_optics_ownership_challenger_and_stopping_rules
+    - source_id: light_enclosure_plan
+      path: docs/plans/part-spot-spray-light-enclosure-adaptive-plan.md
+      sha256: b90d73200f4384cd00ee466d43420d22ff078b3d97c5619cd581eefc8e893bb5
+      containing_commit: a24f7dec956af170436bcb17d679aa53918c9ec8
+      owner: light_enclosure
+      role: terminal_light_enclosure_ownership_challenger_and_stopping_rules
+    - source_id: platform_product_plan
+      path: docs/plans/part-spot-spray-platform-product-adaptive-plan.md
+      sha256: 6ef6d94819bffdb303b3e121f52a0d6cb19e91ee49f10a5ddba84f217f6c1292
+      containing_commit: a24f7dec956af170436bcb17d679aa53918c9ec8
+      owner: platform_carrier
+      role: terminal_platform_ownership_challenger_and_stopping_rules
+  terminal_surveys:
+    - source_id: sensor_optics_survey
+      path: docs/research/SPOT_SPRAY_SENSOR_OPTICS_SURVEY_V1.md
+      sha256: 36bb374664d4a799706facc1ac7914cc8913757510b0bb618e9a765557aa52e8
+      containing_commit: a24f7dec956af170436bcb17d679aa53918c9ec8
+      owner: sensor_optics
+      role: terminal_sensor_optics_decision
+    - source_id: light_enclosure_survey
+      path: docs/research/SPOT_SPRAY_LIGHT_ENCLOSURE_SURVEY_V1.md
+      sha256: ddb34ff6db4eac7065cd0c4fed5d103b119b5a46c430cf2ba08fb5fa7dba7dc1
+      containing_commit: a24f7dec956af170436bcb17d679aa53918c9ec8
+      owner: light_enclosure
+      role: terminal_light_enclosure_decision
+    - source_id: platform_product_survey
+      path: docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md
+      sha256: 38ccf561fff37f64e4f1aed192b06e03196ca13f40734fc876188c3e817c50e5
+      containing_commit: a24f7dec956af170436bcb17d679aa53918c9ec8
+      owner: platform_carrier
+      role: terminal_platform_product_decision
+  upstream_authorities:
+    - source_id: capture_optimization_contract
+      path: configs/deploy/spot_spray_capture_optimization_v2.yaml
+      sha256: f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9
+      owner: compute_capture
+      role: frozen_numeric_capture_contract
+    - source_id: capture_optimization_document
+      path: docs/CONTROLLED_CAPTURE_OPTIMIZATION_V2.md
+      sha256: c5eb80d8eb074b36463906a4dee993776d2415ae1e41ad50a988c8592e8ed7aa
+      owner: compute_capture
+      role: frozen_capture_derivation_document
+    - source_id: capture_optimization_result
+      path: docs/results/controlled_capture_optimization_v2.json
+      sha256: 0808c68d40285ff3eba5fb3d13603bc42c12c16d9bacc4fd87470a3c26eafbc8
+      owner: compute_capture
+      role: frozen_golden_calculation_result
+    - source_id: product_imaging_contract
+      path: configs/deploy/spot_spray_product_imaging_decision_v1.yaml
+      sha256: 052241b48ad675945f8628c1618d1d337bca0818cd109c825197636dd5d98123
+      owner: sensor_optics
+      role: frozen_product_imaging_contract
+    - source_id: product_imaging_document
+      path: docs/SPOT_SPRAY_PRODUCT_IMAGING_DECISION_V1.md
+      sha256: c4b7ee5d77fb897576c322a35ab820d882986a096eff225a5364f354b2d0269f
+      owner: sensor_optics
+      role: frozen_product_imaging_decision
+    - source_id: rig_acceptance_contract
+      path: configs/deploy/spot_spray_rig_acceptance_v1.yaml
+      sha256: a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c
+      canonical_sha256: c05ae3837d98f313c32e81178045a9fef39965199c276ec06e9d01195e88ff21
+      owner: safety_acceptance
+      role: sole_physical_acceptance_policy
+    - source_id: rig_acceptance_evaluator
+      path: scripts/evaluate_spot_spray_rig_acceptance_v1.py
+      sha256: 596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2
+      owner: safety_acceptance
+      role: sole_physical_acceptance_evaluator
+    - source_id: rig_acceptance_runbook
+      path: docs/SPOT_SPRAY_RIG_ACCEPTANCE_RUNBOOK_V1.md
+      sha256: 9b73fb34741d8862f27abc4aab30e42268fadb2ad05233d3b201f098fb1acb78
+      owner: safety_acceptance
+      role: physical_A_to_F_runbook
+    - source_id: compute_summary
+      path: docs/results/spot_spray_deploy_compute_summary_v1.json
+      sha256: b03898f35891e304631bfb410089aefdea7f4c5e339f4a9ccef27dc947d28804
+      owner: compute_capture
+      role: measured_compute_proxy_without_halo
+    - source_id: halo_compute_summary
+      path: docs/results/spot_spray_deploy_compute_halo_summary_v1.json
+      sha256: 945c1e43ed9e672d58cc44a57a6a046f202bb285a43b9f385751e297e22de4e7
+      owner: compute_capture
+      role: measured_64px_halo_compute_proxy
+    - source_id: track_action_contract
+      path: configs/benchmark/spot_spray_target_rig_action_eval_v1.yaml
+      sha256: 210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09
+      owner: intervention_external
+      role: frozen_track_action_contract
+    - source_id: track_action_evaluator
+      path: scripts/evaluate_spot_spray_target_rig_action_v1.py
+      sha256: 3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45
+      owner: intervention_external
+      role: frozen_track_action_evaluator
+    - source_id: integrated_contract_release
+      path: docs/SPOT_SPRAY_INTEGRATED_CONTRACT_RELEASE_V1.md
+      sha256: ad867317332dc2421188bad5903b47e6c0deeb08912243103d74e1ead5d426ad
+      owner: safety_acceptance
+      role: current_provenance_and_claim_boundary
+
+schema_contract:
+  owners:
+    - sensor_optics
+    - light_enclosure
+    - platform_carrier
+    - compute_capture
+    - safety_acceptance
+    - intervention_external
+    - host_owner
+    - integration_only
+  decision_states:
+    - FROZEN_BASELINE
+    - OPEN_BENCH_VARIABLE
+    - HOST_UNRESOLVED
+    - CHALLENGER_CLOSED_NOT_TRIGGERED
+    - CHALLENGER_ELIGIBLE_BOUNDED_AB
+    - REJECTED
+    - UNSUPPORTED
+    - OUT_OF_SCOPE
+  evidence_classes:
+    - FROZEN_REPOSITORY_CONTRACT
+    - TERMINAL_LANE_DECISION
+    - DETERMINISTIC_CALCULATION
+    - ENGINEERING_INTEGRATION_INFERENCE
+    - PHYSICAL_MEASUREMENT
+    - NO_EVIDENCE_NULL
+  integration_results:
+    - INTEGRATION_CONSISTENT_PRE_REAL
+    - INTEGRATION_INVALID_SOURCE_DRIFT
+    - INTEGRATION_INVALID_CROSS_LANE_CONFLICT
+    - REPLAN_REQUIRED
+
+status_axes:
+  architecture_selection: FROZEN_BASELINE
+  source_integrity: VERIFY_AT_BUILD
+  host_qualification: HOST_UNRESOLVED
+  physical_acceptance: PRE_REAL_NOT_READY
+  controlled_capture_authorized: false
+  dry_marker_ready: false
+  field_go: false
+  product_go: false
+  chemical_fire_allowed: false
+  purchase_authorized: false
+
+claim_boundary:
+  integration_validation_is_physical_acceptance: false
+  physical_A_to_E_receipt_available: false
+  physical_A_to_F_receipt_available: false
+  certified_ingress_claim: false
+  autonomous_operation_in_scope: false
+  procurement_or_fabrication_authority: false
+  note: >-
+    A consistent result proves only that pinned desk evidence and deterministic
+    calculations agree. It cannot authorize capture, dry-marker, field, product,
+    purchase, fabrication, or chemical operation.
+
+evidence_ledger:
+  sourced_facts:
+    evidence_classes: [FROZEN_REPOSITORY_CONTRACT, TERMINAL_LANE_DECISION]
+    result_paths: [source_integrity.sources, baseline, decision_items]
+    claim_limit: exact_pinned_desk_evidence_not_installed_hardware_evidence
+  deterministic_calculations:
+    evidence_class: DETERMINISTIC_CALCULATION
+    result_paths: [calculations, bom.totals]
+    claim_limit: arithmetic_from_pinned_primitives_not_physical_measurement
+  integration_hypotheses:
+    evidence_class: ENGINEERING_INTEGRATION_INFERENCE
+    result_paths: [ownership_boundary, coordinate_frames, spatial_contract, interface_contract]
+    claim_limit: interface_hypothesis_only_cannot_create_a_physical_PASS
+  physically_unmeasured:
+    evidence_class: NO_EVIDENCE_NULL
+    result_paths: [decision_items, calculations.mechanical_payload, calculations.power_status]
+    claim_limit: unknowns_remain_null_until_owning_physical_evidence_exists
+  physical_measurements:
+    evidence_class: PHYSICAL_MEASUREMENT
+    result_paths: [acceptance_binding]
+    current_product_receipt_count: 0
+    claim_limit: reserved_for_hash_bound_rig_evaluator_receipts_none_current
+
+baseline:
+  sensor_optics:
+    camera_count: 1
+    manufacturer: Basler
+    model: a2A2464-77ucPRO
+    order_number: 109779
+    sensor: OmniVision_OG05C_BSI
+    modality: visible_RGB_with_factory_IR_cut
+    shutter: global
+    native_sensor_px: [2448, 2048]
+    active_roi_px: [2048, 2048]
+    active_roi_offset_px: [200, 0]
+    full_frame_resize_forbidden: true
+    pixel_pitch_um: 3.45
+    lens_model: C23-0824-5M-P
+    lens_order_number: 2200000568
+    nominal_focal_length_mm: 8.06
+    aperture_f_number: 5.6
+    ground_fov_mm: [474.0, 480.0, 484.0]
+    working_distance_adjustment_mm: [520.0, 590.0]
+    focus_plane_above_ground_mm: 55.0
+    test_planes_above_ground_mm: [0.0, 55.0, 110.0]
+    exposure_us: 170.0
+    acquisition_rate_hz: 15.0
+    outer_abstain_ring_px: 64
+    action_service_class_mm: 20.0
+    optical_witness_mm: 10.0
+    maximum_blur_px: 0.75
+    local_gsd_maximum_mm_px: 0.24390243902439024
+    target_pixel_minima:
+      10_mm: 41.0
+      20_mm: 82.0
+  light_enclosure:
+    architecture: four_cardinal_diffuse_visible_white_quadrants
+    firing: simultaneous_all_on_inside_global_exposure
+    spectrum_cct_k: [4500, 5500]
+    color_rendering_index_minimum: 90
+    strobe_pulse_us: [150.0, 170.0]
+    hood_internal_plan_minimum_mm: [600.0, 600.0]
+    skirt_layers: 2
+    skirt_length_mm: [100.0, 150.0]
+    skirt_overlap_mm: [30.0, 50.0]
+    inner_skirt_rail_nominal_inset_mm: 50.0
+    operating_clearance_mm: [0.0, 20.0]
+    labyrinth_stages: 2
+    labyrinth_depth_minimum_mm: 50.0
+    central_no_emitter_minimum_diameter_mm: 120.0
+    quadrant_center_radius_adjustment_mm: [140.0, 210.0]
+    quadrant_cassette_mounting_face_maximum_mm: [140.0, 140.0]
+    quadrant_inward_tilt_adjustment_deg: [10.0, 35.0]
+    led_to_diffuser_standoff_adjustment_mm: [20.0, 80.0]
+    window_thickness_mm: [2.0, 3.0]
+    window_tilt_deg: [3.0, 5.0]
+    cooling_topology: passive_sealed_to_external_heatsink
+    polarization_state: "OFF"
+    exact_installed_profile: null
+  platform_carrier:
+    proof_topology: manual_tractor_rear_three_point_rigid_toolbar
+    reusable_unit: removable_ground_following_lower_bay_cassette
+    exact_host: null
+    trial_speeds_m_s: [0.5, 1.0]
+    travel_source: local_ground_contact_quadrature_encoder
+    intervention_hardware: null
+    camera_to_intervention_offset_mm: null
+    multi_bay_compatibility:
+      active_bay_count: 1
+      multi_bay_currently_active: false
+      second_camera_currently_active: false
+      center_pitch_maximum_mm: 430.0
+      overlap_minimum_mm: 10.0
+      per_bay_independent_acceptance_required: true
+      safe_swath_formula: minimum_one_bay_safe_width_plus_N_minus_1_times_pitch
+      continuous_hood_formula: 600mm_plus_N_minus_1_times_pitch
+      claim_limit: compatibility_formula_only_not_current_capability
+  compute_capture:
+    camera_transport: dedicated_USB3_root_with_locking_cable
+    locking_cable_maximum_m: 3.0
+    preferred_pixel_format: Bayer10_packed
+    accelerator: NVIDIA_RTX_3090
+    supported_camera_count: 1
+    supported_rate_hz: 15.0
+    halo_batch4_p95_ms: 52.67959251068532
+    stage_e_deadline_ms: 66.66666666666667
+    stage_e_proxy_checkpoint_sha256: 0b30e1433cecb4ecaa71a1005c520604eaacab9a92595efb18f3966bcd57f6b8
+    selected_foundation_checkpoint_sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+    stage_e_proxy_applies_to_selected_foundation: false
+  power_thermal:
+    camera_external_supply_vdc: [12.0, 24.0]
+    light_bus_vdc: 24.0
+    strobe_peak_current_envelope_a: [0.0, 10.0]
+    light_peak_electrical_ceiling_w_not_setpoint: 240.0
+    light_branch_average_maximum_w: 20.0
+    capture_module_average_maximum_w_excluding_compute: 60.0
+    gpu_reference_board_power_w_not_vehicle_draw: 350.0
+    reference_system_psu_w_not_vehicle_draw: 750.0
+    whole_compute_system_measured_w: null
+    capture_module_transient_measured_w: null
+    whole_compute_system_transient_measured_w: null
+    conversion_distribution_continuous_loss_w: null
+    conversion_distribution_transient_loss_w: null
+    integrated_host_continuous_power_w: null
+    integrated_host_transient_power_w: null
+    thermal_duration_minimum_minutes: 120
+    exterior_ambient_test_c: [5.0, 40.0]
+    camera_housing_maximum_c: 50.0
+    led_plate_maximum_c: 60.0
+  safety:
+    same_event_camera_trigger_and_encoder_latch: true
+    encoder_resolution_maximum_mm_per_count: 1.0
+    encoder_scale_error_maximum_mm_per_m: 1.0
+    trigger_encoder_p95_maximum_us: 100.0
+    trigger_encoder_maximum_us: 250.0
+    encoder_stale_no_fire_after_ms: 5.0
+    strobe_jitter_p95_maximum_us: 5.0
+    default_state: no_fire
+    chemical_enable_hardware_line: verified_disabled
+    no_fire_on:
+      - estop
+      - watchdog
+      - hood_open
+      - overtemperature
+      - invalid_timestamp
+      - stale_encoder
+      - frame_drop
+      - deadline_miss
+      - calibration_invalid
+      - profile_mismatch
+      - malformed_strobe
+      - partial_light_channel_failure
+      - invalid_deployed_state
+      - lift_or_transport_state
+      - reverse_or_ambiguous_direction
+      - brownout_or_reboot
+
+coordinate_frames:
+  world:
+    owner: integration_only
+    frame_id: F_world
+    parent_frame: null
+    origin: local_ground_reference_at_proof_bay
+    x_axis: forward_travel
+    y_axis: vehicle_right
+    z_axis: up_from_local_ground
+    transform_to_parent: null
+  carrier:
+    owner: platform_carrier
+    frame_id: F_carrier
+    parent_frame: F_world
+    origin: exact_host_specific_upper_carrier_datum
+    x_axis: forward_travel
+    y_axis: vehicle_right
+    z_axis: up_from_local_ground
+    transform_to_parent: null
+    transform_state: HOST_UNRESOLVED
+  cassette:
+    owner: platform_carrier
+    frame_id: F_cassette
+    parent_frame: F_carrier
+    origin: rigid_lower_bay_datum
+    x_axis: forward_travel
+    y_axis: vehicle_right
+    z_axis: up_from_local_ground
+    transform_to_parent: null
+    transform_state: PHYSICAL_MEASUREMENT_REQUIRED
+  camera:
+    owner: sensor_optics
+    frame_id: F_camera
+    parent_frame: F_cassette
+    origin: camera_optical_center
+    x_axis: forward_travel
+    y_axis: vehicle_right
+    z_axis: up_from_local_ground
+    optical_axis: negative_z
+    transform_to_parent: null
+    transform_state: INSTALLED_STAGE_C_MEASUREMENT_REQUIRED
+  ground_calibration:
+    owner: safety_acceptance
+    frame_id: F_ground_calibration
+    parent_frame: F_world
+    origin: calibrated_ground_homography_origin
+    x_axis: forward_travel
+    y_axis: vehicle_right
+    z_axis: up_from_local_ground
+    transform_to_parent: null
+    transform_state: INSTALLED_STAGE_C_MEASUREMENT_REQUIRED
+  light_fixture:
+    owner: light_enclosure
+    frame_id: F_light_fixture
+    parent_frame: F_cassette
+    origin: camera_optical_axis_at_local_ground_reference
+    x_axis: vehicle_right
+    y_axis: vehicle_front
+    z_axis: up_from_local_ground
+    transform_to_parent: exact_axis_permutation_no_scale_no_reflection
+  encoder:
+    owner: platform_carrier
+    frame_id: F_encoder
+    parent_frame: F_carrier
+    origin: ground_contact_encoder_axis
+    x_axis: signed_forward_travel
+    y_axis: vehicle_right
+    z_axis: up_from_local_ground
+    transform_to_parent: null
+    transform_state: EXACT_HOST_INSTALLATION_REQUIRED
+  light_fixture_to_cassette:
+    owner: integration_only
+    transform_type: exact_axis_permutation_no_scale_no_reflection
+    cassette_x_from: light_fixture_y
+    cassette_y_from: light_fixture_x
+    cassette_z_from: light_fixture_z
+  intervention_mount:
+    owner: integration_only
+    frame_id: F_intervention_mount
+    parent_frame: F_cassette
+    origin: rigid_local_intervention_mount_datum
+    x_axis: forward_travel
+    y_axis: vehicle_right
+    z_axis: up_from_local_ground
+    datum_mechanical_owner: platform_carrier
+    hardware_owner: intervention_external
+    rigid_to_cassette: true
+    measured_along_track_offset_mm: null
+    transform_to_parent: null
+    transform_state: PHYSICAL_MEASUREMENT_REQUIRED
+
+ownership_boundary:
+  cassette_owns:
+    - rigid_local_coordinate_frame
+    - camera_hood_light_mounting_interfaces
+    - rigid_camera_to_intervention_mount_relationship
+    - fine_working_height_adjustment
+    - local_identity_and_calibration_fiducials
+    - no_intrusion_envelopes
+    - cable_termination_and_strain_relief
+  carrier_owns:
+    - exact_host_and_three_point_adapter
+    - transverse_toolbar_and_structural_load_path
+    - passive_ground_following_mechanism_and_gauge_wheel
+    - lift_transport_lock_and_deployed_state
+    - host_power_conversion_and_estop_routing
+    - compute_power_tray_and_host_specific_cable_route
+    - ballast_axle_hitch_and_moment_qualification
+  external_owners:
+    sensor_optics: [camera, sensor, lens, roi, fov, working_distance]
+    light_enclosure: [emitters, diffuser, window, hood_optical_internals, cooling]
+    intervention_external: [nozzle, valve, pressure, tank, deposition, crop_injury, chemistry]
+
+spatial_contract:
+  active_geometry:
+    active_bay_count: 1
+    hood_internal_plan_minimum_mm: [600.0, 600.0]
+    calibrated_ground_fov_range_mm: [474.0, 484.0]
+    nominal_ground_fov_mm: 480.0
+    conservative_action_safe_plan_mm: [444.375, 444.375]
+    action_safe_lateral_width_minimum_mm: 444.375
+    outer_abstain_ring_px: 64
+    intervention_footprint_mm: null
+    exact_installed_optical_clearance_mm: null
+  no_intrusion_envelopes:
+    - envelope_id: installed_calibrated_ray_cone
+      owner: sensor_optics
+      state: PHYSICAL_MEASUREMENT_REQUIRED
+      exact_installed_shape_mm: null
+      prohibited_intruders: [hood_wall, skirt, baffle, emitter, diffuser, window_frame, cable, carrier_member, gauge_wheel]
+      authority: rig_acceptance_stage_C
+    - envelope_id: conservative_action_safe_ground_region
+      owner: integration_only
+      state: DETERMINISTIC_CALCULATION
+      plan_mm: [444.375, 444.375]
+      prohibited_intruders: [carrier_member, gauge_wheel, cable, intervention_structure]
+      authority: calculated_from_measured_minimum_FOV_and_64px_ring
+    - envelope_id: central_no_emitter_packaging_zone
+      owner: light_enclosure
+      state: TERMINAL_LANE_DECISION
+      minimum_diameter_mm: 120.0
+      prohibited_intruders: [emitter_face]
+      authority: light_enclosure_survey
+  claim_limit: >-
+    Schematic envelopes do not prove installed non-occlusion. Stage C owns the
+    physical ray-cone, window, FOV and clearance evidence.
+
+interface_contract:
+  - interface_id: host_structure_to_carrier
+    owner: host_owner
+    counterparty: platform_carrier
+    state: HOST_UNRESOLVED
+    value: null
+    no_fire_on_invalid: true
+    claim_limit: exact_host_hitch_lift_moment_ballast_and_transport_ratings_absent
+  - interface_id: host_power_to_regulated_distribution
+    owner: host_owner
+    counterparty: safety_acceptance
+    state: HOST_UNRESOLVED
+    value: null
+    no_fire_on_invalid: true
+    claim_limit: measured_steady_transient_conversion_drop_and_brownout_evidence_absent
+  - interface_id: carrier_to_removable_cassette
+    owner: platform_carrier
+    counterparty: integration_only
+    state: FROZEN_BASELINE
+    value: rigid_identified_seat_with_ground_follow_connection_and_hard_deployed_witness
+    no_fire_on_invalid: true
+    claim_limit: exact_host_specific_geometry_and_loads_unmeasured
+  - interface_id: trigger_to_camera_and_encoder_latch
+    owner: compute_capture
+    counterparty: platform_carrier
+    state: FROZEN_BASELINE
+    value: same_hardware_event
+    no_fire_on_invalid: true
+    claim_limit: physical_stage_B_timing_receipt_absent
+  - interface_id: camera_exposureactive_to_strobe
+    owner: light_enclosure
+    counterparty: sensor_optics
+    state: FROZEN_BASELINE
+    value: isolated_driver_four_channels_all_on_inside_global_exposure
+    no_fire_on_invalid: true
+    claim_limit: exact_installed_strobe_profile_open_bench_variable
+  - interface_id: camera_to_compute_data
+    owner: compute_capture
+    counterparty: sensor_optics
+    state: FROZEN_BASELINE
+    value: dedicated_USB3_root_locking_cable_maximum_3m_one_camera_15Hz
+    no_fire_on_invalid: true
+    claim_limit: measured_compute_is_proxy_not_end_to_end_physical_PASS
+  - interface_id: camera_to_intervention_mount
+    owner: integration_only
+    counterparty: intervention_external
+    state: OPEN_BENCH_VARIABLE
+    value: null
+    no_fire_on_invalid: true
+    claim_limit: rigid_datum_exists_but_signed_offset_hardware_and_footprint_are_unmeasured
+  - interface_id: safety_to_strobe_and_intervention_enable
+    owner: safety_acceptance
+    counterparty: intervention_external
+    state: FROZEN_BASELINE
+    value: default_no_fire_chemical_enable_verified_disabled
+    no_fire_on_invalid: true
+    claim_limit: integration_does_not_grant_controlled_capture_or_dry_marker_authority
+
+visual_contract:
+  schema_version: 1
+  fixed_viewbox: [0, 0, 1400, 900]
+  notice: NOT A FABRICATION DRAWING
+  views:
+    - view_id: exterior
+      filename: exterior.svg
+      title: Exterior carrier and one-bay proof architecture
+      required_annotation_ids: [host_unresolved, rear_three_point, removable_cassette, ground_follow, gauge_wheel, compute_tray, deployed_state, encoder, intervention_offset_unresolved]
+    - view_id: underside
+      filename: underside.svg
+      title: Underside optical and action geometry
+      required_annotation_ids: [hood_600, four_quadrants, fov_range, abstain_ring, safe_region_444_375, no_emitter_zone, no_intrusion, axis_permutation]
+    - view_id: optical_cross_section
+      filename: optical_cross_section.svg
+      title: Optical cross-section and capture interfaces
+      required_annotation_ids: [working_distance, test_planes, skirts, window, ray_cone, exposure_strobe, usb_compute, fail_closed, physical_stage_C_unmeasured]
+  deterministic_contract:
+    timestamps_forbidden: true
+    absolute_paths_forbidden: true
+    random_ids_forbidden: true
+    embed_config_and_architecture_sha256: true
+    required_final_newline: true
+
+acceptance_binding:
+  contract_source_id: rig_acceptance_contract
+  evaluator_source_id: rig_acceptance_evaluator
+  runbook_source_id: rig_acceptance_runbook
+  exact_contract_sha256: a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c
+  canonical_policy_sha256: c05ae3837d98f313c32e81178045a9fef39965199c276ec06e9d01195e88ff21
+  evaluator_sha256: 596c6db31e6ce90f06b1019657e58631415f1b90fdeeb9fdbd917b4ab461fda2
+  controlled_capture_target:
+    required_stages: [A_procurement_and_identity, B_transport_trigger_and_thermal, C_optics_and_window, D_light_hood_and_polarization, E_motion_tracking_and_compute]
+    physical_bench_evidence_required: true
+    current_authorized: false
+  dry_marker_target:
+    required_stages: [A_procurement_and_identity, B_transport_trigger_and_thermal, C_optics_and_window, D_light_hood_and_polarization, E_motion_tracking_and_compute, F_registration_and_safe_actuation]
+    physical_bench_evidence_required: true
+    current_ready: false
+  chemical_target:
+    allowed: false
+    blocker: deposition_and_crop_injury_thresholds_unsupported_and_unmeasured
+  integration_evaluates_physical_receipts: false
+  integration_can_override_rig_evaluator: false
+
+fail_safe_interfaces:
+  - fault_id: estop
+    owner: safety_acceptance
+    scope: whole_carrier
+    immediate_action: hard_cut_strobe_and_intervention_enable
+    pending_command_action: discard_all
+    recovery: explicit_clear_plus_new_startup_identity_witness
+  - fault_id: watchdog
+    owner: safety_acceptance
+    scope: controlled_scope
+    immediate_action: no_fire
+    pending_command_action: discard_all_in_scope
+    recovery: healthy_watchdog_plus_new_startup_identity_witness
+  - fault_id: hood_open
+    owner: light_enclosure
+    scope: affected_bay
+    immediate_action: inhibit_strobe_and_no_fire
+    pending_command_action: discard_affected_bay
+    recovery: hood_closed_interlock_valid_plus_new_light_witness
+  - fault_id: overtemperature
+    owner: light_enclosure
+    scope: affected_bay
+    immediate_action: inhibit_strobe_and_no_fire
+    pending_command_action: discard_affected_bay
+    recovery: temperature_valid_plus_explicit_fault_clear_and_new_witness
+  - fault_id: invalid_timestamp
+    owner: compute_capture
+    scope: affected_frame
+    immediate_action: no_fire
+    pending_command_action: discard_affected_frame_and_track_command
+    recovery: new_same_event_timestamp_witness
+  - fault_id: stale_encoder
+    owner: platform_carrier
+    scope: affected_carrier
+    immediate_action: no_fire
+    pending_command_action: discard_all_scheduled_commands
+    recovery: valid_signed_encoder_and_scale_witness
+  - fault_id: frame_drop
+    owner: compute_capture
+    scope: affected_frame_and_bay
+    immediate_action: no_fire
+    pending_command_action: discard_affected_frame_and_track_command
+    recovery: next_complete_identity_bound_frame_only
+  - fault_id: deadline_miss
+    owner: compute_capture
+    scope: affected_frame_and_bay
+    immediate_action: no_fire
+    pending_command_action: discard_late_result
+    recovery: next_result_inside_frozen_deadline_only
+  - fault_id: calibration_invalid
+    owner: safety_acceptance
+    scope: affected_bay
+    immediate_action: no_fire
+    pending_command_action: discard_affected_bay
+    recovery: matching_calibration_identity_and_required_retest
+  - fault_id: profile_mismatch
+    owner: light_enclosure
+    scope: affected_frame_and_profile
+    immediate_action: inhibit_strobe_and_no_fire
+    pending_command_action: discard_affected_profile_commands
+    recovery: matching_capture_strobe_bench_profiles_plus_new_witness
+  - fault_id: malformed_strobe
+    owner: light_enclosure
+    scope: affected_frame_and_profile
+    immediate_action: inhibit_strobe_and_no_fire
+    pending_command_action: discard_affected_profile_commands
+    recovery: valid_timing_path_plus_applicable_stage_retest
+  - fault_id: partial_light_channel_failure
+    owner: light_enclosure
+    scope: affected_frame_and_bay
+    immediate_action: inhibit_strobe_and_no_fire
+    pending_command_action: discard_affected_bay
+    recovery: all_four_channels_observed_plus_new_witness
+  - fault_id: invalid_deployed_state
+    owner: platform_carrier
+    scope: affected_carrier_or_section
+    immediate_action: no_fire
+    pending_command_action: discard_all_in_scope
+    recovery: hard_seated_deployed_identity_valid
+  - fault_id: lift_or_transport_state
+    owner: platform_carrier
+    scope: affected_carrier
+    immediate_action: no_fire
+    pending_command_action: discard_all
+    recovery: operating_state_and_transport_lock_release_valid
+  - fault_id: reverse_or_ambiguous_direction
+    owner: platform_carrier
+    scope: affected_carrier
+    immediate_action: no_fire
+    pending_command_action: discard_all_scheduled_commands
+    recovery: signed_forward_direction_witness
+  - fault_id: brownout_or_reboot
+    owner: safety_acceptance
+    scope: whole_carrier
+    immediate_action: hard_cut_strobe_and_intervention_enable
+    pending_command_action: discard_all
+    recovery: power_valid_plus_explicit_clean_startup_witness
+
+bom_contract:
+  currency: USD
+  price_evidence_date: "2026-08-11"
+  contingency_fraction: 0.15
+  cost_evidence_classes:
+    - PUBLIC_PRICE_NOT_LANDED_QUOTE
+    - BUDGETARY_ALLOWANCE
+    - FABRICATED_BUDGETARY_ALLOWANCE
+    - EXISTING_ASSET_INCREMENTAL_ACQUISITION_ONLY
+    - ENGINEERING_SCREEN_NOT_QUOTE
+    - UNRESOLVED_REQUIRED_COST
+  module_subtotal_golden_usd: [3115.0, 6545.0]
+  module_with_contingency_golden_usd: [3582.25, 7526.75]
+  rear_carrier_engineering_screen_usd: [4300.0, 14000.0]
+  bounded_proof_plus_carrier_screen_golden_usd: [7882.25, 21526.75]
+  integrated_total_required_item_ids:
+    - exact_rear_carrier_cost
+    - exact_host_incremental_cost
+    - compute_opportunity_cost
+    - intervention_external_cost
+    - physical_acceptance_execution_cost
+  pending_double_count_reconciliation_groups:
+    - host_integration_shared_pending_reconciliation
+  benefit_credits_forbidden:
+    - chemical_saving
+    - yield_gain
+    - labor_saving
+    - acreage_claim
+    - autonomy_saving
+  items:
+    - bom_item_id: camera_a2A2464_77ucPRO
+      owner: sensor_optics
+      cost_scope: proof_module_core
+      description: Basler_a2A2464_77ucPRO_camera
+      quantity: 1.0
+      unit: each
+      minimum_cost: 709.0
+      maximum_cost: 709.0
+      evidence_class: PUBLIC_PRICE_NOT_LANDED_QUOTE
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: true
+      included_in_integrated_total: true
+      unknown_reason: null
+      double_count_group: camera_body
+    - bom_item_id: lens_C23_0824_5M_P
+      owner: sensor_optics
+      cost_scope: proof_module_core
+      description: Basler_C23_0824_5M_P_lens
+      quantity: 1.0
+      unit: each
+      minimum_cost: 136.0
+      maximum_cost: 136.0
+      evidence_class: PUBLIC_PRICE_NOT_LANDED_QUOTE
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: true
+      included_in_integrated_total: true
+      unknown_reason: null
+      double_count_group: camera_lens
+    - bom_item_id: locking_USB3_IO_and_isolated_trigger_cables
+      owner: compute_capture
+      cost_scope: proof_module_core
+      description: locking_USB3_IO_and_isolated_trigger_cables
+      quantity: 1.0
+      unit: allowance
+      minimum_cost: 120.0
+      maximum_cost: 250.0
+      evidence_class: BUDGETARY_ALLOWANCE
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: true
+      included_in_integrated_total: true
+      unknown_reason: null
+      double_count_group: camera_transport_cables
+    - bom_item_id: diffuse_LED_quadrants_driver_and_diffusers
+      owner: light_enclosure
+      cost_scope: proof_module_core
+      description: diffuse_LED_quadrants_driver_and_diffusers_pending_bench
+      quantity: 1.0
+      unit: allowance
+      minimum_cost: 450.0
+      maximum_cost: 1200.0
+      evidence_class: BUDGETARY_ALLOWANCE
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: true
+      included_in_integrated_total: true
+      unknown_reason: null
+      double_count_group: light_subsystem
+    - bom_item_id: matte_hood_skirt_window_mount
+      owner: light_enclosure
+      cost_scope: proof_module_core
+      description: matte_hood_skirt_window_mount
+      quantity: 1.0
+      unit: allowance
+      minimum_cost: 400.0
+      maximum_cost: 1000.0
+      evidence_class: FABRICATED_BUDGETARY_ALLOWANCE
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: true
+      included_in_integrated_total: true
+      unknown_reason: null
+      double_count_group: enclosure_subsystem
+    - bom_item_id: encoder_real_time_trigger_controller_and_IO
+      owner: integration_only
+      cost_scope: proof_module_core
+      description: encoder_real_time_trigger_controller_and_IO_shared_interface_allowance
+      quantity: 1.0
+      unit: allowance
+      minimum_cost: 350.0
+      maximum_cost: 900.0
+      evidence_class: BUDGETARY_ALLOWANCE
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: true
+      included_in_integrated_total: true
+      unknown_reason: null
+      double_count_group: realtime_control_interface
+    - bom_item_id: SELV_power_safety_and_thermal_instrumentation
+      owner: safety_acceptance
+      cost_scope: proof_module_core
+      description: SELV_power_safety_and_thermal_instrumentation
+      quantity: 1.0
+      unit: allowance
+      minimum_cost: 300.0
+      maximum_cost: 750.0
+      evidence_class: BUDGETARY_ALLOWANCE
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: true
+      included_in_integrated_total: true
+      unknown_reason: null
+      double_count_group: safety_instrumentation
+    - bom_item_id: calibration_targets_and_motion_fixture
+      owner: integration_only
+      cost_scope: proof_module_core
+      description: calibration_targets_and_motion_fixture
+      quantity: 1.0
+      unit: allowance
+      minimum_cost: 150.0
+      maximum_cost: 400.0
+      evidence_class: BUDGETARY_ALLOWANCE
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: true
+      included_in_integrated_total: true
+      unknown_reason: null
+      double_count_group: calibration_fixture
+    - bom_item_id: host_integration_cooling_and_dedicated_USB_controller
+      owner: integration_only
+      cost_scope: proof_module_core
+      description: V2_combined_host_integration_cooling_and_USB_allowance
+      quantity: 1.0
+      unit: allowance
+      minimum_cost: 500.0
+      maximum_cost: 1200.0
+      evidence_class: BUDGETARY_ALLOWANCE
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: true
+      included_in_integrated_total: false
+      unknown_reason: null
+      double_count_group: host_integration_shared_pending_reconciliation
+    - bom_item_id: existing_RTX3090_incremental_acquisition
+      owner: compute_capture
+      cost_scope: compute_existing_asset
+      description: existing_RTX3090_reused_incremental_acquisition_only
+      quantity: 1.0
+      unit: existing_asset
+      minimum_cost: 0.0
+      maximum_cost: 0.0
+      evidence_class: EXISTING_ASSET_INCREMENTAL_ACQUISITION_ONLY
+      source_id: capture_optimization_contract
+      price_checked_on: "2026-08-11"
+      included_in_module_total: false
+      included_in_integrated_total: true
+      unknown_reason: null
+      double_count_group: accelerator_acquisition
+    - bom_item_id: rear_carrier_structure_engineering_screen
+      owner: platform_carrier
+      cost_scope: carrier_engineering_screen
+      description: rear_three_point_carrier_structure_screen_not_quote
+      quantity: 1.0
+      unit: screen
+      minimum_cost: 4300.0
+      maximum_cost: 14000.0
+      evidence_class: ENGINEERING_SCREEN_NOT_QUOTE
+      source_id: platform_product_survey
+      price_checked_on: "2026-08-14"
+      included_in_module_total: false
+      included_in_integrated_total: false
+      unknown_reason: null
+      double_count_group: carrier_screen_not_exact_cost
+    - bom_item_id: exact_rear_carrier_cost
+      owner: platform_carrier
+      cost_scope: carrier_increment
+      description: exact_host_specific_rear_carrier_quote
+      quantity: 1.0
+      unit: assembly
+      minimum_cost: null
+      maximum_cost: null
+      evidence_class: UNRESOLVED_REQUIRED_COST
+      source_id: platform_product_survey
+      price_checked_on: null
+      included_in_module_total: false
+      included_in_integrated_total: true
+      unknown_reason: exact_host_material_mass_fabrication_and_quote_absent
+      double_count_group: host_integration_shared_pending_reconciliation
+    - bom_item_id: exact_host_incremental_cost
+      owner: host_owner
+      cost_scope: host_increment
+      description: exact_owned_rented_or_acquired_host_increment
+      quantity: 1.0
+      unit: host
+      minimum_cost: null
+      maximum_cost: null
+      evidence_class: UNRESOLVED_REQUIRED_COST
+      source_id: platform_product_survey
+      price_checked_on: null
+      included_in_module_total: false
+      included_in_integrated_total: true
+      unknown_reason: exact_host_inventory_and_ownership_scenario_absent
+      double_count_group: exact_host_increment
+    - bom_item_id: compute_opportunity_cost
+      owner: compute_capture
+      cost_scope: compute_existing_asset
+      description: existing_compute_opportunity_and_whole_system_integration_cost
+      quantity: 1.0
+      unit: system
+      minimum_cost: null
+      maximum_cost: null
+      evidence_class: UNRESOLVED_REQUIRED_COST
+      source_id: platform_product_survey
+      price_checked_on: null
+      included_in_module_total: false
+      included_in_integrated_total: true
+      unknown_reason: reuse_does_not_prove_zero_opportunity_or_integration_cost
+      double_count_group: compute_opportunity
+    - bom_item_id: intervention_external_cost
+      owner: intervention_external
+      cost_scope: intervention_external
+      description: nozzle_valve_pressure_tank_and_nonchemical_dry_output_path
+      quantity: 1.0
+      unit: external_scope
+      minimum_cost: null
+      maximum_cost: null
+      evidence_class: UNRESOLVED_REQUIRED_COST
+      source_id: platform_product_survey
+      price_checked_on: null
+      included_in_module_total: false
+      included_in_integrated_total: true
+      unknown_reason: intervention_lane_has_not_selected_or_quoted_hardware
+      double_count_group: intervention_external
+    - bom_item_id: physical_acceptance_execution_cost
+      owner: safety_acceptance
+      cost_scope: measurement_and_calibration
+      description: exact_A_to_E_facility_labor_instrument_and_execution_cost
+      quantity: 1.0
+      unit: campaign
+      minimum_cost: null
+      maximum_cost: null
+      evidence_class: UNRESOLVED_REQUIRED_COST
+      source_id: rig_acceptance_runbook
+      price_checked_on: null
+      included_in_module_total: false
+      included_in_integrated_total: true
+      unknown_reason: facility_labor_and_instrument_availability_not_quoted
+      double_count_group: physical_acceptance_execution
+
+calculation_inputs:
+  fov_samples_mm: [474.0, 480.0, 484.0]
+  target_sizes_mm: [10.0, 20.0]
+  speeds_m_s: [0.5, 1.0]
+  exposure_us: 170.0
+  roi_width_px: 2048
+  roi_height_px: 2048
+  pixel_pitch_um: 3.45
+  outer_abstain_ring_px: 64
+  transport_bit_depths: [10, 12]
+  transport_rates_hz: [15.0, 20.0]
+  transport_headroom_fraction: 0.20
+  throughput_safe_width_basis: conservative_minimum
+  mechanical_payload_model:
+    gravity_m_s2: 9.80665
+    datum: carrier_mount_datum
+    components:
+      - component_id: hood_light_optics_structure
+        owner: light_enclosure
+        source_id: light_enclosure_survey
+        evidence_class: NO_EVIDENCE_NULL
+        required_for_payload: true
+        mass_kg: null
+        signed_distance_from_carrier_datum_mm: null
+      - component_id: cassette_frame
+        owner: platform_carrier
+        source_id: platform_product_survey
+        evidence_class: NO_EVIDENCE_NULL
+        required_for_payload: true
+        mass_kg: null
+        signed_distance_from_carrier_datum_mm: null
+      - component_id: ground_following_mechanism
+        owner: platform_carrier
+        source_id: platform_product_survey
+        evidence_class: NO_EVIDENCE_NULL
+        required_for_payload: true
+        mass_kg: null
+        signed_distance_from_carrier_datum_mm: null
+      - component_id: gauge_wheel
+        owner: platform_carrier
+        source_id: platform_product_survey
+        evidence_class: NO_EVIDENCE_NULL
+        required_for_payload: true
+        mass_kg: null
+        signed_distance_from_carrier_datum_mm: null
+      - component_id: compute_tray_and_compute
+        owner: compute_capture
+        source_id: platform_product_survey
+        evidence_class: NO_EVIDENCE_NULL
+        required_for_payload: true
+        mass_kg: null
+        signed_distance_from_carrier_datum_mm: null
+      - component_id: enclosure_electronics
+        owner: light_enclosure
+        source_id: light_enclosure_survey
+        evidence_class: NO_EVIDENCE_NULL
+        required_for_payload: true
+        mass_kg: null
+        signed_distance_from_carrier_datum_mm: null
+      - component_id: cables_and_safety_equipment
+        owner: safety_acceptance
+        source_id: platform_product_survey
+        evidence_class: NO_EVIDENCE_NULL
+        required_for_payload: true
+        mass_kg: null
+        signed_distance_from_carrier_datum_mm: null
+      - component_id: intervention_placeholder
+        owner: intervention_external
+        source_id: platform_product_survey
+        evidence_class: NO_EVIDENCE_NULL
+        required_for_payload: true
+        mass_kg: null
+        signed_distance_from_carrier_datum_mm: null
+  power_aggregation_model:
+    continuous_required_fields:
+      - capture_module_average_maximum_w_excluding_compute
+      - whole_compute_system_measured_w
+      - conversion_distribution_continuous_loss_w
+    transient_required_fields:
+      - capture_module_transient_measured_w
+      - whole_compute_system_transient_measured_w
+      - conversion_distribution_transient_loss_w
+    field_evidence_class:
+      light_branch_average_maximum_w: ACCEPTANCE_CEILING
+      capture_module_average_maximum_w_excluding_compute: ACCEPTANCE_CEILING
+      light_peak_electrical_ceiling_w_not_setpoint: REFERENCE_CEILING_NOT_SETPOINT
+      gpu_reference_board_power_w_not_vehicle_draw: REFERENCE_ONLY_NOT_VEHICLE_DRAW
+      reference_system_psu_w_not_vehicle_draw: REFERENCE_ONLY_NOT_VEHICLE_DRAW
+      whole_compute_system_measured_w: NO_EVIDENCE_NULL
+      capture_module_transient_measured_w: NO_EVIDENCE_NULL
+      whole_compute_system_transient_measured_w: NO_EVIDENCE_NULL
+      conversion_distribution_continuous_loss_w: NO_EVIDENCE_NULL
+      conversion_distribution_transient_loss_w: NO_EVIDENCE_NULL
+    null_rule: any_missing_required_power_input_propagates_null
+    claim_limit: calculated_load_is_not_measured_vehicle_input_or_host_qualification
+
+golden_calculations:
+  active_sensor_span_mm: 7.0656
+  gsd_mm_px:
+    "474": 0.2314453125
+    "480": 0.234375
+    "484": 0.236328125
+  target_pixels_nominal_480mm:
+    "10": 42.666666666666664
+    "20": 85.33333333333333
+  safe_fraction: 0.9375
+  safe_width_mm:
+    "474": 444.375
+    "480": 450.0
+    "484": 453.75
+  smear_mm:
+    "0.5": 0.085
+    "1.0": 0.17
+  blur_px_at_1m_s:
+    "474": 0.7345147679324894
+    "480": 0.7253333333333334
+    "484": 0.7193388429752067
+  raw_payload_mbit_s:
+    bayer10_15hz: 629.1456
+    bayer10_20hz: 838.8608
+    bayer12_15hz: 754.97472
+    bayer12_20hz: 1006.63296
+  payload_with_20pct_headroom_mbit_s:
+    bayer10_15hz: 754.97472
+    bayer10_20hz: 1006.63296
+    bayer12_15hz: 905.969664
+    bayer12_20hz: 1207.959552
+  gross_geometric_throughput_ha_h:
+    "0.5": 0.0799875
+    "1.0": 0.159975
+  skirt_rail_height_range_mm: [100.0, 170.0]
+  frame_period_ms_at_15hz: 66.66666666666667
+  inactive_two_bay_safe_swath_at_max_pitch_mm: 874.375
+  inactive_two_bay_continuous_hood_width_at_max_pitch_mm: 1030.0
+  numeric_tolerance_absolute: 1.0e-9
+
+decision_items:
+  - item_id: action_camera
+    owner: sensor_optics
+    category: sensor
+    decision_state: FROZEN_BASELINE
+    value: a2A2464-77ucPRO
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: sensor_optics_survey
+    source_locator: section_19_terminal_survey_decision
+    rationale: retained_fail_closed_RGB_control
+    dependency_ids: []
+    resolution_trigger: null
+    resolution_rule: owning_sensor_lane_only
+    invalidation_scope: [geometry, compute, enclosure, acceptance]
+    claim_limit: proof_control_not_production_camera
+  - item_id: action_lens
+    owner: sensor_optics
+    category: optics
+    decision_state: FROZEN_BASELINE
+    value: C23-0824-5M-P
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: sensor_optics_survey
+    source_locator: section_19_terminal_survey_decision
+    rationale: source_locked_matched_visible_lens
+    dependency_ids: [action_camera]
+    resolution_trigger: null
+    resolution_rule: owning_sensor_lane_only
+    invalidation_scope: [geometry, enclosure, acceptance]
+    claim_limit: installed_stage_C_still_unmeasured
+  - item_id: visible_rgb_modality
+    owner: sensor_optics
+    category: modality
+    decision_state: FROZEN_BASELINE
+    value: visible_RGB_with_factory_IR_cut
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: sensor_optics_survey
+    source_locator: section_27_final_freeze
+    rationale: no_challenger_closed_all_decisive_gates
+    dependency_ids: [action_camera]
+    resolution_trigger: null
+    resolution_rule: terminal_sensor_trigger_ledger
+    invalidation_scope: [sensor, light, compute, acceptance]
+    claim_limit: no_claim_of_modal_optimality_after_physical_failure
+  - item_id: alternative_modalities
+    owner: sensor_optics
+    category: modality
+    decision_state: CHALLENGER_CLOSED_NOT_TRIGGERED
+    value: [visible_mono, RGB_plus_NIR, multispectral, RGB_plus_thermal, RGB_plus_depth]
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: sensor_optics_survey
+    source_locator: sections_20_to_23
+    rationale: triggers_or_hard_gates_open
+    dependency_ids: [visible_rgb_modality]
+    resolution_trigger: terminal_sensor_failure_attribution_trigger
+    resolution_rule: owning_sensor_lane_bounded_AB_only
+    invalidation_scope: [sensor, light, compute, enclosure, acceptance]
+    claim_limit: integration_cannot_promote_a_challenger
+  - item_id: light_architecture
+    owner: light_enclosure
+    category: illumination
+    decision_state: FROZEN_BASELINE
+    value: four_cardinal_diffuse_visible_white_quadrants_simultaneous_all_on
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: light_enclosure_survey
+    source_locator: section_17_1_selected_proof_hypothesis
+    rationale: smallest_sensor_preserving_measurable_proof_bay
+    dependency_ids: [visible_rgb_modality]
+    resolution_trigger: null
+    resolution_rule: terminal_light_lane_only
+    invalidation_scope: [light, enclosure, power, acceptance]
+    claim_limit: frozen_for_test_not_physically_passing
+  - item_id: installed_light_profile
+    owner: light_enclosure
+    category: illumination
+    decision_state: OPEN_BENCH_VARIABLE
+    value: null
+    unit: null
+    evidence_class: NO_EVIDENCE_NULL
+    source_id: light_enclosure_survey
+    source_locator: sections_7_to_9
+    rationale: exact_LED_diffuser_current_geometry_and_thermal_path_unmeasured
+    dependency_ids: [light_architecture]
+    resolution_trigger: installed_D0_to_D9_candidate_sequence
+    resolution_rule: first_eligible_exact_profile_passing_all_absolute_gates
+    invalidation_scope: [light, power, thermal, acceptance]
+    claim_limit: catalogue_values_do_not_populate_physical_fields
+  - item_id: cross_polarization
+    owner: light_enclosure
+    category: illumination
+    decision_state: CHALLENGER_CLOSED_NOT_TRIGGERED
+    value: false
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: light_enclosure_survey
+    source_locator: challenger_C06
+    rationale: baseline_polarization_off
+    dependency_ids: [installed_light_profile]
+    resolution_trigger: paired_wet_leaf_and_soil_glare_failure
+    resolution_rule: promote_only_with_50pct_glare_reduction_and_all_other_gates_pass
+    invalidation_scope: [light, optics, power, acceptance]
+    claim_limit: no_preference_based_enable
+  - item_id: hood_architecture
+    owner: light_enclosure
+    category: enclosure
+    decision_state: FROZEN_BASELINE
+    value: minimum_600x600mm_internal_plan_dual_skirt_labyrinth_tilted_window
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: light_enclosure_survey
+    source_locator: sections_5_and_17
+    rationale: bounded_external_light_rejection_proof_volume
+    dependency_ids: [light_architecture, action_camera]
+    resolution_trigger: null
+    resolution_rule: terminal_light_lane_only
+    invalidation_scope: [optics, light, thermal, acceptance]
+    claim_limit: functional_proof_enclosure_not_certified_ingress
+  - item_id: cooling_topology
+    owner: light_enclosure
+    category: thermal
+    decision_state: FROZEN_BASELINE
+    value: passive_sealed_to_external_heatsink
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: light_enclosure_survey
+    source_locator: section_5_7
+    rationale: baseline_has_no_optical_volume_airflow
+    dependency_ids: [hood_architecture]
+    resolution_trigger: null
+    resolution_rule: larger_passive_sink_before_external_fan_challenger
+    invalidation_scope: [thermal, power, acceptance]
+    claim_limit: exact_sink_and_TIM_remain_unmeasured
+  - item_id: external_heatsink_fan
+    owner: light_enclosure
+    category: thermal
+    decision_state: CHALLENGER_CLOSED_NOT_TRIGGERED
+    value: false
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: light_enclosure_survey
+    source_locator: challenger_C05
+    rationale: passive_baseline_not_yet_failed
+    dependency_ids: [cooling_topology]
+    resolution_trigger: larger_passive_sink_fails_exact_thermal_gate
+    resolution_rule: authority_replanned_single_external_fan_challenger
+    invalidation_scope: [thermal, power, acceptance]
+    claim_limit: fan_cannot_exchange_air_with_optical_volume
+  - item_id: proof_carrier_topology
+    owner: platform_carrier
+    category: platform
+    decision_state: FROZEN_BASELINE
+    value: manual_tractor_rear_three_point_rigid_toolbar
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: platform_product_survey
+    source_locator: section_1_proof_baseline
+    rationale: smallest_reversible_carrier_for_one_bay_proof
+    dependency_ids: [hood_architecture]
+    resolution_trigger: null
+    resolution_rule: terminal_platform_lane_only
+    invalidation_scope: [carrier, registration, power, acceptance]
+    claim_limit: architecture_selected_host_pending
+  - item_id: exact_rear_host
+    owner: host_owner
+    category: platform
+    decision_state: HOST_UNRESOLVED
+    value: null
+    unit: null
+    evidence_class: NO_EVIDENCE_NULL
+    source_id: platform_product_survey
+    source_locator: section_13_exact_host_intake
+    rationale: exact_tractor_inventory_and_structural_power_geometry_evidence_absent
+    dependency_ids: [proof_carrier_topology]
+    resolution_trigger: exact_host_intake_complete
+    resolution_rule: pass_all_structural_geometry_speed_power_cable_and_safety_hard_gates
+    invalidation_scope: [host, carrier, power, registration, acceptance]
+    claim_limit: no_build_authority_without_exact_host
+  - item_id: front_three_point_challenger
+    owner: platform_carrier
+    category: platform
+    decision_state: CHALLENGER_CLOSED_NOT_TRIGGERED
+    value: front_three_point_proof
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: platform_product_survey
+    source_locator: section_14_challenger_triggers
+    rationale: rear_proof_is_current_baseline
+    dependency_ids: [exact_rear_host]
+    resolution_trigger: exact_rear_host_capacity_or_lane_geometry_failure
+    resolution_rule: open_one_front_candidate_with_same_frozen_bay
+    invalidation_scope: [carrier, power, registration, acceptance]
+    claim_limit: preference_or_catalogue_speed_is_not_a_trigger
+  - item_id: scale_carrier
+    owner: platform_carrier
+    category: platform
+    decision_state: OUT_OF_SCOPE
+    value: qualified_existing_boom_else_dedicated_trailed_modular_carrier
+    unit: null
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: platform_product_survey
+    source_locator: section_1_scale_up_baseline
+    rationale: one_bay_proof_precedes_scale
+    dependency_ids: [proof_carrier_topology]
+    resolution_trigger: physical_A_to_E_and_independent_multi_bay_compute_evidence
+    resolution_rule: exact_host_gate_then_TCO_tie_break
+    invalidation_scope: [multi_bay, compute, carrier, acceptance]
+    claim_limit: not_current_one_bay_capability
+  - item_id: one_camera_15hz_compute
+    owner: compute_capture
+    category: compute
+    decision_state: FROZEN_BASELINE
+    value: one_RTX3090_lane_one_camera_15Hz
+    unit: null
+    evidence_class: FROZEN_REPOSITORY_CONTRACT
+    source_id: halo_compute_summary
+    source_locator: timing_by_batch_size_4
+    rationale: only_current_supported_compute_baseline
+    dependency_ids: [action_camera]
+    resolution_trigger: null
+    resolution_rule: new_hash_bound_end_to_end_benchmark_only
+    invalidation_scope: [compute, power, acceptance]
+    claim_limit: compute_proxy_excludes_acquisition_tracking_and_actuation
+  - item_id: rate_20hz
+    owner: compute_capture
+    category: compute
+    decision_state: CHALLENGER_CLOSED_NOT_TRIGGERED
+    value: 20.0
+    unit: Hz
+    evidence_class: FROZEN_REPOSITORY_CONTRACT
+    source_id: product_imaging_contract
+    source_locator: challengers_rate_20_hz
+    rationale: current_compute_envelope_does_not_qualify_20Hz
+    dependency_ids: [one_camera_15hz_compute]
+    resolution_trigger: 15Hz_physical_A_to_E_pass_then_new_end_to_end_benchmark
+    resolution_rule: p95_at_most_50ms_zero_miss_zero_drop
+    invalidation_scope: [compute, power, acceptance]
+    claim_limit: transport_capacity_is_not_end_to_end_support
+  - item_id: second_camera
+    owner: compute_capture
+    category: compute
+    decision_state: CHALLENGER_CLOSED_NOT_TRIGGERED
+    value: 2
+    unit: camera_count
+    evidence_class: TERMINAL_LANE_DECISION
+    source_id: platform_product_survey
+    source_locator: section_5_compute_scale_boundary
+    rationale: current_halo_proxy_does_not_qualify_two_cameras
+    dependency_ids: [one_camera_15hz_compute]
+    resolution_trigger: product_swath_need_plus_single_bay_A_to_E_plus_independent_compute
+    resolution_rule: separate_compute_lane_or_new_multi_camera_end_to_end_benchmark
+    invalidation_scope: [multi_bay, compute, power, enclosure, acceptance]
+    claim_limit: camera_purchase_does_not_open_capability
+  - item_id: whole_compute_system_power
+    owner: compute_capture
+    category: power
+    decision_state: OPEN_BENCH_VARIABLE
+    value: null
+    unit: W
+    evidence_class: NO_EVIDENCE_NULL
+    source_id: platform_product_survey
+    source_locator: section_5_compute_power_boundary
+    rationale: board_power_and_PSU_nameplate_are_not_vehicle_draw
+    dependency_ids: [one_camera_15hz_compute]
+    resolution_trigger: exact_installed_compute_power_measurement
+    resolution_rule: measure_steady_transient_startup_and_brownout_at_15Hz
+    invalidation_scope: [power, host, acceptance]
+    claim_limit: 60W_plus_350W_must_not_be_used_as_host_requirement
+  - item_id: cassette_mass
+    owner: platform_carrier
+    category: mechanical
+    decision_state: OPEN_BENCH_VARIABLE
+    value: null
+    unit: kg
+    evidence_class: NO_EVIDENCE_NULL
+    source_id: platform_product_survey
+    source_locator: section_13_exact_host_intake
+    rationale: assembled_cassette_not_weighed
+    dependency_ids: [proof_carrier_topology]
+    resolution_trigger: exact_assembly_mass_measurement
+    resolution_rule: weigh_each_required_subassembly_with_uncertainty
+    invalidation_scope: [carrier, host, transport, acceptance]
+    claim_limit: null_mass_propagates_to_null_payload_and_moment
+  - item_id: cassette_center_of_gravity
+    owner: platform_carrier
+    category: mechanical
+    decision_state: OPEN_BENCH_VARIABLE
+    value: null
+    unit: mm_from_carrier_datum
+    evidence_class: NO_EVIDENCE_NULL
+    source_id: platform_product_survey
+    source_locator: section_13_exact_host_intake
+    rationale: installed_CG_not_measured
+    dependency_ids: [cassette_mass]
+    resolution_trigger: exact_assembly_CG_measurement
+    resolution_rule: measure_signed_CG_relative_to_declared_carrier_datum
+    invalidation_scope: [carrier, host, transport, acceptance]
+    claim_limit: hitch_capacity_alone_cannot_close_structural_gate
+  - item_id: camera_to_intervention_offset
+    owner: intervention_external
+    category: registration
+    decision_state: OPEN_BENCH_VARIABLE
+    value: null
+    unit: mm
+    evidence_class: NO_EVIDENCE_NULL
+    source_id: rig_acceptance_contract
+    source_locator: stage_F_registration_and_safe_actuation
+    rationale: CAD_offset_is_forbidden
+    dependency_ids: [proof_carrier_topology]
+    resolution_trigger: physical_stage_F_measurement
+    resolution_rule: populate_only_from_hash_bound_physical_registration_receipt
+    invalidation_scope: [registration, scheduling, dry_marker]
+    claim_limit: datum_exists_but_offset_and_valve_latency_are_unmeasured
+  - item_id: controlled_capture_authority
+    owner: safety_acceptance
+    category: authority
+    decision_state: UNSUPPORTED
+    value: false
+    unit: null
+    evidence_class: FROZEN_REPOSITORY_CONTRACT
+    source_id: rig_acceptance_contract
+    source_locator: decision_policy
+    rationale: physical_A_to_E_receipt_absent
+    dependency_ids: [action_camera, light_architecture, one_camera_15hz_compute]
+    resolution_trigger: physical_A_to_E_hash_bound_receipt
+    resolution_rule: existing_rig_evaluator_only
+    invalidation_scope: [capture_authority]
+    claim_limit: integration_cannot_evaluate_or_promote_physical_status
+  - item_id: dry_marker_authority
+    owner: safety_acceptance
+    category: authority
+    decision_state: UNSUPPORTED
+    value: false
+    unit: null
+    evidence_class: FROZEN_REPOSITORY_CONTRACT
+    source_id: rig_acceptance_contract
+    source_locator: decision_policy
+    rationale: physical_A_to_F_receipt_absent
+    dependency_ids: [controlled_capture_authority, camera_to_intervention_offset]
+    resolution_trigger: physical_A_to_F_hash_bound_receipt
+    resolution_rule: existing_rig_evaluator_only
+    invalidation_scope: [dry_marker_authority]
+    claim_limit: no_dry_marker_ready_claim
+  - item_id: chemical_enable
+    owner: safety_acceptance
+    category: authority
+    decision_state: UNSUPPORTED
+    value: false
+    unit: null
+    evidence_class: FROZEN_REPOSITORY_CONTRACT
+    source_id: rig_acceptance_contract
+    source_locator: decision_policy_chemical
+    rationale: deposition_and_crop_injury_thresholds_unsupported_and_unmeasured
+    dependency_ids: [dry_marker_authority]
+    resolution_trigger: new_separately_authorized_chemical_safety_scope
+    resolution_rule: full_replan_required
+    invalidation_scope: [chemical_authority]
+    claim_limit: remains_false_even_after_dry_marker_pass
+
+replan_triggers:
+  - sensor_lane_rejects_Basler_PRO_or_C23
+  - measured_safe_width_below_444p375mm
+  - 600x600mm_enclosure_cannot_package_frozen_optical_light_stack_without_occlusion
+  - no_bounded_light_profile_passes_existing_gates
+  - one_camera_15Hz_stage_E_failure
+  - required_speed_above_1m_s
+  - required_safe_swath_above_444p375mm
+  - action_service_class_below_20mm
+  - second_camera_or_multi_bay_becomes_required
+  - certified_ingress_washdown_dust_shock_or_vibration_required
+  - no_rear_or_triggered_front_host_preserves_the_frozen_bay
+  - exact_host_power_or_structure_cannot_support_measured_one_bay_assembly
+  - intervention_or_crop_safety_contract_changes_action_geometry
+  - acceptance_authority_changes_materially
+  - chemical_operation_enters_scope

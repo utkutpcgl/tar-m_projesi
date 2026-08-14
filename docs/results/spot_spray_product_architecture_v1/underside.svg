@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title-underside desc-underside" data-view-id="underside" data-config-sha256="09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd" data-architecture-sha256="609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634">
+  <title id="title-underside">Underside optical and action geometry</title>
+  <desc id="desc-underside">Source-bound schematic of the frozen one-bay proof architecture. It is pre-real, not physically accepted, and not a fabrication drawing.</desc>
+  <metadata>{&quot;architecture_sha256&quot;:&quot;609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634&quot;,&quot;config_sha256&quot;:&quot;09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd&quot;,&quot;contract_id&quot;:&quot;spot_spray_product_architecture_v1&quot;,&quot;source_integrity&quot;:&quot;PASS&quot;,&quot;view_id&quot;:&quot;underside&quot;}</metadata>
+  <defs>
+    <pattern id="minor-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" class="grid" fill="none"/></pattern>
+    <marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#087f6d"/></marker>
+    <marker id="flow-arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#bd2d2d"/></marker>
+    <marker id="dim-arrow" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,3.5 L7,0 L7,7 Z" fill="#8b3fd1"/></marker>
+    <style>.bg { fill: #f7fafc; }
+    .grid { stroke: #d9e3ec; stroke-width: 1; }
+    .panel { fill: #ffffff; stroke: #9fb2c4; stroke-width: 1.5; }
+    .ink { fill: none; stroke: #17324d; stroke-width: 3; }
+    .thin { fill: none; stroke: #48657e; stroke-width: 1.5; }
+    .muted { fill: none; stroke: #8498aa; stroke-width: 2; }
+    .dashed { stroke-dasharray: 9 7; }
+    .unresolved { fill: #fff8e6; stroke: #d28a00; stroke-width: 2.5; stroke-dasharray: 8 6; }
+    .selected { fill: #e8f5f2; stroke: #087f6d; stroke-width: 3; }
+    .safe { fill: #36b59b; fill-opacity: 0.18; stroke: #087f6d; stroke-width: 3; }
+    .optical { fill: #58a6ff; fill-opacity: 0.10; stroke: #1673bd; stroke-width: 2.5; }
+    .light { fill: #fff1a8; stroke: #c98b00; stroke-width: 2; }
+    .fault { fill: #fff0f0; stroke: #bd2d2d; stroke-width: 2; }
+    .disabled { fill: #f4f5f7; stroke: #6f7782; stroke-width: 2; }
+    .dimension { fill: none; stroke: #8b3fd1; stroke-width: 1.8; marker-start: url(#dim-arrow); marker-end: url(#dim-arrow); }
+    .flow { fill: none; stroke: #087f6d; stroke-width: 2.2; marker-end: url(#flow-arrow); }
+    .fault-flow { fill: none; stroke: #bd2d2d; stroke-width: 2.2; marker-end: url(#flow-arrow-red); }
+    text { font-family: Inter, 'DejaVu Sans', Arial, sans-serif; fill: #17324d; }
+    .title { font-size: 27px; font-weight: 700; letter-spacing: 0.2px; }
+    .subtitle { font-size: 13px; font-weight: 600; fill: #48657e; letter-spacing: 0.8px; }
+    .section { font-size: 18px; font-weight: 700; }
+    .label { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #48657e; }
+    .tiny { font-size: 10.5px; fill: #48657e; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; font-size: 10px; fill: #48657e; }
+    .chip { font-size: 11px; font-weight: 700; letter-spacing: 0.45px; }
+    .warning { fill: #a36300; font-weight: 700; }
+    .danger { fill: #a11e1e; font-weight: 700; }</style>
+  </defs>
+  <rect width="1400" height="900" class="bg"/>
+  <rect x="0" y="96" width="1400" height="714" fill="url(#minor-grid)" opacity="0.58"/>
+  <g id="header">
+    <text x="38" y="43" class="title">Underside optical and action geometry</text>
+    <text x="40" y="70" class="subtitle">ONE-BAY PROOF · ARCHITECTURE FROZEN · SOURCE INTEGRITY PASS</text>
+    <rect x="1008" y="24" width="112" height="28" rx="14" class="selected"/><text x="1064" y="43" text-anchor="middle" class="chip">ONE BAY</text>
+    <rect x="1132" y="24" width="116" height="28" rx="14" class="unresolved"/><text x="1190" y="43" text-anchor="middle" class="chip">HOST OPEN</text>
+    <rect x="1260" y="24" width="106" height="28" rx="14" class="fault"/><text x="1313" y="43" text-anchor="middle" class="chip">NO FIRE</text>
+    <text x="1365" y="70" text-anchor="end" class="small">physical: PRE_REAL_NOT_READY</text>
+  </g>
+
+  <g id="underside-main">
+    <rect x="35" y="118" width="735" height="664" rx="12" class="panel"/>
+    <text x="60" y="151" class="section">UNDERSIDE / GROUND-PLANE PROJECTION</text>
+    <text x="60" y="174" class="small">cassette frame: +X forward (up) · +Y vehicle right</text>
+    <g id="annotation-hood_600" data-annotation-id="hood_600">
+      <rect x="132.000" y="217.000" width="516.000" height="516.000" class="ink"/>
+      <text x="390.000" y="201.000" text-anchor="middle" class="label">minimum clear hood: 600×600 mm</text>
+      <rect x="175.000" y="260.000" width="430.000" height="430.000" class="muted dashed"/>
+      <text x="140.000" y="751.000" class="tiny">outer skirt rail</text>
+      <text x="183.000" y="714.000" class="tiny">inner rail nominal inset 50 mm</text>
+    </g>
+    <g id="annotation-four_quadrants" data-annotation-id="four_quadrants">
+      <g class="light"><rect x="335" y="285" width="110" height="74" rx="12"/><rect x="335" y="590" width="110" height="74" rx="12"/><rect x="166" y="438" width="110" height="74" rx="12"/><rect x="504" y="438" width="110" height="74" rx="12"/></g>
+      <text x="390" y="315" text-anchor="middle" class="label">Q_FRONT</text><text x="390" y="339" text-anchor="middle" class="small">diffuse white</text>
+      <text x="390" y="620" text-anchor="middle" class="label">Q_REAR</text><text x="390" y="644" text-anchor="middle" class="small">diffuse white</text>
+      <text x="221" y="470" text-anchor="middle" class="label">Q_LEFT</text><text x="221" y="494" text-anchor="middle" class="small">diffuse white</text>
+      <text x="559" y="470" text-anchor="middle" class="label">Q_RIGHT</text><text x="559" y="494" text-anchor="middle" class="small">diffuse white</text>
+    </g>
+    <g id="annotation-no_emitter_zone" data-annotation-id="no_emitter_zone">
+      <circle cx="390.000" cy="475.000" r="51.600" class="disabled"/>
+      <circle cx="390.000" cy="475.000" r="18" class="optical"/>
+      <line x1="363.000" y1="475.000" x2="417.000" y2="475.000" class="thin"/><line x1="390.000" y1="448.000" x2="390.000" y2="502.000" class="thin"/>
+      <text x="390.000" y="548.000" text-anchor="middle" class="small">central no-emitter zone ≥ Ø120 mm</text>
+      <text x="390.000" y="566.000" text-anchor="middle" class="tiny">camera optical axis / isolated window bay</text>
+    </g>
+    <g id="annotation-fov_range" data-annotation-id="fov_range">
+      <rect x="181.880" y="266.880" width="416.240" height="416.240" class="optical"/>
+      <rect x="186.180" y="271.180" width="407.640" height="407.640" class="thin dashed"/>
+    </g>
+    <g id="annotation-safe_region_444_375" data-annotation-id="safe_region_444_375">
+      <rect x="198.919" y="283.919" width="382.162" height="382.162" class="safe"/>
+      <text x="390.000" y="393.000" text-anchor="middle" class="label">ACTION-SAFE REGION</text>
+      <text x="390.000" y="415.000" text-anchor="middle" class="label">minimum 444.375 × 444.375 mm</text>
+      <text x="390.000" y="437.000" text-anchor="middle" class="small">not hood width · not nozzle footprint</text>
+    </g>
+    <g id="annotation-abstain_ring" data-annotation-id="abstain_ring">
+      <path d="M 186.180 271.180 H 593.820 V 678.820 H 186.180 Z M 198.919 283.919 H 581.081 V 666.081 H 198.919 Z" fill="#8b3fd1" fill-opacity="0.10" fill-rule="evenodd" stroke="none"/>
+      <path d="M 181.880 258.880 H 598.120" class="dimension"/>
+      <text x="390.000" y="248.880" text-anchor="middle" class="label">measured FOV 474–484 mm</text>
+      <text x="390.000" y="688.081" text-anchor="middle" class="label">64 px abstain ring per ROI edge</text>
+    </g>
+    <g id="annotation-no_intrusion" data-annotation-id="no_intrusion">
+      <path d="M 198.919 323.919 L 110 323.919 L 110 369.919" class="fault-flow"/>
+      <rect x="52" y="330" width="206" height="72" rx="7" fill="#ffffff" stroke="#bd2d2d" stroke-width="1.5"/>
+      <text x="66" y="353" class="label danger">NO INTRUSION</text>
+      <text x="66" y="375" class="tiny">wall · skirt · baffle · cable · carrier · wheel</text>
+      <text x="66" y="392" class="tiny">ray clearance = UNMEASURED</text>
+    </g>
+    <g id="underside-axes">
+      <line x1="704" y1="700" x2="704" y2="618" class="flow"/><text x="704" y="603" text-anchor="middle" class="label">+X forward</text>
+      <line x1="704" y1="700" x2="752" y2="700" class="flow"/><text x="739" y="722" text-anchor="middle" class="label">+Y right</text>
+    </g>
+  </g>
+  <g id="underside-contract-panel">
+    <rect x="795" y="118" width="570" height="664" rx="12" class="panel"/>
+    <text x="824" y="151" class="section">GEOMETRY LEDGER</text>
+    <rect x="824" y="178" width="512" height="115" rx="9" class="selected"/>
+    <text x="848" y="208" class="label">Three different boundaries</text>
+    <text x="848" y="234" class="small">hood internal plan: 600×600 mm · enclosure only</text>
+    <text x="848" y="257" class="small">calibrated FOV: 474–484 mm · physically measured range</text>
+    <text x="848" y="280" class="small">safe action width: ≥444.375 mm · throughput basis</text>
+    <text x="824" y="329" class="label">ROI derivation</text>
+    <text x="844" y="355" class="small">native ROI: 2048×2048 px</text>
+    <text x="844" y="379" class="small">usable: 1920 px / axis</text>
+    <text x="844" y="403" class="small">safe fraction: 0.9375</text>
+    <text x="844" y="427" class="small">minimum GSD: 0.231445 mm/px</text>
+    <line x1="824" y1="449" x2="1336" y2="449" class="grid"/>
+    <g id="annotation-axis_permutation" data-annotation-id="axis_permutation">
+      <text x="824" y="482" class="label">Explicit source-frame reconciliation</text>
+      <text x="844" y="508" class="small">cassette +X forward ← light-fixture +Y front</text>
+      <text x="844" y="532" class="small">cassette +Y right ← light-fixture +X right</text>
+      <text x="844" y="556" class="small">+Z unchanged · no scale · no reflection</text>
+    </g>
+    <line x1="824" y1="578" x2="1336" y2="578" class="grid"/>
+    <text x="824" y="611" class="label">Inactive multi-bay compatibility</text>
+    <text x="844" y="637" class="small">active bays = 1 · second camera = false</text>
+    <text x="844" y="661" class="small">pitch ≤430 mm · overlap ≥10 mm</text>
+    <text x="844" y="685" class="small">two-bay formula screen: 874.375 mm</text>
+    <text x="844" y="709" class="small">not current capability · each bay and overlap must pass</text>
+    <rect x="824" y="731" width="512" height="34" rx="7" class="fault"/>
+    <text x="1080" y="753" text-anchor="middle" class="label danger">Stage C alone owns physical non-occlusion</text>
+  </g>
+  <g id="footer">
+    <rect x="0" y="810" width="1400" height="90" fill="#17324d"/>
+    <text x="38" y="839" fill="#ffffff" style="font-size:14px;font-weight:700">NOT A FABRICATION DRAWING · NOT TO SCALE · SCHEMATIC ENVELOPES ONLY</text>
+    <text x="38" y="862" class="mono" style="fill:#dbe8f2">config sha256: 09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd</text>
+    <text x="38" y="881" class="mono" style="fill:#dbe8f2">architecture sha256: 609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634</text>
+    <text x="1362" y="862" text-anchor="end" fill="#ffffff" style="font-size:12px">controlled capture: false · dry marker: false</text>
+    <text x="1362" y="881" text-anchor="end" fill="#ffffff" style="font-size:12px">field GO: false · chemical fire: false</text>
+  </g>
+</svg>

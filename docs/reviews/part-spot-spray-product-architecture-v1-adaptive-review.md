@@ -1,85 +1,52 @@
-Status: NEEDS_CHANGES
-Review cycle: 1/unbounded
-Artifact fingerprint: 555cddd8dd1e282c56499be352c624e775d371e1de473852f5e281577156bf03
-Verdict: IMPORTANT_GAPS_REMAIN
+Status: APPROVED
+Review cycle: 2/unbounded
+Artifact fingerprint: bea48294138d6748888478ac16ddaeb3f80a5b417f39681fa7f123d06bd642cf
+Verdict: OLDU, TAMAM
 
 ## Core function verdicts
 Core function	Judgment	Product verdict
-One highest-value proof baseline	PROVEN	The artifact selects one coherent one-bay baseline: Basler a2A2464-77ucPRO, C23 lens, native 2048×2048 ROI, 170 µs/15 Hz capture, four-quadrant diffuse white strobe, minimum 600×600 mm hood, removable ground-following cassette, rear three-point proof carrier, signed encoder and one RTX 3090 lane. Exact host and intervention hardware remain explicitly unresolved rather than guessed. 
-
-tarım-projesi-part-spot-spray-p…
-
-
-Evidence and no-GO comprehension	PROVEN	The independent status axes clearly separate a frozen desk baseline from physical acceptance, controlled capture, dry-marker readiness, procurement, field/product GO and chemical operation. Unknown physical values remain null; the terminal boundary is unusually clear and action-safe. 
-
-tarım-projesi-part-spot-spray-p… +1
-
-
-Alternatives and next action	PROVEN AS HUMAN GUIDANCE	Alternatives are closed behind attributable triggers, and the artifact identifies one exact-host-qualified, hash-bound A–E campaign as the next highest-value step rather than reopening market research. 
-
-tarım-projesi-part-spot-spray-p…
-
-
-Hash-bound source integrity	CONTRADICTED	The artifact reports INTEGRATION_CONSISTENT_PRE_REAL and 16 verified inputs, but its source lock does not include the three authoritative terminal lane plans required for ownership, challenger, discovery and re-plan rules. 
-
-tarım-projesi-part-spot-spray-p… +1
-
-
-Linked annotated views	PARTIAL / NOT INDEPENDENTLY PROVEN	The Markdown links three hash-identified SVGs, but the supplied supporting bundle contains only package_manifest.json, not the SVG bytes or rendered views. Their annotation legibility, clipping and visual consistency therefore cannot be converted into a pass. 
-
-tarım-projesi-part-spot-spray-p…
-
- 
-
-supporting-evidence-bundle-85b3…
-
+One highest-value proof baseline	PROVEN	The package selects one coherent one-bay proof architecture rather than a menu: Basler a2A2464-77ucPRO, C23 lens, native 2048×2048 ROI, 170 µs at 15 Hz, four simultaneous diffuse-white quadrants, minimum 600×600 mm hood, removable ground-following cassette, rear three-point proof carrier, signed ground encoder and one RTX 3090 lane. Exact host, installed light profile, intervention hardware and physical registration remain explicitly open instead of being guessed.
+Evidence and provenance comprehension	PROVEN	The release now distinguishes 19 exact-byte inputs from the six decision-owning terminal files that additionally require committed-byte verification. All six plans and surveys are SHA-256- and commit-bound to a24f7dec956af170436bcb17d679aa53918c9ec8; missing, modified, uncommitted or commit-mismatched terminal input fails before calculation as INTEGRATION_INVALID_SOURCE_DRIFT. This closes the cycle-1 provenance gap.
+Interfaces and fail-closed behavior	PROVEN	Cassette, carrier, sensor, light, host, compute, safety and intervention ownership are separated; frame reconciliation is explicit; scheduler authority is identity-bound; unresolved transforms remain null; and all 16 material fault states discard affected pending commands and return to no-fire until a fresh witness exists. The Stage-E proxy is not presented as evidence for the selected foundation checkpoint.
+Alternatives and next action	PROVEN	Modalities, polarization, fan, front carrier, 20 Hz, second camera and scale carrier remain closed behind attributable lane-owned triggers. The artifact identifies the next highest-value action as exact-host intake, installed BOM identity and one hash-bound one-bay A–E campaign—not another market survey or an unsupported scale build.
+Human artifact and linked engineering views	PROVEN	The supplied exterior.svg, underside.svg and optical_cross_section.svg bytes match the package manifest. The independently rendered views are readable, internally consistent and decision-useful: they show HOST OPEN, NO FIRE, PRE_REAL_NOT_READY, the cassette/carrier boundary, 600 mm hood versus 474–484 mm FOV versus 444.375 mm action-safe region, Stage-C-owned non-occlusion, unresolved intervention offset and a verified-disabled chemical-enable line. All required annotation sets are present; each view carries the embedded config/result hashes and the visible NOT A FABRICATION DRAWING boundary.
+Practical decision value	PROVEN	An engineer can act on one bounded proof baseline while a decision-maker can see exactly what the package proves, what remains physically unknown, which alternatives may open and which actions remain forbidden. The document does not convert a desk-consistent architecture into procurement, physical readiness, field performance or commercial value.
 ## Evidence boundary
 
-The reviewed primary artifact is the exact SPOT_SPRAY_PRODUCT_ARCHITECTURE_V1.md payload identified with SHA-256 3418cfe650d779d1210279493024e6a1bc9b18ca3fbc7b8af79ab85c04ff714b; the supporting packet identifies package manifest SHA-256 7d66e278d5aa2e507fe5d89383b993f53f3d9c354afd1d922c6db207a90ea2b4. 
+The reviewed primary artifact is the exact SPOT_SPRAY_PRODUCT_ARCHITECTURE_V1.md payload with SHA-256 0c4c10ea8d754117cb0332353bc560d2c34dfa39bda92096fb23204aee8448b7.
 
-primary-output-e33752d8de95--pa…
+The reviewed package manifest has SHA-256 4f8083655566f972ccabab52400f2d1940fc81c87ecb6e99bfa4bcd36791cb14.
 
- 
+The three independently inspected view identities are:
 
-supporting-evidence-bundle-85b3…
+exterior.svg: 1794c6f2d49a21a7afd56d96bb7c6b6517301513e197928c2a7f3709947f3825
 
-The stated 47/47 tests and two byte-identical derivations support deterministic consistency for the source set the builder actually consumed. They do not prove that the source set is complete, committed, independently retrievable or sufficient for human visual review.
+underside.svg: 2f533e5a7393f512f8563058e7f54541958842141aad424cc14f2f553aef824b
 
-The focused context records main at 54db1288b6edf7cd4c8f512d9e00ffa19537a51f, a dirty worktree, and the architecture contract, human artifact, surveys, generated results, builder and tests as modified or untracked. It explicitly warns that these exact local changes are not visible through GitHub. 
+optical_cross_section.svg: ff17dc7ea99b6001de00cc0ce8ea3b30f2bbb77f981677a1c0db37e3579b0383
 
-tarım-projesi-part-spot-spray-p…
+These identities agree with the manifest-bound artifact table. Their required annotations are present, their fixed 1400×900 boundaries are respected, and the visual claims agree with the human artifact.
 
-This review is limited to the current-fingerprint architecture package. It does not reassess the underlying camera, light, platform, model or physical acceptance lanes.
+The supplied local validation evidence is 47/47 tests and two byte-identical derivations. This review accepts that evidence as reported and does not claim to have rerun the repository’s validation commands.
+
+The focused context records main at a24f7dec956af170436bcb17d679aa53918c9ec8, matching the implementation base named by the source release. It also records the generated architecture package as local/untracked work, so this approval is strictly fingerprint-bound and is not a claim that the package has already been merged or released from main.
+
+This review does not reopen the underlying sensor, light, platform, compute, model or physical-acceptance decisions and makes no independent physical-performance claim.
 
 ## Material gaps
-1. The package can report source-integrity PASS without closing the authoritative release and human-review boundary
 
-The governing integration plan explicitly requires all three terminal surveys and their three corresponding lane plans to be byte-pinned because the plans own material ownership, challenger, discovery and stopping rules. It further requires all six files to be committed on the implementation base, the containing commit to be recorded, and any missing, dirty or drifted file to produce INTEGRATION_INVALID_SOURCE_DRIFT. 
+None.
 
-tarım-projesi-part-spot-spray-p…
+The cycle-1 material gap batch is closed coherently:
 
-The delivered package instead lists only the three surveys and upstream authorities in its source table. It does not pin the sensor-optics, light-enclosure or platform-product lane plans, despite presenting their challenger and re-plan rules as part of the canonical human decision. 
+The three terminal plans were added to the source lock alongside their surveys and containing commit.
 
-tarım-projesi-part-spot-spray-p… +1
+Terminal source drift is now fail-closed before calculation.
 
-Impact: A material lane-plan change can alter ownership, challenger eligibility or stopping rules without invalidating the generated package. A clean consumer of the stated base also cannot reproduce the reviewed source set. The 47 passing tests and repeated derivation can therefore remain green while validating an incomplete provenance boundary. Separately, the absence of the exact SVG views prevents independent confirmation that the human annotations communicate the same boundaries without clipping, ambiguity or visual contradiction.
+The exact manifest-bound SVGs were supplied and passed direct human inspection.
 
-Simplest corrective direction: Keep the selected architecture unchanged. Close the release by adding the three terminal lane plans and their containing commit to the fail-closed source lock, requiring a clean committed source set before PASS, regenerating the package from that base, and supplying the exact three manifest-bound SVGs or deterministic renders for human inspection.
-
-Observable acceptance evidence:
-
-The clean implementation base contains all six terminal lane files and the generated package; the config, manifest and human source table record every file’s exact SHA-256 plus the containing commit.
-
-A one-byte mutation to any terminal survey or lane plan produces INTEGRATION_INVALID_SOURCE_DRIFT and prevents emission of a consistent package.
-
-Two derivations from separate clean checkouts remain byte-identical and the complete test suite passes.
-
-The review packet includes the exact exterior.svg, underside.svg and optical_cross_section.svg bytes matching the manifest hashes; a human review confirms every required annotation is legible, unclipped and consistent with unresolved/null/no-GO states.
-
- - [ ] Pin the three terminal lane plans and containing commit, and reject dirty or uncommitted source admission.
-
- - [ ] Regenerate from a clean base, execute the source-drift negative test, and provide the exact manifest-bound SVG views for independent human review.
+The remaining HOST_UNRESOLVED, installed-profile, payload/CG, whole-system power, intervention, integrated-cost and physical A–F unknowns are deliberate no-GO boundaries with named evidence owners. They are not hidden completeness gaps in this pre-real decision artifact.
 
 ## User-value direction
 
-Do not reopen the Basler/C23, one-camera 15 Hz, four-quadrant white-light, removable one-bay cassette or rear-carrier proof decisions. The human artifact already gives a strong, bounded pre-real product direction and an appropriate next physical step. The remaining work is release closure: make the provenance claim as strict as the decision language, then expose the exact linked views for direct review. Until that is done, the package is a strong pre-real draft but not yet a trustworthy canonical hash-bound decision release.
+Adopt this package as the canonical pre-real architecture decision, not as a fabrication or operating release. Preserve the selected one-camera 15 Hz Basler/C23, four-quadrant white-light, removable one-bay cassette and rear-carrier proof baseline. Proceed only through exact-host intake, installed BOM identity and the existing hash-bound A–E acceptance route. Open a challenger only after its recorded trigger is observed. A–F may authorize a non-chemical dry marker through the existing evaluator; chemical operation remains a separate full re-plan and safety/agronomy scope.

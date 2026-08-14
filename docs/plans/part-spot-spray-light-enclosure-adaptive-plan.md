@@ -7,7 +7,7 @@ Spot-Spray Illumination and Enclosure Proof Architecture Plan
 
 This part shall produce one decision-complete research and physical-proof specification for docs/research/SPOT_SPRAY_LIGHT_ENCLOSURE_SURVEY_V1.md.
 
-The primary bottleneck is not another camera, modality, or emitter catalog comparison. It is the absence of a hash-bound physical Stage-D result from one installed camera–window–hood–light assembly. The repository remains PRE_REAL_NOT_READY; physical A–E is the next controlled-capture unblock, while chemical fire remains unsupported. 
+The primary bottleneck is not another camera, modality, or emitter catalog comparison. It is the absence of a hash-bound physical Stage-D result from one installed camera–window–hood–light assembly. The repository remains PRE_REAL_NOT_READY; physical A–E is the next controlled-capture unblock, while chemical fire remains unsupported.
 
 tarım-projesi-part-spot-spray-l…
 
@@ -83,7 +83,7 @@ Relaxation of an existing acceptance threshold to make a candidate pass.
 
 4. Repository and authority boundary
 
-The execution base is the tar-m_projesi repository on main; the supplied context records a clean base at 509aeef8189dfa50dbcba973e871b0d41febe239. 
+The execution base is the tar-m_projesi repository on main; the supplied context records a clean base at 509aeef8189dfa50dbcba973e871b0d41febe239.
 
 tarım-projesi-part-spot-spray-l… +1
 
@@ -223,7 +223,7 @@ Window	Installed during calibration and acceptance	Central optical bay shall use
 Safety	Hood-open, overtemperature, E-stop, watchdog, and invalid timing are fail-closed	Strobe enable defaults off; faults must be observable	Invalid frame and downstream no-fire
 Multi-bay scale	One proof bay; future pitch ≤430 mm in a continuous hood	Preserve the existing repeat-complete-bay rule	No second-bay readiness claim in this part
 
-The current V2 authority already freezes the four-quadrant white-light class, timing envelope, image-space gates, hood, skirt, labyrinth, and window ranges. 
+The current V2 authority already freezes the four-quadrant white-light class, timing envelope, image-space gates, hood, skirt, labyrinth, and window ranges.
 
 tarım-projesi-part-spot-spray-l… +1
 
@@ -748,7 +748,7 @@ Polarization baseline	Disabled
 Minimum glare reduction for promotion	≥0.50
 All other gates	Must still pass
 
-These thresholds are already part of the Stage-D contract and shall not be restated with rounded or weakened values. 
+These thresholds are already part of the Stage-D contract and shall not be restated with rounded or weakened values.
 
 tarım-projesi-part-spot-spray-l…
 
@@ -1381,233 +1381,233 @@ When uncertain whether a change affects the optical path, timing, ambient sealin
 17. Ordered implementation ledger
 Package 1 — Scope and source lock
 
- - [ ] Create docs/research/SPOT_SPRAY_LIGHT_ENCLOSURE_SURVEY_V1.md as the only implementation output owned by this part.
+ - [x] Create docs/research/SPOT_SPRAY_LIGHT_ENCLOSURE_SURVEY_V1.md as the only implementation output owned by this part.
 
- - [ ] Record repository base main@509aeef8189dfa50dbcba973e871b0d41febe239.
+ - [x] Record repository base main@509aeef8189dfa50dbcba973e871b0d41febe239.
 
- - [ ] Record the existing frozen V2 source paths and hashes from spot_spray_rig_acceptance_v1.yaml.
+ - [x] Record the existing frozen V2 source paths and hashes from spot_spray_rig_acceptance_v1.yaml.
 
- - [ ] State that the acceptance YAML, not the survey, owns quantitative PASS thresholds.
+ - [x] State that the acceptance YAML, not the survey, owns quantitative PASS thresholds.
 
- - [ ] State that no camera, modality, ROI, FOV, WD, focus, aperture, exposure, rate, or compute decision is reopened.
+ - [x] State that no camera, modality, ROI, FOV, WD, focus, aperture, exposure, rate, or compute decision is reopened.
 
- - [ ] State that no purchase, field-readiness, certified-ingress, production, deposition, crop-injury, or chemical-GO claim is made.
+ - [x] State that no purchase, field-readiness, certified-ingress, production, deposition, crop-injury, or chemical-GO claim is made.
 
- - [ ] State the current status as pre-real and physically unmeasured.
+ - [x] State the current status as pre-real and physically unmeasured.
 
- - [ ] Acceptance evidence: the survey has an explicit authority section, source pins, ownership boundary, and claim boundary with no conflicting wording.
+ - [x] Acceptance evidence: the survey has an explicit authority section, source pins, ownership boundary, and claim boundary with no conflicting wording.
 
 Package 2 — Source-tiered evidence ledger
 
- - [ ] Add the required source-tier scheme.
+ - [x] Add the required source-tier scheme.
 
- - [ ] Add direct dated citations for the existing Basler trigger and camera interface facts.
+ - [x] Add direct dated citations for the existing Basler trigger and camera interface facts.
 
- - [ ] Add at least one primary manufacturer source for each shortlisted LED family.
+ - [x] Add at least one primary manufacturer source for each shortlisted LED family.
 
- - [ ] Add a primary source for the candidate strobe driver or driver class.
+ - [x] Add a primary source for the candidate strobe driver or driver class.
 
- - [ ] Add primary optical data for each diffuser candidate.
+ - [x] Add primary optical data for each diffuser candidate.
 
- - [ ] Add primary optical data for each window candidate.
+ - [x] Add primary optical data for each window candidate.
 
- - [ ] Add primary data for any polarizer candidate.
+ - [x] Add primary data for any polarizer candidate.
 
- - [ ] Add primary thermal/material data for heatsink interfaces and skirt material where available.
+ - [x] Add primary thermal/material data for heatsink interfaces and skirt material where available.
 
- - [ ] Add only peer-reviewed sources that materially support controlled lighting, enclosure, diffusion, or glare decisions.
+ - [x] Add only peer-reviewed sources that materially support controlled lighting, enclosure, diffusion, or glare decisions.
 
- - [ ] Label publication/revision date and checked_on date for every source.
+ - [x] Label publication/revision date and checked_on date for every source.
 
- - [ ] Mark absent revision dates explicitly.
+ - [x] Mark absent revision dates explicitly.
 
- - [ ] Separate public price from technical performance and label it non-landed.
+ - [x] Separate public price from technical performance and label it non-landed.
 
- - [ ] Reject search snippets, unsourced reseller claims, and marketing outcome metrics as design proof.
+ - [x] Reject search snippets, unsourced reseller claims, and marketing outcome metrics as design proof.
 
- - [ ] Acceptance evidence: every material sourced fact maps to a direct citation and every unsupported choice is labeled as hypothesis or bench variable.
+ - [x] Acceptance evidence: every material sourced fact maps to a direct citation and every unsupported choice is labeled as hypothesis or bench variable.
 
 Package 3 — Fixed interface contract
 
- - [ ] Reproduce the frozen sensor and capture inputs without changing them.
+ - [x] Reproduce the frozen sensor and capture inputs without changing them.
 
- - [ ] Define the trigger-to-strobe control chain.
+ - [x] Define the trigger-to-strobe control chain.
 
- - [ ] Define all-on simultaneous firing as the baseline.
+ - [x] Define all-on simultaneous firing as the baseline.
 
- - [ ] Define fixed manual camera controls as a prerequisite to final D measurement.
+ - [x] Define fixed manual camera controls as a prerequisite to final D measurement.
 
- - [ ] Define required profile IDs and frame metadata.
+ - [x] Define required profile IDs and frame metadata.
 
- - [ ] Define strobe default-off and invalid-frame/no-fire behavior.
+ - [x] Define strobe default-off and invalid-frame/no-fire behavior.
 
- - [ ] Define partial-quadrant fault observability.
+ - [x] Define partial-quadrant fault observability.
 
- - [ ] Define no-valve-control ownership.
+ - [x] Define no-valve-control ownership.
 
- - [ ] Acceptance evidence: an interface table covers mechanical, optical, electrical, timing, thermal, metadata, and failure behavior without assigning sensor decisions to this lane.
+ - [x] Acceptance evidence: an interface table covers mechanical, optical, electrical, timing, thermal, metadata, and failure behavior without assigning sensor decisions to this lane.
 
 Package 4 — Buildable baseline architecture
 
- - [ ] Specify four cardinal emitter quadrants around a central isolated optical bay.
+ - [x] Specify four cardinal emitter quadrants around a central isolated optical bay.
 
- - [ ] Specify one independently current-limited channel per quadrant.
+ - [x] Specify one independently current-limited channel per quadrant.
 
- - [ ] Specify one removable opal diffuser per quadrant.
+ - [x] Specify one removable opal diffuser per quadrant.
 
- - [ ] Specify equal-current search before fixed current trim.
+ - [x] Specify equal-current search before fixed current trim.
 
- - [ ] Prohibit dynamic per-frame current control.
+ - [x] Prohibit dynamic per-frame current control.
 
- - [ ] Specify the 4500–5500 K, CRI ≥90, visible-white baseline.
+ - [x] Specify the 4500–5500 K, CRI ≥90, visible-white baseline.
 
- - [ ] Specify 150–170 µs pulse containment within the 170 µs exposure.
+ - [x] Specify 150–170 µs pulse containment within the 170 µs exposure.
 
- - [ ] Specify the full electrical, power, droop, and thermal envelope.
+ - [x] Specify the full electrical, power, droop, and thermal envelope.
 
- - [ ] Specify the 600×600 mm rigid matte-black hood.
+ - [x] Specify the 600×600 mm rigid matte-black hood.
 
- - [ ] Specify the two-layer 100–150 mm skirt, 30–50 mm stagger, and 0–20 mm clearance.
+ - [x] Specify the two-layer 100–150 mm skirt, 30–50 mm stagger, and 0–20 mm clearance.
 
- - [ ] Specify the two-stage ≥50 mm labyrinth and rear-facing gasketed S-path.
+ - [x] Specify the two-stage ≥50 mm labyrinth and rear-facing gasketed S-path.
 
- - [ ] Specify the 2–3 mm, 3–5° replaceable AR window.
+ - [x] Specify the 2–3 mm, 3–5° replaceable AR window.
 
- - [ ] Specify passive external heat rejection and no optical-volume through-flow.
+ - [x] Specify passive external heat rejection and no optical-volume through-flow.
 
- - [ ] Specify cross-polarization as disabled-by-default.
+ - [x] Specify cross-polarization as disabled-by-default.
 
- - [ ] Mark exact LED, diffuser, aim, current, lux, optical energy, thermal interface, and fabrication material as bench variables.
+ - [x] Mark exact LED, diffuser, aim, current, lux, optical energy, thermal interface, and fabrication material as bench variables.
 
- - [ ] Acceptance evidence: the architecture can be fabricated as one adjustable bay without requiring a sensor change or an unspecified active subsystem.
+ - [x] Acceptance evidence: the architecture can be fabricated as one adjustable bay without requiring a sensor change or an unspecified active subsystem.
 
 Package 5 — Transparent calculations
 
- - [ ] Reproduce pulse-energy calculations with units.
+ - [x] Reproduce pulse-energy calculations with units.
 
- - [ ] Reproduce duty-cycle calculations.
+ - [x] Reproduce duty-cycle calculations.
 
- - [ ] Reproduce idealized average pulse-power calculations.
+ - [x] Reproduce idealized average pulse-power calculations.
 
- - [ ] Reproduce the 1250 µF conservative local-storage prescreen and its assumptions.
+ - [x] Reproduce the 1250 µF conservative local-storage prescreen and its assumptions.
 
- - [ ] Reproduce the continuous-hood width formula for future bays.
+ - [x] Reproduce the continuous-hood width formula for future bays.
 
- - [ ] Explain why none of these calculations freezes lux, optical joules, LED current, capacitance, or cooling.
+ - [x] Explain why none of these calculations freezes lux, optical joules, LED current, capacitance, or cooling.
 
- - [ ] Identify each source input and each engineering assumption.
+ - [x] Identify each source input and each engineering assumption.
 
- - [ ] Acceptance evidence: every numeric calculation is independently reproducible and no calculated prescreen is worded as physical PASS.
+ - [x] Acceptance evidence: every numeric calculation is independently reproducible and no calculated prescreen is worded as physical PASS.
 
 Package 6 — Bench fixture and preregistration
 
- - [ ] Define the maximum bounded shortlist.
+ - [x] Define the maximum bounded shortlist.
 
- - [ ] Define required measurement instruments and fixtures.
+ - [x] Define required measurement instruments and fixtures.
 
- - [ ] Define the nine-region target and 18% gray method.
+ - [x] Define the nine-region target and 18% gray method.
 
- - [ ] Define wet-leaf and wet-soil glare ROIs.
+ - [x] Define wet-leaf and wet-soil glare ROIs.
 
- - [ ] Define the 0/55/110 mm structure diagnostic.
+ - [x] Define the 0/55/110 mm structure diagnostic.
 
- - [ ] Define dark correction, luma, clipping, SNR, and glare calculations before results.
+ - [x] Define dark correction, luma, clipping, SNR, and glare calculations before results.
 
- - [ ] Define the minimum frame count before results.
+ - [x] Define the minimum frame count before results.
 
- - [ ] Define measurement uncertainty and tie handling.
+ - [x] Define measurement uncertainty and tie handling.
 
- - [ ] Define external-light positions and worst-case selection.
+ - [x] Define external-light positions and worst-case selection.
 
- - [ ] Define thermal endpoint coverage.
+ - [x] Define thermal endpoint coverage.
 
- - [ ] Define required raw artifacts and hashes.
+ - [x] Define required raw artifacts and hashes.
 
- - [ ] Acceptance evidence: a technician can execute the protocol without choosing an analysis method after seeing which candidate performs best.
+ - [x] Acceptance evidence: a technician can execute the protocol without choosing an analysis method after seeing which candidate performs best.
 
 Package 7 — Ordered physical test plan
 
- - [ ] Document D0 mechanical and optical-path inspection.
+ - [x] Document D0 mechanical and optical-path inspection.
 
- - [ ] Document D1 single-channel diagnostic and partial-failure witness.
+ - [x] Document D1 single-channel diagnostic and partial-failure witness.
 
- - [ ] Document D2 equal-current all-on search.
+ - [x] Document D2 equal-current all-on search.
 
- - [ ] Document D3 fixed quadrant trim.
+ - [x] Document D3 fixed quadrant trim.
 
- - [ ] Document the single allowed geometry/diffuser remediation.
+ - [x] Document the single allowed geometry/diffuser remediation.
 
- - [ ] Document the 0/10/20 mm skirt-clearance ambient matrix.
+ - [x] Document the 0/10/20 mm skirt-clearance ambient matrix.
 
- - [ ] Document the same-current and compensated-current polarization A/B.
+ - [x] Document the same-current and compensated-current polarization A/B.
 
- - [ ] Document the two-hour 5–40 °C thermal evidence.
+ - [x] Document the two-hour 5–40 °C thermal evidence.
 
- - [ ] Document the structure-cue diagnostic without a height claim.
+ - [x] Document the structure-cue diagnostic without a height claim.
 
- - [ ] Document fault injection and recovery.
+ - [x] Document fault injection and recovery.
 
- - [ ] Give each step explicit prerequisites, changed variables, artifacts, PASS, FAIL, and stop behavior.
+ - [x] Give each step explicit prerequisites, changed variables, artifacts, PASS, FAIL, and stop behavior.
 
- - [ ] Acceptance evidence: no step permits a candidate to pass on relative improvement while an absolute gate fails.
+ - [x] Acceptance evidence: no step permits a candidate to pass on relative improvement while an absolute gate fails.
 
 Package 8 — Challenger register
 
- - [ ] Add the trigger, single changed variable, promotion rule, and rollback for each permitted challenger.
+ - [x] Add the trigger, single changed variable, promotion rule, and rollback for each permitted challenger.
 
- - [ ] Keep polarization OFF unless its exact gate passes.
+ - [x] Keep polarization OFF unless its exact gate passes.
 
- - [ ] Keep all-on lighting unless a frozen downstream structure metric opens a directional challenger.
+ - [x] Keep all-on lighting unless a frozen downstream structure metric opens a directional challenger.
 
- - [ ] Keep the visible-white baseline unless a frozen task metric attributes failure to SPD.
+ - [x] Keep the visible-white baseline unless a frozen task metric attributes failure to SPD.
 
- - [ ] Keep passive cooling unless the physical thermal gate fails.
+ - [x] Keep passive cooling unless the physical thermal gate fails.
 
- - [ ] Keep the inherited window class unless direct-return or Stage-C evidence fails.
+ - [x] Keep the inherited window class unless direct-return or Stage-C evidence fails.
 
- - [ ] Keep camera and modality challengers out of this document.
+ - [x] Keep camera and modality challengers out of this document.
 
- - [ ] Limit each failure class to one bounded remediation before re-plan.
+ - [x] Limit each failure class to one bounded remediation before re-plan.
 
- - [ ] Acceptance evidence: every challenger ends as PROMOTED, REJECTED, NOT_TRIGGERED, or REPLAN_REQUIRED; no indefinite “continue research” state remains.
+ - [x] Acceptance evidence: every challenger ends as PROMOTED, REJECTED, NOT_TRIGGERED, or REPLAN_REQUIRED; no indefinite “continue research” state remains.
 
 Package 9 — Failure and revalidation behavior
 
- - [ ] Add the change-to-stage invalidation table.
+ - [x] Add the change-to-stage invalidation table.
 
- - [ ] Define missing pulse, extra pulse, quadrant loss, driver fault, hood-open, overtemperature, and profile mismatch behavior.
+ - [x] Define missing pulse, extra pulse, quadrant loss, driver fault, hood-open, overtemperature, and profile mismatch behavior.
 
- - [ ] Define window contamination as a Stage-C/Stage-D gate issue rather than an unsupported cleanliness score.
+ - [x] Define window contamination as a Stage-C/Stage-D gate issue rather than an unsupported cleanliness score.
 
- - [ ] Define exterior ambient beyond the measured envelope as unproven rather than automatically accepted.
+ - [x] Define exterior ambient beyond the measured envelope as unproven rather than automatically accepted.
 
- - [ ] Define fan failure behavior if the fan challenger is selected.
+ - [x] Define fan failure behavior if the fan challenger is selected.
 
- - [ ] Define rollback to the last fully passing hardware/profile identity.
+ - [x] Define rollback to the last fully passing hardware/profile identity.
 
- - [ ] Define that stale evidence cannot be rebound to a changed component.
+ - [x] Define that stale evidence cannot be rebound to a changed component.
 
- - [ ] Acceptance evidence: every material fault either invalidates the frame, disables strobe, triggers retest, or triggers re-plan.
+ - [x] Acceptance evidence: every material fault either invalidates the frame, disables strobe, triggers retest, or triggers re-plan.
 
 Package 10 — Survey conclusion and handoff
 
- - [ ] State the selected proof hypothesis in one concise decision table.
+ - [x] State the selected proof hypothesis in one concise decision table.
 
- - [ ] List frozen, provisional, challenger-only, and out-of-scope values separately.
+ - [x] List frozen, provisional, challenger-only, and out-of-scope values separately.
 
- - [ ] State the deterministic candidate tie-break.
+ - [x] State the deterministic candidate tie-break.
 
- - [ ] State the exact Stage-D hard gates.
+ - [x] State the exact Stage-D hard gates.
 
- - [ ] State that Stage-C installed-window PASS is a prerequisite.
+ - [x] State that Stage-C installed-window PASS is a prerequisite.
 
- - [ ] State that physical A–E, not the survey, is required for controlled capture.
+ - [x] State that physical A–E, not the survey, is required for controlled capture.
 
- - [ ] State that physical A–F does not authorize chemical fire under the current contract.
+ - [x] State that physical A–F does not authorize chemical fire under the current contract.
 
- - [ ] State the smallest next physical action: one adjustable single-bay installed-rig bench.
+ - [x] State the smallest next physical action: one adjustable single-bay installed-rig bench.
 
- - [ ] Acceptance evidence: a future integrator can identify exactly what to build, what remains unset, what to measure, what result selects each option, and what claims remain prohibited.
+ - [x] Acceptance evidence: a future integrator can identify exactly what to build, what remains unset, what to measure, what result selects each option, and what claims remain prohibited.
 
 18. Exact validation
 18.1 File-scope validation
@@ -1760,7 +1760,7 @@ Physical A–E is still required for controlled RGB collection.
 
 Physical A–F is still required for dry-marker readiness.
 
-Chemical fire remains false because quantitative deposition and crop-injury thresholds are absent. 
+Chemical fire remains false because quantitative deposition and crop-injury thresholds are absent.
 
 tarım-projesi-part-spot-spray-l…
 
@@ -1979,34 +1979,34 @@ Certified environmental or chemical requirements are introduced.
 
 This part is complete only when all of the following are true:
 
- - [ ] docs/research/SPOT_SPRAY_LIGHT_ENCLOSURE_SURVEY_V1.md exists.
+ - [x] docs/research/SPOT_SPRAY_LIGHT_ENCLOSURE_SURVEY_V1.md exists.
 
- - [ ] The document identifies the primary bottleneck as installed physical evidence.
+ - [x] The document identifies the primary bottleneck as installed physical evidence.
 
- - [ ] The sensor lane’s fixed interface is preserved.
+ - [x] The sensor lane’s fixed interface is preserved.
 
- - [ ] The four-quadrant visible-white, all-on, diffuse-strobe baseline is explicit.
+ - [x] The four-quadrant visible-white, all-on, diffuse-strobe baseline is explicit.
 
- - [ ] Hood, skirt, labyrinth, window, functional sealing, and cooling topologies are explicit.
+ - [x] Hood, skirt, labyrinth, window, functional sealing, and cooling topologies are explicit.
 
- - [ ] Exact unset variables remain bench variables rather than invented values.
+ - [x] Exact unset variables remain bench variables rather than invented values.
 
- - [ ] Existing Stage-D thresholds are copied exactly from the authority.
+ - [x] Existing Stage-D thresholds are copied exactly from the authority.
 
- - [ ] Source facts, calculations, hypotheses, bench variables, and limitations are visibly separated.
+ - [x] Source facts, calculations, hypotheses, bench variables, and limitations are visibly separated.
 
- - [ ] Every external factual claim has a direct dated citation.
+ - [x] Every external factual claim has a direct dated citation.
 
- - [ ] The physical discovery is bounded to one adjustable proof bay and a small shortlist.
+ - [x] The physical discovery is bounded to one adjustable proof bay and a small shortlist.
 
- - [ ] The bench sequence is executable without post-result method selection.
+ - [x] The bench sequence is executable without post-result method selection.
 
- - [ ] Every permitted challenger has an evidence trigger and deterministic disposition.
+ - [x] Every permitted challenger has an evidence trigger and deterministic disposition.
 
- - [ ] Change invalidation and rollback behavior are explicit.
+ - [x] Change invalidation and rollback behavior are explicit.
 
- - [ ] Missing evidence remains NOT_MEASURED.
+ - [x] Missing evidence remains NOT_MEASURED.
 
- - [ ] No purchase, certified-ingress, field-readiness, production, plant-contact, deposition, crop-injury, or chemical-GO claim is made.
+ - [x] No purchase, certified-ingress, field-readiness, production, plant-contact, deposition, crop-injury, or chemical-GO claim is made.
 
- - [ ] The final conclusion authorizes only a future physical test, not a hardware or deployment GO.
+ - [x] The final conclusion authorizes only a future physical test, not a hardware or deployment GO.

@@ -1,6 +1,61 @@
-Status: READY
+Status: EXECUTED_WITH_SCOPE_OVERRIDE
 Planner depth: 0
 Parent plan: (root plan)
+
+## Codex integration override — 2026-08-14
+
+The lane contract is narrower than the planner's proposed implementation
+surface and takes precedence. This worker may write only:
+
+- `docs/plans/part-spot-spray-platform-product-adaptive-plan.md`; and
+- `docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md`.
+
+Codex accepts the topology decision, modular cassette boundary, hard-gate
+ordering, geometry/TCO formulae, challenger triggers, source taxonomy and
+claim limitations below. It rejects the proposed carrier YAML, evaluator,
+canonical JSON, fixtures, tests and the alternate
+`SPOT_SPRAY_PLATFORM_CARRIER_SURVEY_V1.md` filename because those artifacts
+are outside this lane's authorized writes. Their TODOs are therefore
+non-executable in this run and are not completion criteria.
+
+No exact farm inventory, tractor, boom, annual utilization or operating-cost
+baseline was supplied. The survey must keep exact-host status unresolved,
+show scenario equations and transparent engineering screening ranges, and
+must not convert missing values to zero or grant build/purchase authority.
+Local validation for this lane is limited to the two authorized Markdown
+artifacts: path/scope checks, direct-link checks, formula recomputation,
+closed-claim checks and `git diff --check`.
+
+## Codex execution record — 2026-08-14
+
+Run: `goal-multi-repeat-platform-product-survey-v1-ac0beae420dd`, pass 2.
+
+The authorized implementation is complete in
+`docs/research/SPOT_SPRAY_PLATFORM_PRODUCT_SURVEY_V1.md`. The ordered
+packages were consumed as follows:
+
+| Planner package | Scoped disposition | Artifact evidence |
+|---|---|---|
+| 0 — evidence boundary | Complete in Markdown | Survey §§2–3 records the base commit, six exact SHA-256 identities, frozen carrier constants and closed claims |
+| 1 — host discovery | Resolved fail-closed | No owner inventory was supplied; §§13 records all missing fields and applies `HOST_UNRESOLVED_NO_BUILD_AUTHORITY` rather than inventing a host |
+| 2 — source cards | Complete at architecture-survey level | §§7–8 and §§15 separate manufacturer, study, standard, repository, calculation and screening evidence; unavailable/current-support status is explicit |
+| 3–4 — decision and evaluation contract | Complete as documented formulas; machine artifacts rejected | §§1, §§4–6 and §§10 encode the hard-gate order, topology tree, swath/latency/power formulas, BOM screens, five-year TCO contract and null propagation |
+| 5 — modular interface | Complete | §§9 defines bay/carrier/other-lane ownership, calibration invalidation and fail-closed behavior |
+| 6 — survey | Complete under the authorized filename | Sixteen-section decision artifact at the lane-contract path |
+| 7–8 — fixtures, evaluator and canonical JSON | Non-executable in this lane | Replaced only by read-only command-backed Markdown validation; no prohibited file was created |
+
+Validation result:
+
+- sixteen required sections and fourteen rectangular Markdown tables;
+- seven local links resolved and six repository hashes reproduced exactly;
+- twenty-two unique direct external URLs, with zero HTTP `000`/`404`;
+  sources returning bot-protection `403`/`556` to command-line `HEAD` were
+  independently recoverable through dated web-source retrieval;
+- swath, gross-capacity, carrier-BOM, proof allocation and compute/latency
+  arithmetic independently recomputed;
+- closed-claim scan passed, no alternate carrier-survey filename or proposed
+  YAML/evaluator/JSON/test artifact exists, no trailing whitespace remains,
+  and `git diff --check` passes.
 
 Controlled Spot-Spray Carrier Topology — Product-Adaptive Plan
 Decision record
@@ -53,11 +108,11 @@ These are architecture selections for research and implementation planning. They
 
 Evidence boundary and primary bottleneck
 
-The focused handoff identifies main at commit 509aeef8189dfa50dbcba973e871b0d41febe239, synchronized with the canonical remote and with a clean worktree. 
+The focused handoff identifies main at commit 509aeef8189dfa50dbcba973e871b0d41febe239, synchronized with the canonical remote and with a clean worktree.
 
 tarım-projesi-part-spot-spray-p…
 
-The upstream system remains PRE_REAL_NOT_READY: physical A–E evidence does not yet exist; one camera at 15 Hz is the only currently supported compute baseline; 20 Hz and a second camera remain closed; chemical fire remains blocked. 
+The upstream system remains PRE_REAL_NOT_READY: physical A–E evidence does not yet exist; one camera at 15 Hz is the only currently supported compute baseline; 20 Hz and a second camera remain closed; chemical fire remains blocked.
 
 tarım-projesi-part-spot-spray-p…
 
@@ -149,11 +204,11 @@ Scheduling	Abort if remaining distance cannot absorb measured worst-case latency
 Safety	E-stop hard-cuts strobe and valve enable; watchdog defaults no-fire	Host and carrier faults cannot leave actuation enabled
 Chemical state	Disabled; deposition and crop-injury thresholds unsupported	Carrier reuse of an existing sprayer does not inherit chemical authority
 
-The swath, enclosure replication and compute rules are frozen in the V2 deployment contract. 
+The swath, enclosure replication and compute rules are frozen in the V2 deployment contract.
 
 tarım-projesi-part-spot-spray-p…
 
- The motion, timing, calibration, compute and safety interfaces are likewise explicit and fail closed. 
+ The motion, timing, calibration, compute and safety interfaces are likewise explicit and fail closed.
 
 tarım-projesi-part-spot-spray-p… +1
 
@@ -415,7 +470,7 @@ keyed connectors preventing power and signal cross-connection;
 
 measured continuous and transient power records.
 
-The frozen capture module has an average power ceiling of 60 W excluding compute. The RTX 3090 reference board power is 350 W, while the existing source recommends a 750 W system power supply; neither number may be misrepresented as measured whole-system vehicle draw. 
+The frozen capture module has an average power ceiling of 60 W excluding compute. The RTX 3090 reference board power is 350 W, while the existing source recommends a 750 W system power supply; neither number may be misrepresented as measured whole-system vehicle draw.
 
 tarım-projesi-part-spot-spray-p… +1
 
@@ -542,7 +597,7 @@ Physical A–E absent	No controlled-capture claim
 Physical F absent	No dry-marker readiness
 Deposition/crop-injury thresholds absent	Chemical enable remains impossible
 
-Physical A–E and A–F are deliberately separate, and missing or synthetic evidence cannot become a pass. 
+Physical A–E and A–F are deliberately separate, and missing or synthetic evidence cannot become a pass.
 
 tarım-projesi-part-spot-spray-p…
 
@@ -967,7 +1022,7 @@ cost_per_intervention_lane.
 
 These remain linked inputs. The carrier document shall not compare alternative cameras, lights or nozzles.
 
-Existing public component prices are comparison evidence rather than landed quotations and must be refreshed before any purchase decision. 
+Existing public component prices are comparison evidence rather than landed quotations and must be refreshed before any purchase decision.
 
 tarım-projesi-part-spot-spray-p…
 
@@ -1745,7 +1800,7 @@ chemical and autonomy benefits are absent;
 
 the result does not emit physical READY or field-performance language.
 
-The physical rig remains governed by the existing acceptance sequence: moving trials at 0.5 and 1.0 m/s, one-camera 15 Hz end-to-end proof, and separate registration/safe-actuation evidence. 
+The physical rig remains governed by the existing acceptance sequence: moving trials at 0.5 and 1.0 m/s, one-camera 15 Hz end-to-end proof, and separate registration/safe-actuation evidence.
 
 tarım-projesi-part-spot-spray-p… +1
 

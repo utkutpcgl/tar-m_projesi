@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass139_fail_closed_capacity_v1",
+  "status": "FAIL_CLOSED_RECOVERY_V3_GPU_CAPACITY_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821132049-5ba231593e76",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 139,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T16:22:12+03:00",
+  "pair_id": "locked_test_c001_r07",
+  "prior_fail_closed_receipt": {
+    "path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass137_state_chain_resume_candidate2/pass138_fail_closed_capacity_receipt.json",
+    "sha256": "d327221cb016cf743d5a11644884374e785577807697507fdfc5046a17552177"
+  },
+  "canonical_candidate": {
+    "candidate_index": 3,
+    "candidate_identity_sha256": "3bf9932dff973fc310d30b1897e1a7d7eafc915601ef66c0ea708ef9a38ecec1",
+    "exact_error": "RuntimeError: Too few source weed tracks: 0",
+    "terminal_receipt_present": false,
+    "ledger_row_present": false,
+    "recovery_staging_present": false,
+    "failure_before_decision_commit": true,
+    "canonical_successor_derived_by_sealed_v3": true
+  },
+  "state_chain_boundary": {
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "render_state_sha256": "d8055796077637cba7de69650ea0ff6472592034547faac8617c6ef530234113",
+    "chain_head_identity_sha256": "e66e962aae41c652e4b9362ee23357def0402a518c2aea6c3d113af1222dc077",
+    "completed_pair_count": 47,
+    "pending_pair_count": 49,
+    "first_pending_pair_id": "locked_test_c001_r07",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7",
+    "state_chain_intent_sha256": "234e2e6051914609cb3a704fbe1f385c2aec52f5b5b3b43f63b6a64e942a6837",
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+    "underlying_batch_intent_sha256": "9404d1dbd2ff41aa347c4870d4c4134c9939c1f3f40043b4700fc5b471f7aeed",
+    "state_chain_terminal_receipt_present": false,
+    "underlying_batch_terminal_receipt_present": false
+  },
+  "ledger": {
+    "row_count": 164,
+    "sha256": "a1f5cdc9aa708beecfa28e125e26861a066dc5ca70bcd0da67bb4b29a2388e26",
+    "candidate_3_row_appended": false,
+    "unchanged_since_pass138": true
+  },
+  "recovery_v3_validation": {
+    "release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+    "derived_candidate_index": 3,
+    "derived_candidate_identity_sha256": "3bf9932dff973fc310d30b1897e1a7d7eafc915601ef66c0ea708ef9a38ecec1",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7",
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+    "validated_v3_execution_count": 3,
+    "real_v3_intents_created_during_validation": 0,
+    "recover_current_zero_weed_invocations_by_pass139": 0,
+    "not_invoked_reason": "sealed_gpu_capacity_threshold_not_met"
+  },
+  "fresh_preflight": {
+    "storage_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft",
+    "storage_free_bytes": 299708862464,
+    "storage_required_bytes": 8000000000,
+    "storage_passed": true,
+    "gpu_index": 0,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "gpu_total_mib": 24576,
+    "gpu_used_mib": 19281,
+    "gpu_free_mib": 4835,
+    "gpu_minimum_free_mib": 23521,
+    "gpu_passed": false,
+    "observed_external_gpu_processes": [
+      {
+        "pid": 17710,
+        "name": "VLLM::EngineCore",
+        "used_mib": 414,
+        "elapsed_seconds_at_validation": 169566
+      },
+      {
+        "pid": 1454364,
+        "name": "/usr/local/bin/ollama",
+        "used_mib": 18766,
+        "elapsed_seconds_at_validation": 290
+      }
+    ],
+    "external_process_policy": "observed_only_never_stopped_signaled_or_modified"
+  },
+  "fail_closed_decision": {
+    "recovery_candidate_gt_started": false,
+    "recovery_v3_intent_created": false,
+    "full_native_pair_render_started": false,
+    "pair_publication_observed": false,
+    "state_transition_observed": false,
+    "exact_unblock_condition": "Without stopping or altering external services, observed RTX 3090 free memory must return to at least the sealed 23521 MiB native-render launch threshold while the exact state, head, ledger164 and both open intents remain unchanged."
+  },
+  "access_guard": {
+    "candidate_acceptance_or_skip_authority_used": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": [],
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

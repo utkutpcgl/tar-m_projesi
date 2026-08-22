@@ -1,0 +1,462 @@
+{
+  "batch_execution_lock_sha256": "c9e46aee03becc435e34252fd0fbe0542b4c4c9232b8b0c2daad80028ef57bf3",
+  "batch_id": "calibration_batch_calibration_c006_r01_36bd316c41c8e966",
+  "candidate_events_current_invocation": [
+    {
+      "candidate_identity_sha256": "13f86278c01b8ff2caad3058d3e516f28c087586196796708f29135611aa6ae5",
+      "candidate_index": 0,
+      "pair_id": "calibration_c006_r01",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "37fbc37acd0dcb1afaab9f410d9ffb86f1935d9482f6cdff544f809b1384f7fd"
+    },
+    {
+      "candidate_identity_sha256": "48fddc35c167ac0c59dc5652f8e8ff419b7f3a381775d6dcba7a9c06e835899e",
+      "candidate_index": 1,
+      "pair_id": "calibration_c006_r01",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "8f85eb5b74c718416131f6b753d9c771c9b2e79e44d39bc5d47872790e2c6c88"
+    },
+    {
+      "candidate_identity_sha256": "419fe6f44e244a3e9c1ee24d46d37b8fe5bfd7be9feaa83b6889652fa752eddf",
+      "candidate_index": 2,
+      "pair_id": "calibration_c006_r01",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "4c55b829782684ade41054438d8291c647a2637a520d910837dc7562998b6d69"
+    },
+    {
+      "candidate_index": 2,
+      "pair_id": "calibration_c006_r01",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "edf3d102736262beab161e0d61c27131311b8853adb58c3a1fe8d65ec51a6f62"
+    },
+    {
+      "candidate_identity_sha256": "b6b19769ccb8c1094b8cda06b9fb6dcd358cf70ec4b90ab3998dba50937a778e",
+      "candidate_index": 0,
+      "pair_id": "calibration_c006_r02",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "e5dc4cccd02356359d008befc1c4bc22d0fb7340882f4c27f633637bf2307c14"
+    },
+    {
+      "candidate_identity_sha256": "dda471383dd5aab66391abb67e62f7ab32203dcaa7a437ed00014668ee6e7ac0",
+      "candidate_index": 1,
+      "pair_id": "calibration_c006_r02",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "e23a6c05854413cabef7261df002a2983e23c5a998009588df74c1887a119867"
+    },
+    {
+      "candidate_index": 1,
+      "pair_id": "calibration_c006_r02",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "65897878ba19b3f0e86787ca4321c8b5b6f2b9cc44eb53157f742e48bf9deed4"
+    },
+    {
+      "candidate_identity_sha256": "777def085bd823b04545b1f734c14f37d6c01997a98de09148e25cec05e2e16e",
+      "candidate_index": 0,
+      "pair_id": "calibration_c006_r03",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "5ef2df0c551327fc9031be29fe93634088ebf78ff5d6c9893551bfa6a038bb11"
+    },
+    {
+      "candidate_index": 0,
+      "pair_id": "calibration_c006_r03",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "07c71296822900cb452539a2df8624418de1ce675f897c0e36ccc0c1d0630f67"
+    },
+    {
+      "candidate_identity_sha256": "12186d8fbc260a4b9b9082f4057a0ed031798652fe88e5fdccb8562649eb33bb",
+      "candidate_index": 0,
+      "pair_id": "calibration_c007_r00",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "58e18f6ca1e1bc1991e6b2503747b3003d4f92ae338cf427e3326ce4ffb1ef01"
+    },
+    {
+      "candidate_index": 0,
+      "pair_id": "calibration_c007_r00",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "556067276ef7669f8c4821338899d0b93af8852676eb86888d332af03256f7e6"
+    },
+    {
+      "candidate_identity_sha256": "0ccb066c562528ece3dba29d989ab944a4be7321e0e0442e9e581a6e9f0d348d",
+      "candidate_index": 0,
+      "pair_id": "calibration_c007_r01",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "281f83343453df8ccc78659c7429bb5eb79c68acded87dc7be8a76c8f0d11a5c"
+    },
+    {
+      "candidate_index": 0,
+      "pair_id": "calibration_c007_r01",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "035e5cd0c4ce3f71d3254588a4b7f1c97ebceb560f87af6ac5251493847c434d"
+    },
+    {
+      "candidate_identity_sha256": "c40aa5d44dd9a08d9574ca49979bec2f7c6ebf596f4fa2237d230eb24b0df9ef",
+      "candidate_index": 0,
+      "pair_id": "calibration_c007_r02",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "f3e11c7ef038b3696f833e298bb10cfd1436a17a2eb08ade814c6670895772a1"
+    },
+    {
+      "candidate_identity_sha256": "5b94b30d34b14a71a07fa12903bea45ad6013ba727eb35a14117689617771de4",
+      "candidate_index": 1,
+      "pair_id": "calibration_c007_r02",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "f60588418d2eb4a29ad6420acc800093be2f6f40c5b1efeb80736557026bd775"
+    },
+    {
+      "candidate_index": 1,
+      "pair_id": "calibration_c007_r02",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "711e93ec8324e8b7035aa8ae0fecea7c371d2b019e8283f200b13909c7682d86"
+    },
+    {
+      "candidate_identity_sha256": "e5544f8cf3261d60347a5585ac1464f91827088a46c5dd7b788c646821d8d897",
+      "candidate_index": 0,
+      "pair_id": "calibration_c007_r03",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "0a8ea36a1fd379f858afb81f9093192a5a3fcff761e164da3803d32f19fe1d5f"
+    },
+    {
+      "candidate_index": 0,
+      "pair_id": "calibration_c007_r03",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "fe8199ec05f5cb90036451bdda86541489ffa0c7c2862b2d36fe88f426fcac78"
+    }
+  ],
+  "canonical_rejection_rows": [
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "13f86278c01b8ff2caad3058d3e516f28c087586196796708f29135611aa6ae5",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "cf6974834cb9c6a72af61b51553ba0a9b140f5b7f77e941bcbdbdeea3114edba",
+      "gt_scout_terminal_receipt_sha256": "37fbc37acd0dcb1afaab9f410d9ffb86f1935d9482f6cdff544f809b1384f7fd",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c006_r01",
+      "reason": "semantic:weed_free_frame_fraction_within_limit",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "48fddc35c167ac0c59dc5652f8e8ff419b7f3a381775d6dcba7a9c06e835899e",
+      "candidate_index": 1,
+      "gt_scout_decision_receipt_sha256": "ede3c145af4529f30306e26933e3d12c548560c4cdfa4e809f919ba68d9a5154",
+      "gt_scout_terminal_receipt_sha256": "8f85eb5b74c718416131f6b753d9c771c9b2e79e44d39bc5d47872790e2c6c88",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c006_r01",
+      "reason": "semantic:mean_crop_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "b6b19769ccb8c1094b8cda06b9fb6dcd358cf70ec4b90ab3998dba50937a778e",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "52b373ce003268a6e291f206836420a415b673239e0f04c1a74684407fe20036",
+      "gt_scout_terminal_receipt_sha256": "e5dc4cccd02356359d008befc1c4bc22d0fb7340882f4c27f633637bf2307c14",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c006_r02",
+      "reason": "semantic:mean_crop_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "c40aa5d44dd9a08d9574ca49979bec2f7c6ebf596f4fa2237d230eb24b0df9ef",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "c207913884cf484a99d09eee971fb78bebf2a452251bd887f4130fc8b40bd1a7",
+      "gt_scout_terminal_receipt_sha256": "f3e11c7ef038b3696f833e298bb10cfd1436a17a2eb08ade814c6670895772a1",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c007_r02",
+      "reason": "semantic:mean_crop_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    }
+  ],
+  "capacity_check": {
+    "absolute_ten_candidate_attempt_ceiling_hours": 614.4000000000002,
+    "candidate_attempt_ceiling_is_not_expected_runtime": true,
+    "free_bytes_observed": 318618521600,
+    "full_pair_count": 96,
+    "headroom_after_required_and_reserve_bytes": 108618521600,
+    "isolated_render_upper_hours_one_candidate_per_slot": 61.44000000000002,
+    "measured_linear_bytes": 37507447200,
+    "measured_linear_render_hours": 27.74043961732338,
+    "pair_count_multiplier": 48.0,
+    "planning_upper_hours_one_candidate_per_slot": 61.44000000000002,
+    "predeclared_admission_bytes": 180000000000,
+    "required_bytes": 180000000000,
+    "reserve_bytes": 30000000000
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_calibration_batch_execution_v1",
+  "elapsed_wall_seconds_current_invocation": 28295.84866502229,
+  "gpu": {
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "index": 0,
+    "memory_free_mib": 23521,
+    "memory_total_mib": 24576,
+    "memory_used_mib": 595,
+    "name": "NVIDIA GeForce RTX 3090"
+  },
+  "inference_calls": 0,
+  "locked_test_outcome_accessed": false,
+  "max_new_pairs": 7,
+  "model_loaded": false,
+  "new_pair_count": 7,
+  "new_pair_ids": [
+    "calibration_c006_r01",
+    "calibration_c006_r02",
+    "calibration_c006_r03",
+    "calibration_c007_r00",
+    "calibration_c007_r01",
+    "calibration_c007_r02",
+    "calibration_c007_r03"
+  ],
+  "outcome_inputs": [],
+  "render_state": {
+    "completed_pair_count": 32,
+    "completed_pair_ids": [
+      "calibration_c000_r00",
+      "calibration_c000_r01",
+      "calibration_c000_r02",
+      "calibration_c000_r03",
+      "calibration_c001_r00",
+      "calibration_c001_r01",
+      "calibration_c001_r02",
+      "calibration_c001_r03",
+      "calibration_c002_r00",
+      "calibration_c002_r01",
+      "calibration_c002_r02",
+      "calibration_c002_r03",
+      "calibration_c003_r00",
+      "calibration_c003_r01",
+      "calibration_c003_r02",
+      "calibration_c003_r03",
+      "calibration_c004_r00",
+      "calibration_c004_r01",
+      "calibration_c004_r02",
+      "calibration_c004_r03",
+      "calibration_c005_r00",
+      "calibration_c005_r01",
+      "calibration_c005_r02",
+      "calibration_c005_r03",
+      "calibration_c006_r00",
+      "calibration_c006_r01",
+      "calibration_c006_r02",
+      "calibration_c006_r03",
+      "calibration_c007_r00",
+      "calibration_c007_r01",
+      "calibration_c007_r02",
+      "calibration_c007_r03"
+    ],
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "pending_pair_count": 64,
+    "pending_pair_ids": [
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03",
+      "locked_test_c000_r04",
+      "locked_test_c000_r05",
+      "locked_test_c000_r06",
+      "locked_test_c000_r07",
+      "locked_test_c001_r00",
+      "locked_test_c001_r01",
+      "locked_test_c001_r02",
+      "locked_test_c001_r03",
+      "locked_test_c001_r04",
+      "locked_test_c001_r05",
+      "locked_test_c001_r06",
+      "locked_test_c001_r07",
+      "locked_test_c002_r00",
+      "locked_test_c002_r01",
+      "locked_test_c002_r02",
+      "locked_test_c002_r03",
+      "locked_test_c002_r04",
+      "locked_test_c002_r05",
+      "locked_test_c002_r06",
+      "locked_test_c002_r07",
+      "locked_test_c003_r00",
+      "locked_test_c003_r01",
+      "locked_test_c003_r02",
+      "locked_test_c003_r03",
+      "locked_test_c003_r04",
+      "locked_test_c003_r05",
+      "locked_test_c003_r06",
+      "locked_test_c003_r07",
+      "locked_test_c004_r00",
+      "locked_test_c004_r01",
+      "locked_test_c004_r02",
+      "locked_test_c004_r03",
+      "locked_test_c004_r04",
+      "locked_test_c004_r05",
+      "locked_test_c004_r06",
+      "locked_test_c004_r07",
+      "locked_test_c005_r00",
+      "locked_test_c005_r01",
+      "locked_test_c005_r02",
+      "locked_test_c005_r03",
+      "locked_test_c005_r04",
+      "locked_test_c005_r05",
+      "locked_test_c005_r06",
+      "locked_test_c005_r07",
+      "locked_test_c006_r00",
+      "locked_test_c006_r01",
+      "locked_test_c006_r02",
+      "locked_test_c006_r03",
+      "locked_test_c006_r04",
+      "locked_test_c006_r05",
+      "locked_test_c006_r06",
+      "locked_test_c006_r07",
+      "locked_test_c007_r00",
+      "locked_test_c007_r01",
+      "locked_test_c007_r02",
+      "locked_test_c007_r03",
+      "locked_test_c007_r04",
+      "locked_test_c007_r05",
+      "locked_test_c007_r06",
+      "locked_test_c007_r07"
+    ],
+    "planned_pair_count": 96
+  },
+  "request_identity_sha256": "36bd316c41c8e96650f53aac1ca3cc7aa3727c01597231c6a0929acf5247521f",
+  "resume": {
+    "intent_sha256": "8f04d62f962f688fcfb5795b818fdd0183e1a6448e9273c1a7acad1f06a5d246",
+    "recovered_published_pair_ids": [],
+    "resumed_from_existing_intent": false
+  },
+  "schema_version": 1,
+  "selected_pairs": [
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "419fe6f44e244a3e9c1ee24d46d37b8fe5bfd7be9feaa83b6889652fa752eddf",
+      "canonical_gt_sha256": "ed18838aa07919f8b8570332914138c7c38c8a5f8361c21830bdc78b66a5b40e",
+      "full_pair_receipt_sha256": "edf3d102736262beab161e0d61c27131311b8853adb58c3a1fe8d65ec51a6f62",
+      "pair_id": "calibration_c006_r01",
+      "selected_candidate_index": 2
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "dda471383dd5aab66391abb67e62f7ab32203dcaa7a437ed00014668ee6e7ac0",
+      "canonical_gt_sha256": "334e035409b2b9842e8daa2ccc2e479c0eba5e7fb8a2576b4c99366063660eb4",
+      "full_pair_receipt_sha256": "65897878ba19b3f0e86787ca4321c8b5b6f2b9cc44eb53157f742e48bf9deed4",
+      "pair_id": "calibration_c006_r02",
+      "selected_candidate_index": 1
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "777def085bd823b04545b1f734c14f37d6c01997a98de09148e25cec05e2e16e",
+      "canonical_gt_sha256": "7db83143c41146facd0744fadf9b941d900e63310095931cf2ddee12e2a7bed5",
+      "full_pair_receipt_sha256": "07c71296822900cb452539a2df8624418de1ce675f897c0e36ccc0c1d0630f67",
+      "pair_id": "calibration_c006_r03",
+      "selected_candidate_index": 0
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "12186d8fbc260a4b9b9082f4057a0ed031798652fe88e5fdccb8562649eb33bb",
+      "canonical_gt_sha256": "a2c76124fecf38cd6f04d765dba752bb7baf3fe438f8bc3f918dff35f2ea0587",
+      "full_pair_receipt_sha256": "556067276ef7669f8c4821338899d0b93af8852676eb86888d332af03256f7e6",
+      "pair_id": "calibration_c007_r00",
+      "selected_candidate_index": 0
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "0ccb066c562528ece3dba29d989ab944a4be7321e0e0442e9e581a6e9f0d348d",
+      "canonical_gt_sha256": "2020a7a655f64d86787d8b9c92845b251ce9c647a89ef09bbd4363409e9af321",
+      "full_pair_receipt_sha256": "035e5cd0c4ce3f71d3254588a4b7f1c97ebceb560f87af6ac5251493847c434d",
+      "pair_id": "calibration_c007_r01",
+      "selected_candidate_index": 0
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "5b94b30d34b14a71a07fa12903bea45ad6013ba727eb35a14117689617771de4",
+      "canonical_gt_sha256": "c96ad7f94e823abca39e625a391795f1de1a86ccec012b2f833698ac278a329d",
+      "full_pair_receipt_sha256": "711e93ec8324e8b7035aa8ae0fecea7c371d2b019e8283f200b13909c7682d86",
+      "pair_id": "calibration_c007_r02",
+      "selected_candidate_index": 1
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "e5544f8cf3261d60347a5585ac1464f91827088a46c5dd7b788c646821d8d897",
+      "canonical_gt_sha256": "15ae87f405866f3689df2b90dade5bd65c1df03bc2ab0dd7a7d68feb453c1a7a",
+      "full_pair_receipt_sha256": "fe8199ec05f5cb90036451bdda86541489ffa0c7c2862b2d36fe88f426fcac78",
+      "pair_id": "calibration_c007_r03",
+      "selected_candidate_index": 0
+    }
+  ],
+  "status": "PASS_CALIBRATION_BATCH_PREOUTCOME_SYNTHETIC_ONLY",
+  "target_pair_ids": [
+    "calibration_c006_r01",
+    "calibration_c006_r02",
+    "calibration_c006_r03",
+    "calibration_c007_r00",
+    "calibration_c007_r01",
+    "calibration_c007_r02",
+    "calibration_c007_r03"
+  ]
+}

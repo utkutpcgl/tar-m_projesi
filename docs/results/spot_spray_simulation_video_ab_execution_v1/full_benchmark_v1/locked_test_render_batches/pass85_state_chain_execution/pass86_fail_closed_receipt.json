@@ -1,0 +1,132 @@
+{
+  "access_guard": {
+    "candidate_1_gt_recovery_started": false,
+    "external_services_modified": false,
+    "full_pair_render_started": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false
+  },
+  "candidate_0_terminal_decision": {
+    "bounded_cleanup_receipt_sha256": "26653c76c0d19b55454442be1ed8a03959b3920af10a2e8dc22edbe10ccecf15",
+    "candidate_identity_sha256": "469e368fc3ab9aa505323a1c2d79dcf0061d32b01a394998eefe5dc602c862a9",
+    "candidate_index": 0,
+    "canonical_gt_sha256": "87a549108b821056e68ac5f8829b2c22f401dd7af09018f03c6d6cb6867496d2",
+    "decision_receipt_sha256": "e2f5a5e23c50a28261d3216c88ed0f0049b2a24e6cc7380f3847927804596701",
+    "ledger_commit_receipt_sha256": "3cdccdbc59b3a3a7ca55500513c3407b6e7fad96b033dc5ee96083a74ea83fb2",
+    "model_or_outcome_inputs_used": false,
+    "pair_id": "locked_test_c001_r04",
+    "rejection_reasons": [
+      "semantic:mean_crop_fraction_in_range"
+    ],
+    "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+    "terminal_receipt_sha256": "d7d0f0d3bc061bb7fc7e09450cf654f7b76a25c54964a9170989374cd389a614"
+  },
+  "canonical_successor": {
+    "candidate_identity_sha256": "b7bdbcc20e110ff85c44f1108d206ad550797c2816ee08484f8cb8472e6bc95f",
+    "candidate_index": 1,
+    "model_outcome_inputs": [],
+    "pair_id": "locked_test_c001_r04",
+    "pair_slot_identity_sha256": "c84738918147c52362d2c5261ce35d3acf28bc6596e961615b281cb993ff6e49",
+    "seeds": {
+      "audit_sample_seed": 12304885677306862160,
+      "capture_draw_seed": 13401496705437338572,
+      "renderer_seed": 2787434199980905313,
+      "scene_seed": 1929359076662573354,
+      "trajectory_seed": 3424698891738168044
+    },
+    "source_template": {
+      "profile": "hood_dry_nominal",
+      "scene_id": "scene_0002",
+      "sha256": "56f1d8c93e532056d4fc81c8f489c8a0acc5c9fcb1005c2e2b8db1ab516b7103"
+    }
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass86_state_chain_fail_closed_v1",
+  "exact_terminal_failure": {
+    "error": "Too few source weed tracks: 0",
+    "error_count_in_log": 1,
+    "error_type": "RuntimeError",
+    "failed_before_full_pair_render": true,
+    "failed_candidate_index": 1,
+    "failed_candidate_is_canonical_successor": true,
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass85_state_chain_execution/process.log",
+    "log_sha256": "38e994260a67ca80688d86d5908074825b94e4d84fc5e3e655ab75535bf4bcb1",
+    "process_pid": 1715714,
+    "process_session_alive_at_observation": false,
+    "traceback_count": 1
+  },
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821002929-29115c804265",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 86,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "immutable_execution_context": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r04_f180ac33c6690a60",
+    "batch_intent_sha256": "7f18c45d97269dc2522c86f8f279aa332fa3c53eda5653927036ad5bbb7cb403",
+    "batch_terminal_receipt_present": false,
+    "launch_receipt_sha256": "6964aec2f646a0b2c93f61f5c8416b7685c2c0f76e51b9fc81cde8e561292b35",
+    "legacy_execution_source_sha256": "200d897efa1400a9dabba1acaf33d1b49db2c00ebcf79768f25fa4a8608bb413",
+    "max_new_pairs": 1,
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r04_9362ff91c24928a2",
+    "state_chain_intent_sha256": "cd5755de3799cb75e484760c23d37dc21891924534098f36a05f3514fbfbe8f7",
+    "state_chain_release_file_sha256": "4c68888c43a09fb4afe4c0c56a365e36d6707c068f250deb891b2765c23f19bd",
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "state_chain_source_sha256": "bfbe269feddbd92413663c9345e57b50b119617e10bf695784d09317f74b870b",
+    "state_chain_terminal_receipt_present": false
+  },
+  "ledger_transition": {
+    "append_only_prefix_row_count": 121,
+    "append_only_prefix_sha256": "8c7498c80aebf2115a53336210d98d1113bddca2bd260524568b876c77f3a3fa",
+    "current_row_count": 122,
+    "current_sha256": "bad33ba0f3a9737195b41eafc83dd81304fa8e52ba83c64c5fb101ee083073ca",
+    "new_row_candidate_identity_sha256": "469e368fc3ab9aa505323a1c2d79dcf0061d32b01a394998eefe5dc602c862a9",
+    "new_row_candidate_index": 0,
+    "new_row_number": 122,
+    "new_row_sha256_with_newline": "df1ba099dcbbba2e8752881346044309feac0c6dbe5b5fcd2020eb8c08754ce0",
+    "new_row_status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+  },
+  "observed_at": "2026-08-21T03:34:10+03:00",
+  "recovery_blocker": {
+    "direct_command": "/home/ankaref/miniconda3/envs/sgs-yolo/bin/python3.10 scripts/run_spot_spray_simulation_video_ab_execution_v1.py --config docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/roster_extension_runtime_compatibility_v1/release_v1/execution_config_v1_plus_roster_extension_v1_runtime_compatibility_v1.yaml full-recover-zero-weed-locked-test-scout --pair-id locked_test_c001_r04 --candidate-index 1 --batch-id locked_test_render_batch_locked_test_c001_r04_f180ac33c6690a60",
+    "direct_command_exit_code": 1,
+    "direct_command_failed_before_candidate_gt_or_recovery_staging": true,
+    "direct_command_output_sha256": "a9711d33dbabe2a4daf255108bf0aa908e5a7cb2d14ad88df2e688b706360e24",
+    "direct_command_terminal_error": "Invalid published full pair receipts: ['locked_test_c001_r00']",
+    "existing_recovery_acceptance_authority": "none",
+    "existing_recovery_lock_sha256": "5af1af3dc8792bc91411072b7eeb22bf6e6b22dd00383747a1265a818192ae49",
+    "existing_recovery_rejection_authority": "exact_locked_validator_zero_source_weed_failure_only",
+    "recovery_output_or_staging_for_candidate_1_present": false,
+    "state_chain_entrypoint_subcommands": [
+      "seal",
+      "validate",
+      "run"
+    ],
+    "state_chain_recovery_subcommand_present": false,
+    "unblock_condition": "Manager authorization for an append-only state-chain-aware compatibility bridge or an equivalently sealed exact invocation that temporarily supplies the open-execution-aware validator only to the existing zero-source-weed recovery, restores every callable, binds candidate 1 and both immutable intents, and preserves all parent bytes and zero-access guards."
+  },
+  "state_at_failure": {
+    "candidate_rejection_ledger_row_count": 122,
+    "candidate_rejection_ledger_sha256": "bad33ba0f3a9737195b41eafc83dd81304fa8e52ba83c64c5fb101ee083073ca",
+    "chain_head_identity_sha256": "04074c9cdc8eef7599de90966847fb274ddf7e80202372f1a7bb992010782f01",
+    "completed_pair_count": 44,
+    "first_pending_pair_id": "locked_test_c001_r04",
+    "pending_pair_count": 52,
+    "render_state_sha256": "ff5b4b4ce495f7b515b00fa1402fab1dbf11db9bf2b204e1cc2dc858adcc7e5b",
+    "staging_directories_for_pair": [],
+    "state_chain_validation_allowing_exact_open_intent_status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY"
+  },
+  "status": "PAUSE_MANAGER_AUTHORITY_REQUIRED_STATE_CHAIN_RECOVERY_BRIDGE_SYNTHETIC_ONLY"
+}

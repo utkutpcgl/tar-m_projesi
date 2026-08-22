@@ -1,0 +1,125 @@
+{
+  "access_guard": {
+    "candidate_0_gt_scout_active": true,
+    "external_services_modified": false,
+    "full_benchmark_model_outputs_present": false,
+    "full_pair_render_active": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "render_and_machine_audit_only": true
+  },
+  "active_candidate": {
+    "candidate_identity_sha256": "469e368fc3ab9aa505323a1c2d79dcf0061d32b01a394998eefe5dc602c862a9",
+    "candidate_index": 0,
+    "capture_receipt_sha256": "2f321ddffedf648fca212e3497941b17107d60f5ba26a518d9003469e61d5be2",
+    "frame_count": 30,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "pair_id": "locked_test_c001_r04",
+    "pair_slot_identity_sha256": "c84738918147c52362d2c5261ce35d3acf28bc6596e961615b281cb993ff6e49",
+    "presealed_roster_binding_exact": true,
+    "scene_config_sha256": "dd9f01432709c46ecd76573d7f60005e785ab55eda5f4d17c8d03f0f4cd3d984",
+    "seeds": {
+      "audit_sample_seed": 3045069447552074492,
+      "capture_draw_seed": 7490358127550242581,
+      "renderer_seed": 5946486504668621292,
+      "scene_seed": 5941467668904888842,
+      "trajectory_seed": 14486318913388072120
+    },
+    "source_template": {
+      "profile": "hood_dry_nominal",
+      "scene_id": "scene_0000",
+      "sha256": "b86540ba2a197389f2e20abebb9a63ccff98b60a64475abb5a192849a4bc71ae"
+    },
+    "stage_at_observation": "gt_scout_source_scene_blender_render",
+    "staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-locked_test_c001_r04-candidate-00-5ed3e88953364860989cb2cd2394f341"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass85_state_chain_launch_v1",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821001145-b759de5bd039",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 85,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "immutable_boundary_at_launch": {
+    "candidate_rejection_ledger_row_count": 121,
+    "candidate_rejection_ledger_sha256": "8c7498c80aebf2115a53336210d98d1113bddca2bd260524568b876c77f3a3fa",
+    "chain_head_identity_sha256": "04074c9cdc8eef7599de90966847fb274ddf7e80202372f1a7bb992010782f01",
+    "completed_pair_count": 44,
+    "first_pending_pair_id": "locked_test_c001_r04",
+    "no_active_state_chain_execution": true,
+    "pending_pair_count": 52,
+    "render_state_sha256": "ff5b4b4ce495f7b515b00fa1402fab1dbf11db9bf2b204e1cc2dc858adcc7e5b"
+  },
+  "intent_ordering": {
+    "batch_intent_created_at": "2026-08-21T03:15:14.806429564+03:00",
+    "both_intents_precede_candidate_staging": true,
+    "candidate_staging_created_at": "2026-08-21T03:15:17.574413336+03:00",
+    "state_chain_intent_created_at": "2026-08-21T03:15:11.442449294+03:00"
+  },
+  "observed_at": "2026-08-21T03:17:25+03:00",
+  "preflight": {
+    "data_free_bytes": 302391300096,
+    "data_required_bytes": 180000000000,
+    "data_reserve_bytes": 30000000000,
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "gpu_memory_free_mib": 23608,
+    "gpu_memory_total_mib": 24576,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "prior_proven_native_render_launch_threshold_free_mib": 23521,
+    "release_file_sha256": "4c68888c43a09fb4afe4c0c56a365e36d6707c068f250deb891b2765c23f19bd",
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "release_state_head_ledger_and_open_intent_verified": true,
+    "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY"
+  },
+  "process": {
+    "active_stage": "gt_scout_source_scene_blender_render",
+    "command": "/home/ankaref/miniconda3/envs/sgs-yolo/bin/python3.10 scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py run --pair-id locked_test_c001_r04 --max-new-pairs 1",
+    "command_exact": true,
+    "log_bytes_at_observation": 0,
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass85_state_chain_execution/process.log",
+    "log_sha256_at_observation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parallel_active_state_chain_process_count": 0,
+    "process_pid": 1715714,
+    "process_session_id": 1715714,
+    "started_local": "2026-08-21T03:15:09+03:00",
+    "terminal_error_observed": false
+  },
+  "schema_version": 1,
+  "state_chain": {
+    "execution_id": "state_chain_batch_locked_test_c001_r04_9362ff91c24928a2",
+    "intent_sha256": "cd5755de3799cb75e484760c23d37dc21891924534098f36a05f3514fbfbe8f7",
+    "predecessor_head_identity_sha256": "04074c9cdc8eef7599de90966847fb274ddf7e80202372f1a7bb992010782f01",
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "request_identity_sha256": "9362ff91c24928a2374b9cdd1e2cd052281c05393cc9246d562f42e5ba3f9364",
+    "terminal_receipt_present_at_observation": false
+  },
+  "status": "ACTIVE_CANDIDATE_0_MODEL_FREE_STATE_CHAIN_SYNTHETIC_ONLY",
+  "underlying_batch": {
+    "batch_execution_lock_sha256": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74",
+    "batch_id": "locked_test_render_batch_locked_test_c001_r04_f180ac33c6690a60",
+    "intent_sha256": "7f18c45d97269dc2522c86f8f279aa332fa3c53eda5653927036ad5bbb7cb403",
+    "intent_status": "LOCKED_TEST_RENDER_BATCH_INTENT_PREOUTCOME_SYNTHETIC_ONLY",
+    "max_new_pairs": 1,
+    "request_identity_sha256": "f180ac33c6690a603396182836c55d6f166ca56a38a87698ca0fc23afed4e468",
+    "target_pair_ids": [
+      "locked_test_c001_r04"
+    ],
+    "terminal_receipt_present_at_observation": false
+  }
+}

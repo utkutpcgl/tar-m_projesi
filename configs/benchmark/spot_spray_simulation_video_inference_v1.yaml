@@ -1,0 +1,154 @@
+schema_version: 1
+contract: spot_spray_simulation_video_inference_v1
+
+evidence_policy:
+  scope: synthetic_diagnostic_only
+  field_or_deployment_claim_allowed: false
+  chemical_fire_go_allowed: false
+  synthetic_score_weight_in_real_go_decision: 0.0
+  outcome_target_tuning_forbidden: true
+
+checkpoint:
+  path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt
+  sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+  task: segment
+  class_names:
+    0: weed
+    1: crop
+
+source:
+  mode: v12_smoke
+  calibration_split: calibration
+  locked_test_split: test
+  v12_smoke:
+    dataset_id: cropcraft_deploy_segment_proxy_v12
+    dataset_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/cropcraft_deploy_segment_proxy_v12
+    membership: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/cropcraft_deploy_segment_proxy_v12/membership.jsonl
+    membership_sha256: 0e0eaaeb365943464aea5c8550c4b5a8a23aa4e57cf488209f6f6e04a8a22350
+    dataset_receipt: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/cropcraft_deploy_segment_proxy_v12/dataset_receipt.json
+    dataset_receipt_sha256: a61317815ca9870a22cf7ba11118a7756a87accdbcfc022a3c78890e7c92e13d
+    expected_ground_truth_tree_sha256: 9eeffe941f9a0a3c4d6ab80baca7d8cd371f989d74f4a152d8edb352855dc301
+    expected_images_tree_sha256: ca531bfccf56635d41d686e1185d00c2d3163623823419234bcaeb607c10dc6a
+    semantic_ids:
+      background: 0
+      crop: 1
+      weed: 2
+    gsd_mm_per_px: 0.244140625
+    source_frame_suffix: frame_0001
+    repeated_frames_per_sequence: 3
+    calibration_scenes: [scene_0000, scene_0001]
+    test_scenes: [scene_0000, scene_0001]
+    limitation: >-
+      V12 plant_instances are connected semantic regions, not botanical track IDs;
+      the smoke fixture repeats one frozen source frame and preserves each region ID
+      only inside that derived three-frame sequence.
+
+conditions:
+  ordered: [ideal, degraded]
+  ideal:
+    transform: identity
+  degraded:
+    transform: deterministic_capture_degradation_v1
+    gaussian_blur_kernel_px: 7
+    gaussian_blur_sigma_px: 1.8
+    motion_blur_length_px: 9
+    exposure_scale: 0.72
+    contrast_scale: 0.88
+    gaussian_noise_sigma_dn: 8.0
+    jpeg_quality: 72
+    calibrated_to_physical_camera: false
+    rationale: >-
+      A fixed, plausible smoke stressor combining defocus/motion blur, underexposure,
+      sensor noise and compression; values were frozen before observing benchmark scores.
+
+inference:
+  image_size_px: 1024
+  confidence_floor: 0.05
+  nms_iou: 0.70
+  device: 0
+  half: false
+  deterministic: true
+  seed: 4107
+
+tracking:
+  association_min_mask_iou: 0.10
+  association_max_centroid_distance_px: 80.0
+  maximum_frame_gap: 2
+  eligible_track_match_iou: 0.50
+  minimum_track_observations: 3
+
+ground_truth:
+  eligible_weed_minimum_canopy_span_mm: 20.0
+  eligible_weed_minimum_visible_fraction: 0.70
+  require_non_partial_observation: true
+  instance_match_iou: 0.50
+  size_strata_mm:
+    small: [20.0, 40.0]
+    medium: [40.0, 80.0]
+    large: [80.0, null]
+
+temporal_action:
+  minimum_confirmations: 3
+  preferred_window_frames: 5
+  fire_once_per_predicted_track: true
+  predicted_crop_veto_confidence: 0.25
+  action_point: maximum_interior_distance_pixel
+  crop_collision_precedence: true
+  ineligible_nonpartial_weed_hit: ignored_from_primary_prf_but_retained_in_safety_denominator
+
+calibration:
+  source_split: calibration
+  test_access_forbidden: true
+  shared_threshold_across_conditions: true
+  threshold_grid:
+    start: 0.05
+    stop: 0.95
+    step: 0.05
+  selection: maximum_eligible_track_recall_subject_to_safety_then_f1
+  fallback: maximum_eligible_track_f1_calibration_only
+  minimum_eligible_track_precision: 0.98
+  maximum_crop_hit_rate: 0.005
+  maximum_duplicate_fire_rate: 0.01
+  tie_breakers: [eligible_track_f1, eligible_track_precision, higher_threshold]
+
+uncertainty:
+  confidence_level: 0.95
+  binomial_interval: wilson
+  bootstrap_unit: matched_scene_pair
+  bootstrap_resamples: 1000
+  seed: 9417
+
+descriptive_targets:
+  metric: eligible_weed_mask_track_spatiotemporal_iou_f1
+  ideal_minimum: 0.97
+  degraded_reference: 0.75
+  degraded_near_absolute_tolerance: 0.05
+  use_in_threshold_selection: false
+  use_in_model_or_degradation_tuning: false
+  interpretation: >-
+    Reporting-only assessment requested by the benchmark objective. The ideal
+    minimum and degraded reference range [0.70, 0.80] never enter calibration,
+    model selection, degradation selection or any real deployment decision.
+
+video:
+  enabled: true
+  fps: 3.0
+  codec: mp4v
+  overlay_alpha: 0.34
+  show_ground_truth: true
+  show_predictions: true
+  show_action_events: true
+
+outputs:
+  run_root: data/runs/spot_spray_simulation_video_inference_v1
+  docs_root: docs/results/spot_spray_simulation_video_inference_v1
+  default_run_name: representative_v12_smoke_v1
+
+claims:
+  - The checkpoint SHA-256 is verified before Ultralytics is allowed to load it.
+  - Calibration uses only declared calibration scenes and one shared threshold for both conditions.
+  - Locked test metrics are computed exactly once after threshold selection.
+  - Ideal and degraded sequences share identical ground-truth frames and track labels within every matched pair.
+  - V12 smoke tracks are repeated connected-region proxies, not real botanical tracks or field evidence.
+  - The 0.97 ideal and 0.75 degraded values are reporting-only targets and never tune benchmark outcomes.
+  - Synthetic results never authorize deployment, field spraying or chemical firing.

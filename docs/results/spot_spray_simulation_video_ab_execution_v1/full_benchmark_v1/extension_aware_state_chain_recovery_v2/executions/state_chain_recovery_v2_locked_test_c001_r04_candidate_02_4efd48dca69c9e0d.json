@@ -1,0 +1,75 @@
+{
+  "access_guard": {
+    "candidate_acceptance_or_pair_publication": false,
+    "external_services_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls": 0
+  },
+  "boundary": {
+    "candidate_rejection_ledger_row_count_after": 124,
+    "candidate_rejection_ledger_row_count_before": 123,
+    "candidate_rejection_ledger_sha256_after": "9ad279c27f8c68dc45ce61531839511a0894f41e9e1c751263b1b52462f077be",
+    "candidate_rejection_ledger_sha256_before": "e03687ee2345e745e8f594ad83af40a08009ed868422bba5029b5411aeff63db",
+    "chain_head_identity_sha256_after": "04074c9cdc8eef7599de90966847fb274ddf7e80202372f1a7bb992010782f01",
+    "chain_head_identity_sha256_before": "04074c9cdc8eef7599de90966847fb274ddf7e80202372f1a7bb992010782f01",
+    "render_state_sha256_after": "ff5b4b4ce495f7b515b00fa1402fab1dbf11db9bf2b204e1cc2dc858adcc7e5b",
+    "render_state_sha256_before": "ff5b4b4ce495f7b515b00fa1402fab1dbf11db9bf2b204e1cc2dc858adcc7e5b"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_recovery_v2_terminal_receipt",
+  "execution_id": "state_chain_recovery_v2_locked_test_c001_r04_candidate_02_4efd48dca69c9e0d",
+  "legacy_recovery": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r04_f180ac33c6690a60",
+    "candidate_index": 2,
+    "decision_receipt_sha256": "dc965655b2f8f02984eedbe3ca0f572a7840913b0cee7c92c7928124c2c11e0b",
+    "ledger_commit_receipt_sha256": "fca11c3ddd327096e7606746adc1780d7ba325fa73e9e770afea6d7e3f661d82",
+    "pair_id": "locked_test_c001_r04",
+    "recovery_terminal_receipt_sha256": "471a29a4b16c771a66934df551703d3816321c9a9161c47ce57a6da3c91030ef",
+    "status": "REJECT_ZERO_SOURCE_WEED_TRACKS_PREOUTCOME_SYNTHETIC_ONLY"
+  },
+  "original_validator_restored": true,
+  "recovery_bridge_intent_sha256": "8afff61b0e718d3e73ada3b9779289e530050a8b23af49ffbd1ed7ce835928da",
+  "request": {
+    "acceptance_authority": "none",
+    "candidate_identity_sha256": "766cb27eb634b44cc627e569b2d030848c7296e9933d653ed0341ec0f79eab93",
+    "candidate_index": 2,
+    "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_recovery_v2",
+    "model_prediction_outcome_target_or_external_access_allowed": false,
+    "pair_id": "locked_test_c001_r04",
+    "pair_slot_identity_sha256": "c84738918147c52362d2c5261ce35d3acf28bc6596e961615b281cb993ff6e49",
+    "predecessor_head_identity_sha256": "04074c9cdc8eef7599de90966847fb274ddf7e80202372f1a7bb992010782f01",
+    "predecessor_ledger_row_count": 123,
+    "predecessor_ledger_sha256": "e03687ee2345e745e8f594ad83af40a08009ed868422bba5029b5411aeff63db",
+    "predecessor_state_sha256": "ff5b4b4ce495f7b515b00fa1402fab1dbf11db9bf2b204e1cc2dc858adcc7e5b",
+    "recovery_bridge_v2_release_identity_sha256": "27a74f1bea57710f6eed48c48389e3a6af34a3cfc1d8c92fd6a79dbe23883f8f",
+    "recovery_lock_sha256": "5af1af3dc8792bc91411072b7eeb22bf6e6b22dd00383747a1265a818192ae49",
+    "rejection_authority": "exact_locked_validator_zero_source_weed_failure_only",
+    "schema_version": 1,
+    "source_template_sha256": "674ac8146691aa2f6bca7b3f7382ae4790c6b8676e6db4450fabd12d26e6c76e",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r04_9362ff91c24928a2",
+    "state_chain_intent_sha256": "cd5755de3799cb75e484760c23d37dc21891924534098f36a05f3514fbfbe8f7",
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r04_f180ac33c6690a60",
+    "underlying_batch_intent_sha256": "7f18c45d97269dc2522c86f8f279aa332fa3c53eda5653927036ad5bbb7cb403"
+  },
+  "request_identity_sha256": "4efd48dca69c9e0d8ba8d204d0c967fc4620a50e7fccd929686bbc20888a5bf3",
+  "resume": {
+    "resumed_from_existing_v2_intent": false
+  },
+  "schema_version": 1,
+  "state_chain_intent_sha256": "cd5755de3799cb75e484760c23d37dc21891924534098f36a05f3514fbfbe8f7",
+  "status": "PASS_EXACT_ZERO_SOURCE_WEED_REJECTION_V2_SYNTHETIC_ONLY",
+  "underlying_batch_intent_sha256": "7f18c45d97269dc2522c86f8f279aa332fa3c53eda5653927036ad5bbb7cb403"
+}

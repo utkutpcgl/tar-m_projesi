@@ -1,0 +1,733 @@
+{
+  "batch_execution_lock_sha256": "c9e46aee03becc435e34252fd0fbe0542b4c4c9232b8b0c2daad80028ef57bf3",
+  "batch_id": "calibration_batch_calibration_c002_r01_6a8bb6ee55c0c4c0",
+  "candidate_events_current_invocation": [
+    {
+      "candidate_identity_sha256": "043a407e939d9dc1a65aae4a42336bf558e91fa7b35eab94b838bca618f9c85b",
+      "candidate_index": 2,
+      "pair_id": "calibration_c002_r01",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "SKIP_EXISTING_PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "2ae0bffc957ca2dfe782cbca581f2d274b8a53f4ac2252aa36b4d6f9a7787438"
+    },
+    {
+      "candidate_index": 2,
+      "pair_id": "calibration_c002_r01",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "e7e9fce87ca61dba549caf12639c4707cd91d2a4c97907cc0bcd5d5e5a33df27"
+    },
+    {
+      "candidate_identity_sha256": "74330eed0470a7cfd776ab82d27952f9fc26fde71848444fa6b9503605ad00a0",
+      "candidate_index": 0,
+      "pair_id": "calibration_c002_r02",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range",
+        "eligibility:eligible_weed_track_present",
+        "eligibility:eligible_track_with_at_least_three_observations"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "db5c85cad7dd882edbfd5530eafb81ed7d668efcc7181516b379285b37df154a"
+    },
+    {
+      "candidate_identity_sha256": "9609f3ed4fda61854c10ffbc83c1a1c887e497b8469a704cb058b660b378b8d8",
+      "candidate_index": 1,
+      "pair_id": "calibration_c002_r02",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "fa64dc9feaf14d7f13de40dde1d622431d8dd3301cd3fb912b0928371ac5f9d8"
+    },
+    {
+      "candidate_index": 1,
+      "pair_id": "calibration_c002_r02",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "9df17d7ae698470a8e7e8ed2108b0c32310a27b5bdbfb806232b0ef38d68751e"
+    },
+    {
+      "candidate_identity_sha256": "7e7bb6f607fbe6e3a43ee9e745752b71c982804be349e254af74d92f21ab415d",
+      "candidate_index": 0,
+      "pair_id": "calibration_c002_r03",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "644833950538600d1558c417ed8cb2f647f0664aa8cf8949be0657fc9506d909"
+    },
+    {
+      "candidate_identity_sha256": "697e7970e013a78736c9b3c0e442e82bcad5d83a007afc9d570832b3fde11035",
+      "candidate_index": 1,
+      "pair_id": "calibration_c002_r03",
+      "rejection_reasons": [
+        "semantic:mean_weed_fraction_in_range",
+        "eligibility:eligible_weed_track_present",
+        "eligibility:eligible_track_with_at_least_three_observations"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "993f60c57ba0988ed3fecdf4d118367c32c868c219f965ee4eb623e344d66755"
+    },
+    {
+      "candidate_identity_sha256": "04563e7ee75e4bfc81515237978a6c95e1bd814daede6fc6dd40f48d95dece78",
+      "candidate_index": 2,
+      "pair_id": "calibration_c002_r03",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "c1a8fe982ef44103b2ac98b3ca7394a833c544977047dd320cfcb00970078fa7"
+    },
+    {
+      "candidate_identity_sha256": "5fec482544c847c6866cf1a1335a21833fbfadf7029ab1baec3ac7ec14b2d077",
+      "candidate_index": 3,
+      "pair_id": "calibration_c002_r03",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "2ceb0b5a431321456182b01d9b7ec7329621be0bae3361a18d235ea1230c6252"
+    },
+    {
+      "candidate_identity_sha256": "69f7e842621f26c5d0fbba150cf5d94baefaa4eb6ce09b6c48b56358554d3cc4",
+      "candidate_index": 4,
+      "pair_id": "calibration_c002_r03",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "d5ff342714a72e28e95d9b1388bf23d14f97555aa02198b29f28fd8f3aacacac"
+    },
+    {
+      "candidate_identity_sha256": "2528d452f3b39bd9af95ea1d72d224b4df74bf59a23622f8999f4d2fd4d50ca8",
+      "candidate_index": 5,
+      "pair_id": "calibration_c002_r03",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "edef0276c529baa2aa1177308f9180d3fcbc64ce4781bca3156f5e78f9015bee"
+    },
+    {
+      "candidate_index": 5,
+      "pair_id": "calibration_c002_r03",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "3a2e4b863ddcae0aeb00f48e953d6efa0d6968c47b5def5560a01777cb54ed27"
+    },
+    {
+      "candidate_identity_sha256": "bbdbb4175cfed7976a494faaddc7066aa50b48338f5823316af5cd8e9ca86335",
+      "candidate_index": 0,
+      "pair_id": "calibration_c003_r00",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "fd1fcbd03767826a577903393d68a413cf444a7564b82f63e0a99e70f73199dc"
+    },
+    {
+      "candidate_index": 0,
+      "pair_id": "calibration_c003_r00",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "edef6671c1e61a65fac36b1593b74d2fa4e5948839f69b27bb4672ff4263eace"
+    },
+    {
+      "candidate_identity_sha256": "6dbf1a197a8d2a941331eb84cb224fd1453db85ce0a2394d4bb78b119337127c",
+      "candidate_index": 0,
+      "pair_id": "calibration_c003_r01",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "61894db6215a0bed402648be99de39cdb4b9bc1774b4b91d83ae69e53eafe937"
+    },
+    {
+      "candidate_index": 0,
+      "pair_id": "calibration_c003_r01",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "d1d58352860ecf99fbacacaaf4b3717379f8520551536845864445e78dae8854"
+    },
+    {
+      "candidate_identity_sha256": "6b99741c3eb6e22c2b90bf006971a3f20a60983f7a2ae171054f5e9a3063f6bd",
+      "candidate_index": 0,
+      "pair_id": "calibration_c003_r02",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range",
+        "eligibility:eligible_weed_track_present",
+        "eligibility:eligible_track_with_at_least_three_observations"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "d7b35024377e960273f7e374545cee15cab5268ba3c95c32106826c7b4d2ae41"
+    },
+    {
+      "candidate_identity_sha256": "98e0a86be77a7eafaa0e8e1de03f9c4fd93fb74abdf784ad1ee545c9c7575a60",
+      "candidate_index": 1,
+      "pair_id": "calibration_c003_r02",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "7b036239b3c13c096f0a4ac335b0b09e76a96a7fa7dea3335a6e1779692b90a0"
+    },
+    {
+      "candidate_index": 1,
+      "pair_id": "calibration_c003_r02",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "f76b16095058014322303ab8c816d150800e91167d59f177f3c7fe70f1eb568b"
+    },
+    {
+      "candidate_identity_sha256": "3ee17195699508b8dd8a7fa53b502f5238836672e1ddec7904bae199faeeba53",
+      "candidate_index": 0,
+      "pair_id": "calibration_c003_r03",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "2089bb1a5fec992fcb335242d575928a82e550d640e2fe953bad0d84c5054422"
+    },
+    {
+      "candidate_identity_sha256": "8218cf70c6ff9f159947af1e526751608862da17f71fea03fd079ef957bf02eb",
+      "candidate_index": 1,
+      "pair_id": "calibration_c003_r03",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "137d803914a160cf02e2afd4b7dd65efbbbee98d850fcc253351c7f26e4d9b36"
+    },
+    {
+      "candidate_identity_sha256": "19a571329d4234b3be908289b951e6f888c3cb057ee89ca4bedf573518501db3",
+      "candidate_index": 2,
+      "pair_id": "calibration_c003_r03",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "20a624888372b0c432452273ea536094c020cf902e5b4e9cb205ff27b575a4bb"
+    },
+    {
+      "candidate_index": 2,
+      "pair_id": "calibration_c003_r03",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "7607488c6afa24f60b50da5234833a94e0cb87af2ad55bc777f000c142d7e4d0"
+    },
+    {
+      "candidate_identity_sha256": "de1aba777f4bc62eee7ffb98dd1c073466c052887ad23f402c3ae66c087919eb",
+      "candidate_index": 0,
+      "pair_id": "calibration_c004_r00",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "dc4704d83d53409a577d4302a60c7fe7c7038a95e3022ee7ba161bcc3b83a7e4"
+    },
+    {
+      "candidate_identity_sha256": "964d90ae573aa847e278bd956dfb4c4c33824b2f07d45dd5a95eb6cf0956fd67",
+      "candidate_index": 1,
+      "pair_id": "calibration_c004_r00",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "2fa605191ad66db0f71c15178d5611e91fabf19694f53e961be47daac7425575"
+    },
+    {
+      "candidate_identity_sha256": "6b466a5dae094e5be9d75dfe7ae7590d20f5f6fb7207b87855e69182ccd28f94",
+      "candidate_index": 2,
+      "pair_id": "calibration_c004_r00",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "4b40a6ecb1626e22f0498768d91145459e2059ce364e9fac80d386b042331076"
+    },
+    {
+      "candidate_index": 2,
+      "pair_id": "calibration_c004_r00",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "a6ab73fc234d8c883b49b78f922e5b76a1171c54e06313592ca3ca0c7813d218"
+    }
+  ],
+  "canonical_rejection_rows": [
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "dd71b986c31ce519b9768ca96a79f84e035b4e7b964c5ea7622f2af6621ac772",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "bcc039319e4f9fc6b6160677b810f98be3237bfed7993cc1a4505ca7567b402a",
+      "gt_scout_terminal_receipt_sha256": "a099db3e60902c1b267cd0f3d5ab11b9cd1fa9af5543904e6e9579a9f9373351",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c002_r01",
+      "reason": "semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "ea1c7ed29ee1cc2f6893f424fb71ecad6c27693a6c4477ddadda73f31969e12e",
+      "candidate_index": 1,
+      "gt_scout_decision_receipt_sha256": "fa1835f4979459dbc077f7adeaf285c52522fc163724519541738f118b8d20fe",
+      "gt_scout_terminal_receipt_sha256": "91df341f1722fd318a17fa653949c34240e423ead7a8904856c538f5907a79e7",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c002_r01",
+      "reason": "semantic:mean_crop_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "74330eed0470a7cfd776ab82d27952f9fc26fde71848444fa6b9503605ad00a0",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "1d92db14f00726abeb96e61042e2eb841eab7a596642809ec07c0ca5665c24eb",
+      "gt_scout_terminal_receipt_sha256": "db5c85cad7dd882edbfd5530eafb81ed7d668efcc7181516b379285b37df154a",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c002_r02",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "7e7bb6f607fbe6e3a43ee9e745752b71c982804be349e254af74d92f21ab415d",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "b6ee3a5664c750348184cd461c73354e6287383f5d6d5624dc47581c504b9060",
+      "gt_scout_terminal_receipt_sha256": "644833950538600d1558c417ed8cb2f647f0664aa8cf8949be0657fc9506d909",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c002_r03",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "697e7970e013a78736c9b3c0e442e82bcad5d83a007afc9d570832b3fde11035",
+      "candidate_index": 1,
+      "gt_scout_decision_receipt_sha256": "6ba0fe437480fdf53618b0bbe073839204036fd14d4e7fe9fb195df1cee921c7",
+      "gt_scout_terminal_receipt_sha256": "993f60c57ba0988ed3fecdf4d118367c32c868c219f965ee4eb623e344d66755",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c002_r03",
+      "reason": "semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "04563e7ee75e4bfc81515237978a6c95e1bd814daede6fc6dd40f48d95dece78",
+      "candidate_index": 2,
+      "gt_scout_decision_receipt_sha256": "0f6aa4b7b571b4a26bdf341c5a9290913ba5679fc1e6b5bb489a638a25b9ca7d",
+      "gt_scout_terminal_receipt_sha256": "c1a8fe982ef44103b2ac98b3ca7394a833c544977047dd320cfcb00970078fa7",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c002_r03",
+      "reason": "semantic:weed_free_frame_fraction_within_limit",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "5fec482544c847c6866cf1a1335a21833fbfadf7029ab1baec3ac7ec14b2d077",
+      "candidate_index": 3,
+      "gt_scout_decision_receipt_sha256": "3a252c12e99bef86fe5d8c1b2de7fb7a307ef8f15a342c054060d5202bd8a4d4",
+      "gt_scout_terminal_receipt_sha256": "2ceb0b5a431321456182b01d9b7ec7329621be0bae3361a18d235ea1230c6252",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c002_r03",
+      "reason": "semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "69f7e842621f26c5d0fbba150cf5d94baefaa4eb6ce09b6c48b56358554d3cc4",
+      "candidate_index": 4,
+      "gt_scout_decision_receipt_sha256": "0f6aa4b7b571b4a26bdf341c5a9290913ba5679fc1e6b5bb489a638a25b9ca7d",
+      "gt_scout_terminal_receipt_sha256": "d5ff342714a72e28e95d9b1388bf23d14f97555aa02198b29f28fd8f3aacacac",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c002_r03",
+      "reason": "semantic:weed_free_frame_fraction_within_limit",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "6b99741c3eb6e22c2b90bf006971a3f20a60983f7a2ae171054f5e9a3063f6bd",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "689547cbad0c86497a2c913916851f8d9c11a6211385daa6728b13a6dd39a988",
+      "gt_scout_terminal_receipt_sha256": "d7b35024377e960273f7e374545cee15cab5268ba3c95c32106826c7b4d2ae41",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c003_r02",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "3ee17195699508b8dd8a7fa53b502f5238836672e1ddec7904bae199faeeba53",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "c37b81d4d422c5956839826485f4d3e1d4a374441124a2d9c999ad51d6d28c37",
+      "gt_scout_terminal_receipt_sha256": "2089bb1a5fec992fcb335242d575928a82e550d640e2fe953bad0d84c5054422",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c003_r03",
+      "reason": "semantic:weed_free_frame_fraction_within_limit",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "8218cf70c6ff9f159947af1e526751608862da17f71fea03fd079ef957bf02eb",
+      "candidate_index": 1,
+      "gt_scout_decision_receipt_sha256": "6e45f0f82857319b9d1ff1e08058c45e1787f0623f3702964266b1c29f49562d",
+      "gt_scout_terminal_receipt_sha256": "137d803914a160cf02e2afd4b7dd65efbbbee98d850fcc253351c7f26e4d9b36",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c003_r03",
+      "reason": "semantic:mean_crop_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "de1aba777f4bc62eee7ffb98dd1c073466c052887ad23f402c3ae66c087919eb",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "39dc71dfda078a273d00906156e7ea4ff5a6b4ff9e4270fe9e0dfa82a5316397",
+      "gt_scout_terminal_receipt_sha256": "dc4704d83d53409a577d4302a60c7fe7c7038a95e3022ee7ba161bcc3b83a7e4",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c004_r00",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "964d90ae573aa847e278bd956dfb4c4c33824b2f07d45dd5a95eb6cf0956fd67",
+      "candidate_index": 1,
+      "gt_scout_decision_receipt_sha256": "f47e4c99d66de15fc183b364b0331a52e0db9fab9efbe4f2c2f6ab84832c0bf5",
+      "gt_scout_terminal_receipt_sha256": "2fa605191ad66db0f71c15178d5611e91fabf19694f53e961be47daac7425575",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "calibration_c004_r00",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    }
+  ],
+  "capacity_check": {
+    "absolute_ten_candidate_attempt_ceiling_hours": 614.4000000000002,
+    "candidate_attempt_ceiling_is_not_expected_runtime": true,
+    "free_bytes_observed": 333372776448,
+    "full_pair_count": 96,
+    "headroom_after_required_and_reserve_bytes": 123372776448,
+    "isolated_render_upper_hours_one_candidate_per_slot": 61.44000000000002,
+    "measured_linear_bytes": 37507447200,
+    "measured_linear_render_hours": 27.74043961732338,
+    "pair_count_multiplier": 48.0,
+    "planning_upper_hours_one_candidate_per_slot": 61.44000000000002,
+    "predeclared_admission_bytes": 180000000000,
+    "required_bytes": 180000000000,
+    "reserve_bytes": 30000000000
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_calibration_batch_execution_v1",
+  "elapsed_wall_seconds_current_invocation": 27001.78069975041,
+  "gpu": {
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "index": 0,
+    "memory_free_mib": 23529,
+    "memory_total_mib": 24576,
+    "memory_used_mib": 587,
+    "name": "NVIDIA GeForce RTX 3090"
+  },
+  "inference_calls": 0,
+  "locked_test_outcome_accessed": false,
+  "max_new_pairs": 8,
+  "model_loaded": false,
+  "new_pair_count": 8,
+  "new_pair_ids": [
+    "calibration_c002_r01",
+    "calibration_c002_r02",
+    "calibration_c002_r03",
+    "calibration_c003_r00",
+    "calibration_c003_r01",
+    "calibration_c003_r02",
+    "calibration_c003_r03",
+    "calibration_c004_r00"
+  ],
+  "outcome_inputs": [],
+  "render_state": {
+    "completed_pair_count": 17,
+    "completed_pair_ids": [
+      "calibration_c000_r00",
+      "calibration_c000_r01",
+      "calibration_c000_r02",
+      "calibration_c000_r03",
+      "calibration_c001_r00",
+      "calibration_c001_r01",
+      "calibration_c001_r02",
+      "calibration_c001_r03",
+      "calibration_c002_r00",
+      "calibration_c002_r01",
+      "calibration_c002_r02",
+      "calibration_c002_r03",
+      "calibration_c003_r00",
+      "calibration_c003_r01",
+      "calibration_c003_r02",
+      "calibration_c003_r03",
+      "calibration_c004_r00"
+    ],
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "pending_pair_count": 79,
+    "pending_pair_ids": [
+      "calibration_c004_r01",
+      "calibration_c004_r02",
+      "calibration_c004_r03",
+      "calibration_c005_r00",
+      "calibration_c005_r01",
+      "calibration_c005_r02",
+      "calibration_c005_r03",
+      "calibration_c006_r00",
+      "calibration_c006_r01",
+      "calibration_c006_r02",
+      "calibration_c006_r03",
+      "calibration_c007_r00",
+      "calibration_c007_r01",
+      "calibration_c007_r02",
+      "calibration_c007_r03",
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03",
+      "locked_test_c000_r04",
+      "locked_test_c000_r05",
+      "locked_test_c000_r06",
+      "locked_test_c000_r07",
+      "locked_test_c001_r00",
+      "locked_test_c001_r01",
+      "locked_test_c001_r02",
+      "locked_test_c001_r03",
+      "locked_test_c001_r04",
+      "locked_test_c001_r05",
+      "locked_test_c001_r06",
+      "locked_test_c001_r07",
+      "locked_test_c002_r00",
+      "locked_test_c002_r01",
+      "locked_test_c002_r02",
+      "locked_test_c002_r03",
+      "locked_test_c002_r04",
+      "locked_test_c002_r05",
+      "locked_test_c002_r06",
+      "locked_test_c002_r07",
+      "locked_test_c003_r00",
+      "locked_test_c003_r01",
+      "locked_test_c003_r02",
+      "locked_test_c003_r03",
+      "locked_test_c003_r04",
+      "locked_test_c003_r05",
+      "locked_test_c003_r06",
+      "locked_test_c003_r07",
+      "locked_test_c004_r00",
+      "locked_test_c004_r01",
+      "locked_test_c004_r02",
+      "locked_test_c004_r03",
+      "locked_test_c004_r04",
+      "locked_test_c004_r05",
+      "locked_test_c004_r06",
+      "locked_test_c004_r07",
+      "locked_test_c005_r00",
+      "locked_test_c005_r01",
+      "locked_test_c005_r02",
+      "locked_test_c005_r03",
+      "locked_test_c005_r04",
+      "locked_test_c005_r05",
+      "locked_test_c005_r06",
+      "locked_test_c005_r07",
+      "locked_test_c006_r00",
+      "locked_test_c006_r01",
+      "locked_test_c006_r02",
+      "locked_test_c006_r03",
+      "locked_test_c006_r04",
+      "locked_test_c006_r05",
+      "locked_test_c006_r06",
+      "locked_test_c006_r07",
+      "locked_test_c007_r00",
+      "locked_test_c007_r01",
+      "locked_test_c007_r02",
+      "locked_test_c007_r03",
+      "locked_test_c007_r04",
+      "locked_test_c007_r05",
+      "locked_test_c007_r06",
+      "locked_test_c007_r07"
+    ],
+    "planned_pair_count": 96
+  },
+  "request_identity_sha256": "6a8bb6ee55c0c4c0a267bdeddf072c25aa841cab7d0a9d207cb2abdbbaf50712",
+  "resume": {
+    "intent_sha256": "9a9bd58a4f6f970d15acb1a94b03b7780bcf83ab0cc9968b692cbb06af430b2c",
+    "recovered_published_pair_ids": [],
+    "resumed_from_existing_intent": true
+  },
+  "schema_version": 1,
+  "selected_pairs": [
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "043a407e939d9dc1a65aae4a42336bf558e91fa7b35eab94b838bca618f9c85b",
+      "canonical_gt_sha256": "921b7999b39f8ea0e52d8762790a0fb6fd06a7cd36243d76609f62ae0de0f071",
+      "full_pair_receipt_sha256": "e7e9fce87ca61dba549caf12639c4707cd91d2a4c97907cc0bcd5d5e5a33df27",
+      "pair_id": "calibration_c002_r01",
+      "selected_candidate_index": 2
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "9609f3ed4fda61854c10ffbc83c1a1c887e497b8469a704cb058b660b378b8d8",
+      "canonical_gt_sha256": "ace4a9735114317aaddad0cc640986890f0eb50f7c5b88f40254bd28c1e37f4d",
+      "full_pair_receipt_sha256": "9df17d7ae698470a8e7e8ed2108b0c32310a27b5bdbfb806232b0ef38d68751e",
+      "pair_id": "calibration_c002_r02",
+      "selected_candidate_index": 1
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "2528d452f3b39bd9af95ea1d72d224b4df74bf59a23622f8999f4d2fd4d50ca8",
+      "canonical_gt_sha256": "e58de1119e3e8165e4e580840aba08bd57258c6da4c5274fcbcd8ca059859c89",
+      "full_pair_receipt_sha256": "3a2e4b863ddcae0aeb00f48e953d6efa0d6968c47b5def5560a01777cb54ed27",
+      "pair_id": "calibration_c002_r03",
+      "selected_candidate_index": 5
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "bbdbb4175cfed7976a494faaddc7066aa50b48338f5823316af5cd8e9ca86335",
+      "canonical_gt_sha256": "26534db8588b9385364c4290bcb4227d45f1e58f94fc7a83b37531962a14694e",
+      "full_pair_receipt_sha256": "edef6671c1e61a65fac36b1593b74d2fa4e5948839f69b27bb4672ff4263eace",
+      "pair_id": "calibration_c003_r00",
+      "selected_candidate_index": 0
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "6dbf1a197a8d2a941331eb84cb224fd1453db85ce0a2394d4bb78b119337127c",
+      "canonical_gt_sha256": "6d051957ed3d0b6fc958876fe437455ace923582f03541eb7898f6b30bfca717",
+      "full_pair_receipt_sha256": "d1d58352860ecf99fbacacaaf4b3717379f8520551536845864445e78dae8854",
+      "pair_id": "calibration_c003_r01",
+      "selected_candidate_index": 0
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "98e0a86be77a7eafaa0e8e1de03f9c4fd93fb74abdf784ad1ee545c9c7575a60",
+      "canonical_gt_sha256": "ef1bb54e23e0ed5ad1026a61f0adf2cc2ed45651b6d1c9c23aefbe2e954f061a",
+      "full_pair_receipt_sha256": "f76b16095058014322303ab8c816d150800e91167d59f177f3c7fe70f1eb568b",
+      "pair_id": "calibration_c003_r02",
+      "selected_candidate_index": 1
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "19a571329d4234b3be908289b951e6f888c3cb057ee89ca4bedf573518501db3",
+      "canonical_gt_sha256": "6cda6f5eef0b372189e98d1189dcca62acd24952be222804489c20a141650de7",
+      "full_pair_receipt_sha256": "7607488c6afa24f60b50da5234833a94e0cb87af2ad55bc777f000c142d7e4d0",
+      "pair_id": "calibration_c003_r03",
+      "selected_candidate_index": 2
+    },
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "6b466a5dae094e5be9d75dfe7ae7590d20f5f6fb7207b87855e69182ccd28f94",
+      "canonical_gt_sha256": "b3f0b1b43879e43ae197c2c3d2702e4728703316d2cab5c1161473f668ea7416",
+      "full_pair_receipt_sha256": "a6ab73fc234d8c883b49b78f922e5b76a1171c54e06313592ca3ca0c7813d218",
+      "pair_id": "calibration_c004_r00",
+      "selected_candidate_index": 2
+    }
+  ],
+  "status": "PASS_CALIBRATION_BATCH_PREOUTCOME_SYNTHETIC_ONLY",
+  "target_pair_ids": [
+    "calibration_c002_r01",
+    "calibration_c002_r02",
+    "calibration_c002_r03",
+    "calibration_c003_r00",
+    "calibration_c003_r01",
+    "calibration_c003_r02",
+    "calibration_c003_r03",
+    "calibration_c004_r00"
+  ]
+}

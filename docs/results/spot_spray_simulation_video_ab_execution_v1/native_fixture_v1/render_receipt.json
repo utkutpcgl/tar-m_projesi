@@ -1,0 +1,321 @@
+{
+  "bytes_before_receipt": 781390958,
+  "config": {
+    "path": "configs/benchmark/spot_spray_simulation_video_ab_execution_v1.yaml",
+    "sha256": "a172b8b3c9fcab3ca57e5557e38a662d94b7660b3dd3a8d41533f722713618a7"
+  },
+  "contract": "spot_spray_simulation_video_ab_execution_v1",
+  "elapsed_wall_seconds": 2080.5329712992534,
+  "field_product_or_chemical_go": false,
+  "pairs": [
+    {
+      "arm_gt_identity": {
+        "byte_identical": true,
+        "degraded": "02e6b58f988594b84096784d9b63485d1884d11375a34bf664e821bd1ea858c9",
+        "ideal": "02e6b58f988594b84096784d9b63485d1884d11375a34bf664e821bd1ea858c9",
+        "shared_paths": true
+      },
+      "canonical_gt_sha256": "02e6b58f988594b84096784d9b63485d1884d11375a34bf664e821bd1ea858c9",
+      "capture_difference": {
+        "changed_pixel_fraction_minimum": 0.02214527130126953,
+        "differences_restricted_to_rgb_capture_profile": true,
+        "psf_centroid_error_px_maximum": 6.938893903907228e-18,
+        "psf_path_px": 0.3206680584551148,
+        "rgb_rmse_mean": 0.16962097336848578,
+        "rgb_rmse_minimum": 0.147614985704422
+      },
+      "degraded_motion_path": "linear",
+      "frame_count_per_arm": 30,
+      "frame_rate_hz": 15,
+      "native_dimensions_px": [
+        2048,
+        2048
+      ],
+      "pair_id": "fixture_calibration_0000",
+      "quality_gates": {
+        "all_videos_readable": true,
+        "degraded_rgb_differs_every_frame": true,
+        "eligible_weed_track_present": true,
+        "exact_frame_rate": true,
+        "exact_frames_per_arm": true,
+        "exact_native_dimensions": true,
+        "identical_arm_ground_truth": true,
+        "psf_centroid_within_0p15_px": true,
+        "psf_path_within_0p75_px": true
+      },
+      "scene_profile": "hood_dry_nominal",
+      "source_role": "val",
+      "source_scene_graph_identity_sha256": "5a7d24786334e274484992e67005e6b25af54019b3dd804d4b8c4fe185d33fad",
+      "source_track_count": 20,
+      "split": "calibration",
+      "travel_speed_m_s": 0.5,
+      "videos": {
+        "degraded": {
+          "average_frame_rate": "15/1",
+          "bytes": 7753930,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 2048,
+          "path": "rgb.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "08e8220772d7ea4b15dd6e3a88b680dbfa8a099295746a4c64366e44e7e21617",
+          "width": 2048
+        },
+        "ideal": {
+          "average_frame_rate": "15/1",
+          "bytes": 7631032,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 2048,
+          "path": "rgb.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "5b0318cf5d7b51ed3c6c129f22e57ba98edde7795ee7ed2324ff07fc37734731",
+          "width": 2048
+        },
+        "side_by_side": {
+          "average_frame_rate": "15/1",
+          "bytes": 5512198,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 1024,
+          "path": "side_by_side.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "48d0cc5e3a395469e843707f8a428f78a6026903175c073cd1ff442f24c1f2a1",
+          "width": 2048
+        }
+      },
+      "visible_eligible_weed_track_count": 2
+    },
+    {
+      "arm_gt_identity": {
+        "byte_identical": true,
+        "degraded": "4065b307721640cbbf8eedc6b2f4857da18ce3b297d900f031e781247a970025",
+        "ideal": "4065b307721640cbbf8eedc6b2f4857da18ce3b297d900f031e781247a970025",
+        "shared_paths": true
+      },
+      "canonical_gt_sha256": "4065b307721640cbbf8eedc6b2f4857da18ce3b297d900f031e781247a970025",
+      "capture_difference": {
+        "changed_pixel_fraction_minimum": 0.025259971618652344,
+        "differences_restricted_to_rgb_capture_profile": true,
+        "psf_centroid_error_px_maximum": 5.485677294651096e-18,
+        "psf_path_px": 0.726847599164927,
+        "rgb_rmse_mean": 0.19053715690970421,
+        "rgb_rmse_minimum": 0.11392589658498764
+      },
+      "degraded_motion_path": "smooth_curved",
+      "frame_count_per_arm": 30,
+      "frame_rate_hz": 15,
+      "native_dimensions_px": [
+        2048,
+        2048
+      ],
+      "pair_id": "fixture_test_0000",
+      "quality_gates": {
+        "all_videos_readable": true,
+        "degraded_rgb_differs_every_frame": true,
+        "eligible_weed_track_present": true,
+        "exact_frame_rate": true,
+        "exact_frames_per_arm": true,
+        "exact_native_dimensions": true,
+        "identical_arm_ground_truth": true,
+        "psf_centroid_within_0p15_px": true,
+        "psf_path_within_0p75_px": true
+      },
+      "scene_profile": "hood_moist_glare_challenge",
+      "source_role": "test",
+      "source_scene_graph_identity_sha256": "c5050a759c87104c09ed62b0df8a93e11d4e2c309ba281fbb37bdc85769f5f2e",
+      "source_track_count": 30,
+      "split": "test",
+      "travel_speed_m_s": 1.0,
+      "videos": {
+        "degraded": {
+          "average_frame_rate": "15/1",
+          "bytes": 4625320,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 2048,
+          "path": "rgb.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "045c5fbe380d125e3e1754ef6f3309dbfbfa5e302cc867570f1edac34c60697f",
+          "width": 2048
+        },
+        "ideal": {
+          "average_frame_rate": "15/1",
+          "bytes": 4602418,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 2048,
+          "path": "rgb.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "47c1edca4441bf1b33795547e98c930412e4a09668fcf0304b4b1f3637ebe69c",
+          "width": 2048
+        },
+        "side_by_side": {
+          "average_frame_rate": "15/1",
+          "bytes": 3200356,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 1024,
+          "path": "side_by_side.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "41262c13c06b64a2e27a8c6815d59e63407aa653659344e6bc4e922c4a37257d",
+          "width": 2048
+        }
+      },
+      "visible_eligible_weed_track_count": 4
+    }
+  ],
+  "patch_binding": {
+    "ordered_constituents": [
+      {
+        "path": "patches/cropcraft/0006-field-robustness-surface-lighting.patch",
+        "sha256": "ad3f65815a1a269bbefa41cb3292c9836e63ccd91af146ed27247a5befde416b"
+      },
+      {
+        "path": "patches/cropcraft/0002-instance-track-ground-truth.patch",
+        "sha256": "c2301376c2f1607d1abfeeb75a6b9ad9b29873c764b027bd6995b10ebcaddd24"
+      }
+    ],
+    "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/.native_fixture_v1.partial-70701e014b0342a3b53ee6fef10b47a6/bindings/0006-surface-plus-0002-botanical.patch",
+    "sha256": "bc6e12bcb4ee513df320229fcb74d9db23ccd902ed335676d896d8a9915ac3c6"
+  },
+  "preflight_receipt_sha256": "036d9805f9f53e5329912234e4d0a42f75f5ad6fe0902d234e0abd6de9ba0bd6",
+  "release_lock": {
+    "path": "release_lock_v1.json",
+    "sha256": "f93b7450f28ec12c909e0e82bbf8b95f5204044f65411f9a8193037ce638a3c1"
+  },
+  "scene_validations": [
+    {
+      "pair_id": "fixture_calibration_0000",
+      "validation": {
+        "crop_track_count": 12,
+        "field_state_asset_mismatch_count": 12,
+        "frame_count": 30,
+        "frames_with_source_silhouette_overlap": 30,
+        "fully_occluded_track_frame_rows": 0,
+        "occluded_track_frame_rows": 121,
+        "quality_gates": {
+          "crop_track_minimum": true,
+          "depsgraph_source_asset_binding": true,
+          "field_state_asset_disagreement_explicit": true,
+          "full_track_frame_grid": true,
+          "instance_palette_closed": true,
+          "occlusion_exercised": true,
+          "positive_canopy_span": true,
+          "render_ids_unique": true,
+          "semantic_class_binding": true,
+          "source_identity_digest": true,
+          "source_ids_unique": true,
+          "source_silhouette_overlap": true,
+          "visible_instance_accounting": true,
+          "visible_subset_of_isolated": true,
+          "weed_track_minimum": true
+        },
+        "scene_root": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/.native_fixture_v1.partial-70701e014b0342a3b53ee6fef10b47a6/source_scenes/fixture_calibration_0000",
+        "source_scene_graph_identity_sha256": "5a7d24786334e274484992e67005e6b25af54019b3dd804d4b8c4fe185d33fad",
+        "track_count": 20,
+        "track_frame_rows": 600,
+        "weed_track_count": 8
+      }
+    },
+    {
+      "pair_id": "fixture_test_0000",
+      "validation": {
+        "crop_track_count": 22,
+        "field_state_asset_mismatch_count": 22,
+        "frame_count": 30,
+        "frames_with_source_silhouette_overlap": 30,
+        "fully_occluded_track_frame_rows": 0,
+        "occluded_track_frame_rows": 101,
+        "quality_gates": {
+          "crop_track_minimum": true,
+          "depsgraph_source_asset_binding": true,
+          "field_state_asset_disagreement_explicit": true,
+          "full_track_frame_grid": true,
+          "instance_palette_closed": true,
+          "occlusion_exercised": true,
+          "positive_canopy_span": true,
+          "render_ids_unique": true,
+          "semantic_class_binding": true,
+          "source_identity_digest": true,
+          "source_ids_unique": true,
+          "source_silhouette_overlap": true,
+          "visible_instance_accounting": true,
+          "visible_subset_of_isolated": true,
+          "weed_track_minimum": true
+        },
+        "scene_root": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/.native_fixture_v1.partial-70701e014b0342a3b53ee6fef10b47a6/source_scenes/fixture_test_0000",
+        "source_scene_graph_identity_sha256": "c5050a759c87104c09ed62b0df8a93e11d4e2c309ba281fbb37bdc85769f5f2e",
+        "track_count": 30,
+        "track_frame_rows": 900,
+        "weed_track_count": 8
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "derived_scene_config": {
+        "path": "scene_configs/fixture_calibration_0000.yaml",
+        "sha256": "ed3b3e0068b42dbc1c4f41b2f3bc5c7a4ac77597ca50f268c3a9537f6514b054"
+      },
+      "elapsed_wall_seconds": 642.4249794827774,
+      "pair_id": "fixture_calibration_0000",
+      "receipt_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/.native_fixture_v1.partial-70701e014b0342a3b53ee6fef10b47a6/source_scenes/fixture_calibration_0000/generation_receipt.json",
+      "receipt_sha256": "3d36358ebdc6efe1d70d1175cc1ac7ba2d30e35c316db5c37c6f84dd72d7700e",
+      "runner_log": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/.native_fixture_v1.partial-70701e014b0342a3b53ee6fef10b47a6/source_scenes/fixture_calibration_0000.runner.log",
+      "runner_log_sha256": "3d36358ebdc6efe1d70d1175cc1ac7ba2d30e35c316db5c37c6f84dd72d7700e",
+      "scene_patch_sha256": "bc6e12bcb4ee513df320229fcb74d9db23ccd902ed335676d896d8a9915ac3c6",
+      "validated_pairs": 30
+    },
+    {
+      "derived_scene_config": {
+        "path": "scene_configs/fixture_test_0000.yaml",
+        "sha256": "7746fa12fae08780b47115fe5ae65504e7b899a8b3de51b148cb148dbbfe48dd"
+      },
+      "elapsed_wall_seconds": 824.7884048596025,
+      "pair_id": "fixture_test_0000",
+      "receipt_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/.native_fixture_v1.partial-70701e014b0342a3b53ee6fef10b47a6/source_scenes/fixture_test_0000/generation_receipt.json",
+      "receipt_sha256": "59eb009afc9a1d6abf7b355e53c92e494ed1f7d9c6ba36c2ff4a5d39d91e83bf",
+      "runner_log": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/.native_fixture_v1.partial-70701e014b0342a3b53ee6fef10b47a6/source_scenes/fixture_test_0000.runner.log",
+      "runner_log_sha256": "59eb009afc9a1d6abf7b355e53c92e494ed1f7d9c6ba36c2ff4a5d39d91e83bf",
+      "scene_patch_sha256": "bc6e12bcb4ee513df320229fcb74d9db23ccd902ed335676d896d8a9915ac3c6",
+      "validated_pairs": 30
+    }
+  ],
+  "schema_version": 1,
+  "sequence_manifest": {
+    "path": "sequence_manifest.json",
+    "sha256": "f2d8851433e06ce93572ecf96c6ffe1177073773251083eb710bf2516a0913da",
+    "validation": {
+      "all_consumed_files_sha256_verified": true,
+      "calibration_pair_count": 1,
+      "calibration_test_pair_ids_disjoint": true,
+      "dataset_id": "spot_spray_simulation_video_ab_execution_v1_native_fixture",
+      "derivation": {
+        "frame_rate_hz": 15,
+        "frames_per_arm": 30,
+        "outcome_inputs_used": [],
+        "type": "native_2048_botanical_source_object_matched_pair_fixture"
+      },
+      "evidence_scope": "synthetic_diagnostic_only",
+      "frame_count": 120,
+      "ground_truth_identical_within_pairs": true,
+      "matched_pair_count": 2,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/.native_fixture_v1.partial-70701e014b0342a3b53ee6fef10b47a6/sequence_manifest.json",
+      "provenance": {
+        "botanical_patch_sha256": "c2301376c2f1607d1abfeeb75a6b9ad9b29873c764b027bd6995b10ebcaddd24",
+        "botanical_validation_receipt_sha256": "491776943143ca486c0fda7f307db4ec7372cc35adfd216c9243ac5efd36c956",
+        "composed_scene_patch_sha256": "bc6e12bcb4ee513df320229fcb74d9db23ccd902ed335676d896d8a9915ac3c6",
+        "paired_renderer_sha256": "3fa5b6a5838dc45126f55d54875c65da7fc6cc7ff0e3078104f207f5d3809082",
+        "paired_validation_receipt_sha256": "179410f6f975e1b7b43c369839ea3b58f74e6eb2ccc667dc4e64127b5ce7d5b3",
+        "protocol_sha256": "de12cd76d3f497f1ea3a6ffa1d1c7fc8eea4e70a9af218c2769bae81da0f329f",
+        "simulation_evaluator_sha256": "83c6fabd1acc3db47799e96aea91b46d29f514d891c5f19091d3fb14bf3811f7"
+      },
+      "sequence_count": 4,
+      "sha256": "f2d8851433e06ce93572ecf96c6ffe1177073773251083eb710bf2516a0913da",
+      "test_pair_count": 1
+    }
+  },
+  "status": "PASS_NATIVE_FIXTURE_RENDER_SYNTHETIC_ONLY",
+  "synthetic_only": true
+}

@@ -1,0 +1,124 @@
+{
+  "access_guard": {
+    "candidate_0_gt_scout_active": true,
+    "external_services_modified": false,
+    "full_benchmark_model_outputs_present": false,
+    "full_pair_render_active": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "render_and_machine_audit_only": true
+  },
+  "active_candidate": {
+    "candidate_identity_sha256": "b2c321942378396b45b55973b8103288202f6072ea3bc5a07ded47f441687578",
+    "candidate_index": 0,
+    "frame_count": 30,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "pair_id": "locked_test_c001_r03",
+    "pair_slot_identity_sha256": "cd669498b3c9a0dfda43679a8fd5abd4dce89417df30c9b0a126e8ffd101f4e0",
+    "presealed_roster_binding_exact": true,
+    "scene_config_sha256": "29b417c81caecc9b8e692ea7bd20ae885a7180d942b393cc67ba09f98cbc82c9",
+    "seeds": {
+      "audit_sample_seed": 11586001811185890558,
+      "capture_draw_seed": 9697965641903179976,
+      "renderer_seed": 18139165744267205722,
+      "scene_seed": 707884737562239007,
+      "trajectory_seed": 17929785098589892156
+    },
+    "source_template": {
+      "profile": "hood_dry_nominal",
+      "scene_id": "scene_0006",
+      "sha256": "5127d5ff63ba21c1e780a07439e9ab45df7ca16ffb48e793ed770c50c115758f"
+    },
+    "stage_at_observation": "gt_scout_source_scene_blender_render",
+    "staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-locked_test_c001_r03-candidate-00-56ea0180495745e2a1419eb0624c6ca9"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass80_state_chain_launch_v1",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260820223804-72f3dd6e53dd",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 80,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "immutable_boundary_at_launch": {
+    "candidate_rejection_ledger_row_count": 118,
+    "candidate_rejection_ledger_sha256": "84b6e2848060fc6d39df48cadf2aa3e14a0a3e060734f051d441f77327a8e336",
+    "chain_head_identity_sha256": "33a1a52c6245f709ed47036a891c44d2b9f36bee934109ef06b8cce0ecca2f2f",
+    "completed_pair_count": 43,
+    "first_pending_pair_id": "locked_test_c001_r03",
+    "no_active_state_chain_execution": true,
+    "pending_pair_count": 53,
+    "render_state_sha256": "9830d0408a514f3acd594658fa60ca45b1b756301db388d9bf91b04beac28514"
+  },
+  "intent_ordering": {
+    "batch_intent_created_at": "2026-08-21T01:42:59.748821588+03:00",
+    "both_intents_precede_candidate_staging": true,
+    "candidate_staging_created_at": "2026-08-21T01:43:02.976827298+03:00",
+    "state_chain_intent_created_at": "2026-08-21T01:42:56.450017123+03:00"
+  },
+  "observed_at": "2026-08-21T01:43:08+03:00",
+  "preflight": {
+    "data_free_bytes": 303277408256,
+    "data_required_bytes": 180000000000,
+    "data_reserve_bytes": 30000000000,
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "gpu_memory_free_mib": 23608,
+    "gpu_memory_total_mib": 24576,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "prior_proven_native_render_launch_threshold_free_mib": 23521,
+    "release_file_sha256": "4c68888c43a09fb4afe4c0c56a365e36d6707c068f250deb891b2765c23f19bd",
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "release_state_head_ledger_and_open_intent_verified": true,
+    "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY"
+  },
+  "process": {
+    "active_stage": "gt_scout_source_scene_blender_render",
+    "command_exact": true,
+    "command": "/home/ankaref/miniconda3/envs/sgs-yolo/bin/python3.10 scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py run --pair-id locked_test_c001_r03 --max-new-pairs 1",
+    "log_bytes_at_observation": 0,
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass80_state_chain_execution/process.log",
+    "log_sha256_at_observation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parallel_active_state_chain_process_count": 0,
+    "process_pid": 1255277,
+    "process_session_id": 1255277,
+    "started_local": "2026-08-21T01:42:54+03:00",
+    "terminal_error_observed": false
+  },
+  "schema_version": 1,
+  "state_chain": {
+    "execution_id": "state_chain_batch_locked_test_c001_r03_c66d6937e3dca21a",
+    "intent_sha256": "0d57a2a53b71b3cb93af8344ba91e4392a31056fa4c599b2d5993ec44c479927",
+    "predecessor_head_identity_sha256": "33a1a52c6245f709ed47036a891c44d2b9f36bee934109ef06b8cce0ecca2f2f",
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "request_identity_sha256": "c66d6937e3dca21ab499c3269c0104abe4fd808b27dd1a92a669e4817b88983b",
+    "terminal_receipt_present_at_observation": false
+  },
+  "status": "ACTIVE_CANDIDATE_0_MODEL_FREE_STATE_CHAIN_SYNTHETIC_ONLY",
+  "underlying_batch": {
+    "batch_execution_lock_sha256": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74",
+    "batch_id": "locked_test_render_batch_locked_test_c001_r03_9ac72e3934caba41",
+    "intent_sha256": "a453e3b91144d18143f2bb1f617b57c047afb657300bfe8633344cdc1604090e",
+    "intent_status": "LOCKED_TEST_RENDER_BATCH_INTENT_PREOUTCOME_SYNTHETIC_ONLY",
+    "max_new_pairs": 1,
+    "request_identity_sha256": "9ac72e3934caba415320e18a474da0f4e81d669bf5d9ae7e0761b25e8a6b98ba",
+    "target_pair_ids": [
+      "locked_test_c001_r03"
+    ],
+    "terminal_receipt_present_at_observation": false
+  }
+}

@@ -1,0 +1,616 @@
+diff --git a/core/blender_entrypoint.py b/core/blender_entrypoint.py
+index 47f5f12..f99e7a1 100644
+--- a/core/blender_entrypoint.py
++++ b/core/blender_entrypoint.py
+@@ -18,6 +18,7 @@ this_module_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+ sys.path.insert(0, this_module_dir)
+ 
+ import core
++from core import botanical_gt
+ 
+ 
+ def configure_random_seed(field: core.config.Field):
+@@ -61,6 +62,12 @@ def main(argv: list):
+     ground.create_weeds()
+     ground.create_stones()
+ 
++    botanical_tracks = None
++    if os.environ.get("CROPCRAFT_BOTANICAL_GT") == "1":
++        botanical_tracks = botanical_gt.materialize_source_plants(
++            field, output_dir
++        )
++
+     look_at = beds.get_center_pos()
+     look_at.x = 5.
+     core.base.create_camera(look_at)
+@@ -72,7 +79,15 @@ def main(argv: list):
+         core.base.setup_camera_animation(cfg.render, beds.get_end_pos())
+         core.base.render_animation(cfg.render, labeled=False, output_dir=output_dir)
+         beds.apply_label_materials(cfg.render.label_colors)
++        if botanical_tracks is not None:
++            botanical_gt.apply_semantic_materials(
++                botanical_tracks, cfg.render.label_colors
++            )
+         ground.apply_label_materials(cfg.render.label_colors)
+         core.base.render_animation(cfg.render, labeled=True, output_dir=output_dir)
++        if botanical_tracks is not None:
++            botanical_gt.render_track_ground_truth(
++                botanical_tracks, cfg.render, output_dir
++            )
+ 
+     print(f'Generated seed: {field.seed}')
+diff --git a/core/botanical_gt.py b/core/botanical_gt.py
+new file mode 100644
+index 0000000..af22951
+--- /dev/null
++++ b/core/botanical_gt.py
+@@ -0,0 +1,569 @@
++"""Source-object botanical instance and track ground truth for CropCraft.
++
++Identity is read from CropCraft's Geometry Nodes dependency-graph instances
++before rendering. Semantic connected components, rendered topology, and model
++predictions are never identity inputs.
++"""
++
++from __future__ import annotations
++
++import hashlib
++import json
++import os
++from pathlib import Path
++
++import bpy
++import numpy as np
++from PIL import Image
++
++
++GT_DIRECTORY = "botanical_ground_truth"
++
++
++def _canonical_bytes(value):
++    return json.dumps(
++        value, sort_keys=True, separators=(",", ":"), ensure_ascii=True
++    ).encode("utf-8")
++
++
++def _sha256_bytes(value):
++    return hashlib.sha256(value).hexdigest()
++
++
++def _write_json(path, value):
++    path.parent.mkdir(parents=True, exist_ok=True)
++    path.write_text(
++        json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8"
++    )
++
++
++def _write_jsonl(path, rows):
++    path.parent.mkdir(parents=True, exist_ok=True)
++    payload = "".join(
++        json.dumps(row, sort_keys=True, separators=(",", ":")) + "\n"
++        for row in rows
++    )
++    path.write_text(payload, encoding="utf-8")
++
++
++def _flatten_crop_states(field):
++    result = {}
++    bed_state_cursor = 0
++    for bed in field.beds:
++        states = field.state.beds[
++            bed_state_cursor : bed_state_cursor + bed.beds_count
++        ]
++        bed_state_cursor += bed.beds_count
++        crops = []
++        for state in states:
++            for row in state.rows:
++                crops.extend(row.crops)
++        result[bed.name] = crops
++    return result
++
++
++def _expose_instances(tree):
++    instance = tree.nodes.get("Instance on Points")
++    output = tree.nodes.get("Group Output")
++    if instance is None or output is None:
++        raise RuntimeError("Unexpected CropCraft instancing Geometry Nodes graph")
++    for link in list(output.inputs["Geometry"].links):
++        tree.links.remove(link)
++    tree.links.new(instance.outputs["Instances"], output.inputs["Geometry"])
++
++
++def _prepare_crop_carriers(field):
++    states_by_bed = _flatten_crop_states(field)
++    carriers = []
++    for bed in field.beds:
++        carrier = bpy.data.objects.get(bed.name)
++        collection = bpy.data.collections.get(bed.name)
++        if carrier is None or carrier.type != "MESH" or collection is None:
++            raise RuntimeError(f"Missing CropCraft crop carrier: {bed.name}")
++        count = len(carrier.data.vertices)
++        states = states_by_bed[bed.name]
++        if count != len(states):
++            raise RuntimeError(
++                f"Crop source point/state mismatch for {bed.name}: "
++                f"{count} != {len(states)}"
++            )
++        carriers.append(
++            {
++                "carrier": carrier,
++                "class_name": "crop",
++                "group_name": bed.name,
++                "source_states": states,
++                "source_asset_candidates": sorted(
++                    obj.name for obj in collection.objects
++                ),
++                "source_rule": (
++                    "python_bed_point_matched_to_pre_render_depsgraph_instance"
++                ),
++            }
++        )
++
++    tree = bpy.data.node_groups.get("crops")
++    if tree is None:
++        raise RuntimeError("Missing CropCraft crops Geometry Nodes group")
++    _expose_instances(tree)
++    return carriers
++
++
++def _expose_weed_instances():
++    tree = bpy.data.node_groups.get("scattering")
++    if tree is None:
++        raise RuntimeError("Missing CropCraft weed scattering node group")
++    _expose_instances(tree)
++
++
++def _prepare_weed_carriers(field):
++    if not field.weeds:
++        return []
++    _expose_weed_instances()
++    carriers = []
++    for weed in field.weeds:
++        carrier = bpy.data.objects.get(weed.name)
++        collection = bpy.data.collections.get(weed.name)
++        if carrier is None or carrier.type != "MESH" or collection is None:
++            raise RuntimeError(f"Missing CropCraft weed carrier: {weed.name}")
++        carriers.append(
++            {
++                "carrier": carrier,
++                "class_name": "weed",
++                "group_name": weed.name,
++                "plant_type": weed.plant_type,
++                "source_asset_candidates": sorted(
++                    obj.name for obj in collection.objects
++                ),
++                "source_rule": (
++                    "geometry_nodes_depsgraph_persistent_instance_id_before_render"
++                ),
++            }
++        )
++    return carriers
++
++
++def _persistent_id(instance):
++    return tuple(
++        int(value)
++        for value in instance.persistent_id
++        if int(value) != 2147483647
++    )
++
++
++def _instance_matrix_key(matrix):
++    return tuple(round(float(value), 12) for row in matrix for value in row)
++
++
++def _carrier_instances(depsgraph, carrier):
++    rows = []
++    for instance in depsgraph.object_instances:
++        if not instance.is_instance or instance.instance_object is None:
++            continue
++        parent = instance.parent
++        original = getattr(parent, "original", None) if parent is not None else None
++        if original != carrier and getattr(parent, "name", None) != carrier.name:
++            continue
++        source = getattr(instance.instance_object, "original", instance.instance_object)
++        if source.type != "MESH":
++            continue
++        rows.append(
++            {
++                "persistent_id": _persistent_id(instance),
++                "source_object": source,
++                "source_object_name": source.name,
++                "matrix_world": instance.matrix_world.copy(),
++            }
++        )
++    rows.sort(
++        key=lambda row: (
++            row["persistent_id"],
++            row["source_object_name"],
++            _instance_matrix_key(row["matrix_world"]),
++        )
++    )
++    if not rows:
++        raise RuntimeError(f"No pre-render dependency-graph instances: {carrier.name}")
++    persistent_ids = [row["persistent_id"] for row in rows]
++    if len(set(persistent_ids)) != len(persistent_ids):
++        raise RuntimeError(f"Non-unique dependency-graph persistent IDs: {carrier.name}")
++    return rows
++
++
++def _match_crop_instances(instances, states, carrier_name):
++    unmatched = set(range(len(states)))
++    matched = []
++    for instance in instances:
++        location = instance["matrix_world"].translation
++        nearest = min(
++            unmatched,
++            key=lambda index: (
++                (location.x - states[index].x) ** 2
++                + (location.y - states[index].y) ** 2
++                + (location.z - states[index].z) ** 2
++            ),
++        )
++        squared_distance = (
++            (location.x - states[nearest].x) ** 2
++            + (location.y - states[nearest].y) ** 2
++            + (location.z - states[nearest].z) ** 2
++        )
++        if squared_distance > 1.0e-10:
++            raise RuntimeError(
++                f"Crop dependency-graph/source point mismatch for {carrier_name}: "
++                f"distance={squared_distance ** 0.5}"
++            )
++        unmatched.remove(nearest)
++        matched.append((nearest, instance))
++    if unmatched or len(matched) != len(states):
++        raise RuntimeError(f"Incomplete crop instance match for {carrier_name}")
++    return sorted(matched, key=lambda row: row[0])
++
++
++def _duplicate_instance(instance, name):
++    source = instance["source_object"]
++    mesh = source.data.copy()
++    if len(mesh.vertices) == 0 or len(mesh.polygons) == 0:
++        bpy.data.meshes.remove(mesh)
++        raise RuntimeError(f"Empty source botanical mesh: {source.name}")
++    obj = bpy.data.objects.new(name, mesh)
++    obj.matrix_world = instance["matrix_world"].copy()
++    return obj
++
++
++def _world_bounds(obj):
++    points = [obj.matrix_world @ vertex.co for vertex in obj.data.vertices]
++    return {
++        "minimum": [min(point[i] for point in points) for i in range(3)],
++        "maximum": [max(point[i] for point in points) for i in range(3)],
++    }
++
++
++def _crop_state_payload(state):
++    return {
++        "position_m": [state.x, state.y, state.z],
++        "rotation_rad": [state.roll, state.pitch, state.yaw],
++        "height_m": state.height,
++        "width_m": state.width,
++        "leaf_area_m2": state.leaf_area,
++        "plant_type": state.type,
++        "field_state_declared_asset_filename": state.filename,
++    }
++
++
++def _palette_color(render_id):
++    return [
++        32 + (73 * render_id) % 192,
++        32 + (151 * render_id) % 192,
++        32 + (199 * render_id) % 192,
++    ]
++
++
++def materialize_source_plants(field, output_dir):
++    """Materialize one object per pre-render source instance."""
++    carriers = _prepare_crop_carriers(field) + _prepare_weed_carriers(field)
++    bpy.context.evaluated_depsgraph_get().update()
++    generated = bpy.data.collections.get("generated")
++    if generated is None:
++        raise RuntimeError("Missing CropCraft generated collection")
++
++    tracks = []
++    render_id = 1
++    depsgraph = bpy.context.evaluated_depsgraph_get()
++    for carrier_row in carriers:
++        carrier = carrier_row["carrier"]
++        instances = _carrier_instances(depsgraph, carrier)
++        if carrier_row["class_name"] == "crop":
++            assignments = _match_crop_instances(
++                instances, carrier_row["source_states"], carrier.name
++            )
++        else:
++            assignments = list(enumerate(instances))
++        for local_id, instance in assignments:
++            object_name = f"botanical_{render_id:06d}"
++            obj = _duplicate_instance(instance, object_name)
++            generated.objects.link(obj)
++            track_id = (
++                f"{carrier_row['class_name']}/"
++                f"{carrier_row['group_name']}/{local_id:06d}"
++            )
++            bounds = _world_bounds(obj)
++            row = {
++                "botanical_id": track_id,
++                "track_id": track_id,
++                "render_id": render_id,
++                "render_color_rgb": _palette_color(render_id),
++                "class_name": carrier_row["class_name"],
++                "source_group": carrier_row["group_name"],
++                "source_local_id": local_id,
++                "source_identity_rule": carrier_row["source_rule"],
++                "depsgraph_persistent_id": list(instance["persistent_id"]),
++                "source_instance_object": instance["source_object_name"],
++                "source_asset_binding_authority": "depsgraph_instance_object",
++                "object": obj,
++                "object_name": object_name,
++                "world_bounds_m": bounds,
++                "canopy_span_mm": 1000.0
++                * max(
++                    bounds["maximum"][0] - bounds["minimum"][0],
++                    bounds["maximum"][1] - bounds["minimum"][1],
++                ),
++            }
++            if carrier_row["class_name"] == "crop":
++                states = carrier_row["source_states"]
++                if local_id < 0 or local_id >= len(states):
++                    raise RuntimeError(
++                        f"Crop source state missing for {track_id}"
++                    )
++                row["source"] = _crop_state_payload(states[local_id])
++                row["source"]["source_asset_candidates"] = carrier_row[
++                    "source_asset_candidates"
++                ]
++                row["source"]["field_state_asset_matches_instance_object"] = (
++                    Path(states[local_id].filename).stem
++                    == instance["source_object_name"]
++                )
++            else:
++                row["source"] = {
++                    "plant_type": carrier_row["plant_type"],
++                    "source_asset_candidates": carrier_row[
++                        "source_asset_candidates"
++                    ],
++                    "instance_selector": (
++                        "CropCraft dependency-graph instance_object selected "
++                        "by the Geometry Nodes source graph"
++                    ),
++                }
++            tracks.append(row)
++            render_id += 1
++        carrier.hide_render = True
++        carrier.hide_viewport = True
++
++    if len({row["botanical_id"] for row in tracks}) != len(tracks):
++        raise RuntimeError("Duplicate botanical source IDs")
++    serializable = [
++        {key: value for key, value in row.items() if key != "object"}
++        for row in tracks
++    ]
++    source_identity = _sha256_bytes(_canonical_bytes(serializable))
++    manifest = {
++        "schema_version": 1,
++        "identity_authority": (
++            "pre-render Geometry Nodes dependency-graph instances"
++        ),
++        "forbidden_identity_inputs": [
++            "semantic_connected_components",
++            "model_predictions",
++            "rendered_pixel_topology",
++        ],
++        "source_scene_graph_identity_sha256": source_identity,
++        "track_count": len(serializable),
++        "tracks": serializable,
++    }
++    _write_json(Path(output_dir) / GT_DIRECTORY / "source_objects.json", manifest)
++    return tracks
++
++
++def _srgb_to_linear(channel):
++    value = channel / 255.0
++    if value <= 0.04045:
++        return value / 12.92
++    return ((value + 0.055) / 1.055) ** 2.4
++
++
++def _emission_material(name, color_rgb):
++    material = bpy.data.materials.get(name)
++    if material is None:
++        material = bpy.data.materials.new(name)
++        material.use_nodes = True
++        nodes = material.node_tree.nodes
++        nodes.clear()
++        emission = nodes.new("ShaderNodeEmission")
++        output = nodes.new("ShaderNodeOutputMaterial")
++        material.node_tree.links.new(
++            emission.outputs["Emission"], output.inputs["Surface"]
++        )
++    emission = material.node_tree.nodes.get("Emission")
++    linear = tuple(_srgb_to_linear(value) for value in color_rgb) + (1.0,)
++    emission.inputs["Color"].default_value = linear
++    emission.inputs["Strength"].default_value = 1.0
++    return material
++
++
++def _assign_material(obj, material):
++    obj.data.materials.clear()
++    obj.data.materials.append(material)
++    for polygon in obj.data.polygons:
++        polygon.material_index = 0
++
++
++def apply_semantic_materials(tracks, label_colors):
++    crop = _emission_material("botanical_semantic_crop", label_colors.crop)
++    weed = _emission_material("botanical_semantic_weed", label_colors.weed)
++    for row in tracks:
++        _assign_material(
++            row["object"], crop if row["class_name"] == "crop" else weed
++        )
++
++
++def _render_png_animation(render, output_dir, subdirectory):
++    scene = bpy.context.scene
++    scene.render.engine = "BLENDER_EEVEE_NEXT"
++    scene.render.filter_size = 0.0
++    scene.render.resolution_x = render.resolution_x
++    scene.render.resolution_y = render.resolution_y
++    scene.render.resolution_percentage = 100
++    scene.render.image_settings.file_format = "PNG"
++    scene.render.image_settings.color_mode = "RGB"
++    scene.render.image_settings.color_depth = "8"
++    scene.render.filepath = str(
++        Path(output_dir) / GT_DIRECTORY / subdirectory / "frame_"
++    )
++    scene.render.film_transparent = False
++    scene.view_settings.view_transform = "Standard"
++    world = scene.world
++    if world and world.use_nodes:
++        background = world.node_tree.nodes.get("Background")
++        if background is not None:
++            background.inputs["Color"].default_value = (0.0, 0.0, 0.0, 1.0)
++            background.inputs["Strength"].default_value = 0.0
++    bpy.ops.render.render(animation=True)
++
++
++def _quantize_instance_maps(directory, palette):
++    colors = np.asarray([[0, 0, 0]] + palette, dtype=np.int32)
++    for path in sorted(directory.glob("frame_*.png")):
++        image = np.asarray(Image.open(path).convert("RGB"), dtype=np.int32)
++        distance = np.sum(
++            (image[:, :, None, :] - colors[None, None, :, :]) ** 2,
++            axis=-1,
++        )
++        nearest = colors[np.argmin(distance, axis=-1)].astype(np.uint8)
++        Image.fromarray(nearest, mode="RGB").save(path, compress_level=9)
++
++
++def _binary_from_color(image, color):
++    return np.all(image == np.asarray(color, dtype=np.uint8), axis=2)
++
++
++def _touches_border(mask):
++    return bool(
++        mask[0, :].any()
++        or mask[-1, :].any()
++        or mask[:, 0].any()
++        or mask[:, -1].any()
++    )
++
++
++def render_track_ground_truth(tracks, render, output_dir):
++    """Render visible ID maps and isolated silhouettes on one trajectory."""
++    root = Path(output_dir) / GT_DIRECTORY
++    palette = [row["render_color_rgb"] for row in tracks]
++    for row in tracks:
++        material = _emission_material(
++            f"botanical_instance_{row['render_id']:06d}",
++            row["render_color_rgb"],
++        )
++        _assign_material(row["object"], material)
++        row["object"].hide_render = False
++    _render_png_animation(render, output_dir, "instance_masks")
++    instance_directory = root / "instance_masks"
++    _quantize_instance_maps(instance_directory, palette)
++
++    white = _emission_material("botanical_isolated_white", [255, 255, 255])
++    isolated_by_track = {}
++    for row in tracks:
++        for other in tracks:
++            other["object"].hide_render = other is not row
++        _assign_material(row["object"], white)
++        relative = f"isolated_masks/{row['object_name']}"
++        _render_png_animation(render, output_dir, relative)
++        frame_masks = {}
++        for path in sorted((root / relative).glob("frame_*.png")):
++            image = np.asarray(Image.open(path).convert("RGB"), dtype=np.uint8)
++            mask = image.mean(axis=2) >= 127
++            Image.fromarray((mask * 255).astype(np.uint8), mode="L").save(
++                path, compress_level=9
++            )
++            frame_masks[path.stem] = mask
++        isolated_by_track[row["track_id"]] = frame_masks
++
++    for row in tracks:
++        row["object"].hide_render = False
++    rows = []
++    overlap_by_frame = {}
++    visible_root = root / "visible_masks"
++    for instance_path in sorted(instance_directory.glob("frame_*.png")):
++        stem = instance_path.stem
++        image = np.asarray(
++            Image.open(instance_path).convert("RGB"), dtype=np.uint8
++        )
++        isolated_sum = np.zeros(image.shape[:2], dtype=np.uint16)
++        for row in tracks:
++            isolated_sum += isolated_by_track[row["track_id"]][stem]
++        overlap_by_frame[stem] = int((isolated_sum > 1).sum())
++        for row in tracks:
++            visible = _binary_from_color(image, row["render_color_rgb"])
++            isolated = isolated_by_track[row["track_id"]][stem]
++            visible_path = (
++                visible_root / row["object_name"] / f"{stem}.png"
++            )
++            visible_path.parent.mkdir(parents=True, exist_ok=True)
++            Image.fromarray((visible * 255).astype(np.uint8), mode="L").save(
++                visible_path, compress_level=9
++            )
++            visible_pixels = int(visible.sum())
++            isolated_pixels = int(isolated.sum())
++            fraction = (
++                visible_pixels / isolated_pixels if isolated_pixels else None
++            )
++            rows.append(
++                {
++                    "frame_id": stem,
++                    "botanical_id": row["botanical_id"],
++                    "track_id": row["track_id"],
++                    "render_id": row["render_id"],
++                    "class_name": row["class_name"],
++                    "visible_mask": visible_path.relative_to(root).as_posix(),
++                    "isolated_mask": (
++                        f"isolated_masks/{row['object_name']}/{stem}.png"
++                    ),
++                    "visible_pixels": visible_pixels,
++                    "isolated_pixels": isolated_pixels,
++                    "visible_fraction": fraction,
++                    "in_frame": isolated_pixels > 0,
++                    "occluded": (
++                        isolated_pixels > 0 and visible_pixels < isolated_pixels
++                    ),
++                    "fully_occluded": (
++                        isolated_pixels > 0 and visible_pixels == 0
++                    ),
++                    "partial_at_frame_boundary": _touches_border(isolated),
++                }
++            )
++
++    serializable = [
++        {key: value for key, value in row.items() if key != "object"}
++        for row in tracks
++    ]
++    registry = {
++        "schema_version": 1,
++        "frame_count": render.frames,
++        "identity_authority": "pre_render_geometry_nodes_dependency_graph_instance",
++        "track_count": len(serializable),
++        "tracks": serializable,
++        "overlap_pixels_by_frame": overlap_by_frame,
++        "frames_with_source_silhouette_overlap": sum(
++            value > 0 for value in overlap_by_frame.values()
++        ),
++        "occluded_track_frame_rows": sum(row["occluded"] for row in rows),
++        "fully_occluded_track_frame_rows": sum(
++            row["fully_occluded"] for row in rows
++        ),
++    }
++    _write_json(root / "track_registry.json", registry)
++    _write_jsonl(root / "tracks.jsonl", rows)
++    if registry["frames_with_source_silhouette_overlap"] < 1:
++        raise RuntimeError("Pilot has no overlapping source-plant silhouettes")
++    if registry["occluded_track_frame_rows"] < 1:
++        raise RuntimeError("Pilot did not exercise botanical occlusion")

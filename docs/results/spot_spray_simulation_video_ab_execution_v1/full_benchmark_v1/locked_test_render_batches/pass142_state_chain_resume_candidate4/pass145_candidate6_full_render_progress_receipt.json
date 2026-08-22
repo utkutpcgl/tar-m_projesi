@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass145_candidate6_full_render_progress_v1",
+  "status": "ACTIVE_CANDIDATE6_FULL_RENDER_PROGRESS_NO_PUBLICATION_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821144621-b1eda045b2ec",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 145,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T17:47:29+03:00",
+  "predecessor_receipt": {
+    "path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass142_state_chain_resume_candidate4/pass144_candidate6_full_render_active_receipt.json",
+    "sha256": "f8c4a9508d5294607ef1bb32ef3396fce1f80ed31ae583ec19782c79aaa87f5e"
+  },
+  "pair_id": "locked_test_c001_r07",
+  "process": {
+    "pid": 1607571,
+    "alive": true,
+    "state": "Ssl",
+    "elapsed_seconds_at_validation": 3571,
+    "active_child_pid": 1725203,
+    "active_blender_pid": 1725214,
+    "active_blender_state": "Rl",
+    "active_blender_cpu_percent_at_validation": 1864.0,
+    "active_child_command_role": "candidate6_full_render_source_scene_and_isolated_mask_generation",
+    "process_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass142_state_chain_resume_candidate4/process.log",
+    "process_log_size_bytes_at_validation": 0,
+    "process_log_sha256_at_validation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external_process_stopped_or_signaled_by_pass145": false
+  },
+  "candidate_6": {
+    "candidate_index": 6,
+    "candidate_identity_sha256": "9748d2b967e5f1cbffa7607e1cd935e158a93738528d844d28e39bb424dc18a2",
+    "source_template_sha256": "56f1d8c93e532056d4fc81c8f489c8a0acc5c9fcb1005c2e2b8db1ab516b7103",
+    "gt_receipt_sha256": "1725300f516e1b760282175eaabc3d989d7e600fd99868081d175a513df80035",
+    "gt_only_status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+    "canonical_gt_sha256": "b48100d96d9eb43e09bfd4689c5a5f956919b4688290d73309eea671656f2f61",
+    "source_crop_track_count": 5,
+    "source_weed_track_count": 13
+  },
+  "active_full_render": {
+    "partial_staging_count": 1,
+    "partial_staging_name": ".partial-locked_test_c001_r07-candidate-06-822301a132aa474d91425b8a3a309428",
+    "partial_staging_bytes_at_validation": 569472096,
+    "full_ab_capture_receipt_present": true,
+    "full_ab_capture_receipt_sha256": "09cd28a073fb7eee703850725b8183238632a4bdd5b99e2bdf25ec7d0507c229",
+    "capture_frame_count": 30,
+    "capture_native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "capture_lossless_rgb_source": true,
+    "capture_deterministic_replay_all_frames_pixel_exact": true,
+    "capture_model_access": false,
+    "capture_prediction_access": false,
+    "isolated_mask_file_count_at_validation": 283,
+    "recent_file_writes_present": true,
+    "terminal_full_render_receipt_present": false,
+    "atomic_pair_publication_present": false
+  },
+  "append_only_ledger": {
+    "row_count": 167,
+    "sha256": "641f12383be27f035e8601212cd9e75cd9f50ce7e5f858ca278714f1efc2c494",
+    "candidate_6_row_appended": false,
+    "prefix_preserved": true
+  },
+  "state_chain_boundary": {
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "validation_status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY",
+    "render_state_sha256": "d8055796077637cba7de69650ea0ff6472592034547faac8617c6ef530234113",
+    "chain_head_identity_sha256": "e66e962aae41c652e4b9362ee23357def0402a518c2aea6c3d113af1222dc077",
+    "completed_pair_count": 47,
+    "pending_pair_count": 49,
+    "first_pending_pair_id": "locked_test_c001_r07",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7",
+    "state_chain_intent_sha256": "234e2e6051914609cb3a704fbe1f385c2aec52f5b5b3b43f63b6a64e942a6837",
+    "state_chain_terminal_receipt_present": false,
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+    "underlying_batch_intent_sha256": "9404d1dbd2ff41aa347c4870d4c4134c9939c1f3f40043b4700fc5b471f7aeed",
+    "underlying_batch_terminal_receipt_present": false,
+    "pair_publication_present": false
+  },
+  "recovery_v3_boundary": {
+    "release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "validation_status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+    "open_v3_execution_present": false,
+    "recovery_invoked_by_pass145": false
+  },
+  "access_guard": {
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": [],
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

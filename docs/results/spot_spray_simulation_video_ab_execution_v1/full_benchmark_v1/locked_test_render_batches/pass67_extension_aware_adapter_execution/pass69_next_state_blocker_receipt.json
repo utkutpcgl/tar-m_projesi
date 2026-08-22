@@ -1,0 +1,55 @@
+{
+  "access_guard": {
+    "candidate_gt_inspected_for_next_pair": false,
+    "external_processes_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "next_adapter_intent_created": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls_for_next_pair": 0
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass69_next_state_adapter_authority_blocker_v1",
+  "diagnosis": {
+    "adapter_release_identity_sha256": "5708c05e2421f32f5012d4990f70ecff74cef2c2687055432ac434d8738f33af",
+    "current_state_completed_pair_count": 42,
+    "current_state_sha256": "7ab698a03479c2e7899c17d17e7abf0a2d08a0556585abf10769c14993efcbce",
+    "error": "Current 41/96 state bytes changed",
+    "first_pending_pair_id": "locked_test_c001_r02",
+    "frozen_release_boundary_completed_pair_count": 41,
+    "next_pair_attempted_candidate_index": null,
+    "next_pair_id": "locked_test_c001_r02",
+    "preservation_required": "Preserve every Pass66 adapter/validator/release byte and the accepted locked_test_c001_r01 publication; do not silently rewrite or rebind the 41/96 release.",
+    "required_manager_authority": "Authorize and freeze a separately versioned append-only next-state validator/adapter release or another explicit migration disposition that binds the immutable 41-to-42 transition and validates 42/96 before the next earliest-pending pair can create an intent.",
+    "status": "FAIL_CLOSED_MANAGER_AUTHORITY_REQUIRED"
+  },
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260820065636-42b8053e32b4",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 69,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "immutable_boundary_after_failed_next_pair_entry": {
+    "adapter_execution_count": 1,
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "completed_pair_count": 42,
+    "first_pending_pair_id": "locked_test_c001_r02",
+    "pending_pair_count": 54,
+    "render_state_sha256": "7ab698a03479c2e7899c17d17e7abf0a2d08a0556585abf10769c14993efcbce"
+  },
+  "observed_at": "2026-08-20T10:02:34+03:00",
+  "schema_version": 1,
+  "status": "FAIL_CLOSED_NEXT_STATE_ADAPTER_RELEASE_MANAGER_AUTHORITY_REQUIRED_SYNTHETIC_ONLY"
+}

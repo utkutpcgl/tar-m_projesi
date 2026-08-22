@@ -1,0 +1,166 @@
+schema_version: 1
+dataset_id: spot_spray_simulation_video_pairs_v1
+status: SYNTHETIC_PAIRED_DIAGNOSTIC_ONLY
+purpose: >-
+  Deterministic same-latent CropCraft video pairs for an ideal RGB condition and
+  a fixed degraded RGB stress condition. Semantic and track-proxy ground truth
+  are shared byte-for-byte; no result is physical rig or field evidence.
+
+claim_boundary:
+  real_capture: false
+  field_realism_proven: false
+  physical_rig_acceptance: false
+  chemical_or_dry_marker_authority: false
+  botanical_instance_ground_truth: false
+  track_identity: semantic_connected_component_proxy
+  outcome_targeting_forbidden: true
+  degraded_operator_calibration: >-
+    source-bound sensor-motion stress proxy, not a measured profile of the
+    frozen one-bay rig
+
+data_root: data
+outputs:
+  release_root: data/synthetic/cropcraft/spot_spray_simulation_video_pairs_v1
+  results_root: docs/results/spot_spray_simulation_video_pairs_v1
+
+provenance:
+  cropcraft_v12_release:
+    root: data/synthetic/cropcraft/deploy_constrained_pilot_v12
+    receipt: data/synthetic/cropcraft/deploy_constrained_pilot_v12/release_receipt.json
+    sha256: ff733bff9458af8afebbfdc84a5c5ee4377df0f7635c55638b61889a22b57cf0
+    required_all_quality_gates_passed: true
+    permitted_roles: [val, test]
+  cropcraft_v12_study:
+    path: configs/simulation/cropcraft_deploy_constrained_pilot_v12.yaml
+    sha256: f006c709249cee0e9d8b8f74fd22fa0e1fdccde55ac90a6e2c474608607c0ec4
+  sensor_motion_pack:
+    root: data/raw/synthetic_assets/cropcraft_sensor_motion_v7_r1
+    manifest: data/raw/synthetic_assets/cropcraft_sensor_motion_v7_r1/PACK.json
+    sha256: 6fbe5aa739da547a6cd03b7da98364efc9f4b29a43cb2af576eba60ed7bcee81
+    required_isolated_change: rgb_camera_shake_psf_only_masks_unchanged
+  sensor_motion_builder:
+    path: scripts/build_cropcraft_sensor_motion_assets.py
+    sha256: dcff5b3cb5609e30e7dc8978244d3388f6635a170bef6e2ce3ed136ac179268c
+  product_architecture:
+    path: docs/results/spot_spray_product_architecture_v1/architecture.json
+    sha256: 609e1e7aeea1866d90d3ec5eb2f6a910a481f54edca245ee6ab39f5774b51634
+  product_architecture_config:
+    path: configs/deploy/spot_spray_product_architecture_v1.yaml
+    sha256: 09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd
+
+runtime_audit:
+  blender:
+    path: /home/ankaref/Documents/Projects/simulation/.tools/blender-4.5.12-linux-x64/blender
+    sha256: 33ac108ebce3c271f5357e5c664d0488717263bcf2145c80300edd0b12c31880
+    required_version_prefix: Blender 4.5.12 LTS
+    note: audited for V12 reproducibility; this post-render pair builder does not invoke Blender
+  ffmpeg:
+    path: /usr/bin/ffmpeg
+    sha256: ed16af623947494a72e284b6eb8ff225f2da22b38b5d5069c2fd4b4ba3384e41
+    required_version_substring: ffmpeg version 6.1.1
+  ffprobe:
+    path: /usr/bin/ffprobe
+
+capture_contract:
+  frame_rate_hz: 15
+  width_px: 1024
+  height_px: 1024
+  source_tile_ground_width_m: 0.25
+  source_gsd_mm_per_px: 0.244140625
+  semantic_palette_rgb:
+    background: [0, 0, 0]
+    crop: [0, 255, 0]
+    weed: [255, 0, 0]
+  mask_policy: nearest_integer_translation_then_no_capture_degradation
+  trajectory_policy: >-
+    deterministic bounded image-plane translation proxy shared by both
+    conditions; it is not metric tractor motion or installed calibration
+  track_proxy:
+    connectivity: 8
+    minimum_component_pixels: 16
+    derivation: connected_components_on_source_semantic_mask_before_shared_translation
+    limitation: components_can_merge_leaves_or_split_one_botanical_plant
+
+conditions:
+  ideal:
+    operators: []
+    interpretation: source-bound latent RGB after the shared image-plane trajectory
+  degraded:
+    operator_order:
+      - existing_sensor_motion_psf
+      - radial_light_falloff
+      - deterministic_frame_gain_and_white_balance
+      - gamma_response
+      - seeded_read_noise
+    psf_ids: [psf_00, psf_17, psf_18]
+    radial_falloff_strength: 0.18
+    gain_base: 0.90
+    gain_amplitude: 0.06
+    white_balance_rgb: [1.04, 0.98, 0.94]
+    gamma: 1.08
+    read_noise_sigma_dn: 3.0
+    calibration_status: STRESS_PROXY_NOT_MEASURED_ON_FROZEN_RIG
+    nominal_blur_gate_relation: >-
+      the reused 5-9 px v7 PSFs exceed the architecture's nominal 0.75 px
+      acceptance gate and represent a failed/degraded capture arm, not baseline
+
+encoding:
+  rgb_video:
+    container: mp4
+    codec: libx264
+    crf: 18
+    preset: medium
+    pixel_format: yuv420p
+    deterministic_threads: 1
+  semantic_video:
+    container: nut
+    codec: ffv1
+    level: 3
+    pixel_format: bgr0
+    deterministic_threads: 1
+    determinism_note: >-
+      NUT is used because this pinned ffmpeg build emits nondeterministic
+      Matroska segment and track identifiers even when decoded FFV1 frames match.
+
+quality_gates:
+  minimum_degraded_rgb_rmse: 3.0
+  minimum_changed_rgb_pixel_fraction: 0.90
+  minimum_frame_mean_brightness: 40.0
+  maximum_frame_mean_brightness: 205.0
+  maximum_fully_clipped_white_fraction: 0.002
+  maximum_fully_clipped_black_fraction: 0.001
+  maximum_trajectory_fill_fraction: 0.05
+  minimum_weed_tracks_per_sequence: 1
+  require_byte_identical_condition_semantic_masks: true
+  require_byte_identical_condition_track_masks: true
+  require_lossless_semantic_video_roundtrip: true
+  require_all_videos_decodable: true
+  minimum_free_bytes_after: 300000000000
+
+profiles:
+  fixture:
+    output_directory: fixture_val_v1
+    maximum_unique_output_bytes: 536870912
+    sequences:
+      - sequence_id: fixture_val_scene_0001_frame_0001
+        role: val
+        scene_id: scene_0001
+        source_frame: frame_0001
+        seed: 710001
+        frame_count: 6
+        trajectory:
+          x_step_px: 6
+          y_amplitude_px: 3
+          y_phase_rad: 0.35
+  heldout:
+    output_directory: heldout_test_v1
+    maximum_unique_output_bytes: 4294967296
+    sequences:
+      - {sequence_id: heldout_test_scene_0000, role: test, scene_id: scene_0000, source_frame: frame_0001, seed: 720000, frame_count: 12, trajectory: {x_step_px: 7, y_amplitude_px: 3, y_phase_rad: 0.00}}
+      - {sequence_id: heldout_test_scene_0001, role: test, scene_id: scene_0001, source_frame: frame_0001, seed: 720001, frame_count: 12, trajectory: {x_step_px: -7, y_amplitude_px: 4, y_phase_rad: 0.35}}
+      - {sequence_id: heldout_test_scene_0002, role: test, scene_id: scene_0002, source_frame: frame_0001, seed: 720002, frame_count: 12, trajectory: {x_step_px: 8, y_amplitude_px: 3, y_phase_rad: 0.70}}
+      - {sequence_id: heldout_test_scene_0003, role: test, scene_id: scene_0003, source_frame: frame_0001, seed: 720003, frame_count: 12, trajectory: {x_step_px: -8, y_amplitude_px: 4, y_phase_rad: 1.05}}
+      - {sequence_id: heldout_test_scene_0004, role: test, scene_id: scene_0004, source_frame: frame_0002, seed: 720004, frame_count: 12, trajectory: {x_step_px: 7, y_amplitude_px: 3, y_phase_rad: 1.40}}
+      - {sequence_id: heldout_test_scene_0005, role: test, scene_id: scene_0005, source_frame: frame_0001, seed: 720005, frame_count: 12, trajectory: {x_step_px: -7, y_amplitude_px: 4, y_phase_rad: 1.75}}
+      - {sequence_id: heldout_test_scene_0006, role: test, scene_id: scene_0006, source_frame: frame_0001, seed: 720006, frame_count: 12, trajectory: {x_step_px: 8, y_amplitude_px: 3, y_phase_rad: 2.10}}
+      - {sequence_id: heldout_test_scene_0007, role: test, scene_id: scene_0007, source_frame: frame_0001, seed: 720007, frame_count: 12, trajectory: {x_step_px: -8, y_amplitude_px: 4, y_phase_rad: 2.45}}

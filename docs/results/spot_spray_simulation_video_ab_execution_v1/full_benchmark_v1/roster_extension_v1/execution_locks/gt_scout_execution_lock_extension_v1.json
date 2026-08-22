@@ -1,0 +1,33 @@
+{
+  "acceptance_authority": "none_unchanged_full_renderer_required",
+  "candidate_index_range": [
+    10,
+    31
+  ],
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "composed_gt_scout_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+  "contract": "spot_spray_simulation_video_ab_gt_scout_execution_roster_extension_v1",
+  "execution_lock_dispatch_sha256": "d5423bb8a7646e547558eabeb3e912836b36eacadf50d71ae7db0ffa31c1c1c2",
+  "extension_execution_config_sha256": "6c37c11665c32be662879bb250eb654b8a5bd55834b4eeb896f3a74d031eb259",
+  "gt_scout_implementation_sha256": "feeb9826103dbe71711b4cdb76dac0e6a828a4c33edba354addb71e1c11c0b46",
+  "historical_execution_lock_sha256": "5fe68dd43183a588b02724bfd0af090f405f7a27f2eacf74b109b84c40a3c3d3",
+  "historical_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+  "historical_pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+  "manager_authorization_event_id": "scheduled-resume-20260817103307-75b799f2dfc8",
+  "migration_bridge_sha256": "a2cf008ac9dad93f44b36134406ef4518d6afb15860ab941e9a4139124db7784",
+  "model_access_allowed": false,
+  "outcome_inputs_allowed": false,
+  "pair_roster_extension_sha256": "4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d",
+  "prediction_access_allowed": false,
+  "registered_targets_allowed": false,
+  "rejection_authority": "unchanged_frozen_semantic_and_eligibility_failures_only",
+  "schema_version": 1,
+  "status": "SEALED_ROSTER_EXTENSION_EXECUTION_MODEL_FREE_SYNTHETIC_ONLY"
+}

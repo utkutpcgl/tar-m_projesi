@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_calibration_batch_pass24_active_candidate_five_full_render_validation_v1",
+  "status": "PASS_CANONICAL_CANDIDATE_FIVE_FULL_RENDER_ACTIVE_NOT_YET_PUBLISHED_SYNTHETIC_ONLY",
+  "snapshot_observed_at_utc": "2026-08-16T04:08:02Z",
+  "goal_multi_repeat": {
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "pass": 24,
+    "event": "scheduled-resume-20260816040656-a494c9bb5508",
+    "strategy": "base"
+  },
+  "batch_execution": {
+    "batch_id": "calibration_batch_calibration_c004_r01_b2a51b7c2055661c",
+    "request_identity_sha256": "b2a51b7c2055661c34b2b9dd02ddf46d4d9f76c3a7a73d30be42249871149512",
+    "intent_sha256": "9b5cb604c66b4c6d777e75f7fff0a94641a53db5e01302e02fc1fa60d1eb02a2",
+    "detached_pid": 874005,
+    "detached_session_id": 874005,
+    "process_alive_at_snapshot": true,
+    "elapsed_process_time_at_snapshot": "05:28:34",
+    "active_child_stage": "full_render_cropcraft_source_generation",
+    "active_blender_child_present": true,
+    "terminal_batch_receipt_present": false,
+    "process_log_sha256_at_snapshot": "327e4a40821663441f1d7f5d7b3c3093615eb56f7b6e272b90cd34ce7928ea25",
+    "process_log_bytes_at_snapshot": 5916,
+    "process_log_line_count_at_snapshot": 48,
+    "process_log_error_traceback_exception_or_failure_count": 0,
+    "process_log_zero_source_weed_failure_count": 0,
+    "process_log_only_signal": "Pillow mode parameter deprecation warnings"
+  },
+  "atomic_render_state": {
+    "render_state_sha256": "9504c5bc7fc41176255fa5c717d64286c0b25150d8db8e50ec5f1f635e77106b",
+    "planned_pair_count": 96,
+    "completed_pair_count": 20,
+    "pending_pair_count": 76,
+    "next_pending_pair_id": "calibration_c005_r00",
+    "published_target_pair_ids": [
+      "calibration_c004_r01",
+      "calibration_c004_r02",
+      "calibration_c004_r03"
+    ],
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "active_partial_directory_count": 1,
+    "active_partial_is_expected_next_full_render": true
+  },
+  "requested_publication_check": {
+    "pair_id": "calibration_c005_r00",
+    "published_pair_directory_present": false,
+    "docs_full_pair_receipt_present": false,
+    "full_pair_validation_executed": false,
+    "reason": "Atomic publication had not occurred at the snapshot; terminal validation remains deferred rather than inferred from staging files.",
+    "next_batch_target_pair_id": "calibration_c005_r01",
+    "next_batch_target_present_or_active": false
+  },
+  "canonical_candidate_history": {
+    "pair_id": "calibration_c005_r00",
+    "roster_order_preserved": true,
+    "committed_gt_only_rejections": [
+      {
+        "candidate_index": 0,
+        "candidate_identity_sha256": "1f6ddd9bf795bc93bde4f227e37eeaeedd6825ccf1036fb23539cf0ef88c88ad",
+        "canonical_gt_sha256": "f4c3ccaf171bdea87c0c28107a66ad79b5d9d78af57740b20a5a6d6366c47e17",
+        "scout_terminal_receipt_sha256": "7cfe6ed686b9d14cf08f7c56454e01789398a39f7bf8f9e6795231deac0d84f1",
+        "rejection_reasons": [
+          "semantic:weed_free_frame_fraction_within_limit",
+          "semantic:mean_crop_fraction_in_range"
+        ],
+        "model_or_outcome_inputs_used": false
+      },
+      {
+        "candidate_index": 1,
+        "candidate_identity_sha256": "5d8be9e9de693b06913d1e305ef1f1abc080b565504c589d3456f99d4e080abe",
+        "canonical_gt_sha256": "07cc99c94b2e63f5b4d76eb6ff8eb3cc68e29ef7f3f45d229aeb0da43c859752",
+        "scout_terminal_receipt_sha256": "c401959f73002fe77a1de013c1c67334e2ead8cbbc19c14915a2d5a7cfdb0283",
+        "rejection_reasons": [
+          "semantic:weed_free_frame_fraction_within_limit"
+        ],
+        "model_or_outcome_inputs_used": false
+      },
+      {
+        "candidate_index": 2,
+        "candidate_identity_sha256": "2e3f58178d7526e215ff4380004e67e84e895d32f91ac41bd6d0ff050bce016b",
+        "canonical_gt_sha256": "0f76b1f0f688b9e15dab022650f5bc9d10d3cc2a8cc8065390a482e27ed924be",
+        "scout_terminal_receipt_sha256": "d858c438796fcfdbd23e91d73fccbd9a6695e53f5bc4e3bef008a023efbf483f",
+        "rejection_reasons": [
+          "semantic:weed_free_frame_fraction_within_limit",
+          "semantic:mean_weed_fraction_in_range"
+        ],
+        "model_or_outcome_inputs_used": false
+      },
+      {
+        "candidate_index": 3,
+        "candidate_identity_sha256": "cc67f68d145fa706b0adab031c3353a29b0d13472c2c383ba39f2e8b46709adf",
+        "canonical_gt_sha256": "212f4d00164551bf1a37cf9c9f8ecd1baa06138e0785e83301d0d9c438ef3114",
+        "scout_terminal_receipt_sha256": "3c8b17c7bd77b5963f105c12ae8217560b6896468a615a65cc7ff08d6e5571c3",
+        "rejection_reasons": [
+          "semantic:mean_crop_fraction_in_range",
+          "semantic:mean_weed_fraction_in_range"
+        ],
+        "model_or_outcome_inputs_used": false
+      },
+      {
+        "candidate_index": 4,
+        "candidate_identity_sha256": "6f2288e86ae5851c553bedde762f149a5a29464cef50cc56a39f072bc3b4d7ab",
+        "canonical_gt_sha256": "22625e6a14a441e1785138feed0400c86210bf2d20b253a0ac020c42ebd323e7",
+        "scout_terminal_receipt_sha256": "b741583b0616c4382b7c1ec24747b196e6b08a24d11da8eb0bd13c0ffb825028",
+        "rejection_reasons": [
+          "semantic:weed_free_frame_fraction_within_limit",
+          "semantic:mean_crop_fraction_in_range",
+          "semantic:mean_weed_fraction_in_range"
+        ],
+        "model_or_outcome_inputs_used": false
+      }
+    ],
+    "first_gt_only_passing_candidate_index": 5
+  },
+  "active_target": {
+    "pair_id": "calibration_c005_r00",
+    "protocol_split": "calibration",
+    "active_stage": "full_render_cropcraft_source_generation",
+    "candidate_index": 5,
+    "candidate_identity_sha256": "9f962500f1a8d7f819efd5d20e42b788c2fd783bd80a9472f56ba855cdca9a73",
+    "pair_slot_identity_sha256": "f5aeed0e7d855b8800aea8130899558faf8d9e3c0dd45d1ffbcf2e2390a32964",
+    "canonical_gt_sha256": "34c5655297cbd7e446cde0f097e1335c20cbaa2b1576cd77d81c7e2b723db8c7",
+    "gt_scout_terminal_receipt_sha256": "0f47f3f644f2ae64a791b4a8b642ccb450f6f2e095f0bbcd4226ef013a256de2",
+    "gt_scout_status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+    "gt_scout_model_or_outcome_inputs_used": false,
+    "full_render_staging_directory": "data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/work/.partial-calibration_c005_r00-candidate-05-bd21fc58427a472abcc45c1ce439d627",
+    "full_render_scene_config_sha256": "c7c205c1c5a8b2fa3e2876a5304d8824b9b7d1ac9e6c712cba2538a3696eee29",
+    "full_render_scene_patch_sha256": "3c5ba726370d943bc93335afb8dd4f8169fac83ebec3c2e39875f8495fdabce1",
+    "sealed_full_render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751",
+    "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+    "scout_to_full_candidate_identity_exact": true,
+    "scout_to_full_source_template_exact": true,
+    "all_five_seed_bindings_match_roster": true,
+    "source_template": {
+      "profile": "hood_dry_nominal",
+      "scene_id": "scene_0002",
+      "sha256": "cfba3e5b4bac450f1c2a45a0351cc082353e927fb9c00771916feaed36dd8cd7"
+    },
+    "seeds": {
+      "scene_seed": 6482939442904711275,
+      "trajectory_seed": 1059320484034625669,
+      "capture_draw_seed": 6095178393938410082,
+      "renderer_seed": 9644678340565962072,
+      "audit_sample_seed": 16073188020977316500
+    },
+    "role_asset_allowlist_sha256": "8d73b4633669f1f5f10e697ff2f67161ccb6b0ec1c311dbfacf30d4c14e97c76",
+    "role_asset_object_identity_sha256": "561ace162e00e1ef0a901c87159e95883c8484078abf3ab7a16dbfbe81f75f92",
+    "gt_audit": {
+      "frame_count": 30,
+      "native_dimensions_px": [
+        2048,
+        2048
+      ],
+      "source_track_count": 32,
+      "visible_eligible_weed_track_count": 13,
+      "semantic_audit": {
+        "crop_free_frame_fraction": 0.0,
+        "mean_crop_fraction": 0.022362844149271647,
+        "mean_weed_fraction": 0.017138242721557617,
+        "weed_free_frame_fraction": 0.0
+      },
+      "eligible_track_with_at_least_three_observations": true,
+      "forbidden_identity_or_decision_inputs_absent": [
+        "model_predictions",
+        "confidence_scores",
+        "segmentation_tracking_or_action_metrics",
+        "registered_descriptive_targets"
+      ]
+    },
+    "render_progress_snapshot": {
+      "source_scene_generation_active": true,
+      "source_objects_present": true,
+      "field_description_present": true,
+      "ideal_rgb_png_count": 0,
+      "degraded_rgb_png_count": 0,
+      "shared_semantic_png_count": 0,
+      "shared_track_png_count": 0,
+      "configured_frame_count": 30,
+      "configured_frame_rate_hz": 15,
+      "configured_native_dimensions_px": [
+        2048,
+        2048
+      ]
+    },
+    "model_access_allowed": false,
+    "outcome_inputs": []
+  },
+  "candidate_rejection_ledger": {
+    "row_count": 50,
+    "sha256": "12be0d554680925befe350eb14859fbb29d1e6a42d7a638d36341827aa08e78b",
+    "all_rows_model_or_outcome_inputs_used_false": true
+  },
+  "recovery_decision": {
+    "recovery_executed_this_pass": false,
+    "exact_zero_source_weed_fail_closed_condition_present": false,
+    "reason": "PID 874005 and its Blender child were alive in candidate 5 source generation; the log contained no failure or zero-source-weed signal."
+  },
+  "capacity_and_access_boundary": {
+    "data_disk_free_bytes_at_snapshot": 323388534784,
+    "full_benchmark_model_run_root_present": false,
+    "checkpoint_loaded": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "outcome_or_registered_target_inputs_used": false,
+    "synthetic_only": true,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  },
+  "step_reassessment": {
+    "requested_publish_validation_complete": false,
+    "pivot_required": true,
+    "pivot_evidence": "The requested pair was not yet atomically published. Candidates 0 through 4 had canonical GT-only rejections, while candidate 5 was the first GT-only pass and its sealed full render was healthy in source generation. Terminal validation cannot be inferred from staging data.",
+    "responsible_wait_estimate": "1h"
+  },
+  "next_step": "After one hour, inspect detached PID 874005 and validate atomically published calibration_c005_r00 plus the next active target, or execute only the sealed zero-source-weed recovery if that exact fail-closed condition stopped the same immutable batch."
+}

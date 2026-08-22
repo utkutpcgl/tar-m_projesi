@@ -1,0 +1,33 @@
+{
+  "acceptance_authority": "none",
+  "candidate_index_range": [
+    10,
+    31
+  ],
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_locked_test_zero_source_weed_recovery_roster_extension_v1",
+  "execution_lock_dispatch_sha256": "56567f06112bbb4b22eca8aa1f7b8dfc8675e4c11aa2043633d66fb56f5e3ea3",
+  "extension_execution_config_sha256": "6c37c11665c32be662879bb250eb654b8a5bd55834b4eeb896f3a74d031eb259",
+  "historical_execution_lock_sha256": "40fe379dacc3b3af26c20d34b8bfcb9d86d5bdb2b9bf1c3ff7393bb11c19c95e",
+  "historical_pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+  "historical_recovery_implementation_sha256": "20aaccaf74b1d7a9c8c11f9924ede38c31bfafdbc2de0c24c34729ff8373326b",
+  "manager_authorization_event_id": "scheduled-resume-20260817103307-75b799f2dfc8",
+  "migration_bridge_sha256": "a2cf008ac9dad93f44b36134406ef4518d6afb15860ab941e9a4139124db7784",
+  "model_access_allowed": false,
+  "outcome_inputs_allowed": false,
+  "pair_roster_extension_sha256": "4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d",
+  "prediction_access_allowed": false,
+  "recovery_implementation_sha256": "20aaccaf74b1d7a9c8c11f9924ede38c31bfafdbc2de0c24c34729ff8373326b",
+  "registered_targets_allowed": false,
+  "rejection_authority": "exact_locked_validator_zero_source_weed_failure_only",
+  "schema_version": 1,
+  "status": "SEALED_ROSTER_EXTENSION_EXECUTION_MODEL_FREE_SYNTHETIC_ONLY",
+  "target_scope": "earliest_pending_locked_test_candidate_in_active_batch_only"
+}

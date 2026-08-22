@@ -1,0 +1,1374 @@
+{
+  "release_inventory": [
+    {
+      "path": "arms/degraded/gt/ground_truth_manifest.json",
+      "sha256": "e7d0dea1e2b79b9b1cb8555e78cc6241c8f1689a7ecd7f5e86e5dd7b1cbbfb78",
+      "size_bytes": 9665
+    },
+    {
+      "path": "arms/degraded/gt/instance_masks/frame_0001.png",
+      "sha256": "29967508887570aade79b7cfb019aaf89930275ec38ffb3d5fc133724d197981",
+      "size_bytes": 959
+    },
+    {
+      "path": "arms/degraded/gt/instance_masks/frame_0002.png",
+      "sha256": "f91eec7500f768f120b021ce8a49556a50a6fffa784d4869a27e9bc652d63522",
+      "size_bytes": 990
+    },
+    {
+      "path": "arms/degraded/gt/instance_masks/frame_0003.png",
+      "sha256": "2640fe50b2322c4c766eeba1d711a5687553d9df208809e94a4734ad83ab9b71",
+      "size_bytes": 930
+    },
+    {
+      "path": "arms/degraded/gt/instance_masks/frame_0004.png",
+      "sha256": "587475122ad3deda2442018893f88ddd125e6e686aa5883888996008794c8278",
+      "size_bytes": 955
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000003/frame_0001.png",
+      "sha256": "9e52717ae81a880be31d6a445cf361c941a9e69cdc7abbfe07ac645096b927d2",
+      "size_bytes": 241
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000003/frame_0002.png",
+      "sha256": "174c5129e694cdeedbdb5af41adc13ccb10793cb5f88432b17f3fa6f781dab97",
+      "size_bytes": 253
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000003/frame_0003.png",
+      "sha256": "727806b57c99014eb33d5a3f0aff8c32cd168636b019e821a52693759a0e985e",
+      "size_bytes": 249
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000003/frame_0004.png",
+      "sha256": "c379219b42865049bb87f6ba8026f50975dab65bb771a2105eff8c7a9cb317ed",
+      "size_bytes": 257
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "arms/degraded/gt/isolated_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "arms/degraded/gt/semantic_masks/frame_0001.png",
+      "sha256": "7cf813ba8795998914e0d0ba92a7231c20c1facac218d6efd60b99173b352e5e",
+      "size_bytes": 942
+    },
+    {
+      "path": "arms/degraded/gt/semantic_masks/frame_0002.png",
+      "sha256": "32dc77ac74fa0b2200a12bc15596f94313fcee8d3ccbfc23fd0cc0c6092b6d0a",
+      "size_bytes": 948
+    },
+    {
+      "path": "arms/degraded/gt/semantic_masks/frame_0003.png",
+      "sha256": "38d6f44fbdcaa6f913e0fb5bb31ce8fa11ded6304554d83b85bdf496d43ecd51",
+      "size_bytes": 931
+    },
+    {
+      "path": "arms/degraded/gt/semantic_masks/frame_0004.png",
+      "sha256": "8d172bf6b996e8d5d7c485530f0b998a3be81bbba06ec2615c5136cee2c7b14a",
+      "size_bytes": 934
+    },
+    {
+      "path": "arms/degraded/gt/source_objects.json",
+      "sha256": "20ec47decc10b38093e0dc7b30057e9e5227a26f025d4779961a098f5fee3793",
+      "size_bytes": 10329
+    },
+    {
+      "path": "arms/degraded/gt/track_registry.json",
+      "sha256": "76662bbd08d79413513fff0585f6dbf4fd303664e2d98484e79ae7209650e9fa",
+      "size_bytes": 10352
+    },
+    {
+      "path": "arms/degraded/gt/tracks.jsonl",
+      "sha256": "602de617ec91a9bb8edb2fea70b2772d8410cd4e284a3550af45ac2c7baedc97",
+      "size_bytes": 8501
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000003/frame_0001.png",
+      "sha256": "22a03d3bfa016d650c04b2066f005fdbc3a6b83ade3ad58be05c754eb7710adf",
+      "size_bytes": 252
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000003/frame_0002.png",
+      "sha256": "260f11d4ed8ea11d2200a266a97697a86628ee782d6f8aa9a07b09927976baff",
+      "size_bytes": 260
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000003/frame_0003.png",
+      "sha256": "e486b88c076fad5bb9d8ce4e7738ce1c4805023db597c706cf3ade3420b18518",
+      "size_bytes": 256
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000003/frame_0004.png",
+      "sha256": "6d1a4e68667c9281daca3676aa36e67ebbf03a12c6270737ced0925f746f7e28",
+      "size_bytes": 265
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "arms/degraded/gt/visible_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "arms/ideal/gt/ground_truth_manifest.json",
+      "sha256": "e7d0dea1e2b79b9b1cb8555e78cc6241c8f1689a7ecd7f5e86e5dd7b1cbbfb78",
+      "size_bytes": 9665
+    },
+    {
+      "path": "arms/ideal/gt/instance_masks/frame_0001.png",
+      "sha256": "29967508887570aade79b7cfb019aaf89930275ec38ffb3d5fc133724d197981",
+      "size_bytes": 959
+    },
+    {
+      "path": "arms/ideal/gt/instance_masks/frame_0002.png",
+      "sha256": "f91eec7500f768f120b021ce8a49556a50a6fffa784d4869a27e9bc652d63522",
+      "size_bytes": 990
+    },
+    {
+      "path": "arms/ideal/gt/instance_masks/frame_0003.png",
+      "sha256": "2640fe50b2322c4c766eeba1d711a5687553d9df208809e94a4734ad83ab9b71",
+      "size_bytes": 930
+    },
+    {
+      "path": "arms/ideal/gt/instance_masks/frame_0004.png",
+      "sha256": "587475122ad3deda2442018893f88ddd125e6e686aa5883888996008794c8278",
+      "size_bytes": 955
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000003/frame_0001.png",
+      "sha256": "9e52717ae81a880be31d6a445cf361c941a9e69cdc7abbfe07ac645096b927d2",
+      "size_bytes": 241
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000003/frame_0002.png",
+      "sha256": "174c5129e694cdeedbdb5af41adc13ccb10793cb5f88432b17f3fa6f781dab97",
+      "size_bytes": 253
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000003/frame_0003.png",
+      "sha256": "727806b57c99014eb33d5a3f0aff8c32cd168636b019e821a52693759a0e985e",
+      "size_bytes": 249
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000003/frame_0004.png",
+      "sha256": "c379219b42865049bb87f6ba8026f50975dab65bb771a2105eff8c7a9cb317ed",
+      "size_bytes": 257
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "arms/ideal/gt/isolated_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "arms/ideal/gt/semantic_masks/frame_0001.png",
+      "sha256": "7cf813ba8795998914e0d0ba92a7231c20c1facac218d6efd60b99173b352e5e",
+      "size_bytes": 942
+    },
+    {
+      "path": "arms/ideal/gt/semantic_masks/frame_0002.png",
+      "sha256": "32dc77ac74fa0b2200a12bc15596f94313fcee8d3ccbfc23fd0cc0c6092b6d0a",
+      "size_bytes": 948
+    },
+    {
+      "path": "arms/ideal/gt/semantic_masks/frame_0003.png",
+      "sha256": "38d6f44fbdcaa6f913e0fb5bb31ce8fa11ded6304554d83b85bdf496d43ecd51",
+      "size_bytes": 931
+    },
+    {
+      "path": "arms/ideal/gt/semantic_masks/frame_0004.png",
+      "sha256": "8d172bf6b996e8d5d7c485530f0b998a3be81bbba06ec2615c5136cee2c7b14a",
+      "size_bytes": 934
+    },
+    {
+      "path": "arms/ideal/gt/source_objects.json",
+      "sha256": "20ec47decc10b38093e0dc7b30057e9e5227a26f025d4779961a098f5fee3793",
+      "size_bytes": 10329
+    },
+    {
+      "path": "arms/ideal/gt/track_registry.json",
+      "sha256": "76662bbd08d79413513fff0585f6dbf4fd303664e2d98484e79ae7209650e9fa",
+      "size_bytes": 10352
+    },
+    {
+      "path": "arms/ideal/gt/tracks.jsonl",
+      "sha256": "602de617ec91a9bb8edb2fea70b2772d8410cd4e284a3550af45ac2c7baedc97",
+      "size_bytes": 8501
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000003/frame_0001.png",
+      "sha256": "22a03d3bfa016d650c04b2066f005fdbc3a6b83ade3ad58be05c754eb7710adf",
+      "size_bytes": 252
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000003/frame_0002.png",
+      "sha256": "260f11d4ed8ea11d2200a266a97697a86628ee782d6f8aa9a07b09927976baff",
+      "size_bytes": 260
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000003/frame_0003.png",
+      "sha256": "e486b88c076fad5bb9d8ce4e7738ce1c4805023db597c706cf3ade3420b18518",
+      "size_bytes": 256
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000003/frame_0004.png",
+      "sha256": "6d1a4e68667c9281daca3676aa36e67ebbf03a12c6270737ced0925f746f7e28",
+      "size_bytes": 265
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "arms/ideal/gt/visible_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "canonical_gt/ground_truth_manifest.json",
+      "sha256": "e7d0dea1e2b79b9b1cb8555e78cc6241c8f1689a7ecd7f5e86e5dd7b1cbbfb78",
+      "size_bytes": 9665
+    },
+    {
+      "path": "canonical_gt/instance_masks/frame_0001.png",
+      "sha256": "29967508887570aade79b7cfb019aaf89930275ec38ffb3d5fc133724d197981",
+      "size_bytes": 959
+    },
+    {
+      "path": "canonical_gt/instance_masks/frame_0002.png",
+      "sha256": "f91eec7500f768f120b021ce8a49556a50a6fffa784d4869a27e9bc652d63522",
+      "size_bytes": 990
+    },
+    {
+      "path": "canonical_gt/instance_masks/frame_0003.png",
+      "sha256": "2640fe50b2322c4c766eeba1d711a5687553d9df208809e94a4734ad83ab9b71",
+      "size_bytes": 930
+    },
+    {
+      "path": "canonical_gt/instance_masks/frame_0004.png",
+      "sha256": "587475122ad3deda2442018893f88ddd125e6e686aa5883888996008794c8278",
+      "size_bytes": 955
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000003/frame_0001.png",
+      "sha256": "9e52717ae81a880be31d6a445cf361c941a9e69cdc7abbfe07ac645096b927d2",
+      "size_bytes": 241
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000003/frame_0002.png",
+      "sha256": "174c5129e694cdeedbdb5af41adc13ccb10793cb5f88432b17f3fa6f781dab97",
+      "size_bytes": 253
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000003/frame_0003.png",
+      "sha256": "727806b57c99014eb33d5a3f0aff8c32cd168636b019e821a52693759a0e985e",
+      "size_bytes": 249
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000003/frame_0004.png",
+      "sha256": "c379219b42865049bb87f6ba8026f50975dab65bb771a2105eff8c7a9cb317ed",
+      "size_bytes": 257
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "canonical_gt/isolated_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "canonical_gt/semantic_masks/frame_0001.png",
+      "sha256": "7cf813ba8795998914e0d0ba92a7231c20c1facac218d6efd60b99173b352e5e",
+      "size_bytes": 942
+    },
+    {
+      "path": "canonical_gt/semantic_masks/frame_0002.png",
+      "sha256": "32dc77ac74fa0b2200a12bc15596f94313fcee8d3ccbfc23fd0cc0c6092b6d0a",
+      "size_bytes": 948
+    },
+    {
+      "path": "canonical_gt/semantic_masks/frame_0003.png",
+      "sha256": "38d6f44fbdcaa6f913e0fb5bb31ce8fa11ded6304554d83b85bdf496d43ecd51",
+      "size_bytes": 931
+    },
+    {
+      "path": "canonical_gt/semantic_masks/frame_0004.png",
+      "sha256": "8d172bf6b996e8d5d7c485530f0b998a3be81bbba06ec2615c5136cee2c7b14a",
+      "size_bytes": 934
+    },
+    {
+      "path": "canonical_gt/source_objects.json",
+      "sha256": "20ec47decc10b38093e0dc7b30057e9e5227a26f025d4779961a098f5fee3793",
+      "size_bytes": 10329
+    },
+    {
+      "path": "canonical_gt/track_registry.json",
+      "sha256": "76662bbd08d79413513fff0585f6dbf4fd303664e2d98484e79ae7209650e9fa",
+      "size_bytes": 10352
+    },
+    {
+      "path": "canonical_gt/tracks.jsonl",
+      "sha256": "602de617ec91a9bb8edb2fea70b2772d8410cd4e284a3550af45ac2c7baedc97",
+      "size_bytes": 8501
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000003/frame_0001.png",
+      "sha256": "22a03d3bfa016d650c04b2066f005fdbc3a6b83ade3ad58be05c754eb7710adf",
+      "size_bytes": 252
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000003/frame_0002.png",
+      "sha256": "260f11d4ed8ea11d2200a266a97697a86628ee782d6f8aa9a07b09927976baff",
+      "size_bytes": 260
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000003/frame_0003.png",
+      "sha256": "e486b88c076fad5bb9d8ce4e7738ce1c4805023db597c706cf3ade3420b18518",
+      "size_bytes": 256
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000003/frame_0004.png",
+      "sha256": "6d1a4e68667c9281daca3676aa36e67ebbf03a12c6270737ced0925f746f7e28",
+      "size_bytes": 265
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "canonical_gt/visible_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/instance_masks/frame_0001.png",
+      "sha256": "29967508887570aade79b7cfb019aaf89930275ec38ffb3d5fc133724d197981",
+      "size_bytes": 959
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/instance_masks/frame_0002.png",
+      "sha256": "f91eec7500f768f120b021ce8a49556a50a6fffa784d4869a27e9bc652d63522",
+      "size_bytes": 990
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/instance_masks/frame_0003.png",
+      "sha256": "2640fe50b2322c4c766eeba1d711a5687553d9df208809e94a4734ad83ab9b71",
+      "size_bytes": 930
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/instance_masks/frame_0004.png",
+      "sha256": "587475122ad3deda2442018893f88ddd125e6e686aa5883888996008794c8278",
+      "size_bytes": 955
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000003/frame_0001.png",
+      "sha256": "9e52717ae81a880be31d6a445cf361c941a9e69cdc7abbfe07ac645096b927d2",
+      "size_bytes": 241
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000003/frame_0002.png",
+      "sha256": "174c5129e694cdeedbdb5af41adc13ccb10793cb5f88432b17f3fa6f781dab97",
+      "size_bytes": 253
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000003/frame_0003.png",
+      "sha256": "727806b57c99014eb33d5a3f0aff8c32cd168636b019e821a52693759a0e985e",
+      "size_bytes": 249
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000003/frame_0004.png",
+      "sha256": "c379219b42865049bb87f6ba8026f50975dab65bb771a2105eff8c7a9cb317ed",
+      "size_bytes": 257
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/isolated_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/source_objects.json",
+      "sha256": "20ec47decc10b38093e0dc7b30057e9e5227a26f025d4779961a098f5fee3793",
+      "size_bytes": 10329
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/track_registry.json",
+      "sha256": "76662bbd08d79413513fff0585f6dbf4fd303664e2d98484e79ae7209650e9fa",
+      "size_bytes": 10352
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/tracks.jsonl",
+      "sha256": "602de617ec91a9bb8edb2fea70b2772d8410cd4e284a3550af45ac2c7baedc97",
+      "size_bytes": 8501
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000003/frame_0001.png",
+      "sha256": "22a03d3bfa016d650c04b2066f005fdbc3a6b83ade3ad58be05c754eb7710adf",
+      "size_bytes": 252
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000003/frame_0002.png",
+      "sha256": "260f11d4ed8ea11d2200a266a97697a86628ee782d6f8aa9a07b09927976baff",
+      "size_bytes": 260
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000003/frame_0003.png",
+      "sha256": "e486b88c076fad5bb9d8ce4e7738ce1c4805023db597c706cf3ade3420b18518",
+      "size_bytes": 256
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000003/frame_0004.png",
+      "sha256": "6d1a4e68667c9281daca3676aa36e67ebbf03a12c6270737ced0925f746f7e28",
+      "size_bytes": 265
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "deterministic_occlusion_primary/botanical_ground_truth/visible_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "deterministic_occlusion_primary/config.input.yaml",
+      "sha256": "fee600c245146c787d36c92fe6e5a0ec9e4cd0b9fbb3050aa27aaf76f2941fe6",
+      "size_bytes": 1408
+    },
+    {
+      "path": "deterministic_occlusion_primary/field_description.json",
+      "sha256": "52e09ed9908a543244b212bc42305d8b22d68f845a7450aa89e69cbe3fec21bd",
+      "size_bytes": 2110
+    },
+    {
+      "path": "deterministic_occlusion_primary/generation_receipt.json",
+      "sha256": "1044c6b9a0380a205f2b95995959998e693ad27c43a1ee6859e97748b5a74123",
+      "size_bytes": 16682
+    },
+    {
+      "path": "deterministic_occlusion_primary/render/images/frame_0001.jpg",
+      "sha256": "22913dc77e3946140244ede4db8623e5049bd9341a3b85138515b94451fb4a50",
+      "size_bytes": 67722
+    },
+    {
+      "path": "deterministic_occlusion_primary/render/images/frame_0002.jpg",
+      "sha256": "1167654b256fb0121ab03faa1346e32daf0a1f3b24c3bccf2cf6e42905f087d5",
+      "size_bytes": 67728
+    },
+    {
+      "path": "deterministic_occlusion_primary/render/images/frame_0003.jpg",
+      "sha256": "8074824c2ac29b18c6ee4c76f579b34fc6430f5c85d82df45c688c3dba306d73",
+      "size_bytes": 66112
+    },
+    {
+      "path": "deterministic_occlusion_primary/render/images/frame_0004.jpg",
+      "sha256": "1afd04f407a4c4adea68c616bee3c3d04017785eb35a4d1d52b34884613a871c",
+      "size_bytes": 65767
+    },
+    {
+      "path": "deterministic_occlusion_primary/render/masks/frame_0001.png",
+      "sha256": "7cf813ba8795998914e0d0ba92a7231c20c1facac218d6efd60b99173b352e5e",
+      "size_bytes": 942
+    },
+    {
+      "path": "deterministic_occlusion_primary/render/masks/frame_0002.png",
+      "sha256": "32dc77ac74fa0b2200a12bc15596f94313fcee8d3ccbfc23fd0cc0c6092b6d0a",
+      "size_bytes": 948
+    },
+    {
+      "path": "deterministic_occlusion_primary/render/masks/frame_0003.png",
+      "sha256": "38d6f44fbdcaa6f913e0fb5bb31ce8fa11ded6304554d83b85bdf496d43ecd51",
+      "size_bytes": 931
+    },
+    {
+      "path": "deterministic_occlusion_primary/render/masks/frame_0004.png",
+      "sha256": "8d172bf6b996e8d5d7c485530f0b998a3be81bbba06ec2615c5136cee2c7b14a",
+      "size_bytes": 934
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/instance_masks/frame_0001.png",
+      "sha256": "29967508887570aade79b7cfb019aaf89930275ec38ffb3d5fc133724d197981",
+      "size_bytes": 959
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/instance_masks/frame_0002.png",
+      "sha256": "f91eec7500f768f120b021ce8a49556a50a6fffa784d4869a27e9bc652d63522",
+      "size_bytes": 990
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/instance_masks/frame_0003.png",
+      "sha256": "2640fe50b2322c4c766eeba1d711a5687553d9df208809e94a4734ad83ab9b71",
+      "size_bytes": 930
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/instance_masks/frame_0004.png",
+      "sha256": "587475122ad3deda2442018893f88ddd125e6e686aa5883888996008794c8278",
+      "size_bytes": 955
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000003/frame_0001.png",
+      "sha256": "9e52717ae81a880be31d6a445cf361c941a9e69cdc7abbfe07ac645096b927d2",
+      "size_bytes": 241
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000003/frame_0002.png",
+      "sha256": "174c5129e694cdeedbdb5af41adc13ccb10793cb5f88432b17f3fa6f781dab97",
+      "size_bytes": 253
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000003/frame_0003.png",
+      "sha256": "727806b57c99014eb33d5a3f0aff8c32cd168636b019e821a52693759a0e985e",
+      "size_bytes": 249
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000003/frame_0004.png",
+      "sha256": "c379219b42865049bb87f6ba8026f50975dab65bb771a2105eff8c7a9cb317ed",
+      "size_bytes": 257
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/isolated_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/source_objects.json",
+      "sha256": "20ec47decc10b38093e0dc7b30057e9e5227a26f025d4779961a098f5fee3793",
+      "size_bytes": 10329
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/track_registry.json",
+      "sha256": "76662bbd08d79413513fff0585f6dbf4fd303664e2d98484e79ae7209650e9fa",
+      "size_bytes": 10352
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/tracks.jsonl",
+      "sha256": "602de617ec91a9bb8edb2fea70b2772d8410cd4e284a3550af45ac2c7baedc97",
+      "size_bytes": 8501
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000001/frame_0001.png",
+      "sha256": "58460c7c5adbfaaf31625ffbf9c501fbcae7251e79255a5266cf84d553dd746d",
+      "size_bytes": 317
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000001/frame_0002.png",
+      "sha256": "47025114f9a4b990ccb79bc338db03976f3fa5fd5f795fa9351c23e2e9818f69",
+      "size_bytes": 305
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000001/frame_0003.png",
+      "sha256": "d533a238f01b33038aff51806510856f37d97f118a1611caa0c241a41ac13f02",
+      "size_bytes": 279
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000001/frame_0004.png",
+      "sha256": "4902f9232ae90cdbb8a45597eb1cc430bef90c6fabd7f2edd70767ab7066d1fb",
+      "size_bytes": 279
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000002/frame_0001.png",
+      "sha256": "d191d6c005808e31ebfbd1f32943fda19284d7c3f52a6ba1f0cafe80c7aa8bdd",
+      "size_bytes": 255
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000002/frame_0002.png",
+      "sha256": "6c1c608a0f71f1f81de3c9db717faa4585bb4593e5e3cc0ad5c77d7944aa3da8",
+      "size_bytes": 259
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000002/frame_0003.png",
+      "sha256": "7501a14cacbed0baa8b554658ce661c595611920a4bf5068a89d804cb17e4267",
+      "size_bytes": 274
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000002/frame_0004.png",
+      "sha256": "e7a088b17b87e435fbd6aaafb7a457a8d4ac5656caac00310acc034f83b2fa81",
+      "size_bytes": 295
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000003/frame_0001.png",
+      "sha256": "22a03d3bfa016d650c04b2066f005fdbc3a6b83ade3ad58be05c754eb7710adf",
+      "size_bytes": 252
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000003/frame_0002.png",
+      "sha256": "260f11d4ed8ea11d2200a266a97697a86628ee782d6f8aa9a07b09927976baff",
+      "size_bytes": 260
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000003/frame_0003.png",
+      "sha256": "e486b88c076fad5bb9d8ce4e7738ce1c4805023db597c706cf3ade3420b18518",
+      "size_bytes": 256
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000003/frame_0004.png",
+      "sha256": "6d1a4e68667c9281daca3676aa36e67ebbf03a12c6270737ced0925f746f7e28",
+      "size_bytes": 265
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000004/frame_0001.png",
+      "sha256": "db8d6931f2f973c60003d06b136afe6e5ed466b2b3237bfcf77c810b52e0cb81",
+      "size_bytes": 323
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000004/frame_0002.png",
+      "sha256": "35b915c4c9e1399f4eca781264c4e7201d2c0da3716149dd4cfd05a0d7630cd4",
+      "size_bytes": 348
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000004/frame_0003.png",
+      "sha256": "2eff603ac6eed0f805f6f2050d9890befbebbdc1e87c0ae5d4a3457d54802189",
+      "size_bytes": 337
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000004/frame_0004.png",
+      "sha256": "8f5f2d33cf6ed0bd100c2664f802da79408792b78c1c82f94da365d035e4284b",
+      "size_bytes": 320
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000005/frame_0001.png",
+      "sha256": "534d74812664f698a2ac2b9bf51e3eb047844997f91c2c6a3f08dfa4c4a0a202",
+      "size_bytes": 164
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000005/frame_0002.png",
+      "sha256": "88b769bb566a1e7e2c3b42d8757c764c5cfe64b0bee35630e9441a63bd019495",
+      "size_bytes": 165
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000005/frame_0003.png",
+      "sha256": "c86b4c913c0e917fa9ce4047248b755800eacd2b8bdf86f071d65bb97f780957",
+      "size_bytes": 166
+    },
+    {
+      "path": "deterministic_occlusion_replay/botanical_ground_truth/visible_masks/botanical_000005/frame_0004.png",
+      "sha256": "e434b3a0cf09cbed6a7ec3589128b3dbb0638d5432faa85af30f9b7cbe255190",
+      "size_bytes": 166
+    },
+    {
+      "path": "deterministic_occlusion_replay/config.input.yaml",
+      "sha256": "fee600c245146c787d36c92fe6e5a0ec9e4cd0b9fbb3050aa27aaf76f2941fe6",
+      "size_bytes": 1408
+    },
+    {
+      "path": "deterministic_occlusion_replay/field_description.json",
+      "sha256": "52e09ed9908a543244b212bc42305d8b22d68f845a7450aa89e69cbe3fec21bd",
+      "size_bytes": 2110
+    },
+    {
+      "path": "deterministic_occlusion_replay/generation_receipt.json",
+      "sha256": "7f95d452d0a022cc138bf958cd60c80ca6797d71806c1508c0c9b3acdd2ade0d",
+      "size_bytes": 16682
+    },
+    {
+      "path": "deterministic_occlusion_replay/render/images/frame_0001.jpg",
+      "sha256": "b1c5a5f2eb1281fba430755a9043d70d5fc59904b53a4643c130a4895af1a032",
+      "size_bytes": 67722
+    },
+    {
+      "path": "deterministic_occlusion_replay/render/images/frame_0002.jpg",
+      "sha256": "dbd010bbaf73314f105b196ecdf34b8959f79ed3608198488ec083480c40fb14",
+      "size_bytes": 67728
+    },
+    {
+      "path": "deterministic_occlusion_replay/render/images/frame_0003.jpg",
+      "sha256": "8e9ae6bf5186792ffe70ca16a2f19b094d9825b4ad37b801186afcb305983cb9",
+      "size_bytes": 66112
+    },
+    {
+      "path": "deterministic_occlusion_replay/render/images/frame_0004.jpg",
+      "sha256": "77afbf74c1117bfa73648d7341f2224226ced3c2df7641b1537a8ca78728ef77",
+      "size_bytes": 65767
+    },
+    {
+      "path": "deterministic_occlusion_replay/render/masks/frame_0001.png",
+      "sha256": "7cf813ba8795998914e0d0ba92a7231c20c1facac218d6efd60b99173b352e5e",
+      "size_bytes": 942
+    },
+    {
+      "path": "deterministic_occlusion_replay/render/masks/frame_0002.png",
+      "sha256": "32dc77ac74fa0b2200a12bc15596f94313fcee8d3ccbfc23fd0cc0c6092b6d0a",
+      "size_bytes": 948
+    },
+    {
+      "path": "deterministic_occlusion_replay/render/masks/frame_0003.png",
+      "sha256": "38d6f44fbdcaa6f913e0fb5bb31ce8fa11ded6304554d83b85bdf496d43ecd51",
+      "size_bytes": 931
+    },
+    {
+      "path": "deterministic_occlusion_replay/render/masks/frame_0004.png",
+      "sha256": "8d172bf6b996e8d5d7c485530f0b998a3be81bbba06ec2615c5136cee2c7b14a",
+      "size_bytes": 934
+    },
+    {
+      "path": "pilot_scene_config.yaml",
+      "sha256": "fee600c245146c787d36c92fe6e5a0ec9e4cd0b9fbb3050aa27aaf76f2941fe6",
+      "size_bytes": 1408
+    }
+  ],
+  "release_inventory_sha256": "74b96a2003307e10aa62e1566720cdb781ed1157c88584cd7ad454a441768b06",
+  "schema_version": 1,
+  "study_id": "spot_spray_botanical_track_ground_truth_v1",
+  "validation_receipt": "/home/ankaref/utku/tar\u0131m_projesi/docs/results/spot_spray_botanical_track_ground_truth_v1/validation_receipt.json",
+  "validation_receipt_sha256": "491776943143ca486c0fda7f307db4ec7372cc35adfd216c9243ac5efd36c956"
+}

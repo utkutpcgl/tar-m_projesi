@@ -1,0 +1,33 @@
+{
+  "added_alias_count": 2,
+  "added_aliases": {
+    "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+    "sealed_full_render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751"
+  },
+  "base_gt_scout_execution_lock_sha256": "cdeb185a73ef23b9bb575bf4c4a6bd1fee0f87d67a344d0aade6f505bf0027f0",
+  "base_lock_bytes_mutated": false,
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_roster_extension_runtime_compatibility_v1",
+  "gate_threshold_seed_candidate_or_selection_change": false,
+  "model_access_allowed": false,
+  "only_added_runtime_keys": [
+    "sealed_full_render_execution_lock_sha256",
+    "sealed_full_render_implementation_sha256"
+  ],
+  "outcome_inputs_allowed": false,
+  "parent_execution_release_identity_sha256": "5c06e7b6aa79c0b744b232b3071f4a59e0fec1d321335303d64be15aad23159c",
+  "prediction_access_allowed": false,
+  "registered_targets_allowed": false,
+  "runtime_compatibility_bridge_sha256": "e47a225180c874e09e7aee383bf83cbd304473c83ae7edb9ce0fc9db06c5ba30",
+  "runtime_compatibility_config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+  "runtime_compatibility_implementation_sha256": "cefde7778d05c78e83bc1febae5e4f6be27ee4bdadce2ed989ec353652743499",
+  "schema_version": 1,
+  "status": "SEALED_TWO_ALIAS_RUNTIME_ADAPTER_MODEL_FREE_SYNTHETIC_ONLY"
+}

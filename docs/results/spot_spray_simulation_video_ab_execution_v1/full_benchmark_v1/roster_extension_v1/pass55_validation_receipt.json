@@ -1,0 +1,137 @@
+{
+  "access_guard": {
+    "c001_attempted_candidate_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "candidate_10_started": false,
+    "candidate_gt_inspected": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls": 0,
+    "staging_directories": []
+  },
+  "artifact_inventory": {
+    "file_count": 11,
+    "files": [
+      {
+        "path": "execution_config_v1_plus_roster_extension_v1.yaml",
+        "sha256": "6c37c11665c32be662879bb250eb654b8a5bd55834b4eeb896f3a74d031eb259",
+        "size_bytes": 11030
+      },
+      {
+        "path": "execution_locks/full_render_execution_lock_extension_v1.json",
+        "sha256": "a022c955e424327ff98ddeb9e8863f64ae23577afa61b992a649048fe4f3c0ab",
+        "size_bytes": 1687
+      },
+      {
+        "path": "execution_locks/gt_scout_execution_lock_extension_v1.json",
+        "sha256": "cdeb185a73ef23b9bb575bf4c4a6bd1fee0f87d67a344d0aade6f505bf0027f0",
+        "size_bytes": 1850
+      },
+      {
+        "path": "execution_locks/locked_test_recovery_execution_lock_extension_v1.json",
+        "sha256": "5af1af3dc8792bc91411072b7eeb22bf6e6b22dd00383747a1265a818192ae49",
+        "size_bytes": 1807
+      },
+      {
+        "path": "execution_locks/locked_test_render_batch_execution_lock_extension_v1.json",
+        "sha256": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74",
+        "size_bytes": 1846
+      },
+      {
+        "path": "execution_release_v1_plus_roster_extension_v1.json",
+        "sha256": "6aa06ae282e6fa79d1864530f7307c38f252678273f64499f153c6bd300b897c",
+        "size_bytes": 3127
+      },
+      {
+        "path": "historical_source_snapshots_v1.json",
+        "sha256": "9b0e4644845523fc640ddc5c080c12f8f0e803e1e6c47d23053ceedcd57f8f88",
+        "size_bytes": 3354
+      },
+      {
+        "path": "historical_v1_evidence_inventory_v1.json",
+        "sha256": "dc47eec5e39e94b0d6b7b4e65e7acb07619629b4ee1c8e4f89a2700a4e2aac76",
+        "size_bytes": 376354
+      },
+      {
+        "path": "manager_authorization_migration_bridge_v1.json",
+        "sha256": "a2cf008ac9dad93f44b36134406ef4518d6afb15860ab941e9a4139124db7784",
+        "size_bytes": 6014
+      },
+      {
+        "path": "pair_roster_extension_v1.jsonl",
+        "sha256": "4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d",
+        "size_bytes": 1109684
+      },
+      {
+        "path": "roster_extension_contract_v1.json",
+        "sha256": "dbfa4044d07451127e7288dc82aa9274255283e27cc63415faf67cb6cb495753",
+        "size_bytes": 6061
+      }
+    ],
+    "inventory_sha256": "50da9980f2e1d7d01e29180dd1f1f124f0f1788f1ad5c71c0e1234f4c034855a"
+  },
+  "authorization_event_id": "scheduled-resume-20260817103307-75b799f2dfc8",
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_roster_extension_pass55_validation_v1",
+  "current_implementation": {
+    "execution_script_sha256": "e6780e0aef77842c1e9b7d92ce0e1c518d49a1c90c4397209e1236262395d685",
+    "execution_test_sha256": "9d568c27d57c147c4bc8fa95c9fe18929820b29a8e076ec892f02ae343b9e0ad",
+    "roster_extension_implementation_sha256": "e7a1450c588a5c3f6636ca8f244b242ec57f29b8c7361f6c3709d2f2271a3995"
+  },
+  "extension": {
+    "all_96_slots_presealed": true,
+    "candidate_31_exhaustion_action": "fail_closed_stop_for_new_manager_decision",
+    "candidate_count": 2112,
+    "candidate_index_range": [
+      10,
+      31
+    ],
+    "combined_candidate_count": 3072,
+    "combined_unique_seed_count": 15360,
+    "lowest_unattempted_candidate_wins": true,
+    "unique_candidate_identity_count": 2112,
+    "unique_seed_count": 10560
+  },
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "historical_v1": {
+    "all_original_bytes_unchanged": true,
+    "candidate_0_9_identity_rows_sha256": "9479ccd47ec7f9a6187b431a07f8c7bec440c347d60332a5de0b50db45728c73",
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "completed_pair_count": 40,
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "execution_script_sha256": "e650340418ae213d433f18356b6acad5b77942ae67ac3df2577bfe18840fe3d2",
+    "execution_test_sha256": "f6687b33fd137c6482897529b91f49d48bd2d246c4fce41f9249a9de540f856d",
+    "immutable_evidence_inventory_sha256": "f5ab73a0547b14024fc6e0b908c4c4aef07c65a22f8f1e0ae9e752aab6b92d1d",
+    "ledger_row_count": 111,
+    "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "pass54_validation_receipt_sha256": "2ea24b280cb8fd4fc7b928420785970e6a8fb62bfd988b6b22d6ac1731a4d6e6",
+    "protocol_sha256": "de12cd76d3f497f1ea3a6ffa1d1c7fc8eea4e70a9af218c2769bae81da0f329f",
+    "render_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec"
+  },
+  "next_authorized_action": "resume_locked_test_c001_r00_at_candidate_10_under_sealed_extension_release",
+  "parent_execution_release_identity_sha256": "5c06e7b6aa79c0b744b232b3071f4a59e0fec1d321335303d64be15aad23159c",
+  "pass": 55,
+  "schema_version": 1,
+  "status": "READY_FOR_MANAGER_VALIDATION"
+}

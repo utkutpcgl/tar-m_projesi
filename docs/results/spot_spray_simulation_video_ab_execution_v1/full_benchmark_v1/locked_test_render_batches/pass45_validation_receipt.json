@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_execution_pass45_validation_v1",
+  "status": "PASS_LOCKED_TEST_C000_R03_ATOMIC_PUBLICATION_AND_NEXT_ACTIVE_SYNTHETIC_ONLY",
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "pass": 45,
+  "observed_at": "2026-08-17T06:14:07+03:00",
+  "selected_step": "After one hour, inspect detached PID 3753710 and validate atomically published locked_test_c000_r03 plus the next active target, or fail closed on candidate 3's exact full-render terminal error without model, prediction or locked-test outcome access.",
+  "batch_binding": {
+    "batch_id": "locked_test_render_batch_locked_test_c000_r00_ee8be6ec4af1b0cc",
+    "batch_intent_sha256": "a1c16860ca8a503950f41c2a15f100f76a6a16ce1664cd37d5c9690176f0c6b3",
+    "request_identity_sha256": "ee8be6ec4af1b0ccf24eb13f55193ac51d6c2f2d7189b835dea7fe4f65cda80d",
+    "batch_execution_lock_sha256": "5bd38a72d9a07dbbb1077de770a4509d75b023dc05d7d7edc397b818d4c12ce6",
+    "target_pair_ids": [
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03",
+      "locked_test_c000_r04",
+      "locked_test_c000_r05",
+      "locked_test_c000_r06",
+      "locked_test_c000_r07"
+    ],
+    "max_new_pairs": 8,
+    "intent_unchanged": true,
+    "terminal_batch_receipt_present": false
+  },
+  "process": {
+    "pid": 3753710,
+    "session_id": 3753710,
+    "parent_pid": 4058,
+    "alive": true,
+    "state": "Rsl",
+    "elapsed": "04:44:14",
+    "command_exact": true,
+    "active_pair_id": "locked_test_c000_r04",
+    "active_candidate_index": 8,
+    "active_stage": "gt_scout_candidate_evaluation_in_progress",
+    "parent_cpu_percent_at_observation": 23.6,
+    "parent_rss_kib_at_observation": 197100,
+    "active_work_is_material": true,
+    "external_services_stopped_or_modified": false
+  },
+  "resume_log": {
+    "path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/process_logs/locked_test_render_batch_locked_test_c000_r00_ee8be6ec4af1b0cc_resume_after_r01_c00_recovery.log",
+    "sha256_at_observation": "418b3a27e6ed9f887e9300ab2dd1677d429dc720744b46f7a211fc7bde9c14a3",
+    "bytes_at_observation": 8556,
+    "last_modified_ns": 1786936435771039006,
+    "error_traceback_exception_or_contract_failure_lines": 0,
+    "only_observed_messages": "Pillow mode deprecation warnings"
+  },
+  "atomic_render_state": {
+    "planned_pair_count": 96,
+    "completed_pair_count": 36,
+    "pending_pair_count": 60,
+    "completed_locked_test_prefix": [
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03"
+    ],
+    "newly_published_pair_id": "locked_test_c000_r03",
+    "first_pending_pair_id": "locked_test_c000_r04",
+    "state_stable_sha256": "b8ca26c9a9eae6c1d220750de4b4c6d2345d86dbb04fc6517a606508074a28d2",
+    "full_pair_staging_directories": [],
+    "active_gt_scout_staging_directories": [
+      ".partial-roster-locked_test_c000_r04-candidate-08-39d2d8f38ff04f4e88059896e64da03c"
+    ],
+    "partial_pair_published": false,
+    "atomic_boundary_preserved": true,
+    "model_outputs_present": false
+  },
+  "published_pair_validation": {
+    "pair_id": "locked_test_c000_r03",
+    "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+    "protocol_split": "locked_test",
+    "evaluator_split": "test",
+    "selected_candidate_index": 3,
+    "candidate_identity_sha256": "b6e94d4f011e7bed17c425a61493089302a0ef3a334d0f8def246c239145202e",
+    "candidate_seeds": {
+      "scene_seed": 15237184047929307771,
+      "trajectory_seed": 16112631786317936771,
+      "capture_draw_seed": 1008414408124289321,
+      "renderer_seed": 9564288897068392605,
+      "audit_sample_seed": 17781735629967793091
+    },
+    "source_template_sha256": "674ac8146691aa2f6bca7b3f7382ae4790c6b8676e6db4450fabd12d26e6c76e",
+    "full_pair_receipt_sha256": "986b92a708a30f1ce77c8c89493fd900f7f2bc23b4a9d28f89d1d41c80d3a1eb",
+    "pair_receipt_sha256": "77b8f93018bfec97fb5d1fab02ecdfe2b564cedac8a6c9d8358ae0353e3a6dc4",
+    "docs_full_pair_receipt_byte_identical": true,
+    "internal_publishable_receipt_validation": "PASS",
+    "candidate_identity_matches_roster": true,
+    "canonical_gt_sha256": "fae2bf5a48549561925017422320a0f7244dee6085638c2f30a8ce794c825d41",
+    "canonical_gt_matches_candidate_03_scout": true,
+    "gt_scout_terminal_receipt_sha256": "bf228198ba1dc3a9492558856552e53addadb9c0ca504c3218359b5f2b7fbe92",
+    "gt_scout_decision_receipt_sha256": "15fbac98b671ab7ef86c2444b64b371f959674cf61b727a4001c043aa33cd0ac",
+    "source_track_count": 12,
+    "crop_track_count": 6,
+    "weed_track_count": 6,
+    "visible_eligible_weed_track_count": 5,
+    "track_frame_rows": 360,
+    "all_botanical_quality_gates_passed": true,
+    "all_six_pair_quality_gates_passed": true,
+    "frame_contract": {
+      "frame_count_per_arm": 30,
+      "frame_rate_hz": 15,
+      "native_dimensions_px": [2048, 2048],
+      "ideal_rgb_frame_count": 30,
+      "degraded_rgb_frame_count": 30,
+      "shared_semantic_mask_count": 30,
+      "shared_track_mask_count": 30,
+      "source_image_count": 30,
+      "source_mask_count": 30
+    },
+    "arm_ground_truth": {
+      "shared_paths": true,
+      "byte_identical": true,
+      "ideal_sha256": "fae2bf5a48549561925017422320a0f7244dee6085638c2f30a8ce794c825d41",
+      "degraded_sha256": "fae2bf5a48549561925017422320a0f7244dee6085638c2f30a8ce794c825d41"
+    },
+    "capture_difference": {
+      "all_30_rgb_frame_pairs_byte_distinct": true,
+      "differences_restricted_to_rgb_capture_profile": true,
+      "changed_pixel_fraction_minimum": 0.6928513050079346,
+      "rgb_rmse_mean": 4.758521604537964
+    },
+    "semantic_audit": {
+      "crop_free_frame_fraction": 0.0,
+      "weed_free_frame_fraction": 0.0,
+      "mean_crop_fraction": 0.1140552043914795,
+      "mean_weed_fraction": 0.015649684270222983
+    },
+    "videos": {
+      "ideal": {
+        "sha256": "e34478f355176317731db39fe49613c2382782c7d343460b939cefc4954980e9",
+        "bytes": 4690130,
+        "width": 2048,
+        "height": 2048,
+        "frame_rate": "15/1",
+        "decoded_frames": 30,
+        "full_decode_error_free": true
+      },
+      "degraded": {
+        "sha256": "c6f4866d30314e04bb41274b83815c70ea0cdfa6d7d9d3bcdbe5e1db99c1147f",
+        "bytes": 4325718,
+        "width": 2048,
+        "height": 2048,
+        "frame_rate": "15/1",
+        "decoded_frames": 30,
+        "full_decode_error_free": true
+      },
+      "side_by_side": {
+        "sha256": "e0fc66df6b6b407efab0b734c7ffbd52bead858ab5e94e5b2519e8125a35911c",
+        "bytes": 3208555,
+        "width": 2048,
+        "height": 1024,
+        "frame_rate": "15/1",
+        "decoded_frames": 30,
+        "full_decode_error_free": true
+      }
+    },
+    "contact_sheet_visual_inspection": {
+      "sha256": "b2ba358f6fecec1a8aea198760e00a76747d88b44f91034f4e371277ed2966a7",
+      "inspected_at_original_resolution": true,
+      "readable": true,
+      "matched_scene_and_trajectory_across_arms": true,
+      "prediction_overlay_present": false
+    },
+    "rejected_candidate_prefix_indices": [0, 1, 2],
+    "all_rejected_candidates_model_or_outcome_free": true,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "outcome_inputs": []
+  },
+  "next_active_target": {
+    "pair_id": "locked_test_c000_r04",
+    "rejected_candidate_indices": [0, 1, 2, 3, 4, 5, 6, 7],
+    "rejection_reasons": [
+      "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range",
+      "semantic:weed_free_frame_fraction_within_limit; semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "semantic:weed_free_frame_fraction_within_limit; semantic:mean_weed_fraction_in_range",
+      "semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range",
+      "semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range",
+      "semantic:mean_weed_fraction_in_range",
+      "semantic:mean_weed_fraction_in_range",
+      "semantic:mean_crop_fraction_in_range"
+    ],
+    "rejected_gt_scout_terminal_receipt_sha256": [
+      "6bc1a1d8cb74b84ad952bacadcb0e8d5cbf0ee8f60c2d14a05cc6a9f2be0f2ee",
+      "e31ab0368b73df5a790b20bb03463bdb704b9f04b24d1a18af6cc7f3f2b2698e",
+      "7c80da351f833b2d833e9744fbd27665245dd0884c42ad0171cd5f1342fc8a34",
+      "d6676e5b0093a6aae80116915ccaec3b680554533b877a3f32d28ae409398fdd",
+      "9c9db5338506e61ec80b246142b75c747211fbf0a0652c6f3a0064d28b936206",
+      "1f3ebda7bb59ddc72e4cd75e2d01fb6c92fdc46808a02434fb1e90b9e5d7d987",
+      "17000588780a4fa34a757f3aa3c8c4be65d03dd53eb06e70222e8a53ab617f08",
+      "5174c355d2a92b9af5cc375e4c2d9abc9b2dd1d47a7b4c91453a3eaf82f576b9"
+    ],
+    "all_rejections_model_or_outcome_free": true,
+    "active_candidate_index": 8,
+    "active_candidate_identity_sha256": "a84b8f93c8d42c17e40a969887d47c2c1535a72e6f682cd6b1a9c36951b49340",
+    "active_candidate_seeds": {
+      "scene_seed": 4743309607772758321,
+      "trajectory_seed": 8029759881422862359,
+      "capture_draw_seed": 7427649384898466894,
+      "renderer_seed": 573547331082648726,
+      "audit_sample_seed": 10875058860947390387
+    },
+    "source_template_sha256": "b86540ba2a197389f2e20abebb9a63ccff98b60a64475abb5a192849a4bc71ae",
+    "scene_config_sha256": "3b4317ea737706c12a064d2ab316f5dcabbe5a25f62b1b10094b6a8b3bbfa926",
+    "gt_scout_scene_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "role_asset_allowlist_sha256": "9863c55a8eb98d18c9998cb9121f3befc2a3879044e8c35f6f0c54a338829d33",
+    "all_five_seed_bindings_exact": true,
+    "model_outcome_inputs": [],
+    "gt_scout_terminal_receipt_present": false,
+    "canonical_ledger_row_present": false,
+    "stage": "gt_scout_candidate_evaluation_in_progress",
+    "acceptance_claimed": false
+  },
+  "ledger": {
+    "canonical_rejection_ledger_sha256": "64440a1e4a06f4c4a1129a02c26652a743b7e38d48c7beb0ae8cfaaaff061b3b",
+    "row_count": 91,
+    "locked_test_c000_r03_row_count": 3,
+    "locked_test_c000_r04_row_count": 8,
+    "all_relevant_rows_model_or_outcome_free": true
+  },
+  "validation": {
+    "python_environment": "/home/ankaref/miniconda3/envs/zedis/bin/python",
+    "full_plan_validate_status": "PASS_FULL_PLAN_DRY_RUN_SYNTHETIC_ONLY",
+    "full_plan_split_pair_counts": {"calibration": 32, "locked_test": 64},
+    "full_plan_candidate_count": 960,
+    "full_plan_unique_seed_count": 4800,
+    "capacity_passed": true,
+    "free_bytes": 309448810496,
+    "required_bytes": 180000000000,
+    "reserve_bytes_after_estimate": 30000000000,
+    "gpu_memory_free_mib": 23529,
+    "gpu_external_process_policy": "observed_only_never_stopped_or_modified",
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "script_sha256": "e650340418ae213d433f18356b6acad5b77942ae67ac3df2577bfe18840fe3d2",
+    "test_sha256": "f6687b33fd137c6482897529b91f49d48bd2d246c4fce41f9249a9de540f856d",
+    "checkpoint_sha256_verified_as_source_lock": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100"
+  },
+  "access_guard": {
+    "render_and_machine_audit_only": true,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "full_model_run_root_present": false,
+    "model_outputs_present": false,
+    "locked_test_prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": []
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "outcome_target_tuning_forbidden": true
+  },
+  "highest_evidence_proven": "The immutable batch atomically published and fully validated locked_test_c000_r03, increasing the benchmark to 36/96 complete. locked_test_c000_r04 candidates 0 through 7 are canonical model-free rejections and candidate 8 is bound to its exact roster identity and five seeds in the sealed GT-only scout.",
+  "remaining_work": "Publish locked_test_c000_r04 through locked_test_c000_r07 for this batch, render the remaining 56 locked-test pairs, then perform frozen inference, shared calibration threshold locking, one-shot locked-test evaluation, videos, metrics, uncertainty, target verdicts, failure analysis, inventory, and bounded cleanup.",
+  "next_step": "After one hour, inspect detached PID 3753710 and validate locked_test_c000_r04's canonical candidate-8-or-later transition and any atomic publication, or fail closed on the exact terminal error without model, prediction or locked-test outcome access."
+}

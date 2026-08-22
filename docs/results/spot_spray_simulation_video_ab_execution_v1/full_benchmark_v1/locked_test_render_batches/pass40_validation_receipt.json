@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_execution_pass40_validation_v1",
+  "status": "PASS_ATOMIC_PREFIX_VALIDATED_FAIL_CLOSED_ON_ZERO_SOURCE_WEED_SYNTHETIC_ONLY",
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "pass": 40,
+  "observed_at": "2026-08-17T01:14:32+03:00",
+  "selected_step": "After one hour, inspect detached PID 3347203, its exact process log and immutable batch state; validate any atomically published prefix from locked_test_c000_r00 onward, or fail closed on the exact terminal error without model, prediction or locked-test outcome access.",
+  "batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c000_r00_ee8be6ec4af1b0cc",
+    "request_identity_sha256": "ee8be6ec4af1b0ccf24eb13f55193ac51d6c2f2d7189b835dea7fe4f65cda80d",
+    "intent_sha256": "a1c16860ca8a503950f41c2a15f100f76a6a16ce1664cd37d5c9690176f0c6b3",
+    "intent_unchanged": true,
+    "target_pair_ids": [
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03",
+      "locked_test_c000_r04",
+      "locked_test_c000_r05",
+      "locked_test_c000_r06",
+      "locked_test_c000_r07"
+    ],
+    "max_new_pairs": 8,
+    "process": {
+      "pid": 3347203,
+      "alive_at_observation": false,
+      "terminal_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/process_logs/locked_test_render_batch_locked_test_c000_r00_ee8be6ec4af1b0cc.log",
+      "terminal_log_sha256": "d60d5507647e0389974f95c16227be38eb32ce5d88bbb649bc56d1c84c4fc1e7",
+      "terminal_log_bytes": 1344,
+      "error_line_count": 1,
+      "traceback_line_count": 0,
+      "terminal_error_type": "RuntimeError",
+      "terminal_error": "Too few source weed tracks: 0",
+      "batch_receipt_present": false,
+      "failed_closed": true
+    }
+  },
+  "atomic_prefix": {
+    "published_pair_ids": [
+      "locked_test_c000_r00"
+    ],
+    "newly_published_pair_count": 1,
+    "next_pending_pair_id": "locked_test_c000_r01",
+    "no_partial_pair_publication": true,
+    "interrupted_staging_directories": [],
+    "dynamic_render_state_sha256": "ec5b90c264d03e39224c4fcd1416b5bad57894f99e7b5946255edc1b307b0b7e",
+    "planned_pair_count": 96,
+    "completed_pair_count": 33,
+    "pending_pair_count": 63,
+    "model_outputs_present": false
+  },
+  "published_pair_validation": {
+    "pair_id": "locked_test_c000_r00",
+    "protocol_split": "locked_test",
+    "evaluator_split": "test",
+    "pair_slot_identity_sha256": "61d88f1c1aa7facb2d7005c0ea5eb61d9b98d98aa0cfcb4922253427fae5c007",
+    "selected_candidate_index": 1,
+    "candidate_identity_sha256": "096074e2bf666561d203c4ec50211ae08c721be0bf83c6958ab6b62419c5d3c5",
+    "full_pair_receipt_sha256": "bc6a4b3b01f609e42827703c500f2c172e7d4735faca4f209f3b0049c1e9a942",
+    "docs_receipt_byte_identical": true,
+    "pair_receipt_sha256": "4e31a8507178660ed0fd6e712ea154ef9c543a0921f41e53f548abb6c35cf68b",
+    "canonical_gt_sha256": "a447e8e6244d098a25de28bee68211f6814baeecea8b55a858c3a6bf20761267",
+    "accepted_scout_terminal_receipt_sha256": "1da32cebaaf9800e25a1d07e2d7a421e969348afad1a3bbddf5497c6a6fbbcb2",
+    "accepted_scout_and_full_gt_match": true,
+    "prior_rejected_candidate": {
+      "candidate_index": 0,
+      "candidate_identity_sha256": "aa2e7cc7b6b0cafca512073ff0d0f7d1f9736ad1f2327edf0ed7ffe515f1076b",
+      "terminal_receipt_sha256": "2beaec92a1104a28db008e26ebc713e67f25890d52d22a366ba4a25a60aa861a",
+      "canonical_rejection_reason": "semantic:mean_crop_fraction_in_range",
+      "ledger_committed_once": true
+    },
+    "source_track_count": 21,
+    "visible_eligible_weed_track_count": 7,
+    "frame_count_per_arm": 30,
+    "frame_rate_hz": 15,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "ideal_rgb_frame_count": 30,
+    "degraded_rgb_frame_count": 30,
+    "shared_semantic_frame_count": 30,
+    "shared_track_frame_count": 30,
+    "all_ideal_degraded_rgb_frames_byte_distinct": true,
+    "all_ideal_degraded_rgb_frames_pixel_distinct": true,
+    "arm_local_gt_absent": true,
+    "shared_gt_byte_identical_between_arms": true,
+    "all_six_pair_quality_gates_passed": true,
+    "independent_media_validation": {
+      "ideal": {
+        "width": 2048,
+        "height": 2048,
+        "frame_rate": "15/1",
+        "decoded_frame_count": 30,
+        "full_decode_passed": true
+      },
+      "degraded": {
+        "width": 2048,
+        "height": 2048,
+        "frame_rate": "15/1",
+        "decoded_frame_count": 30,
+        "full_decode_passed": true
+      },
+      "side_by_side": {
+        "width": 2048,
+        "height": 1024,
+        "frame_rate": "15/1",
+        "decoded_frame_count": 30,
+        "full_decode_passed": true
+      }
+    },
+    "preoutcome_contact_sheet_sha256": "9fab96cfe5a169ad4eea7c40a110f2410aa9488f4b87288e9422c5834a8ee3f2",
+    "visual_inspection": {
+      "readable": true,
+      "matched_scene_and_trajectory": true,
+      "predictions_metrics_or_actions_visible": false
+    },
+    "model_loaded": false,
+    "inference_calls": 0,
+    "outcome_inputs": []
+  },
+  "failed_candidate_binding": {
+    "pair_id": "locked_test_c000_r01",
+    "protocol_split": "locked_test",
+    "evaluator_split": "test",
+    "pair_slot_identity_sha256": "8093d378c450b160e950ad6a6be3c388e59e7fc8164c929e87781ed2929ad4ab",
+    "candidate_index": 0,
+    "candidate_identity_sha256": "77662c53f591dbe266c140db6f4b6d6b2548040222553d4833d1b9db852a338b",
+    "source_template_sha256": "56f1d8c93e532056d4fc81c8f489c8a0acc5c9fcb1005c2e2b8db1ab516b7103",
+    "candidate_seeds": {
+      "scene_seed": 7257132008996956636,
+      "trajectory_seed": 8966408112382133277,
+      "capture_draw_seed": 8248996554010427069,
+      "renderer_seed": 13049863902269676348,
+      "audit_sample_seed": 3195363354284859687
+    },
+    "existing_pair_ledger_rows": 0,
+    "still_next_canonical_candidate": true,
+    "residual_scout_or_render_staging_present": false,
+    "exact_failure_requires_canonical_rejection_receipt": true
+  },
+  "guards": {
+    "locked_test_render_batch_execution_lock_sha256": "5bd38a72d9a07dbbb1077de770a4509d75b023dc05d7d7edc397b818d4c12ce6",
+    "candidate_rejection_ledger_sha256": "b446486180f6c63a4f8522599a642a5a429419d8ec4f8892951f4a698dff76ed",
+    "candidate_rejection_ledger_row_count": 68,
+    "model_run_root_present": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "predictions_accessed": false,
+    "locked_test_outcomes_accessed": false,
+    "outcome_inputs": []
+  },
+  "live_preflight": {
+    "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY",
+    "free_bytes": 312108818432,
+    "required_bytes": 180000000000,
+    "reserve_bytes_after_estimate": 30000000000,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "gpu_memory_free_mib": 23529,
+    "external_process_policy": "observed_only_never_stopped_or_modified"
+  },
+  "full_plan_validation": {
+    "status": "PASS_FULL_PLAN_DRY_RUN_SYNTHETIC_ONLY",
+    "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "completed_pair_count": 33,
+    "pending_pair_count": 63,
+    "model_loaded": false,
+    "inference_calls": 0
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "outcome_target_tuning_forbidden": true
+  },
+  "remaining_work": "The locked-test prefix is only 1/64. A separately sealed locked-test-only exact zero-source-weed recovery must reproduce and commit the r01 candidate-0 eligibility rejection without acceptance authority or model/outcome access, after which the same immutable eight-slot intent can resume at candidate 1. Later locked-test rendering, frozen inference, threshold locking, one-shot test evaluation, videos, metrics, uncertainty, verdicts, failure analysis, inventory and cleanup remain.",
+  "next_step": "Implement and validate a separately sealed locked-test-only zero-source-weed recovery that preserves the existing calibration recovery and all renderer/scout locks; reproduce and commit locked_test_c000_r01 candidate 0 as the exact eligibility rejection, then resume the same immutable eight-slot batch intent without model, prediction or outcome access."
+}

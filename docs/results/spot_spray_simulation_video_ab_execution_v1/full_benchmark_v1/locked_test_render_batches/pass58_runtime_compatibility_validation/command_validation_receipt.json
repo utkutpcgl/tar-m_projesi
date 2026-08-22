@@ -1,0 +1,67 @@
+{
+  "access_guard": {
+    "candidate_10_started": false,
+    "candidate_gt_inspected": false,
+    "external_services_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls": 0
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only"
+  },
+  "contract": "spot_spray_simulation_video_ab_pass58_command_validation_v1",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260817120448-1b733ad4fca0",
+    "pass": 58,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "immutable_boundary": {
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "completed_pair_count": 40,
+    "failed_batch_intent_sha256": "e910ac803d60e9ad59c96cb2d787a63b570a59fd6705be37237a7b60bfaac68f",
+    "first_pending_pair_id": "locked_test_c001_r00",
+    "parent_extension_config_sha256": "6c37c11665c32be662879bb250eb654b8a5bd55834b4eeb896f3a74d031eb259",
+    "parent_extension_release_file_sha256": "6aa06ae282e6fa79d1864530f7307c38f252678273f64499f153c6bd300b897c",
+    "parent_extension_release_identity_sha256": "5c06e7b6aa79c0b744b232b3071f4a59e0fec1d321335303d64be15aad23159c",
+    "pass55_execution_script_snapshot_sha256": "e6780e0aef77842c1e9b7d92ce0e1c518d49a1c90c4397209e1236262395d685",
+    "pass55_execution_test_snapshot_sha256": "9d568c27d57c147c4bc8fa95c9fe18929820b29a8e076ec892f02ae343b9e0ad",
+    "pass55_validation_receipt_sha256": "4de710884589115bab63ee388dc4bf74454a9a71b9c4341a976a9d3aad88aefc",
+    "pass57_failure_receipt_sha256": "de7baaad54c1d0206b8427f250fc23b04328edfa5e7d6219c7e84e2657a07e17",
+    "pending_pair_count": 56,
+    "render_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec"
+  },
+  "runtime_patch": {
+    "adapter_lock_sha256": "cac1970aac9060cfbbe693f50c18f00fd05a0e1f542e19448f0c3b6a878a3b86",
+    "bridge_sha256": "e47a225180c874e09e7aee383bf83cbd304473c83ae7edb9ce0fc9db06c5ba30",
+    "config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "only_added_runtime_keys": [
+      "sealed_full_render_execution_lock_sha256",
+      "sealed_full_render_implementation_sha256"
+    ],
+    "release_file_sha256": "4acfca1e21051db6aa791efc6bb3a4b1cea3912fd6eced3461bd9747be26094b",
+    "release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+    "validation_receipt_sha256": "8ee8de2892f4dd9ffefa37fcc9caab639e25fd299828a8c281f9e19c9816d357"
+  },
+  "schema_version": 1,
+  "status": "PASS_RUNTIME_COMPATIBILITY_COMMAND_VALIDATION_SYNTHETIC_ONLY",
+  "validation": {
+    "combined_candidate_count": 3072,
+    "focused_runtime_and_roster_extension_tests": "18/18_passed",
+    "full_execution_test_file": "66/66_passed",
+    "full_plan_status": "PASS_FULL_PLAN_DRY_RUN_SYNTHETIC_ONLY",
+    "idempotent_repeat_bytes_unchanged": true,
+    "model_outputs_present": false,
+    "partial_collision_drift_extra_field_and_access_guards_fail_closed": true,
+    "runtime_release_status": "PASS_RUNTIME_COMPATIBILITY_RELEASE_VALIDATION_SYNTHETIC_ONLY"
+  }
+}

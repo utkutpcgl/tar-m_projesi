@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass57_extension_runtime_failure_v1",
+  "status": "FAIL_CLOSED_EXTENSION_LOCK_ADAPTER_COMPATIBILITY_ERROR_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "event_id": "scheduled-resume-20260817120033-33388f53d09c",
+    "pass": 57,
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "strategy": "base"
+  },
+  "failed_execution": {
+    "process_pid": 3413428,
+    "process_session_id": 3413428,
+    "process_is_alive": false,
+    "process_log": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass56_extension_execution/process.log",
+    "process_log_sha256": "f5820cbbbd7f790d522075cb2fa338da95e1e0ab667e3e7b3f08e83075c95998",
+    "error_type": "KeyError",
+    "error": "'sealed_full_render_execution_lock_sha256'",
+    "traceback_present": false,
+    "cuda_or_oom_error_present": false
+  },
+  "release": {
+    "extension_execution_config_sha256": "6c37c11665c32be662879bb250eb654b8a5bd55834b4eeb896f3a74d031eb259",
+    "parent_execution_release_identity_sha256": "5c06e7b6aa79c0b744b232b3071f4a59e0fec1d321335303d64be15aad23159c",
+    "extension_gt_scout_execution_lock_sha256": "cdeb185a73ef23b9bb575bf4c4a6bd1fee0f87d67a344d0aade6f505bf0027f0",
+    "extension_batch_execution_lock_sha256": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74",
+    "pass56_launch_receipt_sha256": "7f6edcef4167a8c4f5de2c8d4df36dca8ce15021eb62cc51caa4de3659cbc63d"
+  },
+  "batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r00_7b302bef07d4edd1",
+    "request_identity_sha256": "7b302bef07d4edd1f9d5ef088f9a854e9ce766cb36a68a40d21ffbdfe5836bc6",
+    "batch_intent_sha256": "e910ac803d60e9ad59c96cb2d787a63b570a59fd6705be37237a7b60bfaac68f",
+    "batch_receipt_present": false,
+    "target_pair_id": "locked_test_c001_r00",
+    "candidate_index_at_failure": 10,
+    "candidate_identity_sha256": "887f18acce3d4e0a75e7d8670d22d433374898c031724feabdd6561d25ec76a4"
+  },
+  "diagnosis": {
+    "status": "REPRODUCED_EXACT_LOCK_ADAPTER_KEY_ERROR",
+    "failure_stage": "gt_scout_terminal_receipt_assembly_before_publication",
+    "extension_lock_semantics_or_hash_changed": false,
+    "missing_runtime_aliases": [
+      "sealed_full_render_execution_lock_sha256",
+      "sealed_full_render_implementation_sha256"
+    ],
+    "authorized_alias_values": {
+      "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+      "sealed_full_render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751"
+    },
+    "gate_threshold_seed_or_candidate_policy_change_required": false,
+    "versioned_runtime_compatibility_bridge_required": true,
+    "silent_release_rebinding_allowed": false
+  },
+  "fail_closed_boundary": {
+    "render_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "completed_pair_count": 40,
+    "pending_pair_count": 56,
+    "first_pending_pair_id": "locked_test_c001_r00",
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "candidate_rejection_ledger_row_count": 111,
+    "c001_committed_candidate_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "candidate_10_terminal_receipt_present": false,
+    "candidate_10_staging_present": false,
+    "locked_test_pair_present": false,
+    "full_benchmark_model_output_file_count": 0
+  },
+  "access_guard": {
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "outcome_inputs": []
+  },
+  "recovery_decision": {
+    "zero_source_weed_recovery_applicable": false,
+    "reason": "The exact terminal error is a lock-adapter compatibility KeyError, not the sealed zero-source-weed condition.",
+    "candidate_execution_may_resume_before_versioned_bridge": false
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  }
+}

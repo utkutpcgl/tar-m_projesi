@@ -1,0 +1,80 @@
+{
+  "access_guard": {
+    "candidate_10_started": false,
+    "candidate_gt_inspected": false,
+    "external_processes_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls": 0,
+    "staging_directories": []
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass59_capacity_guard_v1",
+  "execution_boundary": {
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "completed_pair_count": 40,
+    "failed_batch_intent_sha256": "e910ac803d60e9ad59c96cb2d787a63b570a59fd6705be37237a7b60bfaac68f",
+    "first_pending_pair_id": "locked_test_c001_r00",
+    "pending_pair_count": 56,
+    "render_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec"
+  },
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260817122423-86ef1a96ddf4",
+    "pass": 59,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "gpu_capacity_guard": {
+    "exact_unblock_condition": "Without stopping or altering external services, observed GPU free memory must return to at least the prior proven 23521 MiB native-render launch baseline.",
+    "external_compute_processes": [
+      {
+        "observed_only": true,
+        "pid": 2577518,
+        "process_name": "VLLM::EngineCore",
+        "used_memory_mib": 424
+      },
+      {
+        "observed_only": true,
+        "pid": 3701152,
+        "process_name": "/usr/local/bin/ollama",
+        "used_memory_mib": 20586
+      }
+    ],
+    "memory_free_mib": 2938,
+    "memory_total_mib": 24576,
+    "memory_used_mib": 21178,
+    "passed": false,
+    "prior_proven_native_render_launch_baseline_free_mib": 23521,
+    "shortfall_mib": 20583
+  },
+  "runtime_release": {
+    "adapter_lock_sha256": "cac1970aac9060cfbbe693f50c18f00fd05a0e1f542e19448f0c3b6a878a3b86",
+    "config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "parent_release_identity_sha256": "5c06e7b6aa79c0b744b232b3071f4a59e0fec1d321335303d64be15aad23159c",
+    "release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+    "validation_status": "PASS_RUNTIME_COMPATIBILITY_RELEASE_VALIDATION_SYNTHETIC_ONLY"
+  },
+  "schema_version": 1,
+  "status": "FAIL_CLOSED_EXTERNAL_GPU_CAPACITY_SYNTHETIC_ONLY",
+  "storage_and_source_preflight": {
+    "config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "free_bytes": 305911336960,
+    "required_bytes": 180000000000,
+    "reserve_bytes_after_estimate": 30000000000,
+    "source_lock_verification_passed": true,
+    "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY",
+    "storage_capacity_passed": true
+  }
+}

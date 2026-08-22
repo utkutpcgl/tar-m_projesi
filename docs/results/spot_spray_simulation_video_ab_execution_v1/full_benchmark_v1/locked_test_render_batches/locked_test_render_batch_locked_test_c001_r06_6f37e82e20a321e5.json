@@ -1,0 +1,469 @@
+{
+  "batch_execution_lock_sha256": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74",
+  "batch_id": "locked_test_render_batch_locked_test_c001_r06_6f37e82e20a321e5",
+  "candidate_events_current_invocation": [
+    {
+      "candidate_identity_sha256": "49d7629b946aa00796c99305da8d06b70d7a2800b3c6aa59418ec9ee9542331d",
+      "candidate_index": 4,
+      "pair_id": "locked_test_c001_r06",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_weed_fraction_in_range",
+        "eligibility:eligible_weed_track_present",
+        "eligibility:eligible_track_with_at_least_three_observations"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "3799993a3de0428b6f617c3295714b5b737c346379733294915b6a8ec6676b70"
+    },
+    {
+      "candidate_identity_sha256": "c95b62b0a9a8742424c3a27015174d130121b51e9da144b696c691221330d57f",
+      "candidate_index": 5,
+      "pair_id": "locked_test_c001_r06",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "0196874f4a5df4397a04b47a7af5a9fdacea091bf06397757e15cb87ed40c270"
+    },
+    {
+      "candidate_identity_sha256": "fb981e0f75a9610c4c9836a496a0b21eaa66b3997dd6b6e5734ae160d7d92e8d",
+      "candidate_index": 6,
+      "pair_id": "locked_test_c001_r06",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "8f89ce88df8d0cb9a96d25658f63de9a9cbccf56eeca6b2609b9c2c8b39ff93a"
+    },
+    {
+      "candidate_identity_sha256": "f1f7825a533ebf8c085042b1948c24f1eb749b847c6a4d0bca53479f2dcddf35",
+      "candidate_index": 7,
+      "pair_id": "locked_test_c001_r06",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "ad2d3cd0121fdb925dcd379334dc82ce296b23a7a073d11702df8d435ac5fb1e"
+    },
+    {
+      "candidate_identity_sha256": "c3616fca6daca711d56834319320851a10e69b80b85250a902091e17b552223d",
+      "candidate_index": 8,
+      "pair_id": "locked_test_c001_r06",
+      "rejection_reasons": [
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "23310fbed57155f59a6be05a213ed72a7dd5810c4ce8e7637189c17d84b5b67e"
+    },
+    {
+      "candidate_identity_sha256": "4094adc4e770a3be1ca9532932f4cfc941c3af18647607fcfb978bf38e77c82d",
+      "candidate_index": 9,
+      "pair_id": "locked_test_c001_r06",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range",
+        "eligibility:eligible_weed_track_present",
+        "eligibility:eligible_track_with_at_least_three_observations"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "e4e20368963419ff31adbec36ba6e30e8eac01bb066c613dfdba4386dd8817be"
+    },
+    {
+      "candidate_identity_sha256": "8b1b60bafd321d8ee664338a211df57effab96c6959723d15bd7b1151fbb8602",
+      "candidate_index": 10,
+      "pair_id": "locked_test_c001_r06",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "cbb83de99180694adf14ed71b0347f9dac57a5b8f9dec42909c84adc09146625"
+    },
+    {
+      "candidate_identity_sha256": "819bc3a0ed4cd9541635c1dd4d6f73a28f3db5c92b1099b19fd2191062d20021",
+      "candidate_index": 11,
+      "pair_id": "locked_test_c001_r06",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "1a5d7b630486093d9f89578a6cf6a0b7861813832f17854ecaba3cf0815803ca"
+    },
+    {
+      "candidate_index": 11,
+      "pair_id": "locked_test_c001_r06",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "d3d7a3e060e3d960468d95921c455160e16868d0db89fcf5ead2eb743ed1824d"
+    }
+  ],
+  "canonical_rejection_rows": [
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "29a022083bca3b192e3e2668109d381daa56053347f9b43ccaf239e41f108e5a",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "2412239184e2c188d0c53fbeba76e80a54cdd0c9bddc59c629615f3c35644fe8",
+      "gt_scout_terminal_receipt_sha256": "5bf95bac99b30efa9e4dc74a91e2ea398abf8792d0c97bb222b475aba2aaf1ad",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "2f18336c33fbf0dfa334a026dfccca09ebfe8cfdc0eed670dfe4ccda38493d19",
+      "candidate_index": 1,
+      "gt_scout_decision_receipt_sha256": "59022cec5fb55dcab7fbbe265e4604943238dbadbb23f12334ba200606b9582d",
+      "gt_scout_terminal_receipt_sha256": "f7fac10678c848c9a3577eda86ff7bbc6767ee1b381253a443d85cc00dfd1957",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "5c339f4d003645f37ffce0b71f36025ca00e26240b604f5730f6f5966aa5e0fd",
+      "candidate_index": 2,
+      "gt_scout_decision_receipt_sha256": "2971d33a9568b2582ffb35c8b87785a05470f08e767f65089aac92225876f30e",
+      "gt_scout_terminal_receipt_sha256": "b4c859150c059898581f9589162592f1536c50ec609a91657e1e2208d792920a",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:mean_crop_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "fa3ddd1e59cc2543e2ec20ff1c6b42806e3263dd84056f2fb2c3fdbbc8c9a897",
+      "candidate_index": 3,
+      "gt_scout_decision_receipt_sha256": "c1a898315d30801a9cce123b61dca288b24898f936a59c3450da3f440530c202",
+      "gt_scout_terminal_receipt_sha256": "a5d33a8885a0d7c48333b9722d41b9d17a71249accb8ac9c44e057b8e108e3d6",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "eligibility:source_weed_track_present",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "49d7629b946aa00796c99305da8d06b70d7a2800b3c6aa59418ec9ee9542331d",
+      "candidate_index": 4,
+      "gt_scout_decision_receipt_sha256": "31684e3480c0d1f6c1e843b9c43e0296942be858f825ad53b3c3626774e5a9bf",
+      "gt_scout_terminal_receipt_sha256": "3799993a3de0428b6f617c3295714b5b737c346379733294915b6a8ec6676b70",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "c95b62b0a9a8742424c3a27015174d130121b51e9da144b696c691221330d57f",
+      "candidate_index": 5,
+      "gt_scout_decision_receipt_sha256": "f72ecd8c3a5324838d324ad7dfc3ecdbc1413eaf66397e777778957b14f847bd",
+      "gt_scout_terminal_receipt_sha256": "0196874f4a5df4397a04b47a7af5a9fdacea091bf06397757e15cb87ed40c270",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "fb981e0f75a9610c4c9836a496a0b21eaa66b3997dd6b6e5734ae160d7d92e8d",
+      "candidate_index": 6,
+      "gt_scout_decision_receipt_sha256": "2971d33a9568b2582ffb35c8b87785a05470f08e767f65089aac92225876f30e",
+      "gt_scout_terminal_receipt_sha256": "8f89ce88df8d0cb9a96d25658f63de9a9cbccf56eeca6b2609b9c2c8b39ff93a",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:mean_crop_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "f1f7825a533ebf8c085042b1948c24f1eb749b847c6a4d0bca53479f2dcddf35",
+      "candidate_index": 7,
+      "gt_scout_decision_receipt_sha256": "56d0c8e8ef073cccebdac6d85fb197d2d045cb28c9b5c78e6de29483514d3c98",
+      "gt_scout_terminal_receipt_sha256": "ad2d3cd0121fdb925dcd379334dc82ce296b23a7a073d11702df8d435ac5fb1e",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "c3616fca6daca711d56834319320851a10e69b80b85250a902091e17b552223d",
+      "candidate_index": 8,
+      "gt_scout_decision_receipt_sha256": "2412239184e2c188d0c53fbeba76e80a54cdd0c9bddc59c629615f3c35644fe8",
+      "gt_scout_terminal_receipt_sha256": "23310fbed57155f59a6be05a213ed72a7dd5810c4ce8e7637189c17d84b5b67e",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "4094adc4e770a3be1ca9532932f4cfc941c3af18647607fcfb978bf38e77c82d",
+      "candidate_index": 9,
+      "gt_scout_decision_receipt_sha256": "d7f77076eddf5eafc735e8bf0e5a5899b44c52371243eed4de604921b5e27570",
+      "gt_scout_terminal_receipt_sha256": "e4e20368963419ff31adbec36ba6e30e8eac01bb066c613dfdba4386dd8817be",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "8b1b60bafd321d8ee664338a211df57effab96c6959723d15bd7b1151fbb8602",
+      "candidate_index": 10,
+      "gt_scout_decision_receipt_sha256": "2971d33a9568b2582ffb35c8b87785a05470f08e767f65089aac92225876f30e",
+      "gt_scout_terminal_receipt_sha256": "cbb83de99180694adf14ed71b0347f9dac57a5b8f9dec42909c84adc09146625",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r06",
+      "reason": "semantic:mean_crop_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    }
+  ],
+  "capacity_check": {
+    "absolute_ten_candidate_attempt_ceiling_hours": 1966.0800000000006,
+    "candidate_attempt_ceiling_is_not_expected_runtime": true,
+    "free_bytes_observed": 300603617280,
+    "full_pair_count": 96,
+    "headroom_after_required_and_reserve_bytes": 90603617280,
+    "isolated_render_upper_hours_one_candidate_per_slot": 61.44000000000002,
+    "measured_linear_bytes": 37507447200,
+    "measured_linear_render_hours": 27.74043961732338,
+    "pair_count_multiplier": 48.0,
+    "planning_upper_hours_one_candidate_per_slot": 61.44000000000002,
+    "predeclared_admission_bytes": 180000000000,
+    "required_bytes": 180000000000,
+    "reserve_bytes": 30000000000
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_locked_test_render_batch_execution_v1",
+  "elapsed_wall_seconds_current_invocation": 6264.049830613978,
+  "gpu": {
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "index": 0,
+    "memory_free_mib": 23608,
+    "memory_total_mib": 24576,
+    "memory_used_mib": 508,
+    "name": "NVIDIA GeForce RTX 3090"
+  },
+  "inference_calls": 0,
+  "locked_test_outcome_accessed": false,
+  "locked_test_prediction_accessed": false,
+  "max_new_pairs": 1,
+  "model_loaded": false,
+  "new_pair_count": 1,
+  "new_pair_ids": [
+    "locked_test_c001_r06"
+  ],
+  "outcome_inputs": [],
+  "render_and_machine_audit_only": true,
+  "render_state": {
+    "completed_pair_count": 47,
+    "completed_pair_ids": [
+      "calibration_c000_r00",
+      "calibration_c000_r01",
+      "calibration_c000_r02",
+      "calibration_c000_r03",
+      "calibration_c001_r00",
+      "calibration_c001_r01",
+      "calibration_c001_r02",
+      "calibration_c001_r03",
+      "calibration_c002_r00",
+      "calibration_c002_r01",
+      "calibration_c002_r02",
+      "calibration_c002_r03",
+      "calibration_c003_r00",
+      "calibration_c003_r01",
+      "calibration_c003_r02",
+      "calibration_c003_r03",
+      "calibration_c004_r00",
+      "calibration_c004_r01",
+      "calibration_c004_r02",
+      "calibration_c004_r03",
+      "calibration_c005_r00",
+      "calibration_c005_r01",
+      "calibration_c005_r02",
+      "calibration_c005_r03",
+      "calibration_c006_r00",
+      "calibration_c006_r01",
+      "calibration_c006_r02",
+      "calibration_c006_r03",
+      "calibration_c007_r00",
+      "calibration_c007_r01",
+      "calibration_c007_r02",
+      "calibration_c007_r03",
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03",
+      "locked_test_c000_r04",
+      "locked_test_c000_r05",
+      "locked_test_c000_r06",
+      "locked_test_c000_r07",
+      "locked_test_c001_r00",
+      "locked_test_c001_r01",
+      "locked_test_c001_r02",
+      "locked_test_c001_r03",
+      "locked_test_c001_r04",
+      "locked_test_c001_r05",
+      "locked_test_c001_r06"
+    ],
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "pending_pair_count": 49,
+    "pending_pair_ids": [
+      "locked_test_c001_r07",
+      "locked_test_c002_r00",
+      "locked_test_c002_r01",
+      "locked_test_c002_r02",
+      "locked_test_c002_r03",
+      "locked_test_c002_r04",
+      "locked_test_c002_r05",
+      "locked_test_c002_r06",
+      "locked_test_c002_r07",
+      "locked_test_c003_r00",
+      "locked_test_c003_r01",
+      "locked_test_c003_r02",
+      "locked_test_c003_r03",
+      "locked_test_c003_r04",
+      "locked_test_c003_r05",
+      "locked_test_c003_r06",
+      "locked_test_c003_r07",
+      "locked_test_c004_r00",
+      "locked_test_c004_r01",
+      "locked_test_c004_r02",
+      "locked_test_c004_r03",
+      "locked_test_c004_r04",
+      "locked_test_c004_r05",
+      "locked_test_c004_r06",
+      "locked_test_c004_r07",
+      "locked_test_c005_r00",
+      "locked_test_c005_r01",
+      "locked_test_c005_r02",
+      "locked_test_c005_r03",
+      "locked_test_c005_r04",
+      "locked_test_c005_r05",
+      "locked_test_c005_r06",
+      "locked_test_c005_r07",
+      "locked_test_c006_r00",
+      "locked_test_c006_r01",
+      "locked_test_c006_r02",
+      "locked_test_c006_r03",
+      "locked_test_c006_r04",
+      "locked_test_c006_r05",
+      "locked_test_c006_r06",
+      "locked_test_c006_r07",
+      "locked_test_c007_r00",
+      "locked_test_c007_r01",
+      "locked_test_c007_r02",
+      "locked_test_c007_r03",
+      "locked_test_c007_r04",
+      "locked_test_c007_r05",
+      "locked_test_c007_r06",
+      "locked_test_c007_r07"
+    ],
+    "planned_pair_count": 96
+  },
+  "request_identity_sha256": "6f37e82e20a321e5f9ea98b7923b9d2c807ae837ff43a504d5936cb03a3712f5",
+  "resume": {
+    "intent_sha256": "4ec31c8b5bfdb439ac0d0ce2d14038fc623f320f07e1ddfa2ee108c1fe5cb51b",
+    "recovered_published_pair_ids": [],
+    "resumed_from_existing_intent": true
+  },
+  "schema_version": 1,
+  "selected_pairs": [
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "819bc3a0ed4cd9541635c1dd4d6f73a28f3db5c92b1099b19fd2191062d20021",
+      "canonical_gt_sha256": "6c7a2e62138c6ccada5afe5ec37fe478b63372e41e1bd146c34bf1d4b4d75e1d",
+      "full_pair_receipt_sha256": "d3d7a3e060e3d960468d95921c455160e16868d0db89fcf5ead2eb743ed1824d",
+      "pair_id": "locked_test_c001_r06",
+      "selected_candidate_index": 11
+    }
+  ],
+  "status": "PASS_LOCKED_TEST_RENDER_BATCH_PREOUTCOME_SYNTHETIC_ONLY",
+  "target_pair_ids": [
+    "locked_test_c001_r06"
+  ]
+}

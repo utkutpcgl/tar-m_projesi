@@ -1,0 +1,185 @@
+{
+  "acceptance_authority": "none",
+  "all_five_seed_bindings_exact": true,
+  "batch_id": "locked_test_render_batch_locked_test_c001_r04_f180ac33c6690a60",
+  "batch_intent_sha256": "7f18c45d97269dc2522c86f8f279aa332fa3c53eda5653927036ad5bbb7cb403",
+  "batch_request_identity_sha256": "f180ac33c6690a603396182836c55d6f166ca56a38a87698ca0fc23afed4e468",
+  "bounded_cleanup": {
+    "bounded_to_locked_test_recovery_staging": true,
+    "bulk_bytes_removed": 16219570,
+    "bulk_payload_retained": false,
+    "retained_receipts_and_log": {
+      "capture_receipt.json": "f4f8cc2a54d001422e285ace72637e8d89bcd765c4622e6bca6d570a9e5cbbcf",
+      "cropcraft_runner.log": "32951783169c556874471fe15b0e507d275c8f89bf9f0566af21e9b5b505d0ae",
+      "generation_receipt.json": "32951783169c556874471fe15b0e507d275c8f89bf9f0566af21e9b5b505d0ae",
+      "source_objects.json": "5e9547d7679b7a5d0090ff0507188d0d2db46c24339d6ea5ad7b2d255d654e12",
+      "track_registry.json": "fb005860948dd771ebecf66234a877410f77c91e4ecbd218ad694f3b561bc3da",
+      "tracks.jsonl": "380831c643b5745ce022aebea3d45611a42964a09fefc4ddc17a28215ed3e9dd"
+    },
+    "source_scene_removed": true
+  },
+  "candidate_identity_sha256": "766cb27eb634b44cc627e569b2d030848c7296e9933d653ed0341ec0f79eab93",
+  "candidate_index": 2,
+  "candidate_seeds": {
+    "audit_sample_seed": 12797073573532979714,
+    "capture_draw_seed": 17078754090365831159,
+    "renderer_seed": 13083821511186668071,
+    "scene_seed": 17692719370696446108,
+    "trajectory_seed": 4671660541223334890
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "composed_patch": {
+    "base_full_scene_patch_sha256": "3c5ba726370d943bc93335afb8dd4f8169fac83ebec3c2e39875f8495fdabce1",
+    "full_runtime_overlay_included": true,
+    "gt_scout_overlay_included": true,
+    "ordered_constituents": [
+      {
+        "path": "patches/cropcraft/0006-field-robustness-surface-lighting.patch",
+        "sha256": "ad3f65815a1a269bbefa41cb3292c9836e63ccd91af146ed27247a5befde416b"
+      },
+      {
+        "path": "patches/cropcraft/0002-instance-track-ground-truth.patch",
+        "sha256": "c2301376c2f1607d1abfeeb75a6b9ad9b29873c764b027bd6995b10ebcaddd24"
+      },
+      {
+        "path": "embedded:full_runtime_overlay_v1",
+        "sha256": "bdefdbab35ab9161c12adb14045e2404c888f370ad16a42f4297542e0201d18b"
+      },
+      {
+        "path": "embedded:gt_scout_runtime_overlay_v1",
+        "sha256": "4de489ee4ab48a4c7f9e32983ce7eae3a40921683e5f3661156af05079845f9e"
+      }
+    ],
+    "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/locked_test_gt_source_cardinality_recovery_v1/.partial-locked_test_c001_r04-candidate-02-3837d9abf3c342dcb8aafd85bd20b6aa/bindings/gt_scout_scene.patch",
+    "sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248"
+  },
+  "contract": "spot_spray_simulation_video_ab_locked_test_gt_source_cardinality_recovery_v1",
+  "decision": {
+    "contract": "spot_spray_simulation_video_ab_gt_source_cardinality_recovery_v1",
+    "decision_contract_sha256": "dad4c60f12d41265f05780a9336eeb4fc17be1b90689f86e5cf17aeeef65b40b",
+    "full_render_still_required_for_acceptance": true,
+    "locked_test_outcome_accessed": false,
+    "locked_test_prediction_accessed": false,
+    "locked_test_recovery_contract": "spot_spray_simulation_video_ab_locked_test_gt_source_cardinality_recovery_v1",
+    "model_or_outcome_inputs_used": false,
+    "pair_id": "locked_test_c001_r04",
+    "protocol_split": "locked_test",
+    "recovery_has_acceptance_authority": false,
+    "registered_targets_used": false,
+    "rejectable_by_scout": true,
+    "rejection_reasons": [
+      "eligibility:source_weed_track_present"
+    ],
+    "schema_version": 1,
+    "source_cardinality_checks": {
+      "source_crop_track_present": true,
+      "source_weed_track_present": false
+    },
+    "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+    "synthetic_only": true
+  },
+  "elapsed_wall_seconds": 211.62817603099393,
+  "evaluator_split": "test",
+  "generation": {
+    "elapsed_wall_seconds": 211.36148703900108,
+    "receipt_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/locked_test_gt_source_cardinality_recovery_v1/.partial-locked_test_c001_r04-candidate-02-3837d9abf3c342dcb8aafd85bd20b6aa/source_scene/generation_receipt.json",
+    "receipt_sha256": "32951783169c556874471fe15b0e507d275c8f89bf9f0566af21e9b5b505d0ae",
+    "runner_log": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/locked_test_gt_source_cardinality_recovery_v1/.partial-locked_test_c001_r04-candidate-02-3837d9abf3c342dcb8aafd85bd20b6aa/source_scene.runner.log",
+    "runner_log_sha256": "32951783169c556874471fe15b0e507d275c8f89bf9f0566af21e9b5b505d0ae",
+    "scene_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "validated_pairs": 30
+  },
+  "inference_calls": 0,
+  "inventory_file_count_before_terminal_receipt": 11,
+  "inventory_sha256": "823dad754c43b1620160484fd75d7686a6f0db208f1794007ff94062ee79c98b",
+  "locked_test_outcome_accessed": false,
+  "locked_test_prediction_accessed": false,
+  "model_loaded": false,
+  "outcome_inputs": [],
+  "pair_id": "locked_test_c001_r04",
+  "pair_slot_identity_sha256": "c84738918147c52362d2c5261ce35d3acf28bc6596e961615b281cb993ff6e49",
+  "preflight": {
+    "capacity": {
+      "free_bytes": 302389739520,
+      "passed": true,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft",
+      "required_bytes": 8000000000,
+      "reserve_bytes_after_estimate": 0,
+      "total_bytes": 491106508800,
+      "used_bytes": 163694653440
+    },
+    "checkpoint_hash_verified_as_source_lock": true,
+    "checkpoint_loaded": false,
+    "gpu": {
+      "external_process_policy": "observed_only_never_stopped_or_modified",
+      "index": 0,
+      "memory_free_mib": 23608,
+      "memory_total_mib": 24576,
+      "memory_used_mib": 508,
+      "name": "NVIDIA GeForce RTX 3090"
+    },
+    "scope": "fixture"
+  },
+  "protocol_split": "locked_test",
+  "recovery_execution_lock_sha256": "5af1af3dc8792bc91411072b7eeb22bf6e6b22dd00383747a1265a818192ae49",
+  "recovery_implementation_sha256": "20aaccaf74b1d7a9c8c11f9924ede38c31bfafdbc2de0c24c34729ff8373326b",
+  "role_asset_validation": {
+    "all_used_and_exposed_assets_allowed": true,
+    "exposed_candidate_count": 6,
+    "exposed_candidate_stems": [
+      "sorghum_seedling_v2/sorghum_stage5_v1_field_stress",
+      "sorghum_seedling_v2/sorghum_stage5_v2_field_stress",
+      "sorghum_seedling_v2/sorghum_stage5_v2_healthy_dark",
+      "sorghum_seedling_v2/sorghum_stage5_v2_healthy_light",
+      "sorghum_seedling_v2/sorghum_stage5_v3_healthy_dark",
+      "sorghum_seedling_v2/sorghum_stage5_v3_healthy_light"
+    ],
+    "role_allowlist_sha256": "9863c55a8eb98d18c9998cb9121f3befc2a3879044e8c35f6f0c54a338829d33",
+    "role_object_identity_sha256": "f888fbeb5b78574e2647f08d93504107d453ea4835eac2e9e0d69d317e3fb3bb",
+    "used_asset_count": 3,
+    "used_asset_stems": [
+      "sorghum_seedling_v2/sorghum_stage5_v2_field_stress",
+      "sorghum_seedling_v2/sorghum_stage5_v2_healthy_light",
+      "sorghum_seedling_v2/sorghum_stage5_v3_healthy_dark"
+    ]
+  },
+  "schema_version": 1,
+  "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+  "sealed_gt_scout_execution_lock_sha256": "cdeb185a73ef23b9bb575bf4c4a6bd1fee0f87d67a344d0aade6f505bf0027f0",
+  "source_cardinality_audit": {
+    "contract": "spot_spray_simulation_video_ab_gt_source_cardinality_recovery_v1",
+    "frame_count": 30,
+    "locked_botanical_validator_failure": "Too few source weed tracks: 0",
+    "model_or_outcome_inputs_used": false,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "rejection_reason": "eligibility:source_weed_track_present",
+    "schema_version": 1,
+    "source_crop_track_count": 6,
+    "source_gt_file_sha256": {
+      "source_objects.json": "5e9547d7679b7a5d0090ff0507188d0d2db46c24339d6ea5ad7b2d255d654e12",
+      "track_registry.json": "fb005860948dd771ebecf66234a877410f77c91e4ecbd218ad694f3b561bc3da",
+      "tracks.jsonl": "380831c643b5745ce022aebea3d45611a42964a09fefc4ddc17a28215ed3e9dd"
+    },
+    "source_scene_graph_identity_sha256": "fc318abfb06291fba73d85f5851a32ee760b2c1dc8d5dfa55ead6571c3ee43e7",
+    "source_track_count": 6,
+    "source_weed_track_count": 0,
+    "track_table_full_grid": true
+  },
+  "source_template": {
+    "profile": "hood_dry_nominal",
+    "scene_id": "scene_0004",
+    "sha256": "674ac8146691aa2f6bca7b3f7382ae4790c6b8676e6db4450fabd12d26e6c76e"
+  },
+  "source_template_sha256_exact": true,
+  "status": "REJECT_ZERO_SOURCE_WEED_TRACKS_PREOUTCOME_SYNTHETIC_ONLY"
+}

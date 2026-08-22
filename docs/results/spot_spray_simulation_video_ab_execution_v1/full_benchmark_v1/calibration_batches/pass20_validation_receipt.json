@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_calibration_batch_pass20_active_candidate_validation_v1",
+  "status": "PASS_ACTIVE_BATCH_CANDIDATE_PROGRESS_VALIDATED_SYNTHETIC_ONLY",
+  "snapshot_observed_at_utc": "2026-08-15T23:43:58Z",
+  "goal_multi_repeat": {
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "pass": 20,
+    "event": "scheduled-resume-20260815234241-209b251c4ae2",
+    "strategy": "base"
+  },
+  "batch_execution": {
+    "batch_id": "calibration_batch_calibration_c004_r01_b2a51b7c2055661c",
+    "request_identity_sha256": "b2a51b7c2055661c34b2b9dd02ddf46d4d9f76c3a7a73d30be42249871149512",
+    "intent_sha256": "9b5cb604c66b4c6d777e75f7fff0a94641a53db5e01302e02fc1fa60d1eb02a2",
+    "target_pair_ids": [
+      "calibration_c004_r01",
+      "calibration_c004_r02",
+      "calibration_c004_r03",
+      "calibration_c005_r00",
+      "calibration_c005_r01",
+      "calibration_c005_r02",
+      "calibration_c005_r03",
+      "calibration_c006_r00"
+    ],
+    "max_new_pairs": 8,
+    "detached_pid": 874005,
+    "detached_session_id": 874005,
+    "process_alive_at_snapshot": true,
+    "elapsed_process_time_at_snapshot": "01:04:30",
+    "active_child_stage": "full_render_cropcraft",
+    "active_child_pair_id": "calibration_c004_r01",
+    "active_child_candidate_index": 4,
+    "terminal_batch_receipt_present": false,
+    "process_log_sha256_at_snapshot": "36c8646a582f17c2b337c6229c45cacc681fc30efb61b5dcb83c50ebe16c05b9",
+    "process_log_bytes_at_snapshot": 1200,
+    "process_log_line_count_at_snapshot": 10,
+    "process_log_error_traceback_exception_or_failure_count": 0,
+    "process_log_zero_source_weed_failure_count": 0,
+    "process_log_only_signal": "Pillow mode parameter deprecation warnings"
+  },
+  "atomic_render_state": {
+    "render_state_sha256": "0874aa101df7e5d8fad4ae4c142c5891cbf7f9ad35e48948503e76da8778b8b8",
+    "planned_pair_count": 96,
+    "completed_pair_count": 17,
+    "pending_pair_count": 79,
+    "next_pending_pair_id": "calibration_c004_r01",
+    "new_target_pair_count_published": 0,
+    "all_eight_target_pairs_pending": true,
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "active_partial_directory_count": 1,
+    "active_partial_is_expected_current_full_render": true
+  },
+  "gt_only_candidate_progress": {
+    "pair_id": "calibration_c004_r01",
+    "canonical_order_preserved": true,
+    "rejected_candidates": [
+      {
+        "candidate_index": 0,
+        "candidate_identity_sha256": "0a72231e6e1d10df35e64e13935fdea9eae85447dd9620ec459a79a974d0bb5b",
+        "canonical_gt_sha256": "e1420cb74dc184361d2e139abc9f5e67c713accd79cffb4adcc17c6f3c9d4e85",
+        "terminal_receipt_sha256": "d63f0f85b1a054a8cac07047eb89e993e66a60f946c42f90ae9374c565a8d8b7",
+        "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+        "rejection_reasons": [
+          "semantic:mean_weed_fraction_in_range"
+        ]
+      },
+      {
+        "candidate_index": 1,
+        "candidate_identity_sha256": "84732ab7f18bb6575dcd647fd8c629edfdedf09bf410a53be0ac67cd6f948cbb",
+        "canonical_gt_sha256": "487a43e01c5bf79eea4e1c7551cebb8376550b79deefe9419c0d26cedddbeec9",
+        "terminal_receipt_sha256": "516302b5ebcacabbef9d58b39fb2ce8979ea279ab5badbbf9f2a3129340c8e97",
+        "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+        "rejection_reasons": [
+          "semantic:mean_weed_fraction_in_range"
+        ]
+      },
+      {
+        "candidate_index": 2,
+        "candidate_identity_sha256": "49ea2ff3ad0b83333cb88a2f7ed332b9874a24d75616d5382ea407abb1f251be",
+        "canonical_gt_sha256": "c765f771dbb4c06861a7e3967fcdf91a7668c02209cb0c980b9a4c8bfa228cb2",
+        "terminal_receipt_sha256": "9fdd46a0bcf3241d5c959ee1361c80f2a3c48ba3324f28e8f834599dbb67fcde",
+        "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+        "rejection_reasons": [
+          "semantic:mean_crop_fraction_in_range"
+        ]
+      },
+      {
+        "candidate_index": 3,
+        "candidate_identity_sha256": "6276a682fc4036e9dc156d29cebea5d6e0bbd53a2427b224c7dd8a331703fa18",
+        "canonical_gt_sha256": "22abd3797a25714b7d323de900684a8cacb8caa83e67e2cc43f5ce9f0cf88543",
+        "terminal_receipt_sha256": "13359a03528d2387805abac342be4a0687b5f905845f7c775900aff0dfa4e9b4",
+        "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+        "rejection_reasons": [
+          "semantic:mean_crop_fraction_in_range"
+        ]
+      }
+    ],
+    "all_rejections_used_only_frozen_gt_gates": true,
+    "all_rejections_model_or_outcome_inputs_used_false": true,
+    "first_gt_only_passing_candidate": {
+      "candidate_index": 4,
+      "candidate_identity_sha256": "626e5584ca752a075e25fd49aefdcd566ae074c0a8967b6be7e928c03cc908f9",
+      "canonical_gt_sha256": "b680b19ba4ee9c0149ddfcfd3a1cdc3cb244fe504a085882633f8c447ec1d2a9",
+      "terminal_receipt_sha256": "4cc94550306df6854caefc34dcf5c7928a9413752a1728cb5d99af7290d4d112",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "source_track_count": 32,
+      "visible_eligible_weed_track_count": 9,
+      "semantic_audit": {
+        "crop_free_frame_fraction": 0.0,
+        "mean_crop_fraction": 0.019497474034627277,
+        "mean_weed_fraction": 0.03551452159881592,
+        "weed_free_frame_fraction": 0.0
+      },
+      "frame_count": 30,
+      "native_dimensions_px": [
+        2048,
+        2048
+      ],
+      "full_render_still_required_for_acceptance": true
+    }
+  },
+  "active_full_render": {
+    "partial_directory": "data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/work/.partial-calibration_c004_r01-candidate-04-fbd357a815f040e8a936f0e88ef08510",
+    "scene_config_sha256_at_snapshot": "8a37df4d1a37829c0bca1a9545ac461004978aaf75ceb4d2b1aa649646a16d4e",
+    "scene_patch_sha256_at_snapshot": "3c5ba726370d943bc93335afb8dd4f8169fac83ebec3c2e39875f8495fdabce1",
+    "scout_to_full_candidate_identity_exact": true,
+    "scout_to_full_source_template_exact": true,
+    "all_five_seed_bindings_match_roster": true,
+    "seeds": {
+      "scene_seed": 14457164597937409211,
+      "trajectory_seed": 8550512081234318542,
+      "capture_draw_seed": 9356099239666483030,
+      "renderer_seed": 12772294116918864255,
+      "audit_sample_seed": 16465132916975925428
+    },
+    "source_template_sha256": "cfba3e5b4bac450f1c2a45a0351cc082353e927fb9c00771916feaed36dd8cd7",
+    "role_asset_allowlist_sha256": "8d73b4633669f1f5f10e697ff2f67161ccb6b0ec1c311dbfacf30d4c14e97c76",
+    "role_asset_object_identity_sha256": "561ace162e00e1ef0a901c87159e95883c8484078abf3ab7a16dbfbe81f75f92",
+    "frame_count": 30,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "model_access_allowed": false,
+    "outcome_inputs": []
+  },
+  "candidate_rejection_ledger": {
+    "row_count": 43,
+    "sha256": "24a7ab249a9b32ea3e9798e8907d4b749d60621a0bc30bc8bc41eb4b3f8c11e3",
+    "new_rows_for_active_pair": 4,
+    "all_rows_model_or_outcome_inputs_used_false": true
+  },
+  "recovery_decision": {
+    "recovery_executed_this_pass": false,
+    "exact_zero_source_weed_fail_closed_condition_present": false,
+    "reason": "The immutable batch process remained alive, its candidate-4 full render was active, and neither the process log nor terminal state contained the sealed zero-source-weed failure signal."
+  },
+  "capacity_and_access_boundary": {
+    "data_disk_free_bytes_at_snapshot": 326536228864,
+    "full_benchmark_model_run_root_present": false,
+    "checkpoint_loaded": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "outcome_or_registered_target_inputs_used": false,
+    "synthetic_only": true,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  },
+  "next_step": "After one hour, inspect detached PID 874005 and validate the first published pair calibration_c004_r01 plus the next active target, or execute only the sealed zero-source-weed recovery if that exact fail-closed condition stopped the same immutable batch."
+}

@@ -1,0 +1,24 @@
+{
+  "bridge_sha256": "f12e66273238d0e872cba332964e870bff1f058e313ede575b33ffca67d0ca46",
+  "candidate_or_render_execution_allowed": false,
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_full_plan_validation_v1_lock",
+  "frozen_to_current_state_sha256": "ac0b795fa3e680f2bafa7f1508da480ba8a24775bbf5cd7746f64bdccaf6c428",
+  "model_prediction_outcome_or_target_access_allowed": false,
+  "receipt_epoch_map": {
+    "0-9": "historical_v1",
+    "10-31": "extension_v1"
+  },
+  "runtime_config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+  "runtime_release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+  "schema_version": 1,
+  "status": "SEALED_EXTENSION_AWARE_VALIDATION_ONLY_SYNTHETIC_ONLY",
+  "validation_only": true
+}

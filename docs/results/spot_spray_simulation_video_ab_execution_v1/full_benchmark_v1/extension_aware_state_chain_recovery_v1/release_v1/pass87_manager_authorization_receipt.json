@@ -1,0 +1,52 @@
+{
+  "authority": {
+    "candidate_acceptance_allowed": false,
+    "candidate_skip_allowed": false,
+    "exact_zero_source_weed_rejection_only": true,
+    "gate_relaxation_allowed": false,
+    "render_or_pair_publication_allowed": false
+  },
+  "authorization": {
+    "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "manager_handoff_event_id": "scheduled-resume-20260821003556-0eadf61abd17",
+    "manager_session_id": "019fb346-5ead-7600-8068-40b32b0daa06",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 87,
+    "pass87_event_id": "scheduled-resume-20260821004140-55e0bf4310cc",
+    "portfolio_id": "goal-multi-repeat-agents-spot-spray-simulation-video-ab-v1-b8e46607aeea",
+    "portfolio_lane": "full-simulation-video-ab-execution-v1",
+    "portfolio_revision": 140,
+    "strategy": "base"
+  },
+  "authorized_mechanism": {
+    "other_parent_source_or_callable_mutation_allowed": false,
+    "replacement_callable": "extension_aware_state_chain_validate_full_plan",
+    "replacement_partial_allow_open_execution_id": "state_chain_batch_locked_test_c001_r04_9362ff91c24928a2",
+    "temporary_execution_global": "validate_full_plan",
+    "try_finally_restore_all_callable_identities": true,
+    "unchanged_recovery_callable": "run_locked_test_gt_source_cardinality_recovery"
+  },
+  "authorized_target": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r04_f180ac33c6690a60",
+    "candidate_identity_sha256": "b7bdbcc20e110ff85c44f1108d206ad550797c2816ee08484f8cb8472e6bc95f",
+    "candidate_index": 1,
+    "pair_id": "locked_test_c001_r04",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r04_9362ff91c24928a2"
+  },
+  "authorized_top_level_source_paths": [
+    "scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_recovery_v1.py",
+    "tests/test_run_spot_spray_simulation_video_ab_extension_aware_state_chain_recovery_v1.py"
+  ],
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_recovery_v1_manager_authorization",
+  "pass87_validation_only": true,
+  "schema_version": 1,
+  "status": "PASS_MANAGER_AUTHORIZED_STATE_CHAIN_RECOVERY_BRIDGE_SYNTHETIC_ONLY"
+}

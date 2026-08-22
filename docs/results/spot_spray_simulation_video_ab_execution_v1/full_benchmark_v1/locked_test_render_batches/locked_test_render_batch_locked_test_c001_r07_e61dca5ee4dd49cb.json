@@ -1,0 +1,326 @@
+{
+  "batch_execution_lock_sha256": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74",
+  "batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+  "candidate_events_current_invocation": [
+    {
+      "candidate_identity_sha256": "4a8db2964bc7823d9493eab4feb3f60479ec37af9e4b87538e2d1db84d9e5a29",
+      "candidate_index": 4,
+      "pair_id": "locked_test_c001_r07",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "0c05b7ebf03cf0fe1f848a3ce9b15072f619f717e2c532980f1bf864b463358b"
+    },
+    {
+      "candidate_identity_sha256": "6d71b8d944c17863e86bed8de99342e57ce21a338feb72871b3654299e790f67",
+      "candidate_index": 5,
+      "pair_id": "locked_test_c001_r07",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range",
+        "eligibility:eligible_weed_track_present",
+        "eligibility:eligible_track_with_at_least_three_observations"
+      ],
+      "stage": "gt_scout",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "b19bcad0d107355c85a8d17d898942111586b59342faf239af46c98426e245c0"
+    },
+    {
+      "candidate_identity_sha256": "9748d2b967e5f1cbffa7607e1cd935e158a93738528d844d28e39bb424dc18a2",
+      "candidate_index": 6,
+      "pair_id": "locked_test_c001_r07",
+      "rejection_reasons": [],
+      "stage": "gt_scout",
+      "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "1725300f516e1b760282175eaabc3d989d7e600fd99868081d175a513df80035"
+    },
+    {
+      "candidate_index": 6,
+      "pair_id": "locked_test_c001_r07",
+      "stage": "full_render",
+      "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "e54bed4d190d588cfb5263f4282e6345d9a65186fb2ab8d33add3c183da9d26e"
+    }
+  ],
+  "canonical_rejection_rows": [
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "99eb67d8d2c8203ff1e9e030b026557177caca71daba74239694906077efa4d9",
+      "candidate_index": 0,
+      "gt_scout_decision_receipt_sha256": "3ed7ad107bb77ebceb5342742c4d49c8bdffe96e788748f22181eadcdefc16a7",
+      "gt_scout_terminal_receipt_sha256": "0977b052427485a06f5771b6cd38e4a6550fa56b8b24261232ac5e24615c0a5b",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r07",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "1f6f9cb147fc5617081c8467262f2dd57fa2da7baa611da1a943cf2c5a5c9a5f",
+      "candidate_index": 1,
+      "gt_scout_decision_receipt_sha256": "f178e847fc70842d1e09cf2dbd1bddb081074dc2a5d3bbbe19ecb65a71fab929",
+      "gt_scout_terminal_receipt_sha256": "b26916bd7d66566338e553d4712cb606c042ebd6d87974ce9b16409166799a03",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r07",
+      "reason": "eligibility:source_weed_track_present",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "4f09506adf623d513bab79d863d3f1bbf8b5273b0e14c9082f8bf98f085596c7",
+      "candidate_index": 2,
+      "gt_scout_decision_receipt_sha256": "d017615264b3cf222c495962f15a6604d21496a1a6aacdbddfb56e2be43f04ec",
+      "gt_scout_terminal_receipt_sha256": "870d18eb545e24d2d6b150afdc59194623938ef43fe4d9e6fdb4986435b5578d",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r07",
+      "reason": "semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "3bf9932dff973fc310d30b1897e1a7d7eafc915601ef66c0ea708ef9a38ecec1",
+      "candidate_index": 3,
+      "gt_scout_decision_receipt_sha256": "f178e847fc70842d1e09cf2dbd1bddb081074dc2a5d3bbbe19ecb65a71fab929",
+      "gt_scout_terminal_receipt_sha256": "d00623c26df290ecbd35c9d6b5b206f2eb1d3b56467cc148f22b9d4374893ec7",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r07",
+      "reason": "eligibility:source_weed_track_present",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "4a8db2964bc7823d9493eab4feb3f60479ec37af9e4b87538e2d1db84d9e5a29",
+      "candidate_index": 4,
+      "gt_scout_decision_receipt_sha256": "2a3b3b04e05fb86adaec4a12322dd55d0cbfe89ac183c9aee2bcd45e5b624999",
+      "gt_scout_terminal_receipt_sha256": "0c05b7ebf03cf0fe1f848a3ce9b15072f619f717e2c532980f1bf864b463358b",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r07",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    },
+    {
+      "bulk_payload_retained": false,
+      "candidate_identity_sha256": "6d71b8d944c17863e86bed8de99342e57ce21a338feb72871b3654299e790f67",
+      "candidate_index": 5,
+      "gt_scout_decision_receipt_sha256": "3ed7ad107bb77ebceb5342742c4d49c8bdffe96e788748f22181eadcdefc16a7",
+      "gt_scout_terminal_receipt_sha256": "b19bcad0d107355c85a8d17d898942111586b59342faf239af46c98426e245c0",
+      "model_or_outcome_inputs_used": false,
+      "pair_id": "locked_test_c001_r07",
+      "reason": "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "reason_type": "GtScoutCandidateRejected",
+      "rejection_families": [
+        "frozen_semantic_operability",
+        "frozen_eligible_weed_temporal_denominator"
+      ],
+      "schema_version": 1,
+      "status": "REJECTED_FULL_PAIR_CANDIDATE_PREOUTCOME_SYNTHETIC_ONLY"
+    }
+  ],
+  "capacity_check": {
+    "absolute_ten_candidate_attempt_ceiling_hours": 1966.0800000000006,
+    "candidate_attempt_ceiling_is_not_expected_runtime": true,
+    "free_bytes_observed": 299708407808,
+    "full_pair_count": 96,
+    "headroom_after_required_and_reserve_bytes": 89708407808,
+    "isolated_render_upper_hours_one_candidate_per_slot": 61.44000000000002,
+    "measured_linear_bytes": 37507447200,
+    "measured_linear_render_hours": 27.74043961732338,
+    "pair_count_multiplier": 48.0,
+    "planning_upper_hours_one_candidate_per_slot": 61.44000000000002,
+    "predeclared_admission_bytes": 180000000000,
+    "required_bytes": 180000000000,
+    "reserve_bytes": 30000000000
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_locked_test_render_batch_execution_v1",
+  "elapsed_wall_seconds_current_invocation": 4102.938452203991,
+  "gpu": {
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "index": 0,
+    "memory_free_mib": 23608,
+    "memory_total_mib": 24576,
+    "memory_used_mib": 508,
+    "name": "NVIDIA GeForce RTX 3090"
+  },
+  "inference_calls": 0,
+  "locked_test_outcome_accessed": false,
+  "locked_test_prediction_accessed": false,
+  "max_new_pairs": 1,
+  "model_loaded": false,
+  "new_pair_count": 1,
+  "new_pair_ids": [
+    "locked_test_c001_r07"
+  ],
+  "outcome_inputs": [],
+  "render_and_machine_audit_only": true,
+  "render_state": {
+    "completed_pair_count": 48,
+    "completed_pair_ids": [
+      "calibration_c000_r00",
+      "calibration_c000_r01",
+      "calibration_c000_r02",
+      "calibration_c000_r03",
+      "calibration_c001_r00",
+      "calibration_c001_r01",
+      "calibration_c001_r02",
+      "calibration_c001_r03",
+      "calibration_c002_r00",
+      "calibration_c002_r01",
+      "calibration_c002_r02",
+      "calibration_c002_r03",
+      "calibration_c003_r00",
+      "calibration_c003_r01",
+      "calibration_c003_r02",
+      "calibration_c003_r03",
+      "calibration_c004_r00",
+      "calibration_c004_r01",
+      "calibration_c004_r02",
+      "calibration_c004_r03",
+      "calibration_c005_r00",
+      "calibration_c005_r01",
+      "calibration_c005_r02",
+      "calibration_c005_r03",
+      "calibration_c006_r00",
+      "calibration_c006_r01",
+      "calibration_c006_r02",
+      "calibration_c006_r03",
+      "calibration_c007_r00",
+      "calibration_c007_r01",
+      "calibration_c007_r02",
+      "calibration_c007_r03",
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03",
+      "locked_test_c000_r04",
+      "locked_test_c000_r05",
+      "locked_test_c000_r06",
+      "locked_test_c000_r07",
+      "locked_test_c001_r00",
+      "locked_test_c001_r01",
+      "locked_test_c001_r02",
+      "locked_test_c001_r03",
+      "locked_test_c001_r04",
+      "locked_test_c001_r05",
+      "locked_test_c001_r06",
+      "locked_test_c001_r07"
+    ],
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "pending_pair_count": 48,
+    "pending_pair_ids": [
+      "locked_test_c002_r00",
+      "locked_test_c002_r01",
+      "locked_test_c002_r02",
+      "locked_test_c002_r03",
+      "locked_test_c002_r04",
+      "locked_test_c002_r05",
+      "locked_test_c002_r06",
+      "locked_test_c002_r07",
+      "locked_test_c003_r00",
+      "locked_test_c003_r01",
+      "locked_test_c003_r02",
+      "locked_test_c003_r03",
+      "locked_test_c003_r04",
+      "locked_test_c003_r05",
+      "locked_test_c003_r06",
+      "locked_test_c003_r07",
+      "locked_test_c004_r00",
+      "locked_test_c004_r01",
+      "locked_test_c004_r02",
+      "locked_test_c004_r03",
+      "locked_test_c004_r04",
+      "locked_test_c004_r05",
+      "locked_test_c004_r06",
+      "locked_test_c004_r07",
+      "locked_test_c005_r00",
+      "locked_test_c005_r01",
+      "locked_test_c005_r02",
+      "locked_test_c005_r03",
+      "locked_test_c005_r04",
+      "locked_test_c005_r05",
+      "locked_test_c005_r06",
+      "locked_test_c005_r07",
+      "locked_test_c006_r00",
+      "locked_test_c006_r01",
+      "locked_test_c006_r02",
+      "locked_test_c006_r03",
+      "locked_test_c006_r04",
+      "locked_test_c006_r05",
+      "locked_test_c006_r06",
+      "locked_test_c006_r07",
+      "locked_test_c007_r00",
+      "locked_test_c007_r01",
+      "locked_test_c007_r02",
+      "locked_test_c007_r03",
+      "locked_test_c007_r04",
+      "locked_test_c007_r05",
+      "locked_test_c007_r06",
+      "locked_test_c007_r07"
+    ],
+    "planned_pair_count": 96
+  },
+  "request_identity_sha256": "e61dca5ee4dd49cb84b8fca3c2ac0cf084b36c5fef9523ed57cd225f8c69d4c0",
+  "resume": {
+    "intent_sha256": "9404d1dbd2ff41aa347c4870d4c4134c9939c1f3f40043b4700fc5b471f7aeed",
+    "recovered_published_pair_ids": [],
+    "resumed_from_existing_intent": true
+  },
+  "schema_version": 1,
+  "selected_pairs": [
+    {
+      "all_pair_quality_gates_passed": true,
+      "candidate_identity_sha256": "9748d2b967e5f1cbffa7607e1cd935e158a93738528d844d28e39bb424dc18a2",
+      "canonical_gt_sha256": "b48100d96d9eb43e09bfd4689c5a5f956919b4688290d73309eea671656f2f61",
+      "full_pair_receipt_sha256": "e54bed4d190d588cfb5263f4282e6345d9a65186fb2ab8d33add3c183da9d26e",
+      "pair_id": "locked_test_c001_r07",
+      "selected_candidate_index": 6
+    }
+  ],
+  "status": "PASS_LOCKED_TEST_RENDER_BATCH_PREOUTCOME_SYNTHETIC_ONLY",
+  "target_pair_ids": [
+    "locked_test_c001_r07"
+  ]
+}

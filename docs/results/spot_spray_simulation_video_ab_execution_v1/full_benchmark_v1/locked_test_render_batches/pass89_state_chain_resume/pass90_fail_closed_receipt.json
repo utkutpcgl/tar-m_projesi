@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass90_fail_closed_v1",
+  "status": "FAIL_CLOSED_MANAGER_AUTHORITY_REQUIRED_SYNTHETIC_ONLY",
+  "observed_at": "2026-08-21T04:29:57+03:00",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821012758-cbbbd69e7348",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "pass": 90,
+    "strategy": "base"
+  },
+  "process": {
+    "process_pid": 2020011,
+    "process_alive": false,
+    "command": "/home/ankaref/miniconda3/envs/sgs-yolo/bin/python3.10 scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py run --pair-id locked_test_c001_r04 --max-new-pairs 1",
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass89_state_chain_resume/process.log",
+    "log_sha256": "38e994260a67ca80688d86d5908074825b94e4d84fc5e3e655ab75535bf4bcb1",
+    "terminal_error_type": "RuntimeError",
+    "terminal_error": "Too few source weed tracks: 0",
+    "terminal_error_stage": "frozen_botanical_scene_validation_before_candidate_decision_commit"
+  },
+  "candidate": {
+    "pair_id": "locked_test_c001_r04",
+    "candidate_index": 2,
+    "candidate_identity_sha256": "766cb27eb634b44cc627e569b2d030848c7296e9933d653ed0341ec0f79eab93",
+    "lowest_unattempted_at_launch": true,
+    "source_template_sha256": "674ac8146691aa2f6bca7b3f7382ae4790c6b8676e6db4450fabd12d26e6c76e",
+    "rejection_receipt_committed": false,
+    "ledger_row_committed": false,
+    "recovery_artifact_exists": false,
+    "staging_exists_after_failure": false
+  },
+  "immutable_boundary_after_failure": {
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "state_chain_release_file_sha256": "4c68888c43a09fb4afe4c0c56a365e36d6707c068f250deb891b2765c23f19bd",
+    "state_chain_source_sha256": "bfbe269feddbd92413663c9345e57b50b119617e10bf695784d09317f74b870b",
+    "completed_pair_count": 44,
+    "pending_pair_count": 52,
+    "first_pending_pair_id": "locked_test_c001_r04",
+    "render_state_sha256": "ff5b4b4ce495f7b515b00fa1402fab1dbf11db9bf2b204e1cc2dc858adcc7e5b",
+    "chain_head_identity_sha256": "04074c9cdc8eef7599de90966847fb274ddf7e80202372f1a7bb992010782f01",
+    "candidate_rejection_ledger_row_count": 123,
+    "candidate_rejection_ledger_sha256": "e03687ee2345e745e8f594ad83af40a08009ed868422bba5029b5411aeff63db",
+    "attempted_candidate_indices_committed": [
+      0,
+      1
+    ]
+  },
+  "open_intents": {
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r04_9362ff91c24928a2",
+    "state_chain_intent_sha256": "cd5755de3799cb75e484760c23d37dc21891924534098f36a05f3514fbfbe8f7",
+    "state_chain_terminal_receipt_exists": false,
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r04_f180ac33c6690a60",
+    "underlying_batch_intent_sha256": "7f18c45d97269dc2522c86f8f279aa332fa3c53eda5653927036ad5bbb7cb403",
+    "underlying_batch_directory_files": [
+      "batch_intent.json"
+    ],
+    "single_open_state_chain_execution_exact": true
+  },
+  "authority_boundary": {
+    "existing_recovery_bridge_release_identity_sha256": "dd33482b9a1f8bbbc06358100c7760d6f61ead5f94da5c3f5bfc143a27d6a4fa",
+    "existing_recovery_bridge_source_sha256": "6c35f6635b8cd6720271bc3fc246b48ae24ba3a70869e526e18c5c33afb8d2d9",
+    "authorized_pair_id": "locked_test_c001_r04",
+    "authorized_candidate_index": 1,
+    "authorized_candidate_identity_sha256": "b7bdbcc20e110ff85c44f1108d206ad550797c2816ee08484f8cb8472e6bc95f",
+    "candidate_2_recovery_authority_present": false,
+    "candidate_2_recovery_not_attempted": true
+  },
+  "access_guard": {
+    "full_pair_render_started": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "outcome_inputs": []
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "outcome_target_tuning_forbidden": true
+  },
+  "exact_unblock_condition": "Manager authorization and a separately sealed append-only state-chain-aware zero-source-weed recovery path bound to candidate 2 identity 766cb27eb634b44cc627e569b2d030848c7296e9933d653ed0341ec0f79eab93, the unchanged open state-chain and batch intents, exact 44/96 state/head, and ledger123, with rejection-only authority, callable restoration, idempotence, atomic append, and zero forbidden access."
+}

@@ -1,0 +1,61 @@
+{
+  "access_guard": {
+    "external_services_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_v1_terminal_receipt",
+  "execution_id": "state_chain_batch_locked_test_c001_r03_c66d6937e3dca21a",
+  "original_validator_restored": true,
+  "request": {
+    "canonical_earliest_pending_required": true,
+    "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_v1",
+    "external_service_mutation_allowed": false,
+    "locked_test_outcome_access_allowed": false,
+    "lowest_unattempted_sealed_candidate_wins": true,
+    "max_new_pairs": 1,
+    "model_access_allowed": false,
+    "predecessor_head_identity_sha256": "33a1a52c6245f709ed47036a891c44d2b9f36bee934109ef06b8cce0ecca2f2f",
+    "predecessor_ledger_sha256": "84b6e2848060fc6d39df48cadf2aa3e14a0a3e060734f051d441f77327a8e336",
+    "predecessor_state_sha256": "9830d0408a514f3acd594658fa60ca45b1b756301db388d9bf91b04beac28514",
+    "prediction_access_allowed": false,
+    "registered_target_access_allowed": false,
+    "schema_version": 1,
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "target_pair_id": "locked_test_c001_r03"
+  },
+  "request_identity_sha256": "c66d6937e3dca21ab499c3269c0104abe4fd808b27dd1a92a669e4817b88983b",
+  "resume": {
+    "resumed_from_existing_state_chain_intent": false
+  },
+  "schema_version": 1,
+  "state_chain_intent_sha256": "0d57a2a53b71b3cb93af8344ba91e4392a31056fa4c599b2d5993ec44c479927",
+  "status": "PASS_EXTENSION_AWARE_STATE_CHAIN_BATCH_SYNTHETIC_ONLY",
+  "transition": {
+    "commit_identity_sha256": "3204f47eb8818865fc95d428c38616d78c70a2783cb373245fb26a4d95cccc4f",
+    "commit_manifest_sha256": "aa10352214a35f893a86adbcf3ea97307c6aa27293bbbb91e5155361b366165b",
+    "commit_name": "transition_000044_locked_test_c001_r03_04074c9cdc8eef75",
+    "commit_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/extension_aware_state_chain_v1/transition_chain_v1/commits/transition_000044_locked_test_c001_r03_04074c9cdc8eef75",
+    "head_identity_sha256": "04074c9cdc8eef7599de90966847fb274ddf7e80202372f1a7bb992010782f01"
+  },
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r03_9ac72e3934caba41",
+    "batch_intent_sha256": "a453e3b91144d18143f2bb1f617b57c047afb657300bfe8633344cdc1604090e",
+    "batch_receipt_sha256": "98488493e5b3d381359a302417d7b7bdf9cd73a4d7e0b6beb0c7c1ba902b579d",
+    "new_pair_ids": [
+      "locked_test_c001_r03"
+    ]
+  }
+}

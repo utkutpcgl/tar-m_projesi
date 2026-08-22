@@ -1,0 +1,134 @@
+{
+  "aggregate": {
+    "condition_rgb_video_paths": 18,
+    "condition_semantic_video_paths": 18,
+    "frame_count": 102,
+    "inventory_files": 999,
+    "sequence_count": 9,
+    "unique_latent_scenes": 9,
+    "unique_semantic_video_inodes": 9
+  },
+  "claim_boundary": {
+    "botanical_instance_ground_truth": false,
+    "degraded_operator_calibration": "source-bound stress proxy, not a measured frozen-rig profile",
+    "field_realism_proven": false,
+    "metric_platform_motion_calibrated": false,
+    "outcome_targeting_forbidden": true,
+    "real_capture": false,
+    "track_identity": "semantic_connected_component_proxy"
+  },
+  "contact_sheet_review": {
+    "representative_sequences": [
+      "heldout_test_scene_0000",
+      "heldout_test_scene_0004",
+      "heldout_test_scene_0007"
+    ],
+    "result": "PASS",
+    "scope": "manual synthetic-proxy QC only",
+    "summary": "Shared plant geometry and overlays remain aligned across conditions; the degraded arm is visibly darker and blurrier; the imagery remains visibly synthetic and is not field-realism evidence."
+  },
+  "dataset_id": "spot_spray_simulation_video_pairs_v1",
+  "fixture_determinism_replay": {
+    "comparison_scope": "All 63 receipt inventory entries; release_receipt.json is excluded because it records live free-disk counters.",
+    "config_sha256": "93f3f87f787e356804f2984720899d4195482423d9f2d521789d6b0c2e1afefb",
+    "determinism_contract_sha256": "8060d12f5f24d6f3083994e207aa795221e8760d7a75fc3e800499b4d5b6e277",
+    "first_release_receipt_sha256": "40c6a703768888a29dd0988e2cd7ebe6944cfcfca6a1734507f5d61902cc5273",
+    "generator_sha256": "3fa5b6a5838dc45126f55d54875c65da7fc6cc7ff0e3078104f207f5d3809082",
+    "inventory_exactly_equal": true,
+    "inventory_sha256": "932ddf17ada32033aa0978cbf002794f1d36ef80339a984dace280ddb86dc9b3",
+    "normalized_receipts_equal_after_removing_live_free_disk_counters": true,
+    "replay_release_receipt_sha256": "ac94136c86b7ea620863397527b9a3b8fddc668380eebda0aec21ea9d3447e27",
+    "semantic_ffv1_nut_sha256": "9f34fafc343328fdf9ebbea702f7e5b0a9fe5a8686d7858f9dd355e280b4c649"
+  },
+  "heldout_determinism_replay": {
+    "comparison_scope": "All 936 receipt inventory entries; release_receipt.json is excluded because it records live free-disk counters.",
+    "config_sha256": "93f3f87f787e356804f2984720899d4195482423d9f2d521789d6b0c2e1afefb",
+    "determinism_contract_sha256": "a17a5d882cbf110363503314a4788036d53b129971ecb471bef8ae5c325b9751",
+    "first_release_receipt_sha256": "7415f8d5f74857a653b6d15bc0e9e085596d2651fb24b7134fc4f09ea20bf1ab",
+    "generator_sha256": "3fa5b6a5838dc45126f55d54875c65da7fc6cc7ff0e3078104f207f5d3809082",
+    "inventory_exactly_equal": true,
+    "inventory_sha256": "df84d14e772389c23559e68f3d99faff5257d33ee175289b34aeaa0a0fa617e2",
+    "normalized_receipts_equal_after_removing_live_free_disk_counters": true,
+    "replay_release_receipt_sha256": "9a3955f6bbe0c1e8892c399db96eaa7460da4edcdf6e7443ee6a6b293cec86ff",
+    "semantic_ffv1_nut_sha256_by_sequence": {
+      "heldout_test_scene_0000": "32481037af14d33c5eccdcbb9f0aec755c0900d20b3149aaa7f13104e7ae06f9",
+      "heldout_test_scene_0001": "8f233f26a226b11b4462555606ea74c8ea11bc6761acc04e42ecce9bf8840a01",
+      "heldout_test_scene_0002": "50b0b9b62e5e915e5c87e35edbd636e61f7af84ef271d3c953cc7077211f6746",
+      "heldout_test_scene_0003": "26f5645415bb14c20dc5b1399a6ae984b5855247da4885aa06cb360672a690de",
+      "heldout_test_scene_0004": "0ecbaeb5199500f973fd64f45345fa8d1a43733259c60085c466f6c467937586",
+      "heldout_test_scene_0005": "a59bb48fe7c400b475a9bad4b1a943b34b911070fd9e823aff31778ddf1f03ce",
+      "heldout_test_scene_0006": "3965f40daa7808470de34cd648176e50d1a71401b90b0214cc035e65598adea8",
+      "heldout_test_scene_0007": "0af49fc82be5cd09dcab1d66921ee4d7a528905f2098efeb8ce4b77d9723a034"
+    }
+  },
+  "profiles": {
+    "fixture": {
+      "all_quality_gates_passed": true,
+      "changed_rgb_pixel_fraction_minimum": 0.9999923706054688,
+      "frame_count": 6,
+      "frame_mean_brightness_range": [
+        133.57138093312582,
+        179.1057850519816
+      ],
+      "fully_clipped_black_fraction_maximum": 0.0,
+      "fully_clipped_white_fraction_maximum": 0.0,
+      "inventory_sha256": "932ddf17ada32033aa0978cbf002794f1d36ef80339a984dace280ddb86dc9b3",
+      "release_receipt_sha256": "ac94136c86b7ea620863397527b9a3b8fddc668380eebda0aec21ea9d3447e27",
+      "rgb_rmse_minimum": 27.218435287475586,
+      "sequence_count": 1,
+      "trajectory_fill_fraction_maximum": 0.016572952270507812,
+      "unique_output_bytes": 18164179,
+      "weed_track_proxy_counts": [
+        6
+      ]
+    },
+    "heldout": {
+      "all_quality_gates_passed": true,
+      "changed_rgb_pixel_fraction_minimum": 0.9999990463256836,
+      "frame_count": 96,
+      "frame_mean_brightness_range": [
+        120.22112846374512,
+        201.635279973348
+      ],
+      "fully_clipped_black_fraction_maximum": 0.0,
+      "fully_clipped_white_fraction_maximum": 0.0,
+      "inventory_sha256": "df84d14e772389c23559e68f3d99faff5257d33ee175289b34aeaa0a0fa617e2",
+      "release_receipt_sha256": "9a3955f6bbe0c1e8892c399db96eaa7460da4edcdf6e7443ee6a6b293cec86ff",
+      "rgb_rmse_minimum": 24.350059509277344,
+      "sequence_count": 8,
+      "trajectory_fill_fraction_maximum": 0.0467071533203125,
+      "unique_output_bytes": 273953147,
+      "weed_track_proxy_counts": [
+        3,
+        14,
+        2,
+        2,
+        7,
+        4,
+        8,
+        4
+      ]
+    }
+  },
+  "schema_version": 1,
+  "status": "PASS",
+  "storage": {
+    "combined_unique_output_bytes": 292117326,
+    "free_bytes_observed_during_full_audit": 342584946688,
+    "free_bytes_observed_after_temporary_cleanup": 343190859776,
+    "minimum_free_bytes_required": 300000000000,
+    "temporary_validation_copies_removed": true,
+    "within_profile_budgets": true
+  },
+  "validation": {
+    "all_inventory_paths_sizes_and_sha256_recomputed": true,
+    "all_manifest_hash_links_recomputed": true,
+    "all_quality_gates_true": true,
+    "all_rgb_and_semantic_videos_ffprobed": true,
+    "all_semantic_palettes_and_track_pixels_checked": true,
+    "all_shared_frame_assets_inode_and_sha256_checked": true,
+    "ffv1_semantic_videos_lossless_roundtrip_checked_by_builder": true,
+    "pytest_command": ".venv/bin/pytest -q tests/test_build_spot_spray_simulation_video_pairs_v1.py",
+    "pytest_result": "7 passed"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass137_state_chain_resume_candidate2_v1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE2_STATE_CHAIN_RESUME_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821130022-300e7a67f8c5",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 137,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T16:02:17+03:00",
+  "pair_id": "locked_test_c001_r07",
+  "predecessor_boundary": {
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "recovery_v3_release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "render_state_sha256": "d8055796077637cba7de69650ea0ff6472592034547faac8617c6ef530234113",
+    "chain_head_identity_sha256": "e66e962aae41c652e4b9362ee23357def0402a518c2aea6c3d113af1222dc077",
+    "completed_pair_count": 47,
+    "pending_pair_count": 49,
+    "first_pending_pair_id": "locked_test_c001_r07",
+    "candidate_rejection_ledger_row_count": 163,
+    "candidate_rejection_ledger_sha256": "162d2f1fd7de258fed163411786ffe5ead40db87dcf2cc5e6d3deb1d58390d3b",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7",
+    "state_chain_intent_sha256": "234e2e6051914609cb3a704fbe1f385c2aec52f5b5b3b43f63b6a64e942a6837",
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+    "underlying_batch_intent_sha256": "9404d1dbd2ff41aa347c4870d4c4134c9939c1f3f40043b4700fc5b471f7aeed",
+    "state_chain_terminal_receipt_present": false,
+    "underlying_batch_terminal_receipt_present": false
+  },
+  "canonical_candidate": {
+    "candidate_index": 2,
+    "candidate_identity_sha256": "4f09506adf623d513bab79d863d3f1bbf8b5273b0e14c9082f8bf98f085596c7",
+    "derived_by_sealed_v3_validation": true,
+    "candidate_gt_accessed_during_prelaunch_validation": false,
+    "artifact_present_before_launch": false,
+    "partial_staging_present_before_launch": false
+  },
+  "fresh_preflight": {
+    "observed_at": "2026-08-21T16:02:02+03:00",
+    "storage_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft",
+    "storage_free_bytes": 299709575168,
+    "storage_required_bytes": 8000000000,
+    "storage_passed": true,
+    "gpu_index": 0,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "gpu_total_mib": 24576,
+    "gpu_used_mib": 508,
+    "gpu_free_mib": 23608,
+    "gpu_minimum_free_mib": 23521,
+    "gpu_passed": true,
+    "observed_external_gpu_processes": [
+      {
+        "pid": 17710,
+        "name": "VLLM::EngineCore",
+        "used_mib": 414
+      }
+    ],
+    "external_process_policy": "observed_only_never_stopped_signaled_or_modified"
+  },
+  "sealed_validation": {
+    "status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+    "validated_v3_execution_count": 3,
+    "open_v3_intent_present": false,
+    "real_v3_intents_created_during_validation": 0,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false
+  },
+  "state_chain_resume": {
+    "entrypoint": "scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py run",
+    "pair_id_argument": "locked_test_c001_r07",
+    "max_new_pairs_argument": 1,
+    "invocation_count_by_pass137": 1,
+    "existing_state_chain_execution_resumed": true,
+    "existing_underlying_batch_resumed": true,
+    "new_state_chain_intent_created": false,
+    "new_underlying_batch_intent_created": false,
+    "recovery_v3_invocation_count_by_pass137": 0
+  },
+  "active_process": {
+    "pid": 1377504,
+    "alive": true,
+    "state": "Ssl",
+    "elapsed_seconds_at_validation": 15,
+    "child_pid": 1378150,
+    "child_command_role": "canonical_candidate2_gt_scout_generation",
+    "process_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass137_state_chain_resume_candidate2/process.log",
+    "process_log_size_bytes_at_validation": 0,
+    "candidate2_partial_staging_present": true,
+    "external_process_stopped_or_signaled_by_pass137": false
+  },
+  "publication_state_at_launch_validation": {
+    "candidate_rejection_ledger_row_count": 163,
+    "candidate_rejection_ledger_sha256": "162d2f1fd7de258fed163411786ffe5ead40db87dcf2cc5e6d3deb1d58390d3b",
+    "render_state_sha256": "d8055796077637cba7de69650ea0ff6472592034547faac8617c6ef530234113",
+    "candidate2_terminal_receipt_present": false,
+    "pair_publication_observed": false,
+    "state_transition_observed": false
+  },
+  "access_guard": {
+    "candidate2_gt_generation_started": true,
+    "candidate_acceptance_or_skip_authority_used_by_pass137": false,
+    "full_native_pair_render_started_at_validation": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

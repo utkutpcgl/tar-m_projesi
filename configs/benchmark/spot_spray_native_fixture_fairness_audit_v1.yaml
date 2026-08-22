@@ -1,0 +1,100 @@
+schema_version: 1
+contract: spot_spray_native_fixture_fairness_audit_v1
+
+evidence_policy:
+  scope: native_fixture_synthetic_diagnostic_only
+  field_or_deployment_claim_allowed: false
+  chemical_fire_go_allowed: false
+  product_go_allowed: false
+  outcome_target_tuning_forbidden: true
+  locked_test_retuning_allowed: false
+  descriptive_sweeps_are_selection_inputs: false
+
+sources:
+  fixture_root:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1
+  prediction_root:
+    path: data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1
+  metrics:
+    path: data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/metrics.json
+    sha256: 310b887750019c44169e4924354b7fc53e22925b8d453abbb112df9fa1d4d4a3
+  threshold_lock:
+    path: data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/threshold_lock_v1.json
+    sha256: 3e56891c4889b6314c90a2a2927cd6751744650c9d88654be9b4a5e307046795
+  sequence_manifest:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/sequence_manifest.json
+    sha256: f2d8851433e06ce93572ecf96c6ffe1177073773251083eb710bf2516a0913da
+  inference_config:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/inference_config.yaml
+    sha256: 7c390a8f432fab596ba7accfb135b3d93002eda91efe78bac9e7f1c038307f45
+  run_receipt:
+    path: data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/run_receipt.json
+    sha256: 9d8f7c6dd9e5448a4869c233beab3ede12404116be41592e12d07ae455eed289
+  checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt
+    sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+  predictions:
+    degraded_calibration:
+      path: data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/degraded_calibration_predictions_v1.jsonl
+      sha256: 6b649949508edce8eaa3d830d9b958d96f3981429ab4ed4a90d07da226356d00
+      condition: degraded
+      split: calibration
+    ideal_calibration:
+      path: data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/ideal_calibration_predictions_v1.jsonl
+      sha256: c027f5470e73c9c90426e91b2d9253ffd66ebd31d63079ae5b7350481b0acd75
+      condition: ideal
+      split: calibration
+    degraded_test:
+      path: data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/degraded_test_predictions_v1.jsonl
+      sha256: ac9411cb78102c9c8a18fa7070527832f644f14e5bce60d1670cc7a5f2df6c9f
+      condition: degraded
+      split: test
+    ideal_test:
+      path: data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/ideal_test_predictions_v1.jsonl
+      sha256: f087c40c794218ce8641ad3b46f596c718ad9bebd40d2dc8adc65a5ca532f6a3
+      condition: ideal
+      split: test
+
+class_contract:
+  checkpoint_and_prediction_names:
+    0: weed
+    1: crop
+  ground_truth_semantic_ids:
+    background: 0
+    crop: 1
+    weed: 2
+
+locked_policy:
+  weed_confidence_threshold: 0.80
+  crop_confidence_threshold: 0.25
+  association_min_mask_iou: 0.10
+  association_max_centroid_distance_px: 160.0
+  maximum_frame_gap: 2
+  eligible_track_match_iou: 0.50
+  minimum_track_observations: 3
+
+descriptive_diagnostics:
+  purpose: failure_decomposition_only_never_selection_or_acceptance
+  threshold_values: [0.05, 0.10, 0.25, 0.50, 0.80, 0.95]
+  association_min_mask_iou_values: [0.05, 0.10, 0.25]
+  # Extends beyond the observed test-weed p95 (~455 px) and maximum (~459 px)
+  # solely to separate a geometry ceiling from class/localization failure.
+  association_max_centroid_distance_px_values: [80.0, 160.0, 240.0, 320.0, 480.0, 640.0]
+  maximum_frame_gap_values: [1, 2, 3]
+  contact_sheet_frame_indices: [10, 13, 15, 18, 29]
+  contact_sheet_panel_px: 360
+
+acceptance_rule:
+  target_metric: eligible_weed_mask_track_spatiotemporal_iou_f1
+  ideal_minimum: 0.97
+  degraded_interval: [0.70, 0.80]
+  undefined_f1_fails_target_gate: true
+  require_fresh_untouched_full_locked_test_after_any_correction: true
+  require_degraded_calibration_only_threshold_lock: true
+  require_exactly_one_locked_test_evaluation: true
+  require_hash_and_class_contract_validation: true
+  synthetic_results_authorize_field_or_chemical_action: false
+
+outputs:
+  run_root: data/runs/spot_spray_native_fixture_fairness_audit_v1
+  docs_root: docs/results/spot_spray_native_fixture_fairness_audit_v1

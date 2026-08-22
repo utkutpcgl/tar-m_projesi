@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass118_atomic_publication_v1",
+  "status": "PASS_ATOMIC_LOCKED_TEST_PAIR_PUBLICATION_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821085920-dd340beb6162",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 118,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T12:00:56+03:00",
+  "pair": {
+    "pair_id": "locked_test_c001_r05",
+    "candidate_index": 16,
+    "candidate_identity_sha256": "d895209bd146389b4fbecb64e4e71f31fb5fcb9f339f4a0de494220a9269cbef",
+    "canonical_gt_sha256": "7a3c17c537fd8d48062cdaa0305fbd459b97e9861500b307db32d55f8c45512f",
+    "full_pair_receipt_sha256": "f16c6dde371307965b88e32034243660bf42872c088aa1390402f09ff61c3692",
+    "pair_receipt_sha256": "062f8dec550d052739db5191abaf0f3516a5d51fa2e64e0fd4e4e4634a0f8445",
+    "all_frozen_pair_gates_passed": true,
+    "identical_arm_gt": true,
+    "shared_gt_paths": true,
+    "arm_gt_ideal_sha256": "7a3c17c537fd8d48062cdaa0305fbd459b97e9861500b307db32d55f8c45512f",
+    "arm_gt_degraded_sha256": "7a3c17c537fd8d48062cdaa0305fbd459b97e9861500b307db32d55f8c45512f",
+    "shared_semantic_frame_count": 30,
+    "shared_track_frame_count": 30,
+    "visible_eligible_weed_track_count": 5,
+    "source_track_count": 14,
+    "publication_directory_present": true,
+    "staging_directory_absent_after_publication": true
+  },
+  "videos": {
+    "ideal": {
+      "sha256": "a530670bdb601f6298e69b2d49d3f1cc08b591d520ecaf5c680892d2d4be7bac",
+      "bytes": 4508925,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 2048,
+      "height": 2048,
+      "average_frame_rate": "15/1",
+      "decoded_frame_count": 30,
+      "independent_ffmpeg_decode_passed": true
+    },
+    "degraded": {
+      "sha256": "d391d3fa4eef47801841777839151f3e47d8fb3890211830a46e283564c8f479",
+      "bytes": 4611837,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 2048,
+      "height": 2048,
+      "average_frame_rate": "15/1",
+      "decoded_frame_count": 30,
+      "independent_ffmpeg_decode_passed": true
+    },
+    "side_by_side": {
+      "sha256": "eb879fd979744e70069746aef6a27cb44b5697f5136f703339b5cecf82844cb3",
+      "bytes": 2786108,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 2048,
+      "height": 1024,
+      "average_frame_rate": "15/1",
+      "decoded_frame_count": 30,
+      "independent_ffmpeg_decode_passed": true
+    }
+  },
+  "visual_validation": {
+    "contact_sheet_sha256": "3cf7b5e86865058c39ae2e30d49e725d2950514dec9e34118106df062f7dd007",
+    "opened_locally": true,
+    "readable_paired_same_scene_evidence": true
+  },
+  "state_transition": {
+    "predecessor_completed_pair_count": 45,
+    "result_completed_pair_count": 46,
+    "result_pending_pair_count": 50,
+    "result_first_pending_pair_id": "locked_test_c001_r06",
+    "predecessor_state_sha256": "f811c3e3d5622bbc741e4c84951db4c3287181f2ed219ef45c8d0877c7a12553",
+    "result_state_sha256": "d313b7a5974c40a0d794ea0f835c7a823c28e3409b3232b2dffd653f57556ab4",
+    "predecessor_head_identity_sha256": "34acee5f2fb322fa839ffd9bfc0edf9722e1556d6085d56cb145d65fd56bab71",
+    "result_head_identity_sha256": "544e391a43ae5c36dba1436e386fbe01e8602133d9cfe32358c79c09e8a7a57e",
+    "transition_commit_identity_sha256": "c91000c2b4bfb04949346e417d3c03bf8e6d554de5876df55baaf824158a85a6",
+    "transition_commit_manifest_sha256": "3a9db26ddc18dba7d14a3d28074a5f0b35246c2f8636e8f4a07999c5d6d3378d",
+    "transition_record_sha256": "3d03bea1da32843a9d0f8a08de658b06018bebb47e13e2acbaba48da9152155c",
+    "head_file_sha256": "95bdf3bf94340371eed268c92c611980eca346edca0e408fc21c6c70de90906d",
+    "state_chain_terminal_receipt_sha256": "9690cebef1a0a826ec282bf9f1f6260c6e4a1c11ccfb4f28caf099e914c7de9a",
+    "underlying_batch_receipt_sha256": "fbeaa325855e9c26e833556a9f8f3d20a296f727bdf1b2320e9badb3f0de09d3",
+    "original_validator_restored": true,
+    "active_execution_id_after_commit": null
+  },
+  "ledger": {
+    "row_count": 150,
+    "sha256": "332550200dfea5e4b688931c44ed46d6c2c22c1d361bbfca86ec33dff3f597ee",
+    "unchanged_across_pair_commit": true,
+    "append_only_validated": true
+  },
+  "process": {
+    "pid": 3707360,
+    "alive": false,
+    "terminal_log_sha256": "74565fd22c23adf2cdd5d62b77ba9244b5d2e5a5bfdebd1fde6e55cc1f07fe7a",
+    "terminal_log_size_bytes": 550,
+    "external_process_stopped_or_signaled_by_pass118": false
+  },
+  "idempotent_resume": {
+    "command_status": "SKIP_EXISTING_PASS_EXTENSION_AWARE_STATE_CHAIN_BATCH_SYNTHETIC_ONLY",
+    "execution_id": "state_chain_batch_locked_test_c001_r05_fe3a9bf5ccf9db11",
+    "state_chain_terminal_receipt_sha256": "9690cebef1a0a826ec282bf9f1f6260c6e4a1c11ccfb4f28caf099e914c7de9a",
+    "state_sha256_unchanged": true,
+    "ledger_sha256_unchanged": true,
+    "pair_receipts_unchanged": true,
+    "rendering_repeated": false
+  },
+  "validation": {
+    "status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY",
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "published_pair_receipt_count": 46,
+    "transition_commit_count": 5,
+    "candidate_gt_accessed_during_validation": false,
+    "rendering_calls_during_validation": 0
+  },
+  "access_guard": {
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

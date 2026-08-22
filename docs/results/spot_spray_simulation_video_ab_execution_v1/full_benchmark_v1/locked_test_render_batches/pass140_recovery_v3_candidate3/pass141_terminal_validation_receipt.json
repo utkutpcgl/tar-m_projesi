@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass141_recovery_v3_terminal_validation_v1",
+  "status": "PASS_EXACT_ZERO_SOURCE_WEED_REJECTION_V3_VALIDATED_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821134311-704a4765fd56",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 141,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T16:45:01+03:00",
+  "launch_receipt": {
+    "path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass140_recovery_v3_candidate3/pass140_launch_receipt.json",
+    "sha256": "11c40f806455d34d9ff807ade5acdac920682574606dfbfa2accb206bcbc4e0e"
+  },
+  "pair_id": "locked_test_c001_r07",
+  "candidate": {
+    "candidate_index": 3,
+    "candidate_identity_sha256": "3bf9932dff973fc310d30b1897e1a7d7eafc915601ef66c0ea708ef9a38ecec1",
+    "source_template_sha256": "674ac8146691aa2f6bca7b3f7382ae4790c6b8676e6db4450fabd12d26e6c76e",
+    "terminal_status": "REJECT_ZERO_SOURCE_WEED_TRACKS_PREOUTCOME_SYNTHETIC_ONLY",
+    "exact_failure": "RuntimeError: Too few source weed tracks: 0",
+    "acceptance_or_skip_authority_used": false
+  },
+  "process": {
+    "pid": 1521640,
+    "alive": false,
+    "process_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass140_recovery_v3_candidate3/process.log",
+    "process_log_size_bytes": 624,
+    "process_log_sha256": "3bfc62f942b79e3ce58cd532822e277eb45da0ad0da0aef833f5480199ebcb08",
+    "external_process_stopped_or_signaled_by_pass141": false
+  },
+  "recovery_v3": {
+    "release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "execution_id": "state_chain_recovery_v3_locked_test_c001_r07_candidate_03_ae037c13eff0870b",
+    "request_identity_sha256": "ae037c13eff0870b94b5fe05efb4579a43b9a619feaf23853760469e5d48be08",
+    "intent_sha256": "8efeba036934395d697a3e4219ad0941866c4ed9af6122e60b8b51a89e9bca69",
+    "terminal_receipt_sha256": "0767417e7412898445c57b1b7de9a7d37cacbc558b1999c3830aa3a060579988",
+    "data_docs_terminal_bytes_identical": true,
+    "original_validator_restored": true,
+    "resumed_from_existing_v3_intent": false,
+    "journal_sequence": 4,
+    "validated_v3_execution_count": 4,
+    "real_v3_intents_created_during_terminal_validation": 0
+  },
+  "legacy_recovery": {
+    "decision_receipt_sha256": "f178e847fc70842d1e09cf2dbd1bddb081074dc2a5d3bbbe19ecb65a71fab929",
+    "ledger_commit_receipt_sha256": "25790c84c0fcb7e23e800ce1b6d4dd317d4c2735b2125a88da1faf89e7806c60",
+    "recovery_terminal_receipt_sha256": "d00623c26df290ecbd35c9d6b5b206f2eb1d3b56467cc148f22b9d4374893ec7",
+    "source_cardinality_audit_sha256": "5737277d3fd1c4d6b605980ea0c7f696b1c5d7738b680a72e7dc745ebed776ec",
+    "bounded_cleanup_receipt_sha256": "a6add66e5b023bf1b98ac091b160070d11d111e5e9f7daa114715d393e05eca6",
+    "source_crop_track_count": 6,
+    "source_weed_track_count": 0,
+    "bounded_cleanup_source_scene_removed": true,
+    "bulk_payload_retained": false,
+    "appended_by_this_call": true
+  },
+  "atomic_boundary": {
+    "candidate_rejection_ledger_row_count_before": 164,
+    "candidate_rejection_ledger_row_count_after": 165,
+    "candidate_rejection_ledger_prefix_164_sha256": "a1f5cdc9aa708beecfa28e125e26861a066dc5ca70bcd0da67bb4b29a2388e26",
+    "candidate_rejection_ledger_sha256_after": "19ef5400e9862463d9752f69024244d8e5e1fd59c4c6b225d82020bf4cf8175d",
+    "append_only_prefix_preserved": true,
+    "appended_row_pair_id": "locked_test_c001_r07",
+    "appended_row_candidate_index": 3,
+    "appended_row_candidate_identity_sha256": "3bf9932dff973fc310d30b1897e1a7d7eafc915601ef66c0ea708ef9a38ecec1",
+    "appended_row_reason": "eligibility:source_weed_track_present",
+    "render_state_sha256_before": "d8055796077637cba7de69650ea0ff6472592034547faac8617c6ef530234113",
+    "render_state_sha256_after": "d8055796077637cba7de69650ea0ff6472592034547faac8617c6ef530234113",
+    "chain_head_identity_sha256_before": "e66e962aae41c652e4b9362ee23357def0402a518c2aea6c3d113af1222dc077",
+    "chain_head_identity_sha256_after": "e66e962aae41c652e4b9362ee23357def0402a518c2aea6c3d113af1222dc077",
+    "completed_pair_count": 47,
+    "pending_pair_count": 49,
+    "first_pending_pair_id": "locked_test_c001_r07"
+  },
+  "open_parent_intents": {
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7",
+    "state_chain_intent_sha256": "234e2e6051914609cb3a704fbe1f385c2aec52f5b5b3b43f63b6a64e942a6837",
+    "state_chain_terminal_receipt_present": false,
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+    "underlying_batch_intent_sha256": "9404d1dbd2ff41aa347c4870d4c4134c9939c1f3f40043b4700fc5b471f7aeed",
+    "underlying_batch_terminal_receipt_present": false
+  },
+  "canonical_successor": {
+    "candidate_index": 4,
+    "candidate_identity_sha256": "4a8db2964bc7823d9493eab4feb3f60479ec37af9e4b87538e2d1db84d9e5a29",
+    "derived_by_validation_without_candidate_gt_access": true,
+    "candidate_artifact_present": false,
+    "candidate_docs_present": false,
+    "partial_staging_present": false,
+    "v3_intent_present": false,
+    "started_by_pass141": false
+  },
+  "access_guard": {
+    "candidate_gt_accessed_during_terminal_validation": false,
+    "full_native_pair_rendering_calls_during_terminal_validation": 0,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_execution_pass48_validation_v1",
+  "status": "PASS_LOCKED_TEST_C000_R06_ATOMIC_PUBLICATION_AND_NEXT_TARGET_SYNTHETIC_ONLY",
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "pass": 48,
+  "observed_at": "2026-08-17T10:33:53+03:00",
+  "selected_step": "After one hour, inspect detached PID 3753710 and validate atomically published locked_test_c000_r06 plus the next active target, or fail closed on candidate 7 exact full-render terminal error without model, prediction, or locked-test outcome access.",
+  "batch_binding": {
+    "batch_id": "locked_test_render_batch_locked_test_c000_r00_ee8be6ec4af1b0cc",
+    "batch_intent_sha256": "a1c16860ca8a503950f41c2a15f100f76a6a16ce1664cd37d5c9690176f0c6b3",
+    "request_identity_sha256": "ee8be6ec4af1b0ccf24eb13f55193ac51d6c2f2d7189b835dea7fe4f65cda80d",
+    "batch_execution_lock_sha256": "5bd38a72d9a07dbbb1077de770a4509d75b023dc05d7d7edc397b818d4c12ce6",
+    "target_pair_ids": [
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03",
+      "locked_test_c000_r04",
+      "locked_test_c000_r05",
+      "locked_test_c000_r06",
+      "locked_test_c000_r07"
+    ],
+    "max_new_pairs": 8,
+    "intent_unchanged": true,
+    "terminal_batch_receipt_present": false
+  },
+  "process": {
+    "pid": 3753710,
+    "session_id": 3753710,
+    "parent_pid": 4058,
+    "alive": true,
+    "state": "Ssl",
+    "elapsed": "09:04:00",
+    "command_exact": true,
+    "active_pair_id": "locked_test_c000_r07",
+    "active_candidate_index": 2,
+    "active_stage": "source_scene_blender_render",
+    "parent_cpu_percent_at_observation": 20.4,
+    "parent_rss_kib_at_observation": 182684,
+    "active_work_is_material": true,
+    "external_services_stopped_or_modified": false
+  },
+  "resume_log": {
+    "path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/process_logs/locked_test_render_batch_locked_test_c000_r00_ee8be6ec4af1b0cc_resume_after_r01_c00_recovery.log",
+    "sha256_at_observation": "52cc22d784466cab675b52ac7f6e00dcbed8e6e8e431b6e534704f3478184ab0",
+    "bytes_at_observation": 13992,
+    "last_modified_ns": 1786950088730031674,
+    "error_traceback_exception_or_contract_failure_lines": 0,
+    "only_observed_messages": "Pillow mode deprecation warnings"
+  },
+  "atomic_render_state": {
+    "planned_pair_count": 96,
+    "completed_pair_count": 39,
+    "pending_pair_count": 57,
+    "completed_locked_test_prefix": [
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03",
+      "locked_test_c000_r04",
+      "locked_test_c000_r05",
+      "locked_test_c000_r06"
+    ],
+    "newly_published_pair_id": "locked_test_c000_r06",
+    "first_pending_pair_id": "locked_test_c000_r07",
+    "render_state_receipt_sha256": "5bc45482580e1d70c39c8ea31d61663eef66a11d12e9c2fe2cca58c00270ee07",
+    "full_pair_staging_directories": [
+      ".partial-locked_test_c000_r07-candidate-02-d215eb8aaca44149b46cffbe7f380b13"
+    ],
+    "active_gt_scout_staging_directories": [],
+    "partial_pair_published": false,
+    "atomic_boundary_preserved": true,
+    "model_outputs_present": false
+  },
+  "published_pair_validation": {
+    "pair_id": "locked_test_c000_r06",
+    "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+    "protocol_split": "locked_test",
+    "evaluator_split": "test",
+    "selected_candidate_index": 7,
+    "candidate_identity_sha256": "c181230e2ab142e31c31f37f00112285a527d372a612b38d4fa11004a46cb49d",
+    "candidate_seeds": {
+      "scene_seed": 4928811685493459082,
+      "trajectory_seed": 1952832776891291660,
+      "capture_draw_seed": 16231947564649109330,
+      "renderer_seed": 18167604476627549638,
+      "audit_sample_seed": 14756343820530148424
+    },
+    "source_template_sha256": "56f1d8c93e532056d4fc81c8f489c8a0acc5c9fcb1005c2e2b8db1ab516b7103",
+    "scene_config_sha256": "2c63fa53b98dc54b9de88edb44518befaf3f5afe552abf41909aeecab44fa064",
+    "full_render_scene_patch_sha256": "3c5ba726370d943bc93335afb8dd4f8169fac83ebec3c2e39875f8495fdabce1",
+    "full_pair_receipt_sha256": "ef08271269b7cb8cdb1e8a0c9bc840e3708379af59afddfa5a50e3aac09036d5",
+    "pair_receipt_sha256": "8963b6cb69a14d80e2942486fc00a568b5f524f57cd9a6ab7f815f36d0749b1c",
+    "docs_full_pair_receipt_byte_identical": true,
+    "internal_publishable_receipt_validation": "PASS",
+    "candidate_identity_and_all_five_seeds_match_roster": true,
+    "canonical_gt_sha256": "897187d2890547738cfe13c249e43b4de05c2eb13081d3b53328b8938b1ac194",
+    "canonical_gt_matches_candidate_07_scout": true,
+    "candidate_07_pass_terminal_receipt_sha256": "5a020965a589fa96ff0505f55273e2901af0f2db384f7863afbd6b6d3c1b047e",
+    "candidate_07_pass_decision_receipt_sha256": "0db4aa504e6d3296f51b5506c87960c3ab68a1f751a586c0d4c79a39dd0e7855",
+    "source_track_count": 13,
+    "crop_track_count": 5,
+    "weed_track_count": 8,
+    "visible_eligible_weed_track_count": 3,
+    "track_frame_rows": 390,
+    "all_botanical_quality_gates_passed": true,
+    "all_six_pair_quality_gates_passed": true,
+    "frame_contract": {
+      "frame_count_per_arm": 30,
+      "frame_rate_hz": 15,
+      "native_dimensions_px": [2048, 2048],
+      "ideal_rgb_frame_count": 30,
+      "degraded_rgb_frame_count": 30,
+      "shared_semantic_mask_count": 30,
+      "shared_track_mask_count": 30,
+      "source_image_count": 30,
+      "source_mask_count": 30
+    },
+    "arm_ground_truth": {
+      "shared_paths": true,
+      "byte_identical": true,
+      "ideal_sha256": "897187d2890547738cfe13c249e43b4de05c2eb13081d3b53328b8938b1ac194",
+      "degraded_sha256": "897187d2890547738cfe13c249e43b4de05c2eb13081d3b53328b8938b1ac194"
+    },
+    "capture_difference": {
+      "all_30_rgb_frame_pairs_byte_distinct": true,
+      "differences_restricted_to_rgb_capture_profile": true,
+      "changed_pixel_fraction_minimum": 0.7012917995452881,
+      "rgb_rmse_mean": 1.8117945035298666
+    },
+    "semantic_audit": {
+      "crop_free_frame_fraction": 0.0,
+      "weed_free_frame_fraction": 0.0,
+      "mean_crop_fraction": 0.013910929361979166,
+      "mean_weed_fraction": 0.011556116739908855
+    },
+    "videos": {
+      "ideal": {
+        "sha256": "007e0b1e352c7fc2b435206e7149d2a2b41fff69bfba834ac1ae80a9ad02a9d9",
+        "bytes": 4257481,
+        "width": 2048,
+        "height": 2048,
+        "frame_rate": "15/1",
+        "decoded_frames": 30,
+        "full_decode_error_free": true
+      },
+      "degraded": {
+        "sha256": "e25606ed361dae1e44382c8bf8902b9c528bc90a65ccf81a389d2061c7357c55",
+        "bytes": 4349021,
+        "width": 2048,
+        "height": 2048,
+        "frame_rate": "15/1",
+        "decoded_frames": 30,
+        "full_decode_error_free": true
+      },
+      "side_by_side": {
+        "sha256": "206875c71a01a18bf5ddf200b30d3daa768bab2b01442c9103dadac3226c5789",
+        "bytes": 3238451,
+        "width": 2048,
+        "height": 1024,
+        "frame_rate": "15/1",
+        "decoded_frames": 30,
+        "full_decode_error_free": true
+      }
+    },
+    "contact_sheet_visual_inspection": {
+      "sha256": "8ad64d57f3dd253c8678b05fe1130318c099c15b62676a52755b102493526c40",
+      "inspected_at_original_resolution": true,
+      "readable": true,
+      "matched_scene_and_trajectory_across_arms": true,
+      "prediction_overlay_present": false
+    },
+    "rejected_candidate_prefix_indices": [0, 1, 2, 3, 4, 5, 6],
+    "rejection_reasons": [
+      "semantic:mean_weed_fraction_in_range",
+      "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "semantic:mean_crop_fraction_in_range",
+      "semantic:mean_weed_fraction_in_range",
+      "semantic:mean_weed_fraction_in_range",
+      "semantic:mean_crop_fraction_in_range",
+      "semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range"
+    ],
+    "all_rejected_candidates_model_or_outcome_free": true,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "outcome_inputs": []
+  },
+  "next_active_target": {
+    "pair_id": "locked_test_c000_r07",
+    "rejected_candidate_indices": [0, 1],
+    "rejection_reasons": [
+      "semantic:weed_free_frame_fraction_within_limit; semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range; eligibility:eligible_weed_track_present; eligibility:eligible_track_with_at_least_three_observations",
+      "semantic:mean_crop_fraction_in_range; semantic:mean_weed_fraction_in_range"
+    ],
+    "all_rejections_in_canonical_contiguous_roster_order": true,
+    "all_rejections_model_or_outcome_free": true,
+    "active_candidate_index": 2,
+    "active_candidate_identity_sha256": "7ec17cca1ce31b3086b4787a091e8ea44f2e9c4242b04174792830e72bba513b",
+    "active_candidate_seeds": {
+      "scene_seed": 4993268176379830285,
+      "trajectory_seed": 4588333358779308912,
+      "capture_draw_seed": 15659448066167626157,
+      "renderer_seed": 12895505290445964246,
+      "audit_sample_seed": 14510866771379800242
+    },
+    "source_template_sha256": "56f1d8c93e532056d4fc81c8f489c8a0acc5c9fcb1005c2e2b8db1ab516b7103",
+    "gt_scout_status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+    "gt_scout_terminal_receipt_sha256": "668e8f5d0ee49b9a80e89a41dfcae42130abf46629ce58272294a3fe88ebc902",
+    "gt_scout_decision_receipt_sha256": "91e3f75ab3be03d0b0651df536064e9253877ddfdfa84e2e4f2bd3d8ec99e2b3",
+    "gt_scout_scene_config_sha256": "9035dae25bc32e71db0ae70c62d8a66d5f453c6d67e6d878b20e85507bcf8686",
+    "canonical_gt_sha256": "93d5b8fceb1710e5118e09ae1290e5f341ba07c8cce007c339546b4c06ce1abf",
+    "all_frozen_scout_gates_passed": true,
+    "full_pair_staging_directory": ".partial-locked_test_c000_r07-candidate-02-d215eb8aaca44149b46cffbe7f380b13",
+    "full_render_scene_config_sha256": "9035dae25bc32e71db0ae70c62d8a66d5f453c6d67e6d878b20e85507bcf8686",
+    "full_render_scene_patch_sha256": "3c5ba726370d943bc93335afb8dd4f8169fac83ebec3c2e39875f8495fdabce1",
+    "role_asset_allowlist_sha256": "9863c55a8eb98d18c9998cb9121f3befc2a3879044e8c35f6f0c54a338829d33",
+    "all_five_seed_bindings_exact": true,
+    "model_access_allowed": false,
+    "outcome_inputs": [],
+    "stage": "source_scene_blender_render",
+    "acceptance_claimed": false
+  },
+  "ledger": {
+    "canonical_rejection_ledger_sha256": "8360e312a2f9bf3aeff724a9c5b19dbffc5efe3b578e963488358a0beaf9e4d4",
+    "row_count": 101,
+    "locked_test_c000_r06_row_count": 7,
+    "locked_test_c000_r07_row_count": 2,
+    "all_relevant_rows_model_or_outcome_free": true
+  },
+  "validation": {
+    "python_environment": "/home/ankaref/miniconda3/envs/zedis/bin/python",
+    "current_command_validation": "PASS_INTERNAL_RECEIPT_FRAME_GT_VIDEO_LEDGER_ACTIVE_TARGET_AND_ACCESS_GUARDS",
+    "ffprobe_and_full_ffmpeg_decode": "PASS_ALL_THREE_VIDEOS",
+    "full_plan_validate_status": "PASS_FULL_PLAN_DRY_RUN_SYNTHETIC_ONLY",
+    "full_plan_split_pair_counts": {"calibration": 32, "locked_test": 64},
+    "full_plan_candidate_count": 960,
+    "full_plan_unique_seed_count": 4800,
+    "storage_capacity_passed": true,
+    "free_bytes": 306150260736,
+    "required_bytes": 180000000000,
+    "reserve_bytes_after_estimate": 30000000000,
+    "gpu_memory_free_mib_during_active_blender": 1305,
+    "gpu_external_process_policy": "observed_only_never_stopped_or_modified",
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "script_sha256": "e650340418ae213d433f18356b6acad5b77942ae67ac3df2577bfe18840fe3d2",
+    "test_sha256": "f6687b33fd137c6482897529b91f49d48bd2d246c4fce41f9249a9de540f856d",
+    "checkpoint_sha256_verified_as_source_lock": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100"
+  },
+  "access_guard": {
+    "render_and_machine_audit_only": true,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "full_model_run_root_present": false,
+    "published_pair_prediction_outputs_present": false,
+    "locked_test_prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": []
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "outcome_target_tuning_forbidden": true
+  },
+  "highest_evidence_proven": "The unchanged locked-test batch atomically published and fully validated locked_test_c000_r06 candidate 7, increasing the source-bound benchmark to 39/96 complete. The final slot in this batch rejected candidates 0 and 1 in canonical order using only frozen GT gates; exact-roster candidate 2 passed every frozen scout gate and entered the sealed full renderer without model, prediction, or outcome access.",
+  "remaining_work": "Publish locked_test_c000_r07 and validate this batch's terminal receipt and idempotent resume, render the remaining 56 locked-test pairs, then perform frozen inference, one shared calibration threshold lock, one-shot locked-test evaluation, videos, metrics, uncertainty, target verdicts, failure analysis, inventory, and bounded cleanup.",
+  "next_step": "After one hour, inspect detached PID 3753710 and validate atomically published locked_test_c000_r07, the terminal eight-slot batch receipt, exact state 40/96, bounded cleanup, and an idempotent same-intent repeat; fail closed on candidate 2's exact full-render terminal error without model, prediction, or locked-test outcome access."
+}

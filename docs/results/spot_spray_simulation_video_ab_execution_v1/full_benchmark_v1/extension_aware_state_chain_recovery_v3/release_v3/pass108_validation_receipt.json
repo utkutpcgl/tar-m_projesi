@@ -1,0 +1,95 @@
+{
+  "candidate_gt_accessed": false,
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_recovery_v3_pass108_validation",
+  "external_services_modified": false,
+  "field_product_or_chemical_go": false,
+  "focused_regression_contracts": [
+    "initial_candidate8",
+    "two_sequential_candidates_one_pair",
+    "transition_to_second_canonical_pair",
+    "state_chain_fork_or_rollback",
+    "genesis_prefix_mutation",
+    "parallel_state_chain_batch_or_v3_intent",
+    "caller_target_injection",
+    "candidate_skip_identity_or_seed_forgery",
+    "non_zero_weed_no_append",
+    "state_or_head_advance_during_recovery",
+    "terminal_pair_or_batch",
+    "callable_tamper_and_exception_restoration",
+    "idempotent_resume",
+    "zero_forbidden_access"
+  ],
+  "inference_calls": 0,
+  "locked_test_outcome_accessed": false,
+  "model_loaded": false,
+  "outcome_inputs": [],
+  "pass108_event_id": "scheduled-resume-20260821060145-11a730c2599a",
+  "prediction_accessed": false,
+  "real_v3_intents_created_during_validation": 0,
+  "recovery_bridge_v3_release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+  "registered_targets_used": false,
+  "release_artifact_inventory": [
+    {
+      "path": "pass108_manager_authorization_receipt.json",
+      "sha256": "5304a8ed8a0493469350f3731e841618d33c6d1279286d6d647d02fc53e75e81",
+      "size_bytes": 2291
+    },
+    {
+      "path": "state_chain_recovery_bridge_lock_v3.json",
+      "sha256": "d97be4c820fffad21b32401b7abe01ddb61ce68bdd013b7a94cac67da9e4d2e7",
+      "size_bytes": 1822
+    },
+    {
+      "path": "state_chain_recovery_bridge_release_v3.json",
+      "sha256": "8484d2717dbe1675c4f6b8b504bd254f93ef70631dc260cbfdd1e4163d8e375d",
+      "size_bytes": 7393
+    },
+    {
+      "path": "state_chain_recovery_bridge_v3.json",
+      "sha256": "06b5ac69e01422cd1c42b9a60b83bda35da5fa9a78327f808365df5f0d70aab3",
+      "size_bytes": 7840
+    }
+  ],
+  "release_artifact_inventory_sha256": "9a7b5a02754ca73c35545206ab9567713aa3add6bf842790ab798f1bb834bd2c",
+  "rendering_calls": 0,
+  "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "schema_version": 1,
+  "status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+  "synthetic_only": true,
+  "validated_genesis": {
+    "candidate_rejection_ledger_row_count": 142,
+    "candidate_rejection_ledger_sha256": "4320f0f486eb62bd52f5b5696125bc5f9d7e8a7a6b49e150203636d4f0432f2c",
+    "chain_head_identity_sha256": "34acee5f2fb322fa839ffd9bfc0edf9722e1556d6085d56cb145d65fd56bab71",
+    "completed_pair_count": 45,
+    "first_pending_pair_id": "locked_test_c001_r05",
+    "next_candidate_identity_sha256": "bdd323a826c030fe90c7f15c19a22d7c57bdfb5e093b167414d09154e6f14d4d",
+    "next_candidate_index": 8,
+    "next_candidate_seeds": {
+      "audit_sample_seed": 2400516433143543872,
+      "capture_draw_seed": 13295599353326517286,
+      "renderer_seed": 1919497406732620603,
+      "scene_seed": 6476986474311257924,
+      "trajectory_seed": 698958362770305116
+    },
+    "next_source_template_sha256": "56f1d8c93e532056d4fc81c8f489c8a0acc5c9fcb1005c2e2b8db1ab516b7103",
+    "pair_slot_identity_sha256": "7ba56a1f3fd43925be890183fe4894df9d182b44bded6d5fa7cac26e56be981f",
+    "pending_pair_count": 51,
+    "recovery_lock_sha256": "5af1af3dc8792bc91411072b7eeb22bf6e6b22dd00383747a1265a818192ae49",
+    "recovery_v1_release_identity_sha256": "dd33482b9a1f8bbbc06358100c7760d6f61ead5f94da5c3f5bfc143a27d6a4fa",
+    "recovery_v2_release_identity_sha256": "27a74f1bea57710f6eed48c48389e3a6af34a3cfc1d8c92fd6a79dbe23883f8f",
+    "render_state_sha256": "f811c3e3d5622bbc741e4c84951db4c3287181f2ed219ef45c8d0877c7a12553",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r05_fe3a9bf5ccf9db11",
+    "state_chain_intent_sha256": "fa987a19efaf6f3932978beb368694c22a6501642e6f69f441ac55edbd76359c",
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r05_65e15722fcb2d69c",
+    "underlying_batch_intent_sha256": "09c278a49ed3457dace1e0e306d84dd6dd4024b1f6a09cba216c65e236eb2e20"
+  }
+}

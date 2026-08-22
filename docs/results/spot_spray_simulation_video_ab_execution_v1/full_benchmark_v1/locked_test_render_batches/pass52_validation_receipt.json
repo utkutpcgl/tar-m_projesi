@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_execution_pass52_validation_v1",
+  "status": "PASS_C001_R00_CANDIDATES_00_01_REJECTED_CANDIDATE_02_ACTIVE_GPU_RECOVERED_SYNTHETIC_ONLY",
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "pass": 52,
+  "observed_at": "2026-08-17T12:32:19+03:00",
+  "selected_step": "After ten minutes, inspect PID 2765903, its session tree and exact log; verify whether the external Ollama allocation released and validate candidate 0's terminal scout or safe next stage, or fail closed on the exact renderer/capacity error without model, prediction or locked-test outcome access.",
+  "batch_binding": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r00_3ec5f07f5fcf647f",
+    "request_identity_sha256": "3ec5f07f5fcf647ffcfc3605c9eb502caa81e011de00ce3abc95deba362a06f5",
+    "batch_intent_sha256": "e97bd46ddfbe1c5874700578f6eaa67a1e1bf1fd9050024c56d72ea9655e9a9a",
+    "batch_execution_lock_sha256": "5bd38a72d9a07dbbb1077de770a4509d75b023dc05d7d7edc397b818d4c12ce6",
+    "target_pair_ids": [
+      "locked_test_c001_r00",
+      "locked_test_c001_r01",
+      "locked_test_c001_r02",
+      "locked_test_c001_r03",
+      "locked_test_c001_r04",
+      "locked_test_c001_r05",
+      "locked_test_c001_r06",
+      "locked_test_c001_r07"
+    ],
+    "max_new_pairs": 8,
+    "intent_unchanged": true
+  },
+  "process": {
+    "pid": 2765903,
+    "parent_pid": 4058,
+    "session_id": 2765903,
+    "alive": true,
+    "state": "Ssl",
+    "elapsed_at_observation": "14:06",
+    "parent_cpu_percent": 28.3,
+    "parent_rss_kib": 96720,
+    "session_process_count": 3,
+    "active_pair_id": "locked_test_c001_r00",
+    "active_candidate_index": 2,
+    "active_stage": "gt_scout_source_scene_blender_render",
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/process_logs/locked_test_render_batch_locked_test_c001_r00_pass51.log",
+    "log_sha256": "138b0ecead140567b84c4281a285acf2302dc5a3c6de29b8caa523bd4e4dc1d5",
+    "log_bytes": 480,
+    "pillow_deprecation_warning_count": 2,
+    "traceback_error_exception_contracterror_cuda_or_oom_line_count": 0,
+    "terminal_error_observed": false,
+    "external_services_stopped_or_modified": false
+  },
+  "gpu_recovery": {
+    "external_ollama_allocation_released": true,
+    "ollama_models_loaded": [],
+    "gpu_memory_total_mib": 24576,
+    "gpu_memory_used_mib": 1251,
+    "gpu_memory_free_mib": 22866,
+    "gpu_utilization_percent": 0,
+    "renderer_blender_pid": 2827838,
+    "renderer_blender_used_memory_mib": 607,
+    "unrelated_vllm_pid": 2577518,
+    "unrelated_vllm_used_memory_mib": 424,
+    "capacity_error_observed": false,
+    "external_process_policy": "observed_only_never_stopped_or_modified"
+  },
+  "terminal_gt_only_rejections": [
+    {
+      "pair_id": "locked_test_c001_r00",
+      "candidate_index": 0,
+      "candidate_identity_sha256": "e63642258ee86065cd209ca1659cd76db527d3f5fa7b795e27d63f768dd6cacc",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range"
+      ],
+      "canonical_gt_sha256": "51250a1d572c3891ab2502666d3ed2e481c6010d088112e60229db54923968ca",
+      "terminal_receipt_sha256": "f3dd8222c519b4c338b8dca51b62f11591eab16bf765f009287d33fe3ef32c78",
+      "decision_receipt_sha256": "b80bfaac8cda57e8e7ccfbeefc08b18f44b64250899cbaefcc0e6fd6bafc1bd3",
+      "gt_audit_receipt_sha256": "61d467c07054a038e7ca365bfbc722affd1f6595a20263ea2b98ea54f4bb1d25",
+      "ledger_commit_receipt_sha256": "dbafe9508b62f1a698b3581d530d1bfcabe4d1de17552d3e6be8b78aca438aab",
+      "ledger_appended_once": true,
+      "model_or_outcome_inputs_used": false,
+      "model_loaded": false,
+      "inference_calls": 0,
+      "outcome_inputs": []
+    },
+    {
+      "pair_id": "locked_test_c001_r00",
+      "candidate_index": 1,
+      "candidate_identity_sha256": "93faf33c0ad0756f02715e972e3c42126809830ffef8a1950071235d2f63497d",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "canonical_gt_sha256": "7fea0cc6b62950fbfe0c40b9fe0301cfba9c2214eef90786b87327bcd43128b1",
+      "terminal_receipt_sha256": "463d9aef78f976654351457e99dd49acace32556fc5686683b19d7c7181a023d",
+      "decision_receipt_sha256": "e5dc60186258c3189979840518879adeab1306a8820dd9ce0b5456dffe247c8c",
+      "gt_audit_receipt_sha256": "ffed9eb4d9e816b95fac79275e40a896aa00f1d3a538a527211be09d65e8eff3",
+      "ledger_commit_receipt_sha256": "4eabd1787c566e8725d36c4d955e3a2fe2082d1545c3f2620593aabd4dd333b3",
+      "ledger_appended_once": true,
+      "model_or_outcome_inputs_used": false,
+      "model_loaded": false,
+      "inference_calls": 0,
+      "outcome_inputs": []
+    }
+  ],
+  "canonical_rejection_ledger": {
+    "sha256": "98b725db0312500afe3b3ec8ca9f8564dd8ef7b0d623714c433d297fe57f6b93",
+    "row_count": 103,
+    "new_locked_test_c001_r00_rows": 2,
+    "new_rows_are_exact_candidates_00_01_in_order": true,
+    "all_new_rows_model_or_outcome_free": true
+  },
+  "active_next_candidate": {
+    "pair_id": "locked_test_c001_r00",
+    "candidate_index": 2,
+    "candidate_identity_sha256": "2a51f7627f4b0be8462f1dd646d61bcc0d8ab39501ae1f0e8323383503f5aa9a",
+    "source_template_sha256": "674ac8146691aa2f6bca7b3f7382ae4790c6b8676e6db4450fabd12d26e6c76e",
+    "source_template_scene_id": "scene_0004",
+    "candidate_seeds": {
+      "scene_seed": 2609226200864269663,
+      "trajectory_seed": 13558871499247431257,
+      "capture_draw_seed": 15778853960568125141,
+      "renderer_seed": 7979619623914520771,
+      "audit_sample_seed": 7106823289636110250
+    },
+    "candidate_identity_and_all_five_seeds_match_roster": true,
+    "staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-locked_test_c001_r00-candidate-02-133741fbfac04e6c80c4f47f0288e1b6",
+    "scene_config_sha256": "e6d9c175b937c0eb3f76540850bc862680a4de580e7af7824cadabec8dfe83a9",
+    "gt_scout_scene_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "gt_scout_capture_receipt_sha256": "d24d107b8bd47366161bf6f38b2e8c33eb9f8fa495b15e900b0f6452685e8d85",
+    "source_objects_sha256": "90cd399fcceb3c048c46e9c9b4dff938fd34ca79d5f1d9082ad43348f921f672",
+    "source_scene_graph_identity_sha256": "6ddf8192f0a276bbc1e381dbcee7d9eddd9d610cb2d78e774ce0e78f0a479ad8",
+    "source_track_count_observed": 9,
+    "frame_count": 30,
+    "native_dimensions_px": [2048, 2048],
+    "rgb_capture_rendered": false,
+    "model_access": false,
+    "prediction_access": false,
+    "terminal_decision_not_yet_claimed": true
+  },
+  "atomic_render_state": {
+    "render_state_receipt_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "planned_pair_count": 96,
+    "completed_pair_count": 40,
+    "pending_pair_count": 56,
+    "first_pending_pair_id": "locked_test_c001_r00",
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "atomic_boundary_preserved": true
+  },
+  "capacity": {
+    "data_disk_free_bytes": 305821134848,
+    "required_bytes": 180000000000,
+    "reserve_bytes_after_estimate": 30000000000,
+    "storage_capacity_passed": true
+  },
+  "validation": {
+    "current_command_validation": "PASS_PROCESS_LOG_GPU_TWO_TERMINAL_REJECTIONS_LEDGER_AND_ACTIVE_CANDIDATE_BINDING",
+    "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "script_sha256": "e650340418ae213d433f18356b6acad5b77942ae67ac3df2577bfe18840fe3d2",
+    "test_sha256": "f6687b33fd137c6482897529b91f49d48bd2d246c4fce41f9249a9de540f856d",
+    "checkpoint_sha256_verified_as_source_lock": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100"
+  },
+  "access_guard": {
+    "render_and_machine_audit_only": true,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "full_model_run_root_present": false,
+    "published_pair_prediction_outputs_present": false,
+    "locked_test_prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": []
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "outcome_target_tuning_forbidden": true
+  },
+  "highest_evidence_proven": "Exact atomically published state remains 40/96. The c001 batch is alive, external Ollama GPU contention cleared without intervention, locked_test_c001_r00 candidates 0 and 1 were canonically rejected in order using only frozen GT gates, and candidate 2 is actively bound to its exact roster identity and five seeds.",
+  "remaining_work": "The active candidate 2 or a later canonical candidate must pass GT-only gates and full native rendering before locked_test_c001_r00 can publish. Fifty-six locked-test pairs, frozen-checkpoint inference, calibration-only shared-threshold locking, exactly-once locked-test evaluation, videos, metrics, uncertainty, strata, verdicts, failure analysis, inventory and cleanup remain.",
+  "next_step": "After thirty minutes, inspect PID 2765903 and the unchanged c001 batch intent; validate candidate 2's terminal decision and every subsequent canonical transition through an active full render or atomic locked_test_c001_r00 publication, or fail closed on the exact terminal error without model, prediction or locked-test outcome access."
+}

@@ -1,0 +1,47 @@
+{
+  "authorization": {
+    "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "manager_handoff_event_id": "scheduled-resume-20260820052135-ac610dcf4598",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 66,
+    "pass66_event_id": "scheduled-resume-20260820052759-110f0368f725",
+    "portfolio_id": "goal-multi-repeat-agents-spot-spray-simulation-video-ab-v1-b8e46607aeea",
+    "portfolio_lane": "full-simulation-video-ab-execution-v1",
+    "portfolio_revision": 113,
+    "strategy": "base"
+  },
+  "authorized_mechanism": {
+    "other_execution_global_or_function_mutation_allowed": false,
+    "replacement_callable": "extension_aware_validate_full_plan",
+    "temporary_execution_global": "validate_full_plan",
+    "try_finally_restore_required": true,
+    "unchanged_batch_function_called": true
+  },
+  "authorized_release_mirrors": [
+    "synthetic/planning/extension_aware_batch_adapter_v1/release_v1",
+    "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/extension_aware_batch_adapter_v1/release_v1"
+  ],
+  "authorized_top_level_source_paths": [
+    "scripts/run_spot_spray_simulation_video_ab_extension_aware_batch_v1.py",
+    "tests/test_run_spot_spray_simulation_video_ab_extension_aware_batch_v1.py"
+  ],
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_batch_adapter_v1_manager_authorization",
+  "forbidden_scope": {
+    "candidate_gt_access_during_pass66": true,
+    "external_service_mutation": true,
+    "legacy_runtime_or_validator_byte_mutation": true,
+    "model_prediction_outcome_or_target_access": true,
+    "real_batch_intent_during_pass66": true,
+    "rendering_during_pass66": true
+  },
+  "schema_version": 1,
+  "status": "PASS_MANAGER_AUTHORIZED_ADAPTER_SCOPE_SYNTHETIC_ONLY"
+}

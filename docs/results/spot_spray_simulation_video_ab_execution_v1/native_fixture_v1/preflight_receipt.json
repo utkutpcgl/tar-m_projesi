@@ -1,0 +1,340 @@
+{
+  "capacity": {
+    "free_bytes": 343188549632,
+    "passed": true,
+    "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft",
+    "required_bytes": 8000000000,
+    "reserve_bytes_after_estimate": 0,
+    "total_bytes": 491106508800,
+    "used_bytes": 122895843328
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "config": {
+    "path": "configs/benchmark/spot_spray_simulation_video_ab_execution_v1.yaml",
+    "sha256": "a172b8b3c9fcab3ca57e5557e38a662d94b7660b3dd3a8d41533f722713618a7"
+  },
+  "contract": "spot_spray_simulation_video_ab_execution_v1",
+  "gpu": {
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "index": 0,
+    "memory_free_mib": 23529,
+    "memory_total_mib": 24576,
+    "memory_used_mib": 587,
+    "name": "NVIDIA GeForce RTX 3090"
+  },
+  "runtime_estimate": {
+    "admission_observed_isolated_render_seconds_approx": 0.05,
+    "admission_resolution_px": [
+      256,
+      256
+    ],
+    "excludes_rgb_render_inference_encoding_and_io": true,
+    "fixture_assumed_tracks_per_scene": 24,
+    "fixture_isolated_render_hours_estimate": 1.2800000000000002,
+    "full_isolated_render_hours_estimate": 61.44000000000002,
+    "method": "admission_isolated_mask_render_pixel_scaling_upper_bound",
+    "native_isolated_render_seconds_per_track_frame_estimate": 3.2,
+    "native_resolution_px": [
+      2048,
+      2048
+    ],
+    "replace_with_measured_fixture_multiplier_before_full_render": true
+  },
+  "schema_version": 1,
+  "scope": "fixture",
+  "sources": {
+    "cropcraft": {
+      "repository": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/cropcraft/repository",
+      "revision": "7128cd2acade50cc4a5a1761210b55989ab62527",
+      "tracked_checkout_clean": true
+    },
+    "execution_locks": [
+      {
+        "bytes": 163595448,
+        "name": "blender",
+        "path": "/home/ankaref/Documents/Projects/simulation/.tools/blender-4.5.12-linux-x64/blender",
+        "sha256": "33ac108ebce3c271f5357e5c664d0488717263bcf2145c80300edd0b12c31880"
+      },
+      {
+        "bytes": 33337,
+        "name": "botanical_builder",
+        "path": "scripts/build_spot_spray_botanical_track_ground_truth_v1.py",
+        "sha256": "ac8de38ab05377558033d05eb2598bb40e16dd836109597a303d25591668bcab"
+      },
+      {
+        "bytes": 5779,
+        "name": "botanical_config",
+        "path": "configs/simulation/spot_spray_botanical_track_ground_truth_v1.yaml",
+        "sha256": "c0eccb3389c9504901e6fafdaf16268095dc5c00912c15b058162dc15b156247"
+      },
+      {
+        "bytes": 23361,
+        "name": "botanical_patch",
+        "path": "patches/cropcraft/0002-instance-track-ground-truth.patch",
+        "sha256": "c2301376c2f1607d1abfeeb75a6b9ad9b29873c764b027bd6995b10ebcaddd24"
+      },
+      {
+        "bytes": 19515,
+        "name": "botanical_validation_receipt",
+        "path": "docs/results/spot_spray_botanical_track_ground_truth_v1/validation_receipt.json",
+        "sha256": "491776943143ca486c0fda7f307db4ec7372cc35adfd216c9243ac5efd36c956"
+      },
+      {
+        "bytes": 2270,
+        "name": "compatibility_patch",
+        "path": "patches/cropcraft/0001-blender-4.5-eevee-next.patch",
+        "sha256": "8fd5ab99b6a784fd49d9f8c23035e2f8cb5c2a51cd47d22ff9365417dcebf41f"
+      },
+      {
+        "bytes": 21675,
+        "name": "cropcraft_runner",
+        "path": "scripts/run_cropcraft.py",
+        "sha256": "4bc8cbaa1b72780e4214477ef42a3802b20951ab68af9d3269227a61fcd9878e"
+      },
+      {
+        "bytes": 342488,
+        "name": "ffmpeg",
+        "path": "/usr/bin/ffmpeg",
+        "sha256": "ed16af623947494a72e284b6eb8ff225f2da22b38b5d5069c2fd4b4ba3384e41"
+      },
+      {
+        "bytes": 191888,
+        "name": "ffprobe",
+        "path": "/usr/bin/ffprobe",
+        "sha256": "272f6ebc634a63d9c8b4ca68e964119d980f25154e5aa2c35e5487da48e9a58f"
+      },
+      {
+        "bytes": 3595,
+        "name": "fixture_calibration_scene_config",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/val/scene_configs/scene_0000.yaml",
+        "sha256": "0508ebfa399da1bc854e08ee2dda27578884cbfcddaf9043605634dd23a0f0ae"
+      },
+      {
+        "bytes": 3615,
+        "name": "fixture_test_scene_config",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/test/scene_configs/scene_0001.yaml",
+        "sha256": "41395ea8f49f44bda0946f94fbd9ba3d03ac22a98e0bf67c054946f23159569f"
+      },
+      {
+        "bytes": 7387,
+        "name": "frozen_action_contract",
+        "path": "configs/benchmark/spot_spray_target_rig_action_eval_v1.yaml",
+        "sha256": "210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09"
+      },
+      {
+        "bytes": 74523,
+        "name": "frozen_action_evaluator",
+        "path": "scripts/evaluate_spot_spray_target_rig_action_v1.py",
+        "sha256": "3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45"
+      },
+      {
+        "bytes": 60291,
+        "name": "paired_renderer",
+        "path": "scripts/build_spot_spray_simulation_video_pairs_v1.py",
+        "sha256": "3fa5b6a5838dc45126f55d54875c65da7fc6cc7ff0e3078104f207f5d3809082"
+      },
+      {
+        "bytes": 6420,
+        "name": "paired_validation_receipt",
+        "path": "docs/results/spot_spray_simulation_video_pairs_v1/validation_receipt.json",
+        "sha256": "179410f6f975e1b7b43c369839ea3b58f74e6eb2ccc667dc4e64127b5ce7d5b3"
+      },
+      {
+        "bytes": 32910,
+        "name": "protocol",
+        "path": "configs/benchmark/spot_spray_simulation_video_ab_protocol_v1.yaml",
+        "sha256": "de12cd76d3f497f1ea3a6ffa1d1c7fc8eea4e70a9af218c2769bae81da0f329f"
+      },
+      {
+        "bytes": 23416861,
+        "name": "selected_checkpoint",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt",
+        "sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100"
+      },
+      {
+        "bytes": 122977,
+        "name": "simulation_evaluator",
+        "path": "scripts/evaluate_spot_spray_simulation_video_v1.py",
+        "sha256": "83c6fabd1acc3db47799e96aea91b46d29f514d891c5f19091d3fb14bf3811f7"
+      },
+      {
+        "bytes": 5638,
+        "name": "simulation_evaluator_config",
+        "path": "configs/benchmark/spot_spray_simulation_video_inference_v1.yaml",
+        "sha256": "16edff72f7095d5dee3d0c3785f18d4d87d5e02e035d9a07dd23610b1daea91d"
+      },
+      {
+        "bytes": 15015,
+        "name": "surface_lighting_patch",
+        "path": "patches/cropcraft/0006-field-robustness-surface-lighting.patch",
+        "sha256": "ad3f65815a1a269bbefa41cb3292c9836e63ccd91af146ed27247a5befde416b"
+      },
+      {
+        "bytes": 454373,
+        "name": "v12_asset_pack",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/synthetic_assets/cropcraft_field_robustness_v10_r1/PACK.json",
+        "sha256": "a943d03c0dd3e2487fe3edd1aac45e42839d59c775688de487a8bdb00368efde"
+      },
+      {
+        "bytes": 14567,
+        "name": "v12_test_receipt",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/test/release_receipt.json",
+        "sha256": "dc0bf91f5f825a4d75784150713be8d3e76d80b896631fc34ca5deee5e9aff2a"
+      },
+      {
+        "bytes": 14566,
+        "name": "v12_validation_receipt",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/val/release_receipt.json",
+        "sha256": "5b34be56ec0a7788bf22a298ae0403fb9cae486fcd28a1705fa0915bdc38edea"
+      }
+    ],
+    "execution_locks_sha256": "894ba32b6ffa8bfbf2adf9d02dd02fc13194f67c8a106c71b3451cb0977a90b7",
+    "protocol_internal_locks": [
+      {
+        "bytes": 21675,
+        "name": "protocol:repository_sources:cropcraft_runtime_adapter",
+        "path": "scripts/run_cropcraft.py",
+        "sha256": "4bc8cbaa1b72780e4214477ef42a3802b20951ab68af9d3269227a61fcd9878e"
+      },
+      {
+        "bytes": 9784,
+        "name": "protocol:repository_sources:cropcraft_v12_contract",
+        "path": "configs/simulation/cropcraft_deploy_constrained_pilot_v12.yaml",
+        "sha256": "f006c709249cee0e9d8b8f74fd22fa0e1fdccde55ac90a6e2c474608607c0ec4"
+      },
+      {
+        "bytes": 8500,
+        "name": "protocol:repository_sources:cropcraft_v12_generator",
+        "path": "scripts/generate_cropcraft_deploy_constrained_pilot_v12.py",
+        "sha256": "a8cd72def2aa6e2fd8cf892c5b658bf59b2680f85d86687413925c4f0d021d79"
+      },
+      {
+        "bytes": 32982,
+        "name": "protocol:repository_sources:cropcraft_v12_proxy_builder",
+        "path": "scripts/prepare_cropcraft_deploy_segment_proxy_v12.py",
+        "sha256": "56b3d21c74063158fb35a176890ee95454e11a5192c59bc51bcbf6092585f245"
+      },
+      {
+        "bytes": 1136,
+        "name": "protocol:repository_sources:cropcraft_v12_proxy_contract",
+        "path": "configs/data/cropcraft_deploy_segment_proxy_v12.yaml",
+        "sha256": "8a3b77556f6f8d456fbd4f6d7498b793ed3daae5b0ec17b596fef7b5605e23a0"
+      },
+      {
+        "bytes": 4754,
+        "name": "protocol:repository_sources:cropcraft_v12_role_generator",
+        "path": "scripts/generate_cropcraft_deploy_profiled_pilot_v12.py",
+        "sha256": "044f2a975aefe75c055c84ddc11af1548b9950b1b4a5dfcaeff0bdb70ad9028a"
+      },
+      {
+        "bytes": 13378,
+        "name": "protocol:repository_sources:cropcraft_v12_split_generator",
+        "path": "scripts/generate_cropcraft_field_robustness_pilot.py",
+        "sha256": "82293b05006277c17ca161ff3b8f7fe6ec8f2bfea945b2c36428bbda80084106"
+      },
+      {
+        "bytes": 67163,
+        "name": "protocol:repository_sources:decision_plan",
+        "path": "docs/plans/part-spot-spray-simulation-video-ab-protocol-adaptive-plan.md",
+        "sha256": "8ed5062bfb386f7245cc3019b6a0b8695df13f5ab284fb74ca1d77ba7c8abbe3"
+      },
+      {
+        "bytes": 7387,
+        "name": "protocol:repository_sources:frozen_action_contract",
+        "path": "configs/benchmark/spot_spray_target_rig_action_eval_v1.yaml",
+        "sha256": "210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09"
+      },
+      {
+        "bytes": 74523,
+        "name": "protocol:repository_sources:frozen_action_evaluator",
+        "path": "scripts/evaluate_spot_spray_target_rig_action_v1.py",
+        "sha256": "3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45"
+      },
+      {
+        "bytes": 4241,
+        "name": "protocol:repository_sources:integrated_claim_boundary",
+        "path": "docs/SPOT_SPRAY_INTEGRATED_CONTRACT_RELEASE_V1.md",
+        "sha256": "ad867317332dc2421188bad5903b47e6c0deeb08912243103d74e1ead5d426ad"
+      },
+      {
+        "bytes": 59266,
+        "name": "protocol:repository_sources:product_architecture",
+        "path": "configs/deploy/spot_spray_product_architecture_v1.yaml",
+        "sha256": "09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd"
+      },
+      {
+        "bytes": 6615,
+        "name": "protocol:repository_sources:sensor_motion_v7_asset_gate",
+        "path": "configs/simulation/cropcraft_sensor_motion_asset_gate_v7_r1.yaml",
+        "sha256": "05aada33bd5fafd9f152c4568a4f870b2976bf991a866856bebf68ee04592638"
+      },
+      {
+        "bytes": 15435,
+        "name": "protocol:repository_sources:sensor_motion_v7_protocol",
+        "path": "configs/benchmark/simulation_sensor_motion_additive_protocol_v7_r1.yaml",
+        "sha256": "4654e5e9625f5d2d8e6f8a8df1e4e072f095b24921aad068f226fd8faba94bee"
+      },
+      {
+        "bytes": 6588,
+        "name": "protocol:external_sources:cropcraft_v12_proxy_receipt",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/cropcraft_deploy_segment_proxy_v12/dataset_receipt.json",
+        "sha256": "a61317815ca9870a22cf7ba11118a7756a87accdbcfc022a3c78890e7c92e13d"
+      },
+      {
+        "bytes": 135531,
+        "name": "protocol:external_sources:cropcraft_v12_release_receipt",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/release_receipt.json",
+        "sha256": "ff733bff9458af8afebbfdc84a5c5ee4377df0f7635c55638b61889a22b57cf0"
+      },
+      {
+        "bytes": 14567,
+        "name": "protocol:external_sources:cropcraft_v12_test_receipt",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/test/release_receipt.json",
+        "sha256": "dc0bf91f5f825a4d75784150713be8d3e76d80b896631fc34ca5deee5e9aff2a"
+      },
+      {
+        "bytes": 14566,
+        "name": "protocol:external_sources:cropcraft_v12_validation_receipt",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/val/release_receipt.json",
+        "sha256": "5b34be56ec0a7788bf22a298ae0403fb9cae486fcd28a1705fa0915bdc38edea"
+      },
+      {
+        "bytes": 23416861,
+        "name": "protocol:external_sources:selected_foundation_checkpoint",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt",
+        "sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100"
+      },
+      {
+        "bytes": 13619,
+        "name": "protocol:external_sources:sensor_motion_v7_selection_receipt",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_additive_screen_selection_v7_r1.json",
+        "sha256": "8b78085b6ce6e4bc1a9bacc2d6437fc0c2ea859168421156b02e3502ab68c601"
+      }
+    ],
+    "protocol_internal_locks_sha256": "57529dcea70f8641e84ea2a8cd6adceda05f07181288b5eee4a104de3ea05d13",
+    "runtime": {
+      "blender_version": "Blender 4.5.12 LTS",
+      "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+    }
+  },
+  "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY",
+  "storage_estimate": {
+    "fixture_estimated_bytes": 8000000000,
+    "fixture_pairs": 2,
+    "full_arm_videos": 192,
+    "full_calibration_pairs": 32,
+    "full_estimated_bytes": 180000000000,
+    "full_locked_test_pairs": 64,
+    "full_native_frames": 5760,
+    "full_total_pairs": 96,
+    "method": "conservative_uncompressed_frame_equivalents_plus_prediction_margin",
+    "note": "The full estimate is an admission bound, not a promise of compression ratio; a measured fixture multiplier must replace it before the full render starts."
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "authorization": {
+    "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "manager_authorization_event_id": "scheduled-resume-20260817103307-75b799f2dfc8",
+    "manager_session_id": "019fb346-5ead-7600-8068-40b32b0daa06",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 55,
+    "portfolio_id": "goal-multi-repeat-agents-spot-spray-simulation-video-ab-v1-b8e46607aeea",
+    "portfolio_lane": "full-simulation-video-ab-execution-v1",
+    "portfolio_revision": 97,
+    "repository": "/home/ankaref/utku/tar\u0131m_projesi",
+    "strategy": "base"
+  },
+  "candidate_31_exhaustion_action": "fail_closed_stop_for_new_manager_decision",
+  "candidate_index_epochs": {
+    "combined": [
+      0,
+      31
+    ],
+    "historical_v1": [
+      0,
+      9
+    ],
+    "roster_extension_v1": [
+      10,
+      31
+    ]
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_execution_release_v1_plus_roster_extension_v1",
+  "execution_locks": {
+    "full_render_execution_lock_extension_v1.json": "a022c955e424327ff98ddeb9e8863f64ae23577afa61b992a649048fe4f3c0ab",
+    "gt_scout_execution_lock_extension_v1.json": "cdeb185a73ef23b9bb575bf4c4a6bd1fee0f87d67a344d0aade6f505bf0027f0",
+    "locked_test_recovery_execution_lock_extension_v1.json": "5af1af3dc8792bc91411072b7eeb22bf6e6b22dd00383747a1265a818192ae49",
+    "locked_test_render_batch_execution_lock_extension_v1.json": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74"
+  },
+  "extension_execution_config_sha256": "6c37c11665c32be662879bb250eb654b8a5bd55834b4eeb896f3a74d031eb259",
+  "extension_execution_script_sha256": "e6780e0aef77842c1e9b7d92ce0e1c518d49a1c90c4397209e1236262395d685",
+  "extension_execution_test_sha256": "9d568c27d57c147c4bc8fa95c9fe18929820b29a8e076ec892f02ae343b9e0ad",
+  "historical_pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+  "historical_v1_epoch_identity_sha256": "7db0264f2618eeb4e7c4ab63ae0f31158e6880576c46be4d99a6ab9fa080be9c",
+  "manager_authorization_migration_bridge_sha256": "a2cf008ac9dad93f44b36134406ef4518d6afb15860ab941e9a4139124db7784",
+  "model_or_outcome_access_during_release_sealing": false,
+  "old_receipts_rebound_to_new_implementation": false,
+  "pair_roster_extension_sha256": "4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d",
+  "release_identity_sha256": "5c06e7b6aa79c0b744b232b3071f4a59e0fec1d321335303d64be15aad23159c",
+  "roster_extension_contract_sha256": "dbfa4044d07451127e7288dc82aa9274255283e27cc63415faf67cb6cb495753",
+  "roster_extension_epoch_identity_sha256": "c50b60695fee5a861328be63502aa91769316582fe95e2e2a22e7b87bff9d69f",
+  "schema_version": 1,
+  "selection_rule": "lowest_unattempted_candidate_index",
+  "status": "SEALED_PARENT_EXECUTION_RELEASE_SYNTHETIC_ONLY"
+}

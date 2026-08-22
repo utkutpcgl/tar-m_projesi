@@ -1,0 +1,36 @@
+{
+  "append_only_ledger_required": true,
+  "atomic_immutable_commit_required": true,
+  "authorized_completed_count_range": [
+    42,
+    96
+  ],
+  "candidate_epoch_map": {
+    "0-9": "historical_v1",
+    "10-31": "extension_v1"
+  },
+  "canonical_earliest_pending_required": true,
+  "chain_root_identity_sha256": "ef2db36fe123d3398c75c4473a9398a64cfe6b0d8d4438a44dcc176323f26e76",
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_v1_lock",
+  "external_service_mutation_allowed": false,
+  "genesis_commit_identity_sha256": "1c0dfea8ae3c0735de1141e7e1c26f5f3bd23acbbf13b0584af97104930a76ab",
+  "genesis_commit_manifest_sha256": "753501d36308d93c73f1301d62526abaca1334e80243097d5e8a246ea7317fbf",
+  "genesis_head_identity_sha256": "d8b55559080b3a83888415787ec90f32aca6e451a06c58f01637d6bd105f396a",
+  "legacy_execution_mutation_allowed": false,
+  "lowest_unattempted_candidate_required": true,
+  "max_new_pairs": 1,
+  "model_prediction_outcome_or_target_access_allowed": false,
+  "one_pair_transition_only": true,
+  "parallel_intent_allowed": false,
+  "same_intent_crash_recovery_required": true,
+  "schema_version": 1,
+  "status": "SEALED_MONOTONIC_STATE_CHAIN_BATCH_LOCK_SYNTHETIC_ONLY"
+}

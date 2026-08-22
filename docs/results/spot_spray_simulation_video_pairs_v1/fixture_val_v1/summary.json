@@ -1,0 +1,93 @@
+{
+  "all_quality_gates_passed": true,
+  "claim_boundary": {
+    "botanical_instance_ground_truth": false,
+    "chemical_or_dry_marker_authority": false,
+    "degraded_operator_calibration": "source-bound sensor-motion stress proxy, not a measured profile of the frozen one-bay rig",
+    "field_realism_proven": false,
+    "outcome_targeting_forbidden": true,
+    "physical_rig_acceptance": false,
+    "real_capture": false,
+    "track_identity": "semantic_connected_component_proxy"
+  },
+  "dataset_id": "spot_spray_simulation_video_pairs_v1",
+  "frame_count": 6,
+  "profile": "fixture",
+  "quality_gates": {
+    "all_sequence_quality_gates_passed": true,
+    "field_realism_not_claimed": true,
+    "minimum_free_bytes_after_preserved": true,
+    "outcome_targeting_forbidden": true,
+    "source_roles_exclude_train": true,
+    "unique_output_within_profile_budget": true
+  },
+  "release": "data/synthetic/cropcraft/spot_spray_simulation_video_pairs_v1/fixture_val_v1",
+  "release_receipt": "data/synthetic/cropcraft/spot_spray_simulation_video_pairs_v1/fixture_val_v1/release_receipt.json",
+  "release_receipt_sha256": "ac94136c86b7ea620863397527b9a3b8fddc668380eebda0aec21ea9d3447e27",
+  "schema_version": 1,
+  "sequence_count": 1,
+  "sequences": [
+    {
+      "all_quality_gates_passed": true,
+      "contact_sheet": "sequences/fixture_val_scene_0001_frame_0001/qc_contact_sheet.png",
+      "contact_sheet_sha256": "be68c7e221139106537b16e7852379f1a4ce8a659c84f5cc9db6e904449d68d4",
+      "frame_count": 6,
+      "pair_manifest": "sequences/fixture_val_scene_0001_frame_0001/pair_manifest.json",
+      "pair_manifest_sha256": "c235f3394bd114f159fb5cf001f2f40c1799bf5fb2b304b417e7c32a1c53bd58",
+      "pair_metrics": {
+        "changed_rgb_pixel_fraction": {
+          "maximum": 0.9999990463256836,
+          "mean": 0.9999963442484537,
+          "minimum": 0.9999923706054688
+        },
+        "degraded_to_ideal_gradient_ratio": {
+          "maximum": 0.9201922855817768,
+          "mean": 0.8097324017101926,
+          "minimum": 0.7406275800700133
+        },
+        "frame_mean_brightness": {
+          "maximum": 179.1057850519816,
+          "mean": 161.43221373028226,
+          "minimum": 133.57138093312582
+        },
+        "fully_clipped_black_fraction_maximum": 0.0,
+        "fully_clipped_white_fraction_maximum": 0.0,
+        "rgb_rmse": {
+          "maximum": 46.68226623535156,
+          "mean": 37.1279993057251,
+          "minimum": 27.218435287475586
+        },
+        "trajectory_fill_fraction_maximum": 0.016572952270507812
+      },
+      "quality_gates": {
+        "all_videos_decodable_with_exact_timing_and_shape": true,
+        "condition_semantic_masks_byte_identical": true,
+        "condition_track_masks_byte_identical": true,
+        "degraded_rgb_differs_from_ideal_every_frame": true,
+        "frame_mean_brightness_within_v12_bounds": true,
+        "fully_clipped_black_fraction_within_v12_bound": true,
+        "fully_clipped_white_fraction_within_v12_bound": true,
+        "latent_and_ideal_rgb_byte_identical": true,
+        "minimum_changed_rgb_pixel_fraction": true,
+        "minimum_degraded_rgb_rmse": true,
+        "minimum_weed_tracks": true,
+        "semantic_palette_preserved": true,
+        "semantic_video_lossless_roundtrip": true,
+        "semantic_video_shared_byte_identically": true,
+        "track_proxy_pixels_align_with_semantic_class": true,
+        "trajectory_fill_fraction_bounded": true
+      },
+      "sequence_id": "fixture_val_scene_0001_frame_0001",
+      "weed_track_proxy_count": 6
+    }
+  ],
+  "storage": {
+    "free_bytes_after_build": 342584971264,
+    "free_bytes_before": 342603259904,
+    "logical_bytes_including_hardlinks": 24723853,
+    "maximum_unique_output_bytes": 536870912,
+    "minimum_free_bytes_after": 300000000000,
+    "unique_file_bytes": 18164179,
+    "unique_inodes": 32
+  }
+}

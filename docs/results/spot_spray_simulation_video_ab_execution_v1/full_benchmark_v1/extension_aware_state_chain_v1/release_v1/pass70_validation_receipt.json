@@ -1,0 +1,53 @@
+{
+  "access_guard": {
+    "candidate_gt_accessed": false,
+    "external_services_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "real_batch_intents_created": 0,
+    "registered_targets_used": false,
+    "rendering_calls": 0,
+    "validation_only": true
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_v1_pass70_validation",
+  "event_id": "scheduled-resume-20260820071103-366db80fd093",
+  "genesis_commit_identity_sha256": "1c0dfea8ae3c0735de1141e7e1c26f5f3bd23acbbf13b0584af97104930a76ab",
+  "genesis_head_identity_sha256": "d8b55559080b3a83888415787ec90f32aca6e451a06c58f01637d6bd105f396a",
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "pass": 70,
+  "regression_contract": {
+    "atomic_failure_is_crash_safe_and_idempotent": true,
+    "duplicate_or_parallel_intent_fails_closed": true,
+    "ledger_mutation_truncation_or_noncanonical_append_fails_closed": true,
+    "pair_receipt_forgery_fails_closed": true,
+    "patched_callable_is_always_restored": true,
+    "rollback_skip_reorder_or_prefix_suffix_drift_fails_closed": true,
+    "root_current_predecessor_result_tamper_fails_closed": true
+  },
+  "schema_version": 1,
+  "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+  "status": "READY_FOR_MANAGER_VALIDATION",
+  "validated_root": {
+    "appended_pair_id": "locked_test_c001_r01",
+    "ledger_row_count": 111,
+    "ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "pending_pair_count": 54,
+    "predecessor_completed_pair_count": 41,
+    "predecessor_state_sha256": "0e2f0ed5143dca870b3e7d4c9096bd79025b2bc7456d77dc4e1f2d0fbd9457f5",
+    "published_pair_receipt_count": 42,
+    "published_pair_receipt_inventory_sha256": "500dc15cb479c4812cbdff83e95a9ff273d1214450cd30b7fad8840fba768ea5",
+    "result_completed_pair_count": 42,
+    "result_state_sha256": "7ab698a03479c2e7899c17d17e7abf0a2d08a0556585abf10769c14993efcbce"
+  }
+}

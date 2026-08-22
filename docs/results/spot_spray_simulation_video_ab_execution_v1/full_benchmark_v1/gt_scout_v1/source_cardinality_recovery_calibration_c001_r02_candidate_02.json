@@ -1,0 +1,173 @@
+{
+  "all_five_seed_bindings_exact": true,
+  "bounded_cleanup": {
+    "bounded_to_recovery_staging": true,
+    "bulk_bytes_removed": 8132868,
+    "bulk_payload_retained": false,
+    "retained_receipts_and_log": {
+      "capture_receipt.json": "a5d24fd7a5378d68129561d5b194664969d875642deb7183e869d5612d4e9aee",
+      "cropcraft_runner.log": "5d511fa92b50e45c8835d1d8d714cc3621b7dd7d5be76a9fd04ce97827faf40e",
+      "generation_receipt.json": "5d511fa92b50e45c8835d1d8d714cc3621b7dd7d5be76a9fd04ce97827faf40e",
+      "source_objects.json": "65678eb231c0235ecfc5d7375c45bce30bfd4e6a3d68269a2ad3d051412d8bc2",
+      "track_registry.json": "28e7595f0a3e4cafb4b2672b741ba31fa20cbeb13bb92f1e955be363671128e5",
+      "tracks.jsonl": "a9024ecc436db5773858ad632f59ad78693091023499be631ea69b4f02d7e1ee"
+    },
+    "source_scene_removed": true
+  },
+  "candidate_identity_sha256": "5854588bd2d0b9d58b34df64b9b786c910117eed5f0062c0016bc4363b1d64f9",
+  "candidate_index": 2,
+  "candidate_seeds": {
+    "audit_sample_seed": 4761825233229407676,
+    "capture_draw_seed": 2681725915350183376,
+    "renderer_seed": 16445031689636239285,
+    "scene_seed": 6037437715153304256,
+    "trajectory_seed": 3349680743139610711
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "composed_patch": {
+    "base_full_scene_patch_sha256": "3c5ba726370d943bc93335afb8dd4f8169fac83ebec3c2e39875f8495fdabce1",
+    "full_runtime_overlay_included": true,
+    "gt_scout_overlay_included": true,
+    "ordered_constituents": [
+      {
+        "path": "patches/cropcraft/0006-field-robustness-surface-lighting.patch",
+        "sha256": "ad3f65815a1a269bbefa41cb3292c9836e63ccd91af146ed27247a5befde416b"
+      },
+      {
+        "path": "patches/cropcraft/0002-instance-track-ground-truth.patch",
+        "sha256": "c2301376c2f1607d1abfeeb75a6b9ad9b29873c764b027bd6995b10ebcaddd24"
+      },
+      {
+        "path": "embedded:full_runtime_overlay_v1",
+        "sha256": "bdefdbab35ab9161c12adb14045e2404c888f370ad16a42f4297542e0201d18b"
+      },
+      {
+        "path": "embedded:gt_scout_runtime_overlay_v1",
+        "sha256": "4de489ee4ab48a4c7f9e32983ce7eae3a40921683e5f3661156af05079845f9e"
+      }
+    ],
+    "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_source_cardinality_recovery_v1/.partial-calibration_c001_r02-candidate-02-d114303fd3b142f291f38f98c129d8bd/bindings/gt_scout_scene.patch",
+    "sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248"
+  },
+  "contract": "spot_spray_simulation_video_ab_gt_source_cardinality_recovery_v1",
+  "decision": {
+    "contract": "spot_spray_simulation_video_ab_gt_source_cardinality_recovery_v1",
+    "decision_contract_sha256": "dad4c60f12d41265f05780a9336eeb4fc17be1b90689f86e5cf17aeeef65b40b",
+    "full_render_still_required_for_acceptance": true,
+    "model_or_outcome_inputs_used": false,
+    "pair_id": "calibration_c001_r02",
+    "recovery_has_acceptance_authority": false,
+    "registered_targets_used": false,
+    "rejectable_by_scout": true,
+    "rejection_reasons": [
+      "eligibility:source_weed_track_present"
+    ],
+    "schema_version": 1,
+    "source_cardinality_checks": {
+      "source_crop_track_present": true,
+      "source_weed_track_present": false
+    },
+    "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+    "synthetic_only": true
+  },
+  "elapsed_wall_seconds": 157.09187373053282,
+  "generation": {
+    "elapsed_wall_seconds": 156.95242063701153,
+    "receipt_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_source_cardinality_recovery_v1/.partial-calibration_c001_r02-candidate-02-d114303fd3b142f291f38f98c129d8bd/source_scene/generation_receipt.json",
+    "receipt_sha256": "5d511fa92b50e45c8835d1d8d714cc3621b7dd7d5be76a9fd04ce97827faf40e",
+    "runner_log": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_source_cardinality_recovery_v1/.partial-calibration_c001_r02-candidate-02-d114303fd3b142f291f38f98c129d8bd/source_scene.runner.log",
+    "runner_log_sha256": "5d511fa92b50e45c8835d1d8d714cc3621b7dd7d5be76a9fd04ce97827faf40e",
+    "scene_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "validated_pairs": 30
+  },
+  "inference_calls": 0,
+  "inventory_file_count_before_terminal_receipt": 11,
+  "inventory_sha256": "5b9714529b0e44d499881aee852ce2abaa016703ee6427d49a95bcb1f70849fc",
+  "model_loaded": false,
+  "outcome_inputs": [],
+  "pair_id": "calibration_c001_r02",
+  "pair_slot_identity_sha256": "28d6e7e4a39792c12dc80893100fde78c287575adecb94df5e1bd1d7b969cb28",
+  "preflight": {
+    "capacity": {
+      "free_bytes": 336360005632,
+      "passed": true,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft",
+      "required_bytes": 8000000000,
+      "reserve_bytes_after_estimate": 0,
+      "total_bytes": 491106508800,
+      "used_bytes": 129724387328
+    },
+    "checkpoint_hash_verified_as_source_lock": true,
+    "checkpoint_loaded": false,
+    "gpu": {
+      "external_process_policy": "observed_only_never_stopped_or_modified",
+      "index": 0,
+      "memory_free_mib": 23529,
+      "memory_total_mib": 24576,
+      "memory_used_mib": 587,
+      "name": "NVIDIA GeForce RTX 3090"
+    },
+    "scope": "fixture"
+  },
+  "protocol_split": "calibration",
+  "recovery_execution_lock_sha256": "0d9ffc139e34c126b7b47f01ab0751495afadb71cab1cce5bb0d2f138610eab2",
+  "recovery_implementation_sha256": "85a20e86fda07d3438a4eeb648a08725c572849b4ab25dfe9907c9e015fe06fa",
+  "role_asset_validation": {
+    "all_used_and_exposed_assets_allowed": true,
+    "exposed_candidate_count": 5,
+    "exposed_candidate_stems": [
+      "sorghum_seedling_v2/sorghum_stage1_v1_field_stress",
+      "sorghum_seedling_v2/sorghum_stage1_v2_field_stress",
+      "sorghum_seedling_v2/sorghum_stage1_v2_healthy_light",
+      "sorghum_seedling_v2/sorghum_stage1_v3_field_stress",
+      "sorghum_seedling_v2/sorghum_stage1_v3_healthy_light"
+    ],
+    "role_allowlist_sha256": "8d73b4633669f1f5f10e697ff2f67161ccb6b0ec1c311dbfacf30d4c14e97c76",
+    "role_object_identity_sha256": "561ace162e00e1ef0a901c87159e95883c8484078abf3ab7a16dbfbe81f75f92",
+    "used_asset_count": 3,
+    "used_asset_stems": [
+      "sorghum_seedling_v2/sorghum_stage1_v2_field_stress",
+      "sorghum_seedling_v2/sorghum_stage1_v3_field_stress",
+      "sorghum_seedling_v2/sorghum_stage1_v3_healthy_light"
+    ]
+  },
+  "schema_version": 1,
+  "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+  "sealed_gt_scout_execution_lock_sha256": "5fe68dd43183a588b02724bfd0af090f405f7a27f2eacf74b109b84c40a3c3d3",
+  "source_cardinality_audit": {
+    "contract": "spot_spray_simulation_video_ab_gt_source_cardinality_recovery_v1",
+    "frame_count": 30,
+    "locked_botanical_validator_failure": "Too few source weed tracks: 0",
+    "model_or_outcome_inputs_used": false,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "rejection_reason": "eligibility:source_weed_track_present",
+    "schema_version": 1,
+    "source_crop_track_count": 7,
+    "source_gt_file_sha256": {
+      "source_objects.json": "65678eb231c0235ecfc5d7375c45bce30bfd4e6a3d68269a2ad3d051412d8bc2",
+      "track_registry.json": "28e7595f0a3e4cafb4b2672b741ba31fa20cbeb13bb92f1e955be363671128e5",
+      "tracks.jsonl": "a9024ecc436db5773858ad632f59ad78693091023499be631ea69b4f02d7e1ee"
+    },
+    "source_scene_graph_identity_sha256": "64a542f926bcd22721f1b21b1a94703cb573190a44bb33720cfdfb11ee3b326f",
+    "source_track_count": 7,
+    "source_weed_track_count": 0,
+    "track_table_full_grid": true
+  },
+  "source_template": {
+    "profile": "hood_dry_nominal",
+    "scene_id": "scene_0000",
+    "sha256": "0508ebfa399da1bc854e08ee2dda27578884cbfcddaf9043605634dd23a0f0ae"
+  },
+  "source_template_sha256_exact": true,
+  "status": "REJECT_ZERO_SOURCE_WEED_TRACKS_PREOUTCOME_SYNTHETIC_ONLY"
+}

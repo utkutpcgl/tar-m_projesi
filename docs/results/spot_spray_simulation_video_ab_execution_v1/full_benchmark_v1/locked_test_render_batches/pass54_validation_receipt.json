@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_execution_pass54_validation_v1",
+  "status": "FAIL_CLOSED_LOCKED_TEST_C001_R00_ALL_TEN_CANDIDATES_EXHAUSTED_MANAGER_AUTHORITY_REQUIRED_SYNTHETIC_ONLY",
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "pass": 54,
+  "observed_at": "2026-08-17T13:29:35+03:00",
+  "selected_step": "After twenty minutes, inspect PID 2765903 and the unchanged c001 intent; validate candidate 7 and any candidate 8-9 terminal transitions through an active full native render or atomic locked_test_c001_r00 publication, or fail closed on exact candidate exhaustion or renderer error without model, prediction or locked-test outcome access.",
+  "batch_binding": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r00_3ec5f07f5fcf647f",
+    "request_identity_sha256": "3ec5f07f5fcf647ffcfc3605c9eb502caa81e011de00ce3abc95deba362a06f5",
+    "batch_intent_sha256": "e97bd46ddfbe1c5874700578f6eaa67a1e1bf1fd9050024c56d72ea9655e9a9a",
+    "batch_execution_lock_sha256": "5bd38a72d9a07dbbb1077de770a4509d75b023dc05d7d7edc397b818d4c12ce6",
+    "target_pair_ids": [
+      "locked_test_c001_r00",
+      "locked_test_c001_r01",
+      "locked_test_c001_r02",
+      "locked_test_c001_r03",
+      "locked_test_c001_r04",
+      "locked_test_c001_r05",
+      "locked_test_c001_r06",
+      "locked_test_c001_r07"
+    ],
+    "max_new_pairs": 8,
+    "intent_unchanged": true,
+    "terminal_batch_receipt_present": false,
+    "docs_terminal_batch_receipt_present": false
+  },
+  "terminal_process": {
+    "pid": 2765903,
+    "session_id": 2765903,
+    "alive": false,
+    "session_process_count": 0,
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/process_logs/locked_test_render_batch_locked_test_c001_r00_pass51.log",
+    "log_sha256": "e27016cc0ed1f67c3de89097b37744ab6cebe78b1e52134f011c7a028eddfb24",
+    "log_bytes": 2531,
+    "pillow_deprecation_warning_count": 10,
+    "terminal_error_line_count": 1,
+    "terminal_error_type": "ContractError",
+    "terminal_error": "Locked-test render batch exhausted candidates: locked_test_c001_r00",
+    "traceback_cuda_or_oom_line_count": 0,
+    "failed_closed": true,
+    "external_services_stopped_or_modified": false
+  },
+  "new_terminal_gt_only_rejections": [
+    {
+      "candidate_index": 7,
+      "candidate_identity_sha256": "da85c1f9a486c712e7620428a5664f6f73786beab7c8591e728dcd4e0bd58c5c",
+      "rejection_reasons": ["semantic:mean_crop_fraction_in_range", "semantic:mean_weed_fraction_in_range"],
+      "canonical_gt_sha256": "52014cbc5e8c443265cded5fa82650f3f6892e9abe8bccab71aa1e8626d10656",
+      "terminal_receipt_sha256": "4820775c81750a41d719e96f6bf8e79d2d82bf1a018520da479bd158c0322f2d",
+      "decision_receipt_sha256": "3fccf8d3b503d2022b31d929682fc055b3f67559447128857346b0f36b0c63c8",
+      "gt_audit_receipt_sha256": "7a32c68400e62c97e9fd0a9710f4a9f7fc8a3e51afc58565b99ced7a60577c50",
+      "ledger_commit_receipt_sha256": "542ba864287e124d78536130ebf80fc284e3a866acc7a8dc961a7f1c16f771d8"
+    },
+    {
+      "candidate_index": 8,
+      "candidate_identity_sha256": "5f74fb2cb6a1896c2642216b7dace2791a7bf347e6ed70c6b507ef868514f452",
+      "rejection_reasons": ["semantic:weed_free_frame_fraction_within_limit", "semantic:mean_crop_fraction_in_range", "semantic:mean_weed_fraction_in_range"],
+      "canonical_gt_sha256": "71969c04c0d2a3a30cf6158097531842ecfd65e055afdcb34b9b95c5b174201f",
+      "terminal_receipt_sha256": "8620905e3728fbbf4d2f13c59549ad24067aede1165ad72439d422d5c2d7ee77",
+      "decision_receipt_sha256": "11fc96e48c12b81bd3567e14d1b3bb7aa13579390fe2e6f7bb056505ab1f96b4",
+      "gt_audit_receipt_sha256": "f883530a8def7983dc3515519a0a8b2b333fe64a5c6a290005714a44a1a3e4bb",
+      "ledger_commit_receipt_sha256": "b3ed1a8b8b92a8cf90404c715fb906565fa275514fcff94bd781c85c8f5b54e6"
+    },
+    {
+      "candidate_index": 9,
+      "candidate_identity_sha256": "72090de92007f65ad568c4044c502371a7c2bcc0e59779730cdd8a6ca3c4dda2",
+      "rejection_reasons": ["semantic:weed_free_frame_fraction_within_limit", "semantic:mean_weed_fraction_in_range"],
+      "canonical_gt_sha256": "ae5cc3e806bee53f2f13a57b0757b910cc2ec38fee3afd79a93a59d2ac76050c",
+      "terminal_receipt_sha256": "64be5abe10d117190a89f273738222459609eb54a0d53249e20e6be5c7a9b140",
+      "decision_receipt_sha256": "e5dc60186258c3189979840518879adeab1306a8820dd9ce0b5456dffe247c8c",
+      "gt_audit_receipt_sha256": "bfd3b98c8aafbff23c6b754c8444ddba4f89f25c893790dca37fab5024c7e145",
+      "ledger_commit_receipt_sha256": "ca23eb3936d1b772824594728aa9aeafd4c475e2a9df3ae5eb43393d55c88501"
+    }
+  ],
+  "candidate_exhaustion": {
+    "pair_id": "locked_test_c001_r00",
+    "configured_maximum_candidates_per_slot": 10,
+    "attempted_candidate_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "all_candidates_have_terminal_rejection_receipts": true,
+    "all_candidates_committed_once_in_canonical_order": true,
+    "all_rejections_use_only_frozen_semantic_and_eligibility_gates": true,
+    "all_model_or_outcome_inputs_used": false,
+    "all_model_loaded": false,
+    "all_inference_calls": 0,
+    "all_outcome_inputs": [],
+    "canonical_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "canonical_rejection_ledger_row_count": 111,
+    "locked_test_c001_r00_ledger_row_count": 10,
+    "no_candidate_authorized_for_full_render": true,
+    "no_pair_payload_published": true
+  },
+  "frozen_contract_authority": {
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "configured_maximum_candidates_per_slot": 10,
+    "atomic_render_state_contract_sha256": "c8ea7db85e3c5bc309cf888cda188215f7b6aeea5c25271f02861f388a653237",
+    "candidate_exhaustion_rule": "invalidate_slot_and_stop_before_model_access",
+    "missing_final_receipt_rule": "fail_closed_never_treat_complete",
+    "next_candidate_rule": "lowest_not_previously_rejected_index",
+    "selected_pair_overwrite_allowed": false,
+    "worker_may_expand_or_replace_roster": false,
+    "worker_may_relax_frozen_gates": false,
+    "worker_may_skip_required_protocol_slot": false
+  },
+  "idempotent_same_intent_repeat": {
+    "command_exit_code": 1,
+    "terminal_error_type": "ContractError",
+    "terminal_error": "GT scout candidate attempts exhausted: locked_test_c001_r00",
+    "new_render_started": false,
+    "render_state_sha256_before": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "render_state_sha256_after": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "ledger_sha256_before": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "ledger_sha256_after": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "batch_intent_sha256_before": "e97bd46ddfbe1c5874700578f6eaa67a1e1bf1fd9050024c56d72ea9655e9a9a",
+    "batch_intent_sha256_after": "e97bd46ddfbe1c5874700578f6eaa67a1e1bf1fd9050024c56d72ea9655e9a9a",
+    "staging_directories_after": [],
+    "model_loaded": false,
+    "inference_calls": 0
+  },
+  "atomic_render_state": {
+    "render_state_receipt_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "planned_pair_count": 96,
+    "completed_pair_count": 40,
+    "pending_pair_count": 56,
+    "first_pending_pair_id": "locked_test_c001_r00",
+    "last_completed_pair_id": "locked_test_c000_r07",
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "atomic_boundary_preserved": true
+  },
+  "machine_observation": {
+    "gpu_memory_total_mib": 24576,
+    "gpu_memory_used_mib": 21178,
+    "gpu_memory_free_mib": 2938,
+    "external_ollama_pid": 3100461,
+    "external_ollama_used_memory_mib": 20586,
+    "external_ollama_model": "gemma4:26b",
+    "ollama_reported_until": "3 minutes from observation",
+    "data_disk_free_bytes": 305914875904,
+    "external_services_stopped_or_modified": false,
+    "candidate_exhaustion_is_independent_of_current_gpu_availability": true
+  },
+  "validation": {
+    "current_command_validation": "PASS_EXACT_TEN_REJECTIONS_TERMINAL_EXHAUSTION_ATOMIC_STATE_AND_IDEMPOTENT_FAIL_CLOSED_REPEAT",
+    "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "script_sha256": "e650340418ae213d433f18356b6acad5b77942ae67ac3df2577bfe18840fe3d2",
+    "test_sha256": "f6687b33fd137c6482897529b91f49d48bd2d246c4fce41f9249a9de540f856d",
+    "checkpoint_sha256_verified_as_source_lock": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100"
+  },
+  "access_guard": {
+    "render_and_machine_audit_only": true,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "full_model_run_root_present": false,
+    "published_pair_prediction_outputs_present": false,
+    "locked_test_prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": []
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "outcome_target_tuning_forbidden": true
+  },
+  "highest_evidence_proven": "All 32 calibration pairs and the first eight locked-test pairs are atomically published and validated: exact state 40/96. For required slot locked_test_c001_r00, all ten frozen roster candidates were rejected in canonical order using only preoutcome GT gates; the slot is invalidated and execution stopped before model access exactly as the frozen contract requires.",
+  "exact_blocker": "The protocol-required locked_test_c001_r00 slot has exhausted its entire frozen 10-candidate roster. Continuing requires manager authority to issue a new source-locked protocol/roster policy (for example, a separately versioned candidate expansion or an explicit objective revision for an invalidated slot); the worker cannot expand candidates, relax gates, skip the slot, or tune against outcomes.",
+  "remaining_work": "The exact 32-calibration/64-locked-test render objective cannot be completed under the current frozen roster. Fifty-six locked-test pairs, frozen inference, shared-threshold locking, exactly-once test evaluation, videos, metrics, uncertainty, strata, verdicts, failure analysis, inventory and cleanup remain blocked at locked_test_c001_r00.",
+  "unblock_condition": "The manager must provide and bind an authorized revised protocol/roster decision that resolves locked_test_c001_r00 candidate exhaustion without using model predictions or locked-test outcomes, or explicitly revise the lane objective to permit the invalidated slot."
+}

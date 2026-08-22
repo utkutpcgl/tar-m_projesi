@@ -1,0 +1,13 @@
+{
+  "chain_root_identity_sha256": "ef2db36fe123d3398c75c4473a9398a64cfe6b0d8d4438a44dcc176323f26e76",
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_v1_head",
+  "head_identity_sha256": "8f2b25d57e39828e231e1f47f53b08f42128df01a08dc8962c3a5271d9d1217b",
+  "pair_id": "locked_test_c001_r07",
+  "predecessor_head_identity_sha256": "e66e962aae41c652e4b9362ee23357def0402a518c2aea6c3d113af1222dc077",
+  "result_ledger_sha256": "641f12383be27f035e8601212cd9e75cd9f50ce7e5f858ca278714f1efc2c494",
+  "result_state_sha256": "e5acd4a67ba5ac29a6b27594f6c979018260d83e411331a94df9407638e610e3",
+  "schema_version": 1,
+  "sequence": 48,
+  "status": "SEALED_MONOTONIC_STATE_CHAIN_HEAD_SYNTHETIC_ONLY",
+  "transition_record_sha256": "d8da88bcb8a9ede5b863d007d7817a9ef46a6e13819d1d8e197980761af8dba4"
+}

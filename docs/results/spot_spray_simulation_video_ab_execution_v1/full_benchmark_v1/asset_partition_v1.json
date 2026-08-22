@@ -1,0 +1,707 @@
+{
+  "algorithm": "sha256_filename_order_round_robin_by_role_v1",
+  "identity_definition": "plant_family_plus_filename_and_obj_sha256",
+  "partition_sha256": "7630406327e0c4403ba145bf83b3a6d769b28bc0a4959fe3e6950396d5cbeb2c",
+  "roles": {
+    "calibration": {
+      "allowlist": [
+        "sorghum_seedling_v2/sorghum_stage1_v1_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage1_v2_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage1_v2_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage1_v3_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage1_v3_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage2_v1_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage2_v1_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage2_v2_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage2_v2_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage3_v1_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage3_v1_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage3_v2_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage3_v2_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage3_v3_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage3_v3_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage4_v1_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage4_v1_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage4_v2_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage4_v3_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage4_v3_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage5_v1_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage5_v1_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage5_v3_field_stress.obj",
+        "weed_broadleaf_v2/ph_nettle_plant_03.obj",
+        "weed_broadleaf_v2/ph_nettle_plant_05.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_02.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_04.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_05.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_06.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_07.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_10.obj",
+        "weed_broadleaf_v2/ph_weed_plant_02_03.obj",
+        "weed_broadleaf_v2/ph_weed_plant_02_05.obj",
+        "weed_broadleaf_v2/weed_broadleaf_v2_02.obj",
+        "weed_broadleaf_v2/weed_broadleaf_v2_03.obj",
+        "weed_broadleaf_v2/weed_broadleaf_v2_04.obj",
+        "weed_broadleaf_v2/weed_broadleaf_v2_06.obj",
+        "weed_cotyledon_v2/weed_cotyledon_v2_03.obj",
+        "weed_cotyledon_v2/weed_cotyledon_v2_05.obj",
+        "weed_cotyledon_v2/weed_cotyledon_v2_06.obj",
+        "weed_grass_v2/weed_grass_v2_01.obj",
+        "weed_grass_v2/weed_grass_v2_04.obj",
+        "weed_grass_v2/weed_grass_v2_06.obj",
+        "weed_rosette_v2/ph_dandelion_01_01.obj",
+        "weed_rosette_v2/ph_dandelion_01_03.obj",
+        "weed_rosette_v2/ph_dandelion_01_04.obj",
+        "weed_rosette_v2/weed_rosette_v2_01.obj",
+        "weed_rosette_v2/weed_rosette_v2_04.obj",
+        "weed_rosette_v2/weed_rosette_v2_06.obj"
+      ],
+      "allowlist_sha256": "8d73b4633669f1f5f10e697ff2f67161ccb6b0ec1c311dbfacf30d4c14e97c76",
+      "models": [
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage1_v1_field_stress.obj",
+          "height_m": 0.06,
+          "object_sha256": "30ff1a9ffd3ebfa5af8c688bb84c1aaebf1cd46f80418efde1467dad578688ec"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage1_v2_field_stress.obj",
+          "height_m": 0.06,
+          "object_sha256": "fb1b2a4e05acbc8ecfda0976ef2dfb88c42d6d1d3e6aae5cf594a71bf0df9703"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage1_v2_healthy_light.obj",
+          "height_m": 0.06,
+          "object_sha256": "078e1f96f6ab9bb70cf6ddc6aeab35c989d78ab0362228f00753a03de375a2ba"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage1_v3_field_stress.obj",
+          "height_m": 0.06,
+          "object_sha256": "658f4598c3afe468fb92074b3af0aaa8edf209d63e33906dcb215d33d15600b4"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage1_v3_healthy_light.obj",
+          "height_m": 0.06,
+          "object_sha256": "272622b59366a808f2f3477a197c6daf755ae08fe25ea8d81969e215519e8835"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage2_v1_field_stress.obj",
+          "height_m": 0.09,
+          "object_sha256": "a6cf46afa2fcfbb1af33177903be544c427533936ac97ab89900618660be9573"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage2_v1_healthy_dark.obj",
+          "height_m": 0.09,
+          "object_sha256": "3350d61d766795390c0d3285af7869b105a6632409adcba715c4df8f41d23a7a"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage2_v2_healthy_dark.obj",
+          "height_m": 0.09,
+          "object_sha256": "0a82938628f97a321423abcdab75f63eb8bed973c4ca9951c0d221279f013705"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage2_v2_healthy_light.obj",
+          "height_m": 0.09,
+          "object_sha256": "2a129ba52edf4d4ca8298b3745657fe27a65afc8a5827fd44339f6a41ea37342"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage3_v1_healthy_dark.obj",
+          "height_m": 0.13,
+          "object_sha256": "4e2fe08c0c933ccd38d3da47c83f885130de3b273575583d65dba8698873d594"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage3_v1_healthy_light.obj",
+          "height_m": 0.13,
+          "object_sha256": "9bfe06ac93744f4ed2846e48a4ab1bffec983585871809e75e159817f809393e"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage3_v2_healthy_dark.obj",
+          "height_m": 0.13,
+          "object_sha256": "b29c7fde74b5246f6a2016b032d7c844f75da8f7aa0bd5aacb88fe4fa24738cf"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage3_v2_healthy_light.obj",
+          "height_m": 0.13,
+          "object_sha256": "c49bb0198dc7599fa72127c311772b5f1bc56467c37a596a9c5bd8871d2113c4"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage3_v3_field_stress.obj",
+          "height_m": 0.13,
+          "object_sha256": "a253f1cd3d31c7eb35dec66876e18a50759fe70f6b981e3b34b8b5bb591d0c00"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage3_v3_healthy_light.obj",
+          "height_m": 0.13,
+          "object_sha256": "07866a65590e809b95eea5e4a246904f3cfac38d3fd5a3ac873b6eff3a961f47"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage4_v1_field_stress.obj",
+          "height_m": 0.18,
+          "object_sha256": "80899fd82250dd13c73a55a6cc99a17607051ea8ece252bda1288fc04e6b558f"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage4_v1_healthy_dark.obj",
+          "height_m": 0.18,
+          "object_sha256": "550ee05203a7f49c8cf7e761e587110e3713254c49b659b153f4d701c5663cb8"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage4_v2_healthy_dark.obj",
+          "height_m": 0.18,
+          "object_sha256": "ebfbd99bb6417ee455a05c531505f57edcb2470e1e38d714d3e3168e157353af"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage4_v3_healthy_dark.obj",
+          "height_m": 0.18,
+          "object_sha256": "38fd35a5d0ed4e3b95a186ec292f0ba63489937a5d512c552ede554afd7c59ef"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage4_v3_healthy_light.obj",
+          "height_m": 0.18,
+          "object_sha256": "2eaa6d0b93ff218403e6253c5fbfe23591c71943554de974c9d38fc7fc7a6a02"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage5_v1_healthy_dark.obj",
+          "height_m": 0.24,
+          "object_sha256": "446fcb2be3683a6117a2cf70435dd0f9a02b0a5f9cb69fc9f61163c2e08b706b"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage5_v1_healthy_light.obj",
+          "height_m": 0.24,
+          "object_sha256": "fa37c1c9c810309c6402afe43a37b0c672573a10443b96c60cc08c5274f39594"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage5_v3_field_stress.obj",
+          "height_m": 0.24,
+          "object_sha256": "06c526ef9a1a0d8dbd2797962efa7c6cc6d6ea93ea05867b15550721a7e3bb7b"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_nettle_plant_03.obj",
+          "height_m": 0.045,
+          "object_sha256": "79f3cc2316dee02e5d4cab1f202c62fce3521f1a1b7ed526d2362151901899b2"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_nettle_plant_05.obj",
+          "height_m": 0.078,
+          "object_sha256": "14caae5f84bf18a611c7737bbe3ac1e663826b3358e2928fe74e45c6efe9c53b"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_02.obj",
+          "height_m": 0.026,
+          "object_sha256": "f40f0a8d96a5b330016c148e6b67588f118e889d63d07e01b0d2f5a77d6249e5"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_04.obj",
+          "height_m": 0.052,
+          "object_sha256": "1dec4754c4b0323560b361a2ba697790540593b4f447f816002f42140cee9954"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_05.obj",
+          "height_m": 0.07,
+          "object_sha256": "70c83d38b01c249a138789f463a498989377f7f531faad021f22cb8addb8d041"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_06.obj",
+          "height_m": 0.018,
+          "object_sha256": "ac12b24a2b896e568e0bf3224c9449317176b665350568aee0b4ee2cf8e700f5"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_07.obj",
+          "height_m": 0.026,
+          "object_sha256": "e3efa82dccb94efd0e3e0c6cc2fd737d82765a3815e9288a9be6b78eeda31498"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_10.obj",
+          "height_m": 0.07,
+          "object_sha256": "8d7ef00a8b90b3bb0388284b141a295bc358ec56feab587968bd84915729124e"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_weed_plant_02_03.obj",
+          "height_m": 0.038,
+          "object_sha256": "2b412e1556d07082afac5d6ca2d8113f7a1d32f954e8d3af53e8a6f17be18357"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_weed_plant_02_05.obj",
+          "height_m": 0.07,
+          "object_sha256": "c4edf8711762af61996c22d5d72874e32e02c7291afdbe5388cbc0a589ec5b43"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "weed_broadleaf_v2_02.obj",
+          "height_m": 0.022,
+          "object_sha256": "0a0832cd492bd3e4610fbfe42492a843af3bf564111f735adf25c8e3ddd6b409"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "weed_broadleaf_v2_03.obj",
+          "height_m": 0.032,
+          "object_sha256": "d108691804f3ddcde1029dc7f3155eea813f155c781fb9ebf037fc5c5239a9c4"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "weed_broadleaf_v2_04.obj",
+          "height_m": 0.045,
+          "object_sha256": "8c632276120c5fc333789c578049750fd4bcbae5d89b73dff67b1a62d9c83523"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "weed_broadleaf_v2_06.obj",
+          "height_m": 0.08,
+          "object_sha256": "abc375b34df9d9d8ceab3a82c06b480cd27b2f8cb8f855d9fbe63091bf1bea1e"
+        },
+        {
+          "family": "weed_cotyledon_v2",
+          "filename": "weed_cotyledon_v2_03.obj",
+          "height_m": 0.032,
+          "object_sha256": "738250e4820766b11a63d2db7c313dc6c5e9a43c5bdbb29422fc2f49dbb64d67"
+        },
+        {
+          "family": "weed_cotyledon_v2",
+          "filename": "weed_cotyledon_v2_05.obj",
+          "height_m": 0.06,
+          "object_sha256": "e4fdb49f75ed2e880c65a42183b14b4a25d6c033804fca73a706b727a7e83f62"
+        },
+        {
+          "family": "weed_cotyledon_v2",
+          "filename": "weed_cotyledon_v2_06.obj",
+          "height_m": 0.08,
+          "object_sha256": "be049a2f1798cd6f678f8d7127cf643294954e6921d39f40bae9e96cf8794a8e"
+        },
+        {
+          "family": "weed_grass_v2",
+          "filename": "weed_grass_v2_01.obj",
+          "height_m": 0.015,
+          "object_sha256": "963cc28e13a6e9012a38c1c81900608731e9a68e6536dad094d3e80d76927bfc"
+        },
+        {
+          "family": "weed_grass_v2",
+          "filename": "weed_grass_v2_04.obj",
+          "height_m": 0.045,
+          "object_sha256": "90af5dea2d90c9245205aa0debfb1e9b3e1c1fcfcf6f986d2d9892b2153e6ed3"
+        },
+        {
+          "family": "weed_grass_v2",
+          "filename": "weed_grass_v2_06.obj",
+          "height_m": 0.08,
+          "object_sha256": "2dc0aa324a8207fb184fcba0e01c8c44fe422758283d3172dfb071033a986d1e"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "ph_dandelion_01_01.obj",
+          "height_m": 0.018,
+          "object_sha256": "03d412187fe274f1c3893ddbc6b9f5cc0259891628920ff80e5b3c5ee10238d0"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "ph_dandelion_01_03.obj",
+          "height_m": 0.044,
+          "object_sha256": "cb031ed35c6c91035f4f4e5189d2f06cdfbc59a670606829a3b879f2c9fe486f"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "ph_dandelion_01_04.obj",
+          "height_m": 0.058,
+          "object_sha256": "6b665d2eefba88409382e7bd479553bac4cce70e8f2f3f4237e2f42e42d14c02"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "weed_rosette_v2_01.obj",
+          "height_m": 0.015,
+          "object_sha256": "248c6df4b6dda956d358df99099ce0dc0740b3b5a2298f5d2df5c5ad7fbf7cad"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "weed_rosette_v2_04.obj",
+          "height_m": 0.045,
+          "object_sha256": "ce8feb683176969dd12f78eea17c0d44f5a41500c2b6680f7e54b75d9acf586f"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "weed_rosette_v2_06.obj",
+          "height_m": 0.08,
+          "object_sha256": "50ad60b3a0d904a19881892d3adbd7b3fe9541624d65e729f6f71b4d3e5877a1"
+        }
+      ],
+      "object_identity_sha256": "561ace162e00e1ef0a901c87159e95883c8484078abf3ab7a16dbfbe81f75f92"
+    },
+    "locked_test": {
+      "allowlist": [
+        "sorghum_seedling_v2/sorghum_stage1_v1_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage1_v1_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage1_v2_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage1_v3_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage2_v1_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage2_v2_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage2_v3_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage2_v3_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage2_v3_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage3_v1_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage3_v2_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage3_v3_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage4_v1_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage4_v2_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage4_v2_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage4_v3_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage5_v1_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage5_v2_field_stress.obj",
+        "sorghum_seedling_v2/sorghum_stage5_v2_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage5_v2_healthy_light.obj",
+        "sorghum_seedling_v2/sorghum_stage5_v3_healthy_dark.obj",
+        "sorghum_seedling_v2/sorghum_stage5_v3_healthy_light.obj",
+        "weed_broadleaf_v2/ph_nettle_plant_01.obj",
+        "weed_broadleaf_v2/ph_nettle_plant_02.obj",
+        "weed_broadleaf_v2/ph_nettle_plant_04.obj",
+        "weed_broadleaf_v2/ph_nettle_plant_06.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_01.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_03.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_08.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_09.obj",
+        "weed_broadleaf_v2/ph_shrub_sorrel_01_11.obj",
+        "weed_broadleaf_v2/ph_weed_plant_02_01.obj",
+        "weed_broadleaf_v2/ph_weed_plant_02_02.obj",
+        "weed_broadleaf_v2/ph_weed_plant_02_04.obj",
+        "weed_broadleaf_v2/weed_broadleaf_v2_01.obj",
+        "weed_broadleaf_v2/weed_broadleaf_v2_05.obj",
+        "weed_cotyledon_v2/weed_cotyledon_v2_01.obj",
+        "weed_cotyledon_v2/weed_cotyledon_v2_02.obj",
+        "weed_cotyledon_v2/weed_cotyledon_v2_04.obj",
+        "weed_grass_v2/weed_grass_v2_02.obj",
+        "weed_grass_v2/weed_grass_v2_03.obj",
+        "weed_grass_v2/weed_grass_v2_05.obj",
+        "weed_rosette_v2/ph_dandelion_01_02.obj",
+        "weed_rosette_v2/ph_dandelion_01_05.obj",
+        "weed_rosette_v2/weed_rosette_v2_02.obj",
+        "weed_rosette_v2/weed_rosette_v2_03.obj",
+        "weed_rosette_v2/weed_rosette_v2_05.obj"
+      ],
+      "allowlist_sha256": "9863c55a8eb98d18c9998cb9121f3befc2a3879044e8c35f6f0c54a338829d33",
+      "models": [
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage1_v1_healthy_dark.obj",
+          "height_m": 0.06,
+          "object_sha256": "66bba08e92a5a75033ea339013a26099d7a47c4fd0fad52d4336e203804dcff6"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage1_v1_healthy_light.obj",
+          "height_m": 0.06,
+          "object_sha256": "da3fd2d2e6b27c02aff0181e7af13df7d09b758621030a1acdbb3c67250a8482"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage1_v2_healthy_dark.obj",
+          "height_m": 0.06,
+          "object_sha256": "7d1dbe405725d7e506190168de263d64aeadc70aeba33a459797bff491bfadb3"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage1_v3_healthy_dark.obj",
+          "height_m": 0.06,
+          "object_sha256": "7e29686e1459ccd6531fc9a8aa853393c1a4d6fada6e326644cb034ceac55706"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage2_v1_healthy_light.obj",
+          "height_m": 0.09,
+          "object_sha256": "ab91df52fb94dea31d7e0b12926bdba19404164d06e5d7b3bdad0d2177d22c5c"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage2_v2_field_stress.obj",
+          "height_m": 0.09,
+          "object_sha256": "551b98e1f447d53a8623bc39093392a88710b13b9c740705e35327a8420bf8b6"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage2_v3_field_stress.obj",
+          "height_m": 0.09,
+          "object_sha256": "4d7f92af1e3ba2d38f26de65ba7d780929e507c9a5feef4e4f7f5798f92f4ff2"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage2_v3_healthy_dark.obj",
+          "height_m": 0.09,
+          "object_sha256": "ef8b1a84d578b7be278fcd626a5f0b6a5588c5d981b37eaf6e07af13a7cba81f"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage2_v3_healthy_light.obj",
+          "height_m": 0.09,
+          "object_sha256": "a7f04fa4c9baa9bfddd7e135eab38c400d5cb55ed5d7fe5fc18741da9f775827"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage3_v1_field_stress.obj",
+          "height_m": 0.13,
+          "object_sha256": "ca46660aa8761c0bf312f6981f0159d49a71743efcaa796016e496463ef66522"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage3_v2_field_stress.obj",
+          "height_m": 0.13,
+          "object_sha256": "cd239d665d3a75bfe6f868eafea5486e77fa1299f81f37450c07d4c83c487df2"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage3_v3_healthy_dark.obj",
+          "height_m": 0.13,
+          "object_sha256": "ac5d8e579d41eea3bb4029418c19992ea07cc4b4f4e90361bef40661173c1301"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage4_v1_healthy_light.obj",
+          "height_m": 0.18,
+          "object_sha256": "cd9f3669ee38a3044dead93caa1312acb8754ca03a06f5ea84a720e5aa8739e7"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage4_v2_field_stress.obj",
+          "height_m": 0.18,
+          "object_sha256": "b836ac17c7b9a18d400c2eab0ef201db2220ea843d0564b689cde0213d0e6495"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage4_v2_healthy_light.obj",
+          "height_m": 0.18,
+          "object_sha256": "b0a9a86e743886c5ea40173668a148749c424b4e478eb11cfac0c32d74860b30"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage4_v3_field_stress.obj",
+          "height_m": 0.18,
+          "object_sha256": "eacf71723ef05f5795c90be50c7bbe152350164aabf0ea72cd1922b053a98110"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage5_v1_field_stress.obj",
+          "height_m": 0.24,
+          "object_sha256": "fa4a91b6918c25e8128530fed71f5bf06f9eb22f49f5b5a75732c229c8ff3695"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage5_v2_field_stress.obj",
+          "height_m": 0.24,
+          "object_sha256": "145beb710027677580d399bffcdc4a8b2de6ade9b69f5db672f71bd12176a535"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage5_v2_healthy_dark.obj",
+          "height_m": 0.24,
+          "object_sha256": "8eb66e8685d405e20dc31759e8779d877303ca316f1b4f8ac7ccd07fad16b95f"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage5_v2_healthy_light.obj",
+          "height_m": 0.24,
+          "object_sha256": "0677f8037326ad88b5b30be227229004d2b679c33c464e1cd02210472a7c098e"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage5_v3_healthy_dark.obj",
+          "height_m": 0.24,
+          "object_sha256": "4ea3d454142e7e305f75c76be6e90d3fef45557e3d56961020bc08bfad0dfab1"
+        },
+        {
+          "family": "sorghum_seedling_v2",
+          "filename": "sorghum_stage5_v3_healthy_light.obj",
+          "height_m": 0.24,
+          "object_sha256": "e7cbc9c6f4d29e585b62acb9640fd9e5564ab236286dc6e0cda6ebcbcb341a8e"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_nettle_plant_01.obj",
+          "height_m": 0.022,
+          "object_sha256": "f189c3fc1bc6da3888c8f99c182ec6a68c8ae5bf7c39d1894e1785e978906c20"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_nettle_plant_02.obj",
+          "height_m": 0.032,
+          "object_sha256": "e015158ca9bbf83b05024bce14a817e39861b6f2de3d05c195c98375a3655c42"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_nettle_plant_04.obj",
+          "height_m": 0.06,
+          "object_sha256": "6e361a893fc43d0aaaad9acfc66da1296112ca0410285d8257fcae6a1153be19"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_nettle_plant_06.obj",
+          "height_m": 0.022,
+          "object_sha256": "7496edee99829a243303b57b4e233ed3074ff412bdf4763e0c83a85ac74b40e9"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_01.obj",
+          "height_m": 0.018,
+          "object_sha256": "1f467a8095c32ad5f2729ab4411e394f92129552f1246f966d19845d0e70a45f"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_03.obj",
+          "height_m": 0.038,
+          "object_sha256": "b4c2199efdaf6d2b640da29eac0c1d62c8a30772130ed48890d9241c5fba34d6"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_08.obj",
+          "height_m": 0.038,
+          "object_sha256": "2829ec781f1b7521ed7b850f9b438f3d810e88a0590bace9bd54360f9d174e96"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_09.obj",
+          "height_m": 0.052,
+          "object_sha256": "0666f7664355f7e2a54cd3971ce066a00fdbf64d07a20c272821c7ba1ca0448b"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_shrub_sorrel_01_11.obj",
+          "height_m": 0.018,
+          "object_sha256": "18022304330db5150c74ff2f0739ab11330ff35d4ed4b2c5225cfe44b18218ff"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_weed_plant_02_01.obj",
+          "height_m": 0.018,
+          "object_sha256": "7290c6523296bade4ede3979f56222af3bfe2bcaa51129ed83f42ae7933f7b3e"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_weed_plant_02_02.obj",
+          "height_m": 0.026,
+          "object_sha256": "4bcfcce05a5414d3784ad450debab5c869d1e3028bead562e80da369c31d2f0a"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "ph_weed_plant_02_04.obj",
+          "height_m": 0.052,
+          "object_sha256": "6139a646dde020ecf8a82ec723daa356a483c43edc137b15c27b13537f383f98"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "weed_broadleaf_v2_01.obj",
+          "height_m": 0.015,
+          "object_sha256": "8df36e6becde5ccc37e54ca0c7d3e8d53ed788493e9f1b376dbd3c4eba23e393"
+        },
+        {
+          "family": "weed_broadleaf_v2",
+          "filename": "weed_broadleaf_v2_05.obj",
+          "height_m": 0.06,
+          "object_sha256": "97efb8e0978b458ecaeb76516aa81c275079d32b48c90737d42056289f3dec25"
+        },
+        {
+          "family": "weed_cotyledon_v2",
+          "filename": "weed_cotyledon_v2_01.obj",
+          "height_m": 0.015,
+          "object_sha256": "cea59691a6f2276c0347bfb41e154f86ef860634b61bcaeaf0f4e7d37f3705e3"
+        },
+        {
+          "family": "weed_cotyledon_v2",
+          "filename": "weed_cotyledon_v2_02.obj",
+          "height_m": 0.022,
+          "object_sha256": "e51c29074f2d8b57f8d0e9eae0edabad1373632a1fbcab475922c4a979396596"
+        },
+        {
+          "family": "weed_cotyledon_v2",
+          "filename": "weed_cotyledon_v2_04.obj",
+          "height_m": 0.045,
+          "object_sha256": "cbcab4963b982f020e986013259c93ddeba6e1effa5046d4f37912ed0a803494"
+        },
+        {
+          "family": "weed_grass_v2",
+          "filename": "weed_grass_v2_02.obj",
+          "height_m": 0.022,
+          "object_sha256": "2521ccb4938abb229f3ef2e3ba44113572f32701464bdf6a934ef14636b24568"
+        },
+        {
+          "family": "weed_grass_v2",
+          "filename": "weed_grass_v2_03.obj",
+          "height_m": 0.032,
+          "object_sha256": "0df536258cd187cbe1fc94f2fb70f8e78a11a65ea86c8ef4fd60f6efe97bc70b"
+        },
+        {
+          "family": "weed_grass_v2",
+          "filename": "weed_grass_v2_05.obj",
+          "height_m": 0.06,
+          "object_sha256": "0c23b31ec4c30e4bc213097b98b32c310be276cff3f19990ff106f1e875ba629"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "ph_dandelion_01_02.obj",
+          "height_m": 0.03,
+          "object_sha256": "4b468f99f0d6f3cd09adeec8dbf43a1303811548d8cf5b9067d0f99fc54738e8"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "ph_dandelion_01_05.obj",
+          "height_m": 0.018,
+          "object_sha256": "3dfc5810367b659467c346d4194fe7e1345dda8a38afe10681448822f09783ab"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "weed_rosette_v2_02.obj",
+          "height_m": 0.022,
+          "object_sha256": "848934886154247e7331289e648abeb290928304153926c2a8fb90b0a4c218fc"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "weed_rosette_v2_03.obj",
+          "height_m": 0.032,
+          "object_sha256": "d2c49ae837cd48a38f39dd1e4da6d23dfd9940e917e2e317f7c7082f2115254f"
+        },
+        {
+          "family": "weed_rosette_v2",
+          "filename": "weed_rosette_v2_05.obj",
+          "height_m": 0.06,
+          "object_sha256": "42f1f5d287ef75fd19bef6bd8d93bb0606aaa552f6a12b81b75a3939e51b2767"
+        }
+      ],
+      "object_identity_sha256": "f888fbeb5b78574e2647f08d93504107d453ea4835eac2e9e0d69d317e3fb3bb"
+    }
+  },
+  "schema_version": 1,
+  "source_pack_sha256": "a943d03c0dd3e2487fe3edd1aac45e42839d59c775688de487a8bdb00368efde",
+  "validation": {
+    "all_template_model_queries_nonempty": true,
+    "crop_model_count_by_role": {
+      "calibration": 23,
+      "locked_test": 22
+    },
+    "filename_overlap_count": 0,
+    "minimum_crop_models_per_role": 6,
+    "object_sha256_overlap_count": 0
+  }
+}

@@ -1,0 +1,252 @@
+schema_version: 1
+contract: spot_spray_simulation_video_ab_execution_v1
+status: SYNTHETIC_EXECUTION_ONLY
+evidence_policy:
+  scope: synthetic_diagnostic_only
+  field_or_deployment_claim_allowed: false
+  product_go_allowed: false
+  chemical_fire_go_allowed: false
+  synthetic_score_weight_in_real_go_decision: 0.0
+  outcome_target_tuning_forbidden: true
+source_locks:
+  protocol:
+    path: configs/benchmark/spot_spray_simulation_video_ab_protocol_v1.yaml
+    sha256: de12cd76d3f497f1ea3a6ffa1d1c7fc8eea4e70a9af218c2769bae81da0f329f
+  botanical_validation_receipt:
+    path: docs/results/spot_spray_botanical_track_ground_truth_v1/validation_receipt.json
+    sha256: 491776943143ca486c0fda7f307db4ec7372cc35adfd216c9243ac5efd36c956
+  botanical_patch:
+    path: patches/cropcraft/0002-instance-track-ground-truth.patch
+    sha256: c2301376c2f1607d1abfeeb75a6b9ad9b29873c764b027bd6995b10ebcaddd24
+  botanical_builder:
+    path: scripts/build_spot_spray_botanical_track_ground_truth_v1.py
+    sha256: ac8de38ab05377558033d05eb2598bb40e16dd836109597a303d25591668bcab
+  botanical_config:
+    path: configs/simulation/spot_spray_botanical_track_ground_truth_v1.yaml
+    sha256: c0eccb3389c9504901e6fafdaf16268095dc5c00912c15b058162dc15b156247
+  paired_validation_receipt:
+    path: docs/results/spot_spray_simulation_video_pairs_v1/validation_receipt.json
+    sha256: 179410f6f975e1b7b43c369839ea3b58f74e6eb2ccc667dc4e64127b5ce7d5b3
+  paired_renderer:
+    path: scripts/build_spot_spray_simulation_video_pairs_v1.py
+    sha256: 3fa5b6a5838dc45126f55d54875c65da7fc6cc7ff0e3078104f207f5d3809082
+  simulation_evaluator:
+    path: scripts/evaluate_spot_spray_simulation_video_v1.py
+    sha256: 83c6fabd1acc3db47799e96aea91b46d29f514d891c5f19091d3fb14bf3811f7
+  simulation_evaluator_config:
+    path: configs/benchmark/spot_spray_simulation_video_inference_v1.yaml
+    sha256: 16edff72f7095d5dee3d0c3785f18d4d87d5e02e035d9a07dd23610b1daea91d
+  frozen_action_contract:
+    path: configs/benchmark/spot_spray_target_rig_action_eval_v1.yaml
+    sha256: 210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09
+  frozen_action_evaluator:
+    path: scripts/evaluate_spot_spray_target_rig_action_v1.py
+    sha256: 3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45
+  selected_checkpoint:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt
+    sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+  compatibility_patch:
+    path: patches/cropcraft/0001-blender-4.5-eevee-next.patch
+    sha256: 8fd5ab99b6a784fd49d9f8c23035e2f8cb5c2a51cd47d22ff9365417dcebf41f
+  surface_lighting_patch:
+    path: patches/cropcraft/0006-field-robustness-surface-lighting.patch
+    sha256: ad3f65815a1a269bbefa41cb3292c9836e63ccd91af146ed27247a5befde416b
+  cropcraft_runner:
+    path: scripts/run_cropcraft.py
+    sha256: 4bc8cbaa1b72780e4214477ef42a3802b20951ab68af9d3269227a61fcd9878e
+  v12_asset_pack:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/synthetic_assets/cropcraft_field_robustness_v10_r1/PACK.json
+    sha256: a943d03c0dd3e2487fe3edd1aac45e42839d59c775688de487a8bdb00368efde
+  v12_validation_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/val/release_receipt.json
+    sha256: 5b34be56ec0a7788bf22a298ae0403fb9cae486fcd28a1705fa0915bdc38edea
+  v12_test_receipt:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/test/release_receipt.json
+    sha256: dc0bf91f5f825a4d75784150713be8d3e76d80b896631fc34ca5deee5e9aff2a
+  fixture_calibration_scene_config:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/val/scene_configs/scene_0000.yaml
+    sha256: 0508ebfa399da1bc854e08ee2dda27578884cbfcddaf9043605634dd23a0f0ae
+  fixture_test_scene_config:
+    path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/test/scene_configs/scene_0001.yaml
+    sha256: 41395ea8f49f44bda0946f94fbd9ba3d03ac22a98e0bf67c054946f23159569f
+  blender:
+    path: /home/ankaref/Documents/Projects/simulation/.tools/blender-4.5.12-linux-x64/blender
+    sha256: 33ac108ebce3c271f5357e5c664d0488717263bcf2145c80300edd0b12c31880
+  ffmpeg:
+    path: /usr/bin/ffmpeg
+    sha256: ed16af623947494a72e284b6eb8ff225f2da22b38b5d5069c2fd4b4ba3384e41
+  ffprobe:
+    path: /usr/bin/ffprobe
+    sha256: 272f6ebc634a63d9c8b4ca68e964119d980f25154e5aa2c35e5487da48e9a58f
+runtime:
+  cropcraft_repository: data/raw/cropcraft/repository
+  cropcraft_revision: 7128cd2acade50cc4a5a1761210b55989ab62527
+  cropcraft_python_environment: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/cache/cropcraft_py311
+  blender_required_version_prefix: Blender 4.5.12 LTS
+  ffmpeg_required_version_substring: ffmpeg version 6.1.1
+  cuda_device: 0
+  minimum_fixture_free_bytes: 8000000000
+  minimum_full_free_bytes: 180000000000
+  reserve_free_bytes_after_full: 30000000000
+  unrelated_process_policy: observe_only_never_stop_or_modify
+outputs:
+  synthetic_root: data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1
+  run_root: data/runs/spot_spray_simulation_video_ab_execution_v1
+  results_root: docs/results/spot_spray_simulation_video_ab_execution_v1
+  fixture_name: native_fixture_v1
+  full_name: full_benchmark_v1
+native_contract:
+  width_px: 2048
+  height_px: 2048
+  frames_per_arm: 30
+  frame_rate_hz: 15
+  duration_s: 2.0
+  ground_fov_mm: 479.0
+  outer_abstain_ring_px: 64
+  central_action_region_px:
+  - 1920
+  - 1920
+  full_frame_resize_allowed: false
+  ideal_output: lossless_rgb8_srgb_png_proxy
+  degraded_output: lossless_rgb8_srgb_png_proxy
+  canonical_gt_shared_by_hardlink: true
+capture_profiles:
+  ideal:
+    profile_id: IDEAL_CAPTURE_UPPER_BOUND_V1
+    temporal_integration: false
+    motion_psf: none
+  degraded:
+    profile_id: DEGRADED_CAPTURE_PROXY_V1
+    temporal_integration: global_shutter_light_pulse
+    pulse_width_us_by_speed:
+      '0.5': 150.0
+      '1.0': 170.0
+    maximum_total_psf_path_px: 0.75
+    psf_samples: 17
+    convolution_border: reflect_101
+    extra_noise_or_compression_allowed: false
+    post_outcome_rescaling_allowed: false
+    calibrated_to_physical_camera: false
+fixture:
+  render_samples: 4
+  headland_width_m: 0.1
+  scattering_extra_width_m: 0.1
+  bed_width_m: 0.75
+  crop_rows_count: 2
+  crop_row_distance_m: 0.01
+  overlap_stress_fixture: true
+  weed_family: broadleaf
+  weed_density_per_family: 6.0
+  weed_minimum_max_height_m: 0.15
+  stone_density: 8.0
+  scenes:
+  - pair_id: fixture_calibration_0000
+    split: calibration
+    source_role: val
+    source_lock: fixture_calibration_scene_config
+    travel_speed_m_s: 0.5
+    scene_profile: hood_dry_nominal
+    degraded_motion_path: linear
+  - pair_id: fixture_test_0000
+    split: test
+    source_role: test
+    source_lock: fixture_test_scene_config
+    travel_speed_m_s: 1.0
+    scene_profile: hood_moist_glare_challenge
+    degraded_motion_path: smooth_curved
+full_benchmark:
+  protocol_id: spot_spray_simulation_video_ab_protocol_v1
+  model_access_allowed_during_plan_or_render: false
+  cell_factor_order:
+  - travel_speed_m_s
+  - v12_scene_profile
+  - degraded_motion_path
+  source_roles:
+    calibration:
+      protocol_split: calibration
+      evaluator_split: calibration
+      v12_role: val
+      scene_config_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/val/scene_configs
+      receipt_lock: v12_validation_receipt
+    locked_test:
+      protocol_split: locked_test
+      evaluator_split: test
+      v12_role: test
+      scene_config_root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/test/scene_configs
+      receipt_lock: v12_test_receipt
+  maximum_candidates_per_slot: 32
+  render_samples: 16
+  headland_width_m: 0.1
+  scattering_extra_width_m: 0.05
+  bed_width_m: 0.6
+  weed_density_scale_from_v12: 0.2
+  weed_density_minimum_per_family: 6.0
+  weed_minimum_max_height_m: 0.12
+  stone_density_scale_from_v12: 0.2
+  interrupted_staging_policy: exact_pair_scoped_cleanup_then_retry
+  publish_policy: same_filesystem_atomic_directory_rename
+  selected_pair_overwrite_allowed: false
+  rejected_candidate_payload_retained: receipt_and_log_only
+  planning_requires_fixture_measurement: true
+inference:
+  image_size_px: 2048
+  confidence_floor: 0.05
+  nms_iou: 0.7
+  half: false
+  deterministic: true
+  seed: 4107
+  tracker_association_min_mask_iou: 0.1
+  tracker_association_max_centroid_distance_px: 160.0
+  tracker_maximum_frame_gap: 2
+  calibration_source_arm: degraded
+  ideal_calibration_role: post_threshold_lock_diagnostic_only
+  one_shared_threshold_for_test_arms: true
+  locked_test_metric_evaluations_exact: 1
+  overlay_fps: 15.0
+  overlay_codec: mp4v
+storage_estimate:
+  method: conservative_uncompressed_frame_equivalents_plus_prediction_margin
+  fixture_pairs: 2
+  fixture_estimated_bytes: 8000000000
+  full_calibration_pairs: 32
+  full_locked_test_pairs: 64
+  full_total_pairs: 96
+  full_arm_videos: 192
+  full_native_frames: 5760
+  full_estimated_bytes: 180000000000
+  note: The full estimate is an admission bound, not a promise of compression ratio;
+    a measured fixture multiplier must replace it before the full render starts.
+descriptive_targets:
+  metric: eligible_weed_mask_track_spatiotemporal_iou_f1
+  ideal_minimum: 0.97
+  degraded_reference: 0.75
+  degraded_near_absolute_tolerance: 0.05
+  use_in_threshold_selection: false
+  use_in_model_or_degradation_tuning: false
+claims:
+- The fixture and full benchmark are synthetic diagnostics only.
+- No score authorizes field spraying, product release, or chemical firing.
+- Ideal 0.97 and degraded 0.75 are reporting references and never tuning inputs.
+- Source drift, premature test inference, or repeated locked-test evaluation fails
+  closed.
+roster_extension_epoch:
+  schema_version: 1
+  contract: spot_spray_simulation_video_ab_roster_extension_v1
+  manager_authorization_event_id: scheduled-resume-20260817103307-75b799f2dfc8
+  historical_execution_config_sha256: a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b
+  historical_pair_roster_sha256: cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43
+  pair_roster_extension_sha256: 4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d
+  roster_extension_contract_sha256: dbfa4044d07451127e7288dc82aa9274255283e27cc63415faf67cb6cb495753
+  extension_candidate_index_range:
+  - 10
+  - 31
+  combined_candidate_index_range:
+  - 0
+  - 31
+  maximum_candidates_per_slot: 32
+  candidate_selection: lowest_unattempted_candidate_index
+  candidate_31_exhaustion_action: fail_closed_stop_for_new_manager_decision
+  model_access_allowed_during_extension_sealing: false
+  prediction_or_outcome_access_allowed: false
+  registered_target_use_allowed: false
+  outcome_inputs: []

@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass106_final_active_state_chain_validation_v1",
+  "status": "PASS_CANDIDATES_5_AND_6_FROZEN_GT_REJECTED_CANDIDATE_7_SCOUT_ACTIVE_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821053204-ec6404ca7941",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 106,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T08:35:11+03:00",
+  "pair_id": "locked_test_c001_r05",
+  "prior_observation": {
+    "receipt_sha256": "a89146cd4f6ce5bffbbe54f65ffedfd5224e1567d9680c65377c43c16a2f23f7",
+    "candidate_index_observed_active": 6,
+    "subsequent_staging_assertion_failed_closed_after_atomic_candidate_6_transition": true,
+    "prior_receipt_bytes_preserved": true
+  },
+  "state_chain": {
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "execution_id": "state_chain_batch_locked_test_c001_r05_fe3a9bf5ccf9db11",
+    "intent_sha256": "fa987a19efaf6f3932978beb368694c22a6501642e6f69f441ac55edbd76359c",
+    "head_identity_sha256": "34acee5f2fb322fa839ffd9bfc0edf9722e1556d6085d56cb145d65fd56bab71",
+    "render_state_sha256": "f811c3e3d5622bbc741e4c84951db4c3287181f2ed219ef45c8d0877c7a12553",
+    "completed_pair_count": 45,
+    "pending_pair_count": 51,
+    "first_pending_pair_id": "locked_test_c001_r05",
+    "transition_commit_count": 4,
+    "terminal_receipt_present": false
+  },
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r05_65e15722fcb2d69c",
+    "intent_sha256": "09c278a49ed3457dace1e0e306d84dd6dd4024b1f6a09cba216c65e236eb2e20",
+    "max_new_pairs": 1,
+    "terminal_receipt_present": false
+  },
+  "terminal_gt_decisions": [
+    {
+      "candidate_index": 5,
+      "candidate_identity_sha256": "896284b9eda33b372f3b502bb1bf8f3c69503d5068d6c1bad076538f1d6de0fd",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_weed_fraction_in_range",
+        "eligibility:eligible_weed_track_present",
+        "eligibility:eligible_track_with_at_least_three_observations"
+      ],
+      "decision_receipt_sha256": "1d210c136e3e92db752904f38b757d0bb5b685a05ebfcd0b652c21ebee685afa",
+      "terminal_receipt_sha256": "96fe81b24a568c3775612f5125ef9b3793f1a00ee247b9537cc068bd55748696",
+      "ledger_commit_receipt_sha256": "79b2623ee93fcd48e937ed1e0bfc8a8c2e31634b2d84101e96ea1732ce843021",
+      "canonical_gt_sha256": "3995abf0e8a8f9b1f301bc93c98a34c5b34ffc71f62012fc1da82b6224575d37",
+      "all_five_seed_bindings_exact": true,
+      "bounded_cleanup_complete": true,
+      "model_or_outcome_inputs_used": false
+    },
+    {
+      "candidate_index": 6,
+      "candidate_identity_sha256": "76e257b10f6d7709d6e4af2e4f0e9741c565ed85e6df72352fa680ee44282477",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "rejection_reasons": [
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "decision_receipt_sha256": "2d4fea0731ddbb9861faf624571de32eaeeda22467ad3ef9c08da4ad52eb5bb3",
+      "terminal_receipt_sha256": "cb81f9d3c29f93d764b0ee9a3a64d4eb316b1e96247e414f99443761b3be4af4",
+      "ledger_commit_receipt_sha256": "d130d005bf9456c96fc60b9307ba7602453adffe7985aabe44c2237730e78c6f",
+      "gt_audit_receipt_sha256": "09cf5227616ed585c5adcb3220379b72ab50be99f89dff4eeafe3b09c54becd40",
+      "bounded_cleanup_receipt_sha256": "ba9af0fe7e09ad6913a1067a4f7c10fc865fca740c12dff9fdd2f395b084c9e8",
+      "canonical_gt_sha256": "980d3bbe3a6e0b1612e9c493cedb219223acb4b1b4cf19813812c4a20993bb92",
+      "all_five_seed_bindings_exact": true,
+      "bounded_cleanup_complete": true,
+      "model_or_outcome_inputs_used": false
+    }
+  ],
+  "ledger": {
+    "row_count_before_candidate_5": 139,
+    "row_count_at_observation": 141,
+    "sha256_at_observation": "c6641ecba60c436056e48682c858f711cbf085ac32ed64d6e637b4c8b83bcef9",
+    "append_only_rows": [
+      {
+        "row_number": 140,
+        "candidate_index": 5,
+        "candidate_identity_sha256": "896284b9eda33b372f3b502bb1bf8f3c69503d5068d6c1bad076538f1d6de0fd"
+      },
+      {
+        "row_number": 141,
+        "candidate_index": 6,
+        "candidate_identity_sha256": "76e257b10f6d7709d6e4af2e4f0e9741c565ed85e6df72352fa680ee44282477"
+      }
+    ],
+    "canonical_order_preserved": true
+  },
+  "active_candidate": {
+    "candidate_index": 7,
+    "candidate_identity_sha256": "ef18cba59973408db7dfdc17c28402be5f1807aaa4305214e602b373835d29b1",
+    "source_template_sha256": "b86540ba2a197389f2e20abebb9a63ccff98b60a64475abb5a192849a4bc71ae",
+    "scene_config_sha256": "f31c9c4406bd6ed1c5f395e2fcffdf3bccf94c89eb6b5a118623fbbe7cf81d55",
+    "gt_scout_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "capture_receipt_sha256_at_observation": "b75d9500572c38b625f573db90514641294fd8055f379147ec58459b6f94f03c",
+    "render_image_count_at_observation": 30,
+    "render_mask_count_at_observation": 30,
+    "terminal_receipt_present": false,
+    "lowest_unattempted_sealed_candidate": true,
+    "staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-locked_test_c001_r05-candidate-07-8dbdedca7a934996866aa67e84009048"
+  },
+  "process": {
+    "pid": 3020728,
+    "session_id": 3020728,
+    "active": true,
+    "status": "Ssl",
+    "command": "/home/ankaref/miniconda3/envs/sgs-yolo/bin/python3.10 scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py run --pair-id locked_test_c001_r05 --max-new-pairs 1",
+    "active_stage": "canonical_candidate_7_gt_scout_source_scene_blender",
+    "process_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "terminal_error_observed": false,
+    "parallel_state_chain_execution_present": false
+  },
+  "validation": {
+    "status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY",
+    "active_execution_id": "state_chain_batch_locked_test_c001_r05_fe3a9bf5ccf9db11",
+    "candidate_rejection_ledger_row_count": 141,
+    "candidate_rejection_ledger_sha256": "c6641ecba60c436056e48682c858f711cbf085ac32ed64d6e637b4c8b83bcef9",
+    "candidate_gt_accessed_during_validation": false,
+    "rendering_calls_during_validation": 0
+  },
+  "access_guard": {
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "outcome_inputs": []
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "outcome_target_tuning_forbidden": true
+  }
+}

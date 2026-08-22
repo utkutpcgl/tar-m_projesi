@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "snapshot_count": 8,
+  "snapshot_identity_sha256": "0bde3a9a3835a4355949cc868941eb14e56db9dbd783c101456c4219f82cbc02",
+  "snapshots": [
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/historical_epoch_v1_source_snapshots/spot_spray_simulation_video_ab_protocol_v1.de12cd76.yaml",
+      "role": "historical_protocol_source",
+      "sha256": "de12cd76d3f497f1ea3a6ffa1d1c7fc8eea4e70a9af218c2769bae81da0f329f"
+    },
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/historical_epoch_v1_source_snapshots/spot_spray_simulation_video_ab_execution_v1.a419dd1d.yaml",
+      "role": "historical_execution_config_source",
+      "sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b"
+    },
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/historical_epoch_v1_source_snapshots/run_spot_spray_simulation_video_ab_execution_v1.e6503404.py",
+      "role": "historical_execution_implementation_source",
+      "sha256": "e650340418ae213d433f18356b6acad5b77942ae67ac3df2577bfe18840fe3d2"
+    },
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/historical_epoch_v1_source_snapshots/test_run_spot_spray_simulation_video_ab_execution_v1.f6687b33.py",
+      "role": "historical_execution_test_source",
+      "sha256": "f6687b33fd137c6482897529b91f49d48bd2d246c4fce41f9249a9de540f856d"
+    },
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/historical_epoch_v1_source_snapshots/pair_roster_v1.cf224af0.jsonl",
+      "role": "historical_pair_roster_bytes",
+      "sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43"
+    },
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/historical_epoch_v1_source_snapshots/candidate_rejection_ledger_v1.3c60ebab.jsonl",
+      "role": "historical_candidate_rejection_ledger_bytes",
+      "sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a"
+    },
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/historical_epoch_v1_source_snapshots/render_state_v1.ff06d781.json",
+      "role": "historical_render_state_bytes",
+      "sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec"
+    },
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/historical_epoch_v1_source_snapshots/pass54_validation_receipt.2ea24b28.json",
+      "role": "historical_pass54_validation_receipt_bytes",
+      "sha256": "2ea24b280cb8fd4fc7b928420785970e6a8fb62bfd988b6b22d6ac1731a4d6e6"
+    }
+  ],
+  "status": "PASS_IMMUTABLE_HISTORICAL_V1_SOURCE_SNAPSHOTS"
+}

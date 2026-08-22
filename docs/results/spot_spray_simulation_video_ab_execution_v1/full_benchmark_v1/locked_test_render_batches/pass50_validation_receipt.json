@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_execution_pass50_validation_v1",
+  "status": "FAIL_CLOSED_EXTERNAL_GPU_CAPACITY_LOCKED_TEST_C001_NOT_LAUNCHED_SYNTHETIC_ONLY",
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "pass": 50,
+  "observed_at": "2026-08-17T12:07:55+03:00",
+  "selected_step": "After ten minutes, re-preflight GPU and storage without altering external services, then launch the next immutable eight-slot locked-test batch locked_test_c001_r00 through locked_test_c001_r07 with max-new-pairs 8 if capacity passes, or fail closed with the exact remaining external GPU-capacity condition.",
+  "full_preflight": {
+    "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY",
+    "scope": "full",
+    "config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "storage": {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft",
+      "total_bytes": 491106508800,
+      "used_bytes": 160162177024,
+      "free_bytes": 305922215936,
+      "required_bytes": 180000000000,
+      "reserve_bytes_after_estimate": 30000000000,
+      "passed": true
+    },
+    "gpu_observation": {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "memory_total_mib": 24576,
+      "memory_used_mib": 21184,
+      "memory_free_mib": 2932,
+      "utilization_percent": 93,
+      "external_process_policy": "observed_only_never_stopped_or_modified"
+    },
+    "execution_locks_sha256": "894ba32b6ffa8bfbf2adf9d02dd02fc13194f67c8a106c71b3451cb0977a90b7",
+    "protocol_internal_locks_sha256": "57529dcea70f8641e84ea2a8cd6adceda05f07181288b5eee4a104de3ea05d13"
+  },
+  "gpu_capacity_guard": {
+    "passed": false,
+    "prior_proven_idle_launch_baseline_free_mib": 23521,
+    "current_free_mib": 2932,
+    "shortfall_to_proven_launch_baseline_mib": 20589,
+    "prior_observed_free_mib_during_active_blender": 1305,
+    "basis": "The previous native 2048-square three-arm renderer was launched with 23521 MiB free and later left only 1305 MiB free while Blender was active. Starting another native render with only 2932 MiB free would not preserve the measured capacity envelope.",
+    "exact_unblock_condition": "Without stopping or altering external services, the external Ollama allocation must release and observed GPU free memory must return to at least the prior proven 23521 MiB launch baseline before the c001 batch may start."
+  },
+  "external_gpu_processes": [
+    {
+      "pid": 2577518,
+      "name": "VLLM::EngineCore",
+      "used_memory_mib": 424,
+      "policy": "observed_only"
+    },
+    {
+      "pid": 2707206,
+      "name": "/usr/local/bin/ollama",
+      "used_memory_mib": 20584,
+      "model": "gemma4:26b",
+      "context": 32768,
+      "ollama_reported_until": "4 minutes from observation",
+      "policy": "observed_only"
+    }
+  ],
+  "launch_decision": {
+    "target_pair_ids": [
+      "locked_test_c001_r00",
+      "locked_test_c001_r01",
+      "locked_test_c001_r02",
+      "locked_test_c001_r03",
+      "locked_test_c001_r04",
+      "locked_test_c001_r05",
+      "locked_test_c001_r06",
+      "locked_test_c001_r07"
+    ],
+    "max_new_pairs": 8,
+    "launched": false,
+    "batch_intent_created": false,
+    "batch_process_present": false,
+    "reason": "GPU_CAPACITY_GUARD_FAILED_EXTERNAL_OLLAMA_ALLOCATION",
+    "external_services_stopped_or_modified": false
+  },
+  "atomic_render_state": {
+    "render_state_receipt_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "planned_pair_count": 96,
+    "completed_pair_count": 40,
+    "pending_pair_count": 56,
+    "first_pending_pair_id": "locked_test_c001_r00",
+    "completed_calibration_pair_count": 32,
+    "completed_locked_test_pair_count": 8,
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "state_unchanged_by_failed_capacity_guard": true
+  },
+  "full_plan_validation": {
+    "status": "PASS_FULL_PLAN_DRY_RUN_SYNTHETIC_ONLY",
+    "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "split_pair_counts": {
+      "calibration": 32,
+      "locked_test": 64
+    },
+    "candidate_count": 960,
+    "unique_seed_count": 4800,
+    "model_loaded": false,
+    "inference_calls": 0
+  },
+  "source_and_code_locks": {
+    "protocol_sha256": "de12cd76d3f497f1ea3a6ffa1d1c7fc8eea4e70a9af218c2769bae81da0f329f",
+    "botanical_receipt_sha256": "491776943143ca486c0fda7f307db4ec7372cc35adfd216c9243ac5efd36c956",
+    "botanical_patch_sha256": "c2301376c2f1607d1abfeeb75a6b9ad9b29873c764b027bd6995b10ebcaddd24",
+    "paired_receipt_sha256": "179410f6f975e1b7b43c369839ea3b58f74e6eb2ccc667dc4e64127b5ce7d5b3",
+    "paired_renderer_sha256": "3fa5b6a5838dc45126f55d54875c65da7fc6cc7ff0e3078104f207f5d3809082",
+    "simulation_evaluator_sha256": "83c6fabd1acc3db47799e96aea91b46d29f514d891c5f19091d3fb14bf3811f7",
+    "selected_checkpoint_sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100",
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "execution_script_sha256": "e650340418ae213d433f18356b6acad5b77942ae67ac3df2577bfe18840fe3d2",
+    "execution_test_sha256": "f6687b33fd137c6482897529b91f49d48bd2d246c4fce41f9249a9de540f856d"
+  },
+  "access_guard": {
+    "render_and_machine_audit_only": true,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "published_pair_prediction_outputs_present": false,
+    "locked_test_prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": []
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "outcome_target_tuning_forbidden": true
+  },
+  "highest_evidence_proven": "All 32 calibration pairs and locked-test cell c000's eight pairs are atomically published and validated at native 2048x2048, 30 frames, 15 Hz with shared GT and no model or locked-test outcome access: exact state 40/96.",
+  "remaining_work": "GPU capacity must first return to the prior proven renderer launch envelope. Then 56 locked-test pairs, frozen-checkpoint inference, calibration-only shared-threshold locking, exactly-once locked-test evaluation, videos, metrics, uncertainty, strata, verdicts, failure analysis, inventory and cleanup remain.",
+  "next_step": "Re-preflight GPU after the Ollama-reported four-minute allocation window; if free memory returns to at least 23521 MiB, launch the immutable locked_test_c001_r00 through locked_test_c001_r07 batch with max-new-pairs 8, otherwise preserve state 40/96 and report the exact continuing external capacity condition."
+}

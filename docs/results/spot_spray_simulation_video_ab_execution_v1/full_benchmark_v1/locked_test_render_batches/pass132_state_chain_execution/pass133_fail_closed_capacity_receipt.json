@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass133_fail_closed_capacity_v1",
+  "status": "FAIL_CLOSED_RECOVERY_V3_GPU_CAPACITY_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821122632-b10c3e8dab81",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 133,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T15:28:14+03:00",
+  "pair_id": "locked_test_c001_r07",
+  "failed_state_chain_process": {
+    "pid": 1135984,
+    "alive": false,
+    "process_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass132_state_chain_execution/process.log",
+    "process_log_sha256": "38e994260a67ca80688d86d5908074825b94e4d84fc5e3e655ab75535bf4bcb1",
+    "process_log_size_bytes": 1643,
+    "exact_terminal_exception": "RuntimeError: Too few source weed tracks: 0",
+    "error_candidate_index": 1,
+    "error_before_candidate_decision_commit": true
+  },
+  "candidate_0_terminal": {
+    "candidate_index": 0,
+    "candidate_identity_sha256": "99eb67d8d2c8203ff1e9e030b026557177caca71daba74239694906077efa4d9",
+    "canonical_gt_sha256": "95b022fd07ffad0556b2608424464e0eb421c6b43a383febc81f955edda2b571",
+    "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+    "gt_scout_terminal_receipt_sha256": "0977b052427485a06f5771b6cd38e4a6550fa56b8b24261232ac5e24615c0a5b",
+    "decision_receipt_sha256": "3ed7ad107bb77ebceb5342742c4d49c8bdffe96e788748f22181eadcdefc16a7",
+    "ledger_commit_receipt_sha256": "fe8f4831869cfa12bc1132b9badc386d1c4fbfcd6905bc637a37be2e20fcc3bc",
+    "rejection_reasons": [
+      "semantic:weed_free_frame_fraction_within_limit",
+      "semantic:mean_crop_fraction_in_range",
+      "semantic:mean_weed_fraction_in_range",
+      "eligibility:eligible_weed_track_present",
+      "eligibility:eligible_track_with_at_least_three_observations"
+    ],
+    "model_or_outcome_inputs_used": false,
+    "registered_targets_used": false
+  },
+  "candidate_1_error": {
+    "candidate_index": 1,
+    "candidate_identity_sha256": "1f6f9cb147fc5617081c8467262f2dd57fa2da7baa611da1a943cf2c5a5c9a5f",
+    "source_template_sha256": "b86540ba2a197389f2e20abebb9a63ccff98b60a64475abb5a192849a4bc71ae",
+    "exact_error": "RuntimeError: Too few source weed tracks: 0",
+    "terminal_receipt_present": false,
+    "ledger_row_present": false,
+    "recovery_staging_present": false,
+    "failure_before_decision_commit": true,
+    "canonical_successor_derived_by_sealed_v3": true
+  },
+  "state_chain_boundary": {
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "render_state_sha256": "d8055796077637cba7de69650ea0ff6472592034547faac8617c6ef530234113",
+    "chain_head_identity_sha256": "e66e962aae41c652e4b9362ee23357def0402a518c2aea6c3d113af1222dc077",
+    "completed_pair_count": 47,
+    "pending_pair_count": 49,
+    "first_pending_pair_id": "locked_test_c001_r07",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7",
+    "state_chain_intent_sha256": "234e2e6051914609cb3a704fbe1f385c2aec52f5b5b3b43f63b6a64e942a6837",
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+    "underlying_batch_intent_sha256": "9404d1dbd2ff41aa347c4870d4c4134c9939c1f3f40043b4700fc5b471f7aeed",
+    "state_chain_terminal_receipt_present": false,
+    "underlying_batch_terminal_receipt_present": false
+  },
+  "ledger": {
+    "predecessor_row_count": 161,
+    "predecessor_sha256": "7bcad9763f2594f624c90c0dfd3c0c11debae641da96b241b73d40d56b2f180b",
+    "predecessor_prefix_recomputed_sha256": "7bcad9763f2594f624c90c0dfd3c0c11debae641da96b241b73d40d56b2f180b",
+    "row_count": 162,
+    "sha256": "18ffc626a2f9ad89eea5faaed21468612420e87a6887b9e389145fbd850ab21d",
+    "append_only_prefix_preserved": true,
+    "appended_candidate_index": 0,
+    "candidate_1_row_appended": false
+  },
+  "recovery_v3_validation": {
+    "release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+    "derived_candidate_index": 1,
+    "derived_candidate_identity_sha256": "1f6f9cb147fc5617081c8467262f2dd57fa2da7baa611da1a943cf2c5a5c9a5f",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7",
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+    "real_v3_intents_created_during_validation": 0,
+    "recover_current_zero_weed_invocations_by_pass133": 0,
+    "not_invoked_reason": "sealed_gpu_capacity_threshold_not_met"
+  },
+  "fresh_preflight": {
+    "storage_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft",
+    "storage_free_bytes": 299710038016,
+    "storage_required_bytes": 8000000000,
+    "storage_passed": true,
+    "gpu_index": 0,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "gpu_total_mib": 24576,
+    "gpu_used_mib": 19699,
+    "gpu_free_mib": 4417,
+    "gpu_minimum_free_mib": 23521,
+    "gpu_passed": false,
+    "observed_external_gpu_processes": [
+      {
+        "pid": 17710,
+        "name": "VLLM::EngineCore",
+        "used_mib": 414
+      },
+      {
+        "pid": 1180633,
+        "name": "/usr/local/bin/ollama",
+        "used_mib": 19184,
+        "elapsed_seconds_at_validation": 306
+      }
+    ],
+    "external_process_policy": "observed_only_never_stopped_signaled_or_modified"
+  },
+  "fail_closed_decision": {
+    "recovery_candidate_gt_started": false,
+    "recovery_v3_intent_created": false,
+    "full_native_pair_render_started": false,
+    "pair_publication_observed": false,
+    "state_transition_observed": false,
+    "exact_unblock_condition": "Without stopping or altering external services, observed RTX 3090 free memory must return to at least the sealed 23521 MiB native-render launch threshold while the exact state, head, ledger162 and both open intents remain unchanged."
+  },
+  "access_guard": {
+    "candidate_acceptance_or_skip_authority_used": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": [],
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

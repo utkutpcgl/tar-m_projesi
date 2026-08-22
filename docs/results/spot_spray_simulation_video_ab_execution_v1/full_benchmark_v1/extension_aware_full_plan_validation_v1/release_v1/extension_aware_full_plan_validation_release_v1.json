@@ -1,0 +1,27 @@
+{
+  "authorization_receipt_sha256": "f7be0611c486ed875f206e79721af30d43f7d6d90c64b5328d08042e27bcca88",
+  "bridge_sha256": "f12e66273238d0e872cba332964e870bff1f058e313ede575b33ffca67d0ca46",
+  "candidate_10_full_pair_receipt_sha256": "069312f20781123251a74bc0e7321868b79a7ca037ad3decdbc5193559a1dfe7",
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_full_plan_validation_v1_release",
+  "execution_script_sha256": "ac27a2942dcfe68d9a5ae5232462359cec00ae280f9c3d839e1fa4f12f73834b",
+  "execution_test_sha256": "0d66e6401d913e7f16b0c62ab66baa238b86237105315ff4030f1ef3c667860d",
+  "historical_bytes_rewritten_or_rebound": false,
+  "legacy_validator_semantics_changed": false,
+  "pass63_blocker_receipt_sha256": "0a549b4951f91a45b1d0be551a1a8b5d6b84d02bbd47bddcce27ec67ab728791",
+  "release_identity_sha256": "39c782e375352fdcddd62751ff4a3f4577652d111798269e549dae8bdaf066f7",
+  "runtime_config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+  "runtime_release_file_sha256": "4acfca1e21051db6aa791efc6bb3a4b1cea3912fd6eced3461bd9747be26094b",
+  "runtime_release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+  "schema_version": 1,
+  "status": "SEALED_EXTENSION_AWARE_VALIDATOR_RELEASE_SYNTHETIC_ONLY",
+  "validation_lock_sha256": "e9f1fbd888867fe1db045d79b79b7db6b3a40f4b707b4a828a1ce7200ee021e9",
+  "validation_only": true
+}

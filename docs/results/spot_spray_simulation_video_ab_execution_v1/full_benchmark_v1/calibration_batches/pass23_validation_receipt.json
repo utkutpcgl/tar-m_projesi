@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_calibration_batch_pass23_third_published_prefix_validation_v1",
+  "status": "PASS_THIRD_PUBLISHED_PREFIX_AND_NEXT_ACTIVE_GT_SCOUT_VALIDATED_SYNTHETIC_ONLY",
+  "snapshot_observed_at_utc": "2026-08-16T03:03:54Z",
+  "goal_multi_repeat": {
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "pass": 23,
+    "event": "scheduled-resume-20260816025943-5a56d5e478d3",
+    "strategy": "base"
+  },
+  "publication_transition": {
+    "pair_id": "calibration_c004_r03",
+    "absent_at_initial_snapshot_utc": "2026-08-16T03:00:58Z",
+    "healthy_full_render_frame_count_per_channel_at_utc": {
+      "observed_at": "2026-08-16T03:01:37Z",
+      "ideal_rgb": 28,
+      "degraded_rgb": 28,
+      "shared_semantic": 28,
+      "shared_tracks": 28
+    },
+    "staging_removed_by_atomic_publish": true,
+    "terminal_pair_present_at_final_snapshot": true,
+    "final_snapshot_utc": "2026-08-16T03:03:54Z",
+    "incomplete_staging_evidence_used_as_terminal_evidence": false
+  },
+  "batch_execution": {
+    "batch_id": "calibration_batch_calibration_c004_r01_b2a51b7c2055661c",
+    "request_identity_sha256": "b2a51b7c2055661c34b2b9dd02ddf46d4d9f76c3a7a73d30be42249871149512",
+    "intent_sha256": "9b5cb604c66b4c6d777e75f7fff0a94641a53db5e01302e02fc1fa60d1eb02a2",
+    "detached_pid": 874005,
+    "detached_session_id": 874005,
+    "process_alive_at_snapshot": true,
+    "elapsed_process_time_at_snapshot": "04:24:27",
+    "terminal_batch_receipt_present": false,
+    "process_log_sha256_at_snapshot": "4965302474348029ad45ee1a93934b836a76a6b49a6a9d996fd9dfb49140d254",
+    "process_log_bytes_at_snapshot": 4476,
+    "process_log_line_count_at_snapshot": 36,
+    "process_log_error_traceback_exception_or_failure_count": 0,
+    "process_log_zero_source_weed_failure_count": 0,
+    "process_log_only_signal": "Pillow mode parameter deprecation warnings"
+  },
+  "atomic_render_state": {
+    "render_state_sha256": "9504c5bc7fc41176255fa5c717d64286c0b25150d8db8e50ec5f1f635e77106b",
+    "planned_pair_count": 96,
+    "completed_pair_count": 20,
+    "pending_pair_count": 76,
+    "next_pending_pair_id": "calibration_c005_r00",
+    "new_target_pair_count_published": 3,
+    "published_target_pair_ids": [
+      "calibration_c004_r01",
+      "calibration_c004_r02",
+      "calibration_c004_r03"
+    ],
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "active_partial_directory_count": 1,
+    "active_partial_is_expected_next_gt_scout": true
+  },
+  "published_pair_validation": {
+    "pair_id": "calibration_c004_r03",
+    "protocol_split": "calibration",
+    "selected_candidate_index": 2,
+    "candidate_identity_sha256": "fe2b0c7a91dd987e061330584531abeb6241ffa3ce0b5fb877d0c6594d847d48",
+    "pair_slot_identity_sha256": "1026749681b18023339343c8ca0dbff2d804659351b04dd0c90c913f454fcf08",
+    "canonical_gt_sha256": "94eae7a097d5702a620538fe2c03c344c5e64b7a37ff13065e2f042770970188",
+    "scout_terminal_receipt_sha256": "c419156cea2fce63d07291130fbede37bcf3f50564bb63e5c9f0cb031b55ebe2",
+    "full_terminal_receipt_sha256": "049b84840502952754257d358daca3f4564119e925fc1c8f45d51d9324b4b200",
+    "pair_receipt_sha256": "0ff8ba915a7b4d2b88992ca0d227bda405c7f58a4f728c591884b107de04a47d",
+    "docs_mirror_byte_exact": true,
+    "scout_to_full_candidate_identity_exact": true,
+    "scout_to_full_canonical_gt_exact": true,
+    "all_six_pair_quality_gates_passed": true,
+    "pair_quality_gates": {
+      "deterministic_replay_identity": true,
+      "geometry_and_botanical_gt_integrity": true,
+      "native_frame_and_pair_integrity": true,
+      "pixel_and_visual_operability": true,
+      "source_and_asset_provenance": true,
+      "temporal_denominator_contribution": true
+    },
+    "arm_gt_identity_byte_exact": true,
+    "arm_gt_paths_shared": true,
+    "single_shared_gt_authority_confirmed_without_per_arm_semantic_or_track_trees": true,
+    "shared_semantic_frame_manifest_sha256": "5cc06aafb5ac40b8a35f36105cddfc53a37161959d9c0bc6001f757f25739fd9",
+    "shared_track_frame_manifest_sha256": "e04af10a9c5ef94b2b69e90341d29a8237a7641f9c849f783443b17a0308ee84",
+    "source_track_count": 45,
+    "visible_eligible_weed_track_count": 21,
+    "semantic_audit": {
+      "crop_free_frame_fraction": 0.0,
+      "mean_crop_fraction": 0.021114555994669597,
+      "mean_weed_fraction": 0.08231600920359293,
+      "weed_free_frame_fraction": 0.03333333333333333
+    },
+    "capture_difference": {
+      "changed_pixel_fraction_minimum": 0.5848174095153809,
+      "differences_restricted_to_rgb_capture_profile": true,
+      "psf_centroid_error_px_maximum": 0.0,
+      "psf_path_px": 0.6751648351648352,
+      "rgb_rmse_mean": 1.2799143314361572,
+      "rgb_rmse_minimum": 1.0946029424667358
+    },
+    "frame_count_per_arm": 30,
+    "frame_rate_hz": 15,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "ideal_rgb_png_count": 30,
+    "degraded_rgb_png_count": 30,
+    "shared_semantic_png_count": 30,
+    "shared_track_png_count": 30,
+    "all_thirty_ideal_degraded_rgb_frame_pairs_distinct": true,
+    "independent_ffprobe_and_full_ffmpeg_decode_passed_for_all_three_videos": true,
+    "ideal_video": {
+      "sha256": "3db737ec954ddb19a05e296695e49d04891602cf85b2b3badcd642d0da0dcbf1",
+      "decoded_frame_count": 30,
+      "frame_rate_hz": 15,
+      "dimensions_px": [
+        2048,
+        2048
+      ]
+    },
+    "degraded_video": {
+      "sha256": "1b1fc6477a45929b8b7fad32dfa0cd27ac967836542135ea0d8a54b5056387ab",
+      "decoded_frame_count": 30,
+      "frame_rate_hz": 15,
+      "dimensions_px": [
+        2048,
+        2048
+      ]
+    },
+    "side_by_side_video": {
+      "sha256": "611b79994e68a9ce3695ca7d8ad20890ecff0effc08e4a115c1010caf56b71a5",
+      "decoded_frame_count": 30,
+      "frame_rate_hz": 15,
+      "dimensions_px": [
+        2048,
+        1024
+      ]
+    },
+    "preoutcome_contact_sheet_sha256": "f214b1b6f45ad15f79c8c74a5eed3be988f342b81910f9a1604be17c7f2719e4",
+    "preoutcome_contact_sheet_visually_inspected": true,
+    "preoutcome_contact_sheet_visually_readable": true,
+    "paired_columns_show_same_scene_and_trajectory": true,
+    "predictions_metrics_or_actions_visible": false
+  },
+  "next_active_target": {
+    "pair_id": "calibration_c005_r00",
+    "protocol_split": "calibration",
+    "active_stage": "gt_only_scout",
+    "candidate_index": 0,
+    "candidate_identity_sha256": "1f6ddd9bf795bc93bde4f227e37eeaeedd6825ccf1036fb23539cf0ef88c88ad",
+    "pair_slot_identity_sha256": "f5aeed0e7d855b8800aea8130899558faf8d9e3c0dd45d1ffbcf2e2390a32964",
+    "active_partial_directory": "data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-calibration_c005_r00-candidate-00-63341428c539402baced983a37342b07",
+    "scene_config_sha256_at_snapshot": "e31b05928c7f7a7bf62d4e9fa396adb8a3f5bd501f222aced001a5cbeed1162f",
+    "scene_patch_sha256_at_snapshot": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "source_template": {
+      "profile": "hood_dry_nominal",
+      "scene_id": "scene_0000",
+      "sha256": "0508ebfa399da1bc854e08ee2dda27578884cbfcddaf9043605634dd23a0f0ae"
+    },
+    "role_asset_allowlist_sha256": "8d73b4633669f1f5f10e697ff2f67161ccb6b0ec1c311dbfacf30d4c14e97c76",
+    "role_asset_object_identity_sha256": "561ace162e00e1ef0a901c87159e95883c8484078abf3ab7a16dbfbe81f75f92",
+    "all_five_seed_bindings_match_roster": true,
+    "seeds": {
+      "scene_seed": 8353554516300194211,
+      "trajectory_seed": 15479291689665591533,
+      "capture_draw_seed": 14279333332331115311,
+      "renderer_seed": 13151173479617244188,
+      "audit_sample_seed": 12655690173712557076
+    },
+    "frame_count": 30,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "source_instance_masks_written_through_frame": 30,
+    "terminal_scout_receipt_present_at_snapshot": false,
+    "model_access_allowed": false,
+    "outcome_inputs": []
+  },
+  "candidate_rejection_ledger": {
+    "row_count": 45,
+    "sha256": "9f6ab9cb967f91f69acb72853931b2ff8311ef3930a441e2a86e378ba2905d32",
+    "all_rows_model_or_outcome_inputs_used_false": true
+  },
+  "recovery_decision": {
+    "recovery_executed_this_pass": false,
+    "exact_zero_source_weed_fail_closed_condition_present": false,
+    "reason": "The immutable batch process published calibration_c004_r03 successfully and advanced to the canonical calibration_c005_r00 candidate 0 GT-only scout; no failure or zero-source-weed signal existed."
+  },
+  "capacity_and_access_boundary": {
+    "data_disk_free_bytes_at_snapshot": 323509121024,
+    "full_benchmark_model_run_root_present": false,
+    "checkpoint_loaded": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "outcome_or_registered_target_inputs_used": false,
+    "synthetic_only": true,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  },
+  "next_step": "After one hour, inspect detached PID 874005 and validate published calibration_c005_r00 plus the next active target, or execute only the sealed zero-source-weed recovery if that exact fail-closed condition stopped the same immutable batch."
+}

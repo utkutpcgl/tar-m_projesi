@@ -1,0 +1,109 @@
+{
+  "access_guard": {
+    "candidate_10_gt_scout_active": true,
+    "external_processes_modified": false,
+    "full_benchmark_model_outputs_present": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "render_and_machine_audit_only": true
+  },
+  "active_candidate": {
+    "candidate_identity_sha256": "887f18acce3d4e0a75e7d8670d22d433374898c031724feabdd6561d25ec76a4",
+    "candidate_index": 10,
+    "frame_count": 30,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "pair_id": "locked_test_c001_r00",
+    "presealed_manifest_binding_exact": true,
+    "seeds": {
+      "audit_sample_seed": 8422460394543698405,
+      "capture_draw_seed": 8882908064289344753,
+      "renderer_seed": 15157628161568229920,
+      "scene_seed": 7226111793099446366,
+      "trajectory_seed": 12825880541104311247
+    },
+    "source_template": {
+      "profile": "hood_dry_nominal",
+      "scene_id": "scene_0004",
+      "sha256": "674ac8146691aa2f6bca7b3f7382ae4790c6b8676e6db4450fabd12d26e6c76e"
+    },
+    "stage_at_observation": "gt_scout_source_scene_blender_render",
+    "staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-locked_test_c001_r00-candidate-10-595cf6c3c65e447f8a9c69130c2c9daa"
+  },
+  "batch": {
+    "batch_execution_lock_sha256": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74",
+    "batch_id": "locked_test_render_batch_locked_test_c001_r00_08e1cd1a2b59a9f7",
+    "batch_intent_sha256": "b529fb18608d23b1bfe0a409771b87e7ff61a0b4c59e3a93d138bb5de1701821",
+    "intent_status": "LOCKED_TEST_RENDER_BATCH_INTENT_PREOUTCOME_SYNTHETIC_ONLY",
+    "max_new_pairs": 1,
+    "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "request_identity_sha256": "08e1cd1a2b59a9f75ac3c28db953c72b373bffcee3f7b4caf5901ecd46c865db",
+    "target_pair_ids": [
+      "locked_test_c001_r00"
+    ],
+    "terminal_receipt_present_at_observation": false
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass61_runtime_patch_batch_launch_v1",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260820034556-22508006dc88",
+    "pass": 61,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "immutable_boundary_at_launch": {
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "completed_pair_count": 40,
+    "failed_extension_intent_sha256": "e910ac803d60e9ad59c96cb2d787a63b570a59fd6705be37237a7b60bfaac68f",
+    "first_pending_pair_id": "locked_test_c001_r00",
+    "historical_v1_intent_sha256": "e97bd46ddfbe1c5874700578f6eaa67a1e1bf1fd9050024c56d72ea9655e9a9a",
+    "pending_pair_count": 56,
+    "render_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec"
+  },
+  "observed_at": "2026-08-20T06:51:21+03:00",
+  "preflight": {
+    "data_free_bytes": 305911336960,
+    "data_required_bytes": 180000000000,
+    "data_reserve_bytes": 30000000000,
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "gpu_memory_free_mib": 23608,
+    "gpu_memory_total_mib": 24576,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "prior_proven_native_render_launch_baseline_free_mib": 23521,
+    "source_locks_verified": true,
+    "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY"
+  },
+  "process": {
+    "active_stage": "gt_scout_source_scene_blender_render",
+    "command_exact": true,
+    "log_bytes_at_observation": 0,
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass61_runtime_patch_execution/process.log",
+    "log_sha256_at_observation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "process_pid": 4011749,
+    "process_session_id": 4011749,
+    "started_local": "2026-08-20T06:50:13+03:00",
+    "terminal_error_observed": false
+  },
+  "runtime_release": {
+    "config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "release_file_sha256": "4acfca1e21051db6aa791efc6bb3a4b1cea3912fd6eced3461bd9747be26094b",
+    "release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+    "validation_status": "PASS_RUNTIME_COMPATIBILITY_RELEASE_VALIDATION_SYNTHETIC_ONLY"
+  },
+  "schema_version": 1,
+  "status": "ACTIVE_CANDIDATE_10_MODEL_FREE_RUNTIME_PATCH_SYNTHETIC_ONLY"
+}

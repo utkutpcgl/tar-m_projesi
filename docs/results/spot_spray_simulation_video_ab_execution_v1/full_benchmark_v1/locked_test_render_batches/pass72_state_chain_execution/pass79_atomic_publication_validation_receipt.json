@@ -1,0 +1,142 @@
+{
+  "access_guard": {
+    "candidate_gt_accessed_during_validation": false,
+    "external_services_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls_during_validation": 0
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass79_atomic_publication_validation_v1",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260820223235-19819bcb0789",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 79,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "idempotent_repeat": {
+    "batch_intent_sha256_after": "3c5a6b2fa048a967cc950bc8459432302f76bccd29c3c4c4e6241d32aef611eb",
+    "batch_receipt_sha256_after": "2645f823fe89ef9ce067250176ab4c681a058396d283f379ad28ecd5d3f4c6a1",
+    "ledger_sha256_after": "84b6e2848060fc6d39df48cadf2aa3e14a0a3e060734f051d441f77327a8e336",
+    "state_chain_intent_sha256_after": "d22d8f7529d14704e007944df9a2881b15a08bab89ae83b9a80a3674ca6f6dcb",
+    "state_chain_terminal_receipt_sha256_after": "d73361a103efa5cc12936444c2d108f25ba2a9533ddb6ab9d04d585cfc7c3715",
+    "status": "SKIP_EXISTING_PASS_EXTENSION_AWARE_STATE_CHAIN_BATCH_SYNTHETIC_ONLY",
+    "unchanged_bytes": true,
+    "render_state_sha256_after": "9830d0408a514f3acd594658fa60ca45b1b756301db388d9bf91b04beac28514"
+  },
+  "ledger_transition": {
+    "append_only": true,
+    "candidate_7_appended": false,
+    "predecessor_row_count": 111,
+    "predecessor_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "result_row_count": 118,
+    "result_sha256": "84b6e2848060fc6d39df48cadf2aa3e14a0a3e060734f051d441f77327a8e336",
+    "rows_appended_for_rejected_candidates": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "observed_at": "2026-08-21T01:35:28+03:00",
+  "pair_publication": {
+    "all_frozen_pair_gates_passed": true,
+    "candidate_identity_sha256": "3563478a3b5c936782fb4ea09f9484d1a0f1b84c94e8448c596cedb87183f467",
+    "canonical_gt_sha256": "c6787606fc1fecd13a6f236ee6d28dbd3100537304d4c851dc3cf592d92b00e4",
+    "contact_sheet_sha256": "330ac8be5ef90928cad1c88a80d99532e14ef3eaf7ead86f0f3b10cd3d43ff22",
+    "contact_sheet_visually_readable_and_paired": true,
+    "full_pair_receipt_sha256": "50e9a00726eed2a0c1bd8e07b147b04cd56d63dda75d2f8f5002f28527dd10e4",
+    "identical_arm_gt": true,
+    "pair_id": "locked_test_c001_r02",
+    "pair_receipt_sha256": "0c3b3f6ddffb5e8cb9bffa3b3ce2c0cd9c5b8dcc59f0e94b3a237cdb58e0e798",
+    "pair_slot_identity_sha256": "61761c955f53a1dacfe3433fceb1b9b1c04573625330ba2aa6d6a494f7844cf2",
+    "receipt_epoch": "historical_v1",
+    "selected_candidate_index": 7,
+    "shared_semantic_mask_count": 30,
+    "shared_track_mask_count": 30,
+    "status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY"
+  },
+  "process": {
+    "exit_observed": true,
+    "pid": 643801,
+    "terminal_error_observed": false
+  },
+  "render_state_transition": {
+    "completed_pair_count_after": 43,
+    "completed_pair_count_before": 42,
+    "first_pending_pair_id_after": "locked_test_c001_r03",
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "pending_pair_count_after": 53,
+    "predecessor_head_identity_sha256": "d8b55559080b3a83888415787ec90f32aca6e451a06c58f01637d6bd105f396a",
+    "predecessor_state_sha256": "7ab698a03479c2e7899c17d17e7abf0a2d08a0556585abf10769c14993efcbce",
+    "published_pair_id": "locked_test_c001_r02",
+    "result_state_sha256": "9830d0408a514f3acd594658fa60ca45b1b756301db388d9bf91b04beac28514",
+    "synthetic_and_docs_state_mirrors_exact": true
+  },
+  "schema_version": 1,
+  "state_chain": {
+    "active_execution_id_after": null,
+    "batch_id": "locked_test_render_batch_locked_test_c001_r02_05dac6615f145351",
+    "batch_intent_sha256": "3c5a6b2fa048a967cc950bc8459432302f76bccd29c3c4c4e6241d32aef611eb",
+    "batch_receipt_sha256": "2645f823fe89ef9ce067250176ab4c681a058396d283f379ad28ecd5d3f4c6a1",
+    "commit_identity_sha256": "69b872d89b77a559aae41c273fe6c5846d2241e15c73d81bb17151666402cddf",
+    "commit_manifest_sha256": "32c8eba87a5a1ca5972c3627bc2c21685d2052fe30dc24d81ba5b9c12ff462f8",
+    "commit_name": "transition_000043_locked_test_c001_r02_33a1a52c6245f709",
+    "execution_id": "state_chain_batch_locked_test_c001_r02_a6a41578f3c89894",
+    "head_identity_sha256": "33a1a52c6245f709ed47036a891c44d2b9f36bee934109ef06b8cce0ecca2f2f",
+    "intent_sha256": "d22d8f7529d14704e007944df9a2881b15a08bab89ae83b9a80a3674ca6f6dcb",
+    "original_validator_restored": true,
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "terminal_receipt_sha256": "d73361a103efa5cc12936444c2d108f25ba2a9533ddb6ab9d04d585cfc7c3715",
+    "transition_record_sha256": "683a261c3b21cd29a25271c7ac112b52ef1735c1ae375a0ce09ceb9218d7c4cd"
+  },
+  "status": "PASS_ATOMIC_42_TO_43_PUBLICATION_VALIDATION_SYNTHETIC_ONLY",
+  "validation": {
+    "chain_head_identity_sha256": "33a1a52c6245f709ed47036a891c44d2b9f36bee934109ef06b8cce0ecca2f2f",
+    "published_pair_receipt_count": 43,
+    "status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY",
+    "transition_commit_count": 2
+  },
+  "videos": {
+    "degraded": {
+      "average_frame_rate": "15/1",
+      "decoded_frame_count": 30,
+      "height": 2048,
+      "independent_decode_passed": true,
+      "sha256": "5f657f9e197b2d811f838a3b2018fc67e2fa32b35310685d1aff0400553043e4",
+      "width": 2048
+    },
+    "ideal": {
+      "average_frame_rate": "15/1",
+      "decoded_frame_count": 30,
+      "height": 2048,
+      "independent_decode_passed": true,
+      "sha256": "7d1daff3dd0aa52aaf23dfabcf4206b0ce86e22320d72dc15bdba2eac6301ff7",
+      "width": 2048
+    },
+    "side_by_side": {
+      "average_frame_rate": "15/1",
+      "decoded_frame_count": 30,
+      "height": 1024,
+      "independent_decode_passed": true,
+      "sha256": "fefff97fe5d050ab1cac9396b15b4f63c062f4dc6f7fc8c7fb618ff1f96f777f",
+      "width": 2048
+    }
+  }
+}

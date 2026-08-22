@@ -1,0 +1,130 @@
+{
+  "access_guard": {
+    "candidate_0_gt_scout_active": true,
+    "external_services_modified": false,
+    "full_benchmark_model_outputs_present": false,
+    "full_pair_render_active": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "render_and_machine_audit_only": true
+  },
+  "active_candidate": {
+    "candidate_identity_sha256": "986feda89fbcc15aee76cbf648fd7f7c41c55e1cf5bbb32e100645b989abb45a",
+    "candidate_index": 0,
+    "frame_count": 30,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "pair_id": "locked_test_c001_r02",
+    "pair_slot_identity_sha256": "61761c955f53a1dacfe3433fceb1b9b1c04573625330ba2aa6d6a494f7844cf2",
+    "presealed_roster_binding_exact": true,
+    "seeds": {
+      "audit_sample_seed": 3292048190359172217,
+      "capture_draw_seed": 10012995216930114600,
+      "renderer_seed": 10074667103358084848,
+      "scene_seed": 4225034110805149631,
+      "trajectory_seed": 9688233923270892402
+    },
+    "source_template": {
+      "profile": "hood_dry_nominal",
+      "scene_id": "scene_0004",
+      "sha256": "674ac8146691aa2f6bca7b3f7382ae4790c6b8676e6db4450fabd12d26e6c76e"
+    },
+    "stage_at_observation": "gt_scout_source_scene_blender_render",
+    "staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-locked_test_c001_r02-candidate-00-2a1093d9ab124914b79aab22c6bc871f"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass72_state_chain_launch_v1",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260820203413-3c489631a79a",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 72,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "immutable_boundary_at_launch": {
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "completed_pair_count": 42,
+    "first_pending_pair_id": "locked_test_c001_r02",
+    "pending_pair_count": 54,
+    "render_state_sha256": "7ab698a03479c2e7899c17d17e7abf0a2d08a0556585abf10769c14993efcbce"
+  },
+  "launcher_recovery": {
+    "failed_attempt": {
+      "candidate_gt_accessed": false,
+      "error": "Blender --version exited 127 because base OpenCV amended LD_LIBRARY_PATH with /home/ankaref/miniconda3/lib, causing a bundled OpenImageIO/Imath symbol lookup conflict.",
+      "intent_bytes_preserved": true,
+      "model_or_outcome_accessed": false,
+      "process_log_sha256": "da0c24c557b733a43878f7459c21da99e253e0f35cff9b6986388c7be31ff29a",
+      "process_pid": 628512,
+      "render_started": false
+    },
+    "recovery": {
+      "entrypoint_or_request_changed": false,
+      "external_services_modified": false,
+      "interpreter": "/home/ankaref/miniconda3/envs/sgs-yolo/bin/python3.10",
+      "same_state_chain_intent_resumed": true,
+      "source_or_release_bytes_changed": false
+    }
+  },
+  "observed_at": "2026-08-20T23:40:30+03:00",
+  "preflight": {
+    "data_free_bytes": 304150499328,
+    "data_required_bytes": 180000000000,
+    "data_reserve_bytes": 30000000000,
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "gpu_memory_free_mib": 23608,
+    "gpu_memory_total_mib": 24576,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "prior_proven_native_render_launch_threshold_free_mib": 23521,
+    "release_state_head_ledger_and_open_intent_verified": true,
+    "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY"
+  },
+  "process": {
+    "active_stage": "gt_scout_source_scene_blender_render",
+    "command_exact": true,
+    "log_bytes_at_observation": 0,
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass72_state_chain_execution/process_resume.log",
+    "log_sha256_at_observation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "process_pid": 643801,
+    "process_session_id": 643801,
+    "started_local": "2026-08-20T23:40:02+03:00",
+    "terminal_error_observed": false
+  },
+  "schema_version": 1,
+  "state_chain": {
+    "chain_head_identity_sha256": "d8b55559080b3a83888415787ec90f32aca6e451a06c58f01637d6bd105f396a",
+    "execution_id": "state_chain_batch_locked_test_c001_r02_a6a41578f3c89894",
+    "intent_sha256": "d22d8f7529d14704e007944df9a2881b15a08bab89ae83b9a80a3674ca6f6dcb",
+    "release_file_sha256": "4c68888c43a09fb4afe4c0c56a365e36d6707c068f250deb891b2765c23f19bd",
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "request_identity_sha256": "a6a41578f3c898943dea75f3387d0d149d42b2e953ea22aaced275a301b28693",
+    "terminal_receipt_present_at_observation": false
+  },
+  "status": "ACTIVE_CANDIDATE_0_MODEL_FREE_STATE_CHAIN_SYNTHETIC_ONLY",
+  "underlying_batch": {
+    "batch_execution_lock_sha256": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74",
+    "batch_id": "locked_test_render_batch_locked_test_c001_r02_05dac6615f145351",
+    "intent_sha256": "3c5a6b2fa048a967cc950bc8459432302f76bccd29c3c4c4e6241d32aef611eb",
+    "intent_status": "LOCKED_TEST_RENDER_BATCH_INTENT_PREOUTCOME_SYNTHETIC_ONLY",
+    "max_new_pairs": 1,
+    "request_identity_sha256": "05dac6615f145351c66395175bc03e916533d1213f90bf26634f344628ff1a78",
+    "target_pair_ids": [
+      "locked_test_c001_r02"
+    ],
+    "terminal_receipt_present_at_observation": false
+  }
+}

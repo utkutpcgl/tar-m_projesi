@@ -1,0 +1,136 @@
+{
+  "access_guard": {
+    "candidate_gt_inspection_during_sealing": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls_during_sealing": 0
+  },
+  "authorization": {
+    "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "manager_authorization_event_id": "scheduled-resume-20260817103307-75b799f2dfc8",
+    "manager_session_id": "019fb346-5ead-7600-8068-40b32b0daa06",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 55,
+    "portfolio_id": "goal-multi-repeat-agents-spot-spray-simulation-video-ab-v1-b8e46607aeea",
+    "portfolio_lane": "full-simulation-video-ab-execution-v1",
+    "portfolio_revision": 97,
+    "repository": "/home/ankaref/utku/tar\u0131m_projesi",
+    "strategy": "base"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_roster_extension_v1",
+  "derivation": {
+    "algorithm": "sha256_uint64_big_endian_first_8_bytes",
+    "channels": [
+      "scene_seed",
+      "trajectory_seed",
+      "capture_draw_seed",
+      "renderer_seed",
+      "audit_sample_seed"
+    ],
+    "input_order": [
+      "protocol_id",
+      "split",
+      "cell_id",
+      "replicate_index",
+      "candidate_index",
+      "channel_name",
+      "v12_split_base_seed"
+    ],
+    "only_versioned_change": "candidate_index_range_10_through_31",
+    "protocol_seed_derivation_sha256": "2c40dd59694d4d203df841dee3cd66b94024c2c3dab9504383e34b3545e0af1f",
+    "separator": "|",
+    "source_template_selection": "same_profile_pool_indexed_by_replicate_index_plus_candidate_index_mod_pool_length",
+    "split_base_seeds": {
+      "calibration": 440000,
+      "locked_test": 540000
+    },
+    "split_cell_and_replicate_bindings_unchanged": true
+  },
+  "extension_epoch": {
+    "candidate_count": 2112,
+    "candidate_index_range": [
+      10,
+      31
+    ],
+    "candidates_per_slot": 22,
+    "combined_candidate_count": 3072,
+    "combined_candidate_index_range": [
+      0,
+      31
+    ],
+    "manifest_presealed_before_candidate_gt_inspection": true,
+    "pair_count": 96,
+    "pair_roster_extension_sha256": "4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d"
+  },
+  "historical_epoch": {
+    "atomic_render_state_contract_sha256": "c8ea7db85e3c5bc309cf888cda188215f7b6aeea5c25271f02861f388a653237",
+    "bytes_may_be_rewritten": false,
+    "candidate_count": 960,
+    "candidate_gate_contract_sha256": "b1af31dc12bc09b92c583a878797cb138624f9a9dc672fe2272cf0405b00f089",
+    "candidate_index_range": [
+      0,
+      9
+    ],
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "execution_script_sha256": "e650340418ae213d433f18356b6acad5b77942ae67ac3df2577bfe18840fe3d2",
+    "execution_test_sha256": "f6687b33fd137c6482897529b91f49d48bd2d246c4fce41f9249a9de540f856d",
+    "full_plan_generator_script_sha256": "3f2d6cfd9eeede0c75437b0808b6380dabd4197e324cff71cbd010cea5e1bda3",
+    "full_plan_receipt_sha256": "be14720a4249222ec56e49efc54a564a2b4efd75d3d94eca9fc23ff76ff2fdb9",
+    "full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+    "gt_scout_execution_lock_sha256": "5fe68dd43183a588b02724bfd0af090f405f7a27f2eacf74b109b84c40a3c3d3",
+    "locked_test_recovery_execution_lock_sha256": "40fe379dacc3b3af26c20d34b8bfcb9d86d5bdb2b9bf1c3ff7393bb11c19c95e",
+    "locked_test_render_batch_execution_lock_sha256": "5bd38a72d9a07dbbb1077de770a4509d75b023dc05d7d7edc397b818d4c12ce6",
+    "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "pass54_validation_receipt_sha256": "2ea24b280cb8fd4fc7b928420785970e6a8fb62bfd988b6b22d6ac1731a4d6e6",
+    "protocol_sha256": "de12cd76d3f497f1ea3a6ffa1d1c7fc8eea4e70a9af218c2769bae81da0f329f",
+    "render_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "seed_count": 4800,
+    "selected_checkpoint_sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100"
+  },
+  "schema_version": 1,
+  "selection_and_gates": {
+    "candidate_31_exhaustion_action": "fail_closed_stop_for_new_manager_decision",
+    "candidate_gate_contract_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/candidate_gate_contract_v1.json",
+    "candidate_gate_contract_sha256": "b1af31dc12bc09b92c583a878797cb138624f9a9dc672fe2272cf0405b00f089",
+    "historical_rejection_reinterpretation_allowed": false,
+    "lowest_unattempted_candidate_wins": true,
+    "slot_skip_or_replacement_allowed": false,
+    "threshold_or_gate_relaxation_allowed": false
+  },
+  "status": "SEALED_APPEND_ONLY_ROSTER_EXTENSION_PREOUTCOME_SYNTHETIC_ONLY",
+  "validation": {
+    "all_96_slots_presealed": true,
+    "candidate_index_range": [
+      10,
+      31
+    ],
+    "candidate_indices_per_slot": 22,
+    "combined_candidate_count": 3072,
+    "combined_seed_count": 15360,
+    "extension_candidate_count": 2112,
+    "extension_seed_count": 10560,
+    "historical_candidate_count": 960,
+    "historical_candidates_unchanged": true,
+    "model_prediction_outcome_or_target_inputs_absent": true,
+    "pair_count": 96,
+    "seed_formula_unchanged_except_versioned_index_range": true,
+    "source_template_cycle_unchanged": true,
+    "unique_combined_candidate_identity_count": 3072,
+    "unique_combined_seed_count": 15360,
+    "unique_extension_candidate_identity_count": 2112,
+    "unique_extension_seed_count": 10560
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "adapter_release_identity_sha256": "5708c05e2421f32f5012d4990f70ecff74cef2c2687055432ac434d8738f33af",
+  "artifact_inventory": {
+    "file_count": 4,
+    "files": [
+      {
+        "path": "extension_aware_batch_adapter_bridge_v1.json",
+        "sha256": "90ef26a4125f32feb6d4d4a8969bb372f9e9721d70b45646953225262683b4fa",
+        "size_bytes": 4067
+      },
+      {
+        "path": "extension_aware_batch_adapter_lock_v1.json",
+        "sha256": "eb4376f852fad2c63cd66b83415ff803c2667a719052bf088e4b8ca457094df3",
+        "size_bytes": 1482
+      },
+      {
+        "path": "extension_aware_batch_adapter_release_v1.json",
+        "sha256": "759ddf0f17d2e6a2ac5637dc55b5f0f8360b0ced71ec89637aec61917cf5d96e",
+        "size_bytes": 2303
+      },
+      {
+        "path": "pass66_manager_authorization_receipt.json",
+        "sha256": "8c51531bcea77835a531fbaeb7367b0e35bed0537a173ff964183f29a60f9012",
+        "size_bytes": 2108
+      }
+    ],
+    "inventory_sha256": "e613805d0ff9a507629148b96ce3ce00aa5a570f3dab0ac51445964ae1294130"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_batch_adapter_v1_pass66_validation",
+  "event_id": "scheduled-resume-20260820052759-110f0368f725",
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "pass": 66,
+  "pass66_execution": {
+    "adapter_intent_count": 0,
+    "adapter_terminal_receipt_count": 0,
+    "candidate_gt_accessed": false,
+    "external_services_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls": 0
+  },
+  "schema_version": 1,
+  "status": "PASS_EXTENSION_AWARE_BATCH_ADAPTER_VALIDATION_SYNTHETIC_ONLY",
+  "validated_boundary": {
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "combined_roster_identity_sha256": "99099d5deeff721fc1007da1f9842117086d3d8379ea1822df6f7fffc55abd9c",
+    "completed_pair_count": 41,
+    "extension_manifest_sha256": "4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d",
+    "first_pending_pair_id": "locked_test_c001_r01",
+    "historical_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "legacy_execution_script_sha256": "200d897efa1400a9dabba1acaf33d1b49db2c00ebcf79768f25fa4a8608bb413",
+    "legacy_execution_test_sha256": "66878530bb4878da29adf5b32da9fa506ccb4f132a508de105a6e11f8a65f9b5",
+    "locked_test_batch_function_source_sha256": "0eb34c0c82e66a6610e9e7d5ac7c8763e3c5c35762e986b267e1621055a87a82",
+    "locked_test_batch_implementation_sha256": "8fcb95eeac50260068244809db9fe1e34aa208571d81dae137976dd98f423e70",
+    "model_outputs_present": false,
+    "partial_staging_directories": [],
+    "pass65_fail_closed_receipt_sha256": "9c404702c583f27c774c14ba3ebefedc35a9b1510a4aace9e348350e0cb7e154",
+    "pending_pair_count": 55,
+    "render_state_sha256": "0e2f0ed5143dca870b3e7d4c9096bd79025b2bc7456d77dc4e1f2d0fbd9457f5",
+    "runtime_config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "runtime_release_file_sha256": "4acfca1e21051db6aa791efc6bb3a4b1cea3912fd6eced3461bd9747be26094b",
+    "runtime_release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+    "validator_release_file_sha256": "f4474761d3742cda3c009457f194cd61914295b1ee9129dbe2f287b3b78af7ba",
+    "validator_release_identity_sha256": "39c782e375352fdcddd62751ff4a3f4577652d111798269e549dae8bdaf066f7",
+    "validator_script_sha256": "ac27a2942dcfe68d9a5ae5232462359cec00ae280f9c3d839e1fa4f12f73834b",
+    "validator_test_sha256": "0d66e6401d913e7f16b0c62ab66baa238b86237105315ff4030f1ef3c667860d"
+  }
+}

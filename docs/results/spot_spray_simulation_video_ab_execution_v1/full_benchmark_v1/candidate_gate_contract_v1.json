@@ -1,0 +1,137 @@
+{
+  "candidate_rejection_requires_machine_reason_receipt": true,
+  "contract_sha256": "79aeac6780c7043f60a89428ab6dd91d23c728096b4cdf926a2f6a23ac7b8567",
+  "mandatory_lock_order": [
+    "freeze_protocol_sources_seeds_cells_envelopes_estimands_and_code_hashes",
+    "generate_and_machine_audit_both_arms_for_both_splits",
+    "complete_frozen_calibration_only_manual_review",
+    "seal_release_lock_with_model_outputs_present_false",
+    "run_degraded_calibration_inference_and_select_threshold",
+    "seal_threshold_lock_with_test_predictions_present_false",
+    "optionally_compute_ideal_calibration_diagnostics_without_selection_weight",
+    "unlock_and_run_both_locked_test_arms_once",
+    "compute_paired_metrics_once_and_seal_result"
+  ],
+  "manual_review": {
+    "arms_side_by_side": true,
+    "locked_test_human_review_before_threshold_lock": false,
+    "pairs_per_cell": 2,
+    "permitted_judgments": [
+      "renderer_corruption",
+      "class_and_track_overlay_correctness",
+      "pair_mismatch",
+      "capture_envelope_violation"
+    ],
+    "predictions_or_metrics_visible": false,
+    "selection": "audit_sample_seed_before_model_access",
+    "split": "calibration"
+  },
+  "model_or_outcome_inputs_allowed": false,
+  "pair_candidate_machine_gate_order": [
+    "source_and_asset_provenance",
+    "geometry_and_botanical_gt_integrity",
+    "native_frame_and_pair_integrity",
+    "pixel_and_visual_operability",
+    "temporal_denominator_contribution",
+    "deterministic_replay_identity"
+  ],
+  "pair_integrity": {
+    "any_locked_pair_failure_invalidates_release": true,
+    "differences_restricted_to_allowlist": true,
+    "exact_arms": 2,
+    "exact_frames_per_arm": 30,
+    "identical_canonical_gt_digest": true,
+    "identical_shared_field_digest": true
+  },
+  "pixel_visual": {
+    "decodable_lossless_rgb_required": true,
+    "deterministic_rerender_required": true,
+    "distinct_latent_rgb_duplicates_allowed": false,
+    "exact_profile_balance_required": true,
+    "full_frame_resize_allowed": false,
+    "identical_ideal_degraded_rgb_allowed": false,
+    "maximum_crop_free_frame_fraction": 0.05,
+    "maximum_fully_clipped_black_fraction": 0.001,
+    "maximum_fully_clipped_white_fraction": 0.002,
+    "maximum_weed_free_frame_fraction": 0.25,
+    "mean_brightness": [
+      40.0,
+      205.0
+    ],
+    "mean_crop_fraction": [
+      0.01,
+      0.6
+    ],
+    "mean_weed_fraction": [
+      0.01,
+      0.5
+    ],
+    "minimum_crop_model_variants_per_split": 6,
+    "minimum_environment_families_per_split": 2,
+    "minimum_ground_families_per_split": 2,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ]
+  },
+  "prediction_file_access_allowed": false,
+  "registered_target_access_allowed": false,
+  "schema_version": 1,
+  "selected_candidate_is_first_passing_index": true,
+  "selection": {
+    "forbidden_inputs": [
+      "predictions",
+      "confidences",
+      "segmentation_tracking_or_action_metrics",
+      "registered_hypothesis_distance"
+    ],
+    "human_preference_between_passing_candidates": false,
+    "maximum_attempts_per_slot": 10,
+    "model_access_before_acceptance": false,
+    "permitted_inputs": [
+      "source_and_asset_provenance",
+      "geometry_and_gt_integrity",
+      "pixel_and_visual_realism",
+      "temporal_and_denominator_operability",
+      "capture_operator_execution"
+    ],
+    "policy": "first_candidate_in_derived_order_passing_all_non_model_gates",
+    "rejected_candidate_reuse_allowed": false,
+    "rejection_ledger_required": true
+  },
+  "source_integrity": {
+    "all_hashes_exact": true,
+    "overwrite_existing_v1_release": false,
+    "unpinned_source_allowed": false
+  },
+  "split_integrity": {
+    "adjacent_source_frames_across_splits_allowed": false,
+    "cross_split_overlap_forbidden": [
+      "asset_identity",
+      "crop_or_weed_model_variant",
+      "ground_or_environment_family",
+      "source_scene",
+      "source_or_derived_seed",
+      "trajectory_or_nuisance_seed",
+      "latent_pair",
+      "video",
+      "frame",
+      "gt_track"
+    ]
+  },
+  "split_release_gates_deferred_until_all_selected_pairs_exist": [
+    "minimum_crop_model_variants_per_split",
+    "minimum_ground_families_per_split",
+    "minimum_environment_families_per_split",
+    "exact_profile_balance_required",
+    "minimum_calibration_eligible_weed_tracks",
+    "minimum_locked_test_eligible_weed_tracks"
+  ],
+  "temporal_denominator": {
+    "every_test_synthetic_field_has_eligible_weed": true,
+    "minimum_calibration_eligible_weed_tracks": 64,
+    "minimum_locked_test_eligible_weed_tracks": 128,
+    "minimum_three_observation_track_exists_in_every_cell": true,
+    "monotonic_timestamps_and_encoder_required": true
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_execution_pass39_validation_v1",
+  "status": "PASS_LOCKED_TEST_RENDER_BATCH_LAUNCHED_PREOUTCOME_SYNTHETIC_ONLY",
+  "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "pass": 39,
+  "observed_at": "2026-08-17T00:08:28+03:00",
+  "selected_step": "Implement and validate a split-locked bounded resumable wrapper for model-free locked-test rendering, preserve earliest-pending roster order and all existing source/candidate/atomic/access guards, then preflight and launch the first immutable eight-slot batch locked_test_c000_r00 through locked_test_c000_r07 with max-new-pairs 8.",
+  "implementation": {
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "script_sha256": "cc25761f9e2689ab688e732aea5b215341520dcc6e80da2f4e802cfed6c6095e",
+    "test_sha256": "08a27dd173d4683a64ebe4fb0992669a43c43f3d5508a04738e2e5c008910455",
+    "locked_test_render_batch_implementation_sha256": "8fcb95eeac50260068244809db9fe1e34aa208571d81dae137976dd98f423e70",
+    "locked_test_render_batch_execution_lock_sha256": "5bd38a72d9a07dbbb1077de770a4509d75b023dc05d7d7edc397b818d4c12ce6",
+    "locked_test_render_batch_execution_lock_path": "data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/locked_test_render_batch_execution_lock_v1.json",
+    "target_scope": "explicit_contiguous_canonical_locked_test_slots_only",
+    "durable_intent_required": true,
+    "bounded_new_pair_limit_required": true,
+    "calibration_render_completion_required": true
+  },
+  "preserved_sealed_workers": {
+    "full_render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751",
+    "full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+    "gt_scout_implementation_sha256": "feeb9826103dbe71711b4cdb76dac0e6a828a4c33edba354addb71e1c11c0b46",
+    "gt_scout_execution_lock_sha256": "5fe68dd43183a588b02724bfd0af090f405f7a27f2eacf74b109b84c40a3c3d3",
+    "calibration_batch_implementation_sha256": "0afadc989a849222fd24f3a41fd5cd9d210252e3842c617597335bac8bb18769",
+    "full_render_source_unchanged": true,
+    "gt_scout_source_unchanged": true,
+    "calibration_batch_source_unchanged": true
+  },
+  "validation": {
+    "python_compile": "PASS",
+    "targeted_pytest": {
+      "status": "PASS",
+      "passed": 7,
+      "selection": "locked_test_render_batch or calibration_batch_targets or calibration_batch_has_separate_lock or calibration_batch_reject_pass_stop"
+    },
+    "full_pytest": {
+      "status": "PASS",
+      "passed": 44,
+      "warnings": 30,
+      "warning_type": "Pillow mode deprecation"
+    },
+    "git_diff_check": "PASS",
+    "full_preflight": {
+      "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY",
+      "free_bytes": 312990363648,
+      "required_bytes": 180000000000,
+      "reserve_bytes_after_estimate": 30000000000,
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "gpu_memory_free_mib": 23521,
+      "external_process_policy": "observed_only_never_stopped_or_modified"
+    },
+    "full_plan": {
+      "status": "PASS_FULL_PLAN_DRY_RUN_SYNTHETIC_ONLY",
+      "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+      "planned_pair_count": 96,
+      "calibration_pair_count": 32,
+      "locked_test_pair_count": 64,
+      "candidate_count": 960,
+      "unique_seed_count": 4800
+    }
+  },
+  "state_before_launch": {
+    "render_state_sha256": "907f04c0e07c500c0c7f2248e2e9790548a796167a8c81c452f82a9f720ce91d",
+    "planned_pair_count": 96,
+    "completed_pair_count": 32,
+    "pending_pair_count": 64,
+    "completed_split": "calibration",
+    "earliest_pending_pair_id": "locked_test_c000_r00",
+    "model_outputs_present": false,
+    "model_run_root_present": false,
+    "interrupted_staging_directories": []
+  },
+  "batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c000_r00_ee8be6ec4af1b0cc",
+    "request_identity_sha256": "ee8be6ec4af1b0ccf24eb13f55193ac51d6c2f2d7189b835dea7fe4f65cda80d",
+    "intent_sha256": "a1c16860ca8a503950f41c2a15f100f76a6a16ce1664cd37d5c9690176f0c6b3",
+    "intent_path": "data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/locked_test_render_batches_v1/locked_test_render_batch_locked_test_c000_r00_ee8be6ec4af1b0cc/batch_intent.json",
+    "intent_status": "LOCKED_TEST_RENDER_BATCH_INTENT_PREOUTCOME_SYNTHETIC_ONLY",
+    "target_pair_ids": [
+      "locked_test_c000_r00",
+      "locked_test_c000_r01",
+      "locked_test_c000_r02",
+      "locked_test_c000_r03",
+      "locked_test_c000_r04",
+      "locked_test_c000_r05",
+      "locked_test_c000_r06",
+      "locked_test_c000_r07"
+    ],
+    "max_new_pairs": 8,
+    "protocol_split": "locked_test",
+    "render_and_machine_audit_only": true,
+    "model_access_allowed": false,
+    "prediction_access_allowed": false,
+    "locked_test_outcome_access_allowed": false,
+    "process": {
+      "pid": 3347203,
+      "session_id": 3347203,
+      "alive_at_observation": true,
+      "elapsed_at_observation": "00:47",
+      "started_local": "2026-08-17T00:07:40+03:00",
+      "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/process_logs/locked_test_render_batch_locked_test_c000_r00_ee8be6ec4af1b0cc.log",
+      "log_bytes_at_observation": 0
+    }
+  },
+  "active_first_candidate": {
+    "pair_id": "locked_test_c000_r00",
+    "protocol_split": "locked_test",
+    "evaluator_split": "test",
+    "candidate_index": 0,
+    "pair_slot_identity_sha256": "61d88f1c1aa7facb2d7005c0ea5eb61d9b98d98aa0cfcb4922253427fae5c007",
+    "candidate_identity_sha256": "aa2e7cc7b6b0cafca512073ff0d0f7d1f9736ad1f2327edf0ed7ffe515f1076b",
+    "source_template_sha256": "b86540ba2a197389f2e20abebb9a63ccff98b60a64475abb5a192849a4bc71ae",
+    "seed_bindings": {
+      "scene_seed": 3755473660850831410,
+      "trajectory_seed": 11163409164939395925,
+      "capture_draw_seed": 4498056541125571063,
+      "renderer_seed": 6370557946831276874,
+      "audit_sample_seed": 10897837906666015467
+    },
+    "staging_path": "data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-locked_test_c000_r00-candidate-00-a048f3b259cf42eca26cde25b6d263d5",
+    "scene_config_sha256": "86c120ce993f99b6aa948c9526fb34113a75d322228e3ee5bab7a3de6af08308",
+    "scene_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "cropcraft_child_pid": 3347398,
+    "roster_binding_matches_staging": true
+  },
+  "access_receipt": {
+    "model_loaded": false,
+    "inference_calls": 0,
+    "model_run_root_present": false,
+    "locked_test_predictions_accessed": false,
+    "locked_test_outcomes_accessed": false,
+    "outcome_inputs": []
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "outcome_target_tuning_forbidden": true
+  },
+  "remaining_work": "Allow the immutable model-free eight-slot render batch to progress, then validate each atomic publication and terminal receipt before launching later locked-test batches; model inference, shared-threshold calibration, one-shot locked-test evaluation, videos, metrics, uncertainty, verdicts, failure analysis, inventory and bounded cleanup remain after all rendering is complete.",
+  "next_step": "After one hour, inspect PID 3347203, its exact process log and immutable batch state; validate any newly published prefix from locked_test_c000_r00 onward, and fail closed on any source or candidate error without accessing model predictions or locked-test outcomes."
+}

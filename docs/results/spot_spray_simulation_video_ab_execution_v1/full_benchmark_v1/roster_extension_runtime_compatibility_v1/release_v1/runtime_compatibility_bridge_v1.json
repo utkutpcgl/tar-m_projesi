@@ -1,0 +1,83 @@
+{
+  "access_guard": {
+    "candidate_10_started": false,
+    "candidate_gt_inspected": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls": 0
+  },
+  "authorization": {
+    "event_id": "scheduled-resume-20260817120448-1b733ad4fca0",
+    "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 58,
+    "strategy": "base"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_roster_extension_runtime_compatibility_v1",
+  "failure_bridge": {
+    "failed_batch_intent_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/locked_test_render_batches_v1/locked_test_render_batch_locked_test_c001_r00_7b302bef07d4edd1/batch_intent.json",
+    "failed_batch_intent_sha256": "e910ac803d60e9ad59c96cb2d787a63b570a59fd6705be37237a7b60bfaac68f",
+    "failed_candidate_committed": false,
+    "failed_candidate_index": 10,
+    "failed_intent_bytes_mutated": false,
+    "pass57_failure_receipt_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass56_extension_execution/pass57_fail_closed_receipt.json",
+    "pass57_failure_receipt_sha256": "de7baaad54c1d0206b8427f250fc23b04328edfa5e7d6219c7e84e2657a07e17"
+  },
+  "parent": {
+    "bytes_mutated_or_rebound": false,
+    "execution_locks": {
+      "full_render_execution_lock_extension_v1.json": "a022c955e424327ff98ddeb9e8863f64ae23577afa61b992a649048fe4f3c0ab",
+      "gt_scout_execution_lock_extension_v1.json": "cdeb185a73ef23b9bb575bf4c4a6bd1fee0f87d67a344d0aade6f505bf0027f0",
+      "locked_test_recovery_execution_lock_extension_v1.json": "5af1af3dc8792bc91411072b7eeb22bf6e6b22dd00383747a1265a818192ae49",
+      "locked_test_render_batch_execution_lock_extension_v1.json": "00fff7d9670a5f2f627128ecba435026622ec963ea74a9c709aa997795c3de74"
+    },
+    "execution_release_file_sha256": "6aa06ae282e6fa79d1864530f7307c38f252678273f64499f153c6bd300b897c",
+    "execution_release_identity_sha256": "5c06e7b6aa79c0b744b232b3071f4a59e0fec1d321335303d64be15aad23159c",
+    "extension_execution_config_sha256": "6c37c11665c32be662879bb250eb654b8a5bd55834b4eeb896f3a74d031eb259",
+    "pass55_artifact_inventory_sha256": "50da9980f2e1d7d01e29180dd1f1f124f0f1788f1ad5c71c0e1234f4c034855a",
+    "pass55_validation_receipt_sha256": "4de710884589115bab63ee388dc4bf74454a9a71b9c4341a976a9d3aad88aefc"
+  },
+  "pass55_source_snapshots": [
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/roster_extension_runtime_compatibility_v1/source_snapshots/run_spot_spray_simulation_video_ab_execution_v1.pass55.py",
+      "role": "execution_script_pass55",
+      "sha256": "e6780e0aef77842c1e9b7d92ce0e1c518d49a1c90c4397209e1236262395d685",
+      "size_bytes": 397896
+    },
+    {
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/roster_extension_runtime_compatibility_v1/source_snapshots/test_run_spot_spray_simulation_video_ab_execution_v1.pass55.py",
+      "role": "execution_test_pass55",
+      "sha256": "9d568c27d57c147c4bc8fa95c9fe18929820b29a8e076ec892f02ae343b9e0ad",
+      "size_bytes": 71035
+    }
+  ],
+  "runtime_adapter": {
+    "added_alias_count": 2,
+    "added_aliases": {
+      "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+      "sealed_full_render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751"
+    },
+    "base_lock": "gt_scout_execution_lock_extension_v1.json",
+    "base_lock_bytes_mutated": false,
+    "base_lock_sha256": "cdeb185a73ef23b9bb575bf4c4a6bd1fee0f87d67a344d0aade6f505bf0027f0",
+    "gate_threshold_seed_candidate_or_selection_change": false,
+    "only_added_runtime_keys": [
+      "sealed_full_render_execution_lock_sha256",
+      "sealed_full_render_implementation_sha256"
+    ]
+  },
+  "schema_version": 1,
+  "status": "SEALED_APPEND_ONLY_RUNTIME_COMPATIBILITY_BRIDGE_SYNTHETIC_ONLY"
+}

@@ -1,0 +1,90 @@
+{
+  "access_guard": {
+    "candidate_generation_calls": 0,
+    "external_services_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls": 0,
+    "validation_only": true
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_full_plan_validation_v1",
+  "immutable_history": {
+    "all_nonstate_historical_bytes_unchanged": true,
+    "frozen_mutable_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "historical_inventory_identity_sha256": "f5ab73a0547b14024fc6e0b908c4c4aef07c65a22f8f1e0ae9e752aab6b92d1d",
+    "historical_inventory_sha256": "dc47eec5e39e94b0d6b7b4e65e7acb07619629b4ee1c8e4f89a2700a4e2aac76",
+    "mutable_state_inventory_row_count": 1,
+    "parent_execution_release_identity_sha256": "5c06e7b6aa79c0b744b232b3071f4a59e0fec1d321335303d64be15aad23159c",
+    "static_file_count": 1048
+  },
+  "mutable_execution_state": {
+    "appended_pair_id": "locked_test_c001_r00",
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "current_render_state_sha256": "0e2f0ed5143dca870b3e7d4c9096bd79025b2bc7456d77dc4e1f2d0fbd9457f5",
+    "first_pending_pair_id": "locked_test_c001_r01",
+    "from_completed_pair_count": 40,
+    "frozen_render_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "historical_completed_prefix_unchanged": true,
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "pending_order_unchanged_except_exact_removal": true,
+    "to_completed_pair_count": 41
+  },
+  "receipt_epoch_validation": {
+    "candidate_10_batch_receipt_sha256": "eba74b284befe86d92a21028abdd603b29c2c17f6ca62f67df26186dfe8fd4a2",
+    "candidate_10_canonical_gt_sha256": "fbf72d2a23279c95e82f4e959f21bb190224f69bd4442227f8d143985c2363f4",
+    "candidate_10_full_pair_receipt_sha256": "069312f20781123251a74bc0e7321868b79a7ca037ad3decdbc5193559a1dfe7",
+    "candidate_10_identity_sha256": "887f18acce3d4e0a75e7d8670d22d433374898c031724feabdd6561d25ec76a4",
+    "candidate_10_pair_receipt_sha256": "bee4bfe16e0e6d1e25ceca1cd73e6d84d56e492fdd407189640479cc44e198f5",
+    "correct_epoch_selected_per_receipt": true,
+    "extension_candidate_epoch": [
+      10,
+      31
+    ],
+    "extension_receipt_count": 1,
+    "historical_v1_candidate_epoch": [
+      0,
+      9
+    ],
+    "historical_v1_receipt_count": 40,
+    "pass63_blocker_receipt_sha256": "0a549b4951f91a45b1d0be551a1a8b5d6b84d02bbd47bddcce27ec67ab728791",
+    "unsealed_candidate_receipts_accepted": false
+  },
+  "rules": {
+    "duplicate_reorder_or_unsealed_candidate_fails_closed": true,
+    "extension_candidate_indices": [
+      10,
+      31
+    ],
+    "historical_candidate_indices": [
+      0,
+      9
+    ],
+    "legacy_full_plan_validator_remains_fail_closed": true,
+    "live_state_compared_as_mutable_old_boundary_transition": true,
+    "lowest_unattempted_candidate_wins": true,
+    "old_receipts_rewritten_or_rebound": false
+  },
+  "runtime_parent": {
+    "config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "release_file_sha256": "4acfca1e21051db6aa791efc6bb3a4b1cea3912fd6eced3461bd9747be26094b",
+    "release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+    "roster_extension_manifest_sha256": "4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d",
+    "roster_extension_release_identity_sha256": "5c06e7b6aa79c0b744b232b3071f4a59e0fec1d321335303d64be15aad23159c"
+  },
+  "schema_version": 1,
+  "status": "SEALED_EXTENSION_AWARE_FULL_PLAN_VALIDATION_BRIDGE_SYNTHETIC_ONLY"
+}

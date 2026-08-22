@@ -1,0 +1,42 @@
+{
+  "artifacts": [
+    {
+      "bytes": 4174,
+      "path": "README.md",
+      "sha256": "6d391e791b7058546b46f68c5a787387064269ddb082dd2085f72c92a553f533"
+    },
+    {
+      "bytes": 36943,
+      "path": "association_sweep.csv",
+      "sha256": "74a7bdfcf76192f9730baeaf6079523617f9c8bade92668b08a050a6a9211334"
+    },
+    {
+      "bytes": 58195,
+      "path": "audit_summary.json",
+      "sha256": "b53464de4949f40bbf412fb8f88ebc83c583bc93e392274725807df63eae1f54"
+    },
+    {
+      "bytes": 1402868,
+      "path": "diagnostic_contact_sheet.png",
+      "sha256": "11d71b787b99e32d4315bb7afa3ad20d5223fc8a3f8b5737bdfcc76ee05ac909"
+    },
+    {
+      "bytes": 47932,
+      "path": "gt_motion_transitions.csv",
+      "sha256": "ccd6be90d47db41fd2ac9d6660c11f3b448ac5583c0b041fa1add279a9ce9f9d"
+    },
+    {
+      "bytes": 100232,
+      "path": "instance_overlap.csv",
+      "sha256": "3bd18a0e4729eaea5cf4f65bfc4b34597e64e313cba44173aa8a4871c0bb7154"
+    },
+    {
+      "bytes": 8500,
+      "path": "threshold_sweep.csv",
+      "sha256": "d22fda083744c0d33edf9137a15c61b96b8b3b653cbc30b94de1f04515fb5dee"
+    }
+  ],
+  "contract": "spot_spray_native_fixture_fairness_audit_v1_docs_manifest",
+  "schema_version": 1,
+  "source_fingerprint_sha256": "aff0f0a57cc5321021dafbe5150959e7d196290bb562252284b91f447ae5d4e5"
+}

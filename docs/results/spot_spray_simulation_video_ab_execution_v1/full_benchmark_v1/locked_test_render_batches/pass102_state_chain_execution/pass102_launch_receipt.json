@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass102_state_chain_launch_v1",
+  "status": "PASS_CANONICAL_LOCKED_TEST_C001_R05_CANDIDATE_0_SCOUT_ACTIVE_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821043151-43878c900388",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 102,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T07:38:13+03:00",
+  "preflight": {
+    "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY",
+    "state_chain_source_sha256": "bfbe269feddbd92413663c9345e57b50b119617e10bf695784d09317f74b870b",
+    "release_file_sha256": "4c68888c43a09fb4afe4c0c56a365e36d6707c068f250deb891b2765c23f19bd",
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "render_state_sha256": "f811c3e3d5622bbc741e4c84951db4c3287181f2ed219ef45c8d0877c7a12553",
+    "chain_head_identity_sha256": "34acee5f2fb322fa839ffd9bfc0edf9722e1556d6085d56cb145d65fd56bab71",
+    "candidate_rejection_ledger_row_count": 134,
+    "candidate_rejection_ledger_sha256": "2cec69c0fd6aef60a4ddcadc32179280cc3fce558bdfb8bd30b5fde1e8ca8505",
+    "completed_pair_count": 45,
+    "pending_pair_count": 51,
+    "first_pending_pair_id": "locked_test_c001_r05",
+    "active_execution_id_before_launch": null,
+    "open_or_parallel_intent_before_launch": false,
+    "work_staging_directories_before_launch": [],
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "gpu_memory_total_mib": 24576,
+    "gpu_memory_free_mib": 23608,
+    "prior_proven_native_render_launch_threshold_free_mib": 23521,
+    "data_free_bytes": 301513768960,
+    "data_required_bytes": 180000000000,
+    "data_reserve_bytes": 30000000000,
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "external_services_modified": false
+  },
+  "canonical_target": {
+    "pair_id": "locked_test_c001_r05",
+    "pair_slot_identity_sha256": "7ba56a1f3fd43925be890183fe4894df9d182b44bded6d5fa7cac26e56be981f",
+    "candidate_index": 0,
+    "candidate_identity_sha256": "a2822113c1fba9e4ac66c7448b0b4e3ced26d605a0388dc092fb150be0cd9f6b",
+    "source_template_sha256": "56f1d8c93e532056d4fc81c8f489c8a0acc5c9fcb1005c2e2b8db1ab516b7103",
+    "scene_config_sha256": "9e5a227b2d993f831ce77274d63d8724c17120d32278e28b4156070d69b7d564",
+    "gt_scout_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "gt_scout_capture_receipt_sha256_at_observation": "255c6ae63eb3e852f785fcfbad797d0efbf34b1f8547f862cd56c93ea05ffa17",
+    "all_five_seed_bindings_exact": true,
+    "lowest_unattempted_sealed_candidate": true,
+    "canonical_earliest_pending_pair": true
+  },
+  "state_chain": {
+    "execution_id": "state_chain_batch_locked_test_c001_r05_fe3a9bf5ccf9db11",
+    "request_identity_sha256": "fe3a9bf5ccf9db11826ea94afa35749f3b8f97bdbabe4e9a66692f147b74340c",
+    "intent_sha256": "fa987a19efaf6f3932978beb368694c22a6501642e6f69f441ac55edbd76359c",
+    "predecessor_state_sha256": "f811c3e3d5622bbc741e4c84951db4c3287181f2ed219ef45c8d0877c7a12553",
+    "predecessor_head_identity_sha256": "34acee5f2fb322fa839ffd9bfc0edf9722e1556d6085d56cb145d65fd56bab71",
+    "predecessor_ledger_sha256": "2cec69c0fd6aef60a4ddcadc32179280cc3fce558bdfb8bd30b5fde1e8ca8505",
+    "max_new_pairs": 1,
+    "terminal_receipt_present_at_observation": false
+  },
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r05_65e15722fcb2d69c",
+    "request_identity_sha256": "65e15722fcb2d69cec119d23ee45c268bac0f8d5b3e3f0bdec6cbd6f2b7efbcb",
+    "intent_sha256": "09c278a49ed3457dace1e0e306d84dd6dd4024b1f6a09cba216c65e236eb2e20",
+    "target_pair_ids": [
+      "locked_test_c001_r05"
+    ],
+    "max_new_pairs": 1,
+    "terminal_receipt_present_at_observation": false
+  },
+  "process": {
+    "pid": 3020728,
+    "session_id": 3020728,
+    "active": true,
+    "status": "Ssl",
+    "command": "/home/ankaref/miniconda3/envs/sgs-yolo/bin/python3.10 scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py run --pair-id locked_test_c001_r05 --max-new-pairs 1",
+    "command_exact": true,
+    "active_stage": "canonical_candidate_0_gt_scout_source_scene_blender",
+    "scout_staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-locked_test_c001_r05-candidate-00-b3770e1a0ca948299f0108ef2c6bc125",
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass102_state_chain_execution/process.log",
+    "log_sha256_at_observation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parallel_active_state_chain_process_present": false,
+    "terminal_error_observed": false
+  },
+  "validation": {
+    "status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY",
+    "active_execution_id": "state_chain_batch_locked_test_c001_r05_fe3a9bf5ccf9db11",
+    "completed_pair_count": 45,
+    "pending_pair_count": 51,
+    "first_pending_pair_id": "locked_test_c001_r05",
+    "transition_commit_count": 4,
+    "rendering_calls_during_validation": 0,
+    "candidate_gt_accessed_during_validation": false
+  },
+  "access_guard": {
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "outcome_inputs": []
+  },
+  "claim_boundary": {
+    "scope": "synthetic_diagnostic_only",
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false,
+    "synthetic_score_weight_in_real_go_decision": 0.0,
+    "outcome_target_tuning_forbidden": true
+  }
+}

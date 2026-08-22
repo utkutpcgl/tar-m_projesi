@@ -1,0 +1,30 @@
+{
+  "atomic_state_machine_implemented": true,
+  "contract_sha256": "454543c37694cb5c964ada0d448eb066e4adfbdfbd7e4425fa69e5fc9b893d18",
+  "dry_run_does_not_invoke_blender": true,
+  "final_pattern": "pairs/{protocol_split}/{pair_id}",
+  "model_access_allowed": false,
+  "overwrite_allowed": false,
+  "pair_unit": "one_latent_pair_with_two_capture_arms_and_one_shared_gt",
+  "publish_operation": "same_filesystem_atomic_directory_rename",
+  "required_pair_receipt_fields": [
+    "pair_id",
+    "protocol_split",
+    "pair_slot_identity_sha256",
+    "selected_candidate_index",
+    "candidate_identity_sha256",
+    "pair_quality_gates",
+    "inventory_sha256",
+    "model_outputs_present_false"
+  ],
+  "resume_rules": {
+    "candidate_exhaustion": "invalidate_slot_and_stop_before_model_access",
+    "interrupted_pair_staging": "exact_pair_scoped_cleanup_then_retry",
+    "missing_final_receipt": "fail_closed_never_treat_complete",
+    "next_candidate": "lowest_not_previously_rejected_index",
+    "passing_final_receipt": "verify_and_skip",
+    "rejected_candidate": "retain_receipt_and_log_then_remove_bulk_payload"
+  },
+  "schema_version": 1,
+  "staging_pattern": "work/.partial-{pair_id}-candidate-{candidate_index:02d}-{nonce}"
+}

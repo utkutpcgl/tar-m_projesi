@@ -1,0 +1,1551 @@
+{
+  "checkpoint_class_mapping": {
+    "class_count": 2,
+    "class_names": {
+      "0": "weed",
+      "1": "crop"
+    },
+    "hash_verified_before_deserialization": true,
+    "model_type": "ultralytics.nn.tasks.SegmentationModel",
+    "payload_keys": [
+      "best_fitness",
+      "date",
+      "docs",
+      "ema",
+      "epoch",
+      "git",
+      "license",
+      "model",
+      "optimizer",
+      "scaler",
+      "train_args",
+      "train_metrics",
+      "train_results",
+      "updates",
+      "version"
+    ]
+  },
+  "class_confusion": {
+    "degraded:fixture_calibration_0000": {
+      "condition": "degraded",
+      "confidence_floor": 0.05,
+      "instance_overlap_summary": {
+        "crop": {
+          "gt_observation_count": 136,
+          "other_class_better_count": 126,
+          "same_class_iou_at_least_0p10_count": 18,
+          "same_class_iou_at_least_0p50_count": 9
+        },
+        "weed": {
+          "gt_observation_count": 37,
+          "other_class_better_count": 14,
+          "same_class_iou_at_least_0p10_count": 29,
+          "same_class_iou_at_least_0p50_count": 20
+        }
+      },
+      "locked_weed_detection_count": 55,
+      "locked_weed_threshold": 0.8,
+      "pixel_overlap": {
+        "crop": {
+          "gt_pixels": 525183,
+          "locked_weed_gt_pixel_coverage": null,
+          "locked_weed_overlap_pixels": 0,
+          "raw_both_class_gt_pixel_coverage": 0.13461783797266857,
+          "raw_both_class_overlap_pixels": 70699,
+          "raw_other_class_gt_pixel_coverage": 0.9801535845600486,
+          "raw_other_class_overlap_pixels": 514760,
+          "raw_same_class_gt_pixel_coverage": 0.1350367395745864,
+          "raw_same_class_overlap_pixels": 70919
+        },
+        "weed": {
+          "gt_pixels": 556846,
+          "locked_weed_gt_pixel_coverage": 0.24289300812073716,
+          "locked_weed_overlap_pixels": 135254,
+          "raw_both_class_gt_pixel_coverage": 0.5151801395718026,
+          "raw_both_class_overlap_pixels": 286876,
+          "raw_other_class_gt_pixel_coverage": 0.6393365490638345,
+          "raw_other_class_overlap_pixels": 356012,
+          "raw_same_class_gt_pixel_coverage": 0.8070507824425425,
+          "raw_same_class_overlap_pixels": 449403
+        }
+      },
+      "raw_detection_counts": {
+        "crop": 106,
+        "weed": 164
+      },
+      "split": "calibration"
+    },
+    "degraded:fixture_test_0000": {
+      "condition": "degraded",
+      "confidence_floor": 0.05,
+      "instance_overlap_summary": {
+        "crop": {
+          "gt_observation_count": 138,
+          "other_class_better_count": 1,
+          "same_class_iou_at_least_0p10_count": 135,
+          "same_class_iou_at_least_0p50_count": 50
+        },
+        "weed": {
+          "gt_observation_count": 34,
+          "other_class_better_count": 24,
+          "same_class_iou_at_least_0p10_count": 10,
+          "same_class_iou_at_least_0p50_count": 10
+        }
+      },
+      "locked_weed_detection_count": 5,
+      "locked_weed_threshold": 0.8,
+      "pixel_overlap": {
+        "crop": {
+          "gt_pixels": 1601201,
+          "locked_weed_gt_pixel_coverage": null,
+          "locked_weed_overlap_pixels": 0,
+          "raw_both_class_gt_pixel_coverage": 0.0012896569512509672,
+          "raw_both_class_overlap_pixels": 2065,
+          "raw_other_class_gt_pixel_coverage": 0.0013102664812225323,
+          "raw_other_class_overlap_pixels": 2098,
+          "raw_same_class_gt_pixel_coverage": 0.9884855180580077,
+          "raw_same_class_overlap_pixels": 1582764
+        },
+        "weed": {
+          "gt_pixels": 569202,
+          "locked_weed_gt_pixel_coverage": 0.0569165252406,
+          "locked_weed_overlap_pixels": 32397,
+          "raw_both_class_gt_pixel_coverage": 0.028039254956939715,
+          "raw_both_class_overlap_pixels": 15960,
+          "raw_other_class_gt_pixel_coverage": 0.9373930520272241,
+          "raw_other_class_overlap_pixels": 533566,
+          "raw_same_class_gt_pixel_coverage": 0.08086408691466299,
+          "raw_same_class_overlap_pixels": 46028
+        }
+      },
+      "raw_detection_counts": {
+        "crop": 189,
+        "weed": 20
+      },
+      "split": "test"
+    },
+    "ideal:fixture_calibration_0000": {
+      "condition": "ideal",
+      "confidence_floor": 0.05,
+      "instance_overlap_summary": {
+        "crop": {
+          "gt_observation_count": 136,
+          "other_class_better_count": 124,
+          "same_class_iou_at_least_0p10_count": 18,
+          "same_class_iou_at_least_0p50_count": 9
+        },
+        "weed": {
+          "gt_observation_count": 37,
+          "other_class_better_count": 14,
+          "same_class_iou_at_least_0p10_count": 29,
+          "same_class_iou_at_least_0p50_count": 20
+        }
+      },
+      "locked_weed_detection_count": 55,
+      "locked_weed_threshold": 0.8,
+      "pixel_overlap": {
+        "crop": {
+          "gt_pixels": 525183,
+          "locked_weed_gt_pixel_coverage": null,
+          "locked_weed_overlap_pixels": 0,
+          "raw_both_class_gt_pixel_coverage": 0.13398948556979187,
+          "raw_both_class_overlap_pixels": 70369,
+          "raw_other_class_gt_pixel_coverage": 0.9821300384818245,
+          "raw_other_class_overlap_pixels": 515798,
+          "raw_same_class_gt_pixel_coverage": 0.13440648307351913,
+          "raw_same_class_overlap_pixels": 70588
+        },
+        "weed": {
+          "gt_pixels": 556846,
+          "locked_weed_gt_pixel_coverage": 0.2428876206347895,
+          "locked_weed_overlap_pixels": 135251,
+          "raw_both_class_gt_pixel_coverage": 0.5420134112483523,
+          "raw_both_class_overlap_pixels": 301818,
+          "raw_other_class_gt_pixel_coverage": 0.6771046213854459,
+          "raw_other_class_overlap_pixels": 377043,
+          "raw_same_class_gt_pixel_coverage": 0.7962165482018367,
+          "raw_same_class_overlap_pixels": 443370
+        }
+      },
+      "raw_detection_counts": {
+        "crop": 111,
+        "weed": 166
+      },
+      "split": "calibration"
+    },
+    "ideal:fixture_test_0000": {
+      "condition": "ideal",
+      "confidence_floor": 0.05,
+      "instance_overlap_summary": {
+        "crop": {
+          "gt_observation_count": 138,
+          "other_class_better_count": 1,
+          "same_class_iou_at_least_0p10_count": 135,
+          "same_class_iou_at_least_0p50_count": 51
+        },
+        "weed": {
+          "gt_observation_count": 34,
+          "other_class_better_count": 25,
+          "same_class_iou_at_least_0p10_count": 10,
+          "same_class_iou_at_least_0p50_count": 10
+        }
+      },
+      "locked_weed_detection_count": 4,
+      "locked_weed_threshold": 0.8,
+      "pixel_overlap": {
+        "crop": {
+          "gt_pixels": 1601201,
+          "locked_weed_gt_pixel_coverage": null,
+          "locked_weed_overlap_pixels": 0,
+          "raw_both_class_gt_pixel_coverage": 0.0014845106891639463,
+          "raw_both_class_overlap_pixels": 2377,
+          "raw_other_class_gt_pixel_coverage": 0.0015051202191355114,
+          "raw_other_class_overlap_pixels": 2410,
+          "raw_same_class_gt_pixel_coverage": 0.987398833750416,
+          "raw_same_class_overlap_pixels": 1581024
+        },
+        "weed": {
+          "gt_pixels": 569202,
+          "locked_weed_gt_pixel_coverage": 0.04658275972326169,
+          "locked_weed_overlap_pixels": 26515,
+          "raw_both_class_gt_pixel_coverage": 0.038257068668065115,
+          "raw_both_class_overlap_pixels": 21776,
+          "raw_other_class_gt_pixel_coverage": 0.9479306116282094,
+          "raw_other_class_overlap_pixels": 539564,
+          "raw_same_class_gt_pixel_coverage": 0.08042663237304155,
+          "raw_same_class_overlap_pixels": 45779
+        }
+      },
+      "raw_detection_counts": {
+        "crop": 202,
+        "weed": 23
+      },
+      "split": "test"
+    }
+  },
+  "class_contract": {
+    "checkpoint_and_predictions": {
+      "0": "weed",
+      "1": "crop"
+    },
+    "ground_truth_semantic_ids": {
+      "background": 0,
+      "crop": 1,
+      "weed": 2
+    },
+    "id_shift_detected": false,
+    "interpretation": "prediction class 0=weed/1=crop and GT semantic 1=crop/2=weed are different namespaces and were decoded explicitly; all masks agree with those namespaces"
+  },
+  "contract": "spot_spray_native_fixture_fairness_audit_v1",
+  "corrective_full_benchmark_acceptance_rule": {
+    "current_fixture_passes_target_gate": false,
+    "current_fixture_reason": "primary eligible-track F1 undefined in both arms",
+    "degraded_interval": [
+      0.7,
+      0.8
+    ],
+    "ideal_minimum": 0.97,
+    "require_degraded_calibration_only_threshold_lock": true,
+    "require_exactly_one_locked_test_evaluation": true,
+    "require_fresh_untouched_full_locked_test_after_any_correction": true,
+    "require_hash_and_class_contract_validation": true,
+    "rule": "Any correction is chosen on fixture/calibration evidence only, frozen under a new release hash, and evaluated once on a fresh untouched full locked test. Checkpoint/class/semantic mappings, full manifest, tracker config, and the degraded-calibration-only threshold lock must verify before test access. Both arms require non-empty eligible GT denominators and defined primary F1; null F1 fails the target gate. Only then compare frozen outcomes to ideal >=0.97 and degraded [0.70,0.80], without target-driven tuning.",
+    "synthetic_results_authorize_field_or_chemical_action": false,
+    "target_metric": "eligible_weed_mask_track_spatiotemporal_iou_f1",
+    "undefined_f1_fails_target_gate": true
+  },
+  "descriptive_sweeps": {
+    "association_parameter_grid": {
+      "association_max_centroid_distance_px_values": [
+        80.0,
+        160.0,
+        240.0,
+        320.0,
+        480.0,
+        640.0
+      ],
+      "association_min_mask_iou_values": [
+        0.05,
+        0.1,
+        0.25
+      ],
+      "maximum_frame_gap_values": [
+        1,
+        2,
+        3
+      ]
+    },
+    "association_row_count": 216,
+    "outcome_target_retuning_performed": false,
+    "post_hoc_locked_test_diagnostic": true,
+    "selection_or_acceptance_input": false,
+    "threshold_row_count": 24,
+    "threshold_values": [
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      0.8,
+      0.95
+    ]
+  },
+  "diagnostic_contact_sheet": {
+    "bytes": 1402868,
+    "column_count": 6,
+    "frame_indices": [
+      10,
+      13,
+      15,
+      18,
+      29
+    ],
+    "height": 2274,
+    "path": "diagnostic_contact_sheet.png",
+    "readable_decode_verified": true,
+    "sha256": "11d71b787b99e32d4315bb7afa3ad20d5223fc8a3f8b5737bdfcc76ee05ac909",
+    "width": 2272
+  },
+  "eligible_track_f1_semantics": {
+    "degraded": {
+      "f1": null,
+      "f1_state": "undefined_missing_precision_or_recall_denominator",
+      "fn": 2,
+      "fp": 0,
+      "precision": null,
+      "precision_denominator": 0,
+      "recall": 0.0,
+      "recall_denominator": 2,
+      "tp": 0,
+      "valid_interpretation": "F1 is undefined because precision has no qualifying-prediction denominator; recall is defined as zero because eligible GT tracks exist. This is not a numeric-zero F1 and is not evidence of zero model accuracy."
+    },
+    "ideal": {
+      "f1": null,
+      "f1_state": "undefined_missing_precision_or_recall_denominator",
+      "fn": 2,
+      "fp": 0,
+      "precision": null,
+      "precision_denominator": 0,
+      "recall": 0.0,
+      "recall_denominator": 2,
+      "tp": 0,
+      "valid_interpretation": "F1 is undefined because precision has no qualifying-prediction denominator; recall is defined as zero because eligible GT tracks exist. This is not a numeric-zero F1 and is not evidence of zero model accuracy."
+    }
+  },
+  "failure_decomposition": {
+    "degraded": {
+      "causal_boundary": "These are decomposed observational diagnostics from one synthetic fixture pair; they do not identify a field-general causal effect or justify retuning test outcomes.",
+      "classification": {
+        "gt_weed_instances_where_crop_overlap_beats_weed_overlap": 24,
+        "gt_weed_pixel_coverage_by_raw_crop": 0.9373930520272241,
+        "gt_weed_pixel_coverage_by_raw_weed": 0.08086408691466299,
+        "interpretation": "actual class IDs are correct; crop-over-weed overlap is therefore model class confusion, not an index swap"
+      },
+      "segmentation_localization": {
+        "interpretation": "same-class raw mask overlap is measurable but far below complete GT coverage",
+        "raw_weed_instance_recall": 0.29411764705882354,
+        "raw_weed_pixel_recall": 0.08086408691466299
+      },
+      "thresholding": {
+        "interpretation": "the locked threshold removes low-confidence detections but is not the sole cause because raw same-class recall and overlap are already weak",
+        "locked_qualifying_track_count": 0,
+        "locked_weed_detection_count": 5,
+        "locked_weed_pixel_recall": 0.0569165252406,
+        "raw_qualifying_track_count": 0,
+        "raw_weed_detection_count": 20
+      },
+      "tracking": {
+        "association_counterfactual": {
+          "diagnostic_result": "geometry_relaxation_forms_qualifying_tracks_but_none_match_eligible_gt",
+          "distance_range_px": [
+            80.0,
+            640.0
+          ],
+          "frozen_setting": {
+            "association_max_centroid_distance_px": 160.0,
+            "association_min_mask_iou": 0.1,
+            "locked_weed_detection_count": 5,
+            "locked_weed_qualifying_track_count": 0,
+            "locked_weed_singleton_track_count": 5,
+            "locked_weed_track_count": 5,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator"
+          },
+          "grid_setting_count": 54,
+          "maximum_locked_qualifying_track_count_any_setting": 1,
+          "maximum_raw_weed_track_observations_any_setting": 5,
+          "qualifying_setting_examples": [
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 1,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 2,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 3,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.1,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 1,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.1,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 2,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.1,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 3,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.25,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 1,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.25,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 2,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.25,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 3,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 640.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 1,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 640.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 2,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 640.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 3,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            }
+          ],
+          "selection_status": "post_hoc_failure_decomposition_only_not_a_recommendation",
+          "settings_with_defined_track_f1": 0,
+          "settings_with_locked_qualifying_tracks": 18,
+          "settings_with_track_true_positive": 0
+        },
+        "eligible_gt_track_count": 2,
+        "ideal_gt_motion_proxy": {
+          "centroid_distance_px": {
+            "maximum": 459.1767018286092,
+            "median": 351.53572817931865,
+            "p95": 454.5818517555816
+          },
+          "frozen_geometry_gate_failure_count": 23,
+          "frozen_geometry_gate_failure_fraction": 0.7931034482758621,
+          "interpretation": "apparent GT inter-frame motion; static plants make camera translation the dominant source, but this is not a calibrated camera-motion estimate",
+          "mask_iou": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "p05": 0.0
+          },
+          "transition_count": 29
+        },
+        "interpretation": "association fragmentation is real, but class/localization failures also prevent eligible spatiotemporal matches",
+        "locked_predicted_track_count": 5,
+        "locked_qualifying_track_count": 0,
+        "track_f1": null,
+        "track_f1_state": "undefined_missing_precision_or_recall_denominator"
+      }
+    },
+    "ideal": {
+      "causal_boundary": "These are decomposed observational diagnostics from one synthetic fixture pair; they do not identify a field-general causal effect or justify retuning test outcomes.",
+      "classification": {
+        "gt_weed_instances_where_crop_overlap_beats_weed_overlap": 25,
+        "gt_weed_pixel_coverage_by_raw_crop": 0.9479306116282094,
+        "gt_weed_pixel_coverage_by_raw_weed": 0.08042663237304155,
+        "interpretation": "actual class IDs are correct; crop-over-weed overlap is therefore model class confusion, not an index swap"
+      },
+      "segmentation_localization": {
+        "interpretation": "same-class raw mask overlap is measurable but far below complete GT coverage",
+        "raw_weed_instance_recall": 0.29411764705882354,
+        "raw_weed_pixel_recall": 0.08042663237304155
+      },
+      "thresholding": {
+        "interpretation": "the locked threshold removes low-confidence detections but is not the sole cause because raw same-class recall and overlap are already weak",
+        "locked_qualifying_track_count": 0,
+        "locked_weed_detection_count": 4,
+        "locked_weed_pixel_recall": 0.04658275972326169,
+        "raw_qualifying_track_count": 0,
+        "raw_weed_detection_count": 23
+      },
+      "tracking": {
+        "association_counterfactual": {
+          "diagnostic_result": "geometry_relaxation_forms_qualifying_tracks_but_none_match_eligible_gt",
+          "distance_range_px": [
+            80.0,
+            640.0
+          ],
+          "frozen_setting": {
+            "association_max_centroid_distance_px": 160.0,
+            "association_min_mask_iou": 0.1,
+            "locked_weed_detection_count": 4,
+            "locked_weed_qualifying_track_count": 0,
+            "locked_weed_singleton_track_count": 4,
+            "locked_weed_track_count": 4,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator"
+          },
+          "grid_setting_count": 54,
+          "maximum_locked_qualifying_track_count_any_setting": 1,
+          "maximum_raw_weed_track_observations_any_setting": 5,
+          "qualifying_setting_examples": [
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 1,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 2,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 3,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.1,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 1,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.1,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 2,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.1,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 3,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.25,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 1,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.25,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 2,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 480.0,
+              "association_min_mask_iou": 0.25,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 3,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 640.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 1,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 640.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 2,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            },
+            {
+              "association_max_centroid_distance_px": 640.0,
+              "association_min_mask_iou": 0.05,
+              "locked_weed_qualifying_track_count": 1,
+              "maximum_frame_gap": 3,
+              "track_f1": null,
+              "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+              "track_fn": 2,
+              "track_fp": 0,
+              "track_tp": 0
+            }
+          ],
+          "selection_status": "post_hoc_failure_decomposition_only_not_a_recommendation",
+          "settings_with_defined_track_f1": 0,
+          "settings_with_locked_qualifying_tracks": 18,
+          "settings_with_track_true_positive": 0
+        },
+        "eligible_gt_track_count": 2,
+        "ideal_gt_motion_proxy": {
+          "centroid_distance_px": {
+            "maximum": 459.1767018286092,
+            "median": 351.53572817931865,
+            "p95": 454.5818517555816
+          },
+          "frozen_geometry_gate_failure_count": 23,
+          "frozen_geometry_gate_failure_fraction": 0.7931034482758621,
+          "interpretation": "apparent GT inter-frame motion; static plants make camera translation the dominant source, but this is not a calibrated camera-motion estimate",
+          "mask_iou": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "p05": 0.0
+          },
+          "transition_count": 29
+        },
+        "interpretation": "association fragmentation is real, but class/localization failures also prevent eligible spatiotemporal matches",
+        "locked_predicted_track_count": 4,
+        "locked_qualifying_track_count": 0,
+        "track_f1": null,
+        "track_f1_state": "undefined_missing_precision_or_recall_denominator"
+      }
+    }
+  },
+  "fixture_validation": {
+    "all_checkpoint_gt_prediction_class_bindings_verified": true,
+    "ground_truth": {
+      "all_declared_hashes_verified": true,
+      "frame_reference_count": 120,
+      "matched_arm_ground_truth_object_identity": true,
+      "semantic_ids_observed": [
+        0,
+        1,
+        2
+      ],
+      "sequence_count": 4,
+      "track_label_pixels_class_checked": 3252432,
+      "unique_gt_frame_count": 60,
+      "unique_rgb_file_count": 120,
+      "verified_gt_mask_bytes": 1689644,
+      "verified_rgb_bytes": 599976326
+    },
+    "manifest": {
+      "contract": "spot_spray_simulation_video_sequence_v1",
+      "dataset_id": "spot_spray_simulation_video_ab_execution_v1_native_fixture",
+      "declared_splits": {
+        "calibration": "calibration",
+        "locked_test": "test"
+      },
+      "derivation": {
+        "frame_rate_hz": 15,
+        "frames_per_arm": 30,
+        "outcome_inputs_used": [],
+        "type": "native_2048_botanical_source_object_matched_pair_fixture"
+      }
+    },
+    "predictions": {
+      "degraded_calibration": {
+        "detection_count": 270,
+        "frame_count": 30,
+        "metadata_contract_verified": true,
+        "native_mask_shape": [
+          2048,
+          2048
+        ],
+        "prediction_npz_hashes_verified": 30,
+        "raw_detection_mask_hashes_verified": 270,
+        "raw_detection_mask_pixels_verified": 1868215,
+        "sequence_id": "degraded:fixture_calibration_0000"
+      },
+      "degraded_test": {
+        "detection_count": 209,
+        "frame_count": 30,
+        "metadata_contract_verified": true,
+        "native_mask_shape": [
+          2048,
+          2048
+        ],
+        "prediction_npz_hashes_verified": 30,
+        "raw_detection_mask_hashes_verified": 209,
+        "raw_detection_mask_pixels_verified": 3534920,
+        "sequence_id": "degraded:fixture_test_0000"
+      },
+      "ideal_calibration": {
+        "detection_count": 277,
+        "frame_count": 30,
+        "metadata_contract_verified": true,
+        "native_mask_shape": [
+          2048,
+          2048
+        ],
+        "prediction_npz_hashes_verified": 30,
+        "raw_detection_mask_hashes_verified": 277,
+        "raw_detection_mask_pixels_verified": 1876561,
+        "sequence_id": "ideal:fixture_calibration_0000"
+      },
+      "ideal_test": {
+        "detection_count": 225,
+        "frame_count": 30,
+        "metadata_contract_verified": true,
+        "native_mask_shape": [
+          2048,
+          2048
+        ],
+        "prediction_npz_hashes_verified": 30,
+        "raw_detection_mask_hashes_verified": 225,
+        "raw_detection_mask_pixels_verified": 3637497,
+        "sequence_id": "ideal:fixture_test_0000"
+      }
+    }
+  },
+  "generated_at_utc": "2026-08-15T04:10:48.384928+00:00",
+  "locked_policy": {
+    "association_max_centroid_distance_px": 160.0,
+    "association_min_mask_iou": 0.1,
+    "crop_confidence_threshold": 0.25,
+    "eligible_track_match_iou": 0.5,
+    "maximum_frame_gap": 2,
+    "minimum_track_observations": 3,
+    "test_retuned": false,
+    "threshold_source": "frozen degraded-calibration threshold_lock_v1.json",
+    "weed_confidence_threshold": 0.8
+  },
+  "locked_recomputation": {
+    "action_metrics_not_recomputed": true,
+    "all_recomputed_fields_exact": true,
+    "conditions": {
+      "degraded": {
+        "all_recomputed_fields_exact": true,
+        "fields": {
+          "eligible_weed_track.fn": {
+            "exact": true,
+            "frozen": 2,
+            "recomputed": 2
+          },
+          "eligible_weed_track.fp": {
+            "exact": true,
+            "frozen": 0,
+            "recomputed": 0
+          },
+          "eligible_weed_track.ignored_ineligible_predictions": {
+            "exact": true,
+            "frozen": 0,
+            "recomputed": 0
+          },
+          "eligible_weed_track.tp": {
+            "exact": true,
+            "frozen": 0,
+            "recomputed": 0
+          },
+          "instance.crop.fn": {
+            "exact": true,
+            "frozen": 92,
+            "recomputed": 92
+          },
+          "instance.crop.fp": {
+            "exact": true,
+            "frozen": 68,
+            "recomputed": 68
+          },
+          "instance.crop.tp": {
+            "exact": true,
+            "frozen": 46,
+            "recomputed": 46
+          },
+          "instance.weed.fn": {
+            "exact": true,
+            "frozen": 29,
+            "recomputed": 29
+          },
+          "instance.weed.fp": {
+            "exact": true,
+            "frozen": 0,
+            "recomputed": 0
+          },
+          "instance.weed.tp": {
+            "exact": true,
+            "frozen": 5,
+            "recomputed": 5
+          },
+          "pixel.crop.fn": {
+            "exact": true,
+            "frozen": 44637,
+            "recomputed": 44637
+          },
+          "pixel.crop.fp": {
+            "exact": true,
+            "frozen": 637359,
+            "recomputed": 637359
+          },
+          "pixel.crop.tp": {
+            "exact": true,
+            "frozen": 1556564,
+            "recomputed": 1556564
+          },
+          "pixel.weed.fn": {
+            "exact": true,
+            "frozen": 536805,
+            "recomputed": 536805
+          },
+          "pixel.weed.fp": {
+            "exact": true,
+            "frozen": 7178,
+            "recomputed": 7178
+          },
+          "pixel.weed.tp": {
+            "exact": true,
+            "frozen": 32397,
+            "recomputed": 32397
+          }
+        },
+        "sequence_id": "degraded:fixture_test_0000",
+        "threshold": 0.8
+      },
+      "ideal": {
+        "all_recomputed_fields_exact": true,
+        "fields": {
+          "eligible_weed_track.fn": {
+            "exact": true,
+            "frozen": 2,
+            "recomputed": 2
+          },
+          "eligible_weed_track.fp": {
+            "exact": true,
+            "frozen": 0,
+            "recomputed": 0
+          },
+          "eligible_weed_track.ignored_ineligible_predictions": {
+            "exact": true,
+            "frozen": 0,
+            "recomputed": 0
+          },
+          "eligible_weed_track.tp": {
+            "exact": true,
+            "frozen": 0,
+            "recomputed": 0
+          },
+          "instance.crop.fn": {
+            "exact": true,
+            "frozen": 92,
+            "recomputed": 92
+          },
+          "instance.crop.fp": {
+            "exact": true,
+            "frozen": 69,
+            "recomputed": 69
+          },
+          "instance.crop.tp": {
+            "exact": true,
+            "frozen": 46,
+            "recomputed": 46
+          },
+          "instance.weed.fn": {
+            "exact": true,
+            "frozen": 30,
+            "recomputed": 30
+          },
+          "instance.weed.fp": {
+            "exact": true,
+            "frozen": 0,
+            "recomputed": 0
+          },
+          "instance.weed.tp": {
+            "exact": true,
+            "frozen": 4,
+            "recomputed": 4
+          },
+          "pixel.crop.fn": {
+            "exact": true,
+            "frozen": 42489,
+            "recomputed": 42489
+          },
+          "pixel.crop.fp": {
+            "exact": true,
+            "frozen": 631334,
+            "recomputed": 631334
+          },
+          "pixel.crop.tp": {
+            "exact": true,
+            "frozen": 1558712,
+            "recomputed": 1558712
+          },
+          "pixel.weed.fn": {
+            "exact": true,
+            "frozen": 542687,
+            "recomputed": 542687
+          },
+          "pixel.weed.fp": {
+            "exact": true,
+            "frozen": 5669,
+            "recomputed": 5669
+          },
+          "pixel.weed.tp": {
+            "exact": true,
+            "frozen": 26515,
+            "recomputed": 26515
+          }
+        },
+        "sequence_id": "ideal:fixture_test_0000",
+        "threshold": 0.8
+      }
+    },
+    "reason_action_excluded": "audit scope isolates masks, classes, thresholds, and tracking"
+  },
+  "motion_vs_tracker": {
+    "association_counterfactual_summary": {
+      "degraded": {
+        "diagnostic_result": "geometry_relaxation_forms_qualifying_tracks_but_none_match_eligible_gt",
+        "distance_range_px": [
+          80.0,
+          640.0
+        ],
+        "frozen_setting": {
+          "association_max_centroid_distance_px": 160.0,
+          "association_min_mask_iou": 0.1,
+          "locked_weed_detection_count": 5,
+          "locked_weed_qualifying_track_count": 0,
+          "locked_weed_singleton_track_count": 5,
+          "locked_weed_track_count": 5,
+          "maximum_frame_gap": 2,
+          "track_f1": null,
+          "track_f1_state": "undefined_missing_precision_or_recall_denominator"
+        },
+        "grid_setting_count": 54,
+        "maximum_locked_qualifying_track_count_any_setting": 1,
+        "maximum_raw_weed_track_observations_any_setting": 5,
+        "qualifying_setting_examples": [
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 1,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 3,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.1,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 1,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.1,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.1,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 3,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.25,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 1,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.25,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.25,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 3,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 640.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 1,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 640.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 640.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 3,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          }
+        ],
+        "selection_status": "post_hoc_failure_decomposition_only_not_a_recommendation",
+        "settings_with_defined_track_f1": 0,
+        "settings_with_locked_qualifying_tracks": 18,
+        "settings_with_track_true_positive": 0
+      },
+      "ideal": {
+        "diagnostic_result": "geometry_relaxation_forms_qualifying_tracks_but_none_match_eligible_gt",
+        "distance_range_px": [
+          80.0,
+          640.0
+        ],
+        "frozen_setting": {
+          "association_max_centroid_distance_px": 160.0,
+          "association_min_mask_iou": 0.1,
+          "locked_weed_detection_count": 4,
+          "locked_weed_qualifying_track_count": 0,
+          "locked_weed_singleton_track_count": 4,
+          "locked_weed_track_count": 4,
+          "maximum_frame_gap": 2,
+          "track_f1": null,
+          "track_f1_state": "undefined_missing_precision_or_recall_denominator"
+        },
+        "grid_setting_count": 54,
+        "maximum_locked_qualifying_track_count_any_setting": 1,
+        "maximum_raw_weed_track_observations_any_setting": 5,
+        "qualifying_setting_examples": [
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 1,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 3,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.1,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 1,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.1,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.1,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 3,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.25,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 1,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.25,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 480.0,
+            "association_min_mask_iou": 0.25,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 3,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 640.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 1,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 640.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 2,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          },
+          {
+            "association_max_centroid_distance_px": 640.0,
+            "association_min_mask_iou": 0.05,
+            "locked_weed_qualifying_track_count": 1,
+            "maximum_frame_gap": 3,
+            "track_f1": null,
+            "track_f1_state": "undefined_missing_precision_or_recall_denominator",
+            "track_fn": 2,
+            "track_fp": 0,
+            "track_tp": 0
+          }
+        ],
+        "selection_status": "post_hoc_failure_decomposition_only_not_a_recommendation",
+        "settings_with_defined_track_f1": 0,
+        "settings_with_locked_qualifying_tracks": 18,
+        "settings_with_track_true_positive": 0
+      }
+    },
+    "frozen_stored_track_ids_exactly_recomputed": {
+      "degraded:fixture_calibration_0000": {
+        "detection_assignment_count": 270,
+        "exact_assignment_match": true,
+        "frozen_parameters": {
+          "association_max_centroid_distance_px": 160.0,
+          "association_min_mask_iou": 0.1,
+          "maximum_frame_gap": 2
+        }
+      },
+      "degraded:fixture_test_0000": {
+        "detection_assignment_count": 209,
+        "exact_assignment_match": true,
+        "frozen_parameters": {
+          "association_max_centroid_distance_px": 160.0,
+          "association_min_mask_iou": 0.1,
+          "maximum_frame_gap": 2
+        }
+      },
+      "ideal:fixture_calibration_0000": {
+        "detection_assignment_count": 277,
+        "exact_assignment_match": true,
+        "frozen_parameters": {
+          "association_max_centroid_distance_px": 160.0,
+          "association_min_mask_iou": 0.1,
+          "maximum_frame_gap": 2
+        }
+      },
+      "ideal:fixture_test_0000": {
+        "detection_assignment_count": 225,
+        "exact_assignment_match": true,
+        "frozen_parameters": {
+          "association_max_centroid_distance_px": 160.0,
+          "association_min_mask_iou": 0.1,
+          "maximum_frame_gap": 2
+        }
+      }
+    },
+    "gt_apparent_motion_summary": {
+      "calibration": {
+        "crop": {
+          "centroid_distance_px": {
+            "maximum": 341.4095801599916,
+            "median": 199.70990003149225,
+            "p95": 279.6290607552468
+          },
+          "frozen_geometry_gate_failure_count": 82,
+          "frozen_geometry_gate_failure_fraction": 0.6612903225806451,
+          "interpretation": "apparent GT inter-frame motion; static plants make camera translation the dominant source, but this is not a calibrated camera-motion estimate",
+          "mask_iou": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "p05": 0.0
+          },
+          "transition_count": 124
+        },
+        "weed": {
+          "centroid_distance_px": {
+            "maximum": 663.0030377075133,
+            "median": 219.084196404881,
+            "p95": 377.38063464155647
+          },
+          "frozen_geometry_gate_failure_count": 29,
+          "frozen_geometry_gate_failure_fraction": 0.8787878787878788,
+          "interpretation": "apparent GT inter-frame motion; static plants make camera translation the dominant source, but this is not a calibrated camera-motion estimate",
+          "mask_iou": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "p05": 0.0
+          },
+          "transition_count": 33
+        }
+      },
+      "test": {
+        "crop": {
+          "centroid_distance_px": {
+            "maximum": 519.8310168789397,
+            "median": 333.1411288979572,
+            "p95": 504.390731280735
+          },
+          "frozen_geometry_gate_failure_count": 99,
+          "frozen_geometry_gate_failure_fraction": 0.853448275862069,
+          "interpretation": "apparent GT inter-frame motion; static plants make camera translation the dominant source, but this is not a calibrated camera-motion estimate",
+          "mask_iou": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "p05": 0.0
+          },
+          "transition_count": 116
+        },
+        "weed": {
+          "centroid_distance_px": {
+            "maximum": 459.1767018286092,
+            "median": 351.53572817931865,
+            "p95": 454.5818517555816
+          },
+          "frozen_geometry_gate_failure_count": 23,
+          "frozen_geometry_gate_failure_fraction": 0.7931034482758621,
+          "interpretation": "apparent GT inter-frame motion; static plants make camera translation the dominant source, but this is not a calibrated camera-motion estimate",
+          "mask_iou": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "p05": 0.0
+          },
+          "transition_count": 29
+        }
+      }
+    }
+  },
+  "schema_version": 1,
+  "source_anchors": {
+    "checkpoint": {
+      "bytes": 23416861,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt",
+      "sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100"
+    },
+    "inference_config": {
+      "bytes": 5268,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/inference_config.yaml",
+      "sha256": "7c390a8f432fab596ba7accfb135b3d93002eda91efe78bac9e7f1c038307f45"
+    },
+    "metrics": {
+      "bytes": 296808,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/metrics.json",
+      "sha256": "310b887750019c44169e4924354b7fc53e22925b8d453abbb112df9fa1d4d4a3"
+    },
+    "predictions": {
+      "degraded_calibration": {
+        "bytes": 105832,
+        "condition": "degraded",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/degraded_calibration_predictions_v1.jsonl",
+        "sha256": "6b649949508edce8eaa3d830d9b958d96f3981429ab4ed4a90d07da226356d00",
+        "split": "calibration"
+      },
+      "degraded_test": {
+        "bytes": 85882,
+        "condition": "degraded",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/degraded_test_predictions_v1.jsonl",
+        "sha256": "ac9411cb78102c9c8a18fa7070527832f644f14e5bce60d1670cc7a5f2df6c9f",
+        "split": "test"
+      },
+      "ideal_calibration": {
+        "bytes": 107538,
+        "condition": "ideal",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/ideal_calibration_predictions_v1.jsonl",
+        "sha256": "c027f5470e73c9c90426e91b2d9253ffd66ebd31d63079ae5b7350481b0acd75",
+        "split": "calibration"
+      },
+      "ideal_test": {
+        "bytes": 90429,
+        "condition": "ideal",
+        "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/ideal_test_predictions_v1.jsonl",
+        "sha256": "f087c40c794218ce8641ad3b46f596c718ad9bebd40d2dc8adc65a5ca532f6a3",
+        "split": "test"
+      }
+    },
+    "run_receipt": {
+      "bytes": 28419,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/run_receipt.json",
+      "sha256": "9d8f7c6dd9e5448a4869c233beab3ede12404116be41592e12d07ae455eed289"
+    },
+    "sequence_manifest": {
+      "bytes": 330898,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/sequence_manifest.json",
+      "sha256": "f2d8851433e06ce93572ecf96c6ffe1177073773251083eb710bf2516a0913da"
+    },
+    "source_fingerprint_sha256": "aff0f0a57cc5321021dafbe5150959e7d196290bb562252284b91f447ae5d4e5",
+    "threshold_lock": {
+      "bytes": 6855,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_ab_execution_v1/native_fixture_v1/threshold_lock_v1.json",
+      "sha256": "3e56891c4889b6314c90a2a2927cd6751744650c9d88654be9b4a5e307046795"
+    }
+  },
+  "status": "PASS_HASH_BOUND_DIAGNOSTIC_SYNTHETIC_ONLY",
+  "terminal_validation": {
+    "acceptance_rule_fails_undefined_f1": true,
+    "active_full_lane_not_written": true,
+    "class_mapping_verified_no_shift": true,
+    "contact_sheet_readable": true,
+    "degraded_association_sweep_exceeds_motion_p95": true,
+    "degraded_f1_undefined_not_zero": true,
+    "fresh_locked_test_required_after_correction": true,
+    "ideal_association_sweep_exceeds_motion_p95": true,
+    "ideal_f1_undefined_not_zero": true,
+    "locked_counts_exact": true,
+    "primary_target_not_claimed": true,
+    "status_pass": true
+  },
+  "valid_interpretation": {
+    "degraded_plausibly_near_0p75": false,
+    "field_product_or_chemical_go": false,
+    "fixture_primary_target_assessment": "not_estimated_because_f1_undefined",
+    "ideal_reaches_0p97": false,
+    "model_accuracy_claim_allowed": false,
+    "pixel_and_instance_metrics": "valid synthetic fixture diagnostics only; they neither equal track F1 nor establish field/generalization accuracy"
+  },
+  "write_scope": {
+    "active_full_render_lane_written": false,
+    "docs_root": "/home/ankaref/utku/tarım_projesi/docs/results/spot_spray_native_fixture_fairness_audit_v1",
+    "gpu_training_invoked": false,
+    "model_inference_invoked": false,
+    "run_root": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_native_fixture_fairness_audit_v1",
+    "source_fixture_or_predictions_modified": false
+  }
+}

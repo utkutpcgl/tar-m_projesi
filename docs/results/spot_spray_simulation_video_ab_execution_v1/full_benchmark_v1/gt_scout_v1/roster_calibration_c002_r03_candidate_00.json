@@ -1,0 +1,201 @@
+{
+  "all_five_seed_bindings_exact": true,
+  "botanical_validation": {
+    "crop_track_count": 7,
+    "field_state_asset_mismatch_count": 3,
+    "frame_count": 30,
+    "frames_with_source_silhouette_overlap": 18,
+    "fully_occluded_track_frame_rows": 0,
+    "occluded_track_frame_rows": 18,
+    "quality_gates": {
+      "crop_track_minimum": true,
+      "depsgraph_source_asset_binding": true,
+      "field_state_asset_disagreement_explicit": true,
+      "full_track_frame_grid": true,
+      "instance_palette_closed": true,
+      "occlusion_exercised": true,
+      "positive_canopy_span": true,
+      "render_ids_unique": true,
+      "semantic_class_binding": true,
+      "source_identity_digest": true,
+      "source_ids_unique": true,
+      "source_silhouette_overlap": true,
+      "visible_instance_accounting": true,
+      "visible_subset_of_isolated": true,
+      "weed_track_minimum": true
+    },
+    "scene_root": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-calibration_c002_r03-candidate-00-089d3ce55e49410a83ed09d14fdf82df/source_scene",
+    "source_scene_graph_identity_sha256": "7d793ceb6149ec77337c9fa054411e518077bf919b638472712d34e0b295d791",
+    "track_count": 10,
+    "track_frame_rows": 300,
+    "weed_track_count": 3
+  },
+  "bounded_cleanup": {
+    "bounded_to_gt_scout_staging": true,
+    "bulk_bytes_removed": 14779783,
+    "bulk_payload_retained": false,
+    "canonical_mask_payload_removed": true,
+    "retained_receipts_and_log": {
+      "capture_receipt.json": "d7fbb35e3e08d6c28389e78d3b93cb49cdfa2ae62502c5645d6f4c010b4e67cb",
+      "cropcraft_runner.log": "af237074f28bc1ab350e877a538251f880a9f87885933e6b19b76c664af11dfb",
+      "generation_receipt.json": "af237074f28bc1ab350e877a538251f880a9f87885933e6b19b76c664af11dfb",
+      "source_objects.json": "13586a881b1dfa172966ed2724b6ae328215c5a1758ceee8f1f06fb8c8836e43",
+      "track_registry.json": "59024b63fd07e5110318802ec3f2ba859fbd1643b440d447448ef1e052c7f300",
+      "tracks.jsonl": "b30abcb905ac865eb58e2f987136922c2bb984986705547a5ec06f055e836a4c"
+    },
+    "source_scene_removed": true
+  },
+  "candidate_identity_sha256": "7e7bb6f607fbe6e3a43ee9e745752b71c982804be349e254af74d92f21ab415d",
+  "candidate_index": 0,
+  "candidate_seeds": {
+    "audit_sample_seed": 13170672809206460050,
+    "capture_draw_seed": 9135610368552644856,
+    "renderer_seed": 616153682043043236,
+    "scene_seed": 18268164718179311676,
+    "trajectory_seed": 5431924420736925470
+  },
+  "canonical_gt_sha256": "39cfc9ee40dfaa6e974a0a454033156505805dcdf018c070b26d99ab65e902ed",
+  "canonical_rejection_ledger_mutated_before_atomic_publish": false,
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "composed_patch": {
+    "base_full_scene_patch_sha256": "3c5ba726370d943bc93335afb8dd4f8169fac83ebec3c2e39875f8495fdabce1",
+    "full_runtime_overlay_included": true,
+    "gt_scout_overlay_included": true,
+    "ordered_constituents": [
+      {
+        "path": "patches/cropcraft/0006-field-robustness-surface-lighting.patch",
+        "sha256": "ad3f65815a1a269bbefa41cb3292c9836e63ccd91af146ed27247a5befde416b"
+      },
+      {
+        "path": "patches/cropcraft/0002-instance-track-ground-truth.patch",
+        "sha256": "c2301376c2f1607d1abfeeb75a6b9ad9b29873c764b027bd6995b10ebcaddd24"
+      },
+      {
+        "path": "embedded:full_runtime_overlay_v1",
+        "sha256": "bdefdbab35ab9161c12adb14045e2404c888f370ad16a42f4297542e0201d18b"
+      },
+      {
+        "path": "embedded:gt_scout_runtime_overlay_v1",
+        "sha256": "4de489ee4ab48a4c7f9e32983ce7eae3a40921683e5f3661156af05079845f9e"
+      }
+    ],
+    "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-calibration_c002_r03-candidate-00-089d3ce55e49410a83ed09d14fdf82df/bindings/gt_scout_scene.patch",
+    "sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248"
+  },
+  "contract": "spot_spray_simulation_video_ab_gt_scout_execution_v1",
+  "decision": {
+    "contract": "spot_spray_simulation_video_ab_gt_scout_v1",
+    "decision_contract_sha256": "dad4c60f12d41265f05780a9336eeb4fc17be1b90689f86e5cf17aeeef65b40b",
+    "eligibility_checks": {
+      "eligible_track_with_at_least_three_observations": true,
+      "eligible_weed_track_present": true
+    },
+    "full_render_still_required_for_acceptance": true,
+    "model_or_outcome_inputs_used": false,
+    "pair_id": "calibration_c002_r03",
+    "registered_targets_used": false,
+    "rejectable_by_scout": true,
+    "rejection_reasons": [
+      "semantic:weed_free_frame_fraction_within_limit",
+      "semantic:mean_weed_fraction_in_range"
+    ],
+    "schema_version": 1,
+    "semantic_checks": {
+      "crop_free_frame_fraction_within_limit": true,
+      "mean_crop_fraction_in_range": true,
+      "mean_weed_fraction_in_range": false,
+      "weed_free_frame_fraction_within_limit": false
+    },
+    "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+    "synthetic_only": true
+  },
+  "dry_run": false,
+  "elapsed_wall_seconds": 328.061769512482,
+  "full_render_still_required_for_acceptance": true,
+  "generation": {
+    "elapsed_wall_seconds": 207.48575921729207,
+    "receipt_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-calibration_c002_r03-candidate-00-089d3ce55e49410a83ed09d14fdf82df/source_scene/generation_receipt.json",
+    "receipt_sha256": "af237074f28bc1ab350e877a538251f880a9f87885933e6b19b76c664af11dfb",
+    "runner_log": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-calibration_c002_r03-candidate-00-089d3ce55e49410a83ed09d14fdf82df/source_scene.runner.log",
+    "runner_log_sha256": "af237074f28bc1ab350e877a538251f880a9f87885933e6b19b76c664af11dfb",
+    "scene_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "validated_pairs": 30
+  },
+  "gt_scout_execution_lock_sha256": "5fe68dd43183a588b02724bfd0af090f405f7a27f2eacf74b109b84c40a3c3d3",
+  "gt_scout_implementation_sha256": "feeb9826103dbe71711b4cdb76dac0e6a828a4c33edba354addb71e1c11c0b46",
+  "inference_calls": 0,
+  "inventory_file_count_before_terminal_receipt": 11,
+  "inventory_sha256": "2a5156740cce6316349b1adad9dbb47b33dc7a72f87d0cb266b49fc8eb80c279",
+  "model_loaded": false,
+  "outcome_inputs": [],
+  "pair_id": "calibration_c002_r03",
+  "pair_slot_identity_sha256": "ddaf22777ff10a2b5158b992f6b93fa6b00b2a6655c515045882a89fcd4f3a28",
+  "preflight": {
+    "capacity": {
+      "free_bytes": 331806937088,
+      "passed": true,
+      "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft",
+      "required_bytes": 8000000000,
+      "reserve_bytes_after_estimate": 0,
+      "total_bytes": 491106508800,
+      "used_bytes": 134277455872
+    },
+    "checkpoint_hash_verified_as_source_lock": true,
+    "checkpoint_loaded": false,
+    "gpu": {
+      "external_process_policy": "observed_only_never_stopped_or_modified",
+      "index": 0,
+      "memory_free_mib": 23529,
+      "memory_total_mib": 24576,
+      "memory_used_mib": 587,
+      "name": "NVIDIA GeForce RTX 3090"
+    },
+    "scope": "fixture"
+  },
+  "protocol_split": "calibration",
+  "reference_equivalence": null,
+  "reference_published_pair": false,
+  "role_asset_validation": {
+    "all_used_and_exposed_assets_allowed": true,
+    "exposed_candidate_count": 9,
+    "exposed_candidate_stems": [
+      "sorghum_seedling_v2/sorghum_stage3_v1_healthy_dark",
+      "sorghum_seedling_v2/sorghum_stage3_v1_healthy_light",
+      "sorghum_seedling_v2/sorghum_stage3_v2_healthy_dark",
+      "sorghum_seedling_v2/sorghum_stage3_v2_healthy_light",
+      "sorghum_seedling_v2/sorghum_stage3_v3_field_stress",
+      "sorghum_seedling_v2/sorghum_stage3_v3_healthy_light",
+      "weed_grass_v2/weed_grass_v2_01",
+      "weed_grass_v2/weed_grass_v2_04",
+      "weed_grass_v2/weed_grass_v2_06"
+    ],
+    "role_allowlist_sha256": "8d73b4633669f1f5f10e697ff2f67161ccb6b0ec1c311dbfacf30d4c14e97c76",
+    "role_object_identity_sha256": "561ace162e00e1ef0a901c87159e95883c8484078abf3ab7a16dbfbe81f75f92",
+    "used_asset_count": 6,
+    "used_asset_stems": [
+      "sorghum_seedling_v2/sorghum_stage3_v1_healthy_dark",
+      "sorghum_seedling_v2/sorghum_stage3_v1_healthy_light",
+      "sorghum_seedling_v2/sorghum_stage3_v2_healthy_light",
+      "sorghum_seedling_v2/sorghum_stage3_v3_field_stress",
+      "weed_grass_v2/weed_grass_v2_01",
+      "weed_grass_v2/weed_grass_v2_04"
+    ]
+  },
+  "schema_version": 1,
+  "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+  "sealed_full_render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751",
+  "source_template": {
+    "profile": "hood_moist_glare_challenge",
+    "scene_id": "scene_0007",
+    "sha256": "42ef9d09ba61c74684877c5f01cbd4f1c29cf102067823f6beb501e1a40d786e"
+  },
+  "source_template_sha256_exact": true,
+  "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY"
+}

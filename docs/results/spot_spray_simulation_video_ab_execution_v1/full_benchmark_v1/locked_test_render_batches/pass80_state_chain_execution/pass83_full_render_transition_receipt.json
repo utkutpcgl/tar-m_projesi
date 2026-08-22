@@ -1,0 +1,103 @@
+{
+  "access_guard": {
+    "external_services_modified": false,
+    "full_pair_render_active": true,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "render_and_machine_audit_only": true
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass83_full_render_transition_v1",
+  "full_render": {
+    "candidate_identity_sha256": "981afb95c50886f7f11ce4cfb199f773a87437e5ff8920cb4ab354e07705f5e1",
+    "candidate_index": 3,
+    "degraded_base_rgb_frames_at_observation": 6,
+    "full_pair_terminal_receipt_present_at_observation": false,
+    "ideal_rgb_frames_at_observation": 30,
+    "pair_id": "locked_test_c001_r03",
+    "pair_slot_identity_sha256": "cd669498b3c9a0dfda43679a8fd5abd4dce89417df30c9b0a126e8ffd101f4e0",
+    "scene_config_sha256": "7cbb1896332d45f20e88bf6a40a5f6408dce71edc3632bf67a3155f8feb18772",
+    "sealed_full_ab_scene_patch_sha256": "3c5ba726370d943bc93335afb8dd4f8169fac83ebec3c2e39875f8495fdabce1",
+    "stage_at_observation": "unchanged_full_native_degraded_base_rgb_render",
+    "staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/work/.partial-locked_test_c001_r03-candidate-03-b052086e06734203af15bc3d588e5554"
+  },
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260820232904-c454d08e5966",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 83,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "gt_scout_terminal_candidate": {
+    "bounded_cleanup_receipt_sha256": "6d4cccae4260640806e3ed0ca3fa1c75be9b5b41c3beff20b2eba4f76c5d5f69",
+    "candidate_identity_sha256": "981afb95c50886f7f11ce4cfb199f773a87437e5ff8920cb4ab354e07705f5e1",
+    "candidate_index": 3,
+    "canonical_gt_sha256": "2489bc349c830f75a072c85d051a671ed9cda1322d4ac127808e2b5558fcb47c",
+    "decision_receipt_sha256": "13c2e1e099cf1acf054c2a507f194a639caa780246a215500bdc8d275f5b2a70",
+    "gt_audit_receipt_sha256": "fc69dfc49952d606834f2385ff7b159a3d4f6081abc1408b0cfa57084497f129",
+    "gt_scout_terminal_receipt_sha256": "4e63cb91889ce3397ceb82cee76a977ccfe0c5cfafdbbfe191591c2a85ac7ec1",
+    "model_or_outcome_inputs_used": false,
+    "rejection_reasons": [],
+    "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY"
+  },
+  "ledger_chain": {
+    "append_only_prefix_exact": true,
+    "current_row_count": 121,
+    "current_sha256": "8c7498c80aebf2115a53336210d98d1113bddca2bd260524568b876c77f3a3fa",
+    "unchanged_during_candidate_3_gt_pass_and_full_render": true
+  },
+  "observed_at": "2026-08-21T02:30:38+03:00",
+  "process": {
+    "active": true,
+    "blender_pid": 1434531,
+    "command": "/home/ankaref/miniconda3/envs/sgs-yolo/bin/python3.10 scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py run --pair-id locked_test_c001_r03 --max-new-pairs 1",
+    "cropcraft_runner_pid": 1434453,
+    "elapsed_at_observation": "00:47:43",
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass80_state_chain_execution/process.log",
+    "log_sha256_at_observation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pid": 1255277,
+    "session_id": 1255277,
+    "status": "Ssl",
+    "terminal_error_observed": false
+  },
+  "render_state_at_observation": {
+    "completed_pair_count": 43,
+    "first_pending_pair_id": "locked_test_c001_r03",
+    "last_completed_pair_id": "locked_test_c001_r02",
+    "pending_pair_count": 53,
+    "sha256": "9830d0408a514f3acd594658fa60ca45b1b756301db388d9bf91b04beac28514",
+    "staging": null,
+    "unchanged_from_intent_boundary": true
+  },
+  "schema_version": 1,
+  "state_chain": {
+    "execution_id": "state_chain_batch_locked_test_c001_r03_c66d6937e3dca21a",
+    "intent_sha256": "0d57a2a53b71b3cb93af8344ba91e4392a31056fa4c599b2d5993ec44c479927",
+    "predecessor_head_identity_sha256": "33a1a52c6245f709ed47036a891c44d2b9f36bee934109ef06b8cce0ecca2f2f",
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "request_identity_sha256": "c66d6937e3dca21ab499c3269c0104abe4fd808b27dd1a92a669e4817b88983b",
+    "terminal_receipt_present_at_observation": false
+  },
+  "status": "CANDIDATE_3_GT_PASS_UNCHANGED_FULL_NATIVE_RENDER_ACTIVE_SYNTHETIC_ONLY",
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r03_9ac72e3934caba41",
+    "intent_sha256": "a453e3b91144d18143f2bb1f617b57c047afb657300bfe8633344cdc1604090e",
+    "max_new_pairs": 1,
+    "request_identity_sha256": "9ac72e3934caba415320e18a474da0f4e81d669bf5d9ae7e0761b25e8a6b98ba",
+    "target_pair_ids": [
+      "locked_test_c001_r03"
+    ],
+    "terminal_receipt_present_at_observation": false
+  }
+}

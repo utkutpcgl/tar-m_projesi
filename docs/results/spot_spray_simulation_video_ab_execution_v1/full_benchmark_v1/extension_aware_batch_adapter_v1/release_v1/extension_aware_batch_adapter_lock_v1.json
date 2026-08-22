@@ -1,0 +1,24 @@
+{
+  "adapter_implementation_sha256": "e14eea15a52865c6f93c5de7ba7cb9f351e0777536b8550cf1431530edf745c4",
+  "bridge_sha256": "90ef26a4125f32feb6d4d4a8969bb372f9e9721d70b45646953225262683b4fa",
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_batch_adapter_v1_lock",
+  "legacy_execution_script_sha256": "200d897efa1400a9dabba1acaf33d1b49db2c00ebcf79768f25fa4a8608bb413",
+  "legacy_execution_test_sha256": "66878530bb4878da29adf5b32da9fa506ccb4f132a508de105a6e11f8a65f9b5",
+  "locked_test_batch_function_source_sha256": "0eb34c0c82e66a6610e9e7d5ac7c8763e3c5c35762e986b267e1621055a87a82",
+  "locked_test_batch_implementation_sha256": "8fcb95eeac50260068244809db9fe1e34aa208571d81dae137976dd98f423e70",
+  "model_prediction_outcome_or_target_access_allowed": false,
+  "other_execution_global_or_function_changes_allowed": false,
+  "patch_target": "execution.validate_full_plan",
+  "runtime_release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+  "schema_version": 1,
+  "status": "SEALED_EXTENSION_AWARE_BATCH_ADAPTER_LOCK_SYNTHETIC_ONLY",
+  "validator_release_identity_sha256": "39c782e375352fdcddd62751ff4a3f4577652d111798269e549dae8bdaf066f7"
+}

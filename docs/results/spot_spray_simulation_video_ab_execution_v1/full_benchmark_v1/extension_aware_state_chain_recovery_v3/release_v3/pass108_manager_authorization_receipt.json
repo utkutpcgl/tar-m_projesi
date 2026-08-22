@@ -1,0 +1,48 @@
+{
+  "authority": {
+    "candidate_acceptance_allowed": false,
+    "candidate_skip_allowed": false,
+    "exact_zero_source_weed_rejection_append_allowed": true,
+    "external_service_mutation_allowed": false,
+    "gate_relaxation_allowed": false,
+    "model_prediction_outcome_or_registered_target_access_allowed": false,
+    "render_allowed": false,
+    "state_transition_or_pair_publication_allowed": false
+  },
+  "authorized_top_level_source_paths": [
+    "scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_recovery_v3.py",
+    "tests/test_run_spot_spray_simulation_video_ab_extension_aware_state_chain_recovery_v3.py"
+  ],
+  "caller_selected_pair_batch_execution_or_candidate_allowed": false,
+  "canonical_derivation": {
+    "current_first_pending_locked_test_pair": true,
+    "derive_with_execution_next_gt_scout_candidate": true,
+    "exactly_one_matching_open_batch": true,
+    "lowest_unattempted_frozen_roster_candidate": true,
+    "max_new_pairs": 1,
+    "sole_open_state_chain_execution": true,
+    "valid_hash_linked_descendant_of_genesis_required": true
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_recovery_v3_manager_authorization",
+  "manager_handoff_event_id": "scheduled-resume-20260821055719-95edab2a9737",
+  "manager_observed_portfolio_revision": 163,
+  "manager_session_id": "019fb346-5ead-7600-8068-40b32b0daa06",
+  "operation": "recover-current-zero-weed",
+  "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+  "pass108_event_id": "scheduled-resume-20260821060145-11a730c2599a",
+  "pass108_real_recovery_or_gt_or_render_allowed": false,
+  "portfolio_id": "goal-multi-repeat-agents-spot-spray-simulation-video-ab-v1-b8e46607aeea",
+  "portfolio_lane": "full-simulation-video-ab-execution-v1",
+  "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+  "schema_version": 1,
+  "sealed_parent_bytes_rewritten": false,
+  "status": "AUTHORIZED_CANONICAL_ACTIVE_PAIR_RECOVERY_V3_SYNTHETIC_ONLY"
+}

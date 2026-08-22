@@ -1,0 +1,18 @@
+{
+  "artifacts": [
+    {
+      "bytes": 976,
+      "path": "README.md",
+      "sha256": "c662ef64b5363f8b3dcc80b39a00b6669fa937abcb5ae85f711d51949fd1e0ec"
+    },
+    {
+      "bytes": 20837,
+      "path": "benchmark_summary.json",
+      "sha256": "0179d4077925339af34580120d2ebc2b538f26cd18dfd696eacd530aa393b0cc"
+    }
+  ],
+  "contract": "spot_spray_simulation_video_inference_docs_receipt_v1",
+  "run_receipt": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_inference_v1/representative_v12_smoke_v1/run_receipt.json",
+  "run_receipt_sha256": "d7b19a63e03b303de84d9c5902705645a7f9a20ffb4941e3045e17c160419489",
+  "schema_version": 1
+}

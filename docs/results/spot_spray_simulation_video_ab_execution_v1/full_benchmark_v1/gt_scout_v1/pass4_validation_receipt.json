@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_gt_scout_pass4_validation_v1",
+  "status": "PASS_GT_SCOUT_INTEGRATION_SYNTHETIC_ONLY",
+  "scope": {
+    "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "protocol_sha256": "de12cd76d3f497f1ea3a6ffa1d1c7fc8eea4e70a9af218c2769bae81da0f329f",
+    "planned_pair_counts": {
+      "calibration": 32,
+      "locked_test": 64
+    },
+    "published_pair_count": 1,
+    "pending_pair_count": 95
+  },
+  "implementation_locks": {
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "execution_script_sha256": "910a1d718601873d77b0e67809df2ee18b561e0e758a479624b9a125cfb372ad",
+    "test_script_sha256": "58af403222d4a8a575cab7c196e676c5cedd52d0ea40e83d5307bac40c5e6983",
+    "sealed_full_render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751",
+    "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+    "gt_scout_implementation_sha256": "feeb9826103dbe71711b4cdb76dac0e6a828a4c33edba354addb71e1c11c0b46",
+    "gt_scout_execution_lock_sha256": "5fe68dd43183a588b02724bfd0af090f405f7a27f2eacf74b109b84c40a3c3d3",
+    "gt_scout_overlay_sha256": "4de489ee4ab48a4c7f9e32983ce7eae3a40921683e5f3661156af05079845f9e",
+    "composed_gt_scout_patch_sha256": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248"
+  },
+  "reference_equivalence": {
+    "pair_id": "calibration_c000_r00",
+    "candidate_index": 6,
+    "status": "PASS_GT_SCOUT_REFERENCE_EQUIVALENCE_SYNTHETIC_ONLY",
+    "terminal_receipt_sha256": "224787b16cddb19810c4564145945fc83fe95e62591a31598bbc04737f7c8a29",
+    "equivalence_receipt_sha256": "19339522bc3ee9838f6a28f232f73ce9c4e6ff12668046bb0ebfafedc595dfdb",
+    "audit_receipt_sha256": "eae2c4bed621c75ed8dbff5b0ceeaff42c233403200de6f4cd242b6f753a03bf",
+    "canonical_gt_sha256": "ae319423d9133117c4f3c2af3d88d633fea69fabb4cf9fa1c7aa91168748cd29",
+    "compared_native_frame_count": 30,
+    "all_semantic_track_hashes_and_labels_exact": true,
+    "semantic_and_temporal_audits_exact": true,
+    "source_gt_receipt_bytes_exact": true,
+    "source_scene_graph_identity_exact": true,
+    "role_asset_allowlist_decision_exact": true,
+    "eligible_track_count_exact": true,
+    "elapsed_wall_seconds": 368.64710596576333,
+    "same_candidate_full_render_wall_seconds": 2416.4625931466,
+    "measured_same_candidate_wall_time_ratio": 6.5549479544022775,
+    "retained_result_bytes": 679890,
+    "bulk_bytes_removed": 22589790
+  },
+  "next_slot_dry_run": {
+    "pair_id": "calibration_c000_r01",
+    "candidate_index_selected_from_roster": 0,
+    "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+    "terminal_receipt_sha256": "37c25cea379ce9450c9829ea8d3fde81df5836006c8f303dbad83f79a7fa2f21",
+    "decision_receipt_sha256": "15c7807086ea9d28b274cddc6d80bd9588d269162fd75f662be6cfa0d548e96c",
+    "audit_receipt_sha256": "ddb6648448c39bcae8ba8176dd1899a91b4fffbf5da84d52dc536ad2332666f7",
+    "semantic_audit": {
+      "crop_free_frame_fraction": 0.0,
+      "mean_crop_fraction": 0.021671764055887856,
+      "mean_weed_fraction": 0.008167505264282227,
+      "weed_free_frame_fraction": 0.0
+    },
+    "rejection_reasons": [
+      "semantic:mean_weed_fraction_in_range"
+    ],
+    "eligible_weed_track_count": 5,
+    "eligibility_checks_passed": true,
+    "elapsed_wall_seconds": 422.98333496041596,
+    "retained_result_bytes": 812708,
+    "bulk_bytes_removed": 17783097,
+    "dry_run_did_not_mutate_canonical_ledger": true,
+    "idempotent_repeat_status": "SKIP_EXISTING_REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY"
+  },
+  "rejection_ledger": {
+    "sha256_after_dry_run": "c85e29c73954916d288ac7dc4183fa6451d79e4efbdee9e77e73c6a0428f623e",
+    "row_count_after_dry_run": 6,
+    "calibration_c000_r01_rows_after_dry_run": 0,
+    "commit_path_unit_tested_reject_only": true,
+    "commit_path_unit_tested_idempotent": true,
+    "passing_candidate_rejection_forbidden": true
+  },
+  "fail_closed_debug_receipt": {
+    "failed_initial_lock_sha256": "ae4f0cee6c93f673a33ab2ea7b1e4bb22b3d0ea0b891b4eb7412ece2916514d4",
+    "failure": "initial unified-patch hunk placed the proxy call inside the botanical function call and the runner observed 0/30 RGB-proxy/semantic pairs",
+    "failed_result_published": false,
+    "canonical_rejection_ledger_mutated": false,
+    "correction_validation": "combined patch applied with runner-equivalent patch -p1 flow and patched entrypoint plus scout module passed py_compile before rerun"
+  },
+  "capacity": {
+    "full_preflight_passed": true,
+    "data_disk_free_bytes": 341395189760,
+    "full_required_bytes": 180000000000,
+    "reserve_bytes": 30000000000,
+    "gpu_memory_free_mib": 23529,
+    "unrelated_process_policy": "observed_only_never_stopped_or_modified"
+  },
+  "validation": {
+    "py_compile_passed": true,
+    "pytest_file_passed": true,
+    "pytest_passed_count": 34,
+    "full_plan_validate_passed": true,
+    "full_preflight_passed": true,
+    "reference_repeat_returned_skip_existing_same_receipt": true,
+    "dry_run_repeat_returned_skip_existing_same_receipt": true,
+    "interrupted_staging_directories": [],
+    "full_render_lock_unchanged": true
+  },
+  "access_and_claim_boundary": {
+    "checkpoint_hash_verified_as_source_lock": true,
+    "checkpoint_loaded": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_files_present": false,
+    "outcome_or_registered_target_inputs_used": false,
+    "synthetic_only": true,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  },
+  "next_step": "Commit candidate 0's proven GT-only semantic rejection for calibration_c000_r01, scout subsequent candidates in canonical roster order until the first GT-only pass, then execute that candidate once through the unchanged full renderer."
+}

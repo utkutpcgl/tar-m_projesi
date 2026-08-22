@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass115_active_successor_v1",
+  "status": "ACTIVE_CANONICAL_SUCCESSOR_AFTER_TWO_FROZEN_GT_REJECTIONS_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821074048-2107d043db8f",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 115,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T10:42:26+03:00",
+  "pair_id": "locked_test_c001_r05",
+  "terminal_candidates": [
+    {
+      "candidate_index": 13,
+      "candidate_identity_sha256": "15e8363a66002db609d2a23e6d8036d8c96b3a54d6292a96630e2c9b1d07c1f8",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "rejection_reasons": [
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "canonical_gt_sha256": "5fd806a73111e39a8981cbd0f5a50a72f26b2c53e2fc8a7c1102943eff4c6e9c",
+      "decision_receipt_sha256": "f33f0adc6f08c5e83c6f7b3e1dabed48441625a1a6f3f282b6dc6e6782004d62",
+      "terminal_receipt_sha256": "e42c0aad7ccefd8f0b39e98a8e0d35b86e8f66b18cf5539eb42bba74540b3993",
+      "ledger_commit_receipt_sha256": "741e44e78ecafdb6770f38bbe141b3bacd8bf815737d0da08b56ccab2651bb30",
+      "gt_audit_receipt_sha256": "b70c3f07ea1b9659718d33e4cb524226746e6ca5b5b0734af5133973ffb56679",
+      "bounded_cleanup_receipt_sha256": "7dbef9aab17e9da41a01c5d552116fcad73b08bd5753f3892c45a09374a5ad5b",
+      "model_or_outcome_inputs_used": false
+    },
+    {
+      "candidate_index": 14,
+      "candidate_identity_sha256": "fe8b38bd2080881333239d85b493bd4f463820d74fd1bea4daaa03cfa510fb4d",
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_crop_fraction_in_range",
+        "semantic:mean_weed_fraction_in_range"
+      ],
+      "canonical_gt_sha256": "b6aa98d470b4d4e7579b0daa19c59618720e3f01eaecadcef2f391471072c6d9",
+      "decision_receipt_sha256": "0b6433121e3ca9c25e9daa26f1c229d4473f212f007f6c2ede1f1baaf53e27e1",
+      "terminal_receipt_sha256": "03a2d2931933b8673d665fe66f37801dd2ef0469ec3573550a7080e6439331b0",
+      "ledger_commit_receipt_sha256": "bce552da30f8d691005cd423aef4e33128c130fb663800ad3719aa271a09cdbc",
+      "gt_audit_receipt_sha256": "95e058465bcdd9dd72973529fc8de9a45b7c9f6e88c2218d513a850296457db0",
+      "bounded_cleanup_receipt_sha256": "85c1e9c750fdf229b0665bb3160e5712cc52284a2b6537d6e08c174c508abd60",
+      "model_or_outcome_inputs_used": false
+    }
+  ],
+  "process": {
+    "pid": 3707360,
+    "alive": true,
+    "state": "Ssl",
+    "elapsed_seconds_at_first_inspection": 2978,
+    "process_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass111_state_chain_resume/resume_locked_test_c001_r05_candidate9.log",
+    "process_log_size_bytes": 0,
+    "process_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external_process_stopped_or_signaled_by_pass115": false
+  },
+  "state_chain": {
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "execution_id": "state_chain_batch_locked_test_c001_r05_fe3a9bf5ccf9db11",
+    "intent_sha256": "fa987a19efaf6f3932978beb368694c22a6501642e6f69f441ac55edbd76359c",
+    "terminal_receipt_present": false,
+    "render_state_sha256": "f811c3e3d5622bbc741e4c84951db4c3287181f2ed219ef45c8d0877c7a12553",
+    "chain_head_identity_sha256": "34acee5f2fb322fa839ffd9bfc0edf9722e1556d6085d56cb145d65fd56bab71",
+    "completed_pair_count": 45,
+    "pending_pair_count": 51,
+    "first_pending_pair_id": "locked_test_c001_r05"
+  },
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r05_65e15722fcb2d69c",
+    "intent_sha256": "09c278a49ed3457dace1e0e306d84dd6dd4024b1f6a09cba216c65e236eb2e20",
+    "max_new_pairs": 1,
+    "terminal_receipt_present": false
+  },
+  "ledger": {
+    "row_count": 149,
+    "sha256": "9a820b69db460dae234f547cc1c3dc5c6d2f652a0449af02d5fd2cea5dba0e69",
+    "candidate_13_intermediate_sha256": "0236aaf0d28be94a19e261a7efc79f96015c60e2e0778e172bdcbcb39b00884f",
+    "append_only_prefix_preserved": true
+  },
+  "canonical_successor": {
+    "candidate_index": 15,
+    "candidate_identity_sha256": "50571789bb59e892fb54769588bbab90cca14a1df7e2788a149bc31d3cc3f2b7",
+    "partial_staging_present": true,
+    "full_native_render_observed": false,
+    "pair_publication_observed": false
+  },
+  "recovery_v3": {
+    "release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "validation_status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+    "real_v3_intents_created_during_validation": 0,
+    "v3_execution_count": 1,
+    "invoked_by_pass115": false,
+    "reason_not_invoked": "candidates13 and14 were committed ordinary frozen-GT semantic rejections, not the exact zero-source-weed failure"
+  },
+  "access_guard": {
+    "candidate_gt_accessed_during_validation": false,
+    "rendering_calls_during_validation": 0,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

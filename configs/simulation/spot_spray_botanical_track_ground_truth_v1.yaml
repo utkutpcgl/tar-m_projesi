@@ -1,0 +1,138 @@
+schema_version: 1
+study_id: spot_spray_botanical_track_ground_truth_v1
+status: PROTOCOL_ADMISSION_PILOT_SYNTHETIC_ONLY
+purpose: >-
+  Prove that the pinned CropCraft source can emit botanical source-object IDs,
+  persistent tracks, visible instance masks, and occlusion metadata without
+  deriving identity from semantic connected components or model predictions.
+
+claim_boundary:
+  benchmark_release: false
+  pilot_resolution_is_native_benchmark_resolution: false
+  model_inference_performed: false
+  outcome_targeting_performed: false
+  physical_capture_evidence: false
+  field_go: false
+  product_go: false
+  chemical_fire_allowed: false
+
+source_lock:
+  protocol:
+    path: configs/benchmark/spot_spray_simulation_video_ab_protocol_v1.yaml
+    sha256: de12cd76d3f497f1ea3a6ffa1d1c7fc8eea4e70a9af218c2769bae81da0f329f
+  paired_render_receipt:
+    path: docs/results/spot_spray_simulation_video_pairs_v1/validation_receipt.json
+    sha256: 179410f6f975e1b7b43c369839ea3b58f74e6eb2ccc667dc4e64127b5ce7d5b3
+  cropcraft:
+    repository: data/raw/cropcraft/repository
+    revision: 7128cd2acade50cc4a5a1761210b55989ab62527
+    require_clean_tracked_checkout: true
+    critical_sources:
+      core/field_description.py: 4f37e88e395c428d2a2490772b2ec3305a809452f5e6a9f5fc8f5f3cbc9d8b29
+      core/beds.py: 5d20f623cfdc2e23c2cfd6c3348b534d3fbab4b200eccbbd86eeed7ecf4868a2
+      core/ground.py: 93f217c37d6db57c3dbbf32cddfaaf0548731db139854ef00e5077b61842617c
+      core/geometry_nodes/crops.py: a0c586ceaf919415bf8a75855197676a40a001a676e6bebf3c7348872b349eeb
+      core/geometry_nodes/scattering.py: f20ef5952d686e91f4c148f27f37bee52b69bf93a17e2664eb406afca3cfe0aa
+      core/blender_entrypoint.py: be2085b07ce4cadd97086ba95b58538f815c478df2e65f3dfc6046cad8454544
+  compatibility_patch:
+    path: patches/cropcraft/0001-blender-4.5-eevee-next.patch
+    sha256: 8fd5ab99b6a784fd49d9f8c23035e2f8cb5c2a51cd47d22ff9365417dcebf41f
+  botanical_gt_patch:
+    path: patches/cropcraft/0002-instance-track-ground-truth.patch
+    sha256: c2301376c2f1607d1abfeeb75a6b9ad9b29873c764b027bd6995b10ebcaddd24
+  cropcraft_v12_release:
+    receipt: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/release_receipt.json
+    sha256: ff733bff9458af8afebbfdc84a5c5ee4377df0f7635c55638b61889a22b57cf0
+    require_all_quality_gates_passed: true
+  v12_asset_pack:
+    root: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/synthetic_assets/cropcraft_field_robustness_v10_r1
+    manifest: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/raw/synthetic_assets/cropcraft_field_robustness_v10_r1/PACK.json
+    manifest_sha256: a943d03c0dd3e2487fe3edd1aac45e42839d59c775688de487a8bdb00368efde
+    ground_material_id: brown_mud_dry
+    environment_relative_path: environments/dry_hay_field_2k.hdr
+
+runtime:
+  runner: scripts/run_cropcraft.py
+  blender: /home/ankaref/Documents/Projects/simulation/.tools/blender-4.5.12-linux-x64/blender
+  required_blender_version_prefix: Blender 4.5.12 LTS
+  python_environment: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/cache/cropcraft_py311
+
+identity_contract:
+  assignment_time: before_first_rgb_or_label_render
+  crop_identity_source: python_bed_point_matched_to_geometry_nodes_depsgraph_instance
+  weed_identity_source: geometry_nodes_depsgraph_persistent_instance_id
+  stable_id_format: class/source_group/six_digit_local_source_id
+  class_binding_source: field_bed_or_weed_declaration
+  visible_mask_source: depth_resolved_unique_instance_emission_render
+  isolated_silhouette_source: same_object_same_camera_with_other_botanical_objects_hidden
+  forbidden_identity_inputs:
+    - semantic_connected_components
+    - model_predictions
+    - rendered_pixel_topology
+  arm_policy: canonical_gt_copied_byte_for_byte_to_ideal_and_degraded
+
+outputs:
+  release_root: data/synthetic/cropcraft/spot_spray_botanical_track_ground_truth_v1
+  results_root: docs/results/spot_spray_botanical_track_ground_truth_v1
+  primary_scene: deterministic_occlusion_primary
+  replay_scene: deterministic_occlusion_replay
+
+pilot:
+  role: val_source_asset_admission_only
+  seed: 440000
+  frame_count: 4
+  resolution_px: [256, 256]
+  benchmark_native_resolution_px: [2048, 2048]
+  render_samples: 4
+  cycles_device: CPU
+  camera:
+    height_m: 0.58
+    fov_deg: 24.3
+    roll_deg: 0.0
+    pitch_deg: 0.0
+    yaw_deg: 0.0
+    y_jitter_m: 0.0
+  field:
+    headland_width_m: 0.15
+    scattering_extra_width_m: 0.0
+    bed_name: sorghum_rows
+    crop_plant_type: sorghum_seedling_v2
+    crop_height_m: 0.065
+    crop_height_tolerance_coeff: 0.20
+    crop_count: 4
+    crop_distance_m: 0.035
+    bed_width_m: 0.18
+    crop_orientation: random
+    position_noise_m: 0.0
+    tilt_noise_rad: 0.02
+    scale_noise: 0.02
+    weed_group_name: broadleaf
+    weed_plant_type: weed_broadleaf_v2
+    weed_max_height_m: 0.08
+    weed_density: 150.0
+    weed_distance_min_m: 0.025
+    weed_noise_scale: 0.38
+    weed_noise_offset: 0.10
+
+quality_gates:
+  minimum_crop_tracks: 4
+  minimum_weed_tracks: 1
+  exact_frame_count: 4
+  minimum_frames_with_source_silhouette_overlap: 1
+  minimum_occluded_track_frame_rows: 1
+  require_every_source_track_in_every_frame_table: true
+  require_unique_source_and_render_ids: true
+  require_visible_mask_subset_of_isolated_mask: true
+  require_visible_mask_class_binding_to_semantic: true
+  require_primary_replay_identity_byte_match: true
+  require_primary_replay_instance_masks_byte_match: true
+  require_ideal_degraded_gt_byte_match: true
+  require_source_locks: true
+  protocol_admission_capabilities:
+    - persistent_source_object_ids
+    - stable_per_frame_gt_tracks
+    - visible_polygons_or_masks
+    - canopy_span_mm
+    - visibility_and_occlusion
+  deferred_to_full_benchmark_renderer:
+    - native_2048_square_rgb

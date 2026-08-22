@@ -1,0 +1,129 @@
+{
+  "field_product_or_chemical_go": false,
+  "inference": {
+    "checkpoint_sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100",
+    "decision": {
+      "degraded_track_f1_within_0_70_to_0_80": false,
+      "descriptive_targets_used_for_tuning": false,
+      "field_product_or_chemical_go": false,
+      "fixture_only_not_full_benchmark": true,
+      "ideal_track_f1_reaches_0_97": false
+    },
+    "ideal_used_for_threshold_selection": false,
+    "locked_test_evaluation_count": 1,
+    "overlay_side_by_side": {
+      "average_frame_rate": "15/1",
+      "bytes": 3663115,
+      "codec_name": "h264",
+      "decoded_frame_count": 30,
+      "height": 1076,
+      "path": "locked_test_overlay_side_by_side.mp4",
+      "pixel_format": "yuv420p",
+      "sha256": "6d58e56a4e218544d9bd8f620509e39070b335222260db48164eeb6173385895",
+      "width": 2048
+    },
+    "selected_shared_threshold": 0.8,
+    "test_accessed_before_threshold_lock": false
+  },
+  "inference_required": true,
+  "render": {
+    "all_pair_quality_gates_passed": true,
+    "frames_per_arm": 30,
+    "pair_count": 2,
+    "release_lock_sha256": "f93b7450f28ec12c909e0e82bbf8b95f5204044f65411f9a8193037ce638a3c1",
+    "videos": [
+      {
+        "pair_id": "fixture_calibration_0000",
+        "probe": {
+          "average_frame_rate": "15/1",
+          "bytes": 7631032,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 2048,
+          "path": "rgb.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "5b0318cf5d7b51ed3c6c129f22e57ba98edde7795ee7ed2324ff07fc37734731",
+          "width": 2048
+        },
+        "video": "ideal/rgb.mp4"
+      },
+      {
+        "pair_id": "fixture_calibration_0000",
+        "probe": {
+          "average_frame_rate": "15/1",
+          "bytes": 7753930,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 2048,
+          "path": "rgb.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "08e8220772d7ea4b15dd6e3a88b680dbfa8a099295746a4c64366e44e7e21617",
+          "width": 2048
+        },
+        "video": "degraded/rgb.mp4"
+      },
+      {
+        "pair_id": "fixture_calibration_0000",
+        "probe": {
+          "average_frame_rate": "15/1",
+          "bytes": 5512198,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 1024,
+          "path": "side_by_side.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "48d0cc5e3a395469e843707f8a428f78a6026903175c073cd1ff442f24c1f2a1",
+          "width": 2048
+        },
+        "video": "side_by_side.mp4"
+      },
+      {
+        "pair_id": "fixture_test_0000",
+        "probe": {
+          "average_frame_rate": "15/1",
+          "bytes": 4602418,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 2048,
+          "path": "rgb.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "47c1edca4441bf1b33795547e98c930412e4a09668fcf0304b4b1f3637ebe69c",
+          "width": 2048
+        },
+        "video": "ideal/rgb.mp4"
+      },
+      {
+        "pair_id": "fixture_test_0000",
+        "probe": {
+          "average_frame_rate": "15/1",
+          "bytes": 4625320,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 2048,
+          "path": "rgb.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "045c5fbe380d125e3e1754ef6f3309dbfbfa5e302cc867570f1edac34c60697f",
+          "width": 2048
+        },
+        "video": "degraded/rgb.mp4"
+      },
+      {
+        "pair_id": "fixture_test_0000",
+        "probe": {
+          "average_frame_rate": "15/1",
+          "bytes": 3200356,
+          "codec_name": "h264",
+          "decoded_frame_count": 30,
+          "height": 1024,
+          "path": "side_by_side.mp4",
+          "pixel_format": "yuv420p",
+          "sha256": "41262c13c06b64a2e27a8c6815d59e63407aa653659344e6bc4e922c4a37257d",
+          "width": 2048
+        },
+        "video": "side_by_side.mp4"
+      }
+    ]
+  },
+  "status": "PASS_NATIVE_FIXTURE_VALIDATION_SYNTHETIC_ONLY",
+  "synthetic_only": true
+}

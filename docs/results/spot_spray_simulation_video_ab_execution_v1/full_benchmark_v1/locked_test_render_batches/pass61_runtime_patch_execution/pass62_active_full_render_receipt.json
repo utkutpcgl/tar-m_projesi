@@ -1,0 +1,75 @@
+{
+  "access_guard": {
+    "external_processes_modified": false,
+    "full_benchmark_model_outputs_present": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "render_and_machine_audit_only": true
+  },
+  "active_full_render": {
+    "candidate_identity_sha256": "887f18acce3d4e0a75e7d8670d22d433374898c031724feabdd6561d25ec76a4",
+    "candidate_index": 10,
+    "full_render_scene_config_sha256": "2f67a9797b312006766da710bc04c8f6222b04c48559f5dd4e0ff36421da7730",
+    "full_render_staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/work/.partial-locked_test_c001_r00-candidate-10-c301eee0d13a4edca268cd74ac6a39e5",
+    "pair_id": "locked_test_c001_r00",
+    "process_pid": 4011749,
+    "process_session_id": 4011749,
+    "published_pair_present": false,
+    "stage": "unchanged_full_native_source_scene_render",
+    "terminal_batch_receipt_present": false
+  },
+  "batch": {
+    "batch_intent_sha256": "b529fb18608d23b1bfe0a409771b87e7ff61a0b4c59e3a93d138bb5de1701821",
+    "max_new_pairs": 1,
+    "request_identity_sha256": "08e1cd1a2b59a9f75ac3c28db953c72b373bffcee3f7b4caf5901ecd46c865db",
+    "runtime_config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "runtime_release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass62_active_full_render_v1",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260820042436-9e3bd8ba4eda",
+    "pass": 62,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "gt_scout_terminal": {
+    "bounded_cleanup_receipt_sha256": "87b20980a93cb187538ea49c2141877f8f59dacc2736a8a20f4ae6f668cf27c9",
+    "canonical_gt_sha256": "fbf72d2a23279c95e82f4e959f21bb190224f69bd4442227f8d143985c2363f4",
+    "decision_receipt_sha256": "705bea26de6c4699460ba141d53210c50dd6494c4f14f5fbd221d8a4d4f405d4",
+    "eligibility_checks_all_true": true,
+    "gt_audit_receipt_sha256": "abf8b40295ed644fca64026a0ee7195e789cede3cd3b12592545629b97851a19",
+    "rejection_reasons": [],
+    "scene_config_sha256": "2f67a9797b312006766da710bc04c8f6222b04c48559f5dd4e0ff36421da7730",
+    "semantic_checks_all_true": true,
+    "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+    "terminal_receipt_sha256": "eba929b61c66a37280b27c07d139ece42c174b41748a119b6bb30fcfb5aaabf8"
+  },
+  "immutable_boundary_at_observation": {
+    "candidate_11_started": false,
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "completed_pair_count": 40,
+    "pending_pair_count": 56,
+    "render_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec"
+  },
+  "observed_at": "2026-08-20T07:26:19+03:00",
+  "process": {
+    "log_sha256": "7753dfd8b02bb1c746152e5840097ced55a149d443e30d486720964254cf021d",
+    "only_nonterminal_log_event": "Pillow mode deprecation warning",
+    "process_active": true,
+    "terminal_error_observed": false
+  },
+  "schema_version": 1,
+  "status": "ACTIVE_CANDIDATE_10_UNCHANGED_FULL_NATIVE_RENDER_SYNTHETIC_ONLY"
+}

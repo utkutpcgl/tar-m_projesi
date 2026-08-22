@@ -1,0 +1,88 @@
+{
+  "access_guard": {
+    "candidate_0_started": false,
+    "candidate_gt_accessed": false,
+    "external_services_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "rendering_calls": 0,
+    "state_chain_intents_created": 0,
+    "underlying_batch_intents_created": 0
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass71_state_chain_capacity_guard_v1",
+  "execution_boundary": {
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "chain_head_identity_sha256": "d8b55559080b3a83888415787ec90f32aca6e451a06c58f01637d6bd105f396a",
+    "completed_pair_count": 42,
+    "first_pending_pair_id": "locked_test_c001_r02",
+    "pending_pair_count": 54,
+    "render_state_sha256": "7ab698a03479c2e7899c17d17e7abf0a2d08a0556585abf10769c14993efcbce",
+    "requested_max_new_pairs": 1,
+    "requested_pair_id": "locked_test_c001_r02",
+    "selected_candidate_index_if_admitted": 0
+  },
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260820074612-88bb5520ab66",
+    "pass": 71,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "gpu_capacity_guard": {
+    "exact_unblock_condition": "Without stopping or altering external services, observed RTX 3090 free memory must return to at least the sealed 23521 MiB native-render launch threshold while the accepted release, chain head, 42/96 state, 111-row ledger and no-parallel-intent boundary remain exact.",
+    "launch_admitted": false,
+    "observed_at": "2026-08-20T10:49:22+03:00",
+    "observed_only_external_compute_processes": [
+      {
+        "pid": 17710,
+        "process_name": "VLLM::EngineCore",
+        "used_memory_mib": 414
+      },
+      {
+        "pid": 965528,
+        "process_name": "/usr/local/bin/ollama",
+        "used_memory_mib": 20588
+      }
+    ],
+    "prior_proven_native_render_launch_threshold_free_mib": 23521,
+    "shortfall_mib": 20508,
+    "wait_duration_is_responsibly_estimable": false,
+    "gpu": {
+      "index": 0,
+      "memory_free_mib": 3013,
+      "memory_total_mib": 24576,
+      "memory_used_mib": 21103,
+      "name": "NVIDIA GeForce RTX 3090"
+    }
+  },
+  "schema_version": 1,
+  "state_chain_release": {
+    "release_file_sha256": "4c68888c43a09fb4afe4c0c56a365e36d6707c068f250deb891b2765c23f19bd",
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "validation_status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY"
+  },
+  "status": "FAIL_CLOSED_EXTERNAL_GPU_CAPACITY_SYNTHETIC_ONLY",
+  "storage_preflight": {
+    "data_disk": "/dev/sda1",
+    "free_bytes": 304150519808,
+    "headroom_after_required_and_reserve_bytes": 94150519808,
+    "mount_point": "/media/ankaref/HDD-MNT-500GB_1",
+    "passed": true,
+    "required_bytes": 180000000000,
+    "reserve_bytes_after_estimate": 30000000000,
+    "total_bytes": 491106508800,
+    "used_bytes": 161933873152
+  }
+}

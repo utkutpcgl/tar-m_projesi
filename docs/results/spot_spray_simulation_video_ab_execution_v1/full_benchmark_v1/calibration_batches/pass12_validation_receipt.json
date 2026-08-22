@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_calibration_batch_pass12_active_prefix_validation_v1",
+  "status": "PASS_ACTIVE_BATCH_PUBLISHED_PREFIX_VALIDATED_SYNTHETIC_ONLY",
+  "snapshot_observed_at_utc": "2026-08-15T16:00:29Z",
+  "goal_multi_repeat": {
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "pass": 12,
+    "event": "scheduled-resume-20260815155814-f49a573e4046",
+    "strategy": "base"
+  },
+  "batch_execution": {
+    "batch_id": "calibration_batch_calibration_c002_r01_6a8bb6ee55c0c4c0",
+    "request_identity_sha256": "6a8bb6ee55c0c4c0a267bdeddf072c25aa841cab7d0a9d207cb2abdbbaf50712",
+    "intent_file_sha256": "9a9bd58a4f6f970d15acb1a94b03b7780bcf83ab0cc9968b692cbb06af430b2c",
+    "target_pair_ids": [
+      "calibration_c002_r01",
+      "calibration_c002_r02",
+      "calibration_c002_r03",
+      "calibration_c003_r00",
+      "calibration_c003_r01",
+      "calibration_c003_r02",
+      "calibration_c003_r03",
+      "calibration_c004_r00"
+    ],
+    "max_new_pairs": 8,
+    "detached_pid": 2505960,
+    "detached_session_id": 2505960,
+    "process_alive_at_snapshot": true,
+    "terminal_receipt_present": false,
+    "process_log_sha256_at_snapshot": "ed11bf56a289c8891f161e232e72e177353af11b129d924bedc50cb943209399",
+    "process_log_bytes_at_snapshot": 2744,
+    "process_log_error_or_traceback_count": 0,
+    "process_log_zero_source_weed_failure_count": 0,
+    "recovery_executed_this_pass": false,
+    "recovery_not_applicable_reason": "The exact fail-closed zero-source-weed condition was absent and the immutable batch process remained alive."
+  },
+  "render_state": {
+    "render_state_sha256_at_snapshot": "6d6d1269f320aec9fe293e8f49f05d07e799c425f7ca7824c7b84a2de47807d3",
+    "planned_pair_count": 96,
+    "completed_pair_count": 11,
+    "pending_pair_count": 85,
+    "next_pending_pair_id": "calibration_c002_r03",
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false
+  },
+  "published_prefix_validation": {
+    "new_pair_id": "calibration_c002_r02",
+    "protocol_split": "calibration",
+    "selected_candidate_index": 1,
+    "candidate_identity_sha256": "9609f3ed4fda61854c10ffbc83c1a1c887e497b8469a704cb058b660b378b8d8",
+    "scout_terminal_receipt_sha256": "fa64dc9feaf14d7f13de40dde1d622431d8dd3301cd3fb912b0928371ac5f9d8",
+    "full_terminal_receipt_sha256": "9df17d7ae698470a8e7e8ed2108b0c32310a27b5bdbfb806232b0ef38d68751e",
+    "pair_receipt_sha256": "3e1063e6400b2339b135b33b326e724fbabfa79f5f5478b9c705e93767e370cc",
+    "docs_mirror_sha256_exact": true,
+    "canonical_gt_sha256": "ace4a9735114317aaddad0cc640986890f0eb50f7c5b88f40254bd28c1e37f4d",
+    "arm_gt_identity_byte_exact": true,
+    "arm_gt_paths_shared": true,
+    "all_six_pair_quality_gates_passed": true,
+    "all_five_seed_bindings_exact": true,
+    "source_track_count": 17,
+    "visible_eligible_weed_track_count": 5,
+    "semantic_audit": {
+      "crop_free_frame_fraction": 0.0,
+      "mean_crop_fraction": 0.029171355565389,
+      "mean_weed_fraction": 0.014313832918802897,
+      "weed_free_frame_fraction": 0.0
+    },
+    "candidate_scout_to_full_identity_exact": true,
+    "candidate_scout_to_full_canonical_gt_exact": true
+  },
+  "file_and_video_validation": {
+    "frame_count_per_arm": 30,
+    "frame_rate_hz": 15,
+    "native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "ideal_rgb_png_count": 30,
+    "degraded_rgb_png_count": 30,
+    "shared_semantic_png_count": 30,
+    "shared_track_png_count": 30,
+    "all_thirty_ideal_degraded_rgb_frame_pairs_distinct": true,
+    "independent_ffprobe_and_full_ffmpeg_decode_passed_for_all_three_videos": true,
+    "ideal_video": {
+      "sha256": "89e01170abed5ce3735797eef5abd9d3c9c49723e0b4ebea6f79ac6991a1bb53",
+      "decoded_frame_count": 30,
+      "frame_rate_hz": 15,
+      "dimensions_px": [
+        2048,
+        2048
+      ]
+    },
+    "degraded_video": {
+      "sha256": "cda17aa2d46524b0490d56ad74cca7cfee2fb81472190bb494439b1fefa1c37b",
+      "decoded_frame_count": 30,
+      "frame_rate_hz": 15,
+      "dimensions_px": [
+        2048,
+        2048
+      ]
+    },
+    "side_by_side_video": {
+      "sha256": "64b5d8d0cca8ac92e7f229a39ede25c6120271c4b9e8bf6c816a25240f23b3ee",
+      "decoded_frame_count": 30,
+      "frame_rate_hz": 15,
+      "dimensions_px": [
+        2048,
+        1024
+      ]
+    },
+    "preoutcome_contact_sheet_sha256": "dc2a57e725ceb2a6e60d5e4299fa81701a195fd3a1d73ea375358ec6384aef82",
+    "preoutcome_contact_sheet_visually_readable": true,
+    "paired_columns_show_same_scene_and_trajectory": true,
+    "predictions_metrics_or_actions_visible": false
+  },
+  "next_slot_progress": {
+    "pair_id": "calibration_c002_r03",
+    "candidate_00": {
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "644833950538600d1558c417ed8cb2f647f0664aa8cf8949be0657fc9506d909",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit",
+        "semantic:mean_weed_fraction_in_range"
+      ]
+    },
+    "candidate_01": {
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "993f60c57ba0988ed3fecdf4d118367c32c868c219f965ee4eb623e344d66755",
+      "rejection_reasons": [
+        "semantic:mean_weed_fraction_in_range",
+        "eligibility:eligible_weed_track_present",
+        "eligibility:eligible_track_with_at_least_three_observations"
+      ]
+    },
+    "candidate_02": {
+      "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+      "terminal_receipt_sha256": "c1a8fe982ef44103b2ac98b3ca7394a833c544977047dd320cfcb00970078fa7",
+      "rejection_reasons": [
+        "semantic:weed_free_frame_fraction_within_limit"
+      ]
+    },
+    "all_terminal_candidate_model_or_outcome_inputs_used_false": true,
+    "candidate_03_gt_scout_partial_present": true,
+    "candidate_03_child_process_present": true
+  },
+  "candidate_rejection_ledger": {
+    "row_count_at_snapshot": 32,
+    "sha256_at_snapshot": "baa980a081878f72d039dc8aeaaa1eac2e8a17798ba3ada7b67754ca853602ab",
+    "all_rows_model_or_outcome_inputs_used_false": true
+  },
+  "implementation_locks": {
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "execution_script_sha256": "754ec8f4994b5e1b29eeafafc77c02c05b178e5fca8b992dabeb641f5a096f6c",
+    "test_script_sha256": "b0605a67426edb07bbe16cfb4b788420caad66f6ade0d3739dcdbe1d285bc6c2",
+    "calibration_batch_implementation_sha256": "0afadc989a849222fd24f3a41fd5cd9d210252e3842c617597335bac8bb18769",
+    "calibration_batch_execution_lock_sha256": "c9e46aee03becc435e34252fd0fbe0542b4c4c9232b8b0c2daad80028ef57bf3",
+    "sealed_full_render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751",
+    "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+    "sealed_gt_scout_implementation_sha256": "feeb9826103dbe71711b4cdb76dac0e6a828a4c33edba354addb71e1c11c0b46",
+    "sealed_gt_scout_execution_lock_sha256": "5fe68dd43183a588b02724bfd0af090f405f7a27f2eacf74b109b84c40a3c3d3",
+    "zero_weed_recovery_implementation_sha256": "85a20e86fda07d3438a4eeb648a08725c572849b4ab25dfe9907c9e015fe06fa",
+    "zero_weed_recovery_execution_lock_sha256": "0d9ffc139e34c126b7b47f01ab0751495afadb71cab1cce5bb0d2f138610eab2"
+  },
+  "capacity_and_access_boundary": {
+    "data_disk_free_bytes_at_snapshot": 331723350016,
+    "full_required_bytes": 180000000000,
+    "reserve_bytes": 30000000000,
+    "headroom_after_required_and_reserve_bytes": 121723350016,
+    "full_benchmark_model_run_root_present": false,
+    "checkpoint_loaded": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "outcome_or_registered_target_inputs_used": false,
+    "locked_test_outcome_accessed": false,
+    "synthetic_only": true,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  },
+  "next_step": "After a bounded wait, inspect the same detached process and immutable batch intent; validate any additional published prefix, or run only the sealed zero-source-weed recovery if that exact fail-closed condition stopped the batch."
+}

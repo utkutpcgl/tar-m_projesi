@@ -1,0 +1,263 @@
+schema_version: 1
+contract_id: spot_spray_ego_motion_tracker_v1
+status: FROZEN_CALIBRATION_ONLY
+implementation_base_commit: 528eee14000f30151805715f4742aea3820b9083
+
+claim_boundary:
+  evidence_class: neutral_synthetic_calibration_mechanics_only
+  target_performance_claimed: false
+  locked_test_access_allowed: false
+  model_loading_allowed: false
+  field_go: false
+  product_go: false
+  dry_marker_go: false
+  chemical_fire_allowed: false
+
+source_locks:
+  product_architecture:
+    path: configs/deploy/spot_spray_product_architecture_v1.yaml
+    sha256: 09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd
+    role: encoder_trigger_axes_and_fail_closed_authority
+  capture_optimization:
+    path: configs/deploy/spot_spray_capture_optimization_v2.yaml
+    sha256: f9fd1cbed95118b4606199e9b67b317c07384e2cb063b60a00e5466848f657e9
+    role: homography_encoder_and_timing_limits
+  rig_acceptance:
+    path: configs/deploy/spot_spray_rig_acceptance_v1.yaml
+    sha256: a6c0e69f1c489e58b7a6c94a92bf50d9dfd97eef0c1b6ec709b872b2f7b66e3c
+    role: calibration_acceptance_limits
+  frozen_action_contract:
+    path: configs/benchmark/spot_spray_target_rig_action_eval_v1.yaml
+    sha256: 210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09
+    role: downstream_candidate_schema
+  frozen_action_evaluator:
+    path: scripts/evaluate_spot_spray_target_rig_action_v1.py
+    sha256: 3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45
+    role: downstream_parser_and_action_semantics
+  fairness_audit:
+    path: docs/results/spot_spray_native_fixture_fairness_audit_v1/audit_summary.json
+    sha256: b53464de4949f40bbf412fb8f88ebc83c583bc93e392274725807df63eae1f54
+    role: raw_coordinate_ceiling_diagnostic_only_not_gate_selection
+  adaptive_plan:
+    path: docs/plans/part-spot-spray-ego-motion-tracker-adaptive-plan.md
+    sha256: d2543422b95a00cc1dc72a8af6e2655af884873dcc2a6f2490e3cf02a506aa56
+    role: bounded_tracker_decision
+
+pixel_space:
+  pixel_space_id: native_2048_square_zero_based_pixel_centres_v1
+  preprocessing_sha256: 7c390a8f432fab596ba7accfb135b3d93002eda91efe78bac9e7f1c038307f45
+  width_px: 2048
+  height_px: 2048
+  pixel_centres: [column_plus_0p5, row_plus_0p5]
+  central_support_xyxy_px: [64.0, 64.0, 1984.0, 1984.0]
+  implicit_resize_allowed: false
+  implicit_crop_allowed: false
+  runtime_undistortion_allowed: false
+
+coordinate_contract:
+  product_ground_axes:
+    x: forward_travel
+    y: vehicle_right
+  homography_direction: image_pixel_to_camera_local_ground_mm
+  runtime_matrix_inversion_allowed: false
+  encoder_positive_axis: product_ground_positive_x
+  odometric_anchor_formula:
+    x: camera_local_ground_x_mm_plus_relative_encoder_travel_mm
+    y: camera_local_ground_y_mm
+  quantization_um: 10
+  quantization_rounding: round_half_even
+  projection_denominator_absolute_minimum: 1.0e-9
+  opposite_sign_role: diagnostic_negative_control_only
+
+homography_acceptance:
+  residual_p95_maximum_mm: 1.0
+  residual_maximum_mm: 2.0
+  daily_registration_drift_maximum_mm: 2.0
+  orientation_witness_maximum_error_mm: 2.0
+  orientation_minimum_axis_delta_mm: 1.0
+  required_orientation_witness_roles: [origin, forward, right]
+  support_polygon_required: true
+  stable_binding_within_video: true
+
+encoder_and_timing:
+  source: trigger_latched_signed_ground_contact_quadrature_encoder
+  encoder_position_unit: integer_micrometres
+  same_hardware_event_required: true
+  encoder_resolution_maximum_um_per_count: 1000
+  encoder_scale_error_maximum_um_per_m: 1000
+  trigger_encoder_delta_maximum_us: 250
+  encoder_stale_no_fire_after_us: 5000
+  maximum_forward_speed_um_s: 1000000
+  travel_envelope_endpoint_tolerance_um: 2000
+  frame_rate_hz: 15
+  timestamp_strictly_increasing: true
+  frame_indices_strictly_consecutive: true
+  reverse_or_ambiguous_direction_allowed: false
+
+detection_anchor:
+  source: arithmetic_mean_of_canonical_mask_foreground_pixel_centres
+  canonical_mask_required: true
+  mask_hash: sha256_shape_plus_big_endian_packbits
+  association_key: [anchor_x_um, anchor_y_um, canonical_mask_sha256]
+  duplicate_geometry_in_one_frame: terminal_invalid_sequence
+  bbox_used: false
+  action_point_used: false
+  class_used: false
+  confidence_used: false
+
+association:
+  objective:
+    - maximum_cardinality
+    - minimum_total_integer_squared_residual_um2
+    - lexicographically_smallest_assignment_vector
+  solver: deterministic_exact_integer_min_cost_flow
+  residual_metric: euclidean_ground_distance
+  maximum_frame_index_delta: 2
+  bridges_intervening_no_detection_frames: 1
+  hard_gate_ceiling_um: 45000
+  fixed_budget_um: 8500
+  fixed_budget_terms_um:
+    two_homography_observations: 4000
+    daily_registration_drift: 2000
+    two_encoder_quantization_endpoints: 2000
+    two_trigger_latch_endpoints_at_maximum_speed: 500
+  dynamic_gate:
+    maximum_canopy_relief_mm: 110
+    minimum_camera_ground_distance_mm: 520
+    parallax_formula: ceil_travel_um_times_110_divided_by_410
+    scale_formula: ceil_travel_um_divided_by_1000
+    final_rounding: ceil_to_next_1000_um
+  acceptance_vectors_um:
+    speed_0p5_one_frame: 18000
+    speed_0p5_two_frames: 27000
+    speed_1p0_one_frame: 27000
+    speed_1p0_two_frames: 45000
+  raw_pixel_fallback_allowed: false
+  appearance_or_flow_fallback_allowed: false
+  interpolation_allowed: false
+  filtering_or_target_velocity_model_allowed: false
+  maximum_track_id: 999999
+
+association_input_policy:
+  exact_allowed_detection_fields: [mask, class_name, confidence, polygon, action_point]
+  exact_allowed_frame_fields: [frame_id, frame_index, timestamp_ns, encoder_position_um, trigger_encoder_delta_us, encoder_age_us, homography_binding_id, detections]
+  forbidden_exact_fields:
+    - source_object_id
+    - stable_gt_track_id
+    - pair_id
+    - arm
+    - condition
+    - split
+    - renderer_trajectory
+    - latent_trajectory
+    - predicted_track_id
+    - previous_predicted_track_id
+  forbidden_prefixes: [gt_]
+
+class_output:
+  allowed_classes: [crop, weed, partial_unknown]
+  track_class: immutable_birth_observation_class
+  association_completed_before_class_logic: true
+  conflict_track_identity_preserved: true
+  conflict_emitted_confidence: 0.0
+  conflict_recorded_in_sidecar: true
+  promotion_to_weed_from_later_observation_allowed: false
+  weed_only_output_field: action_point
+
+track_identity:
+  format: trk_000001
+  scope: explicit_single_video_lifecycle_only
+  first_numeric_id: 1
+  reset_at_every_explicit_video_start: true
+  input_frame_id_parsed_for_identity: false
+  cross_video_state_allowed: false
+
+state_machine:
+  states: [UNINITIALIZED, ACTIVE, INVALID_SEQUENCE, FINALIZED]
+  atomic_video_publication: true
+  partial_prediction_publication_allowed: false
+  recovery_inside_invalid_video_allowed: false
+  explicit_reset_required_between_videos: true
+  no_detection_frame_is_valid: true
+  terminal_fault_discards_buffered_prediction: true
+
+terminal_failure_codes:
+  - INVALID_CONFIG_OR_SOURCE_LOCK
+  - INVALID_HOMOGRAPHY_BINDING
+  - INVALID_PIXEL_SPACE
+  - INVALID_ENCODER_BINDING
+  - INVALID_FRAME_ORDER
+  - INVALID_TIMESTAMP
+  - MISSING_ENCODER
+  - STALE_ENCODER
+  - UNSYNCHRONIZED_ENCODER
+  - REVERSE_OR_AMBIGUOUS_DIRECTION
+  - TRAVEL_OUTSIDE_PROOF_ENVELOPE
+  - HOMOGRAPHY_BINDING_DRIFT
+  - INVALID_DETECTION_GEOMETRY
+  - AMBIGUOUS_DUPLICATE_GEOMETRY
+  - FORBIDDEN_ASSOCIATION_INPUT
+  - TRACK_ID_OVERFLOW
+  - INVALID_STATE
+
+output_contract:
+  prediction_frame_fields: [record_type, frame_id, candidates]
+  prediction_record_type: frame_prediction
+  candidate_fields: [predicted_track_id, class_name, confidence, polygon]
+  weed_only_candidate_fields: [action_point]
+  diagnostic_sidecar_is_separate: true
+  tracker_performs_fire_once: false
+  tracker_performs_duplicate_repair: false
+  tracker_performs_gt_matching: false
+
+calibration_diagnostic:
+  role: neutral_geometry_mechanics_only
+  required_speed_m_s: [0.5, 1.0]
+  required_frames_per_speed: 30
+  minimum_persistent_fiducials: 9
+  raw_pixel_ceiling_witness_px: 160.0
+  positive_sign_gate_violations_required: 0
+  wrong_sign_gate_violation_minimum: 1
+  target_gt_allowed: false
+  model_output_allowed: false
+  locked_test_allowed: false
+  outcome_targets_allowed: false
+  full_render_write_allowed: false
+
+calibration_fixture_lock:
+  fixture_id: neutral_planar_encoder_calibration_mechanics_v1
+  evidence_scope: neutral_synthetic_calibration_mechanics_only
+  implementation:
+    path: scripts/evaluate_spot_spray_ego_motion_tracker_v1.py
+    sha256: 7f73e8e2e95270421f0ef97ab3c6ad6fb6dc3028933293dc46ea26c25ff4aca9
+  files:
+    frame_timing:
+      path: data/runs/spot_spray_ego_motion_tracker_v1/neutral_calibration_mechanics_v1/frame_timing.jsonl
+      sha256: 6d2244873a25e2a4a96a4c803f079c54828b37eec66fe826d7a89bb932ebfe96
+    homography_receipt:
+      path: data/runs/spot_spray_ego_motion_tracker_v1/neutral_calibration_mechanics_v1/homography_receipt_v1.json
+      sha256: 2081e0f9eec6cae0d40e1c59cc4b0481e873139eef66e3ba9803c4c5d4f8b6ae
+    encoder_receipt:
+      path: data/runs/spot_spray_ego_motion_tracker_v1/neutral_calibration_mechanics_v1/encoder_receipt_v1.json
+      sha256: 2ca6e9e6080c0f327a771a36588955a21d6d0d5d3e99347f85d55e1419b53a17
+    calibration_witnesses:
+      path: data/runs/spot_spray_ego_motion_tracker_v1/neutral_calibration_mechanics_v1/calibration_witnesses_v1.jsonl
+      sha256: c44b7a9f2b877a78681ecfe880989f7e35d3c928cfbf204db48ab280bf5dadb8
+    generation_receipt:
+      path: data/runs/spot_spray_ego_motion_tracker_v1/neutral_calibration_mechanics_v1/fixture_generation_receipt_v1.json
+      sha256: c4b84c27246d806422861decac613363ff9fbdea0cbb43f1a93e24c38b475ab0
+
+calibration_failure_codes:
+  - TRACKER_NOT_READY_CALIBRATION_EVIDENCE
+  - TRACKER_INVALID_TRANSFORM_DIRECTION_TEST
+  - TRACKER_INVALID_SCOPE_VIOLATION
+  - TRACKER_NONDETERMINISTIC_OR_SOURCE_DRIFT
+  - REPLAN_REQUIRED_HOMOGRAPHY_OR_ENCODER
+  - REPLAN_REQUIRED_2D_EGOMOTION
+
+exit_codes:
+  TRACKER_FROZEN_CALIBRATION_ONLY: 0
+  TRACKER_NOT_READY_CALIBRATION_EVIDENCE: 2
+  TRACKER_CONTRACT_INVALID: 3
+  TRACKER_INVALID_SCOPE_VIOLATION: 4
+  TRACKER_NONDETERMINISTIC_OR_SOURCE_DRIFT: 5

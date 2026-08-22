@@ -1,0 +1,721 @@
+{
+  "checkpoint_sha256": "3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100",
+  "conditions": {
+    "degraded": {
+      "action": {
+        "attempted_fire_events": 1,
+        "crop_hit_rate": 0.0,
+        "crop_hit_rate_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.7934506856227626
+        },
+        "crop_hits": 0,
+        "crop_vetoed_observations": 0,
+        "definition": "Confirmed fire events scored by action-point hit against one unmatched eligible GT weed track, with crop precedence and duplicate-fire exposure.",
+        "duplicate_fire_events": 0,
+        "duplicate_fire_rate": 0.0,
+        "duplicate_fire_rate_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.7934506856227626
+        },
+        "f1": 0.0,
+        "f1_cluster_bootstrap_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "matched_scene_pair_cluster_percentile_bootstrap",
+          "resamples_defined": 716,
+          "resamples_requested": 1000,
+          "seed": 9522,
+          "unit_count": 2,
+          "upper": 0.0
+        },
+        "false_negative": 2,
+        "false_positive": 1,
+        "ignored_ineligible_weed_hits": 0,
+        "precision": 0.0,
+        "precision_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.7934506856227626
+        },
+        "qualifying_weed_observations": 3,
+        "recall": 0.0,
+        "recall_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.6576197724933468
+        },
+        "true_positive": 0
+      },
+      "eligible_weed_track": {
+        "definition": "Predicted weed tracks with the frozen minimum observation count, matched one-to-one to eligible GT weed tracks by frozen spatiotemporal mask IoU.",
+        "f1": 0.0,
+        "f1_cluster_bootstrap_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "matched_scene_pair_cluster_percentile_bootstrap",
+          "resamples_defined": 746,
+          "resamples_requested": 1000,
+          "seed": 9521,
+          "unit_count": 2,
+          "upper": 0.0
+        },
+        "false_negative": 2,
+        "false_positive": 1,
+        "ignored_ineligible_predictions": 0,
+        "precision": 0.0,
+        "precision_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.7934506856227626
+        },
+        "recall": 0.0,
+        "recall_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.6576197724933468
+        },
+        "true_positive": 0
+      },
+      "instance": {
+        "crop": {
+          "f1": 0.631578947368421,
+          "f1_cluster_bootstrap_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.6,
+            "method": "matched_scene_pair_cluster_percentile_bootstrap",
+            "resamples_defined": 1000,
+            "resamples_requested": 1000,
+            "seed": 9520,
+            "unit_count": 2,
+            "upper": 0.6666666666666666
+          },
+          "false_negative": 0,
+          "false_positive": 7,
+          "precision": 0.46153846153846156,
+          "precision_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.23206067809538308,
+            "method": "wilson",
+            "upper": 0.7085620428549398
+          },
+          "recall": 1.0,
+          "recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.6096657120978348,
+            "method": "wilson",
+            "upper": 1.0
+          },
+          "true_positive": 6
+        },
+        "weed": {
+          "f1": 0.0,
+          "f1_cluster_bootstrap_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "matched_scene_pair_cluster_percentile_bootstrap",
+            "resamples_defined": 748,
+            "resamples_requested": 1000,
+            "seed": 9519,
+            "unit_count": 2,
+            "upper": 0.0
+          },
+          "false_negative": 51,
+          "false_positive": 3,
+          "precision": 0.0,
+          "precision_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "wilson",
+            "upper": 0.5614970317550454
+          },
+          "recall": 0.0,
+          "recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "wilson",
+            "upper": 0.07004661989853139
+          },
+          "true_positive": 0
+        }
+      },
+      "pixel": {
+        "crop": {
+          "f1": 0.5692585653104925,
+          "f1_cluster_bootstrap_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.5387919804661702,
+            "method": "matched_scene_pair_cluster_percentile_bootstrap",
+            "resamples_defined": 1000,
+            "resamples_requested": 1000,
+            "seed": 9518,
+            "unit_count": 2,
+            "upper": 0.6831035341529128
+          },
+          "false_negative": 382,
+          "false_positive": 89736,
+          "precision": 0.3988947315537395,
+          "precision_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.3964134047678987,
+            "method": "wilson",
+            "upper": 0.40138126156470416
+          },
+          "recall": 0.993626003237056,
+          "recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.992956453047845,
+            "method": "wilson",
+            "upper": 0.9942322765770051
+          },
+          "true_positive": 59549
+        },
+        "weed": {
+          "f1": 0.12893415640055703,
+          "f1_cluster_bootstrap_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.12893415640055703,
+            "method": "matched_scene_pair_cluster_percentile_bootstrap",
+            "resamples_defined": 755,
+            "resamples_requested": 1000,
+            "seed": 9517,
+            "unit_count": 2,
+            "upper": 0.13617256263171537
+          },
+          "false_negative": 153823,
+          "false_positive": 9440,
+          "precision": 0.5613994331645217,
+          "precision_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.5547597651114068,
+            "method": "wilson",
+            "upper": 0.5680171877943815
+          },
+          "recall": 0.07283039793618074,
+          "recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.07158985237957341,
+            "method": "wilson",
+            "upper": 0.07409072477184123
+          },
+          "true_positive": 12083
+        }
+      },
+      "size_strata": {
+        "large": {
+          "action_hits": 0,
+          "action_recall": null,
+          "action_recall_ci": null,
+          "eligible_gt_tracks": 0,
+          "matched_tracks": 0,
+          "metric_scope": "gt_conditioned_recall_only",
+          "track_recall": null,
+          "track_recall_ci": null
+        },
+        "medium": {
+          "action_hits": 0,
+          "action_recall": null,
+          "action_recall_ci": null,
+          "eligible_gt_tracks": 0,
+          "matched_tracks": 0,
+          "metric_scope": "gt_conditioned_recall_only",
+          "track_recall": null,
+          "track_recall_ci": null
+        },
+        "small": {
+          "action_hits": 0,
+          "action_recall": 0.0,
+          "action_recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "wilson",
+            "upper": 0.6576197724933468
+          },
+          "eligible_gt_tracks": 2,
+          "matched_tracks": 0,
+          "metric_scope": "gt_conditioned_recall_only",
+          "track_recall": 0.0,
+          "track_recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "wilson",
+            "upper": 0.6576197724933468
+          }
+        }
+      }
+    },
+    "ideal": {
+      "action": {
+        "attempted_fire_events": 2,
+        "crop_hit_rate": 0.0,
+        "crop_hit_rate_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.6576197724933468
+        },
+        "crop_hits": 0,
+        "crop_vetoed_observations": 0,
+        "definition": "Confirmed fire events scored by action-point hit against one unmatched eligible GT weed track, with crop precedence and duplicate-fire exposure.",
+        "duplicate_fire_events": 0,
+        "duplicate_fire_rate": 0.0,
+        "duplicate_fire_rate_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.6576197724933468
+        },
+        "f1": null,
+        "f1_cluster_bootstrap_ci": null,
+        "false_negative": 2,
+        "false_positive": 0,
+        "ignored_ineligible_weed_hits": 2,
+        "precision": null,
+        "precision_ci": null,
+        "qualifying_weed_observations": 6,
+        "recall": 0.0,
+        "recall_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.6576197724933468
+        },
+        "true_positive": 0
+      },
+      "eligible_weed_track": {
+        "definition": "Predicted weed tracks with the frozen minimum observation count, matched one-to-one to eligible GT weed tracks by frozen spatiotemporal mask IoU.",
+        "f1": 0.0,
+        "f1_cluster_bootstrap_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "matched_scene_pair_cluster_percentile_bootstrap",
+          "resamples_defined": 747,
+          "resamples_requested": 1000,
+          "seed": 9421,
+          "unit_count": 2,
+          "upper": 0.0
+        },
+        "false_negative": 2,
+        "false_positive": 2,
+        "ignored_ineligible_predictions": 0,
+        "precision": 0.0,
+        "precision_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.6576197724933468
+        },
+        "recall": 0.0,
+        "recall_ci": {
+          "confidence_level": 0.95,
+          "lower": 0.0,
+          "method": "wilson",
+          "upper": 0.6576197724933468
+        },
+        "true_positive": 0
+      },
+      "instance": {
+        "crop": {
+          "f1": 0.4444444444444445,
+          "f1_cluster_bootstrap_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.33333333333333337,
+            "method": "matched_scene_pair_cluster_percentile_bootstrap",
+            "resamples_defined": 1000,
+            "resamples_requested": 1000,
+            "seed": 9420,
+            "unit_count": 2,
+            "upper": 0.6666666666666666
+          },
+          "false_negative": 0,
+          "false_positive": 15,
+          "precision": 0.2857142857142857,
+          "precision_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.13813862952122136,
+            "method": "wilson",
+            "upper": 0.4995638071608559
+          },
+          "recall": 1.0,
+          "recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.6096657120978348,
+            "method": "wilson",
+            "upper": 1.0
+          },
+          "true_positive": 6
+        },
+        "weed": {
+          "f1": 0.0,
+          "f1_cluster_bootstrap_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "matched_scene_pair_cluster_percentile_bootstrap",
+            "resamples_defined": 748,
+            "resamples_requested": 1000,
+            "seed": 9419,
+            "unit_count": 2,
+            "upper": 0.0
+          },
+          "false_negative": 51,
+          "false_positive": 6,
+          "precision": 0.0,
+          "precision_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "wilson",
+            "upper": 0.39033428790216523
+          },
+          "recall": 0.0,
+          "recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "wilson",
+            "upper": 0.07004661989853139
+          },
+          "true_positive": 0
+        }
+      },
+      "pixel": {
+        "crop": {
+          "f1": 0.4904926108374385,
+          "f1_cluster_bootstrap_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.43831087364024146,
+            "method": "matched_scene_pair_cluster_percentile_bootstrap",
+            "resamples_defined": 1000,
+            "resamples_requested": 1000,
+            "seed": 9418,
+            "unit_count": 2,
+            "upper": 0.7533645624209978
+          },
+          "false_negative": 189,
+          "false_positive": 123927,
+          "precision": 0.3252699149012626,
+          "precision_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.32313110679107326,
+            "method": "wilson",
+            "upper": 0.3274160318593068
+          },
+          "recall": 0.9968463733293287,
+          "recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.9963645230033978,
+            "method": "wilson",
+            "upper": 0.9972645339937237
+          },
+          "true_positive": 59742
+        },
+        "weed": {
+          "f1": 0.14235928458705943,
+          "f1_cluster_bootstrap_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.14235928458705943,
+            "method": "matched_scene_pair_cluster_percentile_bootstrap",
+            "resamples_defined": 717,
+            "resamples_requested": 1000,
+            "seed": 9417,
+            "unit_count": 2,
+            "upper": 0.15057988906470068
+          },
+          "false_negative": 152916,
+          "false_positive": 3600,
+          "precision": 0.783001808318264,
+          "precision_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.7766642690102142,
+            "method": "wilson",
+            "upper": 0.7892083183169724
+          },
+          "recall": 0.07829734910129832,
+          "recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.07701442624238691,
+            "method": "wilson",
+            "upper": 0.07959980007685141
+          },
+          "true_positive": 12990
+        }
+      },
+      "size_strata": {
+        "large": {
+          "action_hits": 0,
+          "action_recall": null,
+          "action_recall_ci": null,
+          "eligible_gt_tracks": 0,
+          "matched_tracks": 0,
+          "metric_scope": "gt_conditioned_recall_only",
+          "track_recall": null,
+          "track_recall_ci": null
+        },
+        "medium": {
+          "action_hits": 0,
+          "action_recall": null,
+          "action_recall_ci": null,
+          "eligible_gt_tracks": 0,
+          "matched_tracks": 0,
+          "metric_scope": "gt_conditioned_recall_only",
+          "track_recall": null,
+          "track_recall_ci": null
+        },
+        "small": {
+          "action_hits": 0,
+          "action_recall": 0.0,
+          "action_recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "wilson",
+            "upper": 0.6576197724933468
+          },
+          "eligible_gt_tracks": 2,
+          "matched_tracks": 0,
+          "metric_scope": "gt_conditioned_recall_only",
+          "track_recall": 0.0,
+          "track_recall_ci": {
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "method": "wilson",
+            "upper": 0.6576197724933468
+          }
+        }
+      }
+    }
+  },
+  "decision": {
+    "chemical_fire_go": false,
+    "degraded_track_f1_within_0_70_to_0_80": false,
+    "descriptive_target_conclusion": "neither_descriptive_target_met",
+    "descriptive_targets_used_for_tuning": false,
+    "fail_closed": true,
+    "field_fire_go": false,
+    "ideal_track_f1_reaches_0_97": false,
+    "offline_real_model_go": false,
+    "synthetic_diagnostic_complete": true,
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "descriptive_target_assessment": {
+    "conclusion": "neither_descriptive_target_met",
+    "degraded": {
+      "absolute_distance_from_reference": 0.75,
+      "ci_intersects_near_range": false,
+      "f1_cluster_bootstrap_ci": {
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "method": "matched_scene_pair_cluster_percentile_bootstrap",
+        "resamples_defined": 746,
+        "resamples_requested": 1000,
+        "seed": 9521,
+        "unit_count": 2,
+        "upper": 0.0
+      },
+      "near_absolute_tolerance": 0.05,
+      "near_range_inclusive": [
+        0.7,
+        0.8
+      ],
+      "observed": 0.0,
+      "reference": 0.75,
+      "within_near_range": false
+    },
+    "ideal": {
+      "ci_intersects_passing_region": false,
+      "f1_cluster_bootstrap_ci": {
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "method": "matched_scene_pair_cluster_percentile_bootstrap",
+        "resamples_defined": 747,
+        "resamples_requested": 1000,
+        "seed": 9421,
+        "unit_count": 2,
+        "upper": 0.0
+      },
+      "minimum": 0.97,
+      "observed": 0.0,
+      "reaches_minimum": false,
+      "shortfall": 0.97
+    },
+    "metric": "eligible_weed_mask_track_spatiotemporal_iou_f1",
+    "metric_definition": "Predicted weed tracks with the frozen minimum observation count, matched one-to-one to eligible GT weed tracks by frozen spatiotemporal mask IoU.",
+    "reporting_only": true,
+    "supplemental_confirmed_action_track_f1": {
+      "degraded": 0.0,
+      "ideal": null
+    },
+    "synthetic_field_claim_allowed": false,
+    "used_in_model_or_degradation_tuning": false,
+    "used_in_threshold_selection": false
+  },
+  "limitations": [
+    "V12 plant_instances are connected semantic regions, not botanical track IDs; the smoke fixture repeats one frozen source frame and preserves each region ID only inside that derived three-frame sequence.",
+    "The degraded capture transform is plausible but not calibrated to a physical camera.",
+    "Image-plane mask/centroid association is a smoke tracker, not field-proven motion compensation or ReID.",
+    "Synthetic region-proxy scores cannot support a deployment or field-performance claim."
+  ],
+  "paired_deltas": {
+    "action_f1": {
+      "ci": null,
+      "definition": "ideal_minus_degraded",
+      "degraded": 0.0,
+      "delta": null,
+      "ideal": null
+    },
+    "instance_weed_f1": {
+      "ci": {
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "method": "matched_scene_pair_cluster_percentile_bootstrap",
+        "resamples_defined": 765,
+        "resamples_requested": 1000,
+        "seed": 9918,
+        "unit_count": 2,
+        "upper": 0.0
+      },
+      "definition": "ideal_minus_degraded",
+      "degraded": 0.0,
+      "delta": 0.0,
+      "ideal": 0.0
+    },
+    "pixel_weed_f1": {
+      "ci": {
+        "confidence_level": 0.95,
+        "lower": 0.013425128186502405,
+        "method": "matched_scene_pair_cluster_percentile_bootstrap",
+        "resamples_defined": 762,
+        "resamples_requested": 1000,
+        "seed": 9917,
+        "unit_count": 2,
+        "upper": 0.014407326432985312
+      },
+      "definition": "ideal_minus_degraded",
+      "degraded": 0.12893415640055703,
+      "delta": 0.013425128186502405,
+      "ideal": 0.14235928458705943
+    },
+    "track_f1": {
+      "ci": {
+        "confidence_level": 0.95,
+        "lower": 0.0,
+        "method": "matched_scene_pair_cluster_percentile_bootstrap",
+        "resamples_defined": 741,
+        "resamples_requested": 1000,
+        "seed": 9919,
+        "unit_count": 2,
+        "upper": 0.0
+      },
+      "definition": "ideal_minus_degraded",
+      "degraded": 0.0,
+      "delta": 0.0,
+      "ideal": 0.0
+    }
+  },
+  "run_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_inference_v1/representative_v12_smoke_v2",
+  "run_receipt": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/spot_spray_simulation_video_inference_v1/representative_v12_smoke_v2/run_receipt.json",
+  "runtime": {
+    "all_frames": {
+      "fps_from_mean_wall": 35.150877000735086,
+      "frames": 24,
+      "wall_ms_mean": 28.448792329678934,
+      "wall_ms_p95": 14.465215988457203,
+      "wall_ms_total": 682.7710159122944
+    },
+    "groups": {
+      "calibration:degraded": {
+        "fps_from_mean_wall": 13.368057521916514,
+        "frames": 6,
+        "ultralytics_speed_ms_mean": {
+          "inference": 8.391776587814093,
+          "postprocess": 3.7024648239215217,
+          "preprocess": 1.8126384044686954
+        },
+        "wall_ms_mean": 74.80518380180001,
+        "wall_ms_median": 12.822491582483053,
+        "wall_ms_p95": 292.0897880103439,
+        "wall_ms_total": 448.8311028108001
+      },
+      "calibration:ideal": {
+        "fps_from_mean_wall": 76.60981175283014,
+        "frames": 6,
+        "ultralytics_speed_ms_mean": {
+          "inference": 8.361723273992538,
+          "postprocess": 2.873554981003205,
+          "preprocess": 1.6249230441947777
+        },
+        "wall_ms_mean": 13.053158298134804,
+        "wall_ms_median": 13.00995098426938,
+        "wall_ms_p95": 13.393233064562082,
+        "wall_ms_total": 78.31894978880882
+      },
+      "test:degraded": {
+        "fps_from_mean_wall": 77.38514166579641,
+        "frames": 6,
+        "ultralytics_speed_ms_mean": {
+          "inference": 8.39556691547235,
+          "postprocess": 2.7173875520626702,
+          "preprocess": 1.6280702936152618
+        },
+        "wall_ms_mean": 12.922377325594425,
+        "wall_ms_median": 12.782285455614328,
+        "wall_ms_p95": 14.435191405937076,
+        "wall_ms_total": 77.53426395356655
+      },
+      "test:ideal": {
+        "fps_from_mean_wall": 76.83766952943084,
+        "frames": 6,
+        "ultralytics_speed_ms_mean": {
+          "inference": 8.294429474820694,
+          "postprocess": 2.8121735279758773,
+          "preprocess": 1.710378099232912
+        },
+        "wall_ms_mean": 13.01444989318649,
+        "wall_ms_median": 12.981224805116653,
+        "wall_ms_p95": 14.35891748405993,
+        "wall_ms_total": 78.08669935911894
+      }
+    },
+    "scope": "Python/Ultralytics end-to-end predict call with CUDA synchronization when available",
+    "warmup_included": true
+  },
+  "schema_version": 1,
+  "selected_shared_threshold": 0.75,
+  "status": "SYNTHETIC_DIAGNOSTIC_COMPLETE",
+  "videos": {
+    "conditions": {
+      "degraded": {
+        "bytes": 529237,
+        "codec": "mp4v",
+        "fps_decoded": 3.0,
+        "fps_requested": 3.0,
+        "frames_decoded": 6,
+        "frames_written": 6,
+        "height_px": 1128,
+        "path": "videos/degraded_locked_test_overlay.mp4",
+        "readback_verified": true,
+        "sha256": "f82b53cf780992a862dde358e8f90595e8b45ec6615b95562e0305610984f2e1",
+        "width_px": 1024
+      },
+      "ideal": {
+        "bytes": 185526,
+        "codec": "mp4v",
+        "fps_decoded": 3.0,
+        "fps_requested": 3.0,
+        "frames_decoded": 6,
+        "frames_written": 6,
+        "height_px": 1128,
+        "path": "videos/ideal_locked_test_overlay.mp4",
+        "readback_verified": true,
+        "sha256": "e124694d0df475a755e2b0f88db7dce9cc1e0683d59af7598978b2eba508131e",
+        "width_px": 1024
+      }
+    },
+    "enabled": true
+  }
+}

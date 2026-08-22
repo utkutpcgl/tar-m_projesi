@@ -1,0 +1,32 @@
+{
+  "commit_identity_sha256": "e4ff08019371ba9187cae40b12e6be85ff85ed76186aff4328d0776b52cf85fb",
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_v1_atomic_commit",
+  "files": [
+    {
+      "path": "head.json",
+      "sha256": "ad8366f28bc682ec431f77dac27bb9e7307bec41e19f2610f6e48160d58bbc57",
+      "size_bytes": 814
+    },
+    {
+      "path": "result_ledger.jsonl",
+      "sha256": "2cec69c0fd6aef60a4ddcadc32179280cc3fce558bdfb8bd30b5fde1e8ca8505",
+      "size_bytes": 97663
+    },
+    {
+      "path": "result_state.json",
+      "sha256": "f811c3e3d5622bbc741e4c84951db4c3287181f2ed219ef45c8d0877c7a12553",
+      "size_bytes": 2910
+    },
+    {
+      "path": "transition_record.json",
+      "sha256": "0f15b161219e779b59e6d8cbcbc42bb4c9eeaf838d95450c2bc45074e33d057b",
+      "size_bytes": 2895
+    }
+  ],
+  "files_identity_sha256": "1070b8dded94e0cba35028882761a668c1ce1e9b028d4b1fba876d41070907ea",
+  "head_identity_sha256": "34acee5f2fb322fa839ffd9bfc0edf9722e1556d6085d56cb145d65fd56bab71",
+  "pair_id": "locked_test_c001_r04",
+  "schema_version": 1,
+  "sequence": 45,
+  "status": "PASS_ATOMIC_IMMUTABLE_TRANSITION_COMMIT_SYNTHETIC_ONLY"
+}

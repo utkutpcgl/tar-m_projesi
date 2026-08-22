@@ -1,0 +1,89 @@
+{
+  "access_guard": {
+    "external_processes_modified": false,
+    "full_benchmark_model_outputs_present": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false,
+    "render_and_machine_audit_only": true
+  },
+  "active_full_render": {
+    "candidate_identity_sha256": "7b408747b0700dec122a69328eb5c6e20fcdc5309802da80760310a9eedc3e63",
+    "candidate_index": 0,
+    "pair_id": "locked_test_c001_r01",
+    "stage_at_observation": "unchanged_full_native_source_scene_render",
+    "staging_bytes_at_observation": 407238166,
+    "staging_directory": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/work/.partial-locked_test_c001_r01-candidate-00-db35db9a3a2b44848a10f51407de80e2",
+    "terminal_error_observed": false
+  },
+  "adapter_and_batch": {
+    "adapter_execution_id": "extension_aware_batch_locked_test_c001_r01_48b730ee3678d4c1",
+    "adapter_intent_sha256": "bf8dd36ef75699103534e4d4c45a0ffdad8581c844fbf576bd5d208e326c8523",
+    "adapter_release_identity_sha256": "5708c05e2421f32f5012d4990f70ecff74cef2c2687055432ac434d8738f33af",
+    "adapter_terminal_receipt_present_at_observation": false,
+    "batch_id": "locked_test_render_batch_locked_test_c001_r01_4e96fb208fd0a54f",
+    "batch_intent_sha256": "7c2dafd4fda1c5314f633e8fbbd09e63dd87b62b979b29a2c7ccb84ba3d60114",
+    "batch_terminal_receipt_present_at_observation": false,
+    "max_new_pairs": 1,
+    "target_pair_ids": [
+      "locked_test_c001_r01"
+    ]
+  },
+  "candidate_0_gt_only_terminal": {
+    "canonical_gt_sha256": "a6ea2e1d2d9f9aa9f5890aee2931676a045c5046276f6d5991a4900781929604",
+    "decision_receipt_sha256": "ac655d2dab845c743a875324b296ca55f0bd32518b3581b17ef91458bfa69546",
+    "eligibility_checks_passed": true,
+    "full_render_still_required_for_acceptance": true,
+    "gt_audit_receipt_sha256": "f39f5465ef3a2c5d2a4af39264f06df3b0d5f7ae1eb78383ce00cae16c8eb4b5",
+    "gt_scout_terminal_receipt_sha256": "df680cb6cdc387604401705bc9d2719f41de432f26a448946d846da7c576847d",
+    "model_or_outcome_inputs_used": false,
+    "rejectable_by_scout": false,
+    "rejection_reasons": [],
+    "semantic_checks_passed": true,
+    "status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_pass68_active_full_render_v1",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260820062345-7ccf2543e79a",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 68,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "immutable_boundary_at_observation": {
+    "candidate_rejection_ledger_row_count": 111,
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "completed_pair_count": 41,
+    "first_pending_pair_id": "locked_test_c001_r01",
+    "pending_pair_count": 55,
+    "render_state_sha256": "0e2f0ed5143dca870b3e7d4c9096bd79025b2bc7456d77dc4e1f2d0fbd9457f5"
+  },
+  "observed_at": "2026-08-20T09:25:11+03:00",
+  "process": {
+    "active_blender_pid": 468600,
+    "active_runner_pid": 468578,
+    "log_bytes_at_observation": 0,
+    "log_sha256_at_observation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "process_pid": 427846,
+    "process_session_id": 427846,
+    "process_tree_active": true
+  },
+  "release_bindings": {
+    "runtime_config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "runtime_release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+    "validator_release_identity_sha256": "39c782e375352fdcddd62751ff4a3f4577652d111798269e549dae8bdaf066f7"
+  },
+  "schema_version": 1,
+  "status": "ACTIVE_UNCHANGED_FULL_NATIVE_RENDER_SYNTHETIC_ONLY"
+}

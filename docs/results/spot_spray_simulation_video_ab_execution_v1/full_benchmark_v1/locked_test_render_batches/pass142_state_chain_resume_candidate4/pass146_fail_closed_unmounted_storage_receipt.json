@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass146_unmounted_storage_fail_closed_v1",
+  "status": "FAIL_CLOSED_EXTERNAL_STORAGE_UNMOUNTED_AFTER_DOCS_TERMINAL_PUBLICATION_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821151830-042c0e1f3ae1",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 146,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T18:21:25+03:00",
+  "predecessor_receipt": {
+    "path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass142_state_chain_resume_candidate4/pass145_candidate6_full_render_progress_receipt.json",
+    "sha256": "68eda6f64c0fa32fd19fb0905e5641babcfbd83d7447bc6427b52ab6ec1360cf"
+  },
+  "process_terminal": {
+    "pid": 1607571,
+    "alive": false,
+    "process_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass142_state_chain_resume_candidate4/process.log",
+    "process_log_sha256": "89c6acfdba8d5fe5bcb3e331267c6dd848f4bf9eab44c81cd6dee305acd2ac46",
+    "reported_status": "PASS_EXTENSION_AWARE_STATE_CHAIN_BATCH_SYNTHETIC_ONLY",
+    "reported_completed_pair_count": 48,
+    "reported_pending_pair_count": 48,
+    "reported_new_pair_ids": [
+      "locked_test_c001_r07"
+    ],
+    "reported_state_chain_terminal_receipt_sha256": "f2f28b03118a953617ec8b1ecba92fbec118548a32eee0fe1b921b5423254458",
+    "reported_transition_commit_identity_sha256": "1aff6d52f189f676a1ef29bf3616db2163ad73e1a5771f2e6a1a670ded070251"
+  },
+  "docs_mirrored_publication_evidence": {
+    "pair_id": "locked_test_c001_r07",
+    "selected_candidate_index": 6,
+    "candidate_identity_sha256": "9748d2b967e5f1cbffa7607e1cd935e158a93738528d844d28e39bb424dc18a2",
+    "canonical_gt_sha256": "b48100d96d9eb43e09bfd4689c5a5f956919b4688290d73309eea671656f2f61",
+    "full_pair_receipt_sha256": "e54bed4d190d588cfb5263f4282e6345d9a65186fb2ab8d33add3c183da9d26e",
+    "pair_receipt_sha256": "3b36041ed82dbd2d4320784489d8444f36dd904b40c58373670db46b100a441b",
+    "full_pair_status": "PASS_FULL_PAIR_PREOUTCOME_SYNTHETIC_ONLY",
+    "all_frozen_pair_gates_reported_passed": true,
+    "identical_arm_gt_reported": true,
+    "all_videos_readable_reported": true,
+    "exact_30_frames_per_arm_reported": true,
+    "exact_15_hz_reported": true,
+    "exact_native_2048_square_reported": true,
+    "video_sha256": {
+      "ideal": "dd593add3febfc93e21c722849b4fb87af645cc203d285bc6ce84754e009d370",
+      "degraded": "a0858e169b94e5d9e79d722c59acf4e558a43033cc82518741f75adc65e48f3c",
+      "side_by_side": "39922c13af3bf99175aaa00fa19591ef5a336d2a6accbe072733fa5a79f9418f"
+    },
+    "batch_receipt_sha256": "09c5861e14529b0670a69ba6c4fd2eb14e1f9ae28cc1aa02ed7171780c5e880e",
+    "state_chain_terminal_receipt_sha256": "f2f28b03118a953617ec8b1ecba92fbec118548a32eee0fe1b921b5423254458",
+    "original_validator_restored": true,
+    "transition_commit_identity_sha256": "1aff6d52f189f676a1ef29bf3616db2163ad73e1a5771f2e6a1a670ded070251",
+    "transition_commit_manifest_sha256": "eeb43edd448ad23d794f031b0c402502f242e8a899687d5d2dd312c2f63f28cc",
+    "result_state_sha256": "e5acd4a67ba5ac29a6b27594f6c979018260d83e411331a94df9407638e610e3",
+    "result_ledger_sha256": "641f12383be27f035e8601212cd9e75cd9f50ce7e5f858ca278714f1efc2c494",
+    "result_ledger_row_count": 167,
+    "transition_record_sha256": "d8da88bcb8a9ede5b863d007d7817a9ef46a6e13819d1d8e197980761af8dba4",
+    "head_file_sha256": "a76b8d4bb6261611d9c51401a5b680255d8157f14c359f657262d86bde7bd0c1",
+    "head_identity_sha256": "8f2b25d57e39828e231e1f47f53b08f42128df01a08dc8962c3a5271d9d1217b",
+    "completed_pair_count": 48,
+    "pending_pair_count": 48,
+    "first_pending_pair_id": "locked_test_c002_r00",
+    "docs_commit_manifest_file_hashes_match": true,
+    "docs_evidence_self_consistent": true
+  },
+  "external_storage_blocker": {
+    "expected_mount_path": "/media/ankaref/HDD-MNT-500GB_1",
+    "mountpoint_active": false,
+    "mount_directory_empty": true,
+    "expected_dataset_path_present": false,
+    "expected_dataset_path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data",
+    "block_device_present": true,
+    "block_device": "/dev/sda1",
+    "filesystem": "ext4",
+    "filesystem_label": "HDD-MNT-500GB_1",
+    "filesystem_uuid": "5e15951d-b6bd-41ac-8675-32e59aff7840",
+    "fstab_maps_uuid_to_expected_mount": true,
+    "live_state_chain_validation_error": "FileNotFoundError: sealed runtime configuration is absent because the backing filesystem is not mounted",
+    "synthetic_commit_mirror_accessible": false,
+    "published_pair_bytes_accessible": false,
+    "video_bytes_accessible": false,
+    "independent_ffprobe_or_ffmpeg_decode_completed": false,
+    "storage_remount_attempted_by_pass146": false,
+    "external_services_modified_by_pass146": false
+  },
+  "validation_boundary": {
+    "highest_evidence_proven_level": "SELF_CONSISTENT_DOCS_MIRROR_OF_48_OF_96_COMMIT_ONLY",
+    "live_atomic_publication_fully_validated": false,
+    "objective_complete": false,
+    "exact_unblock_condition": "Remount the ext4 filesystem UUID 5e15951d-b6bd-41ac-8675-32e59aff7840 at /media/ankaref/HDD-MNT-500GB_1 with the original tarim_vision_data bytes intact; then rerun sealed state-chain validation, compare synthetic/docs commit mirrors, hash the published pair, and independently ffprobe plus fully decode all three videos."
+  },
+  "access_guard": {
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": [],
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

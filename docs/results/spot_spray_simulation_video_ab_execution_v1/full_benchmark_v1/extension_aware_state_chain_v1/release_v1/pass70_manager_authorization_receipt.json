@@ -1,0 +1,64 @@
+{
+  "accepted_root": {
+    "ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "pass69_next_state_blocker_receipt_sha256": "4edb0c28fd0a00d84193c5e41035780b4a3200919bbb034417cd9fab6029e0db",
+    "pass69_publication_receipt_sha256": "243a640d122a8de8ad5726511d5e8604c57e314171aa5a5502ef7631b19ad360",
+    "predecessor_state_sha256": "0e2f0ed5143dca870b3e7d4c9096bd79025b2bc7456d77dc4e1f2d0fbd9457f5",
+    "result_state_sha256": "7ab698a03479c2e7899c17d17e7abf0a2d08a0556585abf10769c14993efcbce"
+  },
+  "authorization": {
+    "accepted_pass69_event_id": "scheduled-resume-20260820065636-42b8053e32b4",
+    "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 70,
+    "pass70_event_id": "scheduled-resume-20260820071103-366db80fd093",
+    "portfolio_id": "goal-multi-repeat-agents-spot-spray-simulation-video-ab-v1-b8e46607aeea",
+    "portfolio_lane": "full-simulation-video-ab-execution-v1",
+    "strategy": "base"
+  },
+  "authorized_scope": {
+    "append_only_state_chain_release": true,
+    "candidate_generation_or_rendering_in_pass70_allowed": false,
+    "canonical_single_pair_transitions_authorized_from_completed_42_through_96": true,
+    "external_service_mutation_allowed": false,
+    "max_new_pairs": 1,
+    "model_prediction_outcome_target_access_allowed": false,
+    "parent_source_test_or_release_mutation_allowed": false,
+    "unchanged_model_free_batch_semantics_only": true
+  },
+  "authorized_top_level_source_paths": [
+    "scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py",
+    "tests/test_run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py"
+  ],
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_state_chain_v1_manager_authorization",
+  "immutable_parents": {
+    "adapter": "c4e74ce3b04ea9954c6e92fdccc5405036dad3b460cbb8b1f99068740418947e",
+    "adapter_release_file_sha256": "759ddf0f17d2e6a2ac5637dc55b5f0f8360b0ced71ec89637aec61917cf5d96e",
+    "adapter_release_identity_sha256": "5708c05e2421f32f5012d4990f70ecff74cef2c2687055432ac434d8738f33af",
+    "adapter_test": "50e6183c2f0e4878c0bed4f01049c6a0997b2ce6c2a46e24cf99ce571aa5f1a5",
+    "combined_roster_identity_sha256": "99099d5deeff721fc1007da1f9842117086d3d8379ea1822df6f7fffc55abd9c",
+    "extension_manifest_sha256": "4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d",
+    "historical_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "legacy_execution": "200d897efa1400a9dabba1acaf33d1b49db2c00ebcf79768f25fa4a8608bb413",
+    "legacy_test": "66878530bb4878da29adf5b32da9fa506ccb4f132a508de105a6e11f8a65f9b5",
+    "locked_test_batch_function_source_sha256": "0eb34c0c82e66a6610e9e7d5ac7c8763e3c5c35762e986b267e1621055a87a82",
+    "locked_test_batch_implementation_sha256": "8fcb95eeac50260068244809db9fe1e34aa208571d81dae137976dd98f423e70",
+    "runtime_config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "runtime_release_file_sha256": "4acfca1e21051db6aa791efc6bb3a4b1cea3912fd6eced3461bd9747be26094b",
+    "runtime_release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+    "validator": "ac27a2942dcfe68d9a5ae5232462359cec00ae280f9c3d839e1fa4f12f73834b",
+    "validator_release_file_sha256": "f4474761d3742cda3c009457f194cd61914295b1ee9129dbe2f287b3b78af7ba",
+    "validator_release_identity_sha256": "39c782e375352fdcddd62751ff4a3f4577652d111798269e549dae8bdaf066f7",
+    "validator_test": "0d66e6401d913e7f16b0c62ab66baa238b86237105315ff4030f1ef3c667860d"
+  },
+  "schema_version": 1,
+  "status": "PASS_MANAGER_AUTHORIZED_MONOTONIC_STATE_CHAIN_SCOPE_SYNTHETIC_ONLY"
+}

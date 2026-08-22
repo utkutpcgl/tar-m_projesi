@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass128_active_successor_v1",
+  "status": "ACTIVE_CANONICAL_EXTENSION_SUCCESSOR_AFTER_FROZEN_GT_REJECTION_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821104931-1d75578a9645",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 128,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T13:50:45+03:00",
+  "pair_id": "locked_test_c001_r06",
+  "terminal_candidate": {
+    "candidate_index": 9,
+    "candidate_identity_sha256": "4094adc4e770a3be1ca9532932f4cfc941c3af18647607fcfb978bf38e77c82d",
+    "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+    "rejection_reasons": [
+      "semantic:weed_free_frame_fraction_within_limit",
+      "semantic:mean_crop_fraction_in_range",
+      "semantic:mean_weed_fraction_in_range",
+      "eligibility:eligible_weed_track_present",
+      "eligibility:eligible_track_with_at_least_three_observations"
+    ],
+    "canonical_gt_sha256": "c5487e2e3666a5dd17864d88b94a35d26da5fa9f4b37e1f3ea45a49c1cd375a3",
+    "decision_receipt_sha256": "d7f77076eddf5eafc735e8bf0e5a5899b44c52371243eed4de604921b5e27570",
+    "terminal_receipt_sha256": "e4e20368963419ff31adbec36ba6e30e8eac01bb066c613dfdba4386dd8817be",
+    "model_or_outcome_inputs_used": false
+  },
+  "process": {
+    "pid": 464678,
+    "alive": true,
+    "state": "Ssl",
+    "elapsed_seconds_at_validation": 3003,
+    "child_pid": 684039,
+    "child_elapsed_seconds_at_validation": 376,
+    "child_command_role": "candidate10_gt_scout_source_generation",
+    "process_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass124_state_chain_resume/process.log",
+    "process_log_size_bytes": 0,
+    "process_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external_process_stopped_or_signaled_by_pass128": false
+  },
+  "state_chain": {
+    "validation_status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY",
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "execution_id": "state_chain_batch_locked_test_c001_r06_0f6939f27c1cabab",
+    "intent_sha256": "047b3aacff1a93e6a4364e24fab6c736ab37f926e4c41d69767b3efbcb7531f7",
+    "terminal_receipt_present": false,
+    "render_state_sha256": "d313b7a5974c40a0d794ea0f835c7a823c28e3409b3232b2dffd653f57556ab4",
+    "chain_head_identity_sha256": "544e391a43ae5c36dba1436e386fbe01e8602133d9cfe32358c79c09e8a7a57e",
+    "completed_pair_count": 46,
+    "pending_pair_count": 50,
+    "first_pending_pair_id": "locked_test_c001_r06"
+  },
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r06_6f37e82e20a321e5",
+    "intent_sha256": "4ec31c8b5bfdb439ac0d0ce2d14038fc623f320f07e1ddfa2ee108c1fe5cb51b",
+    "max_new_pairs": 1,
+    "terminal_receipt_present": false
+  },
+  "ledger": {
+    "row_count_before_candidate": 159,
+    "row_count_after_candidate": 160,
+    "prefix_159_sha256": "81e62042b23b6c4d252b7ad8acc0f3d93860dd7734a1183dbf4598c1b57e59c7",
+    "sha256": "0440c4edbccdffff6c67c8f5a6873bbe0f49164b7f7f33a73938b2ec97cf6e59",
+    "candidate_9_appended_by_active_call": true,
+    "append_only_prefix_preserved": true
+  },
+  "canonical_successor": {
+    "candidate_index": 10,
+    "candidate_identity_sha256": "8b1b60bafd321d8ee664338a211df57effab96c6959723d15bd7b1151fbb8602",
+    "partial_gt_scout_staging": ".partial-roster-locked_test_c001_r06-candidate-10-0d6fd9cebd944711bb80d367e39a812e",
+    "partial_gt_scout_staging_present": true,
+    "terminal_receipt_present": false,
+    "full_native_render_observed": false,
+    "pair_publication_observed": false
+  },
+  "recovery_v3": {
+    "release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "validation_status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+    "real_v3_intents_created_during_validation": 0,
+    "v3_execution_count": 2,
+    "invoked_by_pass128": false,
+    "reason_not_invoked": "candidate9 was a committed ordinary frozen-GT semantic and eligibility rejection, not the exact zero-source-weed failure"
+  },
+  "access_guard": {
+    "candidate_gt_accessed_during_validation": false,
+    "rendering_calls_during_validation": 0,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

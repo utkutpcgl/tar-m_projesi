@@ -1,0 +1,867 @@
+schema_version: 1
+protocol_id: spot_spray_simulation_video_ab_protocol_v1
+
+scope:
+  protocol_status: FROZEN_PRE_EXECUTION_CONTRACT
+  evidence_class: SYNTHETIC_DIAGNOSTIC_ONLY
+  system_under_test: frozen_one_bay_controlled_spot_spray_perception_to_action_stack
+  experimental_question: >-
+    On identical held-out latent video sequences, how much do the declared
+    bounded capture-profile differences change segmentation, tracking, and
+    frozen track-action behavior for the selected ROSE-native foundation?
+  causal_label: paired_composite_capture_profile_effect_not_blur_only
+  lane_deliverable: protocol_config_document_and_executable_contract_assertions
+  runtime_generation_or_inference_implemented_by_this_lane: false
+  pre_execution_compatibility_must_pass: true
+
+source_lock:
+  algorithm: sha256_exact_bytes
+  drift_policy: fail_closed_before_render_or_inference
+  repository:
+    implementation_base_commit: 9f558b10c6bebfa4c765b395b3dcfc3f5e0e75b9
+    decision_plan_remote_commit: 8053f5e9f9f496c4a5a69b21884e9f73031c51c5
+  repository_sources:
+    decision_plan:
+      path: docs/plans/part-spot-spray-simulation-video-ab-protocol-adaptive-plan.md
+      sha256: 8ed5062bfb386f7245cc3019b6a0b8695df13f5ab284fb74ca1d77ba7c8abbe3
+      role: bounded_experimental_and_metric_decision
+    product_architecture:
+      path: configs/deploy/spot_spray_product_architecture_v1.yaml
+      sha256: 09dd57d852f0517b8716fc5056bc04121e3e6c072521931425f89cd002517dbd
+      role: frozen_one_bay_architecture
+    integrated_claim_boundary:
+      path: docs/SPOT_SPRAY_INTEGRATED_CONTRACT_RELEASE_V1.md
+      sha256: ad867317332dc2421188bad5903b47e6c0deeb08912243103d74e1ead5d426ad
+      role: current_provenance_and_claim_boundary
+    cropcraft_v12_contract:
+      path: configs/simulation/cropcraft_deploy_constrained_pilot_v12.yaml
+      sha256: f006c709249cee0e9d8b8f74fd22fa0e1fdccde55ac90a6e2c474608607c0ec4
+      role: split_and_scene_profile_authority
+    cropcraft_v12_generator:
+      path: scripts/generate_cropcraft_deploy_constrained_pilot_v12.py
+      sha256: a8cd72def2aa6e2fd8cf892c5b658bf59b2680f85d86687413925c4f0d021d79
+      role: current_v12_release_orchestrator
+    cropcraft_v12_role_generator:
+      path: scripts/generate_cropcraft_deploy_profiled_pilot_v12.py
+      sha256: 044f2a975aefe75c055c84ddc11af1548b9950b1b4a5dfcaeff0bdb70ad9028a
+      role: current_v12_profiled_renderer_adapter
+    cropcraft_v12_split_generator:
+      path: scripts/generate_cropcraft_field_robustness_pilot.py
+      sha256: 82293b05006277c17ca161ff3b8f7fe6ec8f2bfea945b2c36428bbda80084106
+      role: current_v12_split_scene_generator
+    cropcraft_runtime_adapter:
+      path: scripts/run_cropcraft.py
+      sha256: 4bc8cbaa1b72780e4214477ef42a3802b20951ab68af9d3269227a61fcd9878e
+      role: current_cropcraft_runtime_adapter
+    cropcraft_v12_proxy_contract:
+      path: configs/data/cropcraft_deploy_segment_proxy_v12.yaml
+      sha256: 8a3b77556f6f8d456fbd4f6d7498b793ed3daae5b0ec17b596fef7b5605e23a0
+      role: semantic_proxy_and_known_instance_identity_limit
+    cropcraft_v12_proxy_builder:
+      path: scripts/prepare_cropcraft_deploy_segment_proxy_v12.py
+      sha256: 56b3d21c74063158fb35a176890ee95454e11a5192c59bc51bcbf6092585f245
+      role: connected_region_proxy_not_track_gt
+    sensor_motion_v7_protocol:
+      path: configs/benchmark/simulation_sensor_motion_additive_protocol_v7_r1.yaml
+      sha256: 4654e5e9625f5d2d8e6f8a8df1e4e072f095b24921aad068f226fd8faba94bee
+      role: matched_nuisance_evidence_and_rejected_challenger_record
+    sensor_motion_v7_asset_gate:
+      path: configs/simulation/cropcraft_sensor_motion_asset_gate_v7_r1.yaml
+      sha256: 05aada33bd5fafd9f152c4568a4f870b2976bf991a866856bebf68ee04592638
+      role: psf_mechanics_and_quality_prior_only
+    frozen_action_contract:
+      path: configs/benchmark/spot_spray_target_rig_action_eval_v1.yaml
+      sha256: 210e6feddb93ca269d78a9947b48c2a84d0fb382828ba3265ff7debe06b74b09
+      role: frozen_track_action_semantics
+    frozen_action_evaluator:
+      path: scripts/evaluate_spot_spray_target_rig_action_v1.py
+      sha256: 3943090f5b34d730426bbb23e255757f1af28a89b3bbfc2f5a093a57e8ce9e45
+      role: frozen_action_metric_authority
+  external_sources:
+    selected_foundation_checkpoint:
+      path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/runs/pre_real_data_ceiling_robot_native_train_v1/yolo26s_seg_real1407_rose80_native1024_seed41_e8/weights/last.pt
+      sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+      role: selected_rose_native_directional_foundation_not_deployment_model
+    cropcraft_v12_release_receipt:
+      path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/release_receipt.json
+      sha256: ff733bff9458af8afebbfdc84a5c5ee4377df0f7635c55638b61889a22b57cf0
+      role: current_v12_split_release
+    cropcraft_v12_validation_receipt:
+      path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/val/release_receipt.json
+      sha256: 5b34be56ec0a7788bf22a298ae0403fb9cae486fcd28a1705fa0915bdc38edea
+      role: calibration_source_role_receipt
+    cropcraft_v12_test_receipt:
+      path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/deploy_constrained_pilot_v12/roles/test/release_receipt.json
+      sha256: dc0bf91f5f825a4d75784150713be8d3e76d80b896631fc34ca5deee5e9aff2a
+      role: locked_test_source_role_receipt
+    cropcraft_v12_proxy_receipt:
+      path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/cropcraft_deploy_segment_proxy_v12/dataset_receipt.json
+      sha256: a61317815ca9870a22cf7ba11118a7756a87accdbcfc022a3c78890e7c92e13d
+      role: current_semantic_proxy_limit_evidence
+    sensor_motion_v7_selection_receipt:
+      path: /media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/processed/audits/cropcraft_sensor_motion_additive_screen_selection_v7_r1.json
+      sha256: 8b78085b6ce6e4bc1a9bacc2d6437fc0c2ea859168421156b02e3502ab68c601
+      required_facts:
+        challenger_accepted: false
+        accepted_control_changed: false
+        selected_candidate: simab_real_sorghum_cropcraft_v3_05_paddy_v4_05_e8
+        spray_deployment_eligible: false
+  execution_bindings:
+    renderer_export:
+      state: UNRESOLVED_FAIL_CLOSED
+      required_before_render: true
+      must_add_exact_path_and_sha256_to_release_lock: true
+      required_capabilities:
+        - persistent_source_object_ids
+        - stable_per_frame_gt_tracks
+        - native_2048_square_rgb
+        - visible_polygons_or_masks
+        - canopy_span_mm
+        - visibility_and_occlusion
+    native_inference_adapter:
+      state: UNRESOLVED_FAIL_CLOSED
+      required_before_model_access: true
+      must_add_exact_path_config_and_sha256_to_release_lock: true
+    prediction_tracker:
+      state: UNRESOLVED_FAIL_CLOSED
+      required_before_model_access: true
+      must_add_exact_path_config_and_sha256_to_release_lock: true
+
+claim_boundary:
+  simulation_is_physical_acceptance: false
+  simulation_is_field_proof: false
+  simulation_is_product_proof: false
+  synthetic_pseudo_fields_are_real_fields: false
+  controlled_capture_authorized: false
+  dry_marker_ready: false
+  field_go: false
+  product_go: false
+  chemical_fire_allowed: false
+  deposition_or_crop_injury_proven: false
+  purchase_or_fabrication_authorized: false
+  synthetic_score_weight_in_real_go_decision: 0.0
+  permitted_terminal_statuses:
+    - SIM_AB_COMPLETE_SYNTHETIC_ONLY
+    - SIM_AB_CALIBRATION_INFEASIBLE_SYNTHETIC_ONLY
+    - SIM_AB_INVALID_FAIL_CLOSED
+    - REPLAN_REQUIRED
+
+registered_hypotheses:
+  role: descriptive_references_only
+  registered_before_render_or_inference: true
+  acceptance_band: null
+  acceptance_gate: false
+  influences_sample_size: false
+  influences_seed_derivation: false
+  influences_candidate_selection: false
+  influences_capture_envelopes: false
+  influences_threshold_selection: false
+  influences_tracker_or_model: false
+  locked_test_action_f1:
+    ideal_reference: 0.97
+    degraded_reference: 0.75
+    reporting: observed_value_observed_minus_reference_and_interval
+  forbidden_uses:
+    - tune_degradation_to_reference
+    - simplify_ideal_to_reference
+    - choose_or_replace_pairs_from_model_outcomes
+    - extend_sample_size_after_results
+    - define_near_band_after_results
+
+pairing_contract:
+  experimental_unit: complete_latent_video_sequence
+  pair_id_equals_latent_id: true
+  arms: [ideal, degraded]
+  exact_arms_per_pair: 2
+  frames_are_independent_units: false
+  common_random_numbers_across_arms: true
+  canonical_identity:
+    format: canonical_utf8_json
+    sorted_keys_recursive: true
+    compact_separators: true
+    forbid_nan_or_infinity: true
+    decimal_encoding: canonical_decimal_strings
+    identity_files_final_newline: true
+    forbidden_fields: [timestamp_created, absolute_path, random_uuid, hostname]
+  required_shared_fields:
+    - pair_id
+    - latent_frame_ids
+    - source_scene_graph_identity
+    - source_asset_identities
+    - crop_and_weed_source_object_ids
+    - object_geometry_material_pose_and_world_transforms
+    - ground_tillage_environment_and_ambient_state
+    - camera_mid_exposure_trajectory
+    - encoder_trajectory
+    - frame_clock
+    - frame_count
+    - gt_classes_instances_tracks_polygons_and_masks
+    - canopy_span_mm
+    - visible_fraction
+    - partial_and_occluded_flags
+    - split_and_synthetic_grouping
+    - base_capture_draw_vector
+  allowed_arm_differences:
+    - capture_profile_id
+    - arm_prefixed_frame_and_video_ids
+    - temporal_integration_enabled
+    - pulse_width_us
+    - psf_path_family_and_weights
+    - artificial_light_energy_size_and_warmth
+    - resulting_rgb_pixels_and_hashes
+  forbidden_arm_differences:
+    - latent_scene_or_trajectory
+    - timestamp_or_encoder
+    - camera_mid_exposure_pose
+    - source_object_or_gt_track_identity
+    - gt_geometry_or_action_eligibility_fields
+    - model_checkpoint
+    - inference_or_tracker_configuration
+    - metric_or_threshold_policy
+  mismatch_disposition: invalidate_full_release_never_drop_pair
+
+seed_derivation:
+  algorithm: sha256_uint64_big_endian_first_8_bytes
+  input_order:
+    - protocol_id
+    - split
+    - cell_id
+    - replicate_index
+    - candidate_index
+    - channel_name
+    - v12_split_base_seed
+  separator: "|"
+  split_base_seeds:
+    calibration: 440000
+    locked_test: 540000
+  channels:
+    - scene_seed
+    - trajectory_seed
+    - capture_draw_seed
+    - renderer_seed
+    - audit_sample_seed
+  candidate_index_range: [0, 9]
+  exact_attempts_per_required_slot_maximum: 10
+  raw_seed_reuse_across_split_or_channel_allowed: false
+  arm_specific_seed_channels_allowed: false
+  outcome_inputs_forbidden:
+    - model_confidence
+    - predicted_mask
+    - predicted_track
+    - segmentation_metric
+    - tracking_metric
+    - action_metric
+    - ideal_reference
+    - degraded_reference
+
+allocation:
+  factors:
+    travel_speed_m_s: [0.5, 1.0]
+    v12_scene_profile: [hood_dry_nominal, hood_moist_glare_challenge]
+    degraded_motion_path: [linear, smooth_curved]
+  exact_cell_count: 8
+  ideal_arm_retains_degraded_motion_path_stratum_for_pairing: true
+  splits:
+    calibration:
+      evaluator_split: validation
+      v12_source_role: val
+      replicates_per_cell: 4
+      pair_count: 32
+      arm_count: 64
+      frames_per_arm: 30
+      rendered_frame_count: 1920
+    locked_test:
+      evaluator_split: test
+      v12_source_role: test
+      replicates_per_cell: 8
+      pair_count: 64
+      arm_count: 128
+      frames_per_arm: 30
+      rendered_frame_count: 3840
+  totals:
+    pair_count: 96
+    video_count: 192
+    frames_per_video: 30
+    rendered_frame_count: 5760
+  counts_frozen_before_outcomes: true
+  post_result_extension_allowed: false
+
+shared_latent_envelope:
+  native_raster_px: [2048, 2048]
+  frame_rate_hz: 15
+  frame_count: 30
+  frame_indices: [0, 29]
+  duration_s: 2.0
+  timestamp_ns_formula: round_frame_index_times_1000000000_over_15
+  encoder_formula: exact_signed_speed_times_timestamp_then_canonical_decimal_mm
+  ground_fov_mm: [474.0, 484.0]
+  working_distance_mm: [550.0, 590.0]
+  roll_deg: [-1.0, 1.0]
+  pitch_deg: [-1.0, 1.0]
+  yaw_deg: [-4.0, 4.0]
+  lateral_camera_offset_m: [0.01, 0.10]
+  focus_reference_plane_above_ground_mm: 55.0
+  test_planes_above_ground_mm: [0.0, 55.0, 110.0]
+  outer_abstain_ring_px: 64
+  central_action_region_px: [1920, 1920]
+  exposure_metadata_us: 170.0
+  shutter: global
+  travel_speeds_m_s: [0.5, 1.0]
+  continuous_parameter_design:
+    method: deterministic_latin_hypercube_stratum_midpoints
+    calibration_strata_per_cell: 4
+    locked_test_strata_per_cell: 8
+    deterministic_per_variable_permutation: true
+    post_outcome_reallocation_allowed: false
+  minimum_scene_strip_guard_mm: 100.0
+  reverse_motion_allowed: false
+  frame_drops_allowed: false
+  scene_profiles:
+    hood_dry_nominal:
+      environment_strength: [0.03, 0.07]
+      soil_moisture: [0.08, 0.35]
+      sun_energy: [0.00, 0.03]
+      sun_elevation_deg: [30.0, 68.0]
+      sun_angle_deg: [8.0, 12.0]
+      local_shadow_fraction: [0.00, 0.04]
+      artificial_light_energy_renderer_units: [35.0, 55.0]
+      artificial_light_size_m: [0.50, 0.72]
+      artificial_light_warmth_proxy: [0.30, 0.52]
+    hood_moist_glare_challenge:
+      environment_strength: [0.05, 0.09]
+      soil_moisture: [0.38, 0.78]
+      sun_energy: [0.02, 0.05]
+      sun_elevation_deg: [15.0, 55.0]
+      sun_angle_deg: [7.0, 12.0]
+      local_shadow_fraction: [0.02, 0.08]
+      artificial_light_energy_renderer_units: [30.0, 48.0]
+      artificial_light_size_m: [0.58, 0.80]
+      artificial_light_warmth_proxy: [0.40, 0.70]
+  artificial_light_is_physical_radiometry: false
+
+ideal_capture_profile:
+  profile_id: IDEAL_CAPTURE_UPPER_BOUND_V1
+  role: idealized_optical_upper_bound_proxy
+  exposure_sampling: one_point_at_shared_mid_exposure_pose
+  temporal_integration: false
+  motion_psf: none
+  light_quadrants: four_equal_all_on
+  profile_midpoint_light:
+    hood_dry_nominal:
+      energy_renderer_units: 45.0
+      size_m: 0.61
+      warmth_proxy: 0.41
+    hood_moist_glare_challenge:
+      energy_renderer_units: 39.0
+      size_m: 0.69
+      warmth_proxy: 0.55
+  white_balance: fixed_neutral_proxy
+  gain_db: 0.0
+  tone_mapping: deterministic_common_with_degraded
+  output: lossless_rgb8_srgb_png_proxy
+  absent_effects:
+    - sensor_noise
+    - compression
+    - contamination
+    - defocus_perturbation
+    - chromatic_aberration
+    - vignetting_perturbation
+    - dropped_frame
+    - rolling_shutter
+  retains_scene_occlusion_and_domain_limitations: true
+  achievable_installed_capture_claim: false
+
+degraded_capture_profile:
+  profile_id: DEGRADED_CAPTURE_PROXY_V1
+  role: bounded_realistic_directional_capture_proxy
+  temporal_integration: global_shutter_light_pulse
+  pulse_width_us: [150.0, 170.0]
+  light_sampling: frozen_latin_hypercube_within_shared_profile_ranges
+  motion_path_families: [linear, smooth_curved]
+  dominant_direction: projected_forward_camera_travel
+  gsd_formula: ground_fov_mm_divided_by_2048
+  blur_formula: speed_m_s_times_pulse_width_us_times_0p001_divided_by_gsd_mm_per_px
+  maximum_total_psf_path_px: 0.75
+  psf_sum_target: 1.0
+  psf_sum_absolute_tolerance: 1.0e-6
+  maximum_psf_centroid_error_px: 0.15
+  curved_path_source: pinned_v7_curve_generator_rescaled_to_physical_length
+  convolution_border: reflect_101
+  v7_original_kernel_lengths_px_allowed: false
+  v7_original_kernel_range_px: [5, 25]
+  random_zero_to_180_degree_angle_allowed: false
+  extra_gaussian_blur_allowed: false
+  post_outcome_rescaling_allowed: false
+  output: lossless_rgb8_srgb_png_proxy
+  unmodelled_effects:
+    - sensor_noise_and_bayer_response
+    - lens_mtf_and_chromatic_aberration
+    - installed_light_uniformity
+    - contamination_or_fogging
+    - defocus
+    - severe_vibration
+    - dropped_frames
+    - compression
+    - light_channel_failure
+  absolute_camera_realism_claim: false
+
+preoutcome_gates:
+  candidate_selection:
+    policy: first_candidate_in_derived_order_passing_all_non_model_gates
+    maximum_attempts_per_slot: 10
+    rejection_ledger_required: true
+    rejected_candidate_reuse_allowed: false
+    model_access_before_acceptance: false
+    human_preference_between_passing_candidates: false
+    permitted_inputs:
+      - source_and_asset_provenance
+      - geometry_and_gt_integrity
+      - pixel_and_visual_realism
+      - temporal_and_denominator_operability
+      - capture_operator_execution
+    forbidden_inputs:
+      - predictions
+      - confidences
+      - segmentation_tracking_or_action_metrics
+      - registered_hypothesis_distance
+  source_integrity:
+    all_hashes_exact: true
+    unpinned_source_allowed: false
+    overwrite_existing_v1_release: false
+  pair_integrity:
+    exact_arms: 2
+    exact_frames_per_arm: 30
+    identical_shared_field_digest: true
+    identical_canonical_gt_digest: true
+    differences_restricted_to_allowlist: true
+    any_locked_pair_failure_invalidates_release: true
+  pixel_visual:
+    native_dimensions_px: [2048, 2048]
+    full_frame_resize_allowed: false
+    decodable_lossless_rgb_required: true
+    mean_brightness: [40.0, 205.0]
+    maximum_fully_clipped_white_fraction: 0.002
+    maximum_fully_clipped_black_fraction: 0.001
+    maximum_crop_free_frame_fraction: 0.05
+    maximum_weed_free_frame_fraction: 0.25
+    mean_crop_fraction: [0.01, 0.60]
+    mean_weed_fraction: [0.01, 0.50]
+    minimum_crop_model_variants_per_split: 6
+    minimum_ground_families_per_split: 2
+    minimum_environment_families_per_split: 2
+    exact_profile_balance_required: true
+    distinct_latent_rgb_duplicates_allowed: false
+    identical_ideal_degraded_rgb_allowed: false
+    deterministic_rerender_required: true
+  split_integrity:
+    cross_split_overlap_forbidden:
+      - asset_identity
+      - crop_or_weed_model_variant
+      - ground_or_environment_family
+      - source_scene
+      - source_or_derived_seed
+      - trajectory_or_nuisance_seed
+      - latent_pair
+      - video
+      - frame
+      - gt_track
+    adjacent_source_frames_across_splits_allowed: false
+  temporal_denominator:
+    minimum_calibration_eligible_weed_tracks: 64
+    minimum_locked_test_eligible_weed_tracks: 128
+    every_test_synthetic_field_has_eligible_weed: true
+    minimum_three_observation_track_exists_in_every_cell: true
+    monotonic_timestamps_and_encoder_required: true
+  manual_review:
+    split: calibration
+    pairs_per_cell: 2
+    selection: audit_sample_seed_before_model_access
+    arms_side_by_side: true
+    predictions_or_metrics_visible: false
+    locked_test_human_review_before_threshold_lock: false
+    permitted_judgments:
+      - renderer_corruption
+      - class_and_track_overlay_correctness
+      - pair_mismatch
+      - capture_envelope_violation
+  mandatory_lock_order:
+    - freeze_protocol_sources_seeds_cells_envelopes_estimands_and_code_hashes
+    - generate_and_machine_audit_both_arms_for_both_splits
+    - complete_frozen_calibration_only_manual_review
+    - seal_release_lock_with_model_outputs_present_false
+    - run_degraded_calibration_inference_and_select_threshold
+    - seal_threshold_lock_with_test_predictions_present_false
+    - optionally_compute_ideal_calibration_diagnostics_without_selection_weight
+    - unlock_and_run_both_locked_test_arms_once
+    - compute_paired_metrics_once_and_seal_result
+
+gt_contract:
+  authority: persistent_source_scene_objects_not_semantic_connected_regions
+  classes: [crop, weed]
+  required_per_object_fields:
+    - stable_source_object_id
+    - stable_gt_track_id
+    - class_name
+    - per_frame_visible_polygon_or_mask
+    - visible_fraction
+    - occluded
+    - partial
+    - canopy_span_mm_from_world_geometry
+    - world_transform
+    - source_asset_identity
+  action_manifest_fields:
+    - frame_id
+    - image_path
+    - field_id
+    - session_id
+    - video_id
+    - frame_index
+    - timestamp_ns
+    - encoder_mm
+    - exposure_us
+    - gain_db
+    - working_distance_mm
+    - strobe_profile_id
+    - split
+    - instances
+  evidence_scope: synthetic_fixture
+  safe_region:
+    outer_ring_px: 64
+    clipped_image_boundary_is_partial: true
+    canonical_action_region_absent_is_partial: true
+    later_nonpartial_observation_can_make_track_eligible: true
+  known_current_proxy_limit:
+    proxy_label_interpretation: connected_semantic_region_not_botanical_instance
+    botanical_instance_ids_available: false
+    proxy_allowed_as_video_track_gt: false
+  discovery_gate:
+    status_before_runtime_binding: UNRESOLVED_FAIL_CLOSED
+    required_before_full_render: true
+    success_requires_all:
+      - stable_object_ids_across_frames
+      - valid_per_frame_polygons_or_masks
+      - canopy_span_in_world_mm
+      - defensible_visibility_or_occlusion
+      - split_pure_asset_provenance
+    failure_status: REPLAN_REQUIRED_GT_TRACK_IDENTITY
+  forbidden_gt_construction:
+    - semantic_connected_components
+    - optical_flow_pseudo_tracks
+    - model_predicted_tracker_ids
+    - manual_post_outcome_track_repair
+
+inference_contract:
+  checkpoint_sha256: 3aba4b19b69455c0532edf0ff81622b2499fab376d7b5c8854b644027af73100
+  checkpoint_role: directional_pre_real_foundation_not_deployment_proof
+  weights_frozen: true
+  native_input_px: [2048, 2048]
+  full_frame_resize_allowed: false
+  outer_abstain_ring_px: 64
+  same_pipeline_for_both_arms: true
+  required_common_components:
+    - native_tiling_and_halo
+    - merge_and_class_map
+    - mask_postprocessing
+    - action_point_derivation
+    - numeric_precision
+  predictions_bind_image_manifest_audit_and_checkpoint_hashes: true
+  outcome_tuned_nms_or_postprocessing_allowed: false
+  test_time_augmentation_allowed: false
+  arm_specific_preprocessing_allowed: false
+  exact_runtime_binding_required: true
+  deterministic_preflight:
+    calibration_pair_count: 4
+    cover_all_speeds_and_scene_profiles: true
+    repeat_count: 2
+    canonical_precision_minimum_decimal_places: 6
+    exact_canonical_prediction_hash_required: true
+    failure_status: SIM_AB_INVALID_NONDETERMINISTIC_INFERENCE
+  incompatibility_status: REPLAN_REQUIRED_NATIVE_INFERENCE
+
+tracker_contract:
+  state: exact_runtime_binding_required_before_model_access
+  fixed_before_any_calibration_prediction: true
+  same_code_and_resolved_config_for_both_arms: true
+  gt_access_allowed: false
+  arm_label_or_pair_label_access_allowed: false
+  stable_predicted_track_ids_required: true
+  reset_at_every_video_boundary: true
+  predicted_track_ids_video_scoped: true
+  fire_once_or_duplicate_repair_in_tracker_allowed: false
+  expose_fragmentation_to_action_evaluator: true
+  outcome_tuning_allowed: false
+  missing_status: REPLAN_REQUIRED_TRACKER_CONTRACT
+  ambiguous_lineage_status: REPLAN_REQUIRED_AMBIGUOUS_INFERENCE_PATH
+
+calibration_contract:
+  sole_threshold_source:
+    split: calibration
+    arm: degraded
+  ideal_calibration_role: post_lock_diagnostic_only
+  test_access_forbidden_until_threshold_lock: true
+  threshold_grid:
+    start: 0.05
+    stop: 0.95
+    step: 0.05
+  selection: maximum_recall_subject_to_frozen_precision_crop_and_duplicate_safety
+  tie_breakers: [f1, precision, higher_threshold]
+  fallback: maximum_f1_on_degraded_validation_and_force_infeasible_status
+  fallback_is_safe_threshold: false
+  one_shared_threshold_for_ideal_and_degraded_test: true
+  arm_specific_thresholds_allowed: false
+  capture_model_tracker_or_estimand_changes_after_calibration_allowed: false
+  infeasible_status: SIM_AB_CALIBRATION_INFEASIBLE_SYNTHETIC_ONLY
+
+action_evaluator_binding:
+  config_source_id: frozen_action_contract
+  implementation_source_id: frozen_action_evaluator
+  modification_allowed: false
+  frozen_semantics:
+    eligible_weed_minimum_canopy_span_mm: 20.0
+    eligible_weed_minimum_visible_fraction: 0.70
+    eligible_requires_nonpartial_observation: true
+    threshold_crop_confidence: 0.25
+    minimum_confirmations: 3
+    preferred_window_frames: 5
+    fire_once_per_predicted_track: true
+    crop_veto: true
+    one_to_one_eligible_gt_track_matching: true
+    crop_collision_precedence: true
+    partial_or_unknown_hit_is_false_positive: true
+    duplicate_hit_is_false_positive: true
+    attempted_shot_safety_denominators: true
+    crop_hit_wilson_upper_95_authoritative: true
+  two_run_orchestration:
+    shared_validation_bytes: degraded_calibration_predictions
+    ideal_run_test_arm: ideal_locked_test
+    degraded_run_test_arm: degraded_locked_test
+    identical_selected_threshold_required: true
+    identical_calibration_statistics_required: true
+  evaluator_output_is_action_count_authority: true
+
+segmentation_estimands:
+  split: locked_test
+  shared_weed_threshold: calibration_selected
+  crop_threshold: 0.25
+  raster: native_2048_square
+  matching:
+    within_frame: true
+    same_class_only: true
+    assignment: deterministic_one_to_one_descending_mask_iou
+    minimum_mask_iou: 0.50
+    tie_breakers: [canonical_gt_id, canonical_predicted_id]
+  primary_classes: [crop, weed]
+  partial_unknown_in_primary_denominator: false
+  border_and_partial_reported_separately: true
+  metrics:
+    - instance_mask_precision_iou50
+    - instance_mask_recall_iou50
+    - instance_mask_f1_iou50
+    - mean_matched_mask_iou
+    - median_matched_mask_iou
+    - unmatched_gt_count
+    - unmatched_prediction_count
+    - macro_crop_weed_instance_mask_f1
+  replaces_action_f1: false
+
+tracking_estimands:
+  split: locked_test
+  overlap_source: frame_level_same_class_iou50_matches
+  assignment: maximize_matched_observation_count_one_to_one
+  assignment_tie_breakers: [canonical_gt_id, canonical_predicted_id]
+  confirmation_observations: 3
+  metrics:
+    - track_precision_3
+    - track_recall_3
+    - track_f1_3
+    - eligible_gt_tracks_with_three_matches_fraction
+    - predicted_tracks_reaching_three_confirmations
+    - eligible_track_fragmentation_rate
+    - mean_fragments_per_matched_eligible_gt_track
+    - id_switch_count
+    - id_switches_per_eligible_gt_track
+    - median_consecutive_matched_observations
+    - eligible_gt_tracks_with_five_consecutive_matches_fraction
+  action_evaluator_remains_fire_and_duplicate_authority: true
+
+action_estimands:
+  split: locked_test
+  primary:
+    name: delta_action_f1_degraded_minus_ideal
+    effect: degraded_minus_ideal
+    interpretation: paired_composite_capture_profile_sensitivity
+    negative_means_degraded_is_worse: true
+  per_arm_and_delta_metrics:
+    - precision
+    - recall
+    - f1
+    - true_positive
+    - false_positive
+    - false_negative
+    - attempted_fire_events
+    - crop_collision
+    - crop_hit_rate
+    - crop_hit_wilson_upper_95
+    - duplicate_shot
+    - duplicate_shot_rate
+    - eligible_weed_tracks
+  descriptive_strata:
+    - travel_speed_m_s
+    - v12_scene_profile
+    - degraded_motion_path
+    - synthetic_field_stratum
+  stratum_acceptance_gates_allowed: false
+  sufficient_statistics_retained_per_pair: true
+
+uncertainty:
+  sampling_unit: pair_id
+  frames_instances_or_actions_resampled_independently: false
+  method: stratified_paired_cluster_bootstrap
+  replicates: 10000
+  seed: 1729
+  strata: travel_speed_m_s_x_v12_scene_profile_x_degraded_motion_path
+  resample_within_stratum: true
+  both_arms_included_per_sampled_pair: true
+  recompute_from_sufficient_counts: true
+  rounded_scalar_bootstrap_forbidden: true
+  threshold_fixed_without_recalibration: true
+  interval: percentile_95
+  quantiles: [0.025, 0.975]
+  undefined_replicate_policy:
+    value: null
+    maximum_fraction_before_interval_omitted: 0.01
+    status: UNSTABLE_DENOMINATOR
+  scope_limit: bounded_synthetic_latent_video_sampling_only
+  omitted_uncertainty:
+    - model_training_seed_and_checkpoint
+    - renderer_model
+    - real_camera_and_installed_optics
+    - field_farm_crop_season_country_weather
+    - carrier_and_operator
+    - deposition_and_biological_outcome
+
+output_contract:
+  versioned_output_root: spot_spray_simulation_video_ab_v1
+  overwrite_allowed: false
+  canonical_serialization:
+    json_sorted_keys: true
+    compact_identity_payloads: true
+    final_newline: true
+    absolute_paths_in_identity_payloads: false
+  required_artifacts:
+    - pair_manifest_v1.jsonl
+    - source_lock_receipt_v1.json
+    - candidate_rejection_ledger_v1.jsonl
+    - preoutcome_audit_v1.json
+    - calibration_review_manifest_v1.json
+    - release_lock_v1.json
+    - degraded_calibration_predictions_v1.jsonl
+    - threshold_lock_v1.json
+    - ideal_test_predictions_v1.jsonl
+    - degraded_test_predictions_v1.jsonl
+    - ideal_action_result_v1.json
+    - degraded_action_result_v1.json
+    - paired_metric_result_v1.json
+    - reproduction_receipt_v1.json
+  release_lock_required_fields:
+    - protocol_config_sha256
+    - source_lock_receipt_sha256
+    - exact_renderer_and_environment_identity
+    - exact_inference_and_tracker_identity
+    - pair_manifest_sha256
+    - split_cell_pair_video_and_frame_counts
+    - gt_identity_digest
+    - ideal_and_degraded_image_set_digests
+    - preoutcome_audit_sha256
+    - calibration_review_manifest_sha256
+    - locked_test_access_state
+    - model_outputs_present_false
+  threshold_lock_required_fields:
+    - release_lock_sha256
+    - checkpoint_sha256
+    - inference_and_tracker_hashes
+    - degraded_calibration_prediction_sha256
+    - action_config_and_evaluator_sha256
+    - selected_threshold_and_feasibility
+    - calibration_sufficient_counts
+    - test_predictions_present_false
+  final_result_required_fields:
+    - final_synthetic_only_status
+    - full_source_identities
+    - release_and_threshold_receipt_hashes
+    - both_action_evaluator_result_hashes
+    - shared_threshold_and_identical_calibration_proof
+    - point_estimates_deltas_intervals_and_valid_replicates
+    - hypothesis_reference_differences_without_acceptance_label
+    - all_claim_boundary_flags_false
+    - synthetic_real_go_weight_zero
+  reproduction_requires_byte_identical_canonical_result: true
+
+failure_states:
+  SIM_AB_INVALID_SOURCE_DRIFT:
+    trigger: any_pinned_source_or_runtime_binding_hash_mismatch
+    terminal_for_v1_release: true
+  SIM_AB_INVALID_PAIR_MISMATCH:
+    trigger: any_non_allowlisted_arm_difference_or_missing_locked_pair_data
+    terminal_for_v1_release: true
+  SIM_AB_INVALID_SPLIT_LEAKAGE:
+    trigger: any_source_asset_seed_scene_video_frame_or_track_crosses_calibration_test
+    terminal_for_v1_release: true
+  SIM_AB_INVALID_INSUFFICIENT_PREOUTCOME_CANDIDATES:
+    trigger: any_required_slot_has_no_gate_passing_candidate_after_ten_attempts
+    terminal_for_v1_release: true
+  SIM_AB_INVALID_NONDETERMINISTIC_INFERENCE:
+    trigger: repeated_preflight_prediction_hashes_differ
+    terminal_for_v1_release: true
+  SIM_AB_INVALID_PREMATURE_TEST_ACCESS:
+    trigger: test_predictions_or_metrics_exist_before_threshold_lock
+    terminal_for_v1_release: true
+  SIM_AB_INVALID_OUTCOME_CONDITIONED_CHANGE:
+    trigger: model_output_changes_seed_pair_capture_tracker_threshold_metric_or_sample_count
+    terminal_for_v1_release: true
+  REPLAN_REQUIRED_GT_TRACK_IDENTITY:
+    trigger: persistent_source_object_gt_or_world_size_visibility_is_unavailable
+    terminal_for_v1_release: true
+  REPLAN_REQUIRED_NATIVE_INFERENCE:
+    trigger: selected_checkpoint_has_no_pinned_native_2048_square_no_resize_path
+    terminal_for_v1_release: true
+  REPLAN_REQUIRED_TRACKER_CONTRACT:
+    trigger: no_pinned_deterministic_gt_blind_stable_tracker_exists
+    terminal_for_v1_release: true
+  REPLAN_REQUIRED_AMBIGUOUS_INFERENCE_PATH:
+    trigger: more_than_one_materially_different_runtime_lineage_remains
+    terminal_for_v1_release: true
+  pair_dropping_after_release_lock_allowed: false
+  silent_v1_overwrite_or_repair_allowed: false
+
+stopping_rules:
+  before_full_render:
+    - any_source_hash_or_checkpoint_mismatch
+    - renderer_export_binding_unresolved
+    - persistent_source_object_gt_unavailable
+    - native_no_resize_inference_binding_unresolved
+    - stable_gt_blind_tracker_binding_unresolved
+    - calibration_test_source_assets_not_disjoint
+  before_calibration:
+    - any_pair_gt_temporal_pixel_or_psf_gate_failure
+    - exact_allocation_not_achieved_within_candidate_attempt_limit
+    - release_lock_not_sealed_with_model_outputs_absent
+  before_locked_test:
+    - threshold_lock_missing_or_invalid
+    - any_test_prediction_precedes_threshold_lock
+    - threshold_source_includes_ideal_or_test_data
+    - model_inference_tracker_or_metric_config_changed_after_lock
+  complete_after_one_locked_test_even_if:
+    - ideal_f1_far_from_0p97
+    - degraded_f1_far_from_0p75
+    - degraded_outperforms_ideal
+    - paired_interval_is_wide
+    - calibration_is_infeasible_and_fallback_is_reported
+  v2_required_for:
+    - changed_pair_count_or_sample_size
+    - another_checkpoint_or_tracker
+    - changed_threshold_policy
+    - added_noise_lens_defocus_contamination_vibration_drop_compression_or_light_failure
+    - new_physical_bench_measurements
+    - changed_action_evaluator
+    - real_target_rig_video_or_any_authority_claim

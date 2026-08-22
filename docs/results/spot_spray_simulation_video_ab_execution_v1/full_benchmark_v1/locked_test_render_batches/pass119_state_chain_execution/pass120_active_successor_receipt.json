@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass120_active_successor_v1",
+  "status": "ACTIVE_CANONICAL_SUCCESSOR_AFTER_FROZEN_GT_REJECTION_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821091539-117c29371515",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 120,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T12:16:53+03:00",
+  "pair_id": "locked_test_c001_r06",
+  "terminal_candidate": {
+    "candidate_index": 0,
+    "candidate_identity_sha256": "29a022083bca3b192e3e2668109d381daa56053347f9b43ccaf239e41f108e5a",
+    "status": "REJECT_FROZEN_GT_ONLY_PREOUTCOME_SYNTHETIC_ONLY",
+    "rejection_reasons": [
+      "semantic:mean_weed_fraction_in_range"
+    ],
+    "canonical_gt_sha256": "141cc8b750d06971483f3b5fa9f8f71e0a17141b8c86dc028856aba2a65ee3d8",
+    "decision_receipt_sha256": "2412239184e2c188d0c53fbeba76e80a54cdd0c9bddc59c629615f3c35644fe8",
+    "terminal_receipt_sha256": "5bf95bac99b30efa9e4dc74a91e2ea398abf8792d0c97bb222b475aba2aaf1ad",
+    "ledger_commit_receipt_sha256": "d66736c9ce51a81ab69b870dd3fddb59c30f275dcedef1dac5df7e9436ba7a46",
+    "gt_audit_receipt_sha256": "09cd56cbee4ede2ee6c0f876ea81893d9880920fd13206ac10cd1f2d487e78aa",
+    "bounded_cleanup_receipt_sha256": "ff33ad817c8af2585f0c10c107b2a33f050e1ee39fd7a67423a3fc6b3a33e563",
+    "model_or_outcome_inputs_used": false
+  },
+  "process": {
+    "pid": 178735,
+    "alive": true,
+    "state": "Ssl",
+    "elapsed_seconds_at_first_inspection": 740,
+    "child_pid": 227951,
+    "child_elapsed_seconds_at_first_inspection": 144,
+    "child_command_role": "candidate1_gt_scout_source_generation",
+    "process_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass119_state_chain_execution/process.log",
+    "process_log_size_bytes": 0,
+    "process_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external_process_stopped_or_signaled_by_pass120": false
+  },
+  "state_chain": {
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "execution_id": "state_chain_batch_locked_test_c001_r06_0f6939f27c1cabab",
+    "intent_sha256": "047b3aacff1a93e6a4364e24fab6c736ab37f926e4c41d69767b3efbcb7531f7",
+    "terminal_receipt_present": false,
+    "render_state_sha256": "d313b7a5974c40a0d794ea0f835c7a823c28e3409b3232b2dffd653f57556ab4",
+    "chain_head_identity_sha256": "544e391a43ae5c36dba1436e386fbe01e8602133d9cfe32358c79c09e8a7a57e",
+    "completed_pair_count": 46,
+    "pending_pair_count": 50,
+    "first_pending_pair_id": "locked_test_c001_r06"
+  },
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r06_6f37e82e20a321e5",
+    "intent_sha256": "4ec31c8b5bfdb439ac0d0ce2d14038fc623f320f07e1ddfa2ee108c1fe5cb51b",
+    "max_new_pairs": 1,
+    "terminal_receipt_present": false
+  },
+  "ledger": {
+    "row_count": 151,
+    "sha256": "589d774771396fdadcd9f9570b29d3fdbd43966b3f34f34095d4845d3cba96e2",
+    "candidate_0_appended_by_this_call": true,
+    "append_only_prefix_preserved": true
+  },
+  "canonical_successor": {
+    "candidate_index": 1,
+    "candidate_identity_sha256": "2f18336c33fbf0dfa334a026dfccca09ebfe8cfdc0eed670dfe4ccda38493d19",
+    "partial_gt_scout_staging_present": true,
+    "full_native_render_observed": false,
+    "pair_publication_observed": false
+  },
+  "recovery_v3": {
+    "release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "validation_status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+    "real_v3_intents_created_during_validation": 0,
+    "v3_execution_count": 1,
+    "invoked_by_pass120": false,
+    "reason_not_invoked": "candidate0 was a committed ordinary frozen-GT semantic rejection, not the exact zero-source-weed failure"
+  },
+  "access_guard": {
+    "candidate_gt_accessed_during_validation": false,
+    "rendering_calls_during_validation": 0,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

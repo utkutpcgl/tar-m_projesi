@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_calibration_batch_pass19_launch_validation_v1",
+  "status": "PASS_NEXT_CALIBRATION_BATCH_LAUNCHED_SYNTHETIC_ONLY",
+  "snapshot_observed_at_utc": "2026-08-15T22:40:31Z",
+  "goal_multi_repeat": {
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "pass": 19,
+    "event": "scheduled-resume-20260815223603-b191f045dd7d",
+    "strategy": "base"
+  },
+  "preflight": {
+    "status": "PASS_PREFLIGHT_SYNTHETIC_ONLY",
+    "full_plan_status": "PASS_FULL_PLAN_DRY_RUN_SYNTHETIC_ONLY",
+    "data_disk_free_bytes": 326678028288,
+    "required_bytes": 180000000000,
+    "reserve_bytes": 30000000000,
+    "headroom_after_required_and_reserve_bytes": 116678028288,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "gpu_memory_free_mib": 23521,
+    "gpu_memory_used_mib": 595,
+    "external_process_policy": "observed_only_never_stopped_or_modified",
+    "execution_locks_sha256": "894ba32b6ffa8bfbf2adf9d02dd02fc13194f67c8a106c71b3451cb0977a90b7",
+    "protocol_internal_locks_sha256": "57529dcea70f8641e84ea2a8cd6adceda05f07181288b5eee4a104de3ea05d13"
+  },
+  "batch_execution": {
+    "batch_id": "calibration_batch_calibration_c004_r01_b2a51b7c2055661c",
+    "request_identity_sha256": "b2a51b7c2055661c34b2b9dd02ddf46d4d9f76c3a7a73d30be42249871149512",
+    "target_pair_ids": [
+      "calibration_c004_r01",
+      "calibration_c004_r02",
+      "calibration_c004_r03",
+      "calibration_c005_r00",
+      "calibration_c005_r01",
+      "calibration_c005_r02",
+      "calibration_c005_r03",
+      "calibration_c006_r00"
+    ],
+    "targets_equal_earliest_eight_pending_calibration_slots": true,
+    "max_new_pairs": 8,
+    "detached_pid": 874005,
+    "detached_session_id": 874005,
+    "process_alive_at_snapshot": true,
+    "process_command_exact": true,
+    "process_log": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/calibration_batches/process_logs/calibration_batch_calibration_c004_r01_b2a51b7c2055661c.log",
+    "process_log_bytes_at_snapshot": 0,
+    "process_log_sha256_at_snapshot": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "process_log_error_or_traceback_count": 0,
+    "terminal_batch_receipt_present": false
+  },
+  "immutable_intent": {
+    "status": "LOCKED_CALIBRATION_BATCH_INTENT_PREOUTCOME_SYNTHETIC_ONLY",
+    "path": "data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/calibration_batches_v1/calibration_batch_calibration_c004_r01_b2a51b7c2055661c/batch_intent.json",
+    "sha256": "9b5cb604c66b4c6d777e75f7fff0a94641a53db5e01302e02fc1fa60d1eb02a2",
+    "request_identity_exact": true,
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+    "batch_execution_lock_sha256": "c9e46aee03becc435e34252fd0fbe0542b4c4c9232b8b0c2daad80028ef57bf3",
+    "completed_pair_count_at_start": 17,
+    "candidate_rejection_ledger_sha256_at_start": "da3e45b3d2369897ee5cf52083ef8c07b9b6beaef9b8f70c1ec03697ce640435",
+    "model_access_allowed": false,
+    "locked_test_outcome_access_allowed": false,
+    "outcome_inputs": []
+  },
+  "initial_render_state": {
+    "render_state_sha256": "0874aa101df7e5d8fad4ae4c142c5891cbf7f9ad35e48948503e76da8778b8b8",
+    "planned_pair_count": 96,
+    "completed_pair_count": 17,
+    "pending_pair_count": 79,
+    "next_pending_pair_id": "calibration_c004_r01",
+    "interrupted_staging_directories": [],
+    "model_outputs_present": false,
+    "candidate_rejection_ledger_row_count": 39,
+    "candidate_rejection_ledger_sha256": "da3e45b3d2369897ee5cf52083ef8c07b9b6beaef9b8f70c1ec03697ce640435"
+  },
+  "active_first_candidate": {
+    "pair_id": "calibration_c004_r01",
+    "protocol_split": "calibration",
+    "cell_id": "cell_004",
+    "replicate_index": 1,
+    "candidate_index": 0,
+    "candidate_identity_sha256": "0a72231e6e1d10df35e64e13935fdea9eae85447dd9620ec459a79a974d0bb5b",
+    "pair_slot_identity_sha256": "bcad4fda88b73a204b7aa76ebe12d5b74844fb34df28e48c00a45bdadf977088",
+    "source_template": {
+      "profile": "hood_dry_nominal",
+      "scene_id": "scene_0002",
+      "sha256": "cfba3e5b4bac450f1c2a45a0351cc082353e927fb9c00771916feaed36dd8cd7"
+    },
+    "seeds": {
+      "scene_seed": 8678044422565593450,
+      "trajectory_seed": 2119334297190545241,
+      "capture_draw_seed": 10066915341623117980,
+      "renderer_seed": 10312334407214425497,
+      "audit_sample_seed": 9257977043348792504
+    },
+    "all_five_seed_bindings_match_roster": true,
+    "model_outcome_inputs": [],
+    "active_stage": "gt_scout_cropcraft_render",
+    "active_partial_directory": "data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/planning/gt_scout_v1/.partial-roster-calibration_c004_r01-candidate-00-64d6974a114b4fa5aa47008f0ca572eb",
+    "active_partial_is_single_expected_staging_directory": true,
+    "scene_config_sha256_at_snapshot": "66cdfbf6774e616965805d6b82ba96115acd5ea648d3c9d048ccba307f0ee162",
+    "scene_patch_sha256_at_snapshot": "889a934180e4cdd79037b259f4dfb02608a94ce15a5c6acb86d31e43a464d248",
+    "scene_config_pair_and_candidate_identity_exact": true,
+    "scene_config_source_template_exact": true,
+    "scene_config_seed_bindings_exact": true,
+    "scene_config_frame_count": 30,
+    "scene_config_frame_rate_hz": 15,
+    "scene_config_native_dimensions_px": [
+      2048,
+      2048
+    ],
+    "role_asset_allowlist_sha256": "8d73b4633669f1f5f10e697ff2f67161ccb6b0ec1c311dbfacf30d4c14e97c76",
+    "role_asset_object_identity_sha256": "561ace162e00e1ef0a901c87159e95883c8484078abf3ab7a16dbfbe81f75f92",
+    "model_access_allowed": false,
+    "outcome_inputs": []
+  },
+  "implementation_locks": {
+    "execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+    "execution_script_sha256": "754ec8f4994b5e1b29eeafafc77c02c05b178e5fca8b992dabeb641f5a096f6c",
+    "test_script_sha256": "b0605a67426edb07bbe16cfb4b788420caad66f6ade0d3739dcdbe1d285bc6c2",
+    "calibration_batch_implementation_sha256": "0afadc989a849222fd24f3a41fd5cd9d210252e3842c617597335bac8bb18769",
+    "calibration_batch_execution_lock_sha256": "c9e46aee03becc435e34252fd0fbe0542b4c4c9232b8b0c2daad80028ef57bf3",
+    "sealed_full_render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751",
+    "sealed_full_render_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+    "sealed_gt_scout_implementation_sha256": "feeb9826103dbe71711b4cdb76dac0e6a828a4c33edba354addb71e1c11c0b46",
+    "sealed_gt_scout_execution_lock_sha256": "5fe68dd43183a588b02724bfd0af090f405f7a27f2eacf74b109b84c40a3c3d3",
+    "zero_weed_recovery_implementation_sha256": "85a20e86fda07d3438a4eeb648a08725c572849b4ab25dfe9907c9e015fe06fa",
+    "zero_weed_recovery_execution_lock_sha256": "0d9ffc139e34c126b7b47f01ab0751495afadb71cab1cce5bb0d2f138610eab2"
+  },
+  "access_boundary": {
+    "full_benchmark_model_run_root_present": false,
+    "checkpoint_loaded": false,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "outcome_or_registered_target_inputs_used": false,
+    "synthetic_only": true,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  },
+  "next_step": "After one hour, inspect detached PID 874005, its exact process log and immutable batch state; validate any newly published prefix from calibration_c004_r01 onward, or execute only the sealed zero-source-weed recovery if that exact fail-closed condition stopped the same intent."
+}

@@ -1,0 +1,42 @@
+{
+  "authorization": {
+    "event_id": "scheduled-resume-20260820045840-2def69a6294d",
+    "goal_multi_repeat_run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 64,
+    "portfolio_id": "goal-multi-repeat-agents-spot-spray-simulation-video-ab-v1-b8e46607aeea",
+    "portfolio_lane": "full-simulation-video-ab-execution-v1",
+    "portfolio_revision": 110,
+    "strategy": "base"
+  },
+  "authorized_scope": {
+    "candidate_generation_allowed": false,
+    "external_service_mutation_allowed": false,
+    "historical_or_runtime_release_mutation_allowed": false,
+    "legacy_validator_mutation_allowed": false,
+    "model_prediction_outcome_or_target_access_allowed": false,
+    "rendering_allowed": false,
+    "validation_bridge_only": true
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_full_plan_validation_v1_manager_authorization",
+  "pinned_inputs": {
+    "candidate_10_full_pair_receipt_sha256": "069312f20781123251a74bc0e7321868b79a7ca037ad3decdbc5193559a1dfe7",
+    "candidate_rejection_ledger_sha256": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "current_render_state_sha256": "0e2f0ed5143dca870b3e7d4c9096bd79025b2bc7456d77dc4e1f2d0fbd9457f5",
+    "frozen_render_state_sha256": "ff06d781e7989e2204266e43ff2a9978e51dcbd4e17e326f809694ae14368fec",
+    "pass63_blocker_receipt_sha256": "0a549b4951f91a45b1d0be551a1a8b5d6b84d02bbd47bddcce27ec67ab728791",
+    "runtime_config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "runtime_release_file_sha256": "4acfca1e21051db6aa791efc6bb3a4b1cea3912fd6eced3461bd9747be26094b",
+    "runtime_release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446"
+  },
+  "schema_version": 1,
+  "status": "PASS_MANAGER_AUTHORIZED_VALIDATION_ONLY_SYNTHETIC_ONLY"
+}

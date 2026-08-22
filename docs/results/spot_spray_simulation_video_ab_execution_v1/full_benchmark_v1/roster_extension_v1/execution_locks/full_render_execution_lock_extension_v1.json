@@ -1,0 +1,31 @@
+{
+  "candidate_index_range": [
+    10,
+    31
+  ],
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "composed_scene_patch_sha256": "3c5ba726370d943bc93335afb8dd4f8169fac83ebec3c2e39875f8495fdabce1",
+  "contract": "spot_spray_simulation_video_ab_full_render_execution_roster_extension_v1",
+  "execution_lock_dispatch_sha256": "62285cdd27726bd9d5b07f2d11ae3cef2d4afea0cfcde8ad21c9f618e97396f7",
+  "extension_execution_config_sha256": "6c37c11665c32be662879bb250eb654b8a5bd55834b4eeb896f3a74d031eb259",
+  "historical_execution_config_sha256": "a419dd1db3c314e79f12cf0aab576144cc4e4a43385669467f072534ae687e6b",
+  "historical_execution_lock_sha256": "10490375155ed25a00c79e4b8cab5e4488099bbcd73068c078a3426ac2d9a804",
+  "historical_pair_roster_sha256": "cf224af0624f77404c07c94303e0cb7fe27cbac5dc13c21b859a0e2abff14b43",
+  "manager_authorization_event_id": "scheduled-resume-20260817103307-75b799f2dfc8",
+  "migration_bridge_sha256": "a2cf008ac9dad93f44b36134406ef4518d6afb15860ab941e9a4139124db7784",
+  "model_access_allowed": false,
+  "outcome_inputs_allowed": false,
+  "pair_roster_extension_sha256": "4ad84f3e4a2dfc2d4d49065826f12854e05c195f05c20e3a407bbc08c88b324d",
+  "prediction_access_allowed": false,
+  "registered_targets_allowed": false,
+  "render_implementation_sha256": "7a28319bb48d087db8620ab18650566a5884a21343cc1cec557a1f9694173751",
+  "schema_version": 1,
+  "status": "SEALED_ROSTER_EXTENSION_EXECUTION_MODEL_FREE_SYNTHETIC_ONLY"
+}

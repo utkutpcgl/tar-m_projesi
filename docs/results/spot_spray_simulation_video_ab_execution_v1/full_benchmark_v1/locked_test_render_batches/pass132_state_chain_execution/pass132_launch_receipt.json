@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass132_state_chain_launch_v1",
+  "status": "PASS_EXACT_SINGLE_PAIR_STATE_CHAIN_LAUNCH_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821121134-28ba18eba2a2",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 132,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T15:15:10+03:00",
+  "release": {
+    "state_chain_release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "source_sha256": "bfbe269feddbd92413663c9345e57b50b119617e10bf695784d09317f74b870b",
+    "test_sha256": "c014b263862de4b91f5d20cb1d2f92d0d526914de720a03bdaa2d60b82e61121",
+    "release_file_sha256": "4c68888c43a09fb4afe4c0c56a365e36d6707c068f250deb891b2765c23f19bd"
+  },
+  "prelaunch_state": {
+    "render_state_sha256": "d8055796077637cba7de69650ea0ff6472592034547faac8617c6ef530234113",
+    "completed_pair_count": 47,
+    "pending_pair_count": 49,
+    "first_pending_pair_id": "locked_test_c001_r07",
+    "chain_head_identity_sha256": "e66e962aae41c652e4b9362ee23357def0402a518c2aea6c3d113af1222dc077",
+    "head_file_sha256": "9473cb144dfb9bc6470a8b685063c78c7511d578fc6c2a26ec0608db5acadf79",
+    "candidate_rejection_ledger_row_count": 161,
+    "candidate_rejection_ledger_sha256": "7bcad9763f2594f624c90c0dfd3c0c11debae641da96b241b73d40d56b2f180b",
+    "state_chain_validation_status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY",
+    "active_state_chain_execution_id_before_launch": null,
+    "current_epoch_live_or_parallel_execution_count_before_launch": 0
+  },
+  "capacity_preflight": {
+    "storage_available_bytes": 299710570496,
+    "storage_required_bytes": 180000000000,
+    "storage_reserve_bytes": 30000000000,
+    "storage_headroom_after_required_and_reserve_bytes": 89710570496,
+    "storage_passed": true,
+    "gpu_index": 0,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "gpu_total_mib": 24576,
+    "gpu_used_mib": 508,
+    "gpu_free_mib": 23608,
+    "gpu_required_free_mib": 23521,
+    "gpu_passed": true,
+    "observed_external_gpu_process_pid": 17710,
+    "observed_external_gpu_process_name": "VLLM::EngineCore",
+    "observed_external_gpu_process_used_mib": 414,
+    "external_process_stopped_signaled_or_modified": false
+  },
+  "request": {
+    "pair_id": "locked_test_c001_r07",
+    "max_new_pairs": 1,
+    "canonical_candidate_index": 0,
+    "canonical_candidate_identity_sha256": "99eb67d8d2c8203ff1e9e030b026557177caca71daba74239694906077efa4d9",
+    "canonical_source_template_sha256": "5127d5ff63ba21c1e780a07439e9ab45df7ca16ffb48e793ed770c50c115758f",
+    "pair_slot_identity_sha256": "45975c6726d5fb2baaff703b2c3a9c80b9558b4b687e1484635b726e400e318f",
+    "lowest_unattempted_sealed_candidate": true,
+    "candidate_gt_or_render_artifact_present_before_launch": false
+  },
+  "state_chain_execution": {
+    "execution_id": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7",
+    "request_identity_sha256": "e3e2c61a00bf17f7c6c5b4fbec94879dd97e32d90f3d31bfb2ff8c9b0bae217f",
+    "intent_sha256": "234e2e6051914609cb3a704fbe1f385c2aec52f5b5b3b43f63b6a64e942a6837",
+    "predecessor_state_sha256": "d8055796077637cba7de69650ea0ff6472592034547faac8617c6ef530234113",
+    "predecessor_head_identity_sha256": "e66e962aae41c652e4b9362ee23357def0402a518c2aea6c3d113af1222dc077",
+    "predecessor_ledger_sha256": "7bcad9763f2594f624c90c0dfd3c0c11debae641da96b241b73d40d56b2f180b",
+    "terminal_receipt_present": false,
+    "open_intent_aware_validation_status": "PASS_EXTENSION_AWARE_MONOTONIC_STATE_CHAIN_VALIDATION_SYNTHETIC_ONLY",
+    "active_execution_id_after_launch": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7"
+  },
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+    "request_identity_sha256": "e61dca5ee4dd49cb84b8fca3c2ac0cf084b36c5fef9523ed57cd225f8c69d4c0",
+    "intent_sha256": "9404d1dbd2ff41aa347c4870d4c4134c9939c1f3f40043b4700fc5b471f7aeed",
+    "target_pair_ids": [
+      "locked_test_c001_r07"
+    ],
+    "max_new_pairs": 1,
+    "terminal_receipt_present": false
+  },
+  "active_candidate": {
+    "candidate_index": 0,
+    "candidate_identity_sha256": "99eb67d8d2c8203ff1e9e030b026557177caca71daba74239694906077efa4d9",
+    "gt_only_scout_staging": ".partial-roster-locked_test_c001_r07-candidate-00-a4aeb0e2bdd74e6c81043084e094e702",
+    "gt_only_scout_staging_present": true,
+    "staging_file_count_at_validation": 90,
+    "staging_size_bytes_at_validation": 26916761,
+    "full_native_pair_render_started": false,
+    "terminal_candidate_decision_observed": false
+  },
+  "process": {
+    "pid": 1135984,
+    "session_id": 1135984,
+    "alive": true,
+    "state": "Ssl",
+    "elapsed_seconds_at_intent_validation": 54,
+    "command": "/home/ankaref/miniconda3/envs/sgs-yolo/bin/python3.10 scripts/run_spot_spray_simulation_video_ab_extension_aware_state_chain_v1.py run --pair-id locked_test_c001_r07 --max-new-pairs 1",
+    "log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass132_state_chain_execution/process.log",
+    "log_size_bytes": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "recovery_v3_validation": {
+    "release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+    "state_chain_execution_id": "state_chain_batch_locked_test_c001_r07_e3e2c61a00bf17f7",
+    "underlying_batch_id": "locked_test_render_batch_locked_test_c001_r07_e61dca5ee4dd49cb",
+    "derived_candidate_index": 0,
+    "derived_candidate_identity_sha256": "99eb67d8d2c8203ff1e9e030b026557177caca71daba74239694906077efa4d9",
+    "real_v3_intents_created_during_validation": 0,
+    "v3_execution_count": 2
+  },
+  "access_guard": {
+    "candidate_gt_contents_accessed_during_validation": false,
+    "candidate_gt_file_metadata_observed": true,
+    "rendering_calls_during_validation": 0,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "outcome_inputs": [],
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}

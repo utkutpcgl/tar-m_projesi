@@ -1,0 +1,66 @@
+{
+  "access_guard": {
+    "external_services_modified": false,
+    "inference_calls": 0,
+    "locked_test_outcome_accessed": false,
+    "model_loaded": false,
+    "outcome_inputs": [],
+    "prediction_accessed": false,
+    "registered_targets_used": false
+  },
+  "adapter_intent_sha256": "bf8dd36ef75699103534e4d4c45a0ffdad8581c844fbf576bd5d208e326c8523",
+  "adapter_release_identity_sha256": "5708c05e2421f32f5012d4990f70ecff74cef2c2687055432ac434d8738f33af",
+  "boundary": {
+    "candidate_rejection_ledger_sha256_after": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "candidate_rejection_ledger_sha256_before": "3c60ebab9c892418a0a3edd144eb372db2614162dcdc8999451ec4cd2b2ee81a",
+    "render_state_sha256_after": "7ab698a03479c2e7899c17d17e7abf0a2d08a0556585abf10769c14993efcbce",
+    "render_state_sha256_before": "0e2f0ed5143dca870b3e7d4c9096bd79025b2bc7456d77dc4e1f2d0fbd9457f5"
+  },
+  "claim_boundary": {
+    "chemical_fire_go_allowed": false,
+    "field_or_deployment_claim_allowed": false,
+    "outcome_target_tuning_forbidden": true,
+    "product_go_allowed": false,
+    "scope": "synthetic_diagnostic_only",
+    "synthetic_score_weight_in_real_go_decision": 0.0
+  },
+  "contract": "spot_spray_simulation_video_ab_extension_aware_batch_adapter_v1_terminal_receipt",
+  "execution_id": "extension_aware_batch_locked_test_c001_r01_48b730ee3678d4c1",
+  "original_validator_restored": true,
+  "request": {
+    "adapter_release_identity_sha256": "5708c05e2421f32f5012d4990f70ecff74cef2c2687055432ac434d8738f33af",
+    "canonical_earliest_pending_required": true,
+    "contract": "spot_spray_simulation_video_ab_extension_aware_batch_adapter_v1",
+    "external_service_mutation_allowed": false,
+    "legacy_batch_implementation_sha256": "8fcb95eeac50260068244809db9fe1e34aa208571d81dae137976dd98f423e70",
+    "locked_test_outcome_access_allowed": false,
+    "lowest_unattempted_candidate_wins": true,
+    "max_new_pairs": 1,
+    "model_access_allowed": false,
+    "prediction_access_allowed": false,
+    "protocol_split": "locked_test",
+    "registered_target_access_allowed": false,
+    "runtime_config_sha256": "a443af36f5d1345daf3b5234d4b8d7d53cfa73e399e33c6181e5b8288f641339",
+    "runtime_release_identity_sha256": "5ff230c802392fa114f1dfe52ad505b05b05b3895a5b6f013fa3f69fec6d9446",
+    "schema_version": 1,
+    "target_pair_ids": [
+      "locked_test_c001_r01"
+    ],
+    "validator_release_identity_sha256": "39c782e375352fdcddd62751ff4a3f4577652d111798269e549dae8bdaf066f7"
+  },
+  "request_identity_sha256": "48b730ee3678d4c1bfcbaacf0c1f6ec08da8b83937af82d9892fc7a3edba3658",
+  "resume": {
+    "resumed_from_existing_adapter_intent": false
+  },
+  "schema_version": 1,
+  "status": "PASS_EXTENSION_AWARE_BATCH_ADAPTER_SYNTHETIC_ONLY",
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r01_4e96fb208fd0a54f",
+    "batch_intent_sha256": "7c2dafd4fda1c5314f633e8fbbd09e63dd87b62b979b29a2c7ccb84ba3d60114",
+    "batch_receipt_sha256": "03df232fdafe05f5f4d4a545a6672f505b6c1cfe91feb6098ff714d91b5905d2",
+    "new_pair_ids": [
+      "locked_test_c001_r01"
+    ],
+    "status": "PASS_LOCKED_TEST_RENDER_BATCH_PREOUTCOME_SYNTHETIC_ONLY"
+  }
+}

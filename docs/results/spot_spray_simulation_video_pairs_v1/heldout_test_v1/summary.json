@@ -1,0 +1,464 @@
+{
+  "all_quality_gates_passed": true,
+  "claim_boundary": {
+    "botanical_instance_ground_truth": false,
+    "chemical_or_dry_marker_authority": false,
+    "degraded_operator_calibration": "source-bound sensor-motion stress proxy, not a measured profile of the frozen one-bay rig",
+    "field_realism_proven": false,
+    "outcome_targeting_forbidden": true,
+    "physical_rig_acceptance": false,
+    "real_capture": false,
+    "track_identity": "semantic_connected_component_proxy"
+  },
+  "dataset_id": "spot_spray_simulation_video_pairs_v1",
+  "frame_count": 96,
+  "profile": "heldout",
+  "quality_gates": {
+    "all_sequence_quality_gates_passed": true,
+    "field_realism_not_claimed": true,
+    "minimum_free_bytes_after_preserved": true,
+    "outcome_targeting_forbidden": true,
+    "source_roles_exclude_train": true,
+    "unique_output_within_profile_budget": true
+  },
+  "release": "data/synthetic/cropcraft/spot_spray_simulation_video_pairs_v1/heldout_test_v1",
+  "release_receipt": "data/synthetic/cropcraft/spot_spray_simulation_video_pairs_v1/heldout_test_v1/release_receipt.json",
+  "release_receipt_sha256": "9a3955f6bbe0c1e8892c399db96eaa7460da4edcdf6e7443ee6a6b293cec86ff",
+  "schema_version": 1,
+  "sequence_count": 8,
+  "sequences": [
+    {
+      "all_quality_gates_passed": true,
+      "contact_sheet": "sequences/heldout_test_scene_0000/qc_contact_sheet.png",
+      "contact_sheet_sha256": "168826506578e888cf21551faf80abe292403509a321cf0ec6d9a0b44608653f",
+      "frame_count": 12,
+      "pair_manifest": "sequences/heldout_test_scene_0000/pair_manifest.json",
+      "pair_manifest_sha256": "b00fd99fb3bc630187c249421bd9e6af759faa66aa5410bbdc214ef530430ab2",
+      "pair_metrics": {
+        "changed_rgb_pixel_fraction": {
+          "maximum": 1.0,
+          "mean": 0.9999999205271403,
+          "minimum": 0.9999990463256836
+        },
+        "degraded_to_ideal_gradient_ratio": {
+          "maximum": 0.903731921733726,
+          "mean": 0.7839451465648368,
+          "minimum": 0.6904267258585502
+        },
+        "frame_mean_brightness": {
+          "maximum": 179.46000512441,
+          "mean": 161.96913578775195,
+          "minimum": 134.15905793507895
+        },
+        "fully_clipped_black_fraction_maximum": 0.0,
+        "fully_clipped_white_fraction_maximum": 0.0,
+        "rgb_rmse": {
+          "maximum": 45.8857421875,
+          "mean": 36.04563490549723,
+          "minimum": 26.225784301757812
+        },
+        "trajectory_fill_fraction_maximum": 0.038990020751953125
+      },
+      "quality_gates": {
+        "all_videos_decodable_with_exact_timing_and_shape": true,
+        "condition_semantic_masks_byte_identical": true,
+        "condition_track_masks_byte_identical": true,
+        "degraded_rgb_differs_from_ideal_every_frame": true,
+        "frame_mean_brightness_within_v12_bounds": true,
+        "fully_clipped_black_fraction_within_v12_bound": true,
+        "fully_clipped_white_fraction_within_v12_bound": true,
+        "latent_and_ideal_rgb_byte_identical": true,
+        "minimum_changed_rgb_pixel_fraction": true,
+        "minimum_degraded_rgb_rmse": true,
+        "minimum_weed_tracks": true,
+        "semantic_palette_preserved": true,
+        "semantic_video_lossless_roundtrip": true,
+        "semantic_video_shared_byte_identically": true,
+        "track_proxy_pixels_align_with_semantic_class": true,
+        "trajectory_fill_fraction_bounded": true
+      },
+      "sequence_id": "heldout_test_scene_0000",
+      "weed_track_proxy_count": 3
+    },
+    {
+      "all_quality_gates_passed": true,
+      "contact_sheet": "sequences/heldout_test_scene_0001/qc_contact_sheet.png",
+      "contact_sheet_sha256": "7972dcbb95dcb919784633b6eb5b011c9b1638a1bce9b10f724d3ea64d6024f5",
+      "frame_count": 12,
+      "pair_manifest": "sequences/heldout_test_scene_0001/pair_manifest.json",
+      "pair_manifest_sha256": "2d64f513599f70ed12d264478c20b10b0a39f065293c3c1cc296e0110b86b749",
+      "pair_metrics": {
+        "changed_rgb_pixel_fraction": {
+          "maximum": 1.0,
+          "mean": 0.9999998410542806,
+          "minimum": 0.9999990463256836
+        },
+        "degraded_to_ideal_gradient_ratio": {
+          "maximum": 1.1733268043081087,
+          "mean": 1.0909853616146779,
+          "minimum": 1.019484766129743
+        },
+        "frame_mean_brightness": {
+          "maximum": 180.96342945098877,
+          "mean": 163.15179012881384,
+          "minimum": 135.0135374069214
+        },
+        "fully_clipped_black_fraction_maximum": 0.0,
+        "fully_clipped_white_fraction_maximum": 0.0,
+        "rgb_rmse": {
+          "maximum": 46.77062225341797,
+          "mean": 36.82764403025309,
+          "minimum": 26.93662452697754
+        },
+        "trajectory_fill_fraction_maximum": 0.03804969787597656
+      },
+      "quality_gates": {
+        "all_videos_decodable_with_exact_timing_and_shape": true,
+        "condition_semantic_masks_byte_identical": true,
+        "condition_track_masks_byte_identical": true,
+        "degraded_rgb_differs_from_ideal_every_frame": true,
+        "frame_mean_brightness_within_v12_bounds": true,
+        "fully_clipped_black_fraction_within_v12_bound": true,
+        "fully_clipped_white_fraction_within_v12_bound": true,
+        "latent_and_ideal_rgb_byte_identical": true,
+        "minimum_changed_rgb_pixel_fraction": true,
+        "minimum_degraded_rgb_rmse": true,
+        "minimum_weed_tracks": true,
+        "semantic_palette_preserved": true,
+        "semantic_video_lossless_roundtrip": true,
+        "semantic_video_shared_byte_identically": true,
+        "track_proxy_pixels_align_with_semantic_class": true,
+        "trajectory_fill_fraction_bounded": true
+      },
+      "sequence_id": "heldout_test_scene_0001",
+      "weed_track_proxy_count": 14
+    },
+    {
+      "all_quality_gates_passed": true,
+      "contact_sheet": "sequences/heldout_test_scene_0002/qc_contact_sheet.png",
+      "contact_sheet_sha256": "ebf3ace0a6f00a8700f0afe5d826b689b0135097294f39ca8cbc66131a373817",
+      "frame_count": 12,
+      "pair_manifest": "sequences/heldout_test_scene_0002/pair_manifest.json",
+      "pair_manifest_sha256": "c56ce61e6dceb93f1028917dd59f054a84ae5dcd460312e762c23c1de60bacd6",
+      "pair_metrics": {
+        "changed_rgb_pixel_fraction": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "minimum": 1.0
+        },
+        "degraded_to_ideal_gradient_ratio": {
+          "maximum": 0.9102292221003108,
+          "mean": 0.7916737685944001,
+          "minimum": 0.6978468070562416
+        },
+        "frame_mean_brightness": {
+          "maximum": 178.31418005625406,
+          "mean": 160.7830146683587,
+          "minimum": 133.07849502563477
+        },
+        "fully_clipped_black_fraction_maximum": 0.0,
+        "fully_clipped_white_fraction_maximum": 0.0,
+        "rgb_rmse": {
+          "maximum": 45.6227912902832,
+          "mean": 35.8561110496521,
+          "minimum": 26.08643913269043
+        },
+        "trajectory_fill_fraction_maximum": 0.04483795166015625
+      },
+      "quality_gates": {
+        "all_videos_decodable_with_exact_timing_and_shape": true,
+        "condition_semantic_masks_byte_identical": true,
+        "condition_track_masks_byte_identical": true,
+        "degraded_rgb_differs_from_ideal_every_frame": true,
+        "frame_mean_brightness_within_v12_bounds": true,
+        "fully_clipped_black_fraction_within_v12_bound": true,
+        "fully_clipped_white_fraction_within_v12_bound": true,
+        "latent_and_ideal_rgb_byte_identical": true,
+        "minimum_changed_rgb_pixel_fraction": true,
+        "minimum_degraded_rgb_rmse": true,
+        "minimum_weed_tracks": true,
+        "semantic_palette_preserved": true,
+        "semantic_video_lossless_roundtrip": true,
+        "semantic_video_shared_byte_identically": true,
+        "track_proxy_pixels_align_with_semantic_class": true,
+        "trajectory_fill_fraction_bounded": true
+      },
+      "sequence_id": "heldout_test_scene_0002",
+      "weed_track_proxy_count": 2
+    },
+    {
+      "all_quality_gates_passed": true,
+      "contact_sheet": "sequences/heldout_test_scene_0003/qc_contact_sheet.png",
+      "contact_sheet_sha256": "b01e64fdb026598192278062a22484f24e05ed804a7d6446e1e3f0f4449c644f",
+      "frame_count": 12,
+      "pair_manifest": "sequences/heldout_test_scene_0003/pair_manifest.json",
+      "pair_manifest_sha256": "26f2f1db0ddbdab101025c06b3dea1beb5ad21dfdf88b379450c2a409df686a9",
+      "pair_metrics": {
+        "changed_rgb_pixel_fraction": {
+          "maximum": 1.0,
+          "mean": 0.9999998410542806,
+          "minimum": 0.9999990463256836
+        },
+        "degraded_to_ideal_gradient_ratio": {
+          "maximum": 1.3449690661430227,
+          "mean": 1.279610274410795,
+          "minimum": 1.2065460388254143
+        },
+        "frame_mean_brightness": {
+          "maximum": 186.24304993947348,
+          "mean": 168.00649948914847,
+          "minimum": 139.06500180562338
+        },
+        "fully_clipped_black_fraction_maximum": 0.0,
+        "fully_clipped_white_fraction_maximum": 0.0,
+        "rgb_rmse": {
+          "maximum": 48.02370834350586,
+          "mean": 37.748403231302895,
+          "minimum": 27.584728240966797
+        },
+        "trajectory_fill_fraction_maximum": 0.045772552490234375
+      },
+      "quality_gates": {
+        "all_videos_decodable_with_exact_timing_and_shape": true,
+        "condition_semantic_masks_byte_identical": true,
+        "condition_track_masks_byte_identical": true,
+        "degraded_rgb_differs_from_ideal_every_frame": true,
+        "frame_mean_brightness_within_v12_bounds": true,
+        "fully_clipped_black_fraction_within_v12_bound": true,
+        "fully_clipped_white_fraction_within_v12_bound": true,
+        "latent_and_ideal_rgb_byte_identical": true,
+        "minimum_changed_rgb_pixel_fraction": true,
+        "minimum_degraded_rgb_rmse": true,
+        "minimum_weed_tracks": true,
+        "semantic_palette_preserved": true,
+        "semantic_video_lossless_roundtrip": true,
+        "semantic_video_shared_byte_identically": true,
+        "track_proxy_pixels_align_with_semantic_class": true,
+        "trajectory_fill_fraction_bounded": true
+      },
+      "sequence_id": "heldout_test_scene_0003",
+      "weed_track_proxy_count": 2
+    },
+    {
+      "all_quality_gates_passed": true,
+      "contact_sheet": "sequences/heldout_test_scene_0004/qc_contact_sheet.png",
+      "contact_sheet_sha256": "ca2796e1f78e2c70f9450c80bee4da618eca607f439080b11c380f04e3970c3e",
+      "frame_count": 12,
+      "pair_manifest": "sequences/heldout_test_scene_0004/pair_manifest.json",
+      "pair_manifest_sha256": "c84ab6356ca4bacc5675e851eaa50d148362cd3c467d3a991fa1694708410c68",
+      "pair_metrics": {
+        "changed_rgb_pixel_fraction": {
+          "maximum": 1.0,
+          "mean": 0.9999999205271403,
+          "minimum": 0.9999990463256836
+        },
+        "degraded_to_ideal_gradient_ratio": {
+          "maximum": 0.9595312855899866,
+          "mean": 0.8489671429410607,
+          "minimum": 0.7610036466972119
+        },
+        "frame_mean_brightness": {
+          "maximum": 168.4173208872477,
+          "mean": 151.72145246134866,
+          "minimum": 125.36931069691975
+        },
+        "fully_clipped_black_fraction_maximum": 0.0,
+        "fully_clipped_white_fraction_maximum": 0.0,
+        "rgb_rmse": {
+          "maximum": 43.76835250854492,
+          "mean": 34.52694050470988,
+          "minimum": 25.24407386779785
+        },
+        "trajectory_fill_fraction_maximum": 0.03993034362792969
+      },
+      "quality_gates": {
+        "all_videos_decodable_with_exact_timing_and_shape": true,
+        "condition_semantic_masks_byte_identical": true,
+        "condition_track_masks_byte_identical": true,
+        "degraded_rgb_differs_from_ideal_every_frame": true,
+        "frame_mean_brightness_within_v12_bounds": true,
+        "fully_clipped_black_fraction_within_v12_bound": true,
+        "fully_clipped_white_fraction_within_v12_bound": true,
+        "latent_and_ideal_rgb_byte_identical": true,
+        "minimum_changed_rgb_pixel_fraction": true,
+        "minimum_degraded_rgb_rmse": true,
+        "minimum_weed_tracks": true,
+        "semantic_palette_preserved": true,
+        "semantic_video_lossless_roundtrip": true,
+        "semantic_video_shared_byte_identically": true,
+        "track_proxy_pixels_align_with_semantic_class": true,
+        "trajectory_fill_fraction_bounded": true
+      },
+      "sequence_id": "heldout_test_scene_0004",
+      "weed_track_proxy_count": 7
+    },
+    {
+      "all_quality_gates_passed": true,
+      "contact_sheet": "sequences/heldout_test_scene_0005/qc_contact_sheet.png",
+      "contact_sheet_sha256": "53d4e335674629decdd4a17236d05fdea5aa7660cfb334a32fa2f632fc948d20",
+      "frame_count": 12,
+      "pair_manifest": "sequences/heldout_test_scene_0005/pair_manifest.json",
+      "pair_manifest_sha256": "8935ae00f9fc241bec0c929169403da6dd9221fa9b5d6424440f0ba25d084970",
+      "pair_metrics": {
+        "changed_rgb_pixel_fraction": {
+          "maximum": 1.0,
+          "mean": 0.9999999205271403,
+          "minimum": 0.9999990463256836
+        },
+        "degraded_to_ideal_gradient_ratio": {
+          "maximum": 1.18352656602752,
+          "mean": 1.1088613118194168,
+          "minimum": 1.0329892049759548
+        },
+        "frame_mean_brightness": {
+          "maximum": 201.635279973348,
+          "mean": 182.39181443055472,
+          "minimum": 151.51119105021158
+        },
+        "fully_clipped_black_fraction_maximum": 0.0,
+        "fully_clipped_white_fraction_maximum": 0.0,
+        "rgb_rmse": {
+          "maximum": 50.870121002197266,
+          "mean": 39.74915901819865,
+          "minimum": 28.77248191833496
+        },
+        "trajectory_fill_fraction_maximum": 0.04087066650390625
+      },
+      "quality_gates": {
+        "all_videos_decodable_with_exact_timing_and_shape": true,
+        "condition_semantic_masks_byte_identical": true,
+        "condition_track_masks_byte_identical": true,
+        "degraded_rgb_differs_from_ideal_every_frame": true,
+        "frame_mean_brightness_within_v12_bounds": true,
+        "fully_clipped_black_fraction_within_v12_bound": true,
+        "fully_clipped_white_fraction_within_v12_bound": true,
+        "latent_and_ideal_rgb_byte_identical": true,
+        "minimum_changed_rgb_pixel_fraction": true,
+        "minimum_degraded_rgb_rmse": true,
+        "minimum_weed_tracks": true,
+        "semantic_palette_preserved": true,
+        "semantic_video_lossless_roundtrip": true,
+        "semantic_video_shared_byte_identically": true,
+        "track_proxy_pixels_align_with_semantic_class": true,
+        "trajectory_fill_fraction_bounded": true
+      },
+      "sequence_id": "heldout_test_scene_0005",
+      "weed_track_proxy_count": 4
+    },
+    {
+      "all_quality_gates_passed": true,
+      "contact_sheet": "sequences/heldout_test_scene_0006/qc_contact_sheet.png",
+      "contact_sheet_sha256": "2fe472527ad94a75cea12593d29780b04b6910a6a54d9cecd14249f8592e040e",
+      "frame_count": 12,
+      "pair_manifest": "sequences/heldout_test_scene_0006/pair_manifest.json",
+      "pair_manifest_sha256": "1e2804b40db86394bae09ec5efc625529802f1790e500d8001c89bf78877cd54",
+      "pair_metrics": {
+        "changed_rgb_pixel_fraction": {
+          "maximum": 1.0,
+          "mean": 0.9999996821085612,
+          "minimum": 0.9999990463256836
+        },
+        "degraded_to_ideal_gradient_ratio": {
+          "maximum": 0.8657153643834582,
+          "mean": 0.7430564119722994,
+          "minimum": 0.6448344150581997
+        },
+        "frame_mean_brightness": {
+          "maximum": 161.6075709660848,
+          "mean": 145.5356579621633,
+          "minimum": 120.22112846374512
+        },
+        "fully_clipped_black_fraction_maximum": 0.0,
+        "fully_clipped_white_fraction_maximum": 0.0,
+        "rgb_rmse": {
+          "maximum": 42.02058792114258,
+          "mean": 33.261906464894615,
+          "minimum": 24.350059509277344
+        },
+        "trajectory_fill_fraction_maximum": 0.045772552490234375
+      },
+      "quality_gates": {
+        "all_videos_decodable_with_exact_timing_and_shape": true,
+        "condition_semantic_masks_byte_identical": true,
+        "condition_track_masks_byte_identical": true,
+        "degraded_rgb_differs_from_ideal_every_frame": true,
+        "frame_mean_brightness_within_v12_bounds": true,
+        "fully_clipped_black_fraction_within_v12_bound": true,
+        "fully_clipped_white_fraction_within_v12_bound": true,
+        "latent_and_ideal_rgb_byte_identical": true,
+        "minimum_changed_rgb_pixel_fraction": true,
+        "minimum_degraded_rgb_rmse": true,
+        "minimum_weed_tracks": true,
+        "semantic_palette_preserved": true,
+        "semantic_video_lossless_roundtrip": true,
+        "semantic_video_shared_byte_identically": true,
+        "track_proxy_pixels_align_with_semantic_class": true,
+        "trajectory_fill_fraction_bounded": true
+      },
+      "sequence_id": "heldout_test_scene_0006",
+      "weed_track_proxy_count": 8
+    },
+    {
+      "all_quality_gates_passed": true,
+      "contact_sheet": "sequences/heldout_test_scene_0007/qc_contact_sheet.png",
+      "contact_sheet_sha256": "f668c5db2fa3336f037fd23baed8f7fb07ab03b65c10e711ecb24ac2078f91ad",
+      "frame_count": 12,
+      "pair_manifest": "sequences/heldout_test_scene_0007/pair_manifest.json",
+      "pair_manifest_sha256": "585869b332a1ee1ec97b5c1d78728e0a09f6820fe49793bb9bfe3caef66109d3",
+      "pair_metrics": {
+        "changed_rgb_pixel_fraction": {
+          "maximum": 1.0,
+          "mean": 0.9999997615814209,
+          "minimum": 0.9999990463256836
+        },
+        "degraded_to_ideal_gradient_ratio": {
+          "maximum": 1.1384656094944419,
+          "mean": 1.055742099503937,
+          "minimum": 0.979798383695293
+        },
+        "frame_mean_brightness": {
+          "maximum": 179.76011498769125,
+          "mean": 161.9615589512719,
+          "minimum": 134.15941079457602
+        },
+        "fully_clipped_black_fraction_maximum": 0.0,
+        "fully_clipped_white_fraction_maximum": 0.0,
+        "rgb_rmse": {
+          "maximum": 46.35531997680664,
+          "mean": 36.555333296457924,
+          "minimum": 26.826936721801758
+        },
+        "trajectory_fill_fraction_maximum": 0.0467071533203125
+      },
+      "quality_gates": {
+        "all_videos_decodable_with_exact_timing_and_shape": true,
+        "condition_semantic_masks_byte_identical": true,
+        "condition_track_masks_byte_identical": true,
+        "degraded_rgb_differs_from_ideal_every_frame": true,
+        "frame_mean_brightness_within_v12_bounds": true,
+        "fully_clipped_black_fraction_within_v12_bound": true,
+        "fully_clipped_white_fraction_within_v12_bound": true,
+        "latent_and_ideal_rgb_byte_identical": true,
+        "minimum_changed_rgb_pixel_fraction": true,
+        "minimum_degraded_rgb_rmse": true,
+        "minimum_weed_tracks": true,
+        "semantic_palette_preserved": true,
+        "semantic_video_lossless_roundtrip": true,
+        "semantic_video_shared_byte_identically": true,
+        "track_proxy_pixels_align_with_semantic_class": true,
+        "trajectory_fill_fraction_bounded": true
+      },
+      "sequence_id": "heldout_test_scene_0007",
+      "weed_track_proxy_count": 4
+    }
+  ],
+  "storage": {
+    "free_bytes_after_build": 342309662720,
+    "free_bytes_before": 342584946688,
+    "logical_bytes_including_hardlinks": 374549707,
+    "maximum_unique_output_bytes": 4294967296,
+    "minimum_free_bytes_after": 300000000000,
+    "unique_file_bytes": 273953147,
+    "unique_inodes": 448
+  }
+}

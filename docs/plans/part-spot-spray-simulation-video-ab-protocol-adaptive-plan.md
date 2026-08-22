@@ -3,6 +3,17 @@ Planner depth: 0
 Parent plan: (root plan)
 
 Matched Ideal/Degraded Simulation-Video A/B Protocol Plan
+
+Codex integration scope (2026-08-14): this worker owns the protocol contract,
+human-readable protocol, and executable contract assertions only. Packages 2–5
+describe downstream renderer/inference/evaluation consumers and are not
+implemented or claimed by this lane. The integrated protocol therefore freezes
+their interfaces and fails closed while their exact runtime bindings remain
+unresolved. Two planner details were refined during repository validation:
+`replicate_index` is part of every seed payload to avoid same-cell replicate
+collisions, and the primary delta is named a composite capture-profile effect
+rather than a blur-only causal effect.
+
 1. Decision
 
 Implement one hash-bound, outcome-blind synthetic-video experiment that evaluates the frozen one-bay spot-spray perception-to-action stack on paired ideal and realistically degraded captures of the same latent scenes.
@@ -297,7 +308,11 @@ audit_sample_seed.
 
 Each seed shall be derived from:
 
-SHA256(protocol_id | split | cell_id | candidate_index | channel_name | V12_split_base_seed)
+SHA256(protocol_id | split | cell_id | replicate_index | candidate_index | channel_name | V12_split_base_seed)
+
+`replicate_index` is mandatory. Without it, replicate slots in one experimental
+cell would derive the same candidate stream and violate the allocation and seed
+uniqueness contracts.
 
 where the V12 split base is:
 
@@ -309,7 +324,7 @@ No raw seed may appear in more than one split or channel.
 
 Define:
 
-latent_id from the protocol identity, split, cell, accepted candidate index, scene seed, and trajectory seed;
+latent_id from the protocol identity, split, cell, replicate index, accepted candidate index, scene seed, and trajectory seed;
 
 pair_id = latent_id;
 
@@ -1861,29 +1876,29 @@ Package 1 — Implement the canonical protocol contract
 
 Outcome: one machine-readable authority defines all seeds, cells, envelopes, gates, estimands, and stopping rules before rendering.
 
- - [ ] Add configs/benchmark/spot_spray_simulation_video_ab_protocol_v1.yaml.
+ - [x] Add configs/benchmark/spot_spray_simulation_video_ab_protocol_v1.yaml.
 
- - [ ] Encode exactly 32 calibration and 64 test pairs.
+ - [x] Encode exactly 32 calibration and 64 test pairs.
 
- - [ ] Encode exactly 30 frames, 15 Hz, and the eight balanced cells.
+ - [x] Encode exactly 30 frames, 15 Hz, and the eight balanced cells.
 
- - [ ] Encode the canonical seed and identity rules.
+ - [x] Encode the canonical seed and identity rules.
 
- - [ ] Encode shared latent, ideal, and degraded envelopes.
+ - [x] Encode shared latent, ideal, and degraded envelopes.
 
- - [ ] Encode the V12 profile intersections and V7 subpixel motion use.
+ - [x] Encode the V12 profile intersections and V7 subpixel motion use.
 
- - [ ] Encode all pre-outcome gates.
+ - [x] Encode all pre-outcome gates.
 
- - [ ] Encode degraded-only calibration and one shared threshold.
+ - [x] Encode degraded-only calibration and one shared threshold.
 
- - [ ] Encode the segmentation, track, action, and bootstrap estimands.
+ - [x] Encode the segmentation, track, action, and bootstrap estimands.
 
- - [ ] Encode all claim-boundary flags as false.
+ - [x] Encode all claim-boundary flags as false.
 
- - [ ] Reject unknown or duplicate YAML keys.
+ - [x] Reject unknown or duplicate YAML keys through the executable contract test.
 
- - [ ] Add unit tests for config parsing and forbidden values.
+ - [x] Add unit tests for config parsing and forbidden values.
 
 Acceptance evidence:
 
@@ -2065,25 +2080,25 @@ Package 6 — Regression validation and human protocol document
 
 Outcome: make the experiment reproducible and difficult to misuse.
 
- - [ ] Add tests/test_spot_spray_simulation_video_ab_v1.py.
+ - [x] Add the lane-owned tests/test_spot_spray_simulation_video_ab_protocol_v1.py.
 
  - [ ] Add positive fixtures for valid pair, valid split, feasible calibration, and infeasible calibration.
 
  - [ ] Add negative fixtures for every material fail-closed status.
 
- - [ ] Add docs/SPOT_SPRAY_SIMULATION_VIDEO_AB_PROTOCOL_V1.md.
+ - [x] Add the lane-owned docs/research/SPOT_SPRAY_SIMULATION_VIDEO_AB_PROTOCOL_V1.md.
 
- - [ ] Document facts separately from protocol decisions.
+ - [x] Document facts separately from protocol decisions.
 
- - [ ] Document why V7 magnitudes and challenger checkpoint are excluded.
+ - [x] Document why V7 magnitudes and challenger checkpoint are excluded.
 
- - [ ] Document the descriptive-only role of 0.97 and 0.75.
+ - [x] Document the descriptive-only role of 0.97 and 0.75.
 
- - [ ] Document the exact threshold and evaluator reuse path.
+ - [x] Document the exact threshold and evaluator reuse path.
 
- - [ ] Document bootstrap scope and omitted uncertainty sources.
+ - [x] Document bootstrap scope and omitted uncertainty sources.
 
- - [ ] Document that synthetic pseudo-fields are not real breadth.
+ - [x] Document that synthetic pseudo-fields are not real breadth.
 
  - [ ] Reproduce the final canonical JSON from the same locked inputs.
 

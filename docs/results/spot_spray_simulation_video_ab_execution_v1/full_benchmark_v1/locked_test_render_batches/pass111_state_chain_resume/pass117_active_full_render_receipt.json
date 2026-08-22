@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "contract": "spot_spray_simulation_video_ab_pass117_active_full_render_v1",
+  "status": "ACTIVE_UNCHANGED_FULL_NATIVE_RENDER_SOURCE_CAPTURE_COMPLETE_SYNTHETIC_ONLY",
+  "goal_multi_repeat": {
+    "event_id": "scheduled-resume-20260821082656-9cc4162abc65",
+    "owner_session_id": "01a0019e-e810-73b3-9f29-ffad14c34ec5",
+    "pass": 117,
+    "run_id": "goal-multi-repeat-full-simulation-video-ab-execution-v1-e2dcf4ac8b10",
+    "strategy": "base"
+  },
+  "observed_at": "2026-08-21T11:28:39+03:00",
+  "pair_id": "locked_test_c001_r05",
+  "candidate": {
+    "candidate_index": 16,
+    "candidate_identity_sha256": "d895209bd146389b4fbecb64e4e71f31fb5fcb9f339f4a0de494220a9269cbef",
+    "gt_only_status": "PASS_GT_ONLY_FULL_RENDER_REQUIRED_SYNTHETIC_ONLY",
+    "canonical_gt_sha256": "7a3c17c537fd8d48062cdaa0305fbd459b97e9861500b307db32d55f8c45512f",
+    "full_render_active": true
+  },
+  "process": {
+    "pid": 3707360,
+    "alive": true,
+    "state": "Ssl",
+    "elapsed_seconds_at_inspection": 5765,
+    "child_pid": 4013554,
+    "child_state": "S",
+    "child_elapsed_seconds_at_inspection": 2121,
+    "child_command_role": "unchanged_run_cropcraft_source_scene_generation",
+    "process_log_path": "docs/results/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/locked_test_render_batches/pass111_state_chain_resume/resume_locked_test_c001_r05_candidate9.log",
+    "process_log_size_bytes": 0,
+    "process_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external_process_stopped_or_signaled_by_pass117": false
+  },
+  "full_render_staging": {
+    "path": "/media/ankaref/HDD-MNT-500GB_1/tarim_vision_data/synthetic/cropcraft/spot_spray_simulation_video_ab_execution_v1/full_benchmark_v1/work/.partial-locked_test_c001_r05-candidate-16-55e64f550aca41ed9dba2f7449cc3c20",
+    "present": true,
+    "size_bytes_at_inspection": 580684601,
+    "file_count_at_inspection": 399,
+    "native_rgb_frame_count": 30,
+    "render_mask_frame_count": 30,
+    "instance_mask_frame_count": 30,
+    "source_capture_receipt_present": true,
+    "video_count_at_inspection": 0,
+    "terminal_or_pair_receipt_count_at_inspection": 0,
+    "atomic_pair_publication_observed": false
+  },
+  "state_chain": {
+    "release_identity_sha256": "aa41111d922634b0d9a32a69fa411f0723f30b879dd8039d7dcd1595380213a0",
+    "execution_id": "state_chain_batch_locked_test_c001_r05_fe3a9bf5ccf9db11",
+    "intent_sha256": "fa987a19efaf6f3932978beb368694c22a6501642e6f69f441ac55edbd76359c",
+    "terminal_receipt_present": false,
+    "render_state_sha256": "f811c3e3d5622bbc741e4c84951db4c3287181f2ed219ef45c8d0877c7a12553",
+    "chain_head_identity_sha256": "34acee5f2fb322fa839ffd9bfc0edf9722e1556d6085d56cb145d65fd56bab71",
+    "completed_pair_count": 45,
+    "pending_pair_count": 51,
+    "first_pending_pair_id": "locked_test_c001_r05"
+  },
+  "underlying_batch": {
+    "batch_id": "locked_test_render_batch_locked_test_c001_r05_65e15722fcb2d69c",
+    "intent_sha256": "09c278a49ed3457dace1e0e306d84dd6dd4024b1f6a09cba216c65e236eb2e20",
+    "max_new_pairs": 1,
+    "terminal_receipt_present": false
+  },
+  "ledger": {
+    "row_count": 150,
+    "sha256": "332550200dfea5e4b688931c44ed46d6c2c22c1d361bbfca86ec33dff3f597ee",
+    "candidate_16_absent": true,
+    "append_only_prefix_preserved": true
+  },
+  "recovery_v3": {
+    "release_identity_sha256": "d06d81900a85f3ab6ea4599c3bce1013118359630a9992c907e443f4181eff52",
+    "validation_status": "READY_FOR_MANAGER_VALIDATION_SYNTHETIC_ONLY",
+    "derived_candidate_index": 16,
+    "derived_candidate_identity_sha256": "d895209bd146389b4fbecb64e4e71f31fb5fcb9f339f4a0de494220a9269cbef",
+    "real_v3_intents_created_during_validation": 0,
+    "v3_execution_count": 1,
+    "invoked_by_pass117": false
+  },
+  "access_guard": {
+    "candidate_gt_accessed_during_validation": false,
+    "rendering_calls_during_validation": 0,
+    "model_loaded": false,
+    "inference_calls": 0,
+    "prediction_accessed": false,
+    "locked_test_outcome_accessed": false,
+    "registered_targets_used": false,
+    "external_services_modified": false,
+    "field_or_deployment_claim_allowed": false,
+    "product_go_allowed": false,
+    "chemical_fire_go_allowed": false
+  }
+}
